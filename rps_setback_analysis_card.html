@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이격거리 정책 분석</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #fff8f2;
+    padding: 32px 16px;
+    min-height: 100vh;
+  }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(200,80,30,0.09);
+    border: 1.5px solid #ffe0cc;
+    overflow: hidden;
+  }
+
+  .hd {
+    background: linear-gradient(120deg, #c44a15 0%, #e86530 60%, #f5934a 100%);
+    padding: 26px 32px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hd::after {
+    content: '📐';
+    position: absolute;
+    right: 26px; top: 10px;
+    font-size: 72px;
+    opacity: 0.18;
+  }
+  .hd .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.16);
+    color: #ffd8c0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .hd h2 { color: #fff; font-size: 20px; font-weight: 900; line-height: 1.4; }
+  .hd p { color: #ffd4b8; font-size: 12.5px; margin-top: 5px; }
+
+  .alert-bar {
+    background: #fff3ee;
+    border-left: 4px solid #e86530;
+    padding: 12px 24px;
+    font-size: 12.5px;
+    color: #883322;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .body-pad { padding: 24px 32px 28px; }
+
+  .vs-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 580px) {
+    .vs-wrap { grid-template-columns: 1fr; }
+    .vs-mid { display: none; }
+  }
+
+  .vs-card {
+    background: #f9f9f9;
+    border-radius: 14px;
+    padding: 20px 18px;
+    border: 2px solid transparent;
+  }
+  .vs-card.law { border-color: #7ac47a; background: #f4fff6; }
+  .vs-card.plan { border-color: #e86530; background: #fff5f0; }
+
+  .vs-card .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .vs-card.law .tag { background: #c8f0c8; color: #2a7a2a; }
+  .vs-card.plan .tag { background: #ffd8c0; color: #aa3311; }
+
+  .vs-card .vs-title {
+    font-size: 14.5px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .vs-card.law .vs-title { color: #1a4a1a; }
+  .vs-card.plan .vs-title { color: #7a2200; }
+
+  .vs-card .vs-item {
+    font-size: 12px;
+    color: #3a3a3a;
+    margin-bottom: 7px;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .vs-card .vs-item::before { content: attr(data-icon); position: absolute; left: 0; }
+
+  .vs-mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+  }
+  .vs-mid .vs-circle {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e86530, #f5934a);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(232,101,48,0.3);
+  }
+
+  /* 표 */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid #ffe0cc;
+  }
+  .compare-table th {
+    background: #f5e8df;
+    font-size: 12px;
+    font-weight: 700;
+    color: #7a3a22;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1.5px solid #ffe0cc;
+  }
+  .compare-table td {
+    font-size: 12px;
+    color: #2a2a2a;
+    padding: 10px 14px;
+    border-bottom: 1px solid #fff0e8;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: #fffaf7; }
+  .compare-table td:first-child { font-weight: 700; color: #5a3a2a; min-width: 100px; }
+
+  .status-chip {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 20px;
+  }
+  .chip-green { background: #c8f0c8; color: #2a7a2a; }
+  .chip-red { background: #ffd0c0; color: #aa3311; }
+  .chip-orange { background: #ffe0a0; color: #8a5500; }
+  .chip-gray { background: #e8e8e8; color: #555; }
+
+  .key-question {
+    background: linear-gradient(120deg, #fff3ee 0%, #fff8f5 100%);
+    border: 1.5px dashed #f5934a;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 20px;
+  }
+  .key-question .q-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #c44a15;
+    margin-bottom: 8px;
+  }
+  .key-question .q-body {
+    font-size: 12.5px;
+    color: #4a2a1a;
+    line-height: 1.7;
+  }
+
+  .footer-note {
+    background: #fff3ee;
+    border-top: 1px solid #ffe0cc;
+    padding: 12px 32px;
+    font-size: 11px;
+    color: #8a5540;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hd">
+    <div class="badge">이격거리 규제 · 갈등 분석</div>
+    <h2>"폐지"라더니 왜 다시 200m가 나왔나?<br>이격거리 정책의 두 얼굴</h2>
+    <p>2026년 2월 법 통과 vs 5월 기본계획 시행령안 — 무엇이 실제로 적용되나</p>
+  </div>
+
+  <div class="alert-bar">
+    ⚠️ 법률은 "원칙 금지"인데 시행령안에 200m가 다시 등장 — 업계 혼란 가중 중
+  </div>
+
+  <div class="body-pad">
+
+    <div class="vs-wrap">
+      <div class="vs-card law">
+        <span class="tag">✅ 재생에너지법 개정 (2.12 국회 통과)</span>
+        <div class="vs-title">원칙: 이격거리 적용 불가<br>(제27조의3 신설)</div>
+        <div class="vs-item" data-icon="•">지자체장 개발행위허가 시 이격거리 원칙 금지</div>
+        <div class="vs-item" data-icon="•">예외: 문화재보호구역, 생태경관보전지역 등 법령 지정구역만</div>
+        <div class="vs-item" data-icon="•">주민참여형·지붕형·자가소비용 태양광은 이격거리 전면 배제</div>
+        <div class="vs-item" data-icon="•">이격거리 적용 시 '대통령령 기준' 준수 의무</div>
+        <div class="vs-item" data-icon="📅">시행일: 2026년 9월 18일</div>
+      </div>
+
+      <div class="vs-mid">
+        <div class="vs-circle">VS</div>
+      </div>
+
+      <div class="vs-card plan">
+        <span class="tag">⚠️ 제1차 재생에너지 기본계획 (5.19 발표)</span>
+        <div class="vs-title">시행령안: 구체적 거리<br>수치 재명시</div>
+        <div class="vs-item" data-icon="•">태양광 주거지 인근 200m 이내 기준 제시</div>
+        <div class="vs-item" data-icon="•">태양광 도로 인근 100m 이내 기준 제시</div>
+        <div class="vs-item" data-icon="•">육상풍력 설비 높이 2배~최대 1,000m</div>
+        <div class="vs-item" data-icon="•">기후에너지환경부 "9월부터 새 제도 시행" 방침</div>
+        <div class="vs-item" data-icon="⚠️">업계: "지자체 재규제 근거 제공 우려"</div>
+      </div>
+    </div>
+
+    <!-- 대조표 -->
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>법률 (재생에너지법)</th>
+          <th>기본계획 시행령안</th>
+          <th>현장 영향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>원칙</td>
+          <td>이격거리 적용 금지 <span class="status-chip chip-green">금지</span></td>
+          <td>구체 수치 제시 <span class="status-chip chip-red">재명시</span></td>
+          <td>상충 가능성</td>
+        </tr>
+        <tr>
+          <td>지자체 권한</td>
+          <td>예외 구역만 허용</td>
+          <td>200m 기준 = 상한선 가이드</td>
+          <td>지자체 조례 잔존 우려</td>
+        </tr>
+        <tr>
+          <td>주민참여형</td>
+          <td>이격거리 완전 배제 <span class="status-chip chip-green">0m 가능</span></td>
+          <td>별도 기준 미확정</td>
+          <td>혜택 여부 불명확</td>
+        </tr>
+        <tr>
+          <td>시행 시점</td>
+          <td>2026년 9월 18일</td>
+          <td>시행령 개정 후 9월 시행 예정</td>
+          <td><span class="status-chip chip-orange">동시 시행 예정</span></td>
+        </tr>
+        <tr>
+          <td>법적 효력</td>
+          <td>법률 (강행규정) <span class="status-chip chip-green">상위법</span></td>
+          <td>대통령령(시행령) <span class="status-chip chip-gray">하위법</span></td>
+          <td>상위법 우선 적용 원칙</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="key-question">
+      <div class="q-title">🔑 핵심 질문: 9월 이후 실제로 이격거리는 얼마나 줄어드나?</div>
+      <div class="q-body">
+        법률 원칙상 지자체 조례 이격거리는 금지됩니다. 그러나 시행령에 200m·100m 수치가 명시되면,
+        지자체가 '법령이 정한 기준 이내'라는 명분으로 해당 거리를 그대로 유지하는 조례를 재정비할 수 있습니다.
+        즉, <strong>법률은 금지했지만 시행령이 우회로를 열어줄 수 있다</strong>는 구조적 모순이 핵심입니다.
+        전문가들은 "시행령 예외 사유를 엄격히 제한하고, 기개발지·훼손지 중심의 입지 원칙을 명확히 해야 한다"고 촉구하고 있습니다.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    출처: 전기신문(2026.5.22), 법률신문 율촌 분석(2026.3.3), 이코리아(2026.2.19), 기후에너지환경부 제1차 재생에너지 기본계획(2026.5.19)
+  </div>
+</div>
+</body>
+</html>
