@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 글로벌 태양광 시장 분석 보고서</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; background: #fffbf3; }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 20px;
+    background: #fffbf3;
+  }
+  .report-header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #2c7be5 100%);
+    border-radius: 16px;
+    padding: 22px 24px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .report-header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+  .report-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .report-header .meta {
+    font-size: 11.5px;
+    opacity: 0.8;
+  }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .kpi-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  .kpi-card .kpi-label {
+    font-size: 11px;
+    color: #6c757d;
+    margin-bottom: 6px;
+  }
+  .kpi-card .kpi-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1a3a5c;
+    margin-bottom: 3px;
+  }
+  .kpi-card .kpi-sub {
+    font-size: 10px;
+    color: #9aabb8;
+  }
+  .kpi-card .kpi-change {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+  .change-up { background: #d4edda; color: #155724; }
+  .change-down { background: #f8d7da; color: #721c24; }
+  .change-neutral { background: #e2e3e5; color: #383d41; }
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e8f0fe;
+  }
+  .market-bar-container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin-bottom: 16px;
+  }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .bar-label {
+    width: 55px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #1a3a5c;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .bar-track {
+    flex: 1;
+    height: 22px;
+    background: #e8f0fe;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .bar-2024 { background: #6c9fd4; width: 55%; }
+  .bar-2025 { background: #3d7ec3; width: 75%; }
+  .bar-2026 { background: #1a5aad; width: 90%; }
+  .bar-2030 { background: #0d3f8a; width: 100%; }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .insight-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .insight-box h4 {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 8px;
+  }
+  .insight-item {
+    display: flex;
+    gap: 6px;
+    font-size: 12px;
+    color: #3a5c7a;
+    margin-bottom: 5px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .korea-box {
+    background: linear-gradient(135deg, #fff7e6, #fffbe6);
+    border: 1.5px solid #ffc107;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+  }
+  .korea-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #856404;
+    margin-bottom: 8px;
+  }
+  .korea-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #856404;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #ffc107;
+  }
+  .korea-stat:last-child { border-bottom: none; margin-bottom: 0; }
+  .korea-stat .val { font-weight: 700; }
+  .source-text {
+    text-align: right;
+    font-size: 10px;
+    color: #9aabb8;
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="report-header">
+    <div class="badge">📊 분석 리포트</div>
+    <h2>2026년 글로벌 태양광 시장 현황 및 전망</h2>
+    <div class="meta">출처: Bloomberg BNEF, The Business Research Company, Wood Mackenzie, ENACT | 2026.05.28 기준</div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">2026 글로벌 시장 규모</div>
+      <div class="kpi-value">$2,689억</div>
+      <div class="kpi-sub">달러 기준</div>
+      <div class="kpi-change change-up">▲ CAGR 23.6%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">2026 글로벌 신규 설치</div>
+      <div class="kpi-value">649GW</div>
+      <div class="kpi-sub">Bloomberg BNEF</div>
+      <div class="kpi-change change-down">▼ 20년 만에 첫 감소</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">2034년 누적 설치 전망</div>
+      <div class="kpi-value">8TWdc</div>
+      <div class="kpi-sub">현재 약 3TWdc 대비</div>
+      <div class="kpi-change change-up">▲ 3배 성장</div>
+    </div>
+  </div>
+
+  <!-- Market Size Bar -->
+  <div class="market-bar-container">
+    <div class="section-title">📈 글로벌 태양광 시장 규모 추이 (단위: 억 달러)</div>
+    <div class="bar-row">
+      <div class="bar-label">2024</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-2024">$1,764억</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">2025</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-2025">$2,175억</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">2026 (전망)</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-2026">$2,689억</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">2030 (전망)</div>
+      <div class="bar-track">
+        <div class="bar-fill bar-2030">$6,062억</div>
+      </div>
+    </div>
+    <div style="font-size: 10.5px; color: #9aabb8; margin-top: 8px; text-align: right;">출처: The Business Research Company (2026)</div>
+  </div>
+
+  <!-- Two Column -->
+  <div class="two-col">
+    <div class="insight-box">
+      <h4>🔻 2026년 설치량 감소 원인</h4>
+      <div class="insight-item"><span>📌</span><span>중국 내수 시장 포화 및 공급 과잉</span></div>
+      <div class="insight-item"><span>📌</span><span>미국 관세 장벽 + 정책 불확실성</span></div>
+      <div class="insight-item"><span>📌</span><span>유럽 경기 부진으로 수요 감소</span></div>
+      <div class="insight-item"><span>📌</span><span>글로벌 금리 환경 투자 심리 위축</span></div>
+    </div>
+    <div class="insight-box">
+      <h4>🔺 장기 성장 동인</h4>
+      <div class="insight-item"><span>⚡</span><span>AI 데이터센터 전력 수요 폭증</span></div>
+      <div class="insight-item"><span>⚡</span><span>ESS 연계 태양광 수익성 개선</span></div>
+      <div class="insight-item"><span>⚡</span><span>비중국 시장 신흥국 수요 급증</span></div>
+      <div class="insight-item"><span>⚡</span><span>청정에너지 발전 비중 40% 돌파</span></div>
+    </div>
+  </div>
+
+  <!-- 한국 현황 -->
+  <div class="korea-box">
+    <h4>🇰🇷 한국 재생에너지 현황 & 목표</h4>
+    <div class="korea-stat">
+      <span>현재 RPS 의무비율 (2026)</span>
+      <span class="val">25%</span>
+    </div>
+    <div class="korea-stat">
+      <span>2036년 재생에너지 발전 비중 목표</span>
+      <span class="val">28.9%</span>
+    </div>
+    <div class="korea-stat">
+      <span>2036년까지 신규 설비 확충 계획</span>
+      <span class="val">80GW</span>
+    </div>
+    <div class="korea-stat">
+      <span>글로벌 청정에너지 발전 비중</span>
+      <span class="val">40% 돌파</span>
+    </div>
+    <div class="korea-stat">
+      <span>한국 재생에너지 비중 (글로벌 대비)</span>
+      <span class="val" style="color:#c0392b;">선진국 평균 大幅 하회</span>
+    </div>
+  </div>
+
+  <div class="source-text">출처: Bloomberg BNEF, The Business Research Company, Wood Mackenzie, For Our Climate, 산업부, 기후에너지환경부 | ecosolution1218 정리 | 2026.05.28</div>
+</div>
+</body>
+</html>
