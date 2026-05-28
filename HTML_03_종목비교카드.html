@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 5월 태양광 주요 종목·ETF 비교</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; background: #f5f8ff; }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 20px;
+    background: #f5f8ff;
+  }
+  .card-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a2d5a;
+    margin-bottom: 4px;
+  }
+  .card-subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #6b7db3;
+    margin-bottom: 24px;
+  }
+  .stock-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .stock-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px 14px;
+    box-shadow: 0 2px 10px rgba(26,45,90,0.09);
+    border-top: 4px solid #2c7be5;
+  }
+  .stock-card.oci { border-top-color: #6f42c1; }
+  .stock-card.etf-domestic { border-top-color: #20c997; }
+  .stock-card.etf-global { border-top-color: #fd7e14; }
+  .stock-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1a2d5a;
+    margin-bottom: 4px;
+  }
+  .stock-ticker {
+    font-size: 11px;
+    color: #6c757d;
+    margin-bottom: 10px;
+  }
+  .stock-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+  .stock-metric .label { color: #6c757d; }
+  .stock-metric .value { font-weight: 700; color: #1a2d5a; }
+  .stock-metric .value.positive { color: #28a745; }
+  .stock-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 8px;
+    margin-right: 4px;
+  }
+  .tag-blue { background: #cfe2ff; color: #0a58ca; }
+  .tag-purple { background: #e2d9f3; color: #6f42c1; }
+  .tag-green { background: #d1e7dd; color: #0f5132; }
+  .tag-orange { background: #ffe5d0; color: #984c0c; }
+  .comparison-table {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    margin-bottom: 14px;
+  }
+  .comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .comparison-table th {
+    background: #1a2d5a;
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11.5px;
+  }
+  .comparison-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #2d3a5a;
+    vertical-align: top;
+  }
+  .comparison-table tr:last-child td { border-bottom: none; }
+  .comparison-table tr:nth-child(even) td { background: #f8f9ff; }
+  .disclaimer {
+    background: #fff3cd;
+    border: 1.5px solid #ffc107;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 11.5px;
+    color: #856404;
+  }
+  .source-text {
+    text-align: right;
+    font-size: 10px;
+    color: #9aabb8;
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="card-title">📈 2026년 5월 태양광 종목 · ETF 비교</div>
+  <div class="card-subtitle">미국 IRA·FEOC 수혜 구조 분석 | 투자 참고용 자료</div>
+
+  <div class="stock-grid">
+    <!-- 한화솔루션 -->
+    <div class="stock-card">
+      <div class="stock-name">한화솔루션</div>
+      <div class="stock-ticker">KOSPI: 009830</div>
+      <div class="stock-metric">
+        <span class="label">증권사 목표주가</span>
+        <span class="value positive">최고 67,000원</span>
+      </div>
+      <div class="stock-metric">
+        <span class="label">2026 영업이익 전망</span>
+        <span class="value">6,100~9,000억원</span>
+      </div>
+      <div class="stock-metric">
+        <span class="label">AMPC 수혜</span>
+        <span class="value positive">9,500억원</span>
+      </div>
+      <span class="stock-tag tag-blue">IRA 직접수혜</span>
+      <span class="stock-tag tag-blue">FEOC 수혜</span>
+    </div>
+    <!-- OCI홀딩스 -->
+    <div class="stock-card oci">
+      <div class="stock-name">OCI홀딩스</div>
+      <div class="stock-ticker">KOSPI: 010060</div>
+      <div class="stock-metric">
+        <span class="label">핵심 이슈</span>
+        <span class="value positive">FEOC 비대상 인증</span>
+      </div>
+      <div class="stock-metric">
+        <span class="label">공장 위치</span>
+        <span class="value">말레이시아 (비중국)</span>
+      </div>
+      <div class="stock-metric">
+        <span class="label">수혜 구조</span>
+        <span class="value">미국향 폴리실리콘 공급</span>
+      </div>
+      <span class="stock-tag tag-purple">폴리실리콘</span>
+      <span class="stock-tag tag-purple">UFLPA 수혜</span>
+    </div>
+    <!-- 국내 ETF -->
+    <div class="stock-card etf-domestic">
+      <div class="stock-name">PLUS 태양광&ESS ETF</div>
+      <div class="stock-ticker">국내 ETF | NH-Amundi</div>
+      <div class="stock-metric">
+        <span class="label">구성</span>
+        <span class="value">태양광 + ESS 종합</span>
+      </div>
+      <div class="stock-metric">
+        <span class="label">2026 키워드</span>
+        <span class="value">ESS·전력망 포함</span>
+      </div>
+      <div class="stock-metric">
+        <span class="label">특징</span>
+        <span class="value">AI 데이터센터 수요 연동</span>
+      </div>
+      <span class="stock-tag tag-green">ESS 포함</span>
+      <span class="stock-tag tag-green">국내 ETF</span>
+    </div>
+    <!-- 글로벌 ETF -->
+    <div class="stock-card etf-global">
+      <div class="stock-name">Invesco Solar ETF</div>
+      <div class="stock-ticker">NYSE: TAN</div>
+      <div class="stock-metric">
+        <span class="label">구성 종목</span>
+        <span class="value">30개 글로벌 태양광 기업</span>
+      </div>
+      <div class="stock-metric">
+        <span class="label">벤치마크</span>
+        <span class="value">MAC Global Solar Energy Index</span>
+      </div>
+      <div class="stock-metric">
+        <span class="label">참고 ETF</span>
+        <span class="value">ICLN (iShares 글로벌 청정)</span>
+      </div>
+      <span class="stock-tag tag-orange">글로벌 ETF</span>
+      <span class="stock-tag tag-orange">미국 상장</span>
+    </div>
+  </div>
+
+  <div class="comparison-table">
+    <table>
+      <tr>
+        <th>구분</th>
+        <th>핵심 투자 포인트</th>
+        <th>리스크</th>
+      </tr>
+      <tr>
+        <td><strong>한화솔루션</strong></td>
+        <td>미국 IRA AMPC 직접 수혜, 非중국 독점 지위</td>
+        <td>미국 정책 변동, 환율 리스크</td>
+      </tr>
+      <tr>
+        <td><strong>OCI홀딩스</strong></td>
+        <td>FEOC 비대상 인증, 폴리실리콘 프리미엄</td>
+        <td>원자재 가격 변동, 美中 무역 정책</td>
+      </tr>
+      <tr>
+        <td><strong>PLUS ETF (국내)</strong></td>
+        <td>ESS·전력망 분산, AI 전력 수요 연동</td>
+        <td>ETF 구성 비중 변경, 국내 정책</td>
+      </tr>
+      <tr>
+        <td><strong>TAN / ICLN (해외)</strong></td>
+        <td>글로벌 분산, 미국·유럽 성장 포함</td>
+        <td>환율 리스크, 글로벌 금리 동향</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="disclaimer">
+    ⚠️ <strong>투자 주의:</strong> 본 자료는 블로그 정보 제공 목적으로 작성되었으며, 투자 권유가 아닙니다. 주식 및 ETF 투자는 원금 손실 위험이 있으며, 최종 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다.
+  </div>
+
+  <div class="source-text">출처: 이넷뉴스, 삼성증권 리포트, Alphasquare, Motley Fool, NerdWallet | ecosolution1218 정리 | 2026.05.28</div>
+</div>
+</body>
+</html>
