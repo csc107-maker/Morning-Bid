@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 5월 SMP·REC 가격 현황</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; background: #f6fff8; }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 20px;
+    background: #f6fff8;
+  }
+  .card-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a4d2e;
+    margin-bottom: 4px;
+  }
+  .card-subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #5b9a7a;
+    margin-bottom: 24px;
+  }
+  .price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .price-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px 16px;
+    box-shadow: 0 2px 10px rgba(0,100,50,0.08);
+    border-top: 4px solid #28a745;
+  }
+  .price-card.jejudo {
+    border-top-color: #fd7e14;
+  }
+  .price-card .region {
+    font-size: 12px;
+    font-weight: 700;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .price-card .metric-name {
+    font-size: 13px;
+    color: #1a4d2e;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .price-card .price-val {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a4d2e;
+    margin-bottom: 4px;
+  }
+  .price-card.jejudo .price-val { color: #d35400; }
+  .price-card .price-sub {
+    font-size: 11px;
+    color: #6c757d;
+  }
+  .price-card .trend {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+  .up { background: #d4edda; color: #155724; }
+  .down { background: #f8d7da; color: #721c24; }
+  .neutral { background: #e2e3e5; color: #383d41; }
+  .analysis-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    border-left: 4px solid #28a745;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    margin-bottom: 14px;
+  }
+  .analysis-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a4d2e;
+    margin-bottom: 8px;
+  }
+  .analysis-item {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: #2d5a3d;
+    margin-bottom: 5px;
+    align-items: flex-start;
+  }
+  .alert-box {
+    background: #fff3cd;
+    border: 1.5px solid #ffc107;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 12.5px;
+    color: #856404;
+  }
+  .source-text {
+    text-align: right;
+    font-size: 10px;
+    color: #9aabb8;
+    margin-top: 14px;
+  }
+  .rec-range {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+  }
+  .rec-bar {
+    flex: 1;
+    height: 8px;
+    background: linear-gradient(90deg, #ffa040, #ff6b00);
+    border-radius: 4px;
+    margin: 0 8px;
+  }
+  .rec-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #d35400;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="card-title">💰 2026년 5월 SMP · REC 가격 현황</div>
+  <div class="card-subtitle">5월 2주차 기준 | 육지·제주 상반된 흐름 분석</div>
+
+  <div class="price-grid">
+    <!-- 육지 SMP -->
+    <div class="price-card">
+      <div class="region">🏔 육지 SMP</div>
+      <div class="metric-name">계통한계가격</div>
+      <div class="price-val">상승세 유지</div>
+      <div class="price-sub">4월 대비 소폭 상승</div>
+      <span class="trend up">▲ 상승</span>
+    </div>
+    <!-- 제주 SMP -->
+    <div class="price-card jejudo">
+      <div class="region">🌊 제주 SMP</div>
+      <div class="metric-name">계통한계가격</div>
+      <div class="price-val">하락 전환</div>
+      <div class="price-sub">봄철 발전량 급증 영향</div>
+      <span class="trend down">▼ 하락</span>
+    </div>
+    <!-- 육지 REC -->
+    <div class="price-card">
+      <div class="region">🏔 육지 REC</div>
+      <div class="metric-name">REC 현물가격</div>
+      <div class="price-val">완만한 하락세</div>
+      <div class="price-sub">공급량 증가로 연초 대비 하락</div>
+      <span class="trend down">▼ 완만 하락</span>
+    </div>
+    <!-- 제주 REC -->
+    <div class="price-card jejudo">
+      <div class="region">🌊 제주 REC</div>
+      <div class="metric-name">REC 현물가격 (5월 2주)</div>
+      <div class="price-val">75,014~95,028원</div>
+      <div class="price-sub">평균가 기준 최고·최저</div>
+      <div class="rec-range">
+        <span class="rec-label">최저 75,014</span>
+        <div class="rec-bar"></div>
+        <span class="rec-label">최고 95,028</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-box">
+    <h4>📊 시장 분석</h4>
+    <div class="analysis-item">
+      <span>📌</span>
+      <span>육지는 안정적 흐름, 제주는 봄철 태양광 출력 급증으로 가격 변동성 확대</span>
+    </div>
+    <div class="analysis-item">
+      <span>📌</span>
+      <span>제주는 재생에너지 비중이 높아 공급 과잉 시 SMP 마이너스 가능성 상존</span>
+    </div>
+    <div class="analysis-item">
+      <span>📌</span>
+      <span>육지 REC는 공급량 증가 + 2026년 말 폐지 앞두고 하락세 지속 전망</span>
+    </div>
+    <div class="analysis-item">
+      <span>📌</span>
+      <span>REC 현물시장: 2027년부터 단계적 종료 → 현물 거래보다 계약 입찰 전환 시급</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    ⚠️ <strong>제주 발전소 운영자 주의:</strong> 봄철(4~6월) 출력제한(curtailment) 빈도 증가 예상. 발전량 손실 최소화를 위해 계통 운영 현황 모니터링 강화 권장.
+  </div>
+
+  <div class="source-text">출처: 전력거래소(KPX), 해줌 블로그, mal-eum.com | ecosolution1218 정리 | 2026.05.28</div>
+</div>
+</body>
+</html>
