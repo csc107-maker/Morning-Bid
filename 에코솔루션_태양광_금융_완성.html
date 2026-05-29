@@ -804,12 +804,32 @@
   }
 
   /* ── SCROLL ANIMATE ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.7s cubic-bezier(0.23,1,0.32,1);
+  @keyframes revealUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
+  .reveal {
+    opacity: 0;
+    animation: revealUp 0.7s cubic-bezier(0.23,1,0.32,1) forwards;
+  }
+
+  /* 순서별 딜레이 */
+  .reveal:nth-child(1)  { animation-delay: 0.05s; }
+  .reveal:nth-child(2)  { animation-delay: 0.13s; }
+  .reveal:nth-child(3)  { animation-delay: 0.21s; }
+  .reveal:nth-child(4)  { animation-delay: 0.29s; }
+  .reveal:nth-child(5)  { animation-delay: 0.37s; }
+  .reveal:nth-child(6)  { animation-delay: 0.45s; }
+  .reveal:nth-child(7)  { animation-delay: 0.53s; }
+  .reveal:nth-child(8)  { animation-delay: 0.61s; }
+  .reveal:nth-child(9)  { animation-delay: 0.69s; }
+  .reveal:nth-child(10) { animation-delay: 0.77s; }
+  .reveal:nth-child(11) { animation-delay: 0.85s; }
+  .reveal:nth-child(12) { animation-delay: 0.93s; }
+  .reveal:nth-child(13) { animation-delay: 1.01s; }
+
+  /* 스크롤 감지용 — JS가 추가하는 visible 클래스도 유지 지원 */
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
@@ -1364,30 +1384,47 @@
     });
   });
 
-  // 스크롤 reveal 애니메이션
+  // 스크롤 reveal — CSS animation이 기본 동작, JS는 스크롤 시 재진입 카드에 추가 효과
+  // (body 클래스 없이 순수 CSS animation으로 구동)
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, i * 100);
+        entry.target.style.animationPlayState = 'running';
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => {
+    // 뷰포트 안에 이미 있으면 즉시 표시
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.style.animationDuration = '0.5s';
+    }
+    observer.observe(el);
+  });
 
-  // 프로그레스 바 애니메이션
+  // 프로그레스 바 — CSS 변수 방식 + IntersectionObserver 모두 적용
+  document.querySelectorAll('.progress-fill').forEach(bar => {
+    const target = bar.style.getPropertyValue('--target-width') ||
+                   bar.getAttribute('style').match(/--target-width:\s*([^;]+)/)?.[1] || '50%';
+    bar.dataset.targetWidth = target;
+    bar.style.width = '0%';
+    bar.style.transition = 'width 1.4s cubic-bezier(0.23,1,0.32,1)';
+  });
+
   const progressObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.progress-fill').forEach(bar => {
-          bar.style.width = bar.style.getPropertyValue('--target-width') || '50%';
+        entry.target.querySelectorAll('.progress-fill').forEach((bar, i) => {
+          setTimeout(() => {
+            bar.style.width = bar.dataset.targetWidth || '50%';
+          }, i * 200);
         });
+        progressObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.2 });
 
   const featuredPost = document.querySelector('.featured-post');
   if (featuredPost) progressObserver.observe(featuredPost);
