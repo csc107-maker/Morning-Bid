@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이마트·신세계푸드 완전자회사 편입 & 탱크데이 영향 분석</title>
+
+  <!-- OG 태그 -->
+  <meta property="og:title" content="이마트·신세계푸드 완전자회사 편입 — 탱크데이가 흔든 구조조정의 판" />
+  <meta property="og:description" content="신세계푸드는 매각이 아니라 이마트 완전자회사 편입(자발적 상장폐지) 진행 중. 탱크데이 사태가 이 과정에 어떤 복합 충격을 가했는지 데이터로 분석합니다." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/1B2631/FFFFFF?text=이마트+신세계푸드+완전자회사+편입+분석" />
+  <meta property="og:url" content="https://yourblog.com/emart-ssgfood-subsidiary" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── 리셋 & 기본 ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f2f4f7;
+      color: #1a1a2e;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    /* ── 썸네일 헤더 ── */
+    .thumb {
+      background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+      border-radius: 18px;
+      padding: 36px 40px;
+      color: #fff;
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .thumb::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .thumb::after {
+      content: '';
+      position: absolute; bottom: -50px; left: 30px;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .thumb-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .thumb h1 {
+      font-size: 24px; font-weight: 900; line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .thumb h1 em { color: #64dfdf; font-style: normal; }
+    .thumb p { font-size: 13px; opacity: 0.8; line-height: 1.7; max-width: 600px; }
+    .thumb-date { position: absolute; top: 36px; right: 40px; font-size: 11px; opacity: 0.5; }
+
+    /* ── 공통 카드 ── */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 30px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-size: 16px; font-weight: 700;
+      color: #0f2027;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #eef0f4;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card-title .ico { font-size: 19px; }
+
+    /* ── 정정 배너 ── */
+    .correction {
+      background: linear-gradient(90deg, #fff9c4, #fff3cd);
+      border-left: 5px solid #f9a825;
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 13px; color: #444; line-height: 1.7;
+    }
+    .correction strong { color: #c67c00; font-size: 14px; }
+
+    /* ── 핵심 요약 그리드 ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 4px;
+    }
+    .sum-item {
+      border-radius: 12px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .sum-item.blue   { background: #e3f2fd; border: 1.5px solid #90caf9; }
+    .sum-item.green  { background: #e8f5e9; border: 1.5px solid #a5d6a7; }
+    .sum-item.red    { background: #fce4ec; border: 1.5px solid #f48fb1; }
+    .sum-item.orange { background: #fff3e0; border: 1.5px solid #ffcc80; }
+    .sum-num  { font-size: 22px; font-weight: 900; margin-bottom: 4px; }
+    .sum-item.blue  .sum-num  { color: #1565c0; }
+    .sum-item.green .sum-num  { color: #2e7d32; }
+    .sum-item.red   .sum-num  { color: #b71c1c; }
+    .sum-item.orange.sum-num  { color: #e65100; }
+    .sum-label { font-size: 11px; color: #555; line-height: 1.5; }
+
+    /* ── 비교 테이블 ── */
+    .cmp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .cmp-table th {
+      padding: 10px 14px;
+      text-align: left; font-weight: 700; font-size: 12px;
+      background: #0f2027; color: #fff;
+    }
+    .cmp-table th:first-child { border-radius: 8px 0 0 0; }
+    .cmp-table th:last-child  { border-radius: 0 8px 0 0; }
+    .cmp-table td { padding: 11px 14px; border-bottom: 1px solid #f0f2f5; }
+    .cmp-table tr:last-child td { border-bottom: none; }
+    .cmp-table tr:nth-child(even) td { background: #fafbfc; }
+    .badge {
+      display: inline-block;
+      padding: 3px 9px; border-radius: 20px;
+      font-size: 11px; font-weight: 700;
+    }
+    .badge-blue   { background: #e3f2fd; color: #1565c0; }
+    .badge-green  { background: #e8f5e9; color: #2e7d32; }
+    .badge-red    { background: #fce4ec; color: #b71c1c; }
+    .badge-orange { background: #fff3e0; color: #e65100; }
+
+    /* ── 타임라인 (신세계푸드 편입 흐름) ── */
+    .tl { position: relative; padding-left: 28px; }
+    .tl::before {
+      content: ''; position: absolute; left: 11px; top: 10px; bottom: 10px;
+      width: 2px;
+      background: linear-gradient(180deg, #1565c0 0%, #2e7d32 40%, #b71c1c 100%);
+    }
+    .tl-row { position: relative; margin-bottom: 22px; }
+    .tl-dot {
+      position: absolute; left: -22px; top: 5px;
+      width: 12px; height: 12px; border-radius: 50%;
+      border: 3px solid #fff; box-shadow: 0 0 0 2px currentColor;
+    }
+    .tl-month { font-size: 11px; font-weight: 700; color: #888; letter-spacing: 0.05em; margin-bottom: 5px; }
+    .tl-box {
+      border-radius: 10px; padding: 12px 16px;
+      border-left: 3px solid; font-size: 13px; color: #333; line-height: 1.7;
+    }
+    .tl-box b { font-weight: 700; }
+
+    .step-blue   .tl-dot { color:#1565c0; background:#1565c0; }
+    .step-blue   .tl-box { border-color:#1565c0; background:#e8f4fd; }
+    .step-green  .tl-dot { color:#2e7d32; background:#2e7d32; }
+    .step-green  .tl-box { border-color:#2e7d32; background:#f1f8f2; }
+    .step-amber  .tl-dot { color:#f57c00; background:#f57c00; }
+    .step-amber  .tl-box { border-color:#f57c00; background:#fff8f0; }
+    .step-red    .tl-dot { color:#b71c1c; background:#b71c1c; }
+    .step-red    .tl-box { border-color:#b71c1c; background:#fff5f5; }
+    .step-purple .tl-dot { color:#6a1b9a; background:#6a1b9a; }
+    .step-purple .tl-box { border-color:#6a1b9a; background:#f3e5f5; }
+
+    /* ── 바 게이지 ── */
+    .bar-block { margin-bottom: 18px; }
+    .bar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .bar-name  { font-size: 13px; font-weight: 600; color: #333; }
+    .bar-val   { font-size: 13px; font-weight: 700; }
+    .bar-track { background: #eeeff2; border-radius: 8px; height: 28px; overflow: hidden; }
+    .bar-fill  {
+      height: 100%; border-radius: 8px;
+      display: flex; align-items: center; padding-left: 10px;
+      font-size: 11px; font-weight: 700; color: #fff;
+    }
+    .bar-note { font-size: 11px; color: #999; margin-top: 4px; }
+
+    /* ── 리스크 체크리스트 ── */
+    .risk-list { list-style: none; }
+    .risk-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 0; border-bottom: 1px solid #f0f2f5;
+      font-size: 13px; color: #333; line-height: 1.6;
+    }
+    .risk-list li:last-child { border-bottom: none; }
+    .risk-ico { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .risk-content b { color: #0f2027; font-weight: 700; }
+
+    /* ── 시나리오 카드 ── */
+    .sc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .sc-box { border-radius: 12px; padding: 18px 16px; }
+    .sc-box.good { background: #e8f5e9; border: 1.5px solid #81c784; }
+    .sc-box.bad  { background: #fce4ec; border: 1.5px solid #f48fb1; }
+    .sc-title { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+    .sc-box.good .sc-title { color: #1b5e20; }
+    .sc-box.bad  .sc-title { color: #880e4f; }
+    .sc-list { list-style: none; }
+    .sc-list li { font-size: 12px; color: #444; padding: 3px 0; line-height: 1.6; }
+    .sc-list li::before { content: '· '; }
+
+    /* ── 강조 박스 ── */
+    .highlight {
+      background: #e8f4fd; border-left: 4px solid #1565c0;
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px; font-size: 13px; color: #1a1a2e; line-height: 1.7;
+      margin-top: 16px;
+    }
+    .highlight strong { color: #0d47a1; }
+
+    .warn-box {
+      background: #fff3e0; border: 1.5px solid #ffb74d;
+      border-radius: 10px; padding: 14px 18px;
+      font-size: 13px; color: #444; line-height: 1.7;
+      margin-top: 14px;
+    }
+    .warn-box strong { color: #e65100; }
+
+    /* ── 최종 요약 배너 ── */
+    .final-banner {
+      background: linear-gradient(135deg, #0f2027, #2c5364);
+      border-radius: 14px; padding: 26px 30px; color: #fff;
+      margin-top: 4px;
+    }
+    .final-banner h3 { font-size: 17px; font-weight: 900; margin-bottom: 16px; }
+    .final-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .final-cell {
+      background: rgba(255,255,255,0.1); border-radius: 10px;
+      padding: 14px; border: 1px solid rgba(255,255,255,0.15);
+    }
+    .final-cell-label { font-size: 11px; opacity: 0.7; margin-bottom: 6px; font-weight: 600; letter-spacing: 0.04em; }
+    .final-cell-val { font-size: 13px; line-height: 1.6; }
+    .final-cell-val .em { color: #64dfdf; font-weight: 700; }
+    .final-cell-val .em-r { color: #ff8a80; font-weight: 700; }
+
+    .source-note { font-size: 11px; color: #aaa; text-align: right; margin-top: 14px; }
+
+    /* ── 모바일 반응형 ── */
+    @media (max-width: 600px) {
+      .thumb { padding: 28px 22px; }
+      .thumb h1 { font-size: 19px; }
+      .summary-grid { grid-template-columns: 1fr 1fr; }
+      .sc-grid { grid-template-columns: 1fr; }
+      .final-row { grid-template-columns: 1fr; }
+      .card { padding: 22px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── 썸네일 ── -->
+  <div class="thumb">
+    <span class="thumb-date">2026.05 기준</span>
+    <div class="thumb-label">📊 구조조정 & 사태 영향 분석</div>
+    <h1>이마트·신세계푸드<br><em>완전자회사 편입</em> — 탱크데이가 흔든 판</h1>
+    <p>신세계푸드는 '매각'이 아닙니다. 이마트 완전자회사 편입(자발적 상장폐지) 절차가 진행 중이며,<br>탱크데이 사태는 이 과정에 복합 충격을 가하고 있습니다.</p>
+  </div>
+
+  <!-- ── 정정 배너 ── -->
+  <div class="correction">
+    <strong>⚠️ 오해 정정: '신세계푸드 매각설'은 사실이 아닙니다</strong><br>
+    시장 일각에서 '매각설'이 제기됐지만, 업계 분석에 따르면 신세계푸드 매각 가능성은 사실상 제로로 평가됩니다.
+    실제로 이마트는 신세계푸드를 <strong>외부로 내보내는 것이 아니라</strong>, 오히려 100% 완전자회사로 흡수해
+    자발적 상장폐지를 추진 중입니다. 이는 그룹 식품 밸류체인을 강화하기 위한 전략적 선택입니다.
+  </div>
+
+  <!-- ── 핵심 수치 요약 ── -->
+  <div class="card">
+    <div class="card-title"><span class="ico">📌</span> 핵심 수치 한눈에 보기</div>
+    <div class="summary-grid">
+      <div class="sum-item blue">
+        <div class="sum-num">55.47%</div>
+        <div class="sum-label">이마트의<br>신세계푸드 기존 지분</div>
+      </div>
+      <div class="sum-item green">
+        <div class="sum-num">→ 100%</div>
+        <div class="sum-label">완전자회사 편입<br>목표 지분율</div>
+      </div>
+      <div class="sum-item orange">
+        <div class="sum-num" style="color:#e65100;">660억</div>
+        <div class="sum-label">소액주주 매수<br>최대 부담금</div>
+      </div>
+      <div class="sum-item red">
+        <div class="sum-num">-25%</div>
+        <div class="sum-label">탱크데이 후<br>이마트 주가 하락</div>
+      </div>
+      <div class="sum-item red">
+        <div class="sum-num">-5.56%</div>
+        <div class="sum-label">탱크데이 후<br>신세계푸드 주가</div>
+      </div>
+      <div class="sum-item blue">
+        <div class="sum-num" style="color:#1565c0;">+11.9%</div>
+        <div class="sum-label">이마트 1Q 영업이익<br>증가율 (사태 전)</div>
+      </div>
+    </div>
+    <div class="source-note">출처: 이마트 공시, 한국거래소, 흥국증권 리서치 (2026.05 기준)</div>
+  </div>
+
+  <!-- ── 신세계푸드 편입 타임라인 ── -->
+  <div class="card">
+    <div class="card-title"><span class="ico">📅</span> 신세계푸드 완전자회사 편입 — 타임라인</div>
+    <div class="tl">
+
+      <div class="tl-row step-blue">
+        <div class="tl-dot"></div>
+        <div class="tl-month">2025년 8월</div>
+        <div class="tl-box">
+          <b>단체급식 사업부 아워홈에 매각 (1,200억 원)</b><br>
+          연간 매출 2,754억 원(전체의 18%)에 달하는 알짜 사업이었지만, 비주력 사업 정리 기조에 따라 매각. 계약금 등 360억 원 먼저 유입. 이후 완전자회사 편입 속도가 빨라졌습니다.
+        </div>
+      </div>
+
+      <div class="tl-row step-blue">
+        <div class="tl-dot"></div>
+        <div class="tl-month">2025년 12월 15일</div>
+        <div class="tl-box">
+          <b>이마트, 신세계푸드 공개매수 이사회 승인</b><br>
+          공개매수가: 1주당 <b>4만 8,120원</b> (당시 종가 4만 100원 대비 +20%)<br>
+          이마트 보유 지분 55.47% → 100% 편입 목표. 이후 자발적 상장폐지 계획 공표.
+        </div>
+      </div>
+
+      <div class="tl-row step-green">
+        <div class="tl-dot"></div>
+        <div class="tl-month">2026년 1월 초</div>
+        <div class="tl-box">
+          <b>공개매수 종료 — 42만 5,206주 확보 (목표의 29%)</b><br>
+          목표치에 미달하자 소액주주들 사이에서 "주가 저평가" 비판 확산. 상장폐지 추진 지속하되 조건 조정 필요성 대두.
+        </div>
+      </div>
+
+      <div class="tl-row step-amber">
+        <div class="tl-dot"></div>
+        <div class="tl-month">2026년 5월 21일</div>
+        <div class="tl-box">
+          <b>주식매수청구 가격 30% 상향 — 6만 3,348원으로 변경</b><br>
+          소액주주 반발 수용. 매수가 상향으로 이마트 최대 부담 <b>509억 → 660억 원</b>으로 증가.<br>
+          공교롭게도 탱크데이 논란(5월 18일) 직후 3일 만에 발표.
+        </div>
+      </div>
+
+      <div class="tl-row step-red">
+        <div class="tl-dot"></div>
+        <div class="tl-month">2026년 5월 18일~ (현재)</div>
+        <div class="tl-box">
+          <b>탱크데이 사태 — 편입 절차에 복합 악재 충격</b><br>
+          스타벅스 불매운동 → 신세계푸드 B2B 납품 매출 직격 → 신세계푸드 주가 –5.56% 추가 하락.<br>
+          이마트 주가 역대 최고 영업이익에도 불구 25% 폭락 → 완전자회사 편입 비용 부담 변수 증가.
+        </div>
+      </div>
+
+      <div class="tl-row step-purple">
+        <div class="tl-dot"></div>
+        <div class="tl-month">향후 과제</div>
+        <div class="tl-box">
+          <b>상장폐지 완료 및 B2B 식품 전문기업 전환 목표</b><br>
+          임형섭 신임 대표 체제 아래 베이커리 B2B 제품군 확대 + 식자재 유통 경쟁력 강화 + 노브랜드 버거 콤팩트 매장 확장 추진 중. 탱크데이 불매 여파가 얼마나 길게 지속되느냐가 핵심 변수.
+        </div>
+      </div>
+
+    </div>
+    <div class="source-note">출처: 이마트 공시(금융감독원 전자공시), 서울경제, 아시아경제, 더벨</div>
+  </div>
+
+  <!-- ── 이마트 1Q 실적 vs 탱크데이 충격 ── -->
+  <div class="card">
+    <div class="card-title"><span class="ico">📉</span> 이마트 1Q 역대 최고 실적 — 탱크데이가 뒤집다</div>
+
+    <div class="bar-block">
+      <div class="bar-header">
+        <span class="bar-name">2026년 1Q 영업이익 (역대 최대)</span>
+        <span class="bar-val" style="color:#2e7d32;">+11.9% 증가 · 1,783억 원</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:90%;background:linear-gradient(90deg,#1b5e20,#43a047);">2012년 이후 14년 만의 1Q 최대 영업이익</div>
+      </div>
+      <div class="bar-note">매출 7조 1,234억 원 · 사태 발생 전 투자심리 최고조</div>
+    </div>
+
+    <div class="bar-block">
+      <div class="bar-header">
+        <span class="bar-name">탱크데이 후 이마트 주가 변화</span>
+        <span class="bar-val" style="color:#b71c1c;">11만 6천 원 → 8만 7천 원대 (-25%)</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:75%;background:linear-gradient(90deg,#b71c1c,#ef5350);">사태 직전 대비 약 –25% 추락</div>
+      </div>
+      <div class="bar-note">탱크데이 이후 10일도 안 돼 시가총액 수천억 원 증발</div>
+    </div>
+
+    <div class="bar-block">
+      <div class="bar-header">
+        <span class="bar-name">흥국증권 이마트 목표주가 조정</span>
+        <span class="bar-val" style="color:#e65100;">16만 7천 원 → 12만 원 (-28%)</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:72%;background:linear-gradient(90deg,#e65100,#ff8a65);">목표주가 28% 하향 — '오너 리스크 재부각'</div>
+      </div>
+      <div class="bar-note">박종렬 연구원: "경영진은 환골탈태의 모습을 보여야 한다"</div>
+    </div>
+
+    <div class="highlight">
+      <strong>핵심 역설:</strong> 2026년 1분기에 14년 만의 최대 실적을 냈지만, 탱크데이 사태 하나로 시장의 평가가 완전히 뒤집혔습니다. 실적 개선의 과실이 오너 리스크에 의해 소멸된 전형적인 ESG 역설 사례입니다.
+    </div>
+    <div class="source-note">출처: 경향신문, 흥국증권 리서치보고서 (박종렬, 2026.05.27)</div>
+  </div>
+
+  <!-- ── 신세계푸드가 받는 이중 충격 ── -->
+  <div class="card">
+    <div class="card-title"><span class="ico">⚡</span> 신세계푸드가 받는 이중 충격</div>
+    <ul class="risk-list">
+      <li>
+        <span class="risk-ico">🍞</span>
+        <div class="risk-content">
+          <b>스타벅스 B2B 납품 매출 직격</b><br>
+          신세계푸드는 스타벅스 매장에 베이커리류·식음료를 B2B로 공급합니다. 스타벅스 주간 결제액이 26.3% 급감하면 매장 식음료 발주량도 비례해 감소합니다. 불매운동이 길어질수록 납품 매출 손실이 누적됩니다.
+        </div>
+      </li>
+      <li>
+        <span class="risk-ico">📉</span>
+        <div class="risk-content">
+          <b>주가 –5.56% 직격 (탱크데이 직후)</b><br>
+          탱크데이 논란 직후 신세계푸드 주가는 전일 대비 2,600원(-5.56%) 하락한 4만 4,200원에 장을 마감했습니다. 이마트 완전자회사 편입 절차 진행 중이라 주가 하락은 이마트의 주식매수 부담 산정에도 영향을 줍니다.
+        </div>
+      </li>
+      <li>
+        <span class="risk-ico">🏗️</span>
+        <div class="risk-content">
+          <b>상장폐지 절차 불확실성 증가</b><br>
+          이미 소액주주 반발로 매수가를 30% 올려야 했는데, 탱크데이 이후 그룹 전반에 대한 불신이 커져 주주 설득이 더욱 어려워질 수 있습니다. 절차 지연 시 그룹 구조조정 전체 일정에 차질이 생길 수 있습니다.
+        </div>
+      </li>
+      <li>
+        <span class="risk-ico">🎯</span>
+        <div class="risk-content">
+          <b>노브랜드 버거·베이커리 사업에 불매 불똥</b><br>
+          온라인 커뮤니티와 SNS에서 신세계 계열 불매 리스트에 '노브랜드 버거'가 포함되고 있습니다. 신세계푸드의 외식 브랜드인 노브랜드 버거, 올반 등도 간접 피해를 입을 가능성이 있습니다.
+        </div>
+      </li>
+      <li>
+        <span class="risk-ico">✅</span>
+        <div class="risk-content">
+          <b>단체급식 매각으로 확보한 현금은 긍정 요소</b><br>
+          2025년 8월 아워홈에 단체급식 사업부를 1,200억 원에 매각했습니다. 이 현금은 완전자회사 편입 과정의 소액주주 매수 비용(최대 660억 원)을 충당하는 데 활용될 수 있어, 단기 유동성 측면에서는 여유가 있습니다.
+        </div>
+      </li>
+    </ul>
+    <div class="source-note">출처: 머니투데이, 경향신문, 흥국증권, 더벨 (2026.05 기준)</div>
+  </div>
+
+  <!-- ── 비교 현황표 ── -->
+  <div class="card">
+    <div class="card-title"><span class="ico">🗂️</span> 이마트·신세계푸드 현황 비교표</div>
+    <table class="cmp-table">
+      <colgroup>
+        <col style="width:22%">
+        <col style="width:39%">
+        <col style="width:39%">
+      </colgroup>
+      <tr>
+        <th>구분</th>
+        <th>이마트</th>
+        <th>신세계푸드</th>
+      </tr>
+      <tr>
+        <td><b>매각설</b></td>
+        <td><span class="badge badge-green">❌ 없음</span></td>
+        <td><span class="badge badge-green">❌ 없음 — 매각설은 오해</span></td>
+      </tr>
+      <tr>
+        <td><b>실제 방향</b></td>
+        <td>그룹 지주사 역할 유지·강화</td>
+        <td><span class="badge badge-blue">이마트 100% 완전자회사 편입</span></td>
+      </tr>
+      <tr>
+        <td><b>상장 여부</b></td>
+        <td>코스피 상장 유지</td>
+        <td><span class="badge badge-orange">자발적 상장폐지 추진 중</span></td>
+      </tr>
+      <tr>
+        <td><b>2025년 매출</b></td>
+        <td>28조 9,000억 원 (추정)</td>
+        <td>약 1조 5,000억 원</td>
+      </tr>
+      <tr>
+        <td><b>2026년 1Q 영업이익</b></td>
+        <td>1,783억 원 (+11.9%, 14년 최대)</td>
+        <td>스타벅스 B2B 연동으로 부정적 영향 예상</td>
+      </tr>
+      <tr>
+        <td><b>탱크데이 주가 영향</b></td>
+        <td><span class="badge badge-red">–25% (11.6만 → 8.7만 원)</span></td>
+        <td><span class="badge badge-red">–5.56% (단기)</span></td>
+      </tr>
+      <tr>
+        <td><b>핵심 리스크</b></td>
+        <td>SCK(스타벅스) 콜옵션 + 불매 장기화</td>
+        <td>상장폐지 일정 차질 + B2B 납품 감소</td>
+      </tr>
+      <tr>
+        <td><b>긍정 변수</b></td>
+        <td>본업 실적 호조 (유통·이커머스)</td>
+        <td>단체급식 매각 대금 1,200억 확보</td>
+      </tr>
+    </table>
+    <div class="source-note">출처: 이마트 실적 공시, 흥국증권, 서울경제, 경향신문</div>
+  </div>
+
+  <!-- ── 향후 시나리오 ── -->
+  <div class="card">
+    <div class="card-title"><span class="ico">🔮</span> 향후 시나리오 — 신세계푸드 편입 완료될까?</div>
+    <div class="sc-grid">
+      <div class="sc-box good">
+        <div class="sc-title">✅ 낙관 시나리오</div>
+        <ul class="sc-list">
+          <li>탱크데이 불매 4~8주 내 소강</li>
+          <li>신세계푸드 상장폐지 일정대로 완료</li>
+          <li>B2B 납품 매출 하반기 정상화</li>
+          <li>노브랜드 버거 콤팩트 확장 가속</li>
+          <li>이마트 연결 실적 안정화 → 주가 반등</li>
+        </ul>
+      </div>
+      <div class="sc-box bad">
+        <div class="sc-title">❌ 비관 시나리오</div>
+        <ul class="sc-list">
+          <li>불매운동 3개월+ 장기화</li>
+          <li>소액주주 추가 반발로 편입 절차 지연</li>
+          <li>스타벅스 콜옵션 발동 → 이마트 6,000억 손실</li>
+          <li>신세계푸드 B2B 납품 2분기 대폭 감소</li>
+          <li>그룹 전반 불매로 노브랜드·스타필드 타격</li>
+        </ul>
+      </div>
+    </div>
+    <div class="warn-box" style="margin-top:16px;">
+      <strong>⚠️ 가장 현실적인 중간 시나리오:</strong> 스타벅스 불매는 6~10주가량 지속되다 점진적으로 약화되지만,
+      신세계 그룹 전반에 대한 소비자 불신은 더 오래 남을 가능성이 높습니다.
+      신세계푸드 상장폐지 절차는 약간의 지연 후 완료되겠지만, B2B 납품 매출 회복에는 분기 이상이 소요될 수 있습니다.
+    </div>
+    <div class="source-note">출처: 흥국증권, 녹색경제신문, EBN, 아시아경제 분석 종합</div>
+  </div>
+
+  <!-- ── 최종 요약 배너 ── -->
+  <div class="final-banner">
+    <h3>📋 3줄 핵심 정리</h3>
+    <div class="final-row">
+      <div class="final-cell">
+        <div class="final-cell-label">신세계푸드</div>
+        <div class="final-cell-val">
+          매각 <span class="em-r">✗</span> → 이마트 <span class="em">100% 완전자회사</span> 편입·상장폐지 추진 중. 탱크데이로 B2B 납품 감소·주가 하락 이중 충격.
+        </div>
+      </div>
+      <div class="final-cell">
+        <div class="final-cell-label">이마트</div>
+        <div class="final-cell-val">
+          매각설 <span class="em-r">없음</span>. 1Q 14년 만에 역대 최대 영업이익(+11.9%)을 냈지만 탱크데이 하나로 주가 <span class="em-r">–25%</span> 폭락. 실적이 오너 리스크에 삼켜진 형국.
+        </div>
+      </div>
+      <div class="final-cell">
+        <div class="final-cell-label">핵심 교훈</div>
+        <div class="final-cell-val">
+          좋은 구조조정 계획도 <span class="em-r">오너 리스크 한 방</span>에 비용이 늘고 일정이 흔들린다. ESG 경영 없는 재무 전략은 사상누각입니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
