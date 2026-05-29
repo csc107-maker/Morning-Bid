@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>이마트 주가 & 콜옵션 리스크</title>
+  <meta property="og:title" content="이마트 주가 9.56% 급락 & 콜옵션 6000억 손실 시나리오 분석" />
+  <meta property="og:description" content="탱크데이 여파로 이마트 시총 2705억 증발. 미국 본사 35% 할인 콜옵션 발동 시 이마트 손실 최대 6000억원 추정." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/1B2631/FFFFFF?text=이마트+콜옵션+리스크" />
+  <meta property="og:url" content="https://yourblog.com/emart-stock-calloption" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Noto Sans KR',sans-serif;background:#f5f5f5;padding:20px;}
+
+    .widget{background:#fff;border-radius:16px;padding:28px 32px;box-shadow:0 2px 20px rgba(0,0,0,0.08);margin-bottom:20px;}
+    .widget-title{font-size:17px;font-weight:700;color:#1B2631;margin-bottom:22px;padding-bottom:12px;border-bottom:2px solid #eee;display:flex;align-items:center;gap:8px;}
+
+    /* 주가 충격 그리드 */
+    .shock-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px;}
+    .shock-card{border-radius:12px;padding:18px 16px;text-align:center;}
+    .shock-card.red{background:#fff0f0;border:1.5px solid #ffcdd2;}
+    .shock-card.dark{background:#1B2631;color:#fff;}
+    .shock-num{font-size:28px;font-weight:900;margin-bottom:4px;}
+    .shock-label{font-size:12px;line-height:1.5;opacity:0.8;}
+    .shock-card.red .shock-num{color:#c0392b;}
+    .shock-card.dark .shock-num{color:#ff7c7c;}
+
+    /* 관련주 테이블 */
+    table{width:100%;border-collapse:collapse;font-size:13px;}
+    th{background:#1B2631;color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:12px;}
+    td{padding:10px 12px;border-bottom:1px solid #f0f0f0;}
+    tr:last-child td{border-bottom:none;}
+    .down{color:#c0392b;font-weight:700;}
+    tr:nth-child(even) td{background:#fafafa;}
+
+    /* 콜옵션 흐름도 */
+    .flow{display:flex;flex-direction:column;gap:0;}
+    .flow-item{background:#f8f9fa;border-radius:12px;padding:14px 16px;border-left:4px solid;}
+    .flow-arrow{text-align:center;padding:6px 0;font-size:18px;color:#888;}
+    .flow-item.blue{border-color:#1565c0;background:#e8f4fd;}
+    .flow-item.orange{border-color:#e65100;background:#fff3e0;}
+    .flow-item.red{border-color:#c62828;background:#fff5f5;}
+    .flow-item.purple{border-color:#6a1b9a;background:#f3e5f5;}
+    .flow-step{font-size:11px;font-weight:700;letter-spacing:0.05em;color:#888;margin-bottom:4px;}
+    .flow-content{font-size:13px;color:#333;line-height:1.6;}
+    .flow-content strong{font-size:15px;}
+
+    /* 시나리오 */
+    .scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .scenario{border-radius:12px;padding:16px;}
+    .scenario.good{background:#e8f5e9;border:1.5px solid #a5d6a7;}
+    .scenario.bad{background:#fce4ec;border:1.5px solid #f48fb1;}
+    .scenario-title{font-size:13px;font-weight:700;margin-bottom:8px;}
+    .scenario.good .scenario-title{color:#1b5e20;}
+    .scenario.bad .scenario-title{color:#880e4f;}
+    .scenario-content{font-size:12px;line-height:1.7;color:#444;}
+
+    .warn-strip{background:#e74c3c;color:#fff;border-radius:10px;padding:14px 18px;font-size:13px;line-height:1.7;margin-top:4px;}
+    .source-note{font-size:11px;color:#aaa;text-align:right;margin-top:14px;}
+  </style>
+</head>
+<body>
+
+  <!-- 주가 충격 -->
+  <div class="widget">
+    <div class="widget-title">📉 이마트 주가 충격 — 탱크데이 직후</div>
+    <div class="shock-grid">
+      <div class="shock-card red">
+        <div class="shock-num">-9.56%</div>
+        <div class="shock-label">이마트 주가<br>누적 하락률 (사태 후)</div>
+      </div>
+      <div class="shock-card dark">
+        <div class="shock-num">2,705억</div>
+        <div class="shock-label" style="color:#ff8a80;">시가총액<br>하루 만에 증발</div>
+      </div>
+      <div class="shock-card red">
+        <div class="shock-num">9만원↓</div>
+        <div class="shock-label">이마트 주가<br>9만원대로 추락</div>
+      </div>
+      <div class="shock-card red" style="background:#fff8f0;border-color:#ffe0b2;">
+        <div class="shock-num" style="color:#e65100;">→12만원</div>
+        <div class="shock-label">흥국증권 목표주가<br>16.7만 → 12만 하향 (-28%)</div>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th>계열사</th>
+        <th>하락률</th>
+        <th>비고</th>
+      </tr>
+      <tr>
+        <td>이마트</td>
+        <td class="down">-6.45% (논란 직후)</td>
+        <td>스타벅스코리아 67.5% 보유 최대주주</td>
+      </tr>
+      <tr>
+        <td>신세계I&C</td>
+        <td class="down">-7.00%</td>
+        <td>그룹 IT 계열사</td>
+      </tr>
+      <tr>
+        <td>신세계인터내셔날</td>
+        <td class="down">-4.14%</td>
+        <td>패션·뷰티 계열사</td>
+      </tr>
+      <tr>
+        <td>광주신세계</td>
+        <td class="down">-3.46%</td>
+        <td>광주 불매운동 직접 타격</td>
+      </tr>
+      <tr>
+        <td>신세계푸드</td>
+        <td class="down">-2.52%</td>
+        <td>외식·식품 계열사</td>
+      </tr>
+    </table>
+    <div class="source-note">출처: 한국거래소 (2026.05.19~05.27 기준), 흥국증권 리서치센터</div>
+  </div>
+
+  <!-- 콜옵션 구조 -->
+  <div class="widget">
+    <div class="widget-title">💣 35% 할인 콜옵션 — 최악의 시나리오</div>
+    <div class="flow">
+      <div class="flow-item blue">
+        <div class="flow-step">STEP 1 — 2021년 지분 인수</div>
+        <div class="flow-content">이마트, 스타벅스 미국 본사로부터 지분 17.5% 추가 매입 (4,743억 원). 최대주주 <strong>67.5%</strong> 확보. 이 때 양사간 독소 조항 설정.</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item orange">
+        <div class="flow-step">STEP 2 — 콜옵션 조항 내용</div>
+        <div class="flow-content"><strong>"이마트 귀책사유로 라이선스 계약 해지 시, 미국 본사는 이마트 보유 지분 전량(67.5%)을 공정가치 대비 35% 할인된 가격에 강제 매수 가능"</strong><br>귀책 사유: 브랜드 가치 심각한 훼손 포함</div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item red">
+        <div class="flow-step">STEP 3 — 발동 시 손실 추산</div>
+        <div class="flow-content">
+          기업가치 약 2조 7,000억 × 67.5% = <strong>지분가치 약 1조 8,000억</strong><br>
+          35% 할인 적용 시 미국 본사 인수가 <strong>약 1조 2,000억</strong><br>
+          → 이마트 손실: <strong style="color:#c62828;">약 6,000억 원</strong>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item purple">
+        <div class="flow-step">STEP 4 — 추가 파급 리스크</div>
+        <div class="flow-content">연간 1,730억 영업이익 기반 상실 / GIC(싱가포르 투자청, 32.5% 보유) 태도 변화 가능 / 연결 이익 감소 + 영업권 손상 + 투자자 분쟁</div>
+      </div>
+    </div>
+    <div class="warn-strip" style="margin-top:16px;">
+      ⚡ 이마트 경영진 입장: <strong>"계약 해지나 콜옵션으로 이어질 사안 아님"</strong><br>
+      그러나 미국 본사는 사태를 '예의주시' 중으로 알려짐. 귀책 사유 판단 기준이 공개되지 않아 불확실성 지속.
+    </div>
+    <div class="source-note">출처: 금융감독원 전자공시시스템(이마트 공시), 머니투데이, EBN(kr.investing.com)</div>
+  </div>
+
+  <!-- 시나리오 -->
+  <div class="widget">
+    <div class="widget-title">🔮 향후 시나리오 분석</div>
+    <div class="scenario-grid">
+      <div class="scenario good">
+        <div class="scenario-title">✅ 낙관 시나리오</div>
+        <div class="scenario-content">
+          · 불매 6~8주 내 자연 소강<br>
+          · 미국 본사 콜옵션 불행사<br>
+          · 신규 CEO 선임 + 쇄신안 발표<br>
+          · 2026년 하반기 실적 회복<br>
+          · 이마트 주가 반등
+        </div>
+      </div>
+      <div class="scenario bad">
+        <div class="scenario-title">❌ 비관 시나리오</div>
+        <div class="scenario-content">
+          · 불매운동 장기화 (3개월+)<br>
+          · 미국 본사 공식 경고 발송<br>
+          · 2026년 2분기 영업이익 급감<br>
+          · GIC 지분 매각 검토<br>
+          · 콜옵션 발동 협의 개시
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
