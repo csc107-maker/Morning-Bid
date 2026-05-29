@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="ESS·태양광 매출과 주가 연동성 분석 | LG엔솔·HD현대에너지솔루션" />
+<meta property="og:description" content="ESS 매출 비중 상승 → 영업이익 개선 → 주가 상승. 태양광 모듈 매출 급증 → 주가 3배 반응. 실적·주가 연동 메커니즘 완전 분석." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1638913970156-5afef15dd4e8?w=1200&q=80" />
+<meta property="og:url" content="https://blog.naver.com/yoursite/ess-solar-stock-correlation" />
+<title>ESS·태양광 매출과 주가 연동성 분석</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=DM+Serif+Display&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(145deg, #fff8e1 0%, #e0f7fa 60%, #e8eaf6 100%);
+    padding: 32px 20px;
+  }
+
+  .container { max-width: 880px; margin: 0 auto; }
+
+  /* THUMBNAIL */
+  .thumbnail {
+    background: linear-gradient(135deg, #0d47a1 0%, #1b5e20 50%, #bf360c 100%);
+    border-radius: 24px;
+    padding: 44px 40px;
+    text-align: center;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .thumbnail::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+
+  .thumbnail::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+
+  .thumb-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 16px;
+  }
+
+  .thumb-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .thumb-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 24px;
+  }
+
+  .thumb-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .thumb-stat {
+    text-align: center;
+  }
+
+  .thumb-stat-val {
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    display: block;
+  }
+
+  .thumb-stat-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.65);
+    margin-top: 2px;
+  }
+
+  /* Flow Section */
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 4px solid #1a237e;
+  }
+
+  .flow-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    margin-bottom: 32px;
+    align-items: center;
+  }
+
+  .flow-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  .flow-card.arrow {
+    background: transparent;
+    box-shadow: none;
+    font-size: 28px;
+    text-align: center;
+    color: #90a4ae;
+  }
+
+  .flow-icon { font-size: 26px; margin-bottom: 8px; }
+
+  .flow-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 4px;
+  }
+
+  .flow-desc {
+    font-size: 11px;
+    color: #78909c;
+    line-height: 1.5;
+  }
+
+  /* Correlation Cards */
+  .corr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .corr-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  }
+
+  .corr-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed #eceff1;
+  }
+
+  .corr-icon {
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .corr-card.lg-card .corr-icon { background: #ffebee; }
+  .corr-card.hd-card .corr-icon { background: #e3f2fd; }
+
+  .corr-company { font-size: 13px; font-weight: 700; color: #212121; }
+  .corr-ticker { font-size: 10px; color: #90a4ae; }
+
+  .corr-event {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .event-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  .event-text { font-size: 12px; color: #37474f; line-height: 1.5; }
+  .event-text strong { color: #1a237e; }
+
+  .result-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  .positive { background: #e8f5e9; color: #2e7d32; }
+  .negative { background: #ffebee; color: #c62828; }
+  .caution { background: #fff3e0; color: #e65100; }
+
+  /* Risk & Opportunity Table */
+  .ro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .ro-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+  }
+
+  .ro-card.opp { border-left: 4px solid #2e7d32; }
+  .ro-card.risk { border-left: 4px solid #c62828; }
+
+  .ro-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .ro-card.opp .ro-title { color: #2e7d32; }
+  .ro-card.risk .ro-title { color: #c62828; }
+
+  .ro-item {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #546e7a;
+    line-height: 1.5;
+  }
+
+  .ro-item::before { content: '·'; font-weight: 900; }
+
+  .footer-note {
+    font-size: 11px;
+    color: #90a4ae;
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid #e0e0e0;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- THUMBNAIL -->
+  <div class="thumbnail">
+    <div class="thumb-label">📑 ANALYST REPORT · 2026.05</div>
+    <div class="thumb-title">ESS · 태양광 매출과<br>주가 연동성 완전 분석</div>
+    <div class="thumb-sub">LG에너지솔루션 × HD현대에너지솔루션 | 실적이 주가를 어떻게 움직이나?</div>
+    <div class="thumb-stats">
+      <div class="thumb-stat">
+        <span class="thumb-stat-val">+133.9%</span>
+        <div class="thumb-stat-label">LG엔솔 영업이익<br>2025 성장률</div>
+      </div>
+      <div class="thumb-stat">
+        <span class="thumb-stat-val">+1,077%</span>
+        <div class="thumb-stat-label">HD현에 영업이익<br>2025 성장률</div>
+      </div>
+      <div class="thumb-stat">
+        <span class="thumb-stat-val">+295%</span>
+        <div class="thumb-stat-label">HD현에 3개월<br>주가 수익률</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mechanism Flow -->
+  <div class="section-title">⚙️ 실적 → 주가 연동 메커니즘</div>
+  <div class="flow-cards" style="grid-template-columns: 1fr 40px 1fr 40px 1fr; margin-bottom:32px;">
+    <div class="flow-card">
+      <div class="flow-icon">📦</div>
+      <div class="flow-title">ESS·태양광<br>매출 증가</div>
+      <div class="flow-desc">고수익 제품 믹스 개선, 미국 시장 확대</div>
+    </div>
+    <div class="flow-card arrow">→</div>
+    <div class="flow-card">
+      <div class="flow-icon">💰</div>
+      <div class="flow-title">영업이익률<br>상승</div>
+      <div class="flow-desc">원가 구조 개선, IRA·REC 수익 반영</div>
+    </div>
+    <div class="flow-card arrow">→</div>
+    <div class="flow-card">
+      <div class="flow-icon">📈</div>
+      <div class="flow-title">주가<br>상승 반응</div>
+      <div class="flow-desc">실적 서프라이즈, 목표주가 상향, 기관 매수</div>
+    </div>
+  </div>
+
+  <!-- Correlation Analysis Cards -->
+  <div class="section-title">🔗 종목별 연동성 분석</div>
+  <div class="corr-grid">
+    <div class="corr-card lg-card">
+      <div class="corr-card-header">
+        <div class="corr-icon">🔋</div>
+        <div>
+          <div class="corr-company">LG에너지솔루션</div>
+          <div class="corr-ticker">373220 | ESS 매출 비중 ~11%</div>
+        </div>
+      </div>
+
+      <div class="corr-event">
+        <div class="event-dot" style="background:#2e7d32"></div>
+        <div class="event-text">
+          <strong>ESS 3Q25 분기 매출 +50% 성장</strong> 발표
+          <br><span class="result-badge positive">↑ 영업이익 QoQ +22.2%</span>
+        </div>
+      </div>
+
+      <div class="corr-event">
+        <div class="event-dot" style="background:#2e7d32"></div>
+        <div class="event-text">
+          <strong>북미 ESS 생산 본격화</strong> 공시
+          <br><span class="result-badge positive">↑ 이익 구조 개선 신호</span>
+        </div>
+      </div>
+
+      <div class="corr-event">
+        <div class="event-dot" style="background:#c62828"></div>
+        <div class="event-text">
+          <strong>포드·FEPS 수주 계약 해지</strong> 공시 (13.6조원)
+          <br><span class="result-badge negative">↓ 주가 하방 압력</span>
+        </div>
+      </div>
+
+      <div class="corr-event">
+        <div class="event-dot" style="background:#e65100"></div>
+        <div class="event-text">
+          <strong>1Q26 영업손실 2,078억</strong> (ESS 팩 병목)
+          <br><span class="result-badge caution">→ 하방 제한적 평가</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="corr-card hd-card">
+      <div class="corr-card-header">
+        <div class="corr-icon">☀️</div>
+        <div>
+          <div class="corr-company">HD현대에너지솔루션</div>
+          <div class="corr-ticker">322000 | 태양광 매출 비중 ~75%</div>
+        </div>
+      </div>
+
+      <div class="corr-event">
+        <div class="event-dot" style="background:#2e7d32"></div>
+        <div class="event-text">
+          <strong>2025 영업이익 +1,077%</strong> 잠정 공시
+          <br><span class="result-badge positive">↑ 3개월 주가 +295.4%</span>
+        </div>
+      </div>
+
+      <div class="corr-event">
+        <div class="event-dot" style="background:#2e7d32"></div>
+        <div class="event-text">
+          <strong>미국 모듈 매출 +257%</strong> 급증
+          <br><span class="result-badge positive">↑ 목표주가 174% 상향</span>
+        </div>
+      </div>
+
+      <div class="corr-event">
+        <div class="event-dot" style="background:#2e7d32"></div>
+        <div class="event-text">
+          <strong>1Q26 영업이익 흑자전환</strong> (+99.8%)
+          <br><span class="result-badge positive">↑ 52주 신고가 경신</span>
+        </div>
+      </div>
+
+      <div class="corr-event">
+        <div class="event-dot" style="background:#2e7d32"></div>
+        <div class="event-text">
+          <strong>중국 수출 부가세 환급 폐지</strong> (13%)
+          <br><span class="result-badge positive">↑ 가격경쟁력 반사이익</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Risk & Opportunity -->
+  <div class="section-title">⚖️ 2026년 하반기 기회 vs 리스크</div>
+  <div class="ro-grid">
+    <div class="ro-card opp">
+      <div class="ro-title">🟢 기회 요인 (Bull)</div>
+      <div class="ro-item">AI 데이터센터 전력 수요 증가 → 그리드 ESS 폭발 성장</div>
+      <div class="ro-item">LG엔솔 북미 ESS CAPA 30GWh+ 확대 계획</div>
+      <div class="ro-item">한국 정부 태양광 전환 정책 본격화</div>
+      <div class="ro-item">중국산 모듈 가격 상승 → HD현에 반사이익</div>
+      <div class="ro-item">RE100·직접PPA 확산으로 ESS 연계 수요 급증</div>
+      <div class="ro-item">HD현에 2026E 영업이익 +204% 달성 기대</div>
+    </div>
+    <div class="ro-card risk">
+      <div class="ro-title">🔴 리스크 요인 (Bear)</div>
+      <div class="ro-item">IRA 세액공제(AMPC) 정책 변동 가능성</div>
+      <div class="ro-item">LG엔솔 EV 수요 부진 지속 시 이익 구조 취약</div>
+      <div class="ro-item">ESS 팩 증설 병목 반복 시 Q/Q 실적 변동성</div>
+      <div class="ro-item">중국 업체 저가 공세 재개 리스크</div>
+      <div class="ro-item">국내 태양광 인허가 지연 · REC 가격 하락</div>
+      <div class="ro-item">글로벌 금리 상승 시 성장주 밸류에이션 조정</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    ※ 출처: 전자공시(DART), 하나증권·DS투자증권·신영증권 리포트, 블룸버그NEF, 배터리인사이드 | 이 자료는 정보 제공 목적이며 투자 권유가 아닙니다. 투자 판단은 본인의 책임 아래 이루어져야 합니다.
+  </div>
+
+</div>
+</body>
+</html>
