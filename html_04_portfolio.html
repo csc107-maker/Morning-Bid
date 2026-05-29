@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="2026년 지정학 리스크 대응 실전 포트폴리오 전략" />
+<meta property="og:description" content="방산·금·에너지·AI반도체·헬스케어 5섹터 분산 포트폴리오 구성 가이드 — 월스트리트 컨센서스 기반" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=630&fit=crop" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/portfolio-2026" />
+<title>2026년 실전 포트폴리오 전략</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans KR',sans-serif; background:#eef5ec; padding:20px; }
+
+  .w { max-width:720px; margin:0 auto; background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.10); }
+
+  .hdr {
+    background: linear-gradient(135deg, #004d26 0%, #1b5e20 50%, #2e7d32 100%);
+    padding:28px 32px 22px; color:#fff; position:relative; overflow:hidden;
+  }
+  .hdr::after { content:'💼'; position:absolute; right:20px; bottom:-8px; font-size:90px; opacity:0.12; }
+  .hdr .badge { display:inline-block; background:rgba(255,235,59,0.9); color:#1b5e20; font-size:11px; font-weight:700; padding:3px 12px; border-radius:30px; margin-bottom:10px; }
+  .hdr h2 { font-size:22px; font-weight:900; line-height:1.3; }
+  .hdr p { font-size:12.5px; opacity:0.75; margin-top:5px; }
+
+  /* 포트폴리오 도넛 대체 - 가로 비율 바 */
+  .alloc-section { padding:24px 28px 20px; }
+  .alloc-title { font-size:14px; font-weight:700; color:#1b5e20; margin-bottom:16px; }
+  .alloc-item { margin-bottom:14px; }
+  .alloc-label { display:flex; justify-content:space-between; align-items:center; margin-bottom:5px; }
+  .alloc-name { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:#222; }
+  .alloc-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .alloc-pct { font-size:13px; font-weight:900; }
+  .alloc-bar-bg { height:10px; background:#f0f0f0; border-radius:99px; overflow:hidden; }
+  .alloc-bar-fill { height:100%; border-radius:99px; }
+  .alloc-sub { font-size:11px; color:#888; margin-top:4px; }
+
+  /* 섹터 카드 그리드 */
+  .sec-title { font-size:12px; font-weight:700; color:#999; letter-spacing:1px; padding:4px 28px 12px; text-transform:uppercase; }
+  .sector-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 28px 20px; }
+  .sector-card {
+    background:#fafafa;
+    border-radius:14px;
+    padding:16px;
+    border:1px solid #eee;
+    position:relative;
+    overflow:hidden;
+  }
+  .sector-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
+  .sector-card.defense::before { background:linear-gradient(90deg,#1a237e,#3949ab); }
+  .sector-card.gold::before { background:linear-gradient(90deg,#f57f17,#ffd600); }
+  .sector-card.energy::before { background:linear-gradient(90deg,#bf360c,#ff6d00); }
+  .sector-card.ai::before { background:linear-gradient(90deg,#4a148c,#7b1fa2); }
+  .sector-card.health::before { background:linear-gradient(90deg,#006064,#00838f); }
+
+  .sc-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; }
+  .sc-emoji { font-size:24px; }
+  .sc-pct-badge { font-size:12px; font-weight:900; padding:3px 10px; border-radius:20px; }
+  .defense .sc-pct-badge { background:#e8eaf6; color:#1a237e; }
+  .gold .sc-pct-badge { background:#fff8e1; color:#f57f17; }
+  .energy .sc-pct-badge { background:#fbe9e7; color:#bf360c; }
+  .ai .sc-pct-badge { background:#f3e5f5; color:#4a148c; }
+  .health .sc-pct-badge { background:#e0f7fa; color:#006064; }
+
+  .sc-name { font-size:13.5px; font-weight:700; color:#222; margin-bottom:4px; }
+  .sc-stocks { font-size:11px; color:#888; margin-bottom:6px; }
+  .sc-desc { font-size:11.5px; color:#555; line-height:1.55; }
+  .sc-tag { display:inline-block; font-size:10px; font-weight:700; padding:1px 7px; border-radius:20px; margin-top:6px; }
+  .sc-tag.up { background:#e8f5e9; color:#2e7d32; }
+  .sc-tag.caution { background:#fff3e0; color:#e65100; }
+
+  /* 원칙 3가지 */
+  .principle-section { padding:0 28px 20px; }
+  .pr-title { font-size:14px; font-weight:700; color:#1b5e20; margin-bottom:12px; }
+  .pr-item { display:flex; gap:14px; padding:12px 0; border-bottom:1px solid #f0f0f0; }
+  .pr-item:last-child { border-bottom:none; }
+  .pr-num { width:32px; height:32px; border-radius:50%; background:#1b5e20; color:#fff; font-weight:900; font-size:15px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .pr-content .pr-head { font-size:13px; font-weight:700; color:#222; margin-bottom:3px; }
+  .pr-content .pr-body { font-size:12px; color:#666; line-height:1.55; }
+
+  /* 현금 비중 알림 */
+  .cash-alert { margin:0 28px 24px; background:#fffde7; border-radius:12px; padding:14px 16px; border:1px solid #ffe082; display:flex; gap:12px; align-items:flex-start; }
+  .cash-alert .ca-icon { font-size:22px; }
+  .cash-alert .ca-text { font-size:12.5px; color:#5d4037; line-height:1.55; }
+  .cash-alert .ca-text b { color:#e65100; }
+
+  .footer-note { font-size:10px; color:#bbb; text-align:center; padding:10px 28px 20px; }
+</style>
+</head>
+<body>
+<div class="w">
+
+  <div class="hdr">
+    <span class="badge">💡 월스트리트 컨센서스 기반</span>
+    <h2>2026 지정학 리스크 대응<br>실전 포트폴리오 전략</h2>
+    <p>4중 불확실성 장세 (전쟁·인플레·금리·환율) 대응 5섹터 분산 전략</p>
+  </div>
+
+  <div class="alloc-section">
+    <div class="alloc-title">📊 추천 자산 배분 비율</div>
+
+    <div class="alloc-item">
+      <div class="alloc-label">
+        <div class="alloc-name"><div class="alloc-dot" style="background:#1a237e"></div>🛡️ 방산·안보</div>
+        <div class="alloc-pct" style="color:#1a237e">20~25%</div>
+      </div>
+      <div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:22%;background:linear-gradient(90deg,#1a237e,#3949ab)"></div></div>
+      <div class="alloc-sub">한화에어로스페이스·LIG넥스원·KAI | 구조적 수요 증가</div>
+    </div>
+
+    <div class="alloc-item">
+      <div class="alloc-label">
+        <div class="alloc-name"><div class="alloc-dot" style="background:#f57f17"></div>🥇 금·실물자산</div>
+        <div class="alloc-pct" style="color:#f57f17">15~20%</div>
+      </div>
+      <div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:18%;background:linear-gradient(90deg,#f57f17,#ffd600)"></div></div>
+      <div class="alloc-sub">금 ETF·금 채굴주·실물 금 | 인플레이션+지정학 헤지</div>
+    </div>
+
+    <div class="alloc-item">
+      <div class="alloc-label">
+        <div class="alloc-name"><div class="alloc-dot" style="background:#bf360c"></div>⚡ 에너지·정유</div>
+        <div class="alloc-pct" style="color:#bf360c">10~15%</div>
+      </div>
+      <div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:13%;background:linear-gradient(90deg,#bf360c,#ff6d00)"></div></div>
+      <div class="alloc-sub">S-Oil·SK이노베이션 | 호르무즈 리스크 헤지 + 분할 매수</div>
+    </div>
+
+    <div class="alloc-item">
+      <div class="alloc-label">
+        <div class="alloc-name"><div class="alloc-dot" style="background:#4a148c"></div>💻 AI·반도체</div>
+        <div class="alloc-pct" style="color:#4a148c">20~25%</div>
+      </div>
+      <div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:22%;background:linear-gradient(90deg,#4a148c,#7b1fa2)"></div></div>
+      <div class="alloc-sub">삼성전자·SK하이닉스·Nvidia | 장기 핵심 포지션</div>
+    </div>
+
+    <div class="alloc-item">
+      <div class="alloc-label">
+        <div class="alloc-name"><div class="alloc-dot" style="background:#006064"></div>🏥 헬스케어·배당</div>
+        <div class="alloc-pct" style="color:#006064">15~20%</div>
+      </div>
+      <div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:18%;background:linear-gradient(90deg,#006064,#00838f)"></div></div>
+      <div class="alloc-sub">배당성향 高·부채비율 低 방어주 | 경기 무관 안정 수요</div>
+    </div>
+
+    <div class="alloc-item">
+      <div class="alloc-label">
+        <div class="alloc-name"><div class="alloc-dot" style="background:#9e9e9e"></div>💵 현금 버퍼</div>
+        <div class="alloc-pct" style="color:#757575">10~15%</div>
+      </div>
+      <div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:12%;background:#bdbdbd"></div></div>
+      <div class="alloc-sub">위기 시 기회 포착용 | 항상 유지 권장</div>
+    </div>
+  </div>
+
+  <div class="sec-title">🔍 섹터별 상세 전략</div>
+  <div class="sector-grid">
+    <div class="sector-card defense">
+      <div class="sc-header">
+        <div class="sc-emoji">🛡️</div>
+        <span class="sc-pct-badge">20~25%</span>
+      </div>
+      <div class="sc-name">방산·안보</div>
+      <div class="sc-stocks">한화에어로·LIG넥스원·KAI</div>
+      <div class="sc-desc">K-방산 글로벌 수요 구조적 증가. UAE 천궁-Ⅱ 추가 도입 요청 확인. 실적 기반 탄탄.</div>
+      <span class="sc-tag up">▲ 구조적 상승</span>
+      <span class="sc-tag caution">눌림목 분할 매수</span>
+    </div>
+    <div class="sector-card gold">
+      <div class="sc-header">
+        <div class="sc-emoji">🥇</div>
+        <span class="sc-pct-badge">15~20%</span>
+      </div>
+      <div class="sc-name">금·실물자산</div>
+      <div class="sc-stocks">KODEX골드선물·금채굴ETF</div>
+      <div class="sc-desc">주식·채권과 낮은 상관관계. 위기 시 반대 방향 움직임. 인플레+지정학 최적 헤지.</div>
+      <span class="sc-tag up">▲ 안전자산 선호</span>
+    </div>
+    <div class="sector-card energy">
+      <div class="sc-header">
+        <div class="sc-emoji">⚡</div>
+        <span class="sc-pct-badge">10~15%</span>
+      </div>
+      <div class="sc-name">에너지·정유</div>
+      <div class="sc-stocks">S-Oil·SK이노베이션</div>
+      <div class="sc-desc">호르무즈 리스크 상존 시 상승 바이어스. 단, 휴전 타결 시 급락 주의.</div>
+      <span class="sc-tag caution">⚠ 휴전 시 조정 리스크</span>
+    </div>
+    <div class="sector-card ai">
+      <div class="sc-header">
+        <div class="sc-emoji">💻</div>
+        <span class="sc-pct-badge">20~25%</span>
+      </div>
+      <div class="sc-name">AI·반도체</div>
+      <div class="sc-stocks">삼성전자·SK하이닉스·Nvidia</div>
+      <div class="sc-desc">JP모건 코스피 6,000p 목표. DRAM 선단공정 2026년 수요 견인 전망.</div>
+      <span class="sc-tag up">▲ 장기 핵심 포지션</span>
+      <span class="sc-tag caution">분할 매수</span>
+    </div>
+    <div class="sector-card health" style="grid-column:span 2;">
+      <div class="sc-header">
+        <div class="sc-emoji">🏥</div>
+        <span class="sc-pct-badge">15~20%</span>
+      </div>
+      <div class="sc-name">헬스케어·배당주 (방어 섹터)</div>
+      <div class="sc-stocks">고배당·저부채비율 종목 중심</div>
+      <div class="sc-desc">불확실성 극대화 시장에서 방어주 존재감 증대. 경기 사이클 무관 수요 + 채권 대체 배당수익 효과. 포트폴리오 하단 안정성 제공.</div>
+      <span class="sc-tag up">▲ 방어적 안정성</span>
+    </div>
+  </div>
+
+  <div class="principle-section">
+    <div class="pr-title">⚡ 핵심 투자 원칙 3가지</div>
+    <div class="pr-item">
+      <div class="pr-num">1</div>
+      <div class="pr-content">
+        <div class="pr-head">분할 매수·분할 매도 원칙</div>
+        <div class="pr-body">지정학 이슈는 외교적 반전 시 하루아침에 급락. 3~5회 분산 진입으로 평균 단가 관리.</div>
+      </div>
+    </div>
+    <div class="pr-item">
+      <div class="pr-num">2</div>
+      <div class="pr-content">
+        <div class="pr-head">손절 기준 미리 설정 (-10% 내외)</div>
+        <div class="pr-body">"소문에 사서 뉴스에 팔아라" — 지정학 장세의 황금률. 매수 전 손절 라인 설정 후 기계적 대응.</div>
+      </div>
+    </div>
+    <div class="pr-item">
+      <div class="pr-num">3</div>
+      <div class="pr-content">
+        <div class="pr-head">현금 10~15% 항상 보유</div>
+        <div class="pr-body">위기는 동시에 기회. 현금 버퍼가 있어야 급락 시 저점 매수 기회를 살릴 수 있음.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cash-alert">
+    <div class="ca-icon">⚠️</div>
+    <div class="ca-text">
+      <b>투자 유의사항</b>: 본 포트폴리오 전략은 정보 제공 목적이며 특정 종목 매수·매도를 권유하지 않습니다. 모든 투자의 최종 판단과 책임은 투자자 본인에게 있으며, 투자 전 전문 금융 상담사와 상의하시기 바랍니다.
+    </div>
+  </div>
+
+  <div class="footer-note">출처: 월스트리트 2026 전망 | JP모건·Goldman Sachs·BofA | IISS 군사 균형 2026 | 2026.05.29 기준</div>
+</div>
+</body>
+</html>
