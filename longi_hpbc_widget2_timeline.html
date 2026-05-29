@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="LONGi 백접합 기술 진화 타임라인 2022-2025" />
+<meta property="og:description" content="HPBC 1.0부터 HPBC 2.0, HIBC까지 LONGi 태양광 기술 혁신의 역사를 한눈에 정리" />
+<meta property="og:image" content="https://www.longi.com/static/media/hi-mo-x10.jpg" />
+<meta property="og:url" content="https://blog.naver.com/your_blog/longi-hpbc2-timeline" />
+<title>LONGi 기술 타임라인</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #f0f6ff;
+    padding: 24px 16px;
+  }
+  .widget {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 36px rgba(0,60,180,0.10);
+  }
+  .hdr {
+    background: linear-gradient(120deg, #0a2463 0%, #1e429f 50%, #1a56db 100%);
+    padding: 26px 30px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hdr::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, rgba(255,200,50,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hdr-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #ffd966;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+  }
+  .hdr h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .hdr h2 span { color: #ffd966; }
+  .hdr p { color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 6px; }
+  .timeline {
+    padding: 32px 30px 24px;
+    position: relative;
+  }
+  .tl-line {
+    position: absolute;
+    left: 54px;
+    top: 32px;
+    bottom: 24px;
+    width: 3px;
+    background: linear-gradient(to bottom, #1e429f, #10b981, #f59e0b, #ef4444);
+    border-radius: 2px;
+  }
+  .tl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot-wrap {
+    flex-shrink: 0;
+    width: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .tl-year {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+  .tl-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px currentColor;
+  }
+  .dot-blue { color: #1e429f; background: #1e429f; }
+  .dot-cyan { color: #0891b2; background: #0891b2; }
+  .dot-green { color: #059669; background: #059669; }
+  .dot-gold { color: #d97706; background: #d97706; }
+  .dot-red { color: #dc2626; background: #dc2626; }
+  .dot-purple { color: #7c3aed; background: #7c3aed; }
+  .tl-content {
+    flex: 1;
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 14px 18px;
+    border-left: 4px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tl-content:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .border-blue { border-left-color: #1e429f; }
+  .border-cyan { border-left-color: #0891b2; }
+  .border-green { border-left-color: #059669; }
+  .border-gold { border-left-color: #d97706; }
+  .border-red { border-left-color: #dc2626; }
+  .border-purple { border-left-color: #7c3aed; }
+  .tl-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 4px;
+  }
+  .tl-model {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .tl-desc {
+    font-size: 12.5px;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+  .tl-tag {
+    display: inline-block;
+    margin-top: 6px;
+    background: #e0e7ff;
+    color: #3730a3;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 10px;
+  }
+  .tl-tag.green { background: #d1fae5; color: #065f46; }
+  .tl-tag.gold { background: #fef3c7; color: #92400e; }
+  .tl-tag.red { background: #fee2e2; color: #991b1b; }
+  .tl-tag.purple { background: #ede9fe; color: #4c1d95; }
+  .footer-note {
+    padding: 12px 30px 16px;
+    font-size: 11px;
+    color: #9ca3af;
+    background: #f8fafc;
+    border-top: 1px solid #e5e7eb;
+  }
+</style>
+</head>
+<body>
+<div class="widget">
+  <div class="hdr">
+    <div class="hdr-badge">LONGi 기술 혁신 연대기</div>
+    <h2>Back Contact Technology<br><span>진화의 역사</span></h2>
+    <p>HPBC 1.0 → HPBC 2.0 → HIBC | 2022~2025</p>
+  </div>
+  <div class="timeline">
+    <div class="tl-line"></div>
+
+    <div class="tl-item">
+      <div class="tl-dot-wrap">
+        <div class="tl-year">2021</div>
+        <div class="tl-dot dot-blue"></div>
+      </div>
+      <div class="tl-content border-blue">
+        <div class="tl-title">🏆 효율 세계 기록 연속 경신 시작</div>
+        <div class="tl-model">LONGi R&D 본격화</div>
+        <div class="tl-desc">2021년 이후 태양광 셀 변환 효율 세계 기록 21회 연속 경신. 백접합(Back Contact) 기술을 미래 주력으로 결정.</div>
+        <span class="tl-tag">세계 기록 경신</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot-wrap">
+        <div class="tl-year">2022</div>
+        <div class="tl-dot dot-cyan"></div>
+      </div>
+      <div class="tl-content border-cyan">
+        <div class="tl-title">🚀 HPBC 1.0 상용화</div>
+        <div class="tl-model">Hi-MO 6 출시</div>
+        <div class="tl-desc">자체 개발 HPBC(하이브리드 패시베이션 백 컨택) 1.0 기술 최초 상용화. P-Type 웨이퍼 기반. 셀 효율 25.6% 달성.</div>
+        <span class="tl-tag">첫 상용화</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot-wrap">
+        <div class="tl-year">2024</div>
+        <div class="tl-dot dot-green"></div>
+      </div>
+      <div class="tl-content border-green">
+        <div class="tl-title">⚡ HPBC 2.0 개발 완료</div>
+        <div class="tl-model">N-Type TaiRay 웨이퍼 전환</div>
+        <div class="tl-desc">P-Type → N-Type 웨이퍼 전환, 셀 효율 1% 절대값 향상(26.6%). 0BB(Zero BusBabar) 구조 도입. Hi-MO X10 선행 출시. 17GW 출하.</div>
+        <span class="tl-tag green">셀 26.6% 달성</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot-wrap">
+        <div class="tl-year">2025.3</div>
+        <div class="tl-dot dot-gold"></div>
+      </div>
+      <div class="tl-content border-gold">
+        <div class="tl-title">🌟 Hi-MO X10 공식 론칭</div>
+        <div class="tl-model">HPBC 2.0 탑재 전면 상용화</div>
+        <div class="tl-desc">모듈 효율 24.8%, 최대 출력 670W. 방진(Anti-Dust) 기능 추가. Fraunhofer ISE 모듈 효율 세계 기록 25.4% 공식 인증.</div>
+        <span class="tl-tag gold">모듈 24.8% 세계 기록</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot-wrap">
+        <div class="tl-year">2025.9</div>
+        <div class="tl-dot dot-red"></div>
+      </div>
+      <div class="tl-content border-red">
+        <div class="tl-title">🛡️ 삼방(三防) 인증 & TÜV 음영 인증</div>
+        <div class="tl-model">Hi-MO X10 Guardian</div>
+        <div class="tl-desc">CPVT '방화·방음영·방먼지' 업계 최초 삼방 인증. TÜV Rheinland 음영 내성 인증. 50% 차광 시 손실 10.15% (TOPCon 36.48% 대비).</div>
+        <span class="tl-tag red">업계 최초 삼방 인증</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot-wrap">
+        <div class="tl-year">2025.5</div>
+        <div class="tl-dot dot-purple"></div>
+      </div>
+      <div class="tl-content border-purple">
+        <div class="tl-title">🔬 HIBC 상용화 (차세대 기술)</div>
+        <div class="tl-model">Hi-MO HIBC 시리즈</div>
+        <div class="tl-desc">HJT + 백접합 결합 HIBC 기술 양산. 셀 효율 27.3%, 모듈 700W+, 온도계수 -0.24%/°C. HPBC 2.0의 차세대 후속.</div>
+        <span class="tl-tag purple">셀 27.3% 초고효율</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-note">
+    📌 출처: LONGi 공식 보도자료, pv-magazine, TaiyangNews, Fraunhofer ISE, CPVT (2025년 기준)
+  </div>
+</div>
+</body>
+</html>
