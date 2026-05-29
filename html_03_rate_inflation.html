@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="2026년 연준 금리·인플레이션 전망 완전 분석" />
+<meta property="og:description" content="PIMCO·한국은행·Goldman Sachs 전망 종합 — 금리 동결 장기화? 인하 재개? 투자 영향 분석" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=630&fit=crop" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/fed-rate-inflation-2026" />
+<title>2026년 금리·인플레이션 전망</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans KR',sans-serif; background:#f0f0f5; padding:20px; }
+
+  .w { max-width:720px; margin:0 auto; background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.10); }
+
+  .hdr {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 60%, #3949ab 100%);
+    padding:28px 32px 22px; color:#fff; position:relative; overflow:hidden;
+  }
+  .hdr::before { content:''; position:absolute; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,0.05); right:-50px; bottom:-60px; }
+  .hdr .badge { display:inline-block; background:rgba(255,220,50,0.9); color:#1a237e; font-size:11px; font-weight:700; padding:3px 12px; border-radius:30px; margin-bottom:10px; }
+  .hdr h2 { font-size:22px; font-weight:900; line-height:1.3; }
+  .hdr p { font-size:12.5px; opacity:0.75; margin-top:5px; }
+
+  /* 현재 금리 대형 표시 */
+  .rate-hero {
+    background: linear-gradient(120deg, #e8eaf6, #f3e5f5);
+    padding:24px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #e8eaf6;
+  }
+  .rate-left .rate-val { font-size:52px; font-weight:900; color:#1a237e; line-height:1; }
+  .rate-left .rate-lbl { font-size:13px; color:#666; margin-top:4px; }
+  .rate-right { text-align:right; }
+  .rate-right .trend { font-size:13px; font-weight:700; }
+  .rate-right .trend.hold { color:#fb8c00; }
+  .rate-right .trend-icon { font-size:32px; }
+
+  /* 기관별 전망 표 */
+  .sec-title { font-size:12px; font-weight:700; color:#999; letter-spacing:1px; padding:20px 28px 10px; text-transform:uppercase; }
+
+  table { width:calc(100% - 56px); margin:0 28px 20px; border-collapse:collapse; font-size:12.5px; }
+  thead th { background:#1a237e; color:#fff; padding:10px 12px; font-weight:700; text-align:left; }
+  thead th:first-child { border-radius:8px 0 0 0; }
+  thead th:last-child { border-radius:0 8px 0 0; }
+  tbody tr:nth-child(even) { background:#f5f5fb; }
+  tbody td { padding:10px 12px; color:#333; border-bottom:1px solid #eee; vertical-align:middle; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:20px; font-size:10.5px; font-weight:700; }
+  .tag.hold { background:#fff3e0; color:#e65100; }
+  .tag.cut { background:#e8f5e9; color:#2e7d32; }
+  .tag.risk { background:#ffebee; color:#c62828; }
+
+  /* 시나리오 타임라인 */
+  .timeline-h { display:flex; padding:0 28px 20px; gap:0; position:relative; }
+  .timeline-h::before { content:''; position:absolute; left:28px; right:28px; top:22px; height:3px; background:linear-gradient(90deg,#1a237e,#7b1fa2,#e53935); border-radius:99px; }
+  .tl-node { flex:1; text-align:center; position:relative; }
+  .tl-dot { width:14px; height:14px; border-radius:50%; border:3px solid #fff; box-shadow:0 0 0 2px #1a237e; background:#1a237e; margin:16px auto 8px; position:relative; z-index:1; }
+  .tl-dot.current { background:#e53935; box-shadow:0 0 0 2px #e53935; width:18px; height:18px; margin-top:14px; }
+  .tl-node .tl-date { font-size:10px; color:#666; font-weight:700; }
+  .tl-node .tl-rate { font-size:13px; font-weight:900; color:#1a237e; margin-top:2px; }
+  .tl-node .tl-rate.current { color:#e53935; }
+  .tl-node .tl-note { font-size:10px; color:#888; margin-top:2px; }
+
+  /* 투자 영향 */
+  .impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:0 28px 24px; }
+  .impact-card { background:#fafafa; border-radius:12px; padding:14px; border:1px solid #eee; }
+  .impact-card .ic-emoji { font-size:18px; }
+  .impact-card .ic-title { font-size:12.5px; font-weight:700; color:#222; margin:5px 0 3px; }
+  .impact-card .ic-desc { font-size:11.5px; color:#666; line-height:1.5; }
+  .impact-card.good { border-top:3px solid #43a047; }
+  .impact-card.bad { border-top:3px solid #e53935; }
+  .impact-card.warn { border-top:3px solid #fb8c00; }
+  .impact-card.info { border-top:3px solid #1976d2; }
+
+  .footer-note { font-size:10px; color:#bbb; text-align:center; padding:10px 28px 20px; }
+</style>
+</head>
+<body>
+<div class="w">
+
+  <div class="hdr">
+    <span class="badge">📊 금리 동결 장기화 국면</span>
+    <h2>2026년 연준 금리·인플레이션<br>전망 완전 분석</h2>
+    <p>PIMCO · Goldman Sachs · 한국은행 · BofA 전망 종합 | 2026.05.29 기준</p>
+  </div>
+
+  <div class="rate-hero">
+    <div class="rate-left">
+      <div class="rate-val">3.5%</div>
+      <div class="rate-lbl">현 미국 기준금리 (3.50~3.75% 밴드)</div>
+    </div>
+    <div class="rate-right">
+      <div class="trend-icon">⏸️</div>
+      <div class="trend hold">동결 유지 중</div>
+      <div style="font-size:11px;color:#888;margin-top:4px;">파월 임기 종료 후 인하 재개 예상</div>
+    </div>
+  </div>
+
+  <div class="sec-title">🏦 주요 기관 금리 전망 비교</div>
+  <table>
+    <thead>
+      <tr>
+        <th>기관</th>
+        <th>2026년 전망</th>
+        <th>연내 인하</th>
+        <th>리스크</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>PIMCO</b></td>
+        <td>3.5~3.75% 유지 → 연말 인하</td>
+        <td><span class="tag cut">1~2회</span></td>
+        <td><span class="tag risk">이란 전쟁</span></td>
+      </tr>
+      <tr>
+        <td><b>Goldman Sachs</b></td>
+        <td>2~2.5% 성장 재가속</td>
+        <td><span class="tag cut">2회</span></td>
+        <td><span class="tag warn">관세</span></td>
+      </tr>
+      <tr>
+        <td><b>BofA</b></td>
+        <td>3~3.25% 바닥 후 안정기</td>
+        <td><span class="tag hold">1~2회</span></td>
+        <td><span class="tag risk">고평가</span></td>
+      </tr>
+      <tr>
+        <td><b>한국은행</b></td>
+        <td>3분기 인하 사이클 종료</td>
+        <td><span class="tag hold">1~2회</span></td>
+        <td><span class="tag risk">달러 환율</span></td>
+      </tr>
+      <tr>
+        <td><b>CME FedWatch</b></td>
+        <td>시장 2.5회 인하 반영</td>
+        <td><span class="tag cut">2~3회</span></td>
+        <td><span class="tag warn">불확실성</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sec-title">📅 금리 경로 예상 타임라인</div>
+  <div class="timeline-h">
+    <div class="tl-node">
+      <div class="tl-date">2025.12</div>
+      <div class="tl-dot"></div>
+      <div class="tl-rate">3.75%</div>
+      <div class="tl-note">인하 후</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2026.05</div>
+      <div class="tl-dot current"></div>
+      <div class="tl-rate current">3.5%</div>
+      <div class="tl-note">현재·동결</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2026.09</div>
+      <div class="tl-dot"></div>
+      <div class="tl-rate">3.25%</div>
+      <div class="tl-note">인하 기대</div>
+    </div>
+    <div class="tl-node">
+      <div class="tl-date">2026.12</div>
+      <div class="tl-dot"></div>
+      <div class="tl-rate">3.0%</div>
+      <div class="tl-note">연말 목표</div>
+    </div>
+  </div>
+
+  <div class="sec-title">💡 금리 환경별 투자 영향</div>
+  <div class="impact-grid">
+    <div class="impact-card good">
+      <div class="ic-emoji">📈</div>
+      <div class="ic-title">금리 인하 시 수혜</div>
+      <div class="ic-desc">성장주·AI반도체·부동산 리츠 강세. 채권 가격 상승.</div>
+    </div>
+    <div class="impact-card bad">
+      <div class="ic-emoji">📉</div>
+      <div class="ic-title">금리 동결·인상 시</div>
+      <div class="ic-desc">고성장주 밸류에이션 압박. 배당주·가치주·금이 상대적 강세.</div>
+    </div>
+    <div class="impact-card warn">
+      <div class="ic-emoji">💱</div>
+      <div class="ic-title">달러·원 환율 영향</div>
+      <div class="ic-desc">한미 금리 역전 지속 시 원화 약세 압력. 달러 자산 비중 검토 필요.</div>
+    </div>
+    <div class="impact-card info">
+      <div class="ic-emoji">🥇</div>
+      <div class="ic-title">금·실물자산</div>
+      <div class="ic-desc">인플레이션 + 지정학 리스크 동시 작동 시 금은 최적 헤지 수단.</div>
+    </div>
+  </div>
+
+  <div class="footer-note">출처: PIMCO · CME FedWatch · Goldman Sachs · BofA · 한국은행 뉴욕사무소 2026 미국경제전망 | 2026.05.29 기준 / 투자 권유 아님</div>
+</div>
+</body>
+</html>
