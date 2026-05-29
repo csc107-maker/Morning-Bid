@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="LONGi HPBC 2.0 내부 3층 구조 & 음영 성능 분석" />
+<meta property="og:description" content="광흡수층·광전변환층·전기전송층의 3층 구조가 어떻게 세계 최고 효율을 만드는지, 음영 조건에서의 성능까지 한눈에" />
+<meta property="og:image" content="https://www.longi.com/static/media/hi-mo-x10.jpg" />
+<meta property="og:url" content="https://blog.naver.com/your_blog/longi-hpbc2-structure" />
+<title>HPBC 2.0 구조 & 음영 성능</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #f0f9ff;
+    padding: 24px 16px;
+  }
+  .widget {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 32px rgba(0,100,200,0.10);
+  }
+  .hdr {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+    padding: 24px 28px 18px;
+  }
+  .hdr-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #6ee7b7;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .hdr h2 { color: #fff; font-size: 20px; font-weight: 700; }
+  .hdr h2 span { color: #6ee7b7; }
+  .hdr p { color: rgba(255,255,255,0.55); font-size: 12px; margin-top: 5px; }
+  .section { padding: 28px 28px 0; }
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #065f46;
+    border-left: 4px solid #059669;
+    padding-left: 10px;
+    margin-bottom: 18px;
+  }
+  /* 3층 구조 */
+  .layers {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 28px;
+  }
+  .layer {
+    display: flex;
+    align-items: stretch;
+    min-height: 90px;
+  }
+  .layer-num {
+    width: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    flex-shrink: 0;
+    writing-mode: horizontal-tb;
+  }
+  .l1 { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+  .l1 .layer-num { color: #92400e; background: #fcd34d; }
+  .l2 { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+  .l2 .layer-num { color: #1e40af; background: #93c5fd; }
+  .l3 { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+  .l3 .layer-num { color: #065f46; background: #6ee7b7; }
+  .layer-body { flex: 1; padding: 14px 16px; }
+  .layer-title { font-size: 13px; font-weight: 700; color: #1f2937; margin-bottom: 5px; }
+  .layer-sub { font-size: 11.5px; color: #6b7280; margin-bottom: 8px; }
+  .layer-stats {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .stat-pill {
+    background: rgba(255,255,255,0.8);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .stat-pill .val { color: #065f46; font-weight: 700; }
+  /* 음영 비교 */
+  .shade-section { padding: 0 28px 28px; }
+  .shade-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e40af;
+    border-left: 4px solid #3b82f6;
+    padding-left: 10px;
+    margin-bottom: 18px;
+    margin-top: 28px;
+  }
+  .shade-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .shade-card {
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .sc-hpbc { background: #f0fdf4; border: 2px solid #10b981; }
+  .sc-topcon { background: #fef9c3; border: 2px solid #f59e0b; }
+  .sc-perc { background: #fef2f2; border: 2px solid #ef4444; }
+  .sc-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+  }
+  .sc-hpbc .sc-badge { background: #10b981; color: #fff; }
+  .sc-topcon .sc-badge { background: #f59e0b; color: #fff; }
+  .sc-perc .sc-badge { background: #ef4444; color: #fff; }
+  .sc-name { font-size: 12px; font-weight: 700; color: #1f2937; margin-bottom: 10px; }
+  .sc-bar-wrap { margin: 8px 0; }
+  .sc-bar-bg { background: #e5e7eb; border-radius: 6px; height: 10px; overflow: hidden; margin-bottom: 4px; }
+  .sc-bar-fill { height: 100%; border-radius: 6px; transition: width 1s ease; }
+  .fill-green { background: linear-gradient(90deg, #10b981, #059669); }
+  .fill-yellow { background: linear-gradient(90deg, #f59e0b, #d97706); }
+  .fill-red { background: linear-gradient(90deg, #ef4444, #dc2626); }
+  .sc-loss { font-size: 22px; font-weight: 900; margin-bottom: 2px; }
+  .hpbc-loss { color: #059669; }
+  .topcon-loss { color: #d97706; }
+  .perc-loss { color: #dc2626; }
+  .sc-desc { font-size: 10.5px; color: #6b7280; line-height: 1.4; }
+  .note-box {
+    margin: 16px 0 0;
+    background: #eff6ff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 12px;
+    color: #1e40af;
+    line-height: 1.6;
+  }
+  .note-box strong { font-weight: 700; }
+  .footer-note {
+    padding: 12px 28px 16px;
+    font-size: 11px;
+    color: #9ca3af;
+    background: #f8fafc;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 28px;
+  }
+  @media (max-width: 480px) {
+    .shade-cards { grid-template-columns: 1fr; }
+    .section, .shade-section { padding: 20px 16px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="widget">
+  <div class="hdr">
+    <div class="hdr-badge">기술 심층 분석</div>
+    <h2>HPBC 2.0 <span>3층 구조</span> &amp; 음영 성능 비교</h2>
+    <p>왜 그늘에서도 전기가 나올까? 구조가 답입니다</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🔬 HPBC 2.0 내부 3층 구조</div>
+    <div class="layers">
+      <div class="layer l1">
+        <div class="layer-num">01</div>
+        <div class="layer-body">
+          <div class="layer-title">☀️ 광흡수층 (Light Absorption Layer)</div>
+          <div class="layer-sub">다층 반사 방지 필름 + 마이크로 텍스처 균일화</div>
+          <div class="layer-stats">
+            <div class="stat-pill">단락 전류 <span class="val">+2.25%</span> 향상</div>
+            <div class="stat-pill">단파장 반사율 <span class="val">-12%</span> 감소</div>
+            <div class="stat-pill">0BB 구조 (앞면 버스바 없음)</div>
+          </div>
+        </div>
+      </div>
+      <div class="layer l2">
+        <div class="layer-num">02</div>
+        <div class="layer-body">
+          <div class="layer-title">⚡ 광전변환층 (Photovoltaic Conversion Layer)</div>
+          <div class="layer-sub">바이폴라 하이브리드 패시베이션 기술 적용</div>
+          <div class="layer-stats">
+            <div class="stat-pill">개방 전압 <span class="val">+15mV</span> → 745mV</div>
+            <div class="stat-pill">UV 유도 열화 <span class="val">현저히 감소</span></div>
+            <div class="stat-pill">N-Type TaiRay 웨이퍼</div>
+          </div>
+        </div>
+      </div>
+      <div class="layer l3">
+        <div class="layer-num">03</div>
+        <div class="layer-body">
+          <div class="layer-title">🔋 전기전송층 (Electric Transmission Layer)</div>
+          <div class="layer-sub">바이폴라 저저항 패시베이션 + 음영 최적화 통합</div>
+          <div class="layer-stats">
+            <div class="stat-pill">음영 손실 <span class="val">-70%+</span> 감소</div>
+            <div class="stat-pill">핫스팟 온도 <span class="val">-28%</span> 저하</div>
+            <div class="stat-pill">양산 수율 97%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shade-section">
+    <div class="shade-title">🌥️ 음영(그늘) 조건 실제 성능 비교 — 50% 차광 테스트</div>
+    <div class="shade-cards">
+      <div class="shade-card sc-hpbc">
+        <div class="sc-badge">BEST</div>
+        <div class="sc-name">HPBC 2.0<br>(Hi-MO X10)</div>
+        <div class="sc-loss hpbc-loss">-10.15%</div>
+        <div class="sc-bar-wrap">
+          <div class="sc-bar-bg">
+            <div class="sc-bar-fill fill-green" style="width:10.15%"></div>
+          </div>
+        </div>
+        <div class="sc-desc">음영 최적화 레이아웃으로<br>대부분의 전력 유지</div>
+      </div>
+      <div class="shade-card sc-topcon">
+        <div class="sc-badge">중간</div>
+        <div class="sc-name">TOPCon<br>(일반 모듈)</div>
+        <div class="sc-loss topcon-loss">-36.48%</div>
+        <div class="sc-bar-wrap">
+          <div class="sc-bar-bg">
+            <div class="sc-bar-fill fill-yellow" style="width:36.48%"></div>
+          </div>
+        </div>
+        <div class="sc-desc">직렬 구조로 인해<br>큰 손실 발생</div>
+      </div>
+      <div class="shade-card sc-perc">
+        <div class="sc-badge">주의</div>
+        <div class="sc-name">PERC<br>(구형 기술)</div>
+        <div class="sc-loss perc-loss">-45%+</div>
+        <div class="sc-bar-wrap">
+          <div class="sc-bar-bg">
+            <div class="sc-bar-fill fill-red" style="width:45%"></div>
+          </div>
+        </div>
+        <div class="sc-desc">음영에 가장 취약<br>핫스팟 위험 높음</div>
+      </div>
+    </div>
+    <div class="note-box">
+      📊 <strong>CPVT 공식 테스트 결과</strong>: 동일 조건(50% 차광) 하에서 HPBC 2.0은 TOPCon 대비 손실이 <strong>약 3.6배 적습니다</strong>. 나무·건물 음영이 있는 주거용·도심 설치에서 연간 발전량 차이가 크게 납니다.
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📌 출처: CPVT 음영 저항 테스트 공식 결과, LONGi 공식 기술 자료, TÜV Rheinland 인증 (2025년 기준)
+  </div>
+</div>
+</body>
+</html>
