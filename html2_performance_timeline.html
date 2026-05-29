@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>스타벅스 코리아 실적 타임라인</title>
+  <meta property="og:title" content="SCK컴퍼니 연간 실적 분석 — 매출은 성장, 이익은 반토막" />
+  <meta property="og:description" content="스타벅스 코리아 영업이익률 2021년 10%→2025년 5.3%로 추락. 이미 위기였던 수익성에 탱크데이가 기름을 부었다." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/2C3E50/FFFFFF?text=스타벅스+코리아+실적+타임라인" />
+  <meta property="og:url" content="https://yourblog.com/starbucks-korea-performance" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Sans KR',sans-serif; background:#f0f4f8; padding:20px; }
+
+    .widget {
+      background:#fff;
+      border-radius:16px;
+      padding:28px 32px;
+      box-shadow:0 2px 20px rgba(0,0,0,0.08);
+      margin-bottom:20px;
+    }
+    .widget-title {
+      font-size:17px; font-weight:700; color:#1a237e;
+      margin-bottom:24px; padding-bottom:12px;
+      border-bottom:2px solid #e8eaf6;
+      display:flex; align-items:center; gap:8px;
+    }
+
+    /* 타임라인 */
+    .timeline { position:relative; padding-left:32px; }
+    .timeline::before {
+      content:''; position:absolute; left:14px; top:8px; bottom:8px;
+      width:2px; background:linear-gradient(180deg,#3949ab,#e53935);
+    }
+    .tl-item { position:relative; margin-bottom:28px; }
+    .tl-dot {
+      position:absolute; left:-26px; top:6px;
+      width:14px; height:14px; border-radius:50%;
+      border:3px solid #fff;
+      box-shadow:0 0 0 2px currentColor;
+    }
+    .tl-year { font-size:12px; font-weight:700; color:#888; margin-bottom:6px; letter-spacing:0.05em; }
+    .tl-card {
+      background:#f8f9fd;
+      border-radius:12px;
+      padding:14px 16px;
+      border-left:4px solid;
+    }
+    .tl-row { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:6px; }
+    .tl-metric { flex:1; min-width:100px; }
+    .tl-metric-label { font-size:11px; color:#888; margin-bottom:2px; }
+    .tl-metric-value { font-size:16px; font-weight:700; }
+    .tl-note { font-size:12px; color:#666; line-height:1.5; margin-top:6px; }
+
+    /* 색상 */
+    .y2021 .tl-card { border-color:#3949ab; background:#f3f4ff; }
+    .y2021 .tl-dot { color:#3949ab; background:#3949ab; }
+    .y2022 .tl-card { border-color:#f57c00; background:#fff8f0; }
+    .y2022 .tl-dot { color:#f57c00; background:#f57c00; }
+    .y2023 .tl-card { border-color:#f9a825; background:#fffbf0; }
+    .y2023 .tl-dot { color:#f9a825; background:#f9a825; }
+    .y2024 .tl-card { border-color:#2e7d32; background:#f1f8f2; }
+    .y2024 .tl-dot { color:#2e7d32; background:#2e7d32; }
+    .y2025 .tl-card { border-color:#c62828; background:#fff5f5; }
+    .y2025 .tl-dot { color:#c62828; background:#c62828; }
+    .y2026now .tl-card { border-color:#6a1b9a; background:#fce4ec; }
+    .y2026now .tl-dot { color:#6a1b9a; background:#6a1b9a; }
+
+    /* 수익률 게이지 */
+    .gauge-section { margin-top:24px; }
+    .gauge-title { font-size:14px; font-weight:700; color:#333; margin-bottom:14px; }
+    .gauge-row { margin-bottom:12px; display:flex; align-items:center; gap:12px; }
+    .gauge-year { font-size:12px; font-weight:600; color:#555; width:40px; }
+    .gauge-track { flex:1; background:#eee; border-radius:20px; height:22px; overflow:hidden; }
+    .gauge-fill {
+      height:100%; border-radius:20px;
+      display:flex; align-items:center; padding-left:8px;
+      font-size:11px; font-weight:700; color:#fff;
+      transition:width 1.2s;
+    }
+    .gauge-pct { font-size:13px; font-weight:700; width:50px; text-align:right; }
+
+    /* 경고 박스 */
+    .warn-box {
+      background:#fff3e0; border:1.5px solid #ffb74d;
+      border-radius:12px; padding:16px 18px;
+      font-size:13px; color:#444; line-height:1.7;
+    }
+    .warn-box strong { color:#e65100; }
+
+    .source-note { font-size:11px; color:#aaa; text-align:right; margin-top:14px; }
+  </style>
+</head>
+<body>
+
+  <div class="widget">
+    <div class="widget-title">📅 SCK컴퍼니(스타벅스 코리아) 연간 실적 타임라인</div>
+    <div class="timeline">
+
+      <div class="tl-item y2021">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2021년 (역대 최고 수익성)</div>
+        <div class="tl-card">
+          <div class="tl-row">
+            <div class="tl-metric"><div class="tl-metric-label">매출</div><div class="tl-metric-value" style="color:#3949ab;">2조 3,856억</div></div>
+            <div class="tl-metric"><div class="tl-metric-label">영업이익</div><div class="tl-metric-value" style="color:#3949ab;">2,393억</div></div>
+            <div class="tl-metric"><div class="tl-metric-label">영업이익률</div><div class="tl-metric-value" style="color:#3949ab;">10.0%</div></div>
+          </div>
+          <div class="tl-note">📌 이마트, 미국 본사로부터 지분 17.5% 추가 인수 → 67.5% 최대주주 등극. '35% 할인 콜옵션' 조항 설정.</div>
+        </div>
+      </div>
+
+      <div class="tl-item y2022">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2022년 (수익성 급락)</div>
+        <div class="tl-card">
+          <div class="tl-row">
+            <div class="tl-metric"><div class="tl-metric-label">매출</div><div class="tl-metric-value" style="color:#f57c00;">약 2조 5,000억</div></div>
+            <div class="tl-metric"><div class="tl-metric-label">영업이익</div><div class="tl-metric-value" style="color:#f57c00;">약 1,183억</div></div>
+            <div class="tl-metric"><div class="tl-metric-label">영업이익률</div><div class="tl-metric-value" style="color:#f57c00;">4.7%</div></div>
+          </div>
+          <div class="tl-note">⚠️ 영업이익률 1년 만에 절반 이상 붕괴. 메가커피·컴포즈커피 급성장, 고물가로 소비 부담 증가.</div>
+        </div>
+      </div>
+
+      <div class="tl-item y2023">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023년 (바닥권 지속)</div>
+        <div class="tl-card">
+          <div class="tl-row">
+            <div class="tl-metric"><div class="tl-metric-label">매출</div><div class="tl-metric-value" style="color:#b8860b;">약 2조 8,000억</div></div>
+            <div class="tl-metric"><div class="tl-metric-label">영업이익</div><div class="tl-metric-value" style="color:#b8860b;">약 1,344억</div></div>
+            <div class="tl-metric"><div class="tl-metric-label">영업이익률</div><div class="tl-metric-value" style="color:#b8860b;">4.8%</div></div>
+          </div>
+          <div class="tl-note">📊 매출은 꾸준히 성장하지만 영업이익률 바닥 탈출 못함. 매장 수 증가에도 수익성 개선 한계.</div>
+        </div>
+      </div>
+
+      <div class="tl-item y2024">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024년 (부분 회복)</div>
+        <div class="tl-card">
+          <div class="tl-row">
+            <div class="tl-metric"><div class="tl-metric-label">매출</div><div class="tl-metric-value" style="color:#2e7d32;">3조 1,001억</div></div>
+            <div class="tl-metric"><div class="tl-metric-label">영업이익</div><div class="tl-metric-value" style="color:#2e7d32;">1,907억</div></div>
+            <div class="tl-metric"><div class="tl-metric-label">영업이익률</div><div class="tl-metric-value" style="color:#2e7d32;">6.2%</div></div>
+          </div>
+          <div class="tl-note">✅ 매출 첫 3조 돌파. 영업이익률도 다소 회복. 그러나 2021년 10% 수준엔 여전히 미달.</div>
+        </div>
+      </div>
+
+      <div class="tl-item y2025">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025년 (또다시 역주행)</div>
+        <div class="tl-card">
+          <div class="tl-row">
+            <div class="tl-metric"><div class="tl-metric-label">매출</div><div class="tl-metric-value" style="color:#c62828;">3조 2,380억</div></div>
+            <div class="tl-metric"><div class="tl-metric-label">영업이익</div><div class="tl-metric-value" style="color:#c62828;">1,730억 ▼</div></div>
+            <div class="tl-metric"><div class="tl-metric-label">영업이익률</div><div class="tl-metric-value" style="color:#c62828;">5.3%</div></div>
+          </div>
+          <div class="tl-note">🔻 고환율·원두 원재료비 상승으로 영업이익 전년比 9.3%(177억) 감소. 4분기 단독으로는 22% 감소.</div>
+        </div>
+      </div>
+
+      <div class="tl-item y2026now">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2026년 5월 — 탱크데이 사태 발생</div>
+        <div class="tl-card">
+          <div class="tl-metric"><div class="tl-metric-label">주간 결제 감소액</div><div class="tl-metric-value" style="color:#6a1b9a;">-84억 7천만 원 (-26.3%)</div></div>
+          <div class="tl-note">💥 불매운동으로 주간 결제금액 급락. 연간 손실 영향 시 2026년 연간 실적 대규모 타격 불가피. 손정현 대표 해임. 콜옵션 우려 확산.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 영업이익률 게이지 -->
+  <div class="widget">
+    <div class="widget-title">📉 영업이익률 추락 — 10% → 5%대</div>
+    <div class="gauge-section">
+      <div class="gauge-row">
+        <div class="gauge-year">2021</div>
+        <div class="gauge-track"><div class="gauge-fill" style="width:100%;background:linear-gradient(90deg,#1565c0,#42a5f5);">2021</div></div>
+        <div class="gauge-pct" style="color:#1565c0;">10.0%</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-year">2022</div>
+        <div class="gauge-track"><div class="gauge-fill" style="width:47%;background:linear-gradient(90deg,#f57c00,#ffb74d);">2022</div></div>
+        <div class="gauge-pct" style="color:#f57c00;">4.7%</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-year">2023</div>
+        <div class="gauge-track"><div class="gauge-fill" style="width:48%;background:linear-gradient(90deg,#f9a825,#ffd54f);">2023</div></div>
+        <div class="gauge-pct" style="color:#b8860b;">4.8%</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-year">2024</div>
+        <div class="gauge-track"><div class="gauge-fill" style="width:62%;background:linear-gradient(90deg,#2e7d32,#66bb6a);">2024</div></div>
+        <div class="gauge-pct" style="color:#2e7d32;">6.2%</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-year">2025</div>
+        <div class="gauge-track"><div class="gauge-fill" style="width:53%;background:linear-gradient(90deg,#c62828,#ef5350);">2025</div></div>
+        <div class="gauge-pct" style="color:#c62828;">5.3%</div>
+      </div>
+    </div>
+    <div class="warn-box" style="margin-top:16px;">
+      <strong>⚡ 핵심 문제:</strong> 매출은 2021년 대비 35.6% 성장했지만 영업이익은 오히려 27.7% 감소했습니다.<br>
+      매출 3조를 돌파해도 이익이 줄어드는 구조적 수익성 위기가 이미 진행 중이었으며, 탱크데이 불매운동은 여기에 결정타를 날린 셈입니다.
+    </div>
+    <div class="source-note">출처: 금융감독원 전자공시시스템 SCK컴퍼니 감사보고서, 이마트 연결 실적 공시</div>
+  </div>
+
+</body>
+</html>
