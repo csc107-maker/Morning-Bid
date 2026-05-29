@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="국민연금 2027~2031 중기자산배분 방향성 완전 분석" />
+  <meta property="og:description" content="2031년 목표: 주식 55%, 채권 30%, 대체투자 15%. 국민연금의 5년 로드맵과 해외투자 확대 기조를 한눈에 파악하세요." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80" />
+  <meta property="og:url" content="https://blog.example.com/nps-midterm-plan-2027-2031" />
+  <title>국민연금 중기자산배분 방향성 2027~2031</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #fdf4ff;
+      padding: 24px 16px;
+    }
+    /* ===== 썸네일 ===== */
+    .thumbnail {
+      max-width: 760px; margin: 0 auto 20px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1F52CD 100%);
+      border-radius: 20px;
+      padding: 44px 40px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .thumbnail::before {
+      content: '';
+      position: absolute;
+      right: -60px; top: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .thumbnail::after {
+      content: '';
+      position: absolute;
+      right: 40px; bottom: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .thumb-kicker {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      color: #93c5fd; margin-bottom: 16px;
+    }
+    .thumb-title {
+      font-size: 26px; font-weight: 900; line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .thumb-title span { color: #60a5fa; }
+    .thumb-sub { font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 24px; }
+    .thumb-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .thumb-badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 12px; font-weight: 600;
+      padding: 5px 14px; border-radius: 20px;
+    }
+    /* ===== 로드맵 카드 ===== */
+    .roadmap-card {
+      max-width: 760px; margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 36px rgba(99,0,180,0.08);
+    }
+    .rm-head {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      padding: 24px 32px;
+      color: #fff;
+    }
+    .rm-head h3 { font-size: 17px; font-weight: 800; margin-bottom: 4px; }
+    .rm-head p { font-size: 12px; opacity: 0.85; }
+    .rm-body { padding: 28px 32px; }
+    /* 연도별 가로 로드맵 */
+    .road { display: flex; gap: 0; margin-bottom: 28px; overflow-x: auto; }
+    .road-step {
+      flex: 1; min-width: 110px;
+      padding: 16px 12px;
+      text-align: center;
+      border-right: 1px dashed #e5e7eb;
+      position: relative;
+    }
+    .road-step:last-child { border-right: none; }
+    .road-year {
+      font-size: 12px; font-weight: 700;
+      color: #6b7280; margin-bottom: 8px;
+    }
+    .road-domestic {
+      font-size: 18px; font-weight: 900;
+      margin-bottom: 2px;
+    }
+    .road-label { font-size: 10px; color: #9ca3af; }
+    .road-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      margin: 8px auto 0;
+    }
+    /* 대분류 목표 */
+    .big-target {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .bt-card {
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+    }
+    .bt-card .big-num { font-size: 28px; font-weight: 900; }
+    .bt-card .big-lbl { font-size: 12px; margin-top: 4px; font-weight: 600; }
+    .bt-stock { background: #eff6ff; }
+    .bt-stock .big-num { color: #1F52CD; }
+    .bt-stock .big-lbl { color: #3b82f6; }
+    .bt-bond { background: #f0fdf4; }
+    .bt-bond .big-num { color: #15803d; }
+    .bt-bond .big-lbl { color: #16a34a; }
+    .bt-alt { background: #fff7ed; }
+    .bt-alt .big-num { color: #c2410c; }
+    .bt-alt .big-lbl { color: #ea580c; }
+    /* 포인트 박스 */
+    .point-list { display: flex; flex-direction: column; gap: 10px; }
+    .point-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: #faf5ff;
+      border: 1.5px solid #e9d5ff;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .point-item .num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: #7c3aed; color: #fff;
+      font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .point-item .text { font-size: 13px; color: #374151; line-height: 1.6; }
+    .fnote {
+      background: #faf5ff;
+      border-top: 1px solid #e9d5ff;
+      padding: 12px 32px;
+      font-size: 11px; color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 썸네일 -->
+  <div class="thumbnail">
+    <div class="thumb-kicker">🏦 NPS MIDTERM STRATEGY 2027–2031</div>
+    <div class="thumb-title">국민연금 <span>5년 로드맵</span><br>해외·대체투자 확대 기조 유지</div>
+    <div class="thumb-sub">2031년 말 목표: 주식 55% | 채권 30% | 대체투자 15%</div>
+    <div class="thumb-badges">
+      <span class="thumb-badge">📈 국내주식 20.8% 유지</span>
+      <span class="thumb-badge">🌍 해외주식 확대</span>
+      <span class="thumb-badge">🏗️ 대체투자 15%</span>
+      <span class="thumb-badge">💡 2026.05.28 확정</span>
+    </div>
+  </div>
+
+  <!-- 로드맵 카드 -->
+  <div class="roadmap-card">
+    <div class="rm-head">
+      <h3>📅 국민연금 중기자산배분 로드맵 (2026~2031)</h3>
+      <p>2026년 5월 28일 제5차 기금운용위원회 의결 — 국내주식 목표비중 연도별 변화</p>
+    </div>
+    <div class="rm-body">
+
+      <div style="font-size:12px;color:#6b7280;margin-bottom:12px;font-weight:600">▼ 국내주식 목표비중 연도별 추이</div>
+      <div class="road">
+        <div class="road-step">
+          <div class="road-year">2025년</div>
+          <div class="road-domestic" style="color:#9ca3af">14.4%</div>
+          <div class="road-label">당초 목표</div>
+          <div class="road-dot" style="background:#e5e7eb"></div>
+        </div>
+        <div class="road-step">
+          <div class="road-year">2026.01</div>
+          <div class="road-domestic" style="color:#f59e0b">14.9%</div>
+          <div class="road-label">1차 상향</div>
+          <div class="road-dot" style="background:#f59e0b"></div>
+        </div>
+        <div class="road-step">
+          <div class="road-year">2026.06~</div>
+          <div class="road-domestic" style="color:#dc2626">20.8%</div>
+          <div class="road-label">최종 확정 ★</div>
+          <div class="road-dot" style="background:#dc2626"></div>
+        </div>
+        <div class="road-step">
+          <div class="road-year">2027년</div>
+          <div class="road-domestic" style="color:#1F52CD">20.8%</div>
+          <div class="road-label">동일 유지</div>
+          <div class="road-dot" style="background:#1F52CD"></div>
+        </div>
+        <div class="road-step">
+          <div class="road-year">2031년</div>
+          <div class="road-domestic" style="color:#7c3aed">미공개</div>
+          <div class="road-label">세부비공개</div>
+          <div class="road-dot" style="background:#7c3aed"></div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;color:#6b7280;margin-bottom:12px;font-weight:600">▼ 2031년 말 대분류 목표비중 (최종 목표)</div>
+      <div class="big-target">
+        <div class="bt-card bt-stock">
+          <div class="big-num">55%</div>
+          <div class="big-lbl">주식 전체<br>(국내+해외)</div>
+        </div>
+        <div class="bt-card bt-bond">
+          <div class="big-num">30%</div>
+          <div class="big-lbl">채권 전체<br>(국내+해외)</div>
+        </div>
+        <div class="bt-card bt-alt">
+          <div class="big-num">15%</div>
+          <div class="big-lbl">대체투자<br>(사모·인프라·부동산)</div>
+        </div>
+      </div>
+
+      <div style="font-size:12px;color:#6b7280;margin-bottom:12px;font-weight:600">▼ 핵심 전략 방향 3가지</div>
+      <div class="point-list">
+        <div class="point-item">
+          <div class="num">1</div>
+          <div class="text"><strong>해외투자·대체투자 확대 기조 유지</strong> — 기금 규모가 1,600조 원을 넘어서면서 국내 자본시장만으로 운용 한계에 직면. 해외주식과 인프라·사모펀드 등 대체투자를 장기적으로 늘려가는 방향이 중심.</div>
+        </div>
+        <div class="point-item">
+          <div class="num">2</div>
+          <div class="text"><strong>국내주식 20.8% 당분간 동결</strong> — 코스피 급등 이후 고점 우려와 시장 모니터링 필요성을 고려해 2027년도 국내주식 목표비중도 20.8%로 유지. 향후 시장 상황 변화에 따라 재조정 가능성 열어둠.</div>
+        </div>
+        <div class="point-item">
+          <div class="num">3</div>
+          <div class="text"><strong>유연한 리밸런싱 규칙 적용</strong> — SAA 허용범위를 한시 확대하고 세부 내용 비공개 처리. 기계적 대규모 매도를 자제하고 시장 충격을 최소화하는 방향으로 운용 방침 전환.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="fnote">
+      출처: 국민연금기금운용위원회, 보건복지부 정책브리핑, 뉴스핌, 경향신문 (2026.05.28) | 세부 비중은 국민연금법 제103조의2에 따라 비공개 | 투자 권유 아님
+    </div>
+  </div>
+
+</body>
+</html>
