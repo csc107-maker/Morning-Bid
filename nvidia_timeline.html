@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>엔비디아 포토닉스 투자 타임라인</title>
+<meta property="og:title" content="엔비디아 65억달러 포토닉스 투자 전체 타임라인 (2026.03~)" />
+<meta property="og:description" content="Lumentum·Coherent·Marvell·Corning·Ayar Labs — 엔비디아의 단계별 광학기술 투자 지도" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/f8fffe/0d9488?text=NVIDIA+Photonics+Timeline" />
+<meta property="og:url" content="https://yourblog.com/nvidia-photonics-korean-stocks-2026" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#f8fffe;padding:32px 24px;}
+h2{text-align:center;font-size:22px;font-weight:900;color:#0d1f3c;margin-bottom:4px;}
+.subtitle{text-align:center;font-size:13px;color:#4a7a72;margin-bottom:32px;}
+.total-badge{
+  display:block;width:fit-content;margin:0 auto 28px;
+  background:linear-gradient(135deg,#0d9488,#0f766e);
+  color:#fff;font-size:18px;font-weight:900;
+  padding:10px 28px;border-radius:30px;
+  box-shadow:0 4px 16px rgba(13,148,136,0.3);
+}
+/* 타임라인 */
+.timeline{position:relative;padding-left:60px;max-width:820px;margin:0 auto;}
+.timeline::before{
+  content:'';position:absolute;left:28px;top:0;bottom:0;
+  width:3px;background:linear-gradient(to bottom,#0d9488,#2563eb,#8b5cf6);
+  border-radius:2px;
+}
+.tl-item{position:relative;margin-bottom:24px;}
+.tl-dot{
+  position:absolute;left:-46px;top:16px;
+  width:18px;height:18px;border-radius:50%;
+  border:3px solid #fff;box-shadow:0 0 0 2px;
+  z-index:1;
+}
+.tl-item:nth-child(1) .tl-dot{background:#0d9488;box-shadow:0 0 0 2px #0d9488;}
+.tl-item:nth-child(2) .tl-dot{background:#0d9488;box-shadow:0 0 0 2px #0d9488;}
+.tl-item:nth-child(3) .tl-dot{background:#2563eb;box-shadow:0 0 0 2px #2563eb;}
+.tl-item:nth-child(4) .tl-dot{background:#8b5cf6;box-shadow:0 0 0 2px #8b5cf6;}
+.tl-item:nth-child(5) .tl-dot{background:#f59e0b;box-shadow:0 0 0 2px #f59e0b;}
+.tl-card{
+  background:#fff;border-radius:14px;padding:18px 20px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.07);
+  border-left:4px solid;
+}
+.tl-item:nth-child(1) .tl-card{border-color:#0d9488;}
+.tl-item:nth-child(2) .tl-card{border-color:#0d9488;}
+.tl-item:nth-child(3) .tl-card{border-color:#2563eb;}
+.tl-item:nth-child(4) .tl-card{border-color:#8b5cf6;}
+.tl-item:nth-child(5) .tl-card{border-color:#f59e0b;}
+.tl-date{font-size:12px;font-weight:700;color:#9ca3af;margin-bottom:6px;}
+.tl-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.tl-company{font-size:17px;font-weight:900;color:#0d1f3c;}
+.tl-amount{
+  font-size:16px;font-weight:900;
+  padding:4px 12px;border-radius:20px;
+}
+.tl-item:nth-child(1) .tl-amount{background:#ecfdf5;color:#059669;}
+.tl-item:nth-child(2) .tl-amount{background:#ecfdf5;color:#059669;}
+.tl-item:nth-child(3) .tl-amount{background:#eff6ff;color:#2563eb;}
+.tl-item:nth-child(4) .tl-amount{background:#f5f3ff;color:#7c3aed;}
+.tl-item:nth-child(5) .tl-amount{background:#fffbeb;color:#b45309;}
+.tl-desc{font-size:13px;color:#4a5568;line-height:1.7;margin-bottom:10px;}
+.tl-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.tl-tag{
+  font-size:11px;font-weight:600;padding:3px 8px;
+  border-radius:6px;background:#f1f5f9;color:#475569;
+}
+.platform-box{
+  margin-top:28px;background:#fff;border-radius:14px;padding:20px;
+  border:2px solid #e2e8f0;
+}
+.platform-title{font-size:15px;font-weight:900;color:#0d1f3c;margin-bottom:14px;}
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.platform-card{
+  background:linear-gradient(135deg,#f0fdf4,#ecfdf5);
+  border:1px solid #bbf7d0;border-radius:10px;padding:14px;
+}
+.platform-name{font-size:14px;font-weight:900;color:#065f46;margin-bottom:6px;}
+.platform-spec{font-size:12px;color:#4a5568;line-height:1.7;}
+</style>
+</head>
+<body>
+<h2>🗓️ 엔비디아 포토닉스 투자 타임라인</h2>
+<p class="subtitle">2026년 3월부터 단 3개월 만에 완성한 포토닉스 생태계 구축 로드맵</p>
+<div class="total-badge">💰 총 투자 규모: $6.5B+ (약 9조 1,000억 원)</div>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-date">2026년 3월 2일</div>
+      <div class="tl-header">
+        <div class="tl-company">🔴 Lumentum (루멘텀)</div>
+        <div class="tl-amount">$20억 투자</div>
+      </div>
+      <div class="tl-desc">
+        레이저·광학 네트워킹 기술 확보 목적. R&D·미국 내 제조 역량 구축 지원. 파장가변형 레이저 기술 핵심 파트너.
+        비배타적 계약으로 다년간 구매 약정 포함.
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">레이저</span><span class="tl-tag">광학 네트워킹</span><span class="tl-tag">미국 제조</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-date">2026년 3월 2일</div>
+      <div class="tl-header">
+        <div class="tl-company">🔵 Coherent (코히런트)</div>
+        <div class="tl-amount">$20억 투자</div>
+      </div>
+      <div class="tl-desc">
+        차세대 AI 인프라를 위한 첨단 광학 기술 공동 개발. 레이저·광 네트워킹 제품 생산 확장 및 R&D 지원.
+        미국 기반 제조 역량 확충, 다년간 구매 약정 포함.
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">광 네트워킹</span><span class="tl-tag">AI 인프라</span><span class="tl-tag">레이저 소자</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-date">2026년 3월 (Celestial AI 인수 후)</div>
+      <div class="tl-header">
+        <div class="tl-company">🟦 Marvell (마벨)</div>
+        <div class="tl-amount">$20억 투자</div>
+      </div>
+      <div class="tl-desc">
+        NVLink Fusion·커스텀 AI 인프라·실리콘 포토닉스 파트너십. Marvell은 2025년 12월 포토닉스 스타트업 Celestial AI 인수.
+        AI 네트워킹용 실리콘 포토닉스 솔루션 개발에 집중.
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">실리콘 포토닉스</span><span class="tl-tag">NVLink Fusion</span><span class="tl-tag">AI 칩</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-date">2026년 5월</div>
+      <div class="tl-header">
+        <div class="tl-company">🟣 Corning (코닝)</div>
+        <div class="tl-amount">$3.2억~5억 + 다년 구매약정</div>
+      </div>
+      <div class="tl-desc">
+        미국 내 광학 연결 제조 역량 10배 확대, 광섬유 생산 50% 이상 증가 목표.
+        노스캐롤라이나·텍사스 신규 공장 3개 건설, 3,000개 이상 일자리 창출. 총 투자액 최대 $3.2B.
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">광섬유</span><span class="tl-tag">광케이블</span><span class="tl-tag">미국 제조 확대</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-date">2026년 (AMD·MediaTek 공동)</div>
+      <div class="tl-header">
+        <div class="tl-company">🟡 Ayar Labs</div>
+        <div class="tl-amount">$5억 Series E 참여</div>
+      </div>
+      <div class="tl-desc">
+        프로세서에 직접 통합되는 실리콘 포토닉스 칩렛 개발 스타트업. 기업 가치 $37.5억. Co-Packaged Optics(CPO) 기술의
+        가장 선진적인 구현체. AMD·MediaTek도 공동 참여.
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">CPO</span><span class="tl-tag">칩렛</span><span class="tl-tag">스타트업 투자</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NVIDIA 포토닉스 플랫폼 -->
+<div class="platform-box">
+  <div class="platform-title">⚙️ NVIDIA 자체 포토닉스 플랫폼 현황</div>
+  <div class="platform-grid">
+    <div class="platform-card">
+      <div class="platform-name">Spectrum-X Photonics</div>
+      <div class="platform-spec">
+        ✅ 이더넷 기반 AI 클러스터용<br>
+        ✅ 포트당 1.6Tbps 대역폭<br>
+        ✅ 기존 대비 3.5배 에너지 절감<br>
+        ✅ 네트워크 복원력 10배 향상<br>
+        🏭 TSMC·Coherent·Lumentum·Corning·Foxconn 협력
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-name">Quantum-X Photonics</div>
+      <div class="platform-spec">
+        ✅ InfiniBand 기반 초대형 AI 클러스터용<br>
+        ✅ 수백만 GPU 멀티 사이트 연결<br>
+        ✅ 최초 상용급 CPO 네트워킹 스위치<br>
+        ✅ 2026년 3월 최초 공개<br>
+        🎯 젠슨 황: "AI 팩토리 스케일링에 필수"
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
