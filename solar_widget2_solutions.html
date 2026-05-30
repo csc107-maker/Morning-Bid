@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="소규모 태양광 대출 막혔을 때 5가지 대책 — 정책금융·햇빛소득마을" />
+  <meta property="og:description" content="신협·새마을금고 대출이 어렵다면? 재생에너지 정책융자·햇빛소득마을·VPP 등 5가지 대안을 정리합니다." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/e8f5e9/1a1a2e?text=태양광+대출+대책+가이드" />
+  <meta property="og:url" content="https://yourblog.com/solar-loan-alternatives-2026" />
+  <title>태양광 대출 대책 가이드</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+    * { margin:0;padding:0;box-sizing:border-box; }
+    body {
+      font-family:'Noto Sans KR',sans-serif;
+      background:#f0fdf4;padding:32px 20px 40px;color:#1a1a2e;
+    }
+    .hdr { text-align:center;margin-bottom:28px; }
+    .badge {
+      display:inline-block;
+      background:linear-gradient(90deg,#2e7d32,#43a047);
+      color:white;font-size:12px;font-weight:700;
+      padding:5px 16px;border-radius:50px;margin-bottom:10px;
+    }
+    .title { font-size:24px;font-weight:900;color:#1b5e20;margin-bottom:6px; }
+    .sub { font-size:13px;color:#555; }
+
+    .sec { font-size:16px;font-weight:700;color:#2e7d32;
+      padding-left:12px;border-left:4px solid #43a047;margin:26px 0 14px; }
+
+    /* 대책 카드 5종 */
+    .sol-grid { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px; }
+    .sol-card {
+      background:white;border-radius:16px;padding:20px 16px;
+      box-shadow:0 2px 12px rgba(0,0,0,0.07);
+      border-top:5px solid #43a047;
+    }
+    .sol-card:nth-child(2) { border-top-color:#1565c0; }
+    .sol-card:nth-child(3) { border-top-color:#f57c00; }
+    .sol-card:nth-child(4) { border-top-color:#6a1b9a; }
+    .sol-card.full { grid-column:1/-1;border-top-color:#e53935; }
+
+    .sol-num { font-size:11px;font-weight:700;letter-spacing:1px;color:#43a047;margin-bottom:4px; }
+    .sol-card:nth-child(2) .sol-num { color:#1565c0; }
+    .sol-card:nth-child(3) .sol-num { color:#f57c00; }
+    .sol-card:nth-child(4) .sol-num { color:#6a1b9a; }
+    .sol-card.full .sol-num { color:#e53935; }
+
+    .sol-icon { font-size:34px;margin-bottom:8px; }
+    .sol-title { font-size:16px;font-weight:900;color:#1a1a2e;margin-bottom:8px; }
+    .sol-body { font-size:12px;color:#555;line-height:1.75; }
+    .sol-tag {
+      display:inline-block;margin-top:10px;
+      font-size:11px;font-weight:700;
+      background:#e8f5e9;color:#2e7d32;
+      padding:3px 10px;border-radius:6px;
+    }
+    .sol-card:nth-child(2) .sol-tag { background:#e3f2fd;color:#0d47a1; }
+    .sol-card:nth-child(3) .sol-tag { background:#fff3e0;color:#e65100; }
+    .sol-card:nth-child(4) .sol-tag { background:#f3e5f5;color:#4a148c; }
+    .sol-card.full .sol-tag { background:#fce4ec;color:#c62828; }
+
+    /* 정책금융 상품 비교표 */
+    .ptbl {
+      width:100%;border-collapse:collapse;background:white;
+      border-radius:14px;overflow:hidden;
+      box-shadow:0 2px 12px rgba(0,0,0,0.07);margin-bottom:18px;
+    }
+    .ptbl thead tr { background:linear-gradient(90deg,#2e7d32,#43a047);color:white; }
+    .ptbl th { padding:11px 13px;font-size:12px;font-weight:700;text-align:center; }
+    .ptbl td { padding:11px 13px;font-size:12px;text-align:center;border-bottom:1px solid #e8f5e9; }
+    .ptbl tr:last-child td { border-bottom:none; }
+    .ptbl tr:hover td { background:#f0fdf4; }
+    .ptbl td:first-child { text-align:left;font-weight:700; }
+    .ptbl td:first-child .sub-name { font-size:11px;color:#888;font-weight:400; }
+    .best { color:#2e7d32;font-weight:700; }
+    .warn { color:#e53935;font-weight:700; }
+    .nt { color:#888; }
+
+    /* 햇빛소득마을 상세 */
+    .village-box {
+      background:white;border-radius:14px;padding:22px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px;
+    }
+    .vb-title { font-size:15px;font-weight:700;color:#1b5e20;margin-bottom:14px; }
+    .vb-grid { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+    .vb-item { background:#f0fdf4;border-radius:10px;padding:12px 14px; }
+    .vb-label { font-size:11px;color:#888;margin-bottom:4px; }
+    .vb-val { font-size:16px;font-weight:900;color:#1b5e20; }
+    .vb-desc { font-size:11px;color:#555;margin-top:3px; }
+
+    /* 체크리스트 */
+    .checklist { background:white;border-radius:14px;padding:20px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.06); }
+    .cl-title { font-size:14px;font-weight:700;color:#1b5e20;margin-bottom:12px; }
+    .cl-item { display:flex;gap:10px;padding:8px 0;border-bottom:1px solid #f0fdf4;font-size:13px; }
+    .cl-item:last-child { border-bottom:none; }
+    .cl-icon { font-size:18px;flex-shrink:0;width:22px; }
+    .cl-text { flex:1;color:#333; }
+    .cl-badge {
+      font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;flex-shrink:0;
+    }
+    .cb-green { background:#e8f5e9;color:#2e7d32; }
+    .cb-orange { background:#fff3e0;color:#e65100; }
+    .cb-red { background:#fce4ec;color:#c62828; }
+
+    .src { font-size:11px;color:#aaa;text-align:right;margin-top:6px; }
+  </style>
+</head>
+<body>
+  <div class="hdr">
+    <div class="badge">💡 대책 & 대안 가이드</div>
+    <div class="title">태양광 대출이 막혔다면? — 5가지 실전 대책</div>
+    <div class="sub">정책금융 경로 + 수익성 개선 + 신규 사업 모델까지</div>
+  </div>
+
+  <!-- 5가지 대책 -->
+  <div class="sec">① 소규모 태양광 사업자를 위한 5가지 대책</div>
+  <div class="sol-grid">
+
+    <div class="sol-card">
+      <div class="sol-num">SOLUTION 01</div>
+      <div class="sol-icon">🏛️</div>
+      <div class="sol-title">재생에너지 정책융자 활용</div>
+      <div class="sol-body">
+        가장 유리한 조건의 대출. 기후에너지환경부 → 한국에너지공단 신재생에너지센터 → 금융기관(2026년부터 농협·신협·새마을금고 포함) 경로. 연 1.75%, 5년 거치 10년 상환. 2026년 예산 6,480억원(추경 시 8,605억원).
+      </div>
+      <div class="sol-tag">연 1.75% · 최대 300억 · 신협·농협 추가</div>
+    </div>
+
+    <div class="sol-card">
+      <div class="sol-num">SOLUTION 02</div>
+      <div class="sol-icon">🏘️</div>
+      <div class="sol-title">햇빛소득마을 사업 참여</div>
+      <div class="sol-body">
+        마을 주민 공동체가 주체가 돼 발전소 설치·운영하는 정부 지원사업. 설치비 최대 85%를 연 1.75%로 장기 융자. 지역 농·수협 등 대출도 활용 가능하며, 500kW 이상 시 REC 가중치(+0.2) 추가 혜택. 2026년 국비 5,500억 투입, 전국 확산 중.
+      </div>
+      <div class="sol-tag">설치비 85% 융자 · REC 가중치 우대</div>
+    </div>
+
+    <div class="sol-card">
+      <div class="sol-num">SOLUTION 03</div>
+      <div class="sol-icon">⚡</div>
+      <div class="sol-title">VPP(가상발전소) 등록으로 수익 보완</div>
+      <div class="sol-body">
+        SMP 하락에 대응해 한전 외 전력거래소(KPX) 시장 거래로 수익 구조 다변화. VPP(전력중개사업자) 통해 예측제도·준중앙제도 참여 → SMP 외 추가 정산금 수령 가능. 수익성 개선이 대출 상환 가능성을 높여 대출 심사 통과에 유리.
+      </div>
+      <div class="sol-tag">KPX 거래 · 추가 정산금 · 수익 안정화</div>
+    </div>
+
+    <div class="sol-card">
+      <div class="sol-num">SOLUTION 04</div>
+      <div class="sol-icon">📋</div>
+      <div class="sol-title">장기고정가격계약(PPA) 체결</div>
+      <div class="sol-body">
+        SMP 변동성 리스크를 차단하는 가장 안정적 수익 방어 수단. RE100 이행 기업과 직접 전력구매계약(직접PPA) 체결 시 고정 단가로 장기 판매 가능. 2026년 고정가격계약 상한선 상향 예정으로 매력도 증가. 안정적 현금흐름이 금융기관 심사 통과의 핵심 근거.
+      </div>
+      <div class="sol-tag">변동 리스크 제거 · RE100 기업 수요↑</div>
+    </div>
+
+    <div class="sol-card full">
+      <div class="sol-num">SOLUTION 05 — 긴급 대안 경로</div>
+      <div class="sol-icon">🔄</div>
+      <div class="sol-title">시중은행·IBK기업은행·산업은행으로 대출 경로 전환</div>
+      <div class="sol-body">
+        자체 재원이 부족한 상호금융 대신 시중은행(국민·신한·하나·우리)이나 정책금융기관(IBK기업은행·KDB산업은행·한국에너지공단 연계)을 통해 정책융자를 신청할 수 있습니다. 신재생에너지센터 자금추천서를 먼저 받은 뒤 금융기관에 제출하는 방식. 소규모(100kW 미만)는 지역농협·신협 경로가 여전히 유효하나 정책금융 경로 병행이 안전합니다.
+      </div>
+      <div class="sol-tag">IBK·KDB · 정책금융기관 직접 신청 병행 권장</div>
+    </div>
+
+  </div>
+
+  <!-- 정책금융 비교표 -->
+  <div class="sec">② 2026년 주요 태양광 정책금융 상품 비교</div>
+  <table class="ptbl">
+    <thead>
+      <tr>
+        <th style="text-align:left">상품명</th>
+        <th>금리</th>
+        <th>거치·상환</th>
+        <th>한도</th>
+        <th>신청 기관</th>
+        <th>특이사항</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>재생에너지 금융지원사업<div class="sub-name">(한국에너지공단)</div></td>
+        <td class="best">연 1.75%</td>
+        <td>5년 거치<br>10년 상환</td>
+        <td>300억원 이내</td>
+        <td>시중은행·정책금융기관<br>+농협·신협·새마을금고(신규)</td>
+        <td class="best">2026 예산 6,480억</td>
+      </tr>
+      <tr>
+        <td>햇빛소득마을 융자<div class="sub-name">(행정안전부)</div></td>
+        <td class="best">연 1.75%</td>
+        <td>장기 저리</td>
+        <td>설치비 85%</td>
+        <td>지역농협·수협 연계</td>
+        <td class="best">REC 가중치 +0.2</td>
+      </tr>
+      <tr>
+        <td>농협 태양광발전시설자금<div class="sub-name">(농협 상호금융)</div></td>
+        <td class="nt">시장금리</td>
+        <td>최장 20년<br>1년 거치</td>
+        <td>설치비 80%</td>
+        <td>전국 농·축협</td>
+        <td class="warn">연체율 급등으로 심사 강화</td>
+      </tr>
+      <tr>
+        <td>일반 상호금융 자체 대출<div class="sub-name">(신협·새마을금고)</div></td>
+        <td class="warn">시장금리+</td>
+        <td>기관별 상이</td>
+        <td>담보 평가액</td>
+        <td>지역 신협·새마을금고</td>
+        <td class="warn">수신 감소로 여력 축소</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="src">출처: 한국에너지공단 신재생에너지센터, 행정안전부 2026년 햇빛소득마을 공고, 솔라투데이 (2026.01)</div>
+
+  <!-- 햇빛소득마을 혜택 -->
+  <div class="sec">③ 2026년 햇빛소득마을 — 상호금융 대출 한계의 최선 대안</div>
+  <div class="village-box">
+    <div class="vb-title">☀️ 햇빛소득마을 핵심 지원 혜택 (2026년 기준)</div>
+    <div class="vb-grid">
+      <div class="vb-item">
+        <div class="vb-label">국비 지원 규모</div>
+        <div class="vb-val">5,500억원</div>
+        <div class="vb-desc">2026년 전국 확산 본격화</div>
+      </div>
+      <div class="vb-item">
+        <div class="vb-label">태양광 설치비 융자 비율</div>
+        <div class="vb-val">최대 85%</div>
+        <div class="vb-desc">연 1.75% 장기 저리</div>
+      </div>
+      <div class="vb-item">
+        <div class="vb-label">REC 가중치 혜택</div>
+        <div class="vb-val">최대 +0.2</div>
+        <div class="vb-desc">500kW 이상·이격거리 기준 충족 시</div>
+      </div>
+      <div class="vb-item">
+        <div class="vb-label">설치 용량 기준</div>
+        <div class="vb-val">300kW~1MW</div>
+        <div class="vb-desc">협동조합·사회적협동조합 주관</div>
+      </div>
+      <div class="vb-item">
+        <div class="vb-label">재원 조달 방법</div>
+        <div class="vb-val">지역 농·수협 대출</div>
+        <div class="vb-desc">마을 공동기금·개인 출자 병용</div>
+      </div>
+      <div class="vb-item">
+        <div class="vb-label">추경 통과 시 예산</div>
+        <div class="vb-val">8,605억원</div>
+        <div class="vb-desc">기후에너지환경부 태양광 지원</div>
+      </div>
+    </div>
+  </div>
+  <div class="src">출처: 행정안전부 2026년도 햇빛소득마을 공고, 해줌 블로그 (2026.04)</div>
+
+  <!-- 사업자 체크리스트 -->
+  <div class="sec">④ 태양광 사업자 대출 전 체크리스트</div>
+  <div class="checklist">
+    <div class="cl-title">📋 대출 신청 전 반드시 확인할 7가지</div>
+    <div class="cl-item">
+      <div class="cl-icon">✅</div>
+      <div class="cl-text">한국에너지공단 신재생에너지센터 <strong>자금추천서 선발급</strong> — 모든 정책금융의 시작</div>
+      <div class="cl-badge cb-green">필수 1순위</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-icon">✅</div>
+      <div class="cl-text"><strong>2026년 금융지원사업 차수별 접수 일정</strong> 확인 — 선착순이므로 조기 신청 필수</div>
+      <div class="cl-badge cb-green">선착순</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-icon">✅</div>
+      <div class="cl-text">태양광 모듈 <strong>탄소배출량 655kgCO₂/kW 이하</strong> 제품인지 확인 (2026년 필수 요건)</div>
+      <div class="cl-badge cb-orange">필수 요건</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-icon">✅</div>
+      <div class="cl-text"><strong>VPP(전력중개사업자) 연계</strong> 여부 확인 — SMP 외 추가 수익원 확보해야 심사 통과 유리</div>
+      <div class="cl-badge cb-orange">수익성 개선</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-icon">⚠️</div>
+      <div class="cl-text">지역 신협·새마을금고 자체 대출 의존 시 <strong>연체율·수신 현황 사전 확인</strong> 필요</div>
+      <div class="cl-badge cb-red">주의</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-icon">⚠️</div>
+      <div class="cl-text">현물 SMP 의존도 최소화 — <strong>장기고정가격계약(PPA) 또는 고정가격계약 병행</strong> 검토</div>
+      <div class="cl-badge cb-orange">수익 안정</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-icon">⚠️</div>
+      <div class="cl-text">RPS→<strong>장기고정가격 입찰제(2027년 예정)</strong> 대비 사업 구조 재검토 필요</div>
+      <div class="cl-badge cb-red">중기 리스크</div>
+    </div>
+  </div>
+
+</body>
+</html>
