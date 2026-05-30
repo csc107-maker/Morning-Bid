@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>엔비디아 65억달러 광 기반 포토닉스 투자 — 한국 관련주 분석</title>
+<meta property="og:title" content="엔비디아 65억달러 광 기반 포토닉스 투자 — 한국 관련주 PER·PBR·ROE 분석" />
+<meta property="og:description" content="광 기반 광학기술(포토닉스)이란 무엇인가? 엔비디아가 단 3개월 만에 65억달러를 쏟아부은 이유와 국내 수혜 종목 6선, 재무분석 및 중단기 투자 전망을 정리했습니다." />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/0a1628/00d4ff?text=NVIDIA+Photonics+%26+Korean+Stocks" />
+<meta property="og:url" content="https://yourblog.com/nvidia-photonics-korean-stocks-2026" />
+<meta property="og:type" content="article" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Orbitron:wght@700;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    width:1200px;height:630px;overflow:hidden;
+    background: linear-gradient(135deg,#0a1628 0%,#0d2240 40%,#0a1a3a 70%,#061020 100%);
+    font-family:'Noto Sans KR',sans-serif;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .wrap{
+    width:1140px;height:590px;
+    display:flex;gap:40px;align-items:center;
+    padding:40px;
+    position:relative;
+  }
+  /* 배경 광선 효과 */
+  .bg-glow{
+    position:absolute;
+    width:600px;height:600px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 70%);
+    top:-100px;right:-80px;pointer-events:none;
+  }
+  .bg-glow2{
+    position:absolute;
+    width:400px;height:400px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(120,80,255,0.10) 0%, transparent 70%);
+    bottom:-80px;left:-60px;pointer-events:none;
+  }
+  /* 격자선 */
+  .grid-lines{
+    position:absolute;inset:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(0,212,255,0.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,212,255,0.05) 1px,transparent 1px);
+    background-size:60px 60px;
+    border-radius:16px;
+  }
+  /* 왼쪽 콘텐츠 */
+  .left{flex:1;z-index:2;}
+  .badge{
+    display:inline-block;
+    background:rgba(0,212,255,0.15);
+    border:1px solid rgba(0,212,255,0.4);
+    color:#00d4ff;
+    font-size:13px;font-weight:700;
+    padding:6px 14px;border-radius:20px;
+    margin-bottom:18px;letter-spacing:1px;
+  }
+  .main-title{
+    font-family:'Orbitron',sans-serif;
+    font-size:36px;font-weight:900;
+    color:#ffffff;line-height:1.2;
+    margin-bottom:10px;
+  }
+  .main-title span{color:#00d4ff;}
+  .sub-title{
+    font-size:18px;color:rgba(255,255,255,0.75);
+    font-weight:700;margin-bottom:24px;line-height:1.5;
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+  .tag{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    color:rgba(255,255,255,0.7);
+    font-size:12px;font-weight:700;
+    padding:4px 10px;border-radius:6px;
+  }
+  .stats{display:flex;gap:20px;}
+  .stat{
+    background:rgba(0,212,255,0.08);
+    border:1px solid rgba(0,212,255,0.25);
+    border-radius:10px;padding:12px 16px;
+    text-align:center;
+  }
+  .stat-val{font-size:22px;font-weight:900;color:#00d4ff;}
+  .stat-lab{font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px;}
+  /* 오른쪽 시각 */
+  .right{
+    width:320px;z-index:2;
+    display:flex;flex-direction:column;gap:16px;
+  }
+  .nvidia-card{
+    background:rgba(118,185,0,0.1);
+    border:1px solid rgba(118,185,0,0.35);
+    border-radius:14px;padding:20px;
+    text-align:center;
+  }
+  .nvidia-logo{
+    font-family:'Orbitron',sans-serif;
+    font-size:24px;font-weight:900;
+    color:#76b900;letter-spacing:2px;
+  }
+  .invest-amount{
+    font-size:40px;font-weight:900;
+    color:#ffffff;margin:8px 0 4px;
+    text-shadow:0 0 20px rgba(118,185,0,0.5);
+  }
+  .invest-label{color:rgba(255,255,255,0.6);font-size:13px;}
+  .stocks-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  }
+  .stock-chip{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:8px;padding:8px 10px;
+    text-align:center;
+  }
+  .stock-name{font-size:12px;font-weight:700;color:#ffffff;}
+  .stock-sector{font-size:10px;color:rgba(255,255,255,0.45);margin-top:2px;}
+  /* 광선 장식 */
+  .light-beam{
+    position:absolute;
+    width:2px;height:200px;
+    background:linear-gradient(to bottom,transparent,rgba(0,212,255,0.4),transparent);
+    top:50%;right:340px;transform:translateY(-50%) rotate(15deg);
+  }
+  .date-tag{
+    position:absolute;bottom:30px;right:40px;
+    font-size:12px;color:rgba(255,255,255,0.35);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="grid-lines"></div>
+  <div class="bg-glow"></div>
+  <div class="bg-glow2"></div>
+  <div class="light-beam"></div>
+
+  <div class="left">
+    <div class="badge">🔦 PHOTONICS × AI 인프라</div>
+    <div class="main-title">
+      <span>빛</span>이 AI를<br>바꾼다
+    </div>
+    <div class="sub-title">
+      엔비디아 65억 달러 투자로 주목받는<br>
+      광 기반 포토닉스 기술과 한국 수혜주
+    </div>
+    <div class="tags">
+      <span class="tag">실리콘 포토닉스</span>
+      <span class="tag">CPO</span>
+      <span class="tag">광트랜시버</span>
+      <span class="tag">AI 데이터센터</span>
+      <span class="tag">광반도체</span>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-val">$65억</div>
+        <div class="stat-lab">NVIDIA 투자 규모</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">3.5배</div>
+        <div class="stat-lab">에너지 효율 향상</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">2028</div>
+        <div class="stat-lab">대규모 상용화 예상</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="nvidia-card">
+      <div class="nvidia-logo">NVIDIA</div>
+      <div class="invest-amount">$6.5B+</div>
+      <div class="invest-label">포토닉스 생태계 총 투자 (2026.03~)</div>
+    </div>
+    <div class="stocks-grid">
+      <div class="stock-chip"><div class="stock-name">오이솔루션</div><div class="stock-sector">광트랜시버</div></div>
+      <div class="stock-chip"><div class="stock-name">빛과전자</div><div class="stock-sector">광트랜시버</div></div>
+      <div class="stock-chip"><div class="stock-name">우리로</div><div class="stock-sector">광다이오드</div></div>
+      <div class="stock-chip"><div class="stock-name">대한광통신</div><div class="stock-sector">광섬유·케이블</div></div>
+      <div class="stock-chip"><div class="stock-name">퀄리타스반도체</div><div class="stock-sector">실리콘 포토닉스 IP</div></div>
+      <div class="stock-chip"><div class="stock-name">파이버프로</div><div class="stock-sector">광섬유 소자</div></div>
+    </div>
+  </div>
+
+  <div class="date-tag">2026.05 기준 분석 | 투자 권유가 아닌 정보 제공 목적</div>
+</div>
+</body>
+</html>
