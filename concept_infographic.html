@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>광 기반 포토닉스 기술 개념도</title>
+<meta property="og:title" content="광 기반 포토닉스(Photonics) 기술 완전 해설" />
+<meta property="og:description" content="전기 신호 vs 광 신호, 실리콘 포토닉스·CPO·광트랜시버 핵심 개념을 한눈에 정리한 인포그래픽" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/f0f7ff/1a56db?text=Photonics+Concept+Infographic" />
+<meta property="og:url" content="https://yourblog.com/nvidia-photonics-korean-stocks-2026" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0f7ff;padding:32px 24px;color:#1a2030;}
+
+.section-label{
+  text-align:center;margin-bottom:8px;
+  font-size:13px;font-weight:700;color:#4a7abf;letter-spacing:2px;text-transform:uppercase;
+}
+h2{text-align:center;font-size:24px;font-weight:900;color:#0d1f3c;margin-bottom:6px;}
+.desc{text-align:center;font-size:14px;color:#4a5568;margin-bottom:32px;}
+
+/* 비교 카드 */
+.compare-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin-bottom:32px;}
+.compare-card{
+  border-radius:16px;padding:24px 20px;
+}
+.compare-card.old{
+  background:linear-gradient(135deg,#fff5f5,#ffe8e8);
+  border:2px solid #ffb3b3;
+}
+.compare-card.new{
+  background:linear-gradient(135deg,#f0f9ff,#e0f0ff);
+  border:2px solid #93c5fd;
+}
+.compare-label{font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:10px;}
+.compare-label.old{color:#e53e3e;}
+.compare-label.new{color:#1d4ed8;}
+.compare-title{font-size:18px;font-weight:900;margin-bottom:14px;}
+.compare-title.old{color:#c53030;}
+.compare-title.new{color:#1e40af;}
+.compare-items{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.compare-items li{
+  background:rgba(255,255,255,0.7);
+  border-radius:8px;padding:8px 12px;
+  font-size:13px;font-weight:600;
+  display:flex;align-items:center;gap:8px;
+}
+.icon{font-size:16px;}
+.vs-badge{
+  width:56px;display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:900;color:#6b7280;
+  flex-shrink:0;
+}
+
+/* 핵심 기술 카드들 */
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
+.tech-card{
+  background:#ffffff;border-radius:14px;padding:20px;
+  border-top:4px solid;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  transition:transform .2s;
+}
+.tech-card:hover{transform:translateY(-4px);}
+.tech-card:nth-child(1){border-color:#3b82f6;}
+.tech-card:nth-child(2){border-color:#10b981;}
+.tech-card:nth-child(3){border-color:#f59e0b;}
+.tech-card:nth-child(4){border-color:#8b5cf6;}
+.tech-card:nth-child(5){border-color:#ef4444;}
+.tech-card:nth-child(6){border-color:#0ea5e9;}
+.tech-emoji{font-size:28px;margin-bottom:10px;}
+.tech-name{font-size:15px;font-weight:900;color:#1a2030;margin-bottom:6px;}
+.tech-desc{font-size:12px;color:#4a5568;line-height:1.7;}
+.tech-badge{
+  display:inline-block;margin-top:8px;
+  font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;
+}
+.tech-card:nth-child(1) .tech-badge{background:#eff6ff;color:#3b82f6;}
+.tech-card:nth-child(2) .tech-badge{background:#ecfdf5;color:#10b981;}
+.tech-card:nth-child(3) .tech-badge{background:#fffbeb;color:#f59e0b;}
+.tech-card:nth-child(4) .tech-badge{background:#f5f3ff;color:#8b5cf6;}
+.tech-card:nth-child(5) .tech-badge{background:#fef2f2;color:#ef4444;}
+.tech-card:nth-child(6) .tech-badge{background:#f0f9ff;color:#0ea5e9;}
+
+/* 시장 규모 바 */
+.market-section{
+  background:#ffffff;border-radius:16px;padding:24px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.market-title{font-size:16px;font-weight:900;color:#0d1f3c;margin-bottom:16px;}
+.market-bar-wrap{display:flex;flex-direction:column;gap:10px;}
+.market-row{display:flex;align-items:center;gap:12px;}
+.market-year{width:44px;font-size:12px;font-weight:700;color:#4a5568;flex-shrink:0;}
+.market-bar-bg{flex:1;height:28px;background:#f1f5f9;border-radius:8px;overflow:hidden;}
+.market-bar-fill{
+  height:100%;border-radius:8px;
+  display:flex;align-items:center;padding-left:10px;
+  font-size:12px;font-weight:700;color:#fff;
+  transition:width .8s ease;
+}
+.market-val{width:80px;font-size:13px;font-weight:700;color:#1e40af;text-align:right;}
+.note{margin-top:12px;font-size:11px;color:#9ca3af;text-align:right;}
+</style>
+</head>
+<body>
+
+<div class="section-label">기술 개념 가이드</div>
+<h2>💡 광 기반 포토닉스란 무엇인가?</h2>
+<p class="desc">빛(광자·Photon)으로 데이터를 전달하는 기술 — AI 데이터센터의 구리 병목을 해결할 차세대 인프라</p>
+
+<!-- 전기 vs 광 비교 -->
+<div class="compare-grid">
+  <div class="compare-card old">
+    <div class="compare-label old">⚡ 기존 방식</div>
+    <div class="compare-title old">전기(구리) 신호</div>
+    <ul class="compare-items">
+      <li><span class="icon">🔥</span>발열 심각 — 고전력 소모</li>
+      <li><span class="icon">📏</span>거리 제한 — 수십 m 이내</li>
+      <li><span class="icon">🐌</span>대역폭 한계 — 병목 발생</li>
+      <li><span class="icon">💸</span>냉각 비용 증가</li>
+      <li><span class="icon">🔗</span>전자기 간섭(EMI) 취약</li>
+    </ul>
+  </div>
+  <div class="vs-badge">VS</div>
+  <div class="compare-card new">
+    <div class="compare-label new">🔦 포토닉스 방식</div>
+    <div class="compare-title new">광(빛) 신호</div>
+    <ul class="compare-items">
+      <li><span class="icon">⚡</span>저전력 — 3.5배 에너지 절감</li>
+      <li><span class="icon">🌐</span>장거리 전송 — km 단위 가능</li>
+      <li><span class="icon">🚀</span>1.6Tbps 초고속 대역폭</li>
+      <li><span class="icon">❄️</span>발열 최소화</li>
+      <li><span class="icon">🛡️</span>EMI 면역 — 신호 안정성↑</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 핵심 기술 -->
+<div class="tech-grid">
+  <div class="tech-card">
+    <div class="tech-emoji">🔷</div>
+    <div class="tech-name">실리콘 포토닉스(SiPh)</div>
+    <div class="tech-desc">CMOS 반도체 공정으로 실리콘 웨이퍼 위에 광학 소자를 집적하는 기술. GPU·메모리·광통신 모듈 통합 가능.</div>
+    <div class="tech-badge">핵심 플랫폼</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-emoji">📦</div>
+    <div class="tech-name">CPO (공패키지 광학)</div>
+    <div class="tech-desc">광통신 모듈을 스위치 칩과 같은 패키지에 통합. 전기→광 변환 거리를 최소화해 손실·지연을 획기적으로 줄임.</div>
+    <div class="tech-badge">NVIDIA 핵심 투자</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-emoji">🔄</div>
+    <div class="tech-name">광트랜시버</div>
+    <div class="tech-desc">전기신호를 광신호로 상호 변환하는 모듈. 400G→800G→1.6T 세대 교체 진행 중. AI 서버 포트당 필수 부품.</div>
+    <div class="tech-badge">국내 주력 생산</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-emoji">🌊</div>
+    <div class="tech-name">광섬유 / 광케이블</div>
+    <div class="tech-desc">빛 신호를 전달하는 유리 섬유 인프라. AI 데이터센터 확장으로 수요 폭증. Corning과 대한광통신이 주력.</div>
+    <div class="tech-badge">인프라 소재</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-emoji">💎</div>
+    <div class="tech-name">광다이오드 / 레이저</div>
+    <div class="tech-desc">광신호 생성(레이저)과 수신(광다이오드) 핵심 소자. VCSEL·DFB 레이저가 고속 광통신 핵심. 우리로 주력 사업.</div>
+    <div class="tech-badge">광원·수광 소자</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-emoji">🧩</div>
+    <div class="tech-name">칩렛 인터페이스 IP</div>
+    <div class="tech-desc">광통신과 반도체 칩 간 초고속 데이터 연결을 위한 설계 자산(IP). Tbps급 전송 규격. 퀄리타스반도체 개발 중.</div>
+    <div class="tech-badge">차세대 IP</div>
+  </div>
+</div>
+
+<!-- 글로벌 시장 규모 -->
+<div class="market-section">
+  <div class="market-title">📊 글로벌 실리콘 포토닉스 시장 규모 전망 (단위: 억 달러)</div>
+  <div class="market-bar-wrap">
+    <div class="market-row">
+      <span class="market-year">2023</span>
+      <div class="market-bar-bg"><div class="market-bar-fill" style="width:15%;background:linear-gradient(90deg,#93c5fd,#60a5fa);">22</div></div>
+      <span class="market-val">$22억</span>
+    </div>
+    <div class="market-row">
+      <span class="market-year">2024</span>
+      <div class="market-bar-bg"><div class="market-bar-fill" style="width:25%;background:linear-gradient(90deg,#60a5fa,#3b82f6);">38</div></div>
+      <span class="market-val">$38억</span>
+    </div>
+    <div class="market-row">
+      <span class="market-year">2025</span>
+      <div class="market-bar-bg"><div class="market-bar-fill" style="width:38%;background:linear-gradient(90deg,#3b82f6,#2563eb);">57</div></div>
+      <span class="market-val">$57억</span>
+    </div>
+    <div class="market-row">
+      <span class="market-year">2026</span>
+      <div class="market-bar-bg"><div class="market-bar-fill" style="width:52%;background:linear-gradient(90deg,#2563eb,#1d4ed8);">82</div></div>
+      <span class="market-val">$82억</span>
+    </div>
+    <div class="market-row">
+      <span class="market-year">2028</span>
+      <div class="market-bar-bg"><div class="market-bar-fill" style="width:75%;background:linear-gradient(90deg,#1d4ed8,#1e40af);">145</div></div>
+      <span class="market-val">$145억</span>
+    </div>
+    <div class="market-row">
+      <span class="market-year">2030</span>
+      <div class="market-bar-bg"><div class="market-bar-fill" style="width:100%;background:linear-gradient(90deg,#1e40af,#1e3a8a);">300+</div></div>
+      <span class="market-val">$300억+</span>
+    </div>
+  </div>
+  <div class="note">※ 복수 리서치 기관 추정치 평균 | 국내 시장: 2023년 $2,200만 → 2030년 $1.3억 예상 (약 6배 성장)</div>
+</div>
+
+</body>
+</html>
