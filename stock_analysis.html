@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>한국 광통신·포토닉스 관련주 재무분석</title>
+<meta property="og:title" content="한국 광통신·포토닉스 관련주 6선 — PER·PBR·ROE 재무 심층 분석" />
+<meta property="og:description" content="오이솔루션, 빛과전자, 우리로, 대한광통신, 퀄리타스반도체, 파이버프로 — 실적 기반 종목별 투자 등급 분석" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/fff9f0/d97706?text=Korean+Photonics+Stock+Analysis" />
+<meta property="og:url" content="https://yourblog.com/nvidia-photonics-korean-stocks-2026" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#fff9f0;padding:28px 20px;color:#1a2030;}
+h2{text-align:center;font-size:22px;font-weight:900;color:#0d1f3c;margin-bottom:4px;}
+.sub{text-align:center;font-size:13px;color:#92400e;margin-bottom:8px;}
+.notice{
+  text-align:center;font-size:11px;color:#b45309;
+  background:#fffbeb;border:1px solid #fde68a;
+  border-radius:8px;padding:8px 16px;margin-bottom:24px;
+  max-width:700px;margin-left:auto;margin-right:auto;
+}
+
+/* 분류 레이어 설명 */
+.layer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.layer-card{
+  border-radius:10px;padding:14px;border-left:4px solid;
+}
+.layer-card.lv1{background:#f0fdf4;border-color:#22c55e;}
+.layer-card.lv2{background:#eff6ff;border-color:#3b82f6;}
+.layer-card.lv3{background:#fefce8;border-color:#eab308;}
+.layer-title{font-size:13px;font-weight:900;margin-bottom:4px;}
+.layer-title.lv1{color:#15803d;}
+.layer-title.lv2{color:#1d4ed8;}
+.layer-title.lv3{color:#a16207;}
+.layer-items{font-size:12px;color:#4a5568;line-height:1.7;}
+
+/* 메인 테이블 */
+.table-wrap{overflow-x:auto;margin-bottom:24px;}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.07);}
+th{
+  background:linear-gradient(135deg,#1e40af,#1d4ed8);
+  color:#fff;font-size:12px;font-weight:700;
+  padding:12px 10px;text-align:center;
+}
+th:first-child{text-align:left;padding-left:16px;}
+td{padding:11px 10px;text-align:center;font-size:13px;border-bottom:1px solid #f1f5f9;}
+td:first-child{text-align:left;padding-left:16px;font-weight:700;}
+tr:last-child td{border-bottom:none;}
+tr:nth-child(even){background:#fafbff;}
+tr:hover{background:#eff6ff;}
+
+.stock-name{font-weight:900;color:#0d1f3c;font-size:13px;}
+.stock-code{font-size:11px;color:#9ca3af;font-weight:400;display:block;}
+.tier-badge{
+  display:inline-block;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:12px;
+}
+.tier-a{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
+.tier-b{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;}
+.tier-c{background:#fefce8;color:#a16207;border:1px solid #fde68a;}
+
+.metric-good{color:#16a34a;font-weight:700;}
+.metric-warn{color:#d97706;font-weight:700;}
+.metric-bad{color:#dc2626;font-weight:700;}
+.metric-na{color:#9ca3af;font-size:11px;}
+
+.rating{
+  display:inline-block;width:28px;height:28px;
+  border-radius:50%;font-size:13px;font-weight:900;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.r-buy{background:#16a34a;color:#fff;}
+.r-hold{background:#d97706;color:#fff;}
+.r-watch{background:#6b7280;color:#fff;}
+
+/* 종목 카드 상세 */
+.stock-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:24px;}
+.s-card{background:#fff;border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid;}
+.s-card:nth-child(1){border-color:#16a34a;}
+.s-card:nth-child(2){border-color:#059669;}
+.s-card:nth-child(3){border-color:#3b82f6;}
+.s-card:nth-child(4){border-color:#f59e0b;}
+.s-card:nth-child(5){border-color:#8b5cf6;}
+.s-card:nth-child(6){border-color:#0ea5e9;}
+.s-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.s-name{font-size:15px;font-weight:900;color:#0d1f3c;}
+.s-sector{font-size:11px;color:#6b7280;margin-top:2px;}
+.s-grade{font-size:22px;font-weight:900;}
+.s-pros{margin-bottom:8px;}
+.s-pros-title,.s-cons-title{font-size:11px;font-weight:700;color:#374151;margin-bottom:4px;}
+.s-list{list-style:none;display:flex;flex-direction:column;gap:3px;}
+.s-list li{font-size:12px;color:#4a5568;display:flex;gap:6px;align-items:flex-start;}
+
+/* 리스크 섹션 */
+.risk-box{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.07);}
+.risk-title{font-size:15px;font-weight:900;color:#dc2626;margin-bottom:14px;}
+.risk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.risk-item{
+  background:#fef2f2;border:1px solid #fecaca;
+  border-radius:8px;padding:12px;
+}
+.risk-name{font-size:12px;font-weight:700;color:#dc2626;margin-bottom:4px;}
+.risk-desc{font-size:11px;color:#4a5568;line-height:1.6;}
+</style>
+</head>
+<body>
+<h2>📊 한국 광통신·포토닉스 관련주 재무 분석</h2>
+<p class="sub">엔비디아 포토닉스 투자 수혜 — 국내 6개 핵심 종목 심층 비교 (2026.05 기준)</p>
+<div class="notice">
+  ⚠️ 아래 재무지표는 공개 자료 및 추정치 기반이며 실시간 데이터가 아닙니다. 투자 판단은 반드시 개인이 최신 공시를 확인 후 결정하세요. <br>
+  이 콘텐츠는 투자 권유가 아닌 정보 제공 목적입니다.
+</div>
+
+<!-- 분류 계층 -->
+<div class="layer-grid">
+  <div class="layer-card lv1">
+    <div class="layer-title lv1">🟢 레이어 1 — 실적 연결 강</div>
+    <div class="layer-items">오이솔루션·빛과전자<br>AI 데이터센터 직공급 광트랜시버<br>실적 모멘텀 가장 선명</div>
+  </div>
+  <div class="layer-card lv2">
+    <div class="layer-title lv2">🔵 레이어 2 — 인프라 소재</div>
+    <div class="layer-items">대한광통신·우리로<br>광섬유·광다이오드 공급<br>구조적 수요 증가, 재무 리스크 혼재</div>
+  </div>
+  <div class="layer-card lv3">
+    <div class="layer-title lv3">🟡 레이어 3 — 기술 기대주</div>
+    <div class="layer-items">퀄리타스반도체·파이버프로<br>실리콘포토닉스 IP·소자 개발<br>변동성 크나 중장기 성장 잠재력↑</div>
+  </div>
+</div>
+
+<!-- 메인 비교 테이블 -->
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+  <th>종목명</th>
+  <th>시장</th>
+  <th>핵심 사업</th>
+  <th>PER<br>(추정)</th>
+  <th>PBR<br>(추정)</th>
+  <th>ROE<br>(추정)</th>
+  <th>2025 매출<br>성장률</th>
+  <th>부채비율</th>
+  <th>투자 등급</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><span class="stock-name">오이솔루션</span><span class="stock-code">KOSDAQ 138080</span></td>
+  <td>코스닥</td>
+  <td>광트랜시버 1위<br>(400G~1.6T)</td>
+  <td class="metric-warn">적자전환 중<br>(흑자 진행)</td>
+  <td class="metric-warn">고평가</td>
+  <td class="metric-warn">개선 중<br>(~5%↑)</td>
+  <td class="metric-good">+79.2%</td>
+  <td class="metric-good">건전</td>
+  <td><span class="tier-badge tier-a">레이어 1</span><br><span class="rating r-buy">매</span></td>
+</tr>
+<tr>
+  <td><span class="stock-name">빛과전자</span><span class="stock-code">KOSDAQ 069540</span></td>
+  <td>코스닥</td>
+  <td>광트랜시버<br>3.2T 기술 선제 확보</td>
+  <td class="metric-warn">고PER<br>(성장주)</td>
+  <td class="metric-warn">고평가</td>
+  <td class="metric-good">흑자 전환<br>(+8.7억)</td>
+  <td class="metric-good">+731%<br>(주가)</td>
+  <td class="metric-good">건전</td>
+  <td><span class="tier-badge tier-a">레이어 1</span><br><span class="rating r-buy">매</span></td>
+</tr>
+<tr>
+  <td><span class="stock-name">우리로</span><span class="stock-code">KOSDAQ 046970</span></td>
+  <td>코스닥</td>
+  <td>광다이오드<br>ETRI 기술이전</td>
+  <td class="metric-warn">고PER</td>
+  <td class="metric-warn">고평가</td>
+  <td class="metric-warn">낮음</td>
+  <td class="metric-good">급등<br>(모멘텀)</td>
+  <td class="metric-warn">보통</td>
+  <td><span class="tier-badge tier-b">레이어 2</span><br><span class="rating r-hold">관</span></td>
+</tr>
+<tr>
+  <td><span class="stock-name">대한광통신</span><span class="stock-code">KOSDAQ 010170</span></td>
+  <td>코스닥</td>
+  <td>광섬유·광케이블<br>일관생산 체제</td>
+  <td class="metric-bad">적자</td>
+  <td class="metric-warn">중간</td>
+  <td class="metric-bad">적자</td>
+  <td class="metric-bad">-8.7%</td>
+  <td class="metric-bad">247%<br>(부채 과다)</td>
+  <td><span class="tier-badge tier-b">레이어 2</span><br><span class="rating r-watch">관</span></td>
+</tr>
+<tr>
+  <td><span class="stock-name">퀄리타스반도체</span><span class="stock-code">KOSDAQ 432720</span></td>
+  <td>코스닥</td>
+  <td>실리콘포토닉스<br>칩렛 IP 개발</td>
+  <td class="metric-bad">적자<br>(R&D 투자)</td>
+  <td class="metric-warn">중간</td>
+  <td class="metric-bad">적자</td>
+  <td class="metric-warn">R&D 집중</td>
+  <td class="metric-warn">보통</td>
+  <td><span class="tier-badge tier-c">레이어 3</span><br><span class="rating r-watch">관</span></td>
+</tr>
+<tr>
+  <td><span class="stock-name">파이버프로</span><span class="stock-code">KOSDAQ 319010</span></td>
+  <td>코스닥</td>
+  <td>광섬유 센서·정밀<br>광학, 항법·방산 확장</td>
+  <td class="metric-warn">고PER</td>
+  <td class="metric-warn">고평가</td>
+  <td class="metric-warn">소규모<br>(ROE 낮음)</td>
+  <td class="metric-warn">소폭 성장</td>
+  <td class="metric-good">낮음</td>
+  <td><span class="tier-badge tier-c">레이어 3</span><br><span class="rating r-watch">관</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:11px;color:#9ca3af;margin-bottom:20px;text-align:right;">
+  ※ PER·PBR·ROE는 2025년 결산·증권사 추정치 기반 / 투자경고종목 지정 이력 확인 필요 (우리로·대한광통신)
+</p>
+
+<!-- 종목 카드 상세 -->
+<div class="stock-cards">
+  <div class="s-card">
+    <div class="s-header">
+      <div><div class="s-name">✅ 오이솔루션 (138080)</div><div class="s-sector">광트랜시버 | 레이어 1 핵심주</div></div>
+      <div class="s-grade" style="color:#16a34a;">A</div>
+    </div>
+    <div class="s-pros"><div class="s-pros-title">💪 강점</div>
+      <ul class="s-list">
+        <li>🏆 국내 광트랜시버 시장점유율 1위 (2003년 설립)</li>
+        <li>🌍 파장가변형 광트랜시버 세계 3번째 개발·양산 수주</li>
+        <li>📡 에릭슨 공식 벤더 등록 — 글로벌 레퍼런스 확보</li>
+        <li>💰 미국 BEAD 프로그램($424억) 직접 수혜 기대</li>
+        <li>📈 2025년 매출 +79.2% 급반등, 2026년 흑자 전환 목표</li>
+        <li>🎯 하나증권 목표주가 5만원 상향 (2026.03.12)</li>
+      </ul>
+    </div>
+    <div><div class="s-cons-title">⚠️ 리스크</div>
+      <ul class="s-list">
+        <li>❗ 아직 영업손실 지속 (2025년 -158억원)</li>
+        <li>❗ 글로벌 경쟁사(Coherent·Lumentum) 대비 규모 열위</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-header">
+      <div><div class="s-name">✅ 빛과전자 (069540)</div><div class="s-sector">광트랜시버 | 레이어 1 핵심주</div></div>
+      <div class="s-grade" style="color:#059669;">A</div>
+    </div>
+    <div class="s-pros"><div class="s-pros-title">💪 강점</div>
+      <ul class="s-list">
+        <li>⚡ 2025년 3분기 흑자 전환 성공 (영업이익 8.72억)</li>
+        <li>🔬 OFC 2026 — 3.2T 광트랜시버 기술 세계 최초 공개</li>
+        <li>🚀 레인당 200Gb/s 전송 규격 확보 — 글로벌 선도</li>
+        <li>📊 주가 2025년 말 592원 → 2026년 4월 4,920원 (+731%)</li>
+        <li>🌐 글로벌 빅테크 공급망 진입 시도 중</li>
+      </ul>
+    </div>
+    <div><div class="s-cons-title">⚠️ 리스크</div>
+      <ul class="s-list">
+        <li>❗ 급등 후 단기 조정 가능성</li>
+        <li>❗ 빅테크 공급망 진입 확정 여부 미정</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-header">
+      <div><div class="s-name">🔵 우리로 (046970)</div><div class="s-sector">광다이오드·광반도체 | 레이어 2</div></div>
+      <div class="s-grade" style="color:#2563eb;">B</div>
+    </div>
+    <div class="s-pros"><div class="s-pros-title">💪 강점</div>
+      <ul class="s-list">
+        <li>🔬 ETRI 초고속 광검출기 기술이전 완료</li>
+        <li>📡 빛 에너지→전기 변환 광다이오드 전문</li>
+        <li>⚡ 엔비디아 광반도체 수혜 테마 대장주 역할</li>
+      </ul>
+    </div>
+    <div><div class="s-cons-title">⚠️ 리스크</div>
+      <ul class="s-list">
+        <li>❗ 투자경고종목 지정 이력 (과열 주의)</li>
+        <li>❗ 실적 연결 고리 아직 불명확</li>
+        <li>❗ 외국인·기관 차익실현 움직임</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-header">
+      <div><div class="s-name">🟡 대한광통신 (010170)</div><div class="s-sector">광섬유·광케이블 | 레이어 2</div></div>
+      <div class="s-grade" style="color:#d97706;">B-</div>
+    </div>
+    <div class="s-pros"><div class="s-pros-title">💪 강점</div>
+      <ul class="s-list">
+        <li>🏭 국내 유일 광섬유-광케이블 일관생산 체제</li>
+        <li>🌍 1974년 설립, 레이저·의료·국방 특수광섬유 개발</li>
+        <li>📈 해외(미주·유럽) 노후 인프라 교체 수요 수혜 기대</li>
+      </ul>
+    </div>
+    <div><div class="s-cons-title">⚠️ 리스크</div>
+      <ul class="s-list">
+        <li>❗ 부채비율 247% — 재무 부담 과중</li>
+        <li>❗ 2025년 매출 -8.7% 감소</li>
+        <li>❗ 투자경고종목 지정 (2026.04.13)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-header">
+      <div><div class="s-name">🟣 퀄리타스반도체 (432720)</div><div class="s-sector">실리콘포토닉스 IP | 레이어 3</div></div>
+      <div class="s-grade" style="color:#7c3aed;">C+</div>
+    </div>
+    <div class="s-pros"><div class="s-pros-title">💪 강점</div>
+      <ul class="s-list">
+        <li>🧩 과기부 Tbps급 실리콘포토닉스 IP 개발 과제 수행</li>
+        <li>🔗 AI 서버 데이터 병목 해결 초고속 인터페이스 IP 전문</li>
+        <li>📡 칩렛 인터페이스 IP — 차세대 표준 선점 가능성</li>
+      </ul>
+    </div>
+    <div><div class="s-cons-title">⚠️ 리스크</div>
+      <ul class="s-list">
+        <li>❗ 현재 R&D 단계 — 수익화 시점 불확실</li>
+        <li>❗ 글로벌 강자(Intel·Broadcom·Ayar Labs) 선점 위협</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="s-card">
+    <div class="s-header">
+      <div><div class="s-name">🔷 파이버프로 (319010)</div><div class="s-sector">광섬유 소자·방산 확장 | 레이어 3</div></div>
+      <div class="s-grade" style="color:#0369a1;">C+</div>
+    </div>
+    <div class="s-pros"><div class="s-pros-title">💪 강점</div>
+      <ul class="s-list">
+        <li>🔬 편광 제어·광섬유 센서 정밀광학 전문</li>
+        <li>🛡️ 방산·항법·6G 분야로 사업 확장 중</li>
+        <li>💰 부채비율 낮음 — 재무 안전성</li>
+      </ul>
+    </div>
+    <div><div class="s-cons-title">⚠️ 리스크</div>
+      <ul class="s-list">
+        <li>❗ 소규모 기업 — 매출 성장 제한적</li>
+        <li>❗ 포토닉스 테마 연결성 간접적</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 리스크 -->
+<div class="risk-box">
+  <div class="risk-title">🚨 공통 투자 리스크 — 반드시 확인</div>
+  <div class="risk-grid">
+    <div class="risk-item">
+      <div class="risk-name">① 테마 과열 위험</div>
+      <div class="risk-desc">2026.03 이후 개인 투자자 수급 집중, 외국인·기관은 차익실현 중. 한국거래소 투자경고 종목 다수 지정.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-name">② 상용화 시간표 지연</div>
+      <div class="risk-desc">대규모 CPO 채택은 2028년 이후 예상. 제조 수율·정밀 정렬 문제가 생산 스케일 최대 난관.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-name">③ 글로벌 경쟁 심화</div>
+      <div class="risk-desc">Coherent·Lumentum·Intel·Broadcom 등이 고부가가치 핵심 장비 시장 장악. 국내 기업은 부품·케이블 위주.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-name">④ 환율·미국 무역 정책</div>
+      <div class="risk-desc">IRA·수출 규제·관세 정책 변화로 공급망 급변 가능. 미국 제조 확대 흐름이 국내 기업에 역풍 가능성.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
