@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="태양광 대출 어려움 — 3중 위기 구조 팩트체크" />
+  <meta property="og:description" content="연체율 급등·SMP 하락·수신 감소. 상호금융기관 태양광 대출 위기의 구조적 원인을 분석합니다." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/fff9c4/1a1a2e?text=태양광+대출+위기+구조분석" />
+  <meta property="og:url" content="https://yourblog.com/solar-loan-crisis-analysis" />
+  <title>태양광 대출 위기 구조 분석</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+    * { margin:0;padding:0;box-sizing:border-box; }
+    body {
+      font-family:'Noto Sans KR',sans-serif;
+      background:#fffde7;padding:32px 20px 40px;color:#1a1a2e;
+    }
+    .hdr { text-align:center;margin-bottom:28px; }
+    .badge {
+      display:inline-block;
+      background:linear-gradient(90deg,#f57c00,#ff9800);
+      color:white;font-size:12px;font-weight:700;
+      padding:5px 16px;border-radius:50px;margin-bottom:10px;
+    }
+    .title { font-size:24px;font-weight:900;color:#e65100;margin-bottom:6px; }
+    .sub { font-size:13px;color:#666; }
+
+    .sec { font-size:16px;font-weight:700;color:#e65100;
+      padding-left:12px;border-left:4px solid #ff9800;margin:26px 0 14px; }
+
+    /* 팩트체크 결론 */
+    .verdict {
+      background:white;border-radius:16px;padding:22px 20px;
+      box-shadow:0 2px 14px rgba(0,0,0,0.07);margin-bottom:22px;
+      display:flex;gap:16px;align-items:flex-start;
+    }
+    .verdict-icon { font-size:44px;flex-shrink:0; }
+    .verdict-body { flex:1; }
+    .verdict-label {
+      display:inline-block;font-size:12px;font-weight:700;
+      padding:3px 10px;border-radius:6px;margin-bottom:8px;
+    }
+    .lbl-true { background:#fce4ec;color:#c62828; }
+    .lbl-half { background:#fff3e0;color:#e65100; }
+    .lbl-new { background:#e8f5e9;color:#2e7d32; }
+    .verdict-title { font-size:18px;font-weight:900;color:#1a1a2e;margin-bottom:8px; }
+    .verdict-desc { font-size:13px;color:#444;line-height:1.75; }
+
+    /* 3중 위기 구조 */
+    .crisis-grid { display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:22px; }
+    .crisis-card {
+      background:white;border-radius:16px;padding:20px 14px;
+      box-shadow:0 2px 12px rgba(0,0,0,0.07);text-align:center;
+      border-top:5px solid #f57c00;
+    }
+    .crisis-card:nth-child(2) { border-top-color:#e53935; }
+    .crisis-card:nth-child(3) { border-top-color:#1565c0; }
+    .crisis-icon { font-size:36px;margin-bottom:8px; }
+    .crisis-title { font-size:15px;font-weight:900;color:#1a1a2e;margin-bottom:8px; }
+    .crisis-stat {
+      font-size:22px;font-weight:900;margin-bottom:4px;color:#e65100;
+    }
+    .crisis-card:nth-child(2) .crisis-stat { color:#e53935; }
+    .crisis-card:nth-child(3) .crisis-stat { color:#1565c0; }
+    .crisis-unit { font-size:11px;color:#888;margin-bottom:8px; }
+    .crisis-desc { font-size:12px;color:#555;line-height:1.65;text-align:left; }
+
+    /* 연체율 표 */
+    .tbl {
+      width:100%;border-collapse:collapse;background:white;
+      border-radius:14px;overflow:hidden;
+      box-shadow:0 2px 12px rgba(0,0,0,0.07);margin-bottom:18px;
+    }
+    .tbl thead tr { background:linear-gradient(90deg,#f57c00,#ff9800);color:white; }
+    .tbl th { padding:11px 14px;font-size:12px;font-weight:700;text-align:center; }
+    .tbl td { padding:11px 14px;font-size:13px;text-align:center;border-bottom:1px solid #fff9c4; }
+    .tbl tr:last-child td { border-bottom:none; }
+    .tbl tr:hover td { background:#fffde7; }
+    .tbl td:first-child { text-align:left;font-weight:700; }
+    .dn { color:#e53935;font-weight:700; }
+    .ok { color:#2e7d32;font-weight:700; }
+
+    /* SMP 하락 추이 */
+    .smp-box { background:white;border-radius:14px;padding:20px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.06);margin-bottom:18px; }
+    .smp-title { font-size:14px;font-weight:700;color:#e65100;margin-bottom:14px; }
+    .smp-row { display:grid;grid-template-columns:90px 1fr 70px;align-items:center;gap:10px;margin-bottom:10px; }
+    .smp-period { font-size:12px;font-weight:700;color:#555; }
+    .smp-bar-bg { height:16px;background:#f5f5f5;border-radius:8px;overflow:hidden; }
+    .smp-fill { height:100%;border-radius:8px; }
+    .smp-val { font-size:13px;font-weight:900;text-align:right; }
+
+    /* 인과관계 다이어그램 */
+    .cause-box { background:white;border-radius:14px;padding:20px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.06); }
+    .cause-title { font-size:14px;font-weight:700;color:#e65100;margin-bottom:14px; }
+    .cause-row { display:flex;align-items:center;gap:8px;margin-bottom:10px; }
+    .cause-item {
+      background:#fff3e0;border-radius:10px;padding:8px 12px;
+      font-size:12px;font-weight:700;color:#e65100;text-align:center;
+      flex:1;
+    }
+    .cause-item.red { background:#fce4ec;color:#c62828; }
+    .cause-item.blue { background:#e3f2fd;color:#0d47a1; }
+    .cause-item.dark { background:#1a1a2e;color:white; }
+    .cause-arrow { font-size:16px;color:#f57c00;flex-shrink:0; }
+
+    .src { font-size:11px;color:#aaa;text-align:right;margin-top:6px; }
+  </style>
+</head>
+<body>
+  <div class="hdr">
+    <div class="badge">🔍 팩트체크 & 구조 분석</div>
+    <div class="title">소규모 태양광 대출 어려움 — 진짜인가, 과장인가?</div>
+    <div class="sub">신협·새마을금고·지역농협의 3중 압박 구조 완전 해부</div>
+  </div>
+
+  <!-- 팩트체크 결론 3가지 -->
+  <div class="sec">① 팩트체크 결론 — 사실, 반사실, 새 국면</div>
+
+  <div class="verdict">
+    <div class="verdict-icon">✅</div>
+    <div class="verdict-body">
+      <div class="verdict-label lbl-true">사실 — 자체 재원 대출은 더 어려워졌다</div>
+      <div class="verdict-title">상호금융 연체율 급등 + 수신 감소 → 자체 대출 여력 실질 축소</div>
+      <div class="verdict-desc">농협 단위조합 대출 연체율이 2021년 0.88%에서 2024년 6월말 3.81%(평균)로 급등했고, 일부 조합은 37.61%에 달합니다. SMP(전력도매가격) 하락으로 태양광 사업자 수익이 급감하면서 연체가 늘고 있습니다. 여기에 머니무브로 수신이 줄면서 자체 재원 대출 여력이 실제로 줄었습니다.</div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-icon">⚠️</div>
+    <div class="verdict-body">
+      <div class="verdict-label lbl-half">반쪽 사실 — 정책금융 경로는 오히려 열렸다</div>
+      <div class="verdict-title">2026년 시행령 개정으로 농협·신협·새마을금고가 정책융자 취급기관에 추가</div>
+      <div class="verdict-desc">2026년 1월 '에너지 및 자원사업 특별회계법 시행령' 개정으로, 기존 시중·지방은행 12곳에만 허용됐던 재생에너지 저리 정책융자를 농협·수협·신협·새마을금고에도 확대했습니다. '자체 대출'은 어려워졌지만 '정책금융 연계 대출'은 오히려 넓어진 셈입니다.</div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-icon">🚨</div>
+    <div class="verdict-body">
+      <div class="verdict-label lbl-true">핵심 우려 — 부실 리스크를 지역 금융에 떠넘기는 것 아니냐</div>
+      <div class="verdict-title">업계 전문가 "위험 평가·분산 역량 떨어지는 지역 금융협동조합 동원 시 금융리스크 확대"</div>
+      <div class="verdict-desc">서울경제신문이 인용한 업계 관계자 발언: "거치 기간이 5년인데다 이자율이 높지 않아 금융사에게 매력적인 대출 상품이라 보기 어렵다. 시중은행은 여력이 있으나 지역 금융협동조합이 과도하게 동원될 경우 금융리스크가 커질 수 있다." — 이 우려는 현재 진행 중인 현실입니다.</div>
+    </div>
+  </div>
+
+  <!-- 3중 위기 구조 -->
+  <div class="sec">② 상호금융 태양광 대출의 3중 위기 구조</div>
+  <div class="crisis-grid">
+    <div class="crisis-card">
+      <div class="crisis-icon">📉</div>
+      <div class="crisis-title">① SMP·REC 하락<br>수익성 직격탄</div>
+      <div class="crisis-stat">90원대</div>
+      <div class="crisis-unit">2025년 12월 SMP (2025 평균 111원)</div>
+      <div class="crisis-desc">전력도매가격(SMP)이 100원 아래로 빈번히 붕괴. 2~3년 전 러·우전쟁 고단가 시대 종료 후 구조적 하락. 사업자 수익 급감 → 대출 연체 증가.</div>
+    </div>
+    <div class="crisis-card">
+      <div class="crisis-icon">⚠️</div>
+      <div class="crisis-title">② 연체율 폭등<br>건전성 악화</div>
+      <div class="crisis-stat">최고 37.6%</div>
+      <div class="crisis-unit">농협 단위조합 최고 연체율 (2024.6말)</div>
+      <div class="crisis-desc">시중은행 평균 연체율(0.42%) 대비 9배 수준인 곳도 있음. 연체율 10% 이상 조합이 100곳 달함. 부실 우려로 신규 태양광 대출 심사 극도로 강화.</div>
+    </div>
+    <div class="crisis-card">
+      <div class="crisis-icon">🏦</div>
+      <div class="crisis-title">③ 수신 감소<br>대출 재원 부족</div>
+      <div class="crisis-stat">머니무브</div>
+      <div class="crisis-unit">코스피 7000 시대 140조원 증시 이동</div>
+      <div class="crisis-desc">예금이 증시로 이탈하는 머니무브 직격. 시중은행과 달리 비이자 수익이 없는 상호금융은 수신 감소가 곧 대출 여력 감소로 직결됨.</div>
+    </div>
+  </div>
+
+  <!-- 연체율 상세 -->
+  <div class="sec">③ 농·수·산 단위조합 연체율 현황 (2024년 국정감사 자료)</div>
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th style="text-align:left">기관</th>
+        <th>2021년말 연체율</th>
+        <th>2024년 6월말 연체율</th>
+        <th>최고 연체율</th>
+        <th>연체율 10%↑ 조합수</th>
+        <th>평가</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🌾 농협 단위조합</td>
+        <td>0.88%</td>
+        <td class="dn">3.81%</td>
+        <td class="dn">37.61%</td>
+        <td>72곳 (6.5%)</td>
+        <td class="dn">심각</td>
+      </tr>
+      <tr>
+        <td>🐟 수협 단위조합</td>
+        <td>1.64%</td>
+        <td class="dn">6.08%</td>
+        <td class="dn">최고 30%+</td>
+        <td>9곳 (10%)</td>
+        <td class="dn">위험</td>
+      </tr>
+      <tr>
+        <td>🌲 산림조합 단위</td>
+        <td>1.50%</td>
+        <td class="dn">5.63%</td>
+        <td class="dn">최고 26%+</td>
+        <td>19곳 (13.5%)</td>
+        <td class="dn">위험</td>
+      </tr>
+      <tr style="background:#fff9c4">
+        <td>🏛️ 시중은행 평균 (참고)</td>
+        <td>~0.3%</td>
+        <td class="ok">0.42%</td>
+        <td>-</td>
+        <td>해당 없음</td>
+        <td class="ok">안정</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="src">출처: 국회 농림축산식품해양수산위원회 윤준병 의원실, 금융감독원 (2024년 국정감사)</div>
+
+  <!-- SMP 하락 추이 -->
+  <div class="sec">④ SMP(계통한계가격) 하락 추이 — 태양광 수익의 핵심 지표</div>
+  <div class="smp-box">
+    <div class="smp-title">☀️ 태양광 SMP 가격 추이 (육지 기준, 원/kWh)</div>
+    <div class="smp-row">
+      <div class="smp-period">2022~23년 (고점)</div>
+      <div class="smp-bar-bg"><div class="smp-fill" style="width:90%;background:linear-gradient(90deg,#ffd600,#ffb300)"></div></div>
+      <div class="smp-val" style="color:#f57c00">180원+</div>
+    </div>
+    <div class="smp-row">
+      <div class="smp-period">2025년 평균</div>
+      <div class="smp-bar-bg"><div class="smp-fill" style="width:60%;background:linear-gradient(90deg,#ff9800,#ffa726)"></div></div>
+      <div class="smp-val" style="color:#e65100">111원</div>
+    </div>
+    <div class="smp-row">
+      <div class="smp-period">2025년 12월</div>
+      <div class="smp-bar-bg"><div class="smp-fill" style="width:48%;background:linear-gradient(90deg,#e53935,#ef9a9a)"></div></div>
+      <div class="smp-val" style="color:#e53935">90원대</div>
+    </div>
+    <div class="smp-row" style="margin-bottom:0">
+      <div class="smp-period">정부 목표 단가</div>
+      <div class="smp-bar-bg"><div class="smp-fill" style="width:42%;background:linear-gradient(90deg,#b71c1c,#e53935)"></div></div>
+      <div class="smp-val" style="color:#b71c1c">80원↓</div>
+    </div>
+    <p style="font-size:12px;color:#888;margin-top:12px">※ 기후에너지환경부 장관 "태양광 단가 80원까지 낮출 수 있다" 발언 (2025년). SMP 하락 = 대출 상환 재원 감소 = 연체 증가</p>
+  </div>
+
+  <!-- 인과관계 -->
+  <div class="sec">⑤ 악순환 구조 — 왜 대출이 어려워지나</div>
+  <div class="cause-box">
+    <div class="cause-title">📊 소규모 태양광 대출 어려움의 인과 연쇄</div>
+    <div class="cause-row">
+      <div class="cause-item">SMP·REC 가격 하락</div>
+      <div class="cause-arrow">→</div>
+      <div class="cause-item red">발전 수익 급감</div>
+      <div class="cause-arrow">→</div>
+      <div class="cause-item red">대출 상환 어려움</div>
+    </div>
+    <div class="cause-row">
+      <div class="cause-item red">연체율 폭등 (최고 37%)</div>
+      <div class="cause-arrow">→</div>
+      <div class="cause-item red">충당금 적립 증가</div>
+      <div class="cause-arrow">→</div>
+      <div class="cause-item red">신규 대출 심사 강화</div>
+    </div>
+    <div class="cause-row">
+      <div class="cause-item blue">머니무브 (140조 증시 이탈)</div>
+      <div class="cause-arrow">→</div>
+      <div class="cause-item blue">상호금융 수신 감소</div>
+      <div class="cause-arrow">→</div>
+      <div class="cause-item blue">대출 가용 재원 부족</div>
+    </div>
+    <div class="cause-row" style="margin-bottom:0">
+      <div class="cause-item">RPS→입찰제 전환 예고</div>
+      <div class="cause-arrow">→</div>
+      <div class="cause-item red">소규모 사업자 경쟁력 저하</div>
+      <div class="cause-arrow">→</div>
+      <div class="cause-item dark">대출 거절·중단 증가</div>
+    </div>
+  </div>
+  <div class="src">출처: 전기신문, 국정감사 자료, 해줌 블로그, 서울경제 (2024~2026 종합)</div>
+
+</body>
+</html>
