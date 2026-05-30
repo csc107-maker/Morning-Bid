@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="쿠보타 센쥬 vs 한국 전통주 완벽 비교 | 막걸리·청주·안동소주" />
+  <meta property="og:description" content="쿠보타 센쥬 준마이긴조와 한국 막걸리, 청주, 안동소주, 문배주를 원료·맛·도수·제조방식 등 8가지 항목으로 비교 분석." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1578020190125-f4f7c18bc9cb?w=1200&h=630&fit=crop" />
+  <meta property="og:url" content="https://example.com/kubota-vs-korean-liquor" />
+  <title>쿠보타 센쥬 vs 한국 전통주 비교</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #EEF3FB;
+      padding: 28px 14px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .header-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      color: #4A7FC1;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .header-title {
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 700;
+      color: #0F2A4E;
+      margin-bottom: 6px;
+    }
+
+    .header-sub {
+      font-size: 13px;
+      color: #5A7090;
+    }
+
+    /* Summary cards row */
+    .summary-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .sum-card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      padding: 16px 14px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(28,61,107,0.07);
+    }
+
+    .sum-flag {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .sum-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F2A4E;
+      margin-bottom: 2px;
+    }
+
+    .sum-type {
+      font-size: 10px;
+      color: #7A90B0;
+    }
+
+    .sum-card.featured {
+      background: linear-gradient(135deg, #0F2A4E, #2A5298);
+    }
+
+    .sum-card.featured .sum-name { color: #FFFFFF; }
+    .sum-card.featured .sum-type { color: rgba(255,255,255,0.65); }
+
+    /* Comparison Table */
+    .table-wrap {
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(28,61,107,0.09);
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 560px;
+    }
+
+    thead tr {
+      background: linear-gradient(135deg, #0F2A4E, #1C3D6B);
+    }
+
+    thead th {
+      padding: 14px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    thead th:first-child {
+      text-align: left;
+      background: #0A1F3D;
+      border-radius: 20px 0 0 0;
+    }
+
+    thead th:last-child { border-radius: 0 20px 0 0; }
+
+    tbody tr {
+      border-bottom: 1px solid #EEF3FB;
+      transition: background 0.15s;
+    }
+
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #F5F8FF; }
+
+    tbody td {
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #2C3E50;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: #0F2A4E;
+      background: #F7F9FF;
+      border-right: 1px solid #E0EAF8;
+    }
+
+    .col-kubota {
+      background: #EFF5FF !important;
+      font-weight: 600 !important;
+      color: #1C3D6B !important;
+      border-left: 2px solid #4A7FC1;
+      border-right: 2px solid #4A7FC1;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .pill-blue { background: #E8F0FF; color: #2A5298; }
+    .pill-green { background: #E8F5E9; color: #2E7D32; }
+    .pill-orange { background: #FFF3E0; color: #E65100; }
+    .pill-red { background: #FFEBEE; color: #C62828; }
+    .pill-gray { background: #F5F5F5; color: #555; }
+
+    /* Legend */
+    .legend-wrap {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 18px 22px;
+      box-shadow: 0 3px 12px rgba(28,61,107,0.07);
+    }
+
+    .legend-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F2A4E;
+      margin-bottom: 12px;
+    }
+
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      color: #5A7090;
+      line-height: 1.5;
+    }
+
+    .legend-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .insight-box {
+      background: linear-gradient(135deg, #E8F0FF, #F0F4FF);
+      border: 1px solid #C5D8F8;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+
+    .insight-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1C3D6B;
+      margin-bottom: 6px;
+    }
+
+    .insight-text {
+      font-size: 12px;
+      color: #3A5070;
+      line-height: 1.7;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 11px;
+      color: #AAB8CC;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 580px) {
+      .summary-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-eyebrow">🔍 Comparative Analysis</div>
+      <div class="header-title">쿠보타 센쥬 vs 한국 전통주 — 완벽 비교</div>
+      <div class="header-sub">같은 쌀 문화권, 다른 발효의 길 — 8가지 항목 심층 비교</div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-row">
+      <div class="sum-card featured">
+        <div class="sum-flag">🍶</div>
+        <div class="sum-name">쿠보타 센쥬</div>
+        <div class="sum-type">준마이긴조 / 일본</div>
+      </div>
+      <div class="sum-card">
+        <div class="sum-flag">🍺</div>
+        <div class="sum-name">한국 청주</div>
+        <div class="sum-type">청하·백세주 / 한국</div>
+      </div>
+      <div class="sum-card">
+        <div class="sum-flag">🥛</div>
+        <div class="sum-name">막걸리</div>
+        <div class="sum-type">탁주 / 한국</div>
+      </div>
+      <div class="sum-card">
+        <div class="sum-flag">🔥</div>
+        <div class="sum-name">안동소주</div>
+        <div class="sum-type">증류식 소주 / 한국</div>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>비교 항목</th>
+            <th>🍶 쿠보타 센쥬</th>
+            <th>🍺 한국 청주</th>
+            <th>🥛 막걸리</th>
+            <th>🔥 안동소주</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>원산지</td>
+            <td class="col-kubota">니가타현, 일본</td>
+            <td>전국 (서울·경기 등)</td>
+            <td>전국</td>
+            <td>경북 안동</td>
+          </tr>
+          <tr>
+            <td>주원료</td>
+            <td class="col-kubota">사케용 쌀<br>(고햐쿠만고쿠)</td>
+            <td>쌀·소맥·양조용 알코올</td>
+            <td>쌀·밀·누룩·물</td>
+            <td>쌀·밀누룩</td>
+          </tr>
+          <tr>
+            <td>제조 방식</td>
+            <td class="col-kubota">단행복발효<br>(병행 아닌 단계별)</td>
+            <td>병행복발효</td>
+            <td>병행복발효<br>(탁주, 거르지 않음)</td>
+            <td>증류식<br>(단식 증류)</td>
+          </tr>
+          <tr>
+            <td>알코올 도수</td>
+            <td class="col-kubota"><span class="pill pill-blue">15%</span></td>
+            <td><span class="pill pill-blue">13~16%</span></td>
+            <td><span class="pill pill-green">6~8%</span></td>
+            <td><span class="pill pill-red">45%</span></td>
+          </tr>
+          <tr>
+            <td>정미율 / 여과</td>
+            <td class="col-kubota">정미율 55%<br>정밀 여과</td>
+            <td>70~75%<br>(활성탄 여과)</td>
+            <td>여과 없음<br>(탁주)</td>
+            <td>증류 후<br>숙성</td>
+          </tr>
+          <tr>
+            <td>맛의 방향</td>
+            <td class="col-kubota">드라이·깔끔<br>탄레이카라쿠치</td>
+            <td>달콤·부드러움<br>아마쿠치</td>
+            <td>새콤달콤·탁함<br>유산균 풍미</td>
+            <td>강렬·묵직<br>곡물향</td>
+          </tr>
+          <tr>
+            <td>향 특징</td>
+            <td class="col-kubota">과일향·쌀향<br>(사과·멜론·배)</td>
+            <td>쌀향·단향</td>
+            <td>발효향·유산균향</td>
+            <td>곡물향·누룩향<br>묵은 향</td>
+          </tr>
+          <tr>
+            <td>음용 온도</td>
+            <td class="col-kubota"><span class="pill pill-blue">5~15°C</span></td>
+            <td><span class="pill pill-gray">상온~차갑게</span></td>
+            <td><span class="pill pill-green">차갑게 (5°C)</span></td>
+            <td><span class="pill pill-gray">상온·on the rocks</span></td>
+          </tr>
+          <tr>
+            <td>식사 페어링</td>
+            <td class="col-kubota">회·해산물<br>두부·흰살생선</td>
+            <td>한식 전반<br>고기요리</td>
+            <td>전·부침개<br>고기요리</td>
+            <td>육회·전통 안주<br>격식 있는 자리</td>
+          </tr>
+          <tr>
+            <td>역사</td>
+            <td class="col-kubota">아사히 주조<br>창업 1830년</td>
+            <td>삼국시대 이전<br>~2,000년+</td>
+            <td>고려시대<br>~1,000년+</td>
+            <td>조선시대<br>~600년+</td>
+          </tr>
+          <tr>
+            <td>국내 가격</td>
+            <td class="col-kubota">720ml<br>3.5~4.5만원</td>
+            <td>300ml<br>2,000~4,000원</td>
+            <td>750ml<br>3,000~6,000원</td>
+            <td>500ml<br>4~8만원</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Legend & Insights -->
+    <div class="legend-wrap">
+      <div class="legend-title">🔑 핵심 인사이트</div>
+      <div class="legend-grid">
+        <div class="legend-item">
+          <div class="legend-icon">🌊</div>
+          <div>쿠보타의 '드라이+깔끔함'은 니가타 연수(軟水)에서 비롯됩니다. 한국 청주는 대체로 더 달고 부드럽습니다.</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-icon">🔬</div>
+          <div>제조 방식의 차이: 사케의 단행복발효 vs 한국 청주·막걸리의 병행복발효가 맛의 방향을 가릅니다.</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-icon">🍽️</div>
+          <div>쿠보타는 회·해산물에 최고. 막걸리는 전·부침개에, 안동소주는 격식 있는 자리에 어울립니다.</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-icon">🌾</div>
+          <div>한·일 모두 쌀과 누룩을 기본으로 하는 발효주라는 공통 DNA를 가집니다.</div>
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-title">💡 결론: 어떤 술을 선택해야 할까요?</div>
+        <div class="insight-text">깔끔하고 드라이한 스타일로 회·해산물과 즐기고 싶다면 → <strong>쿠보타 센쥬</strong>. 달콤하고 친숙한 한국 스타일로 가성비를 원한다면 → <strong>한국 청주·백세주</strong>. 발효의 풍성함과 탄산감을 원한다면 → <strong>막걸리</strong>. 격식 있는 자리의 특별한 한 잔이라면 → <strong>안동소주</strong>.</div>
+      </div>
+    </div>
+
+    <div class="footer-note">📍 블로그 삽입용 HTML 4 | '한국 전통주 비교' 섹션 직후 위치</div>
+  </div>
+</body>
+</html>
