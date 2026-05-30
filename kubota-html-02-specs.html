@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="쿠보타 센쥬 준마이긴조 제품 스펙 상세 분석" />
+  <meta property="og:description" content="정미율 55%, 알코올 15%, 일본주도 +3~+5. 쿠보타 센쥬 준마이긴조의 모든 스펙을 시각화했습니다." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1578020190125-f4f7c18bc9cb?w=1200&h=630&fit=crop" />
+  <meta property="og:url" content="https://example.com/kubota-senjyu-specs" />
+  <title>쿠보타 센쥬 준마이긴조 — 스펙 분석 카드</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #EDF2FB;
+      padding: 30px 16px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #4A7FC1;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 700;
+      color: #0F2A4E;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: #5A7090;
+    }
+
+    /* === Polishing Ratio Visual === */
+    .polish-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(28,61,107,0.09);
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .polish-visual {
+      flex: 0 0 140px;
+    }
+
+    .rice-circle-wrap {
+      position: relative;
+      width: 120px; height: 120px;
+      margin: 0 auto;
+    }
+
+    .rice-circle-bg {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(#4A7FC1 0% 55%, #E2E8F4 55% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rice-circle-inner {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rice-pct {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0F2A4E;
+      line-height: 1;
+    }
+
+    .rice-label-sm {
+      font-size: 9px;
+      color: #7A90B0;
+      font-weight: 500;
+    }
+
+    .polish-legend {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      justify-content: center;
+    }
+
+    .legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      font-size: 10px;
+      color: #5A7090;
+    }
+
+    .polish-info {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .polish-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0F2A4E;
+      margin-bottom: 8px;
+    }
+
+    .polish-desc {
+      font-size: 13px;
+      color: #5A7090;
+      line-height: 1.7;
+    }
+
+    .polish-highlight {
+      background: #EFF5FF;
+      border-left: 3px solid #4A7FC1;
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #1C3D6B;
+      font-weight: 500;
+    }
+
+    /* === Spec Grid === */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .spec-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 20px 18px;
+      box-shadow: 0 3px 14px rgba(28,61,107,0.07);
+      transition: transform 0.2s;
+    }
+
+    .spec-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .spec-icon-wrap {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .bg-blue { background: #E8F0FF; }
+    .bg-green { background: #E8F5E9; }
+    .bg-orange { background: #FFF3E0; }
+    .bg-purple { background: #F3E8FF; }
+    .bg-red { background: #FFEBEE; }
+    .bg-teal { background: #E0F7FA; }
+
+    .spec-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: #7A90B0;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+    }
+
+    .spec-value {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0F2A4E;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .spec-unit {
+      font-size: 12px;
+      color: #7A90B0;
+    }
+
+    .spec-desc {
+      font-size: 11px;
+      color: #7A90B0;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* === Taste Bars === */
+    .taste-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 28px 32px;
+      box-shadow: 0 4px 20px rgba(28,61,107,0.09);
+    }
+
+    .taste-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0F2A4E;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .taste-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .taste-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #3A5070;
+      width: 70px;
+      flex-shrink: 0;
+    }
+
+    .taste-bar-track {
+      flex: 1;
+      height: 8px;
+      background: #E8EFF8;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .taste-bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 0.6s ease;
+    }
+
+    .taste-score {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1C3D6B;
+      width: 36px;
+      text-align: right;
+    }
+
+    .rice-type-wrap {
+      background: #F7F9FF;
+      border: 1px solid #D4E0F0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 20px;
+    }
+
+    .rice-type-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #4A7FC1;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .rice-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .rice-tag {
+      background: #FFFFFF;
+      border: 1px solid #C8D8F0;
+      color: #1C3D6B;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 520px) {
+      .polish-card { flex-direction: column; gap: 20px; text-align: center; }
+      .spec-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">📊 Product Analysis</div>
+      <div class="section-title">쿠보타 센쥬 준마이긴조 — 완전 스펙 분석</div>
+      <div class="section-sub">久保田 千寿 純米吟醸 · 아사히 주조 · 니가타현 나가오카시</div>
+    </div>
+
+    <!-- Polishing Ratio Card -->
+    <div class="polish-card">
+      <div class="polish-visual">
+        <div class="rice-circle-wrap">
+          <div class="rice-circle-bg">
+            <div class="rice-circle-inner">
+              <div class="rice-pct">55%</div>
+              <div class="rice-label-sm">정미율</div>
+            </div>
+          </div>
+        </div>
+        <div class="polish-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#4A7FC1;"></div>
+            <span>남은 쌀 55%</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#E2E8F4;"></div>
+            <span>제거 45%</span>
+          </div>
+        </div>
+      </div>
+      <div class="polish-info">
+        <div class="polish-title">🌾 정미율(精米歩合) 55%</div>
+        <div class="polish-desc">
+          원료 쌀의 45%를 깎아내고 순수한 55%만 사용합니다. 쌀 바깥쪽의 지방·단백질·잡미를 제거할수록 깔끔하고 우아한 맛이 납니다. 55%는 <strong>긴조(吟醸) 등급 기준</strong>을 충분히 충족합니다.
+        </div>
+        <div class="polish-highlight">
+          💡 참고: 다이긴조는 50% 이하, 일반 청주는 70~75% 정미율
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Spec Grid -->
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div class="spec-icon-wrap bg-blue">🍶</div>
+        <div class="spec-name">알코올 도수</div>
+        <div class="spec-value">15<span class="spec-unit">%</span></div>
+        <div class="spec-desc">와인과 유사한 도수. 부담 없이 즐길 수 있는 범위.</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon-wrap bg-green">📏</div>
+        <div class="spec-name">일본주도 (SMV)</div>
+        <div class="spec-value">+4</div>
+        <div class="spec-desc">+값이 높을수록 드라이. 약간 드라이하고 깔끔한 스타일.</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon-wrap bg-orange">🧪</div>
+        <div class="spec-name">산도</div>
+        <div class="spec-value">1.2</div>
+        <div class="spec-desc">낮은 산도. 부드럽고 깔끔한 피니시에 기여.</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon-wrap bg-purple">🌡️</div>
+        <div class="spec-name">최적 온도</div>
+        <div class="spec-value">10<span class="spec-unit">°C</span></div>
+        <div class="spec-desc">5~15°C가 향과 맛의 밸런스 최상. 차갑게 추천.</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon-wrap bg-red">📅</div>
+        <div class="spec-name">브랜드 출시</div>
+        <div class="spec-value">1985</div>
+        <div class="spec-desc">아사히 주조 창업은 1830년. 40년간 베스트셀러.</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon-wrap bg-teal">💴</div>
+        <div class="spec-name">국내 가격</div>
+        <div class="spec-value">3.5<span class="spec-unit">만~</span></div>
+        <div class="spec-desc">720ml 기준. 일본 현지 약 ¥1,500 (면세점 추천).</div>
+      </div>
+    </div>
+
+    <!-- Taste Profile Bars -->
+    <div class="taste-card">
+      <div class="taste-title">🎯 맛 프로파일 (10점 만점)</div>
+
+      <div class="taste-row">
+        <div class="taste-label">🍎 과일향</div>
+        <div class="taste-bar-track">
+          <div class="taste-bar-fill" style="width:65%; background:linear-gradient(90deg,#4A90D9,#6AB3E8);"></div>
+        </div>
+        <div class="taste-score">6.5</div>
+      </div>
+      <div class="taste-row">
+        <div class="taste-label">🧴 부드러움</div>
+        <div class="taste-bar-track">
+          <div class="taste-bar-fill" style="width:88%; background:linear-gradient(90deg,#4A90D9,#6AB3E8);"></div>
+        </div>
+        <div class="taste-score">8.8</div>
+      </div>
+      <div class="taste-row">
+        <div class="taste-label">💎 드라이</div>
+        <div class="taste-bar-track">
+          <div class="taste-bar-fill" style="width:72%; background:linear-gradient(90deg,#4A90D9,#6AB3E8);"></div>
+        </div>
+        <div class="taste-score">7.2</div>
+      </div>
+      <div class="taste-row">
+        <div class="taste-label">🌾 쌀향</div>
+        <div class="taste-bar-track">
+          <div class="taste-bar-fill" style="width:75%; background:linear-gradient(90deg,#4A90D9,#6AB3E8);"></div>
+        </div>
+        <div class="taste-score">7.5</div>
+      </div>
+      <div class="taste-row">
+        <div class="taste-label">✨ 피니시</div>
+        <div class="taste-bar-track">
+          <div class="taste-bar-fill" style="width:82%; background:linear-gradient(90deg,#4A90D9,#6AB3E8);"></div>
+        </div>
+        <div class="taste-score">8.2</div>
+      </div>
+
+      <div class="rice-type-wrap">
+        <div class="rice-type-title">🌾 원료 사케쌀 품종</div>
+        <div class="rice-tags">
+          <span class="rice-tag">고햐쿠만고쿠 (五百万石)</span>
+          <span class="rice-tag">코시탄레이 (越淡麗)</span>
+          <span class="rice-tag">니가타산 고급쌀</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
