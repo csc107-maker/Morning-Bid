@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="롯데·신세계·현대 백화점 2025년 분기별 실적 비교" />
+  <meta property="og:description" content="백화점 빅3의 2025년 1분기~2분기 매출 및 영업이익을 한눈에 비교합니다." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/fff8e1/333?text=백화점+실적비교+2025" />
+  <meta property="og:url" content="https://yourblog.com/department-store-performance-2025" />
+  <title>백화점 3사 분기별 실적 비교</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #fafbff;
+      padding: 32px 20px 40px;
+      color: #1a1a2e;
+    }
+    .report-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .report-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #1565c0, #0d47a1);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .report-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: #1a237e;
+      margin-bottom: 8px;
+    }
+    .report-subtitle {
+      font-size: 14px;
+      color: #666;
+    }
+    /* 분기별 실적 테이블 */
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a237e;
+      margin: 28px 0 14px;
+      padding-left: 12px;
+      border-left: 4px solid #1565c0;
+    }
+    .perf-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(21,101,192,0.08);
+      margin-bottom: 28px;
+    }
+    .perf-table thead tr {
+      background: linear-gradient(90deg, #1565c0, #1976d2);
+      color: white;
+    }
+    .perf-table th {
+      padding: 13px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .perf-table td {
+      padding: 13px 16px;
+      font-size: 14px;
+      text-align: center;
+      border-bottom: 1px solid #e8eaf6;
+    }
+    .perf-table tr:last-child td { border-bottom: none; }
+    .perf-table tr:hover td { background: #f3f6ff; }
+    .company-cell {
+      font-weight: 700;
+      text-align: left !important;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .lotte { background: #e53935; }
+    .shinsegae { background: #1565c0; }
+    .hyundai { background: #2e7d32; }
+    .up { color: #2e7d32; font-weight: 700; }
+    .down { color: #e53935; font-weight: 700; }
+    /* 연간 실적 카드 */
+    .annual-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .annual-card {
+      background: white;
+      border-radius: 16px;
+      padding: 22px 18px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      border-top: 5px solid #1565c0;
+      text-align: center;
+    }
+    .annual-card.lotte-card { border-top-color: #e53935; }
+    .annual-card.shinsegae-card { border-top-color: #1565c0; }
+    .annual-card.hyundai-card { border-top-color: #2e7d32; }
+    .annual-company {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #333;
+    }
+    .annual-metric {
+      margin-bottom: 10px;
+    }
+    .annual-label {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 3px;
+    }
+    .annual-value {
+      font-size: 20px;
+      font-weight: 900;
+      color: #1a237e;
+    }
+    .annual-change {
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+    .divider { margin: 10px 0; border: none; border-top: 1px dashed #e0e0e0; }
+    /* 점포별 매출 */
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .store-item {
+      background: white;
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .store-rank {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #1565c0;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .store-rank.gold { background: #f9a825; }
+    .store-rank.silver { background: #78909c; }
+    .store-rank.bronze { background: #a1887f; }
+    .store-info { flex: 1; padding: 0 12px; }
+    .store-name { font-size: 13px; font-weight: 700; color: #333; }
+    .store-brand { font-size: 11px; color: #888; margin-top: 2px; }
+    .store-revenue {
+      font-size: 14px;
+      font-weight: 900;
+      color: #1a237e;
+      text-align: right;
+    }
+    .store-growth {
+      font-size: 11px;
+      font-weight: 700;
+      color: #2e7d32;
+      text-align: right;
+    }
+    /* 출처 */
+    .source-note {
+      font-size: 11px;
+      color: #aaa;
+      text-align: right;
+      margin-top: 6px;
+    }
+    /* 시장점유율 바 */
+    .share-bars { background: white; border-radius: 14px; padding: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 10px; }
+    .share-row { margin-bottom: 14px; }
+    .share-label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 6px; color: #333; }
+    .share-bar-bg { background: #f0f0f0; border-radius: 10px; height: 14px; overflow: hidden; }
+    .share-bar-fill { height: 100%; border-radius: 10px; transition: width 1s; }
+    .lotte-bar { background: linear-gradient(90deg, #e53935, #ef9a9a); width: 39.1%; }
+    .shinsegae-bar { background: linear-gradient(90deg, #1565c0, #90caf9); width: 34.3%; }
+    .hyundai-bar { background: linear-gradient(90deg, #2e7d32, #a5d6a7); width: 26.6%; }
+  </style>
+</head>
+<body>
+
+  <div class="report-header">
+    <div class="report-badge">📈 실적 분석 리포트</div>
+    <div class="report-title">백화점 빅3 — 2025년 분기별 매출·영업이익 비교</div>
+    <div class="report-subtitle">롯데 · 신세계 · 현대백화점 | 1Q~2Q 2025 기준</div>
+  </div>
+
+  <!-- 분기별 실적표 -->
+  <div class="section-title">① 분기별 영업이익 추이 (단위: 억원)</div>
+  <table class="perf-table">
+    <thead>
+      <tr>
+        <th style="text-align:left;">기업</th>
+        <th>2025년 1분기</th>
+        <th>2025년 2분기</th>
+        <th>전년比 변화</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="company-cell">
+            <div class="dot lotte"></div>롯데백화점
+          </div>
+        </td>
+        <td><strong>1,300억</strong></td>
+        <td><strong>632억</strong></td>
+        <td class="up">연간 +27.7%</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="company-cell">
+            <div class="dot shinsegae"></div>신세계백화점
+          </div>
+        </td>
+        <td><strong>1,079억</strong></td>
+        <td><strong>709억</strong></td>
+        <td class="up">연간 +0.4%</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="company-cell">
+            <div class="dot hyundai"></div>현대백화점
+          </div>
+        </td>
+        <td><strong>1,125억</strong></td>
+        <td><strong>869억</strong></td>
+        <td class="up">연간 +9.6%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 분기별 매출표 -->
+  <div class="section-title">② 분기별 매출액 추이 (단위: 억원)</div>
+  <table class="perf-table">
+    <thead>
+      <tr>
+        <th style="text-align:left;">기업</th>
+        <th>2025년 1분기</th>
+        <th>2025년 2분기</th>
+        <th>2025 연간 (별도기준)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="company-cell">
+            <div class="dot lotte"></div>롯데백화점
+          </div>
+        </td>
+        <td>8,063억</td>
+        <td>7,862억</td>
+        <td><strong>3조 3,394억</strong><span class="up" style="font-size:12px;"> +0.6%</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="company-cell">
+            <div class="dot shinsegae"></div>신세계백화점
+          </div>
+        </td>
+        <td>1조 7,919억</td>
+        <td>1조 7,466억</td>
+        <td><strong>상반기 6조 472억</strong><span class="up" style="font-size:12px;"> +0.2%</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="company-cell">
+            <div class="dot hyundai"></div>현대백화점
+          </div>
+        </td>
+        <td colspan="2" style="color:#888;font-size:13px;">연간 별도기준 2조 4,377억</td>
+        <td><strong>2조 4,377억</strong><span class="up" style="font-size:12px;"> +0.1%</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="source-note">출처: 금융감독원 전자공시(DART), 각사 실적 발표 | 신세계 매출은 점포 소비자 매출(리테일 기준)</div>
+
+  <!-- 연간 실적 카드 -->
+  <div class="section-title">③ 2025년 연간 실적 요약</div>
+  <div class="annual-grid">
+    <div class="annual-card lotte-card">
+      <div class="annual-company">🔴 롯데백화점</div>
+      <div class="annual-metric">
+        <div class="annual-label">매출 (별도)</div>
+        <div class="annual-value">3조 3,394억</div>
+        <div class="annual-change up">▲ +0.6%</div>
+      </div>
+      <hr class="divider">
+      <div class="annual-metric">
+        <div class="annual-label">영업이익 (별도)</div>
+        <div class="annual-value">5,042억</div>
+        <div class="annual-change up">▲ +27.7%</div>
+      </div>
+    </div>
+    <div class="annual-card shinsegae-card">
+      <div class="annual-company">🔵 신세계백화점</div>
+      <div class="annual-metric">
+        <div class="annual-label">점포 합산 매출</div>
+        <div class="annual-value">1위 강남 3.6조</div>
+        <div class="annual-change up">▲ 3년 연속 1위</div>
+      </div>
+      <hr class="divider">
+      <div class="annual-metric">
+        <div class="annual-label">영업이익 (별도)</div>
+        <div class="annual-value">4,061억</div>
+        <div class="annual-change up">▲ +0.4%</div>
+      </div>
+    </div>
+    <div class="annual-card hyundai-card">
+      <div class="annual-company">🟢 현대백화점</div>
+      <div class="annual-metric">
+        <div class="annual-label">매출 (별도)</div>
+        <div class="annual-value">2조 4,377억</div>
+        <div class="annual-change up">▲ +0.1%</div>
+      </div>
+      <hr class="divider">
+      <div class="annual-metric">
+        <div class="annual-label">영업이익 (별도)</div>
+        <div class="annual-value">3,935억</div>
+        <div class="annual-change up">▲ +9.6%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 상반기 시장점유율 -->
+  <div class="section-title">④ 2025년 상반기 빅3 매출 점유율</div>
+  <div class="share-bars">
+    <div class="share-row">
+      <div class="share-label">
+        <span>🔴 롯데백화점</span>
+        <span>39.1%</span>
+      </div>
+      <div class="share-bar-bg"><div class="share-bar-fill lotte-bar"></div></div>
+    </div>
+    <div class="share-row">
+      <div class="share-label">
+        <span>🔵 신세계백화점</span>
+        <span>34.3%</span>
+      </div>
+      <div class="share-bar-bg"><div class="share-bar-fill shinsegae-bar"></div></div>
+    </div>
+    <div class="share-row" style="margin-bottom:0;">
+      <div class="share-label">
+        <span>🟢 현대백화점</span>
+        <span>26.6%</span>
+      </div>
+      <div class="share-bar-bg"><div class="share-bar-fill hyundai-bar"></div></div>
+    </div>
+  </div>
+  <div class="source-note">출처: 패션비즈, 한국섬유신문, 금융감독원 전자공시 (2025년 상반기 기준)</div>
+
+  <!-- 상위 점포 매출 -->
+  <div class="section-title" style="margin-top:28px;">⑤ 2025년 단일 점포 매출 TOP 5 (연간)</div>
+  <div class="store-grid">
+    <div class="store-item">
+      <div class="store-rank gold">1</div>
+      <div class="store-info">
+        <div class="store-name">신세계 강남점</div>
+        <div class="store-brand">신세계백화점 · 3년 연속 1위</div>
+      </div>
+      <div>
+        <div class="store-revenue">3조 6,000억+</div>
+        <div class="store-growth">▲ +2.1%</div>
+      </div>
+    </div>
+    <div class="store-item">
+      <div class="store-rank silver">2</div>
+      <div class="store-info">
+        <div class="store-name">롯데 잠실점</div>
+        <div class="store-brand">롯데백화점</div>
+      </div>
+      <div>
+        <div class="store-revenue">3조 2,891억</div>
+        <div class="store-growth">▲ +7.6%</div>
+      </div>
+    </div>
+    <div class="store-item">
+      <div class="store-rank bronze">3</div>
+      <div class="store-info">
+        <div class="store-name">신세계 센텀시티</div>
+        <div class="store-brand">신세계백화점</div>
+      </div>
+      <div>
+        <div class="store-revenue">2조 2,300억</div>
+        <div class="store-growth">▲ +5.1%</div>
+      </div>
+    </div>
+    <div class="store-item">
+      <div class="store-rank" style="background:#546e7a;">4</div>
+      <div class="store-info">
+        <div class="store-name">롯데 본점 (명동)</div>
+        <div class="store-brand">롯데백화점</div>
+      </div>
+      <div>
+        <div class="store-revenue">2조 1,805억</div>
+        <div class="store-growth">▲ +2.7%</div>
+      </div>
+    </div>
+    <div class="store-item" style="grid-column: 1/-1;">
+      <div class="store-rank" style="background:#6a1b9a;">5</div>
+      <div class="store-info">
+        <div class="store-name">현대 판교점</div>
+        <div class="store-brand">현대백화점 · 개점 10년 만에 연매출 2조 달성</div>
+      </div>
+      <div>
+        <div class="store-revenue">2조 291억</div>
+        <div class="store-growth">▲ +17.2% 최고 성장</div>
+      </div>
+    </div>
+  </div>
+  <div class="source-note">출처: 한국섬유신문, 패션비즈, 각사 IR 자료 (2025년 연간 기준)</div>
+
+</body>
+</html>
