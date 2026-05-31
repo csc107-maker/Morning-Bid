@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>젠슨 황 × LG전자 협력 타임라인</title>
+  <meta property="og:title" content="젠슨 황 × LG전자 협력 타임라인 | 피지컬 AI 동맹의 시작" />
+  <meta property="og:description" content="엔비디아 젠슨 황 CEO와 LG그룹 구광모 회장의 첫 만남까지, 피지컬 AI 협력의 주요 흐름을 한눈에 정리합니다." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80" />
+  <meta property="og:url" content="https://yourblog.com/jensen-lg-timeline" />
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      background: linear-gradient(135deg, #f0f7ff 0%, #fafbff 50%, #f5f0ff 100%);
+      padding: 32px 16px;
+      min-height: 100vh;
+    }
+    .widget-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(0,90,200,0.10);
+      overflow: hidden;
+    }
+    .widget-header {
+      background: linear-gradient(135deg, #1a3a6b 0%, #0d5bbd 60%, #2980ef 100%);
+      padding: 28px 36px 22px;
+      color: #fff;
+    }
+    .widget-header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      padding: 4px 14px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .widget-header h2 {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .widget-header p {
+      font-size: 13px;
+      opacity: 0.78;
+    }
+    .timeline-body { padding: 28px 36px 32px; }
+    .tl-item {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 0;
+      position: relative;
+    }
+    .tl-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: 46px;
+      width: 2px;
+      height: calc(100% - 18px);
+      background: linear-gradient(180deg, #bbdaff 0%, #e8d9ff 100%);
+    }
+    .tl-dot {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+      font-weight: 900;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.14);
+    }
+    .dot-blue   { background: linear-gradient(135deg, #1a6bef, #0d4ab2); }
+    .dot-green  { background: linear-gradient(135deg, #16a34a, #15803d); }
+    .dot-violet { background: linear-gradient(135deg, #7c3aed, #5b21b6); }
+    .dot-orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .dot-red    { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+    .dot-teal   { background: linear-gradient(135deg, #0891b2, #0e7490); }
+    .tl-content {
+      flex: 1;
+      padding: 6px 0 28px;
+    }
+    .tl-date {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6b7280;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .tl-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #1a2340;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .tl-desc {
+      font-size: 13px;
+      color: #4b5563;
+      line-height: 1.65;
+    }
+    .tl-tag {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 11px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .tag-blue   { background: #dbeafe; color: #1d4ed8; }
+    .tag-green  { background: #dcfce7; color: #15803d; }
+    .tag-violet { background: #ede9fe; color: #6d28d9; }
+    .tag-orange { background: #fef3c7; color: #b45309; }
+    .tag-red    { background: #fee2e2; color: #b91c1c; }
+    .tag-teal   { background: #cffafe; color: #0e7490; }
+    .widget-footer {
+      background: #f8faff;
+      border-top: 1px solid #e5e7eb;
+      padding: 14px 36px;
+      font-size: 11.5px;
+      color: #9ca3af;
+    }
+    @media (max-width: 520px) {
+      .timeline-body, .widget-header, .widget-footer { padding-left: 18px; padding-right: 18px; }
+      .widget-header h2 { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-wrap">
+    <div class="widget-header">
+      <div class="badge">📅 협력 타임라인</div>
+      <h2>젠슨 황 × LG전자<br>피지컬 AI 동맹의 시작</h2>
+      <p>Computex 2026 이전까지의 주요 이벤트 흐름</p>
+    </div>
+    <div class="timeline-body">
+
+      <div class="tl-item">
+        <div class="tl-dot dot-blue"><i class="ti ti-robot"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 1월 · CES 2026 라스베이거스</div>
+          <div class="tl-title">LG, 휴머노이드 'CLOiD' 공개 · 엔비디아 피지컬 AI 선언</div>
+          <div class="tl-desc">LG전자가 CES 2026에서 쌍팔 7자유도 팔과 5지 손가락을 갖춘 홈로봇 CLOiD를 공개. 젠슨 황은 같은 행사에서 피지컬 AI 개념을 세계에 선포하고, LG전자를 글로벌 파트너사 중 하나로 함께 소개함.</div>
+          <span class="tl-tag tag-blue">CES 2026</span>
+          <span class="tl-tag tag-blue">피지컬 AI 출발점</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-green"><i class="ti ti-handshake"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 4월 28일 · 서울 여의도</div>
+          <div class="tl-title">메디슨 황 수석이사 × 류재철 LG전자 사장 회동</div>
+          <div class="tl-desc">젠슨 황의 장녀 메디슨 황(Omniverse·로보틱스 마케팅 수석이사)이 방한해 LG전자 사장과 만남. CLOiD와 엔비디아 Isaac 플랫폼 결합 방안 집중 논의. 이 만남이 6월 최고 경영진 회동의 사전 포석으로 평가됨.</div>
+          <span class="tl-tag tag-green">CLOiD + Isaac 결합 논의</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-violet"><i class="ti ti-chart-line"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 5월 15일 · 한국 증시</div>
+          <div class="tl-title">LG전자 주가, 엔비디아·MS 선택에 20% 급등 · 52주 신고가</div>
+          <div class="tl-desc">엔비디아와 MS 모두 LG전자를 AI 로봇·데이터센터 파트너로 선택했다는 소식이 전해지며 주가 6거래일 연속 상승. 로봇 사업 재평가 본격 시작.</div>
+          <span class="tl-tag tag-violet">주가 재평가 시작</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-orange"><i class="ti ti-news"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 5월 28일 · 단독 보도</div>
+          <div class="tl-title">한국경제·경향신문, "구광모-젠슨 황 첫 공식 회동" 단독 보도</div>
+          <div class="tl-desc">젠슨 황이 Computex 2026 이후 방한, LG그룹 구광모 회장과 첫 공식 회동 예정이라는 단독 보도가 나오며 LG전자 주가 당일 17% 급등 시작.</div>
+          <span class="tl-tag tag-orange">단독 보도 충격파</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-red"><i class="ti ti-trending-up"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 5월 29일 · 한국 증시</div>
+          <div class="tl-title">LG전자 주가 29.93% 폭등 · 종가 29만 3000원 · 52주 신고가</div>
+          <div class="tl-desc">기관 44만 5767주 순매수. 시가총액 47조원 돌파. 3개월 누적 상승률 90% 기록. 단일 거래일 최대 상승폭으로 시장 충격.</div>
+          <span class="tl-tag tag-red">역대급 급등</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-teal"><i class="ti ti-calendar-event"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 6월 초 · 서울 (예정)</div>
+          <div class="tl-title">구광모 × 젠슨 황 첫 공식 회동 · RFM + 로보틱스 동맹 공식화</div>
+          <div class="tl-desc">피지컬 AI 협력 방향 확정, 로봇 파운데이션 모델(RFM) 공동 개발 논의, 엑사원-Isaac-CLOiD 통합 로드맵 수립 예정. LG그룹 전체 계열사 협력 범위도 논의될 전망.</div>
+          <span class="tl-tag tag-teal">역사적 첫 공식 회동</span>
+          <span class="tl-tag tag-teal">예정</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="widget-footer">
+      ※ 출처: 한국경제, 경향신문, Bloomberg, Seoul Economic Daily (2026.05) · 본 위젯은 정보 제공 목적이며 투자 권유가 아닙니다.
+    </div>
+  </div>
+</body>
+</html>
