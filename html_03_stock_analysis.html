@@ -3,199 +3,170 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta property="og:title" content="2026년 6월 1일 상승 유망 종목 분석 카드" />
-<meta property="og:description" content="SK하이닉스, 삼성전자, 한화에어로스페이스, LG에너지솔루션, 현대차 상세 분석" />
-<meta property="og:image" content="https://via.placeholder.com/1200x630/faf5ff/333333?text=2026.06.01+Stock+Analysis" />
+<meta property="og:title" content="2026.06.02 오늘의 추천 종목 분석 — SK하이닉스·한화에어로스페이스·네이버" />
+<meta property="og:description" content="HBM 슈퍼사이클 수혜주 3선 — PER, PBR, ROE, 매수근거, 리스크 완벽 분석" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/faf5ff/1a1a2e?text=2026.06.02+Stock+Analysis" />
 <meta property="og:url" content="https://blog.naver.com/csc107" />
-<title>종목 분석 카드 2026.06.01</title>
+<title>추천 종목 분석 카드 2026.06.02</title>
 <style>
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:#faf5ff; padding:20px; }
-  .container { max-width:960px; margin:0 auto; }
-  .header { text-align:center; margin-bottom:28px; }
-  .header h2 { font-size:1.4rem; color:#4a235a; font-weight:700; margin-bottom:6px; }
-  .header p { font-size:0.85rem; color:#666; }
-  .stock-card { background:#fff; border-radius:16px; padding:22px 24px; box-shadow:0 2px 14px rgba(0,0,0,0.08); margin-bottom:20px; border-left:5px solid #8e44ad; }
-  .stock-card.blue { border-left-color:#2980b9; }
-  .stock-card.green { border-left-color:#27ae60; }
-  .stock-card.orange { border-left-color:#e67e22; }
-  .stock-card.red { border-left-color:#e74c3c; }
-  .stock-header { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
-  .stock-name { font-size:1.15rem; font-weight:800; color:#1a1a1a; }
-  .stock-ticker { font-size:0.8rem; color:#888; font-weight:600; margin-left:8px; }
-  .stock-badges { display:flex; gap:6px; flex-wrap:wrap; margin-top:4px; }
-  .badge { display:inline-block; font-size:0.68rem; padding:3px 10px; border-radius:20px; font-weight:700; }
-  .badge.sector { background:#ede7f6; color:#6a1b9a; }
-  .badge.buy { background:#e8f8ee; color:#27ae60; }
-  .badge.watch { background:#fff3e0; color:#e67e22; }
-  .badge.risk { background:#fdecea; color:#e74c3c; }
-  .stock-desc { font-size:0.83rem; color:#555; line-height:1.6; margin-bottom:14px; }
-  .table-wrap { overflow-x:auto; margin-bottom:14px; }
-  table { width:100%; border-collapse:collapse; font-size:0.82rem; }
-  th { background:#f3e5f5; color:#4a235a; font-weight:700; padding:8px 12px; text-align:left; }
-  .stock-card.blue th { background:#e3f2fd; color:#1565c0; }
-  .stock-card.green th { background:#e8f5e9; color:#1b5e20; }
-  .stock-card.orange th { background:#fff3e0; color:#bf360c; }
-  .stock-card.red th { background:#fce4ec; color:#880e4f; }
-  td { padding:8px 12px; border-bottom:1px solid #f5f5f5; color:#333; }
-  tr:last-child td { border-bottom:none; }
-  tr:nth-child(even) td { background:#fafafa; }
-  .tag-row { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
-  .footer { text-align:center; margin-top:20px; font-size:0.72rem; color:#999; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background: #faf5ff; padding: 20px; }
+  .sa-wrap { max-width: 800px; margin: 0 auto; background: #ffffff; border-radius: 16px; padding: 28px 24px; box-shadow: 0 4px 20px rgba(100,0,200,0.07); }
+  .sa-header { text-align: center; margin-bottom: 28px; }
+  .sa-header h2 { font-size: 1.25rem; color: #3b0764; font-weight: 700; margin-bottom: 4px; }
+  .sa-header p { font-size: 0.82rem; color: #6b7280; }
+  .stock-card { background: #f8fafc; border-radius: 14px; padding: 20px 22px; margin-bottom: 20px; border-left: 5px solid #8b5cf6; }
+  .stock-card.gold { border-left-color: #f59e0b; background: #fffbeb; }
+  .stock-card.silver { border-left-color: #64748b; background: #f8fafc; }
+  .stock-card.bronze { border-left-color: #10b981; background: #f0fdf4; }
+  .sc-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+  .sc-rank { font-size: 1.8rem; }
+  .sc-name { flex: 1; min-width: 140px; }
+  .sc-name h3 { font-size: 1rem; font-weight: 700; color: #1f2937; }
+  .sc-name p { font-size: 0.75rem; color: #6b7280; margin-top: 2px; }
+  .sc-signal { text-align: right; }
+  .sc-signal .sig-badge { font-size: 0.72rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; display: inline-block; }
+  .sig-buy { background: #dcfce7; color: #166534; }
+  .sig-watch { background: #fef3c7; color: #92400e; }
+  /* 밸류에이션 테이블 */
+  .val-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.78rem; }
+  .val-table th { background: #f1f5f9; color: #374151; font-weight: 700; padding: 7px 10px; text-align: left; border-bottom: 2px solid #e5e7eb; }
+  .val-table td { padding: 7px 10px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+  .val-table tr:last-child td { border-bottom: none; }
+  .val-table .hl { font-weight: 700; color: #7c3aed; }
+  /* 태그 섹션 */
+  .tags-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag { font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+  .tag-buy { background: #dcfce7; color: #166534; }
+  .tag-risk { background: #fee2e2; color: #991b1b; }
+  /* 요약 박스 */
+  .summary-box { background: #ede9fe; border-radius: 10px; padding: 12px 16px; margin-top: 10px; font-size: 0.78rem; color: #4c1d95; line-height: 1.6; }
+  .sa-footer { margin-top: 20px; padding-top: 14px; border-top: 1px solid #e5e7eb; font-size: 0.68rem; color: #9ca3af; text-align: center; }
+  @media (max-width: 480px) { .sc-top { flex-direction: column; } }
 </style>
 </head>
 <body>
-<!-- [삽입 위치: 기업 분석 섹션 직후 — 종목별 상세 분석 카드] -->
-<div class="container">
-  <div class="header">
-    <h2>📈 2026년 6월 1일 — 상승 유망 종목 분석</h2>
-    <p>글로벌 지표 + 뉴스 종합 기반 선정 | 투자 권유 아님</p>
+<!-- [삽입 위치: 추천 종목 섹션 직후] -->
+<div class="sa-wrap">
+  <div class="sa-header">
+    <h2>🏆 2026.06.02 오늘의 추천 종목 분석</h2>
+    <p>AI 반도체 슈퍼사이클 수혜주 3선 — PER·PBR·ROE 기반 밸류에이션 완벽 분석</p>
   </div>
 
-  <!-- SK하이닉스 -->
-  <div class="stock-card">
-    <div class="stock-header">
-      <div>
-        <div class="stock-name">SK하이닉스 <span class="stock-ticker">000660</span></div>
-        <div class="stock-badges">
-          <span class="badge sector">반도체·HBM</span>
-          <span class="badge buy">최우선 추천</span>
-        </div>
+  <!-- 종목 1: SK하이닉스 -->
+  <div class="stock-card gold">
+    <div class="sc-top">
+      <div class="sc-rank">🥇</div>
+      <div class="sc-name">
+        <h3>SK하이닉스 (000660)</h3>
+        <p>HBM 메모리 슈퍼사이클의 핵심 수혜주</p>
+      </div>
+      <div class="sc-signal">
+        <span class="sig-badge sig-buy">✅ 적극 매수</span>
       </div>
     </div>
-    <div class="stock-desc">세계 HBM(고대역폭메모리) 1위. 엔비디아 HBM4 물량 70% 수주. AI 서버 확장의 핵심 공급망. 2026년 전체 HBM 용량 매진, 2027년까지 공급 부족 지속 전망.</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-        <tr><td>Q1 2026 매출</td><td>52.58조 원</td><td>+198% YoY</td></tr>
-        <tr><td>Q1 2026 영업이익</td><td>37.61조 원</td><td>+405% YoY</td></tr>
-        <tr><td>영업이익률</td><td>72%</td><td>역대 최고 수준</td></tr>
-        <tr><td>2026 연간 매출 전망</td><td>~230조 원</td><td>증권사 컨센서스</td></tr>
-        <tr><td>2026 연간 영업이익</td><td>~148조 원</td><td>증권사 컨센서스</td></tr>
-        <tr><td>HBM 시장 점유율</td><td>52%</td><td>글로벌 1위</td></tr>
-        <tr><td>YTD 주가 수익률</td><td>+258%</td><td>2026년 연초 대비</td></tr>
-      </table>
+
+    <table class="val-table">
+      <tr><th>지표</th><th>수치</th><th>비고</th></tr>
+      <tr><td>PER (2026E)</td><td class="hl">4~5배</td><td>역사적 저점 — 극도의 저평가</td></tr>
+      <tr><td>PBR</td><td class="hl">~4.0배</td><td>BPS 448,465원 기준</td></tr>
+      <tr><td>ROE</td><td class="hl">80%+</td><td>초고수익성 구간</td></tr>
+      <tr><td>영업이익률 (1Q26)</td><td class="hl">72%</td><td>창사 이래 최고 (37.6조원)</td></tr>
+      <tr><td>분기 매출 (1Q26)</td><td>52.6조원</td><td>분기 사상 최초 50조 돌파</td></tr>
+      <tr><td>목표주가</td><td class="hl">100만원</td><td>SK증권 제시</td></tr>
+      <tr><td>52주 수익률</td><td class="hl">+200%+</td><td>코스피 압도적 아웃퍼폼</td></tr>
+    </table>
+
+    <div class="tags-row">
+      <span class="tag tag-buy">HBM3E 점유율 71%</span>
+      <span class="tag tag-buy">HBM4 독점 공급 유력</span>
+      <span class="tag tag-buy">구글 TPU v7 단독 공급</span>
+      <span class="tag tag-buy">젠슨황 파트너 나이트</span>
+      <span class="tag tag-buy">엔비디아 Rubin 플랫폼</span>
+      <span class="tag tag-risk">중국 CXMT 추격 리스크</span>
+      <span class="tag tag-risk">수출규제 변수</span>
     </div>
-    <div class="tag-row">
-      <span class="badge buy">▲ HBM 공급 독점적 지위</span>
-      <span class="badge buy">▲ 엔비디아 파트너십</span>
-      <span class="badge buy">▲ 2027년까지 공급 부족</span>
-      <span class="badge risk">▼ 메모리 사이클 반전 가능성</span>
+
+    <div class="summary-box">
+      💡 <strong>핵심 투자 포인트</strong>: 2026년 메모리 시장 85% 성장(4,021억 달러)의 최대 수혜자. PER 4~5배는 '이익이 너무 빨리 늘어나서 주가가 못 따라온 상태'. 젠슨황 방한으로 AI팩토리 협력 공식화 시 추가 상승 기대.
     </div>
   </div>
 
-  <!-- 삼성전자 -->
-  <div class="stock-card blue">
-    <div class="stock-header">
-      <div>
-        <div class="stock-name">삼성전자 <span class="stock-ticker">005930</span></div>
-        <div class="stock-badges">
-          <span class="badge sector">반도체·스마트폰</span>
-          <span class="badge watch">상대 저평가 주목</span>
-        </div>
+  <!-- 종목 2: 한화에어로스페이스 -->
+  <div class="stock-card silver">
+    <div class="sc-top">
+      <div class="sc-rank">🥈</div>
+      <div class="sc-name">
+        <h3>한화에어로스페이스 (012450)</h3>
+        <p>방산 + AI 인프라 복합 성장 스토리</p>
+      </div>
+      <div class="sc-signal">
+        <span class="sig-badge sig-buy">✅ 매수</span>
       </div>
     </div>
-    <div class="stock-desc">세계 최대 반도체·스마트폰·가전 복합 기업. HBM4E 샘플 납품 시작으로 AI 메모리 시장 재진입. 임금 협상 타결로 생산 안정성 확보.</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-        <tr><td>2026 연간 매출 전망</td><td>~500조 원+</td><td>전사 기준</td></tr>
-        <tr><td>2026 연간 영업이익</td><td>~160조 원+</td><td>증권사 컨센서스</td></tr>
-        <tr><td>HBM 시장 점유율</td><td>39%</td><td>글로벌 2위</td></tr>
-        <tr><td>YTD 주가 수익률</td><td>+163%</td><td>2026년 연초 대비</td></tr>
-        <tr><td>5월 29일 일간 상승률</td><td>+5.84%</td><td>코스피 급등일</td></tr>
-        <tr><td>임금 협상</td><td>타결 완료</td><td>파업 리스크 해소</td></tr>
-      </table>
+
+    <table class="val-table">
+      <tr><th>지표</th><th>수치</th><th>비고</th></tr>
+      <tr><td>PER (2026E)</td><td class="hl">12~15배</td><td>방산 프리미엄 반영</td></tr>
+      <tr><td>매출 성장률</td><td class="hl">30%+</td><td>수출 수주 증가 기반</td></tr>
+      <tr><td>수주잔고</td><td class="hl">40조원+</td><td>역대 최고 수준</td></tr>
+      <tr><td>전일 등락률</td><td class="hl">+5.3%</td><td>KOSPI 8,600 돌파 시 동반 급등</td></tr>
+      <tr><td>외국인 동향</td><td>순매수 지속</td><td>글로벌 방산 ETF 편입 증가</td></tr>
+    </table>
+
+    <div class="tags-row">
+      <span class="tag tag-buy">폴란드·루마니아 K9 자주포</span>
+      <span class="tag tag-buy">NATO 군비 증강 수혜</span>
+      <span class="tag tag-buy">엔비디아 AI팩토리 인프라</span>
+      <span class="tag tag-buy">현대차그룹 시너지</span>
+      <span class="tag tag-risk">이란 갈등 확대 시 리스크온 저하</span>
     </div>
-    <div class="tag-row">
-      <span class="badge buy">▲ HBM4E 양산 모멘텀</span>
-      <span class="badge buy">▲ SK하이닉스 대비 상대 저평가</span>
-      <span class="badge risk">▼ 기술 격차 좁히기 과제</span>
+
+    <div class="summary-box">
+      💡 <strong>핵심 투자 포인트</strong>: 방산 사이클 상승기에 AI 인프라 수혜까지 더한 복합 성장 스토리. 수주잔고 40조원 이상으로 중장기 이익 가시성 높음. 외국인 순매수 지속.
     </div>
   </div>
 
-  <!-- 한화에어로스페이스 -->
-  <div class="stock-card green">
-    <div class="stock-header">
-      <div>
-        <div class="stock-name">한화에어로스페이스 <span class="stock-ticker">012450</span></div>
-        <div class="stock-badges">
-          <span class="badge sector">방위산업</span>
-          <span class="badge buy">업종 최선호주</span>
-        </div>
+  <!-- 종목 3: 네이버 -->
+  <div class="stock-card bronze">
+    <div class="sc-top">
+      <div class="sc-rank">🥉</div>
+      <div class="sc-name">
+        <h3>네이버 (035420)</h3>
+        <p>젠슨황 방문 + AI 클라우드 재평가</p>
+      </div>
+      <div class="sc-signal">
+        <span class="sig-badge sig-watch">👀 모멘텀 매수</span>
       </div>
     </div>
-    <div class="stock-desc">한국 방위산업 1위. 자주포(K9), 장갑차(K21), 항공엔진 생산. 유럽·중동·인도 방산 수출 급증. 증권사 공통 업종 최선호주 선정.</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-        <tr><td>2026 영업이익 성장 전망</td><td>+40.2% YoY</td><td>증권사 추정</td></tr>
-        <tr><td>핵심 수출 시장</td><td>폴란드, 루마니아, 사우디</td><td>NATO 수요 급증</td></tr>
-        <tr><td>업종 추천 등급</td><td>비중 확대 (최선호)</td><td>다수 증권사 공통</td></tr>
-      </table>
+
+    <table class="val-table">
+      <tr><th>지표</th><th>수치</th><th>비고</th></tr>
+      <tr><td>PER (2026E)</td><td class="hl">20~25배</td><td>AI 성장 프리미엄 반영</td></tr>
+      <tr><td>PBR</td><td class="hl">2.5~3.0배</td><td>플랫폼 자산 기반</td></tr>
+      <tr><td>매출 성장률</td><td class="hl">15~20%</td><td>클라우드·AI 서비스 주도</td></tr>
+      <tr><td>전일 모멘텀</td><td class="hl">급등</td><td>젠슨황 한국 본사 방문 검토 보도</td></tr>
+      <tr><td>AI 시장 점유율</td><td>국내 1위</td><td>검색+클라우드 복합 서비스</td></tr>
+    </table>
+
+    <div class="tags-row">
+      <span class="tag tag-buy">젠슨황 방한 파트너십 기대</span>
+      <span class="tag tag-buy">NVIDIA 엔터프라이즈 AI 협력</span>
+      <span class="tag tag-buy">Clova X B2B 시장 확대</span>
+      <span class="tag tag-buy">라인야후 정상화</span>
+      <span class="tag tag-risk">구글·메타 한국 공세</span>
+      <span class="tag tag-risk">라인야후 불확실성</span>
     </div>
-    <div class="tag-row">
-      <span class="badge buy">▲ 글로벌 재무장 수요 슈퍼사이클</span>
-      <span class="badge buy">▲ 수주잔고 사상 최대</span>
-      <span class="badge risk">▼ 중동 안정화 시 방산 수요 감소</span>
+
+    <div class="summary-box">
+      💡 <strong>핵심 투자 포인트</strong>: 단기 이벤트(젠슨황 방한) + 중기 AI 클라우드 성장이 맞물린 구간. 젠슨황의 네이버 방문이 공식화되면 추가 급등 가능. 이벤트 후 차익 실현 주의.
     </div>
   </div>
 
-  <!-- LG에너지솔루션 -->
-  <div class="stock-card orange">
-    <div class="stock-header">
-      <div>
-        <div class="stock-name">LG에너지솔루션 <span class="stock-ticker">373220</span></div>
-        <div class="stock-badges">
-          <span class="badge sector">2차전지</span>
-          <span class="badge watch">후속 랠리 기대</span>
-        </div>
-      </div>
-    </div>
-    <div class="stock-desc">글로벌 전기차 배터리 2위(점유율 ~14%). GM, 현대차, 폭스바겐 등 주요 OEM 공급. 삼성SDI·에코프로 랠리 이후 후발 상승 기대.</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-        <tr><td>글로벌 배터리 점유율</td><td>~14%</td><td>CATL 다음 2위권</td></tr>
-        <tr><td>주요 고객사</td><td>GM, 현대차, VW, 혼다</td><td>글로벌 다변화</td></tr>
-        <tr><td>핵심 기술</td><td>원통형·파우치·각형 전 라인업</td><td>차세대 배터리 개발 중</td></tr>
-      </table>
-    </div>
-    <div class="tag-row">
-      <span class="badge buy">▲ 2차전지 후속 랠리 기대</span>
-      <span class="badge buy">▲ 미국 IRA 수혜 지속</span>
-      <span class="badge risk">▼ CATL 가격 경쟁 심화</span>
-    </div>
+  <div class="sa-footer">
+    본 내용은 투자 정보 제공 목적이며, 투자 권유가 아닙니다. 최종 투자 판단은 투자자 본인에게 있습니다.<br/>
+    밸류에이션 출처: SK증권, 현대차증권, SK hynix Newsroom, 한국경제 (2026.05~06)
   </div>
-
-  <!-- 현대차 -->
-  <div class="stock-card red">
-    <div class="stock-header">
-      <div>
-        <div class="stock-name">현대차 <span class="stock-ticker">005380</span></div>
-        <div class="stock-badges">
-          <span class="badge sector">자동차·전기차</span>
-          <span class="badge buy">강한 모멘텀</span>
-        </div>
-      </div>
-    </div>
-    <div class="stock-desc">글로벌 3위 자동차 그룹(현대차+기아 합산). IONIQ 전기차·수소차(넥쏘)·로보틱스(보스턴다이나믹스) 다각화. 5월 29일 하루 +6.79% 급등.</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-        <tr><td>5월 29일 일간 상승률</td><td>+6.79%</td><td>코스피 최강 종목</td></tr>
-        <tr><td>글로벌 판매 순위</td><td>3위 (현대+기아)</td><td>2026년 기준</td></tr>
-        <tr><td>환율 수혜</td><td>USD/KRW 1,507원</td><td>달러 수익 원화 환산 ↑</td></tr>
-      </table>
-    </div>
-    <div class="tag-row">
-      <span class="badge buy">▲ 환율 수혜 (원화 약세)</span>
-      <span class="badge buy">▲ 전기차·로보틱스 신사업</span>
-      <span class="badge risk">▼ 미국 관세 리스크</span>
-    </div>
-  </div>
-
-  <div class="footer">본 내용은 투자 정보 제공 목적이며, 투자 권유가 아닙니다. | 데이터 출처: Bloomberg, TradingKey, 각 증권사 리포트 (2026.05)</div>
 </div>
 </body>
 </html>
