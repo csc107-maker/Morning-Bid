@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="엔비디아 RTX Spark 슈퍼칩 스펙 완전 분석" />
+<meta property="og:description" content="128GB 통합 메모리, 1페타플롭 AI 성능 — RTX Spark vs MacBook Pro M4 Pro 비교" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200" />
+<meta property="og:url" content="https://blog.naver.com/nvidia-rtx-spark-spec-2026" />
+<title>RTX Spark 스펙 카드</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; background: #f5f7ff; padding: 32px 16px; }
+  .container { max-width: 780px; margin: 0 auto; }
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .header .eyebrow {
+    display: inline-block;
+    background: linear-gradient(90deg, #4f46e5, #0ea5e9);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .header h2 { font-size: 22px; font-weight: 800; color: #1e1b4b; margin-bottom: 6px; }
+  .header p { color: #6b7280; font-size: 14px; }
+
+  /* 메인 스펙 카드 */
+  .main-card {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e40af 100%);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 20px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .main-card::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .chip-title {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 24px;
+  }
+  .chip-icon-big {
+    width: 52px; height: 52px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .chip-name { font-size: 22px; font-weight: 800; }
+  .chip-sub-name { font-size: 13px; color: rgba(200,220,255,0.8); }
+
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .spec-item {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .spec-item .label { font-size: 11px; color: rgba(180,200,255,0.8); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .spec-item .value { font-size: 18px; font-weight: 800; color: #fff; }
+  .spec-item .unit { font-size: 12px; color: rgba(200,220,255,0.8); margin-top: 2px; }
+
+  /* 비교 테이블 */
+  .compare-section { margin-top: 20px; }
+  .compare-title {
+    font-size: 15px; font-weight: 700; color: #1e1b4b;
+    margin-bottom: 14px; padding-left: 4px;
+    border-left: 4px solid #4f46e5;
+    padding-left: 12px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  }
+  thead tr { background: linear-gradient(90deg, #4f46e5, #0ea5e9); }
+  thead th { color: #fff; font-size: 13px; font-weight: 700; padding: 14px 16px; text-align: center; }
+  thead th:first-child { text-align: left; }
+  tbody tr { border-bottom: 1px solid #f0f0f8; transition: background 0.2s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f5f3ff; }
+  td { padding: 13px 16px; font-size: 13px; color: #374151; }
+  td:first-child { font-weight: 600; color: #1e1b4b; }
+  td:not(:first-child) { text-align: center; }
+  .win { color: #059669; font-weight: 700; }
+  .neutral { color: #6b7280; }
+
+  /* 하이라이트 박스 */
+  .highlight-row {
+    display: flex; gap: 12px;
+    margin-top: 20px;
+  }
+  .hl-box {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border-top: 3px solid;
+  }
+  .hl-box.green { border-color: #10b981; }
+  .hl-box.blue  { border-color: #3b82f6; }
+  .hl-box.purple{ border-color: #8b5cf6; }
+  .hl-box .hl-icon { font-size: 22px; margin-bottom: 8px; }
+  .hl-box .hl-title { font-size: 13px; font-weight: 700; color: #1e1b4b; margin-bottom: 4px; }
+  .hl-box .hl-desc { font-size: 12px; color: #6b7280; line-height: 1.5; }
+
+  .source { text-align: right; font-size: 11px; color: #9ca3af; margin-top: 14px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="eyebrow">🔬 Computex 2026 발표</div>
+    <h2>엔비디아 RTX Spark 슈퍼칩 — 스펙 완전 해부</h2>
+    <p>N1X가 만들어낸 PC 역사상 가장 강력한 통합 칩, 숫자로 확인합니다</p>
+  </div>
+
+  <div class="main-card">
+    <div class="chip-title">
+      <div class="chip-icon-big">⚡</div>
+      <div>
+        <div class="chip-name">NVIDIA RTX Spark (N1X)</div>
+        <div class="chip-sub-name">Blackwell Architecture · Windows on Arm · NVLink C2C</div>
+      </div>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="label">🧠 CPU 코어</div>
+        <div class="value">20</div>
+        <div class="unit">Arm 아키텍처 (10P + 10E)</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">🎮 GPU 코어</div>
+        <div class="value">6,144</div>
+        <div class="unit">Blackwell CUDA Cores</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">🤖 AI 성능</div>
+        <div class="value">1 PF</div>
+        <div class="unit">페타플롭 (FP4 정밀도)</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">💾 통합 메모리</div>
+        <div class="value">128 GB</div>
+        <div class="unit">LPDDR5X 통합</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">🚀 메모리 대역폭</div>
+        <div class="value">300</div>
+        <div class="unit">GB/s (최대)</div>
+      </div>
+      <div class="spec-item">
+        <div class="label">🧬 AI 모델 지원</div>
+        <div class="value">1,200억</div>
+        <div class="unit">파라미터 (로컬 실행)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="compare-section">
+    <div class="compare-title">RTX Spark vs MacBook Pro M4 Pro — 핵심 스펙 비교</div>
+    <table>
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>RTX Spark (N1X)</th>
+          <th>Apple M4 Pro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CPU 코어</td>
+          <td class="win">20코어 (Arm)</td>
+          <td class="neutral">14코어</td>
+        </tr>
+        <tr>
+          <td>GPU 코어</td>
+          <td class="win">Blackwell 6,144 CUDA</td>
+          <td class="neutral">Apple GPU 20코어</td>
+        </tr>
+        <tr>
+          <td>최대 통합 메모리</td>
+          <td class="win">128 GB</td>
+          <td class="neutral">64 GB</td>
+        </tr>
+        <tr>
+          <td>AI 성능</td>
+          <td class="win">1 페타플롭</td>
+          <td class="neutral">≈ 0.38 페타플롭</td>
+        </tr>
+        <tr>
+          <td>메모리 대역폭</td>
+          <td class="win">최대 300 GB/s</td>
+          <td class="neutral">273 GB/s</td>
+        </tr>
+        <tr>
+          <td>로컬 AI 모델 지원</td>
+          <td class="win">1,200억 파라미터</td>
+          <td class="neutral">≈ 700억 파라미터</td>
+        </tr>
+        <tr>
+          <td>GPU 아키텍처</td>
+          <td class="win">Blackwell (5세대 Tensor)</td>
+          <td class="neutral">Apple Neural Engine</td>
+        </tr>
+        <tr>
+          <td>호환 게임 (네이티브)</td>
+          <td class="win">LoL·발로란트·PUBG 등</td>
+          <td class="neutral">macOS 지원 게임</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight-row">
+    <div class="hl-box green">
+      <div class="hl-icon">🎯</div>
+      <div class="hl-title">로컬 AI의 혁명</div>
+      <div class="hl-desc">클라우드 없이 1,200억 파라미터 모델 실행. 개인정보 보호와 오프라인 AI 작업이 가능해집니다.</div>
+    </div>
+    <div class="hl-box blue">
+      <div class="hl-icon">⚡</div>
+      <div class="hl-title">CUDA 생태계 계승</div>
+      <div class="hl-desc">6,144개 CUDA 코어로 기존 엔비디아 GPU 소프트웨어 자산을 그대로 PC에서 활용합니다.</div>
+    </div>
+    <div class="hl-box purple">
+      <div class="hl-icon">🔗</div>
+      <div class="hl-title">NVLink C2C 혁신</div>
+      <div class="hl-desc">CPU·GPU를 고속 인터커넥트로 연결, 128GB 메모리를 동적 분배해 병목 현상을 최소화합니다.</div>
+    </div>
+  </div>
+
+  <div class="source">출처: Tom's Hardware · Windows Central · PCWorld · CNBC (Computex 2026 보도, 2026.06.01)</div>
+</div>
+</body>
+</html>
