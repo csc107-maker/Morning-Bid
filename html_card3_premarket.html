@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="개장 전 30분 변동성 분석 | 프리마켓 수급 구조" />
+<meta property="og:description" content="2026년 6월 한국 프리마켓 도입과 개장 전 30분 급변동 원인, 투자자별 수급 구조 분석" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/fce4ec/333?text=PreMarket+Volatility" />
+<meta property="og:url" content="https://yourblog.com/premarket-volatility-0602" />
+<title>개장 전 30분 변동성 분석</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#fff5f5;padding:24px;min-height:100vh;}
+.wrap{max-width:800px;margin:0 auto;}
+.card-header{
+  background:linear-gradient(135deg,#b71c1c,#c62828);
+  color:#fff;border-radius:16px 16px 0 0;padding:28px 32px;
+}
+.badge{display:inline-block;background:#ffca28;color:#1a1a1a;font-size:11px;font-weight:900;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:1px;}
+.card-header h2{font-size:24px;font-weight:900;line-height:1.3;margin-bottom:6px;}
+.card-header p{font-size:12px;opacity:0.75;}
+.body-card{background:#fff;padding:28px 32px;border-left:1px solid #f5c6c6;border-right:1px solid #f5c6c6;}
+.section-title{font-size:13px;font-weight:900;color:#b71c1c;border-left:4px solid #e53935;padding-left:10px;margin-bottom:16px;}
+
+/* 시간대 블록 */
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px;}
+.time-box{border-radius:10px;padding:16px 14px;text-align:center;}
+.time-box.normal{background:#e8f5e9;border:1px solid #a5d6a7;}
+.time-box.warning{background:#fff8e1;border:1px solid #ffe082;}
+.time-box.danger{background:#ffebee;border:1px solid #ef9a9a;}
+.time-box .time{font-size:16px;font-weight:900;margin-bottom:4px;}
+.time-box.normal .time{color:#2e7d32;}
+.time-box.warning .time{color:#f57c00;}
+.time-box.danger .time{color:#c62828;}
+.time-box .label{font-size:11px;color:#555;margin-bottom:6px;}
+.time-box .status{font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;display:inline-block;}
+.time-box.normal .status{background:#c8e6c9;color:#1b5e20;}
+.time-box.warning .status{background:#ffe082;color:#e65100;}
+.time-box.danger .status{background:#ffcdd2;color:#b71c1c;}
+
+/* 수급표 */
+table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:20px;}
+th{background:#ffebee;color:#b71c1c;font-weight:700;padding:10px 12px;text-align:center;font-size:11px;border-bottom:2px solid #ef9a9a;}
+td{padding:10px 12px;border-bottom:1px solid #fce4ec;color:#333;text-align:center;}
+.td-left{text-align:left;font-weight:700;}
+.red{color:#e53935;font-weight:700;}
+.green{color:#2e7d32;font-weight:700;}
+.blue{color:#1565c0;font-weight:700;}
+.gray{color:#888;}
+
+/* 원인 분석 */
+.cause-list{list-style:none;}
+.cause-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 0;border-bottom:1px solid #fce4ec;
+}
+.cause-list li:last-child{border-bottom:none;}
+.cause-num{
+  min-width:28px;height:28px;border-radius:50%;
+  background:#e53935;color:#fff;font-size:12px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.cause-content h4{font-size:13px;font-weight:900;color:#1a1a1a;margin-bottom:3px;}
+.cause-content p{font-size:11px;color:#555;line-height:1.7;}
+
+.alert-box{
+  background:#ffebee;border-radius:10px;padding:16px 20px;
+  border-left:4px solid #e53935;margin-top:16px;
+}
+.alert-box p{font-size:12px;line-height:1.8;color:#333;}
+.alert-box strong{color:#c62828;}
+
+.card-footer{background:#b71c1c;color:rgba(255,255,255,0.65);font-size:10px;padding:12px 32px;border-radius:0 0 16px 16px;text-align:right;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card-header">
+    <div class="badge">⚡ 개장 전 변동성 집중 분석</div>
+    <h2>왜 개장 전 30분이<br>가장 위험한 시간이 됐나?</h2>
+    <p>2026년 6월 한국 프리마켓(07:00~09:00) 정식 도입 이후 거래 구조 변화 분석</p>
+  </div>
+
+  <div class="body-card">
+    <div class="section-title">🕐 시간대별 시장 위험도 분포</div>
+    <div class="time-grid">
+      <div class="time-box normal">
+        <div class="time">07:00~08:00</div>
+        <div class="label">프리마켓 초반</div>
+        <div class="status">낮음 · 저유동성</div>
+      </div>
+      <div class="time-box danger">
+        <div class="time">08:30~09:00</div>
+        <div class="label">개장 전 30분</div>
+        <div class="status">🔴 최고 위험구간</div>
+      </div>
+      <div class="time-box warning">
+        <div class="time">09:00~09:30</div>
+        <div class="label">장 초반 호가 정리</div>
+        <div class="status">⚠️ 높음</div>
+      </div>
+      <div class="time-box normal">
+        <div class="time">10:00~14:00</div>
+        <div class="label">정규장 중반</div>
+        <div class="status">안정 구간</div>
+      </div>
+      <div class="time-box warning">
+        <div class="time">14:30~15:30</div>
+        <div class="label">장 후반 마감</div>
+        <div class="status">⚠️ 프로그램 매매</div>
+      </div>
+      <div class="time-box warning">
+        <div class="time">16:00~20:00</div>
+        <div class="label">애프터마켓</div>
+        <div class="status">⚠️ 미국 개장 대기</div>
+      </div>
+    </div>
+
+    <div class="section-title">📊 투자자별 수급 구조 (2026년 6월 2일 추정)</div>
+    <table>
+      <thead>
+        <tr>
+          <th>투자 주체</th>
+          <th>개장 전 포지션</th>
+          <th>주요 행태</th>
+          <th>시장 영향</th>
+          <th>비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-left">🌍 외국인</td>
+          <td class="red">순매도 우세</td>
+          <td>EM 리밸런싱<br>SpaceX 자금확보</td>
+          <td class="red">하락 압력</td>
+          <td class="gray">EM/Value 펀드 주도</td>
+        </tr>
+        <tr>
+          <td class="td-left">🏦 기관</td>
+          <td class="green">순매수 방어</td>
+          <td>ETF 유동성 공급<br>퇴직연금 매수</td>
+          <td class="green">완충 역할</td>
+          <td class="gray">증권사(LP) 중심</td>
+        </tr>
+        <tr>
+          <td class="td-left">👤 개인</td>
+          <td class="blue">레버리지 집중</td>
+          <td>단일종목 레버리지<br>ETF 단기 매매</td>
+          <td class="red">변동성 증폭</td>
+          <td class="gray">테마주 추격 매수</td>
+        </tr>
+        <tr>
+          <td class="td-left">🤖 알고리즘</td>
+          <td class="red">조건부 매도</td>
+          <td>손절 라인 도달시<br>자동 매도 실행</td>
+          <td class="red">급락 가속</td>
+          <td class="gray">연쇄 사이드카 위험</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-title">🔍 개장 전 30분 변동성 급증 5대 원인</div>
+    <ul class="cause-list">
+      <li>
+        <span class="cause-num">1</span>
+        <div class="cause-content">
+          <h4>프리마켓 저유동성 환경</h4>
+          <p>2026년 6월 정식 도입된 프리마켓(07:00~09:00)은 정규장 대비 거래량이 10~30% 수준. 소량의 매도·매수도 호가를 크게 움직이는 구조적 취약점 존재.</p>
+        </div>
+      </li>
+      <li>
+        <span class="cause-num">2</span>
+        <div class="cause-content">
+          <h4>미국 장 마감 직후 정보 반영</h4>
+          <p>미국 나스닥/뉴욕증시 변동이 한국 프리마켓에 즉시 반영되는 구조. SpaceX IPO 관련 뉴스가 미국 장중에 나오면 한국 개장 전 선반영 폭이 커짐.</p>
+        </div>
+      </li>
+      <li>
+        <span class="cause-num">3</span>
+        <div class="cause-content">
+          <h4>레버리지·인버스 ETF의 NAV 괴리</h4>
+          <p>고배율 ETF는 NAV(순자산가치)와 시장가격의 괴리가 저유동성 시간대에 확대. 개장 직전 LP(유동성공급자) 물량이 집중되며 수급 왜곡 발생.</p>
+        </div>
+      </li>
+      <li>
+        <span class="cause-num">4</span>
+        <div class="cause-content">
+          <h4>알고리즘 트레이딩 연쇄 반응</h4>
+          <p>외국인 대규모 매도 신호 → 알고리즘 손절 자동 실행 → 추가 매도 → 사이드카 발동 가능성. 2026년 코스피 변동성이 2020년 이후 두 번째로 높은 수준.</p>
+        </div>
+      </li>
+      <li>
+        <span class="cause-num">5</span>
+        <div class="cause-content">
+          <h4>SpaceX IPO D-10 심리적 압박</h4>
+          <p>6월 12일 상장 10일 전. 기관들의 IPO 자금 마련 마감 압박이 최고조에 달하는 시점. 한국을 포함한 신흥국 주식 매도 물량이 이 시기에 집중되는 패턴.</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="alert-box">
+      <p><strong>⚠️ 투자자 주의사항:</strong> 개장 전 30분(08:30~09:00) 구간은 <strong>일반 투자자에게 가장 불리한 시간대</strong>입니다. 호가 스프레드가 넓고 체결 지연이 발생하며, 알고리즘과 기관의 선점 매매가 집중됩니다. 이 시간대 레버리지 ETF 신규 진입은 피하고, 정규장(09:00 이후) 안정화를 확인 후 대응하는 것이 리스크 관리에 유리합니다.</p>
+    </div>
+  </div>
+  <div class="card-footer">※ 출처: 리모트뷰 블로그(2026.03), 나무위키 코스피, 삼성증권리포트(2026.04), 보안망고(2026) · 투자 참고용 정보이며 매매 권유 아님</div>
+</div>
+</body>
+</html>
