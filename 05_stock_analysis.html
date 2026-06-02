@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="삼성전자·SK하이닉스 HBM 주가 영향 분석 2026" />
+<meta property="og:description" content="엔비디아 RTX Spark PC 시대, 삼성전자 vs SK하이닉스 투자 시나리오와 소부장 수혜주 분석" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200" />
+<meta property="og:url" content="https://blog.naver.com/samsung-skhynix-hbm-stock-2026" />
+<title>반도체 주가 분석 대시보드</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; background: #f8fafc; padding: 28px 16px; }
+  .container { max-width: 780px; margin: 0 auto; }
+
+  .header { text-align: center; margin-bottom: 28px; }
+  .badge-red {
+    display: inline-block;
+    background: linear-gradient(90deg, #dc2626, #ef4444);
+    color: #fff; font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; padding: 5px 16px; border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header h2 { font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 6px; }
+  .header p { color: #6b7280; font-size: 13px; }
+
+  /* 회사 카드 */
+  .company-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+
+  .company-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    border-top: 5px solid;
+  }
+  .company-card .co-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  }
+  .co-logo {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 900; color: #fff;
+  }
+  .co-name { font-size: 15px; font-weight: 800; color: #111827; }
+  .co-ticker { font-size: 11px; color: #9ca3af; }
+
+  .stat-row { display: flex; gap: 10px; margin-bottom: 12px; }
+  .stat-box {
+    flex: 1;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+  .stat-label { font-size: 10px; color: #9ca3af; font-weight: 600; margin-bottom: 4px; }
+  .stat-value { font-size: 15px; font-weight: 800; }
+
+  .strength-list { list-style: none; }
+  .strength-list li {
+    font-size: 12px; color: #374151;
+    padding: 4px 0;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex; align-items: flex-start; gap: 6px;
+  }
+  .strength-list li:last-child { border-bottom: none; }
+  .strength-list .icon { flex-shrink: 0; }
+
+  /* 시나리오 테이블 */
+  .scenario-section {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: 14px; font-weight: 700; color: #111827;
+    margin-bottom: 14px;
+    padding-left: 12px; border-left: 4px solid #ef4444;
+  }
+
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: #1e293b; }
+  thead th { color: #fff; font-size: 12px; font-weight: 600; padding: 12px 14px; text-align: left; }
+  tbody tr { border-bottom: 1px solid #f1f5f9; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f8fafc; }
+  td { padding: 12px 14px; font-size: 13px; color: #374151; vertical-align: middle; }
+  .bull { color: #059669; font-weight: 700; }
+  .base { color: #d97706; font-weight: 700; }
+  .bear { color: #dc2626; font-weight: 700; }
+
+  .scenario-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 700;
+    padding: 3px 10px; border-radius: 10px;
+  }
+  .bull-bg { background: #d1fae5; color: #065f46; }
+  .base-bg { background: #fef3c7; color: #78350f; }
+  .bear-bg { background: #fee2e2; color: #7f1d1d; }
+
+  /* HBM 시장 전망 */
+  .market-forecast {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .mf-title { font-size: 14px; font-weight: 700; margin-bottom: 16px; color: #e2e8f0; }
+  .mf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .mf-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .mf-box .mf-num { font-size: 22px; font-weight: 800; color: #38bdf8; margin-bottom: 4px; }
+  .mf-box .mf-label { font-size: 11px; color: #94a3b8; line-height: 1.4; }
+
+  /* 경고 박스 */
+  .warning-box {
+    background: #fff8e1;
+    border: 1px solid #fbbf24;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 12px; color: #78350f;
+    line-height: 1.7;
+  }
+  .source { text-align: right; font-size: 11px; color: #9ca3af; margin-top: 14px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="badge-red">📊 투자 분석 리포트</div>
+    <h2>삼성전자 vs SK하이닉스 — HBM 주가 영향 분석</h2>
+    <p>엔비디아 RTX Spark PC 시대가 불러온 반도체 시장 구조 변화</p>
+  </div>
+
+  <!-- 회사 카드 -->
+  <div class="company-grid">
+    <!-- 삼성전자 -->
+    <div class="company-card" style="border-color:#1d4ed8;">
+      <div class="co-header">
+        <div class="co-logo" style="background:linear-gradient(135deg,#1d4ed8,#3b82f6);">삼</div>
+        <div>
+          <div class="co-name">삼성전자</div>
+          <div class="co-ticker">005930 · KRX</div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-label">2026 HBM 매출 전망</div>
+          <div class="stat-value" style="color:#1d4ed8;">24조원</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">HBM4 점유율 전망</div>
+          <div class="stat-value" style="color:#1d4ed8;">28~29%</div>
+        </div>
+      </div>
+      <ul class="strength-list">
+        <li><span class="icon">✅</span> 2026년 2월 업계 최초 HBM4 양산 출하</li>
+        <li><span class="icon">✅</span> AMD 주공급사 — 독자 수주 기반 확보</li>
+        <li><span class="icon">✅</span> 1c D램 + 4나노 파운드리 로직 다이</li>
+        <li><span class="icon">⚠️</span> 엔비디아 HBM3E 점유율 열세 (SK하이닉스 71%)</li>
+        <li><span class="icon">⚠️</span> HBM4 수율 안정화가 핵심 변수</li>
+      </ul>
+    </div>
+
+    <!-- SK하이닉스 -->
+    <div class="company-card" style="border-color:#059669;">
+      <div class="co-header">
+        <div class="co-logo" style="background:linear-gradient(135deg,#059669,#10b981);">SK</div>
+        <div>
+          <div class="co-name">SK하이닉스</div>
+          <div class="co-ticker">000660 · KRX</div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-label">2026 HBM 매출 전망</div>
+          <div class="stat-value" style="color:#059669;">41.2조원</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">HBM4 점유율 전망</div>
+          <div class="stat-value" style="color:#059669;">54~55%</div>
+        </div>
+      </div>
+      <ul class="strength-list">
+        <li><span class="icon">✅</span> 엔비디아 HBM3E 물량 기준 점유율 71%</li>
+        <li><span class="icon">✅</span> 2026년 전체 HBM 물량 완판 (매진)</li>
+        <li><span class="icon">✅</span> MR-MUF 패키징 기술 수율 안정성</li>
+        <li><span class="icon">✅</span> 16단 48GB HBM4 2TB/s 기술 선도</li>
+        <li><span class="icon">⚠️</span> 엔비디아 의존도 높아 다변화 필요</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 삼성전자 시나리오 -->
+  <div class="scenario-section">
+    <div class="section-title">삼성전자 주가 시나리오 분석</div>
+    <table>
+      <thead>
+        <tr>
+          <th>시나리오</th>
+          <th>핵심 조건</th>
+          <th>주가 방향</th>
+          <th>확률</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="scenario-badge bull-bg">🐂 강세</span></td>
+          <td>엔비디아 HBM4 최종 인증 + AMD 물량 확대</td>
+          <td class="bull">단기 10~20% 반등</td>
+          <td>30%</td>
+        </tr>
+        <tr>
+          <td><span class="scenario-badge base-bg">📊 기본</span></td>
+          <td>AMD 공급 유지, 엔비디아는 SK하이닉스 위주</td>
+          <td class="base">현 수준 횡보</td>
+          <td>45%</td>
+        </tr>
+        <tr>
+          <td><span class="scenario-badge bear-bg">🐻 약세</span></td>
+          <td>HBM4 수율 불안, 가격 인하 압박 심화</td>
+          <td class="bear">추가 하락 위험</td>
+          <td>25%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- HBM 시장 전망 숫자 -->
+  <div class="market-forecast">
+    <div class="mf-title">💡 2026년 글로벌 HBM 시장 핵심 수치</div>
+    <div class="mf-grid">
+      <div class="mf-box">
+        <div class="mf-num">$581억</div>
+        <div class="mf-label">2026년 글로벌 HBM<br>시장 규모 전망</div>
+      </div>
+      <div class="mf-box">
+        <div class="mf-num">$1,900억</div>
+        <div class="mf-label">마이크로소프트<br>2026 CAPEX 규모</div>
+      </div>
+      <div class="mf-box">
+        <div class="mf-num">$5,400억</div>
+        <div class="mf-label">2028년까지<br>HBM 관련 시장 추산</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    ⚠️ <strong>투자 유의사항:</strong> 본 분석은 공개된 뉴스·증권사 리포트·기업 발표를 바탕으로 한 정보 제공 목적입니다. 특정 종목의 매수·매도를 권유하지 않습니다. 반도체 업종은 변동성이 크므로 반드시 전문 금융기관의 리포트와 본인의 판단을 기반으로 투자 결정하시기 바랍니다.
+  </div>
+
+  <div class="source">출처: 뉴데일리비즈, 카운터포인트리서치, 대신증권, 다올투자증권, EBN (Investing.com 한국판), 글로벌이코노믹 (2026년 기준)</div>
+</div>
+</body>
+</html>
