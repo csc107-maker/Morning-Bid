@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="HBM 세대별 기술 진화 타임라인 — HBM1부터 HBM4까지" />
+<meta property="og:description" content="고대역폭메모리(HBM)의 세대별 진화와 삼성전자·SK하이닉스 점유율 경쟁 분석" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200" />
+<meta property="og:url" content="https://blog.naver.com/hbm-timeline-2026" />
+<title>HBM 타임라인</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; background: #f0fdf4; padding: 32px 16px; }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header { text-align: center; margin-bottom: 36px; }
+  .badge-green {
+    display: inline-block;
+    background: linear-gradient(90deg, #059669, #10b981);
+    color: #fff; font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; padding: 5px 16px; border-radius: 20px;
+    margin-bottom: 12px; text-transform: uppercase;
+  }
+  .header h2 { font-size: 21px; font-weight: 800; color: #064e3b; margin-bottom: 6px; }
+  .header p { color: #6b7280; font-size: 14px; }
+
+  /* 타임라인 */
+  .timeline { position: relative; padding-left: 36px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 14px; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #d1fae5 0%, #10b981 30%, #059669 60%, #1d4ed8 80%, #7c3aed 100%);
+    border-radius: 4px;
+  }
+
+  .tl-item { position: relative; margin-bottom: 28px; }
+  .tl-dot {
+    position: absolute; left: -29px; top: 14px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px currentColor;
+    z-index: 1;
+  }
+  .tl-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    border-left: 4px solid;
+    transition: transform 0.2s;
+  }
+  .tl-card:hover { transform: translateX(4px); }
+
+  .gen-label {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    padding: 3px 10px; border-radius: 10px;
+    margin-bottom: 8px; text-transform: uppercase;
+  }
+  .tl-title { font-size: 16px; font-weight: 800; color: #111827; margin-bottom: 6px; }
+  .tl-year { font-size: 12px; color: #9ca3af; margin-bottom: 10px; }
+  .tl-desc { font-size: 13px; color: #4b5563; line-height: 1.65; }
+
+  .spec-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .pill {
+    font-size: 11px; font-weight: 600;
+    padding: 3px 10px; border-radius: 10px;
+    background: #f3f4f6; color: #374151;
+  }
+
+  /* 현재 마켓 쉐어 */
+  .market-section {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  }
+  .market-title { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 18px;
+    padding-left: 12px; border-left: 4px solid #10b981; }
+
+  .bar-row { margin-bottom: 14px; }
+  .bar-label { display: flex; justify-content: space-between; margin-bottom: 5px; }
+  .bar-name { font-size: 13px; font-weight: 600; color: #374151; }
+  .bar-pct { font-size: 13px; font-weight: 700; }
+  .bar-bg { height: 10px; background: #f3f4f6; border-radius: 8px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 8px; }
+  .source { text-align: right; font-size: 11px; color: #9ca3af; margin-top: 16px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="badge-green">📡 HBM 기술 진화 연대기</div>
+    <h2>HBM 세대별 타임라인 — 대역폭 128GB/s → 2TB/s의 여정</h2>
+    <p>AI 시대를 가능하게 한 고대역폭메모리의 세대별 진화를 한눈에 확인하세요</p>
+  </div>
+
+  <div class="timeline">
+    <!-- HBM1 -->
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#6b7280; background:#9ca3af;"></div>
+      <div class="tl-card" style="border-color:#9ca3af;">
+        <div class="gen-label" style="background:#f3f4f6; color:#6b7280;">1세대</div>
+        <div class="tl-title">HBM1 — 고대역폭메모리의 탄생</div>
+        <div class="tl-year">📅 2013~2015년 | SK하이닉스 세계 최초 개발</div>
+        <div class="tl-desc">기존 GDDR5 대비 혁명적인 대역폭 향상. AMD Fiji GPU(R9 Fury)에 처음 탑재되며 상용화됩니다. 3D 적층(TSV) 기술로 칩 면적 대비 대역폭을 극대화한 혁신이었습니다.</div>
+        <div class="spec-pills">
+          <span class="pill">대역폭 128 GB/s</span>
+          <span class="pill">1 GB/스택</span>
+          <span class="pill">4단 적층</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HBM2 -->
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#3b82f6; background:#60a5fa;"></div>
+      <div class="tl-card" style="border-color:#3b82f6;">
+        <div class="gen-label" style="background:#eff6ff; color:#2563eb;">2세대</div>
+        <div class="tl-title">HBM2 / HBM2E — AI 가속기 시대 개막</div>
+        <div class="tl-year">📅 2016~2021년 | 엔비디아 V100·A100 탑재</div>
+        <div class="tl-desc">딥러닝 붐과 함께 AI 가속기의 핵심 메모리로 자리잡습니다. 엔비디아의 V100과 A100에 탑재되며 데이터센터 AI의 표준이 됩니다. HBM2E에서 대역폭이 460GB/s까지 향상됩니다.</div>
+        <div class="spec-pills">
+          <span class="pill">대역폭 256~460 GB/s</span>
+          <span class="pill">8~16 GB/스택</span>
+          <span class="pill">8단 적층</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HBM3 -->
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#059669; background:#34d399;"></div>
+      <div class="tl-card" style="border-color:#059669;">
+        <div class="gen-label" style="background:#ecfdf5; color:#065f46;">3세대</div>
+        <div class="tl-title">HBM3 / HBM3E — ChatGPT 시대의 메모리</div>
+        <div class="tl-year">📅 2022~2025년 | H100·H200·B200 탑재</div>
+        <div class="tl-desc">ChatGPT 이후 생성형 AI 폭발적 수요와 함께 HBM3/3E 수요가 폭증합니다. SK하이닉스가 엔비디아 공급 우선권을 확보하며 점유율 60% 이상을 달성합니다. 엔비디아 B200 GPU는 192GB HBM3E(8단)를 탑재합니다.</div>
+        <div class="spec-pills">
+          <span class="pill">대역폭 819 GB/s~1.2 TB/s</span>
+          <span class="pill">24~36 GB/스택</span>
+          <span class="pill">12단 적층</span>
+          <span class="pill">SK하이닉스 점유율 61%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HBM4 -->
+    <div class="tl-item">
+      <div class="tl-dot" style="color:#7c3aed; background:#a78bfa;"></div>
+      <div class="tl-card" style="border-color:#7c3aed; background: linear-gradient(135deg, #faf5ff, #fff);">
+        <div class="gen-label" style="background:#f5f3ff; color:#6d28d9;">4세대 🔥 현재</div>
+        <div class="tl-title">HBM4 — 2026년 AI PC·서버 혁명의 심장</div>
+        <div class="tl-year">📅 2026년 양산 개시 | 삼성전자 세계 최초 2월 양산 출하</div>
+        <div class="tl-desc">삼성전자가 2026년 2월 업계 최초로 HBM4 양산 출하를 선언했습니다. SK하이닉스는 CES 2026에서 초당 2TB 대역폭의 16단 48GB HBM4를 공개했습니다. 엔비디아의 Vera Rubin GPU에 독점 공급될 차세대 표준입니다.</div>
+        <div class="spec-pills">
+          <span class="pill">대역폭 2 TB/s+</span>
+          <span class="pill">36~48 GB/스택</span>
+          <span class="pill">12~16단 적층</span>
+          <span class="pill">핀당 11~13 Gbps</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2026 시장 점유율 -->
+  <div class="market-section">
+    <div class="market-title">2026년 HBM4 시장 점유율 전망 (카운터포인트리서치 추정)</div>
+
+    <div class="bar-row">
+      <div class="bar-label">
+        <span class="bar-name">🇰🇷 SK하이닉스</span>
+        <span class="bar-pct" style="color:#059669;">54~55%</span>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:54%; background:linear-gradient(90deg,#10b981,#059669);"></div></div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-label">
+        <span class="bar-name">🇰🇷 삼성전자</span>
+        <span class="bar-pct" style="color:#2563eb;">28~29%</span>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:28%; background:linear-gradient(90deg,#60a5fa,#2563eb);"></div></div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-label">
+        <span class="bar-name">🇺🇸 마이크론</span>
+        <span class="bar-pct" style="color:#d97706;">17~18%</span>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:17%; background:linear-gradient(90deg,#fbbf24,#d97706);"></div></div>
+    </div>
+
+    <div class="source">출처: 카운터포인트리서치, 뉴데일리, Tom's Hardware (2026년 기준 전망치)</div>
+  </div>
+</div>
+</body>
+</html>
