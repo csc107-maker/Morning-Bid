@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="외국인 투매 & SpaceX IPO | 한국 증시 자금이탈 분석" />
+<meta property="og:description" content="SpaceX 6월 12일 나스닥 상장과 외국인 순매도의 연관성, 글로벌 자금 이동 타임라인 분석" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/e8f5e9/333?text=SpaceX+IPO+Foreign+Sell" />
+<meta property="og:url" content="https://yourblog.com/spacex-ipo-foreign-sell" />
+<title>외국인 투매 & SpaceX IPO 분석</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f7fa;padding:24px;min-height:100vh;}
+.wrap{max-width:800px;margin:0 auto;}
+
+/* Header */
+.card-header{
+  background:linear-gradient(135deg,#004d40,#00695c);
+  color:#fff;border-radius:16px 16px 0 0;padding:28px 32px;
+}
+.badge{display:inline-block;background:#f9a825;color:#1a1a1a;font-size:11px;font-weight:900;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:1px;}
+.card-header h2{font-size:24px;font-weight:900;line-height:1.3;margin-bottom:6px;}
+.card-header p{font-size:12px;opacity:0.75;}
+
+/* Timeline */
+.timeline-card{background:#fff;padding:28px 32px;border-left:1px solid #dce8e0;border-right:1px solid #dce8e0;}
+.section-title{font-size:13px;font-weight:900;color:#004d40;border-left:4px solid #00897b;padding-left:10px;margin-bottom:20px;letter-spacing:0.5px;}
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#00897b,#f9a825,#e53935);}
+.tl-item{position:relative;margin-bottom:22px;}
+.tl-dot{position:absolute;left:-23px;top:3px;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 2px #00897b;}
+.tl-dot.red{box-shadow:0 0 0 2px #e53935;background:#e53935;}
+.tl-dot.orange{box-shadow:0 0 0 2px #f57c00;background:#f57c00;}
+.tl-dot.green{box-shadow:0 0 0 2px #2e7d32;background:#2e7d32;}
+.tl-dot.blue{box-shadow:0 0 0 2px #1565c0;background:#1565c0;}
+.tl-dot.teal{box-shadow:0 0 0 2px #00897b;background:#00897b;}
+.tl-date{font-size:10px;color:#888;font-weight:700;letter-spacing:1px;margin-bottom:3px;}
+.tl-title{font-size:14px;font-weight:900;color:#1a1a1a;margin-bottom:4px;}
+.tl-desc{font-size:12px;color:#555;line-height:1.7;}
+.tl-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:5px;}
+.tag-red{background:#ffebee;color:#c62828;}
+.tag-green{background:#e8f5e9;color:#2e7d32;}
+.tag-blue{background:#e3f2fd;color:#1565c0;}
+.tag-orange{background:#fff3e0;color:#e65100;}
+
+/* 연관관계 분석표 */
+.relation-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+.rel-box{background:#f8fafb;border-radius:10px;padding:16px;border:1px solid #e0e8e4;}
+.rel-box h4{font-size:12px;font-weight:900;color:#004d40;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.rel-box p{font-size:11px;color:#555;line-height:1.7;}
+.rel-box.highlight{background:#e8f5e9;border-color:#a5d6a7;}
+.rel-box.warning{background:#fff8e1;border-color:#ffe082;}
+
+.conclusion{
+  background:linear-gradient(135deg,#e8f5e9,#f1f8e9);
+  border-radius:10px;padding:18px 20px;margin-top:20px;
+  border-left:4px solid #2e7d32;
+}
+.conclusion h4{font-size:13px;font-weight:900;color:#1b5e20;margin-bottom:8px;}
+.conclusion p{font-size:12px;color:#2d4a2d;line-height:1.8;}
+
+.card-footer{background:#004d40;color:rgba(255,255,255,0.65);font-size:10px;padding:12px 32px;border-radius:0 0 16px 16px;text-align:right;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card-header">
+    <div class="badge">🚀 SpaceX IPO × 외국인 자금 이탈</div>
+    <h2>역대 최대 IPO 앞두고<br>글로벌 자금은 어디로 움직이나?</h2>
+    <p>2025년 12월 ~ 2026년 6월 12일 SpaceX 나스닥 상장까지의 자금 이동 흐름 분석</p>
+  </div>
+
+  <div class="timeline-card">
+    <div class="section-title">📅 주요 사건 타임라인 (2025.12 ~ 2026.06)</div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot teal"></div>
+        <div class="tl-date">2025년 12월 10일</div>
+        <div class="tl-title">블룸버그 SpaceX 상장 추진 최초 보도</div>
+        <div class="tl-desc">기업가치 1조 5,000억 달러, 300억 달러 이상 IPO 조달 계획 공개.<br>글로벌 기관투자자들이 포트폴리오 재편 준비 시작.</div>
+        <span class="tl-tag tag-green">정보 공개 → 선행 대응 시작</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot blue"></div>
+        <div class="tl-date">2026년 2월</div>
+        <div class="tl-title">SpaceX, xAI·X 역삼각합병 완료</div>
+        <div class="tl-desc">Grok, X(구 트위터)가 SpaceX 산하 편입. 기업가치 재산정 시작.<br>우주 AI 데이터센터 인프라 구축 계획 공식화.</div>
+        <span class="tl-tag tag-blue">기업 가치 ↑↑ → 글로벌 관심 폭증</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot orange"></div>
+        <div class="tl-date">2026년 4월 1일</div>
+        <div class="tl-title">SpaceX, SEC에 IPO 비공개 서류 제출</div>
+        <div class="tl-desc">목표 조달 500억~750억 달러, 역대 최대 IPO 공식화.<br>기관투자자들 신흥국(EM) 비중 축소 + 미국 기술주 집중 전략 가속.</div>
+        <span class="tl-tag tag-orange">EM 펀드 이탈 신호 시작</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot orange"></div>
+        <div class="tl-date">2026년 5월 ~ 6월 초</div>
+        <div class="tl-title">한국 외국인 순매도 집중</div>
+        <div class="tl-desc">코스피 외국인 보유비중 소폭 감소 지속. EM/Value 펀드 계열 한국 비중 전술적 축소.<br>반면 ETF Passive 펀드(삼성전자·SK하이닉스 보유분)는 오히려 증가.</div>
+        <span class="tl-tag tag-red">EM 포트폴리오 리밸런싱 → 한국 이탈</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-date">2026년 5월 27일</div>
+        <div class="tl-title">국내 ETF 500조 돌파 + 레버리지 ETF 16종 동시 출시</div>
+        <div class="tl-desc">코스피 장중 사이드카 발동. 상승 종목보다 하락 종목이 더 많은 '지수 상승 + 종목 하락' 역설.<br>레버리지·인버스 ETF 쏠림으로 변동성 극단 확대.</div>
+        <span class="tl-tag tag-red">시장 구조적 변동성 최고조</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-date">2026년 6월 2일 (오늘)</div>
+        <div class="tl-title">개장 전 30분 변동성 심화</div>
+        <div class="tl-desc">SpaceX 상장 D-10일 효과. 프리마켓 7시 개장(2026.06 시행) 첫 주간.<br>외국인 매도 + ETF 헷지 물량 + 우주항공 테마 순환이 겹치는 '3중 충돌' 구간.</div>
+        <span class="tl-tag tag-red">변동성 정점 구간 진입</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot green"></div>
+        <div class="tl-date">2026년 6월 12일 (예정)</div>
+        <div class="tl-title">SpaceX 나스닥 상장 (SPCX)</div>
+        <div class="tl-desc">유동 물량 5% 미만 제한 → 초기 극심한 주가 변동성 예상.<br>국내 우주항공 관련주(에이치브이엠, 세아베스틸지주 등) 동반 모멘텀 기대.</div>
+        <span class="tl-tag tag-green">이벤트 소화 후 안정 국면 가능성</span>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top:28px;">🔗 외국인 투매와 SpaceX IPO의 연관성 분석</div>
+    <div class="relation-grid">
+      <div class="rel-box warning">
+        <h4>⚠️ 직접 연관 (높음)</h4>
+        <p>글로벌 기관의 EM 포트폴리오 리밸런싱이 핵심. SpaceX IPO 참여를 위한 달러 자금 확보 목적으로 신흥국(한국 포함) 주식을 먼저 매도하는 패턴. EM/Value 펀드 비중 축소 확인됨.</p>
+      </div>
+      <div class="rel-box highlight">
+        <h4>✅ 간접 연관 (중간)</h4>
+        <p>우주항공 테마 자금이 국내에서 미국으로 이동. UFO ETF가 1년간 +129% 수익률 기록하며 글로벌 우주 관련 자금이 미국 직접투자로 집중되는 구조적 변화.</p>
+      </div>
+      <div class="rel-box">
+        <h4>📊 무관 요인 (병존)</h4>
+        <p>달러 강세, 미국 금리 안정(4.45%), 국내 기업 실적 시즌 종료 후 관망심리 등 독립적 요인도 동시에 작용 중.</p>
+      </div>
+      <div class="rel-box warning">
+        <h4>⚡ ETF 레버리지 효과</h4>
+        <p>외국인 매도 규모 자체보다 레버리지 ETF의 '증폭 효과'로 실제 체감 변동성은 2~4배 확대. 특히 개장 전 유동성 낮은 구간에서 호가 왜곡 발생.</p>
+      </div>
+    </div>
+
+    <div class="conclusion">
+      <h4>📌 종합 결론</h4>
+      <p>외국인 투매의 <strong>약 50~60%는 SpaceX IPO와 직·간접적 연관</strong>이 있는 것으로 추정됩니다. 구체적으로는 EM 포트폴리오 리밸런싱(달러 확보), 우주 테마 자금의 미국 직접투자 전환, 그리고 글로벌 기관의 나스닥 집중 전략이 동시에 작동 중입니다. 나머지 40~50%는 국내 레버리지 ETF 출시에 따른 구조적 변동성 증폭, 달러 강세 등 독립 요인입니다. <strong>6월 12일 이후 이벤트 소화 시 외국인 순매도 압력은 다소 완화될 가능성</strong>이 있습니다.</p>
+    </div>
+  </div>
+  <div class="card-footer">※ 출처: 나무위키·인베스팅닷컴·NYT·Capital.com·폭스씨지·삼성증권리포트(2026.04) · 투자 참고용이며 매매 권유 아님</div>
+</div>
+</body>
+</html>
