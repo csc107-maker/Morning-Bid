@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="ETF 500조 돌파 분석 | 매수·매도 쏠림 현상" />
+<meta property="og:description" content="국내 ETF 순자산총액 500조 돌파 이후 레버리지·인버스 ETF 쏠림 현상과 시장 변동성 분석" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/fff8e1/333?text=ETF+500T+Analysis" />
+<meta property="og:url" content="https://yourblog.com/etf-500t-analysis" />
+<title>ETF 500조 분석 카드</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0f4ff;padding:24px;min-height:100vh;}
+.card-wrap{max-width:800px;margin:0 auto;}
+.card-header{
+  background:linear-gradient(135deg,#1565c0,#0d47a1);
+  color:#fff;border-radius:16px 16px 0 0;
+  padding:28px 32px;
+}
+.card-header .badge{
+  display:inline-block;background:#ffca28;color:#1a1a1a;
+  font-size:11px;font-weight:900;padding:4px 12px;border-radius:20px;
+  margin-bottom:12px;letter-spacing:1px;
+}
+.card-header h2{font-size:26px;font-weight:900;line-height:1.3;margin-bottom:8px;}
+.card-header p{font-size:13px;opacity:0.8;}
+.stat-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  background:#fff;border-left:1px solid #e3eaf5;border-right:1px solid #e3eaf5;
+}
+.stat-box{
+  padding:20px 16px;text-align:center;border-right:1px solid #e3eaf5;
+}
+.stat-box:last-child{border-right:none;}
+.stat-num{font-size:28px;font-weight:900;color:#1565c0;line-height:1;}
+.stat-num.red{color:#e53935;}
+.stat-num.green{color:#2e7d32;}
+.stat-label{font-size:11px;color:#888;margin-top:6px;}
+.body-card{background:#fff;padding:28px 32px;border-left:1px solid #e3eaf5;border-right:1px solid #e3eaf5;}
+.section-title{
+  font-size:14px;font-weight:900;color:#1565c0;
+  border-left:4px solid #1565c0;padding-left:10px;margin-bottom:16px;
+  letter-spacing:0.5px;
+}
+.bar-chart{margin-bottom:24px;}
+.bar-item{display:flex;align-items:center;margin-bottom:10px;gap:10px;}
+.bar-label{font-size:12px;color:#444;min-width:120px;font-weight:600;}
+.bar-bg{flex:1;height:22px;background:#e8edf5;border-radius:4px;overflow:hidden;position:relative;}
+.bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;}
+.bar-fill span{font-size:11px;font-weight:700;color:#fff;}
+.blue-fill{background:linear-gradient(90deg,#1565c0,#42a5f5);}
+.red-fill{background:linear-gradient(90deg,#c62828,#ef5350);}
+.orange-fill{background:linear-gradient(90deg,#e65100,#ffa726);}
+.green-fill{background:linear-gradient(90deg,#2e7d32,#66bb6a);}
+.insight-box{
+  background:#e8f0fe;border-radius:10px;padding:16px 20px;
+  border-left:4px solid #1565c0;margin-top:20px;
+}
+.insight-box p{font-size:13px;line-height:1.8;color:#333;}
+.insight-box strong{color:#1565c0;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px;}
+th{background:#e8f0fe;color:#1565c0;font-weight:700;padding:10px 12px;text-align:left;font-size:12px;}
+td{padding:10px 12px;border-bottom:1px solid #e3eaf5;color:#333;}
+tr:last-child td{border-bottom:none;}
+tr:nth-child(even) td{background:#fafbff;}
+.td-red{color:#e53935;font-weight:700;}
+.td-green{color:#2e7d32;font-weight:700;}
+.td-blue{color:#1565c0;font-weight:700;}
+.card-footer{
+  background:#1565c0;color:rgba(255,255,255,0.7);
+  font-size:11px;padding:12px 32px;
+  border-radius:0 0 16px 16px;text-align:right;letter-spacing:0.5px;
+}
+</style>
+</head>
+<body>
+<div class="card-wrap">
+  <div class="card-header">
+    <div class="badge">📊 ETF 시장 분석</div>
+    <h2>국내 ETF 500조 돌파 이후<br>매수·매도 쏠림 현상 해부</h2>
+    <p>2026년 5월 27일 ETF 순자산총액 501조 8,230억원 돌파 · 분석 기준일 2026.06.02</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-num">501조+</div>
+      <div class="stat-label">ETF 순자산총액<br>(2026.05.27 돌파)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num red">42일</div>
+      <div class="stat-label">400→500조<br>증가 소요 기간</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num green">6조+</div>
+      <div class="stat-label">단일종목 레버리지<br>출시 당일 유입</div>
+    </div>
+  </div>
+
+  <div class="body-card">
+    <div class="section-title">📈 ETF 성장 속도 비교 (순자산 구간별)</div>
+    <div class="bar-chart">
+      <div class="bar-item">
+        <span class="bar-label">100→200조</span>
+        <div class="bar-bg"><div class="bar-fill blue-fill" style="width:100%"><span>약 2년</span></div></div>
+      </div>
+      <div class="bar-item">
+        <span class="bar-label">200→300조</span>
+        <div class="bar-bg"><div class="bar-fill blue-fill" style="width:58%"><span>7개월</span></div></div>
+      </div>
+      <div class="bar-item">
+        <span class="bar-label">300→400조</span>
+        <div class="bar-bg"><div class="bar-fill orange-fill" style="width:34%"><span>100일</span></div></div>
+      </div>
+      <div class="bar-item">
+        <span class="bar-label">400→500조</span>
+        <div class="bar-bg"><div class="bar-fill red-fill" style="width:14%"><span>42일 🔥</span></div></div>
+      </div>
+    </div>
+
+    <div class="section-title">⚡ 개장 전 변동성 유발 ETF 유형 분석</div>
+    <table>
+      <thead>
+        <tr>
+          <th>ETF 유형</th>
+          <th>대표 상품</th>
+          <th>변동성 기여</th>
+          <th>방향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>단일종목 레버리지</td>
+          <td>삼성전자 2X<br>SK하이닉스 2X</td>
+          <td class="td-red">매우 높음</td>
+          <td class="td-red">↑↑ 증폭</td>
+        </tr>
+        <tr>
+          <td>인버스(곱버스)</td>
+          <td>KODEX 200선물<br>인버스X2</td>
+          <td class="td-red">높음</td>
+          <td class="td-red">↓ 헷지/투기</td>
+        </tr>
+        <tr>
+          <td>우주항공 테마 ETF</td>
+          <td>UFO (글로벌)<br>국내 우주 ETF</td>
+          <td class="td-blue">중간</td>
+          <td class="td-green">↑ SpaceX 모멘텀</td>
+        </tr>
+        <tr>
+          <td>퇴직연금 ETF</td>
+          <td>KODEX 200<br>TIGER 미국S&P500</td>
+          <td class="td-green">낮음</td>
+          <td class="td-green">↑ 장기 매수</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box">
+      <p><strong>🔍 핵심 인사이트:</strong> 2026년 5월 27일 단일종목 레버리지·인버스 ETF 16종이 동시 출시되며 하루에만 6조원 이상이 유입됐습니다. 이러한 고배율 상품의 급증은 <strong>개장 전 호가 집중 현상</strong>을 심화시키며, 실제 주가 변동률을 2~4배 증폭하는 구조적 요인으로 작용합니다. 특히 <strong>퇴직연금 계좌의 실적배당형 비중이 20%를 첫 돌파</strong>하면서 중장기 ETF 매수세가 지속되는 가운데, 단기 레버리지 세력과의 방향 충돌이 변동성을 키우고 있습니다.</p>
+    </div>
+  </div>
+  <div class="card-footer">※ 출처: 비즈워치(2026.05.29), 매거진한경(2026.02), 나무위키 코스피 · 투자 참고용 정보이며 매매 권유가 아닙니다</div>
+</div>
+</body>
+</html>
