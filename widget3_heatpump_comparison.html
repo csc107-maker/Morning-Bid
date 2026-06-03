@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>히트펌프 vs 가스보일러 비교 분석</title>
+  <meta property="og:title" content="히트펌프 vs 가스보일러 완전 비교 - 어느 게 더 저렴할까?" />
+  <meta property="og:description" content="히트펌프는 가스보일러보다 에너지 효율이 3.5배! 태양광과 조합하면 연간 50만원 이상 절약 가능한 이유를 분석합니다." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=630&fit=crop" />
+  <meta property="og:url" content="https://blog.naver.com/your_blog/전기요금태양광히트펌프" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f8fff8; padding: 24px 12px; }
+
+    .widget-wrap { max-width: 680px; margin: 0 auto; }
+
+    /* ===== 제목 ===== */
+    .main-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: #1b5e20;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .main-title span { color: #ff6f00; }
+
+    /* ===== 작동 원리 비교 ===== */
+    .principle-row {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .principle-card {
+      flex: 1;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+    .pc-icon { font-size: 36px; margin-bottom: 8px; }
+    .pc-name {
+      font-size: 14px;
+      font-weight: 900;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+    .pc-desc { font-size: 12px; color: #666; line-height: 1.6; margin-bottom: 12px; }
+    .pc-cop {
+      font-size: 20px;
+      font-weight: 900;
+      padding: 6px 0;
+      border-radius: 8px;
+    }
+    .cop-bad { color: #c62828; background: #ffebee; }
+    .cop-mid { color: #e65100; background: #fff3e0; }
+    .cop-good { color: #1b5e20; background: #e8f5e9; }
+    .cop-label { font-size: 11px; color: #888; margin-top: 4px; }
+
+    /* ===== 연간 비용 비교 바 ===== */
+    .cost-section {
+      background: #fff;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+    }
+    .cost-title { font-size: 16px; font-weight: 900; color: #1a1a2e; margin-bottom: 18px; }
+    .cost-row { margin-bottom: 16px; }
+    .cost-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .cost-name { font-size: 13.5px; font-weight: 700; color: #333; }
+    .cost-amount { font-size: 15px; font-weight: 900; }
+    .bar-wrap {
+      background: #f5f5f5;
+      border-radius: 8px;
+      height: 28px;
+      overflow: hidden;
+    }
+    .cost-bar {
+      height: 100%;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .cb-gas1 { background: #ef5350; width: 100%; }
+    .cb-gas2 { background: #ff7043; width: 100%; }
+    .cb-electric { background: #ffa726; width: 88%; }
+    .cb-heat { background: #66bb6a; width: 75%; }
+    .cb-heat-solar { background: #2e7d32; width: 55%; }
+
+    .save-tag {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #1b5e20;
+      border-radius: 8px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+
+    /* ===== 계시별 활용법 ===== */
+    .time-section {
+      background: linear-gradient(135deg, #e8eaf6, #e3f2fd);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .time-title { font-size: 16px; font-weight: 900; color: #283593; margin-bottom: 14px; }
+    .time-table { width: 100%; border-collapse: collapse; }
+    .time-table th {
+      background: #3949ab;
+      color: #fff;
+      padding: 10px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .time-table td {
+      padding: 10px 8px;
+      font-size: 12.5px;
+      text-align: center;
+      border-bottom: 1px solid #c5cae9;
+      background: #fff;
+      color: #333;
+    }
+    .time-table tr:last-child td { border-bottom: none; }
+    .t-low { color: #1b5e20; font-weight: 700; }
+    .t-mid { color: #f57f17; font-weight: 700; }
+    .t-high { color: #c62828; font-weight: 700; }
+
+    /* ===== 절약 팁 ===== */
+    .tips-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+    .tip-item {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px 14px;
+      flex: 1;
+      min-width: 140px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-top: 4px solid #43a047;
+    }
+    .tip-icon { font-size: 22px; margin-bottom: 6px; }
+    .tip-text { font-size: 12.5px; color: #333; line-height: 1.6; }
+    .tip-text strong { color: #1b5e20; }
+
+    .source-note {
+      font-size: 11px;
+      color: #aaa;
+      text-align: right;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="widget-wrap">
+
+  <div class="main-title">🌡️ 히트펌프 vs 기존 난방 방식 <span>완전 비교</span></div>
+
+  <!-- 작동 원리 비교 -->
+  <div class="principle-row">
+    <div class="principle-card">
+      <div class="pc-icon">🔥</div>
+      <div class="pc-name">가스·등유<br>보일러</div>
+      <div class="pc-desc">연료를 직접 태워서 열을 생산. 연소 과정에서 CO₂ 발생</div>
+      <div class="pc-cop cop-mid">효율 약 90%</div>
+      <div class="cop-label">연료 1 → 열 0.9</div>
+    </div>
+    <div class="principle-card">
+      <div class="pc-icon">⚡</div>
+      <div class="pc-name">전기<br>히터</div>
+      <div class="pc-desc">전기로 열선을 가열. 가장 단순하지만 비용이 가장 높음</div>
+      <div class="pc-cop cop-bad">효율 100%</div>
+      <div class="cop-label">전기 1 → 열 1 (비쌈)</div>
+    </div>
+    <div class="principle-card">
+      <div class="pc-icon">🌿</div>
+      <div class="pc-name">히트<br>펌프</div>
+      <div class="pc-desc">외부 공기의 열을 실내로 '이동'. 냉장고 역방향 원리</div>
+      <div class="pc-cop cop-good">효율 300~400%</div>
+      <div class="cop-label">전기 1 → 열 3~4 ⭐</div>
+    </div>
+  </div>
+
+  <!-- 연간 비용 비교 -->
+  <div class="cost-section">
+    <div class="cost-title">💰 난방 방식별 연간 운영비 비교</div>
+
+    <div class="cost-row">
+      <div class="cost-label-row">
+        <span class="cost-name">🔴 가스보일러 (LPG)</span>
+        <span class="cost-amount" style="color:#c62828;">연 200만원</span>
+      </div>
+      <div class="bar-wrap"><div class="cost-bar cb-gas1">기준값</div></div>
+    </div>
+
+    <div class="cost-row">
+      <div class="cost-label-row">
+        <span class="cost-name">🟠 등유보일러</span>
+        <span class="cost-amount" style="color:#bf360c;">연 200만원+</span>
+      </div>
+      <div class="bar-wrap"><div class="cost-bar cb-gas2">기준값 (전기료 별도)</div></div>
+    </div>
+
+    <div class="cost-row">
+      <div class="cost-label-row">
+        <span class="cost-name">🟡 전기히터</span>
+        <span class="cost-amount" style="color:#e65100;">연 230만원~</span>
+      </div>
+      <div class="bar-wrap"><div class="cost-bar cb-electric">가장 비쌈</div></div>
+    </div>
+
+    <div class="cost-row">
+      <div class="cost-label-row">
+        <span class="cost-name">🟢 히트펌프 (단독)</span>
+        <span class="cost-amount" style="color:#2e7d32;">연 약 150만원 <span class="save-tag">↓50만원 절약</span></span>
+      </div>
+      <div class="bar-wrap"><div class="cost-bar cb-heat">가스 대비 25% 절감</div></div>
+    </div>
+
+    <div class="cost-row">
+      <div class="cost-label-row">
+        <span class="cost-name">⭐ 히트펌프 + 태양광 3kW</span>
+        <span class="cost-amount" style="color:#1a237e;">연 100~120만원 <span class="save-tag">↓80만원 절약</span></span>
+      </div>
+      <div class="bar-wrap"><div class="cost-bar cb-heat-solar">최강 조합! LPG 대비 최대 65% 절감</div></div>
+    </div>
+  </div>
+
+  <!-- 계시별 요금 활용 시간표 -->
+  <div class="time-section">
+    <div class="time-title">⏱️ 계시별 요금제 시간대별 전략 (히트펌프 설치 주택 기준)</div>
+    <table class="time-table">
+      <thead>
+        <tr><th>시간대</th><th>요금 수준</th><th>히트펌프 전략</th><th>권장 행동</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>오전 9시~오후 4시</td>
+          <td class="t-low">📉 저렴</td>
+          <td>적극 가동 ✅</td>
+          <td>태양광 발전 + 히트펌프 동시 운전, 열 미리 저장</td>
+        </tr>
+        <tr>
+          <td>오후 4시~오후 9시</td>
+          <td class="t-high">📈 최고가</td>
+          <td>최소화 ⛔</td>
+          <td>저장된 열로 버티기, 세탁·가전 사용 자제</td>
+        </tr>
+        <tr>
+          <td>오후 9시~다음날 오전 9시</td>
+          <td class="t-mid">➡️ 중간</td>
+          <td>필요시 운전</td>
+          <td>심야 요금 활용, 취침 전 예약 가동</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 절약 팁 -->
+  <div class="tips-grid">
+    <div class="tip-item">
+      <div class="tip-icon">🌞</div>
+      <div class="tip-text"><strong>낮 시간 집중 가동</strong><br>계시별 요금제에서 오전 9시~오후 4시가 저렴. 이 시간에 히트펌프로 열 저장!</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">🔋</div>
+      <div class="tip-text"><strong>ESS 추가 설치</strong><br>태양광+ESS로 낮에 전기 저장 → 저녁 비싼 시간대에 방전. 절감률 50~70%!</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">📱</div>
+      <div class="tip-text"><strong>스마트 제어 연동</strong><br>히트펌프를 전력관리 시스템(EMS)과 연동하면 자동으로 최적 시간대 운전!</div>
+    </div>
+  </div>
+
+  <div class="source-note">
+    출처: 기후에너지환경부 히트펌프 보급활성화 방안(2025.12), 정책브리핑, 투데이에너지
+  </div>
+
+</div>
+</body>
+</html>
