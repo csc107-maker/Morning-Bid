@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 전기요금·태양광·히트펌프 정부지원 총정리</title>
+  <meta property="og:title" content="2026 전기요금 개편 타임라인 + 태양광·히트펌프 정부지원 총정리" />
+  <meta property="og:description" content="계시별 요금제 도입 일정부터 태양광·히트펌프 정부보조금 신청까지, 지금 해야 할 행동 체크리스트를 정리했습니다." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&h=630&fit=crop" />
+  <meta property="og:url" content="https://blog.naver.com/your_blog/전기요금태양광히트펌프" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #fffde7; padding: 24px 12px; }
+
+    .widget-wrap { max-width: 680px; margin: 0 auto; }
+
+    .main-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: #1a1a2e;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .main-sub {
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* ===== 타임라인 ===== */
+    .timeline-section {
+      background: #fff;
+      border-radius: 20px;
+      padding: 26px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 20px rgba(255,160,0,0.1);
+    }
+    .tl-title { font-size: 16px; font-weight: 900; color: #f57f17; margin-bottom: 20px; }
+
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #ffd54f, #ff8f00, #e65100, #880e4f);
+      border-radius: 3px;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 22px;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -22px;
+      top: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px #ff8f00;
+      background: #ffd54f;
+      flex-shrink: 0;
+    }
+    .tl-date {
+      font-size: 11px;
+      font-weight: 700;
+      color: #f57f17;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+    .tl-event { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+    .tl-detail { font-size: 12.5px; color: #666; line-height: 1.6; }
+    .tl-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 8px;
+      margin-top: 4px;
+    }
+    .tag-done { background: #e8f5e9; color: #2e7d32; }
+    .tag-ing { background: #fff3e0; color: #e65100; }
+    .tag-plan { background: #e3f2fd; color: #1565c0; }
+
+    /* ===== 지원 정책 카드 ===== */
+    .policy-section {
+      background: #fff;
+      border-radius: 20px;
+      padding: 26px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+    }
+    .policy-title { font-size: 16px; font-weight: 900; color: #1a1a2e; margin-bottom: 18px; }
+    .policy-grid { display: flex; flex-direction: column; gap: 12px; }
+    .policy-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #f9f9f9;
+      border-left: 4px solid #ffd54f;
+    }
+    .policy-item:nth-child(2) { border-left-color: #81c784; }
+    .policy-item:nth-child(3) { border-left-color: #64b5f6; }
+    .policy-item:nth-child(4) { border-left-color: #f06292; }
+    .pi-icon { font-size: 26px; flex-shrink: 0; }
+    .pi-content {}
+    .pi-title { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
+    .pi-amount {
+      font-size: 18px;
+      font-weight: 900;
+      color: #e65100;
+      margin-bottom: 4px;
+    }
+    .pi-detail { font-size: 12px; color: #666; line-height: 1.6; }
+
+    /* ===== 체크리스트 ===== */
+    .checklist-section {
+      background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+      border-radius: 20px;
+      padding: 26px 24px;
+      margin-bottom: 20px;
+      border: 2px solid #c8e6c9;
+    }
+    .cl-title { font-size: 16px; font-weight: 900; color: #1b5e20; margin-bottom: 16px; }
+    .cl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      padding: 12px 14px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .cl-checkbox {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 2px solid #81c784;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      margin-top: 1px;
+    }
+    .cl-text { font-size: 13px; color: #333; line-height: 1.6; }
+    .cl-text strong { color: #1b5e20; }
+    .cl-text .highlight { color: #e65100; font-weight: 700; }
+
+    /* ===== 신청 CTA ===== */
+    .cta-row {
+      display: flex;
+      gap: 12px;
+    }
+    .cta-item {
+      flex: 1;
+      background: #fff;
+      border-radius: 16px;
+      padding: 18px 14px;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      border-top: 4px solid #43a047;
+    }
+    .cta-item:nth-child(2) { border-top-color: #1976d2; }
+    .cta-icon { font-size: 28px; margin-bottom: 6px; }
+    .cta-name { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+    .cta-url { font-size: 11px; color: #1976d2; word-break: break-all; }
+
+    .source-note {
+      font-size: 11px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+<div class="widget-wrap">
+
+  <div class="main-title">📅 2026 전기요금 개편 타임라인</div>
+  <div class="main-sub">알아두면 돈이 되는 정부 정책 일정 총정리</div>
+
+  <!-- 타임라인 -->
+  <div class="timeline-section">
+    <div class="tl-title">⚡ 계시별 요금제 단계별 시행 일정</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2026년 4월 1일 ✅</div>
+        <div class="tl-event">산업용(을) + 히트펌프 설치 주택 계시별 요금 적용</div>
+        <div class="tl-detail">전기차 충전 요금도 동시 개편. 히트펌프 설치 주택은 계절·시간대별 요금제 선택 가능!</div>
+        <span class="tl-tag tag-done">✅ 시행 완료</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2026년 6월 1일</div>
+        <div class="tl-event">일반용·교육용 계시별 요금제 확대 적용</div>
+        <div class="tl-detail">소상공인·상업 건물 등 일반용(갑)Ⅱ, 일반용(을), 교육용(을) 포함. 건물 관리비에 영향!</div>
+        <span class="tl-tag tag-ing">🔄 진행 중</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2026년 (예정)</div>
+        <div class="tl-event">지역별 차등 전기요금제 도입</div>
+        <div class="tl-detail">전국 단일 요금제 폐지. 발전소 없는 수도권은 요금 인상 폭 클 수 있음. 지역별 차등 적용 시작.</div>
+        <span class="tl-tag tag-plan">📋 도입 예정</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">AMI 보급 후 (시기 미확정)</div>
+        <div class="tl-event">주택용(가정용) 계시별 요금제 전면 확대</div>
+        <div class="tl-detail">스마트 계량기(AMI) 전국 보급이 선행 조건. 현재는 3단계 누진제 유지. 제주는 이미 시행 중.</div>
+        <span class="tl-tag tag-plan">🔮 장기 계획</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2035년 목표</div>
+        <div class="tl-event">히트펌프 350만대 보급 달성</div>
+        <div class="tl-detail">기후에너지환경부 목표. 공기열을 재생에너지로 법적 인정(재생에너지법 개정 추진 중).</div>
+        <span class="tl-tag tag-plan">🎯 장기 목표</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 정부 지원 정책 -->
+  <div class="policy-section">
+    <div class="policy-title">🏛️ 2026년 핵심 지원 정책 4가지</div>
+    <div class="policy-grid">
+      <div class="policy-item">
+        <div class="pi-icon">☀️</div>
+        <div class="pi-content">
+          <div class="pi-title">주택용 태양광 정부지원</div>
+          <div class="pi-amount">설치비 최대 50% 지원</div>
+          <div class="pi-detail">한국에너지공단(KNREC) 관리, kW당 고정 단가 지원. 일부 지자체 추가 보조금 있음. 예산 소진 전 신청 필수!</div>
+        </div>
+      </div>
+      <div class="policy-item">
+        <div class="pi-icon">🌡️</div>
+        <div class="pi-content">
+          <div class="pi-title">난방전기화 사업 (신설)</div>
+          <div class="pi-amount">145억원 예산 투입</div>
+          <div class="pi-detail">도시가스 미보급 지역 노후보일러 2만 5,000대 히트펌프 교체. 제주·경남·전남 태양광 설치 주택 우선 지원(2026년 2,580가구 목표).</div>
+        </div>
+      </div>
+      <div class="policy-item">
+        <div class="pi-icon">🌾</div>
+        <div class="pi-content">
+          <div class="pi-title">농가 신재생에너지 보급 사업</div>
+          <div class="pi-amount">2,500억원 예산 (전년比 30% ↑)</div>
+          <div class="pi-detail">농가 히트펌프 설치비 50~80% 지원. 500평 하우스 기준 설치비 3,000만원 → 본인 부담 600~1,200만원 수준.</div>
+        </div>
+      </div>
+      <div class="policy-item">
+        <div class="pi-icon">🔬</div>
+        <div class="pi-content">
+          <div class="pi-title">공기열 재생에너지 법적 인정</div>
+          <div class="pi-amount">재생에너지법 개정 추진</div>
+          <div class="pi-detail">히트펌프에 사용하는 공기열을 재생에너지로 정식 인정. 국가 보조금 지원 체계 안착. 상반기 중 완료 목표.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 체크리스트 -->
+  <div class="checklist-section">
+    <div class="cl-title">✅ 지금 당장 해야 할 행동 체크리스트</div>
+    <div class="cl-item">
+      <div class="cl-checkbox">1</div>
+      <div class="cl-text"><strong>내 전기요금 누진 단계 확인</strong><br>월 400kWh 초과라면 3단계 고요금 구간. <span class="highlight">태양광 설치 즉시 회수 기간 단축!</span></div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-checkbox">2</div>
+      <div class="cl-text"><strong>한국에너지공단 보조금 신청</strong><br><span class="highlight">상반기 예산 소진 전 서두르세요!</span> knrec.or.kr에서 신청 가능. 시공업체도 정부 인증 기업 지정.</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-checkbox">3</div>
+      <div class="cl-text"><strong>도시가스 미보급 지역이라면</strong><br>히트펌프 보급 우선 지원 대상! <span class="highlight">기후에너지환경부 난방전기화 사업</span> 신청 검토.</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-checkbox">4</div>
+      <div class="cl-text"><strong>저녁 전기 사용 습관 점검</strong><br>아직 가정용 계시별 미확정이지만 <span class="highlight">오후 6~11시 가전 사용을 낮 시간으로 이동</span>하는 습관 들이기!</div>
+    </div>
+    <div class="cl-item">
+      <div class="cl-checkbox">5</div>
+      <div class="cl-text"><strong>태양광+히트펌프+ESS 패키지 견적</strong><br>세 가지 조합으로 최대 절감 효과. <span class="highlight">견적은 최소 2~3곳 비교</span>, 인허가~설치 2~4개월 소요.</div>
+    </div>
+  </div>
+
+  <!-- 신청 링크 -->
+  <div class="cta-row">
+    <div class="cta-item">
+      <div class="cta-icon">🌱</div>
+      <div class="cta-name">태양광 보조금 신청</div>
+      <div class="cta-url">한국에너지공단<br>knrec.or.kr</div>
+    </div>
+    <div class="cta-item">
+      <div class="cta-icon">🏛️</div>
+      <div class="cta-name">히트펌프 지원 정책</div>
+      <div class="cta-url">기후에너지환경부<br>mcee.go.kr</div>
+    </div>
+    <div class="cta-item">
+      <div class="cta-icon">⚡</div>
+      <div class="cta-name">전기요금 계산</div>
+      <div class="cta-url">한국전력공사<br>kepco.co.kr</div>
+    </div>
+  </div>
+
+  <div class="source-note">
+    ※ 본 콘텐츠는 기후에너지환경부·한국에너지공단·한국전력공사 공식 발표 자료를 기반으로 작성되었습니다.<br>
+    지원 조건 및 금액은 변동될 수 있으니 반드시 공식 채널에서 최신 정보를 확인하세요.
+  </div>
+
+</div>
+</body>
+</html>
