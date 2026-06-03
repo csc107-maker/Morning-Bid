@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>전기요금 누진제 & 태양광 절감 효과 분석</title>
+  <meta property="og:title" content="전기요금 누진제 구간별 요금 + 태양광 설치 절감 효과 분석" />
+  <meta property="og:description" content="2026년 주택용 전기요금 누진제 3단계 구조와 태양광 설치 시 실제 절감 금액을 한눈에 비교합니다." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&h=630&fit=crop" />
+  <meta property="og:url" content="https://blog.naver.com/your_blog/전기요금태양광히트펌프" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f7ff; padding: 24px 12px; }
+
+    .widget-wrap { max-width: 680px; margin: 0 auto; }
+
+    /* ===== 누진제 시각화 ===== */
+    .section-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 20px rgba(33,150,243,0.08);
+    }
+    .sec-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #1a237e;
+      margin-bottom: 6px;
+    }
+    .sec-sub {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 22px;
+    }
+
+    .tier-bars { display: flex; flex-direction: column; gap: 14px; }
+    .tier-row { display: flex; align-items: center; gap: 12px; }
+    .tier-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #555;
+      width: 100px;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .bar-track {
+      flex: 1;
+      background: #e3f2fd;
+      border-radius: 8px;
+      height: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 10px;
+      font-size: 13px;
+      font-weight: 900;
+      color: #fff;
+      transition: width 1s ease;
+      white-space: nowrap;
+    }
+    .bar-1 { background: linear-gradient(90deg, #42a5f5, #1976d2); width: 22%; }
+    .bar-2 { background: linear-gradient(90deg, #ff9800, #f57c00); width: 48%; }
+    .bar-3 { background: linear-gradient(90deg, #ef5350, #c62828); width: 78%; }
+    .bar-peak { background: linear-gradient(90deg, #880e4f, #4a148c); width: 100%; }
+
+    .tier-price {
+      font-size: 13px;
+      font-weight: 700;
+      width: 90px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .p-blue { color: #1976d2; }
+    .p-orange { color: #f57c00; }
+    .p-red { color: #c62828; }
+    .p-purple { color: #4a148c; }
+
+    .warn-box {
+      background: #fff3e0;
+      border: 1.5px solid #ffcc02;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #5d4037;
+      line-height: 1.7;
+    }
+    .warn-box strong { color: #e65100; }
+
+    /* ===== 태양광 절감 비교표 ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+    thead { background: #e3f2fd; }
+    th {
+      padding: 11px 8px;
+      font-weight: 700;
+      color: #1565c0;
+      text-align: center;
+      border-bottom: 2px solid #bbdefb;
+    }
+    td {
+      padding: 11px 8px;
+      text-align: center;
+      color: #333;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    tr:hover td { background: #f3f8ff; }
+    .highlight-row td { background: #e8f5e9; font-weight: 700; color: #1b5e20; }
+    .badge-save {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-radius: 8px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .badge-period {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #1565c0;
+      border-radius: 8px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* ===== 보조금 타임라인 ===== */
+    .subsidy-row {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+      margin-top: 8px;
+    }
+    .subsidy-item {
+      flex: 1;
+      background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+      border-radius: 14px;
+      padding: 16px 14px;
+      text-align: center;
+      border: 1.5px solid #c8e6c9;
+    }
+    .sub-icon { font-size: 26px; margin-bottom: 6px; }
+    .sub-pct {
+      font-size: 22px;
+      font-weight: 900;
+      color: #2e7d32;
+      margin-bottom: 4px;
+    }
+    .sub-label { font-size: 12px; color: #555; line-height: 1.4; }
+
+    .source-note {
+      font-size: 11px;
+      color: #aaa;
+      text-align: right;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="widget-wrap">
+
+  <!-- 누진제 시각화 -->
+  <div class="section-box">
+    <div class="sec-title">📊 2026년 주택용 전기요금 누진제 구조</div>
+    <div class="sec-sub">사용량이 늘수록 단가가 급격히 올라갑니다 (KEPCO 2026년 요금표 기준)</div>
+    <div class="tier-bars">
+      <div class="tier-row">
+        <div class="tier-label">1단계<br>200kWh 이하</div>
+        <div class="bar-track"><div class="bar-fill bar-1">120.0원</div></div>
+        <div class="tier-price p-blue">kWh당<br>120.0원</div>
+      </div>
+      <div class="tier-row">
+        <div class="tier-label">2단계<br>~400kWh</div>
+        <div class="bar-track"><div class="bar-fill bar-2">214.6원</div></div>
+        <div class="tier-price p-orange">kWh당<br>214.6원</div>
+      </div>
+      <div class="tier-row">
+        <div class="tier-label">3단계<br>400kWh 초과</div>
+        <div class="bar-track"><div class="bar-fill bar-3">307.3원</div></div>
+        <div class="tier-price p-red">kWh당<br>307.3원</div>
+      </div>
+      <div class="tier-row">
+        <div class="tier-label">⚠️ 최고단가<br>1,000kWh 초과</div>
+        <div class="bar-track"><div class="bar-fill bar-peak">736.2원!</div></div>
+        <div class="tier-price p-purple">kWh당<br>736.2원</div>
+      </div>
+    </div>
+    <div class="warn-box">
+      ⚡ 월 1,000kWh 초과 시 최고 단가(kWh당 736.2원)는 일반 3단계 요금의 <strong>약 2.4배</strong>! 여름철(7~8월)은 1단계 300kWh, 2단계 450kWh로 구간 완화 적용.
+    </div>
+  </div>
+
+  <!-- 태양광 절감 비교표 -->
+  <div class="section-box">
+    <div class="sec-title">☀️ 자가 태양광 설치 용량별 절감 효과</div>
+    <div class="sec-sub">태양광+ESS 조합 시 전기료 절감률 최대 50~70% 달성 사례 있음</div>
+    <table>
+      <thead>
+        <tr>
+          <th>설치 용량</th>
+          <th>월 발전량</th>
+          <th>월 절감액</th>
+          <th>투자 회수</th>
+          <th>추천 대상</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>3kW</strong></td>
+          <td>300~360kWh</td>
+          <td><span class="badge-save">3~6만원</span></td>
+          <td><span class="badge-period">5~8년</span></td>
+          <td>소형 단독주택</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>5kW ⭐</strong></td>
+          <td>500~600kWh</td>
+          <td><span class="badge-save">6~10만원</span></td>
+          <td><span class="badge-period">5~7년</span></td>
+          <td>중형 주택 (최적)</td>
+        </tr>
+        <tr>
+          <td><strong>10kW</strong></td>
+          <td>1,000~1,300kWh</td>
+          <td><span class="badge-save">10~20만원</span></td>
+          <td><span class="badge-period">4~6년</span></td>
+          <td>상가·빌딩 옥상</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 22px;">
+      <div style="font-size:14px; font-weight:700; color:#1565c0; margin-bottom:12px;">💰 2026년 정부 보조금 지원 현황</div>
+      <div class="subsidy-row">
+        <div class="subsidy-item">
+          <div class="sub-icon">🏠</div>
+          <div class="sub-pct">최대 50%</div>
+          <div class="sub-label">주택용 태양광<br>kW당 고정 지원단가</div>
+        </div>
+        <div class="subsidy-item">
+          <div class="sub-icon">🌾</div>
+          <div class="sub-pct">50~80%</div>
+          <div class="sub-label">농가 히트펌프<br>설치비 지원</div>
+        </div>
+        <div class="subsidy-item">
+          <div class="sub-icon">🏗️</div>
+          <div class="sub-pct">145억</div>
+          <div class="sub-label">난방전기화<br>2026년 신설 예산</div>
+        </div>
+      </div>
+    </div>
+    <div class="source-note">출처: 한국에너지공단, 기후에너지환경부, 농림축산식품부 (2026)</div>
+  </div>
+
+</div>
+</body>
+</html>
