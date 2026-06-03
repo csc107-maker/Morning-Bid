@@ -3,139 +3,92 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta property="og:title" content="2026.06.02 글로벌 시장 지표 — 코스피 모닝 브리핑" />
-<meta property="og:description" content="VIX, WTI, USD/KRW, DXY, 미국10년물, EWY — 오늘 코스피에 영향을 주는 6대 글로벌 지표를 한눈에" />
-<meta property="og:image" content="https://via.placeholder.com/1200x630/e0f0ff/1a1a2e?text=2026.06.02+Global+Indicators" />
-<meta property="og:url" content="https://blog.naver.com/csc107" />
-<title>글로벌 시장 지표 카드 2026.06.02</title>
+<meta property="og:title" content="2026년 6월 4일 글로벌 시장 지표 — 코스피 모닝 브리핑" />
+<meta property="og:description" content="VIX, WTI, USD/KRW, DXY, 미국 10년물 금리, EWY 등 6대 글로벌 지표 한눈에 보기" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/e8f4fd/1a73e8?text=Global+Market+Indicators+2026-06-04" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/morning-report-20260604" />
+<title>글로벌 시장 지표 카드 | 2026.06.04</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:#f0f6ff; padding:20px; }
-  .container { max-width:900px; margin:0 auto; }
-  .header { text-align:center; margin-bottom:24px; }
-  .header h2 { font-size:1.4rem; color:#1a3a6b; font-weight:700; margin-bottom:6px; }
-  .header p { font-size:0.85rem; color:#666; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
-  .card { background:#fff; border-radius:16px; padding:20px 22px; box-shadow:0 2px 12px rgba(0,0,0,0.07); border-top:4px solid #4a90e2; transition:transform 0.2s; }
-  .card:hover { transform:translateY(-3px); }
-  .card.green { border-top-color:#27ae60; }
-  .card.red { border-top-color:#e74c3c; }
-  .card.orange { border-top-color:#e67e22; }
-  .card.purple { border-top-color:#8e44ad; }
-  .card.teal { border-top-color:#16a085; }
-  .card-label { font-size:0.75rem; font-weight:700; color:#888; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; }
-  .card-title { font-size:1rem; font-weight:700; color:#222; margin-bottom:10px; }
-  .card-value { font-size:2rem; font-weight:800; color:#1a3a6b; line-height:1.1; margin-bottom:8px; }
-  .card-value.up { color:#e74c3c; }
-  .card-value.down { color:#27ae60; }
-  .card-change { font-size:0.85rem; font-weight:600; margin-bottom:8px; }
-  .card-change.up { color:#e74c3c; }
-  .card-change.down { color:#27ae60; }
-  .card-desc { font-size:0.78rem; color:#666; line-height:1.5; border-top:1px solid #eee; padding-top:8px; margin-top:8px; }
-  .badge { display:inline-block; font-size:0.7rem; padding:2px 8px; border-radius:20px; font-weight:700; margin-bottom:8px; }
-  .badge.safe { background:#e8f8ee; color:#27ae60; }
-  .badge.warn { background:#fff3e0; color:#e67e22; }
-  .badge.danger { background:#fdecea; color:#e74c3c; }
-  .footer { text-align:center; margin-top:20px; font-size:0.72rem; color:#999; }
-  @media (max-width:600px) { .card-value { font-size:1.6rem; } body { padding:12px; } }
+  body { font-family: 'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:#f0f6ff; padding:20px; color:#1a1a2e; }
+  .container { max-width:780px; margin:0 auto; }
+  .thumbnail-wrap { background:linear-gradient(135deg,#1a73e8 0%,#0d47a1 100%); border-radius:16px; padding:36px 28px; margin-bottom:28px; text-align:center; color:#fff; }
+  .thumbnail-wrap .date-badge { display:inline-block; background:rgba(255,255,255,0.2); border-radius:20px; padding:4px 16px; font-size:13px; margin-bottom:10px; }
+  .thumbnail-wrap h1 { font-size:22px; font-weight:700; margin:0 0 6px 0; }
+  .thumbnail-wrap p { font-size:14px; opacity:.85; margin:0; }
+  h2.section-title { font-size:18px; font-weight:700; color:#1a73e8; margin-bottom:18px; padding-bottom:8px; border-bottom:2px solid #c5d9f7; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .card { background:#fff; border-radius:14px; padding:20px 18px; box-shadow:0 2px 10px rgba(26,115,232,.08); border-top:4px solid #1a73e8; }
+  .card.green{border-top-color:#34a853} .card.red{border-top-color:#ea4335} .card.orange{border-top-color:#fb8c00} .card.purple{border-top-color:#7b1fa2} .card.teal{border-top-color:#00897b}
+  .card-label{font-size:12px;color:#888;margin-bottom:6px;font-weight:500}
+  .card-value{font-size:26px;font-weight:800;color:#1a1a2e;margin-bottom:4px}
+  .card-change{font-size:13px;font-weight:600}
+  .up{color:#ea4335} .down{color:#1a73e8} .neutral{color:#888}
+  .card-desc{font-size:12px;color:#666;margin-top:8px;line-height:1.5}
+  .signal-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .signal-tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:12px;font-weight:600}
+  .tag-blue{background:#e8f0fe;color:#1a73e8} .tag-green{background:#e6f4ea;color:#34a853} .tag-red{background:#fce8e6;color:#ea4335} .tag-orange{background:#fff3e0;color:#f57c00} .tag-neutral{background:#f1f3f4;color:#555}
+  .footer-note{margin-top:20px;font-size:11px;color:#aaa;text-align:center}
+  .insert-note{background:#fffde7;border:1px dashed #f9a825;border-radius:8px;padding:8px 14px;font-size:11px;color:#e65100;margin-bottom:16px}
 </style>
 </head>
 <body>
-<!-- [삽입 위치: VIX 분석 섹션 직후 — 글로벌 6대 지표 시각 카드] -->
+<!-- [삽입 위치] VIX 분석 섹션 직후에 삽입하세요 -->
 <div class="container">
-  <div class="header">
-    <h2>📊 2026년 6월 2일 — 글로벌 시장 지표 현황</h2>
-    <p>코스피 개장 전 필수 체크 | 데이터 기준: 2026.06.01~02</p>
+  <div class="thumbnail-wrap">
+    <div class="date-badge">📅 2026년 6월 4일 (목)</div>
+    <h1>📊 글로벌 시장 핵심 지표</h1>
+    <p>코스피 모닝 브리핑 · 6대 글로벌 지표 한눈에</p>
   </div>
+  <div class="insert-note">💡 블로그 삽입 위치: VIX 분석 섹션 직후</div>
+  <h2 class="section-title">🌐 6대 글로벌 지표 (2026.06.04 기준)</h2>
   <div class="grid">
-
-    <!-- VIX -->
-    <div class="card green">
-      <div class="card-label">공포지수</div>
-      <div class="card-title">🌡 VIX (변동성)</div>
-      <span class="badge safe">안전 구간</span>
-      <div class="card-value down">15.32</div>
-      <div class="card-change down">▼ -2.67%</div>
-      <div class="card-desc">
-        통상 범위: 10~80 | 현재: 안정권<br/>
-        <strong>평가:</strong> 리스크온 환경 지속. 외국인 이머징 매수 유리.<br/>
-        ⚠️ 이란 리스크 재부각 시 20선 경계
-      </div>
-    </div>
-
-    <!-- WTI -->
-    <div class="card red">
-      <div class="card-label">원유</div>
-      <div class="card-title">🛢 WTI 유가</div>
-      <span class="badge danger">급등 주의</span>
-      <div class="card-value up">$92.42</div>
-      <div class="card-change up">▲ +7% 이상 (이란 리스크)</div>
-      <div class="card-desc">
-        장중 고점: $94.74 | 이란 호르무즈 봉쇄 위협<br/>
-        <strong>평가:</strong> 항공·운송주 부담 ↑. 정유·화학 단기 수혜.<br/>
-        인플레이션 재점화 우려 — 미국 10년물 자극 가능
-      </div>
-    </div>
-
-    <!-- USD/KRW -->
-    <div class="card orange">
-      <div class="card-label">환율</div>
-      <div class="card-title">💱 USD/KRW</div>
-      <span class="badge warn">원화 약세</span>
-      <div class="card-value up">1,502원</div>
-      <div class="card-change up">▲ +0.35% (전일 1,497원)</div>
-      <div class="card-desc">
-        7일 범위: 1,495 ~ 1,520원<br/>
-        <strong>평가:</strong> 수출 대형주(삼성·SK하이닉스·현대차) 이익 레버리지 ↑<br/>
-        EWY 순매수 지속 시 환율 상승 = 코스피 하락 요인 아님
-      </div>
-    </div>
-
-    <!-- DXY -->
     <div class="card">
-      <div class="card-label">달러인덱스</div>
-      <div class="card-title">💵 DXY (달러강도)</div>
-      <span class="badge warn">강달러 유지</span>
-      <div class="card-value">~99.0</div>
-      <div class="card-change up">▲ 5월 말 98.94 → 99선 유지</div>
-      <div class="card-desc">
-        미국 CPI 3.8%, 핵심 PCE 3.3% — 연준 인하 기대 소멸<br/>
-        <strong>평가:</strong> 달러 강세에도 한국 반도체 수출 호조로 외국인 이탈 없음<br/>
-        DXY 100 돌파 시 이머징 자금 이탈 경계
-      </div>
+      <div class="card-label">😨 VIX 공포지수</div>
+      <div class="card-value">15.77</div>
+      <div class="card-change down">▼ 0.28 (-1.74%)</div>
+      <div class="card-desc">안정 구간(10~20). 시장 공포심리 낮음. 3월 고점(30+) 대비 크게 안정.</div>
+      <div class="signal-row"><span class="signal-tag tag-green">안정적</span><span class="signal-tag tag-blue">중립</span></div>
     </div>
-
-    <!-- 미국 10년물 -->
+    <div class="card orange">
+      <div class="card-label">🛢️ WTI 유가</div>
+      <div class="card-value">$95.68</div>
+      <div class="card-change up">▲ +1.92 (+2.05%)</div>
+      <div class="card-desc">3거래일 연속 상승. 미·이란 협상 교착, 중동 지정학 리스크 프리미엄.</div>
+      <div class="signal-row"><span class="signal-tag tag-red">상승압력</span><span class="signal-tag tag-orange">정유·조선 수혜</span></div>
+    </div>
+    <div class="card red">
+      <div class="card-label">💱 USD/KRW 환율</div>
+      <div class="card-value">1,502원</div>
+      <div class="card-change up">▲ 고점 1,531원</div>
+      <div class="card-desc">달러 강세 재개. ADP 고용 호조 영향. 외국인 수급 단기 부담.</div>
+      <div class="signal-row"><span class="signal-tag tag-red">달러강세</span><span class="signal-tag tag-orange">수출주 수혜</span></div>
+    </div>
     <div class="card purple">
-      <div class="card-label">미국 국채</div>
-      <div class="card-title">📈 10년물 금리</div>
-      <span class="badge warn">고금리 구간</span>
-      <div class="card-value">4.47%</div>
-      <div class="card-change up">▲ 유가 급등 → 인플레 반영</div>
-      <div class="card-desc">
-        미국 CPI 3.8% (2023년 5월래 최고)<br/>
-        <strong>평가:</strong> 이론상 성장주 부담. 그러나 SK하이닉스 PER 4~5배 저평가.<br/>
-        이익 성장 속도가 금리 부담 압도 중
-      </div>
+      <div class="card-label">💵 DXY 달러인덱스</div>
+      <div class="card-value">99.4</div>
+      <div class="card-change up">▲ 2개월 최고치</div>
+      <div class="card-desc">ADP 민간고용 예상치 상회. EUR, JPY 대비 달러 강세.</div>
+      <div class="signal-row"><span class="signal-tag tag-red">달러 강세</span><span class="signal-tag tag-neutral">주의 필요</span></div>
     </div>
-
-    <!-- EWY -->
     <div class="card teal">
-      <div class="card-label">한국 ETF</div>
-      <div class="card-title">🇰🇷 EWY (iShares Korea)</div>
-      <span class="badge safe">52주 최고 근접</span>
-      <div class="card-value down">$216.79</div>
-      <div class="card-change down">▲ 52주 최고 $217.74에 근접</div>
-      <div class="card-desc">
-        52주 저가: $61.14 | 현재 대비 +255%<br/>
-        YTD 수익률: +75% 이상 (아시아 1위)<br/>
-        <strong>평가:</strong> 외국인 한국 구조적 롱 포지션. 젠슨황 방한 수혜 기대
-      </div>
+      <div class="card-label">📈 미국 10년물 금리</div>
+      <div class="card-value">4.485%</div>
+      <div class="card-change up">▲ +0.030%p</div>
+      <div class="card-desc">중동 긴장 속 인플레 압력 교차. 성장주 밸류에이션 부담.</div>
+      <div class="signal-row"><span class="signal-tag tag-orange">금리 상승</span><span class="signal-tag tag-blue">성장주 주의</span></div>
     </div>
-
+    <div class="card green">
+      <div class="card-label">🇰🇷 EWY (한국 ETF)</div>
+      <div class="card-value">$214.53</div>
+      <div class="card-change up">▲ YTD +109%</div>
+      <div class="card-desc">52주 최고가($217.76) 근접. 외국인의 한국 증시 긍정 시각 반영.</div>
+      <div class="signal-row"><span class="signal-tag tag-green">강세</span><span class="signal-tag tag-neutral">최고가 주의</span></div>
+    </div>
   </div>
-  <div class="footer">
-    본 내용은 투자 정보 제공 목적이며, 투자 권유가 아닙니다. | 데이터 출처: Bloomberg, Investing.com, Yahoo Finance, Seoul Economic Daily (2026.06.01~02)
+  <div class="footer-note">
+    ※ 본 데이터는 투자 참고용이며 실시간 시세와 다를 수 있습니다. 투자의 최종 판단은 투자자 본인에게 있습니다.<br/>
+    출처: Bloomberg, Investing.com, Yahoo Finance, CNBC (2026.06.03~04 기준)
   </div>
 </div>
 </body>
