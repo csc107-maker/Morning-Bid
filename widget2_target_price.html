@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="삼성전자 증권사 목표주가 비교 2026" />
+<meta property="og:description" content="국내외 증권사가 제시한 삼성전자 목표주가 한눈에 비교 — 21만원부터 85만원까지" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/f0f7ff/1a237e?text=Samsung+Target+Price+2026" />
+<meta property="og:url" content="https://your-blog.com/samsung-target-price" />
+<title>삼성전자 목표주가 비교 카드</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #f0f4ff;
+    padding: 32px 16px;
+  }
+  .container {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+  .section-header {
+    background: linear-gradient(120deg, #1a237e, #283593);
+    border-radius: 16px 16px 0 0;
+    padding: 28px 32px 22px;
+    color: #fff;
+  }
+  .section-header .tag {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 3px;
+    color: #9fa8da;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-header h2 { font-size: 22px; font-weight: 900; }
+  .section-header p { margin-top: 6px; font-size: 13px; color: #c5cae9; }
+  .cards-body {
+    background: #fff;
+    border-radius: 0 0 16px 16px;
+    padding: 28px 28px 20px;
+    box-shadow: 0 8px 40px rgba(26,35,126,0.1);
+  }
+  /* 현재주가 배너 */
+  .current-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f3f4f6;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    border: 2px solid #e8eaf6;
+  }
+  .cp-label { font-size: 12px; color: #78909c; font-weight: 600; }
+  .cp-val { font-size: 28px; font-weight: 900; color: #1a237e; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
+  .cp-change { font-size: 13px; color: #e53935; font-weight: 700; background: #ffebee; padding: 4px 10px; border-radius: 8px; }
+  /* 타겟 카드들 */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .tp-card {
+    border-radius: 14px;
+    padding: 18px 18px 14px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tp-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .tp-card.domestic { background: #f8f9ff; border-color: #c5cae9; }
+  .tp-card.moderate { background: #fff8e1; border-color: #ffe082; }
+  .tp-card.aggressive { background: #e8f5e9; border-color: #a5d6a7; }
+  .tp-card.wallstreet { background: linear-gradient(135deg, #fff3e0, #fce4ec); border-color: #ff8a65; }
+  .tp-card .firm-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .tp-card.domestic .firm-name { color: #5c6bc0; }
+  .tp-card.moderate .firm-name { color: #f57f17; }
+  .tp-card.aggressive .firm-name { color: #388e3c; }
+  .tp-card.wallstreet .firm-name { color: #d84315; }
+  .tp-card .target {
+    font-size: 32px;
+    font-weight: 900;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .tp-card.domestic .target { color: #3949ab; }
+  .tp-card.moderate .target { color: #e65100; }
+  .tp-card.aggressive .target { color: #2e7d32; }
+  .tp-card.wallstreet .target { color: #bf360c; }
+  .tp-card .upside {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .tp-card.domestic .upside { background: #e8eaf6; color: #3949ab; }
+  .tp-card.moderate .upside { background: #fff8e1; color: #e65100; }
+  .tp-card.aggressive .upside { background: #e8f5e9; color: #2e7d32; }
+  .tp-card.wallstreet .upside { background: #fbe9e7; color: #d84315; }
+  .tp-card .desc { font-size: 11.5px; color: #78909c; line-height: 1.5; }
+  .tp-card.wallstreet .desc { color: #8d6e63; }
+  /* 시총 변환 */
+  .mcap-row {
+    background: linear-gradient(135deg, #e8eaf6, #e3f2fd);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .mcap-title { font-size: 12px; font-weight: 700; color: #5c6bc0; margin-bottom: 12px; letter-spacing: 1px; }
+  .mcap-bars { display: flex; flex-direction: column; gap: 8px; }
+  .mcap-item { display: flex; align-items: center; gap: 10px; }
+  .mcap-label { font-size: 12px; color: #546e7a; width: 90px; flex-shrink: 0; font-weight: 600; }
+  .bar-track { flex: 1; background: #fff; border-radius: 6px; height: 22px; overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 700; color: #fff; transition: width 1s ease; }
+  .mcap-val { font-size: 11px; font-weight: 700; width: 80px; text-align: right; flex-shrink: 0; }
+  .footer-note {
+    font-size: 11px;
+    color: #90a4ae;
+    text-align: center;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+  }
+  @media (max-width: 580px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .section-header { padding: 20px; }
+    .tp-card .target { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="section-header">
+    <div class="tag">📈 Target Price Comparison</div>
+    <h2>삼성전자 — 증권사별 목표주가 비교</h2>
+    <p>2026년 6월 기준 | 국내·외 주요 증권사 리서치 종합</p>
+  </div>
+  <div class="cards-body">
+    <!-- 현재주가 -->
+    <div class="current-price">
+      <div>
+        <div class="cp-label">삼성전자 (005930) 현재주가 참고</div>
+        <div class="cp-val">시총 2,000조 돌파</div>
+      </div>
+      <div class="cp-change">▲ +10%↑ 급등</div>
+    </div>
+    <!-- 목표주가 카드 -->
+    <div class="cards-grid">
+      <div class="tp-card domestic">
+        <div class="firm-name">유진·키움증권</div>
+        <div class="target">21만원</div>
+        <div class="upside">BUY | P/B 2.5배</div>
+        <div class="desc">반도체 부문 실적 개선, HBM4 양산 본격화 반영. 보수적 밸류에이션 적용.</div>
+      </div>
+      <div class="tp-card moderate">
+        <div class="firm-name">대다수 국내 증권사</div>
+        <div class="target">27~35만원</div>
+        <div class="upside">BUY | 업종 Top Pick</div>
+        <div class="desc">NAND 가격 추가 인상 모멘텀, 파운드리 흑자 전환, 자사주 소각 반영.</div>
+      </div>
+      <div class="tp-card aggressive">
+        <div class="firm-name">미래에셋·KB증권</div>
+        <div class="target">50만원대</div>
+        <div class="upside">글로벌 밸류에이션 리레이팅</div>
+        <div class="desc">EV/EBITDA 배수 상향 조정. 시총 2조 달러 달성 기대. 2026.05 리포트 기준.</div>
+      </div>
+      <div class="tp-card wallstreet">
+        <div class="firm-name">🇺🇸 월가 서스퀘하나</div>
+        <div class="target">85만원</div>
+        <div class="upside">⭐ HBM4 주도권 근거</div>
+        <div class="desc">HBM4 시장 주도권 확보, 파운드리 원스톱 구조 차별성 반영. 파격 전망.</div>
+      </div>
+    </div>
+    <!-- 시총 시나리오 -->
+    <div class="mcap-row">
+      <div class="mcap-title">💰 목표주가별 시가총액 시나리오</div>
+      <div class="mcap-bars">
+        <div class="mcap-item">
+          <div class="mcap-label">현재(2,000조)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:24%; background:#90a4ae;">현재</div></div>
+          <div class="mcap-val" style="color:#546e7a;">~2,000조</div>
+        </div>
+        <div class="mcap-item">
+          <div class="mcap-label">21만원</div>
+          <div class="bar-track"><div class="bar-fill" style="width:30%; background:#5c6bc0;">21만</div></div>
+          <div class="mcap-val" style="color:#3949ab;">~1,300조</div>
+        </div>
+        <div class="mcap-item">
+          <div class="mcap-label">35만원</div>
+          <div class="bar-track"><div class="bar-fill" style="width:48%; background:#f57c00;">35만</div></div>
+          <div class="mcap-val" style="color:#e65100;">~2,100조</div>
+        </div>
+        <div class="mcap-item">
+          <div class="mcap-label">50만원</div>
+          <div class="bar-track"><div class="bar-fill" style="width:66%; background:#388e3c;">50만</div></div>
+          <div class="mcap-val" style="color:#2e7d32;">~3,000조</div>
+        </div>
+        <div class="mcap-item">
+          <div class="mcap-label">85만원 🔥</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%; background:linear-gradient(90deg,#d84315,#ff5722);">85만원 (월가)</div></div>
+          <div class="mcap-val" style="color:#d84315;">~5,000조</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-note">출처: 유진·키움·미래에셋·KB·SK증권, 월가 서스퀘하나 (2026.05~06) | 투자 참고용 정보입니다. 투자 손익의 책임은 투자자 본인에게 있습니다.</div>
+  </div>
+</div>
+</body>
+</html>
