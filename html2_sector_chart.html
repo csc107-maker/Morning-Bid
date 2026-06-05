@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="2026년 6월 5일 한국 증시 — 업종별 등락 현황" />
+  <meta property="og:description" content="금융주는 올랐고 반도체·IT는 폭락 — 오늘 코스피 업종별 수익률을 시각적으로 정리했습니다." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80" />
+  <meta property="og:url" content="https://yourblog.com/korea-stock-black-friday-2026" />
+  <title>업종별 등락 시각화</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f5f7fa;
+      padding: 20px 14px;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+
+    .header {
+      background: #fff;
+      padding: 22px 26px 14px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .header h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+
+    .header p { font-size: 12px; color: #8a9bb0; }
+
+    .legend {
+      display: flex;
+      gap: 18px;
+      padding: 10px 26px;
+      background: #fafbfc;
+      border-bottom: 1px solid #eeeff3;
+    }
+
+    .leg-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .leg-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+
+    .sector-list { padding: 10px 20px 20px; }
+
+    .sector-row {
+      display: grid;
+      grid-template-columns: 130px 1fr 64px;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 6px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .sector-row:last-child { border-bottom: none; }
+
+    .sector-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .sector-name .sub {
+      font-size: 10px;
+      color: #aaa;
+      font-weight: 400;
+      display: block;
+    }
+
+    .bar-wrap {
+      height: 24px;
+      background: #f0f2f5;
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      border-radius: 6px;
+      transition: width 0.8s cubic-bezier(.4,0,.2,1);
+    }
+
+    .bar.down { background: linear-gradient(90deg, #e53935, #ef9a9a); }
+    .bar.up   { background: linear-gradient(90deg, #1565c0, #64b5f6); }
+    .bar.flat { background: linear-gradient(90deg, #78909c, #b0bec5); }
+
+    .sector-pct {
+      font-size: 13px;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .sector-pct.down { color: #e53935; }
+    .sector-pct.up   { color: #1565c0; }
+    .sector-pct.flat { color: #78909c; }
+
+    .divider-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #9aacba;
+      padding: 12px 6px 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .footer-note {
+      background: #f7f9fc;
+      padding: 10px 26px;
+      font-size: 11px;
+      color: #9aacba;
+      border-top: 1px solid #eef0f3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>📊 2026.06.05 코스피 — 업종별 등락 현황</h2>
+      <p>금융주만 상승, 반도체·IT·바이오 전 업종 하락 — 섹터 로테이션 진행 중</p>
+    </div>
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:#e53935"></div> 하락</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#1565c0"></div> 상승</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#78909c"></div> 보합</div>
+    </div>
+
+    <div class="sector-list">
+      <div class="divider-label">📉 주요 하락 업종</div>
+
+      <div class="sector-row">
+        <div class="sector-name">반도체<span class="sub">SK하이닉스, 삼성전자</span></div>
+        <div class="bar-wrap"><div class="bar down" style="width:95%"></div></div>
+        <div class="sector-pct down">-9%대</div>
+      </div>
+
+      <div class="sector-row">
+        <div class="sector-name">IT·소프트웨어<span class="sub">AI 관련주</span></div>
+        <div class="bar-wrap"><div class="bar down" style="width:75%"></div></div>
+        <div class="sector-pct down">-6~7%</div>
+      </div>
+
+      <div class="sector-row">
+        <div class="sector-name">2차전지<span class="sub">소재·배터리</span></div>
+        <div class="bar-wrap"><div class="bar down" style="width:60%"></div></div>
+        <div class="sector-pct down">-5~6%</div>
+      </div>
+
+      <div class="sector-row">
+        <div class="sector-name">바이오·헬스케어<span class="sub">코스닥 중심</span></div>
+        <div class="bar-wrap"><div class="bar down" style="width:55%"></div></div>
+        <div class="sector-pct down">-4~5%</div>
+      </div>
+
+      <div class="sector-row">
+        <div class="sector-name">자동차<span class="sub">현대차, 기아</span></div>
+        <div class="bar-wrap"><div class="bar down" style="width:45%"></div></div>
+        <div class="sector-pct down">-3~4%</div>
+      </div>
+
+      <div class="sector-row">
+        <div class="sector-name">방산·조선<span class="sub">HD현대 등</span></div>
+        <div class="bar-wrap"><div class="bar down" style="width:35%"></div></div>
+        <div class="sector-pct down">-2~3%</div>
+      </div>
+
+      <div class="divider-label">📈 상승·방어 업종</div>
+
+      <div class="sector-row">
+        <div class="sector-name">은행·금융지주<span class="sub">KB, 신한, 하나</span></div>
+        <div class="bar-wrap"><div class="bar up" style="width:40%"></div></div>
+        <div class="sector-pct up">+2~3%</div>
+      </div>
+
+      <div class="sector-row">
+        <div class="sector-name">보험<span class="sub">삼성화재 등</span></div>
+        <div class="bar-wrap"><div class="bar up" style="width:30%"></div></div>
+        <div class="sector-pct up">+1~2%</div>
+      </div>
+
+      <div class="sector-row">
+        <div class="sector-name">유틸리티·에너지<span class="sub">한전, 가스</span></div>
+        <div class="bar-wrap"><div class="bar flat" style="width:15%"></div></div>
+        <div class="sector-pct flat">보합~소폭</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      ※ 장중 추정값 기준 / 출처: 파이낸셜뉴스, Investing.com, 머니투데이 | 투자 권유 아님
+    </div>
+  </div>
+</body>
+</html>
