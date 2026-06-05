@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="HBM 세대별 진화 타임라인 | 삼성전자·SK하이닉스 분석" />
+<meta property="og:description" content="HBM1부터 HBM4까지, AI 메모리 혁신의 역사를 한눈에 정리했습니다." />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/1a1a2e/ffffff?text=HBM+Evolution+Timeline" />
+<meta property="og:url" content="https://your-blog.com/hbm-timeline" />
+<title>HBM 세대별 진화 타임라인</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #f0f4ff;
+    padding: 32px 16px;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 48px rgba(30,60,180,0.12);
+  }
+  .header {
+    background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%);
+    padding: 36px 40px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+  .header-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #90caf9;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .header h2 {
+    font-size: 26px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.3;
+  }
+  .header p {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #bbdefb;
+    line-height: 1.6;
+  }
+  .timeline-wrap {
+    padding: 40px 40px 32px;
+  }
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    position: relative;
+  }
+  .tl-left {
+    width: 90px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 14px;
+  }
+  .tl-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: #5c6bc0;
+    display: block;
+  }
+  .tl-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 28px;
+    flex-shrink: 0;
+  }
+  .tl-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 3px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    z-index: 2;
+    position: relative;
+    margin-top: 10px;
+  }
+  .tl-line {
+    width: 2px;
+    flex: 1;
+    min-height: 40px;
+    margin: 4px 0;
+  }
+  .tl-item:last-child .tl-line { display: none; }
+  .tl-right {
+    flex: 1;
+    padding: 10px 0 32px 20px;
+  }
+  .gen-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .tl-right h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #1a237e;
+    margin-bottom: 6px;
+  }
+  .tl-right p {
+    font-size: 13px;
+    color: #546e7a;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .spec-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .spec-chip {
+    background: #f0f4ff;
+    border: 1px solid #c5cae9;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #3949ab;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  /* 세대별 색상 */
+  .gen1 { --c: #78909c; }
+  .gen2 { --c: #42a5f5; }
+  .gen3 { --c: #26c6da; }
+  .gen3e { --c: #66bb6a; }
+  .gen4 { --c: #ff7043; }
+  .tl-item.gen1 .tl-dot { background: #78909c; border-color: #78909c; }
+  .tl-item.gen2 .tl-dot { background: #42a5f5; border-color: #42a5f5; }
+  .tl-item.gen3 .tl-dot { background: #26c6da; border-color: #26c6da; }
+  .tl-item.gen3e .tl-dot { background: #66bb6a; border-color: #66bb6a; }
+  .tl-item.gen4 .tl-dot { background: #ff7043; border-color: #ff7043; box-shadow: 0 0 0 4px rgba(255,112,67,0.18); }
+  .tl-item.gen1 .tl-line { background: linear-gradient(to bottom, #78909c, #42a5f5); }
+  .tl-item.gen2 .tl-line { background: linear-gradient(to bottom, #42a5f5, #26c6da); }
+  .tl-item.gen3 .tl-line { background: linear-gradient(to bottom, #26c6da, #66bb6a); }
+  .tl-item.gen3e .tl-line { background: linear-gradient(to bottom, #66bb6a, #ff7043); }
+  .tl-item.gen1 .gen-badge { background: #eceff1; color: #546e7a; }
+  .tl-item.gen2 .gen-badge { background: #e3f2fd; color: #1565c0; }
+  .tl-item.gen3 .gen-badge { background: #e0f7fa; color: #00838f; }
+  .tl-item.gen3e .gen-badge { background: #e8f5e9; color: #2e7d32; }
+  .tl-item.gen4 .gen-badge { background: #fbe9e7; color: #d84315; }
+  .highlight-box {
+    background: linear-gradient(135deg, #fff3e0, #fbe9e7);
+    border: 2px solid #ff7043;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #bf360c;
+    font-weight: 600;
+  }
+  .footer-note {
+    background: #f8f9fa;
+    border-top: 1px solid #e3e8f0;
+    padding: 16px 40px;
+    font-size: 11px;
+    color: #90a4ae;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    .header { padding: 24px 20px; }
+    .timeline-wrap { padding: 24px 16px; }
+    .tl-left { width: 64px; font-size: 10px; }
+    .header h2 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-label">📊 Memory Technology Roadmap</div>
+    <h2>HBM 세대별 진화 타임라인</h2>
+    <p>HBM1부터 HBM4까지 — AI 시대 메모리 혁신의 역사</p>
+  </div>
+  <div class="timeline-wrap">
+    <div class="timeline">
+      <!-- HBM1 -->
+      <div class="tl-item gen1">
+        <div class="tl-left"><span class="tl-year">2013~2015</span></div>
+        <div class="tl-center">
+          <div class="tl-dot"><i class="fa fa-microchip" style="font-size:10px;"></i></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <span class="gen-badge">HBM1 — 1세대</span>
+          <h3>HBM의 탄생 — AMD GPU에 첫 탑재</h3>
+          <p>AMD와 SK하이닉스가 공동 개발. 2D→3D 적층 기술의 출발점으로, GPU 메모리 혁신을 시작했습니다.</p>
+          <div class="spec-row">
+            <span class="spec-chip">대역폭 128GB/s</span>
+            <span class="spec-chip">용량 1GB/다이</span>
+            <span class="spec-chip">4-Hi 스택</span>
+          </div>
+        </div>
+      </div>
+      <!-- HBM2 -->
+      <div class="tl-item gen2">
+        <div class="tl-left"><span class="tl-year">2016~2019</span></div>
+        <div class="tl-center">
+          <div class="tl-dot"><i class="fa fa-layer-group" style="font-size:10px;"></i></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <span class="gen-badge">HBM2 — 2세대</span>
+          <h3>엔비디아·구글 AI칩에 본격 탑재</h3>
+          <p>Tesla V100, Google TPU에 채택되며 AI 가속기 메모리의 표준으로 자리잡았습니다. 삼성전자가 본격 참전한 세대.</p>
+          <div class="spec-row">
+            <span class="spec-chip">대역폭 256GB/s</span>
+            <span class="spec-chip">용량 4~8GB</span>
+            <span class="spec-chip">8-Hi 스택</span>
+          </div>
+        </div>
+      </div>
+      <!-- HBM3 -->
+      <div class="tl-item gen3">
+        <div class="tl-left"><span class="tl-year">2022~2023</span></div>
+        <div class="tl-center">
+          <div class="tl-dot"><i class="fa fa-bolt" style="font-size:10px;"></i></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <span class="gen-badge">HBM3 — 3세대</span>
+          <h3>ChatGPT 붐 — SK하이닉스 독주 시작</h3>
+          <p>엔비디아 H100에 탑재. ChatGPT 열풍으로 수요가 폭발했고, SK하이닉스가 엔비디아 주요 공급사로 확고히 자리매김했습니다.</p>
+          <div class="spec-row">
+            <span class="spec-chip">대역폭 819GB/s</span>
+            <span class="spec-chip">용량 16~24GB</span>
+            <span class="spec-chip">12-Hi 스택</span>
+          </div>
+        </div>
+      </div>
+      <!-- HBM3E -->
+      <div class="tl-item gen3e">
+        <div class="tl-left"><span class="tl-year">2024~2025</span></div>
+        <div class="tl-center">
+          <div class="tl-dot"><i class="fa fa-rocket" style="font-size:10px;"></i></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <span class="gen-badge">HBM3E — 3세대 강화판</span>
+          <h3>엔비디아 블랙웰 — 삼성 인증 실패, 하이닉스 75% 점유</h3>
+          <p>SK하이닉스 75%, 마이크론 25%로 엔비디아 블랙웰향 시장 분점. 삼성전자는 ASIC 채널에서 60% 점유로 활로를 찾았습니다.</p>
+          <div class="spec-row">
+            <span class="spec-chip">대역폭 1.15TB/s</span>
+            <span class="spec-chip">용량 24~36GB</span>
+            <span class="spec-chip">12-Hi 스택</span>
+            <span class="spec-chip">MR-MUF 패키징</span>
+          </div>
+        </div>
+      </div>
+      <!-- HBM4 -->
+      <div class="tl-item gen4">
+        <div class="tl-left"><span class="tl-year">2026~</span></div>
+        <div class="tl-center">
+          <div class="tl-dot"><i class="fa fa-star" style="font-size:10px;"></i></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <span class="gen-badge">HBM4 — 4세대 ⭐ 현재 전장</span>
+          <h3>삼성 최초 양산 출하 — AMD 채널로 반격</h3>
+          <p>2026년 2월 삼성전자가 업계 최초로 HBM4 양산 출하 시작. 4나노 파운드리 내재화로 원스톱 생산 체계 구축. SK하이닉스는 안정적 수율로 엔비디아 물량 방어.</p>
+          <div class="spec-row">
+            <span class="spec-chip">전송속도 11.7Gbps/pin</span>
+            <span class="spec-chip">용량 48~64GB</span>
+            <span class="spec-chip">16-Hi 스택</span>
+            <span class="spec-chip">4나노 로직다이</span>
+          </div>
+          <div class="highlight-box">
+            🔥 2026년 점유율 전망: SK하이닉스 54~55% | <strong>삼성전자 28~30%</strong> | 마이크론 17%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-note">
+    출처: 대신증권·키움증권·카운터포인트리서치·SK하이닉스 뉴스룸 (2026.06 기준) | 투자 참고용 정보이며 투자 권유가 아닙니다.
+  </div>
+</div>
+</body>
+</html>
