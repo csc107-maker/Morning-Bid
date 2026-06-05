@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="삼성전자 vs SK하이닉스 2026 실적 비교" />
+<meta property="og:description" content="2026년 1분기 기준 삼성전자와 SK하이닉스의 핵심 실적 및 HBM 점유율 완전 비교" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/f0fff4/1b5e20?text=Samsung+vs+SK+Hynix+2026" />
+<meta property="og:url" content="https://your-blog.com/samsung-vs-skhynix" />
+<title>삼성전자 vs SK하이닉스 비교</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: #f0f6ff; padding: 28px 14px; }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  .vs-header {
+    background: linear-gradient(135deg, #0d47a1 0%, #1a237e 100%);
+    border-radius: 18px 18px 0 0;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .vs-header .brand {
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .vs-header .brand small { display: block; font-size: 11px; font-weight: 400; color: #9fa8da; margin-top: 2px; }
+  .vs-badge {
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    width: 52px; height: 52px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900; color: #fff;
+    flex-shrink: 0;
+  }
+  .vs-body { background: #fff; border-radius: 0 0 18px 18px; box-shadow: 0 8px 40px rgba(13,71,161,0.12); overflow: hidden; }
+
+  /* 상단 KPI 행 */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e8eaf6;
+  }
+  .kpi-col { padding: 20px 16px; }
+  .kpi-col.blue { background: #e8eaf6; }
+  .kpi-col.orange { background: #fff3e0; }
+  .kpi-col.center { display: flex; align-items: center; justify-content: center; background: #fff; }
+  .kpi-col h3 { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .kpi-col.blue h3 { color: #5c6bc0; }
+  .kpi-col.orange h3 { color: #ef6c00; }
+  .kpi-metric { font-size: 22px; font-weight: 900; font-family: 'JetBrains Mono', monospace; }
+  .kpi-col.blue .kpi-metric { color: #1a237e; }
+  .kpi-col.orange .kpi-metric { color: #e65100; }
+  .kpi-sub { font-size: 11px; color: #90a4ae; margin-top: 2px; }
+  .center-icon { font-size: 22px; }
+
+  /* 비교 테이블 */
+  .compare-table { width: 100%; border-collapse: collapse; }
+  .compare-table thead tr th {
+    padding: 14px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e8eaf6;
+  }
+  .compare-table thead .th-sam { color: #1a237e; background: #e8eaf6; text-align: right; width: 35%; }
+  .compare-table thead .th-cat { color: #78909c; background: #f5f5f5; text-align: center; width: 30%; }
+  .compare-table thead .th-hyn { color: #e65100; background: #fff3e0; text-align: left; width: 35%; }
+  .compare-table tbody tr { border-bottom: 1px solid #f0f0f0; }
+  .compare-table tbody tr:hover { background: #fafbff; }
+  .compare-table tbody td { padding: 13px 16px; font-size: 13px; vertical-align: middle; }
+  .td-cat { text-align: center; font-size: 11px; font-weight: 700; color: #546e7a; background: #f9f9f9; }
+  .td-sam { text-align: right; color: #1a237e; font-weight: 600; }
+  .td-hyn { text-align: left; color: #bf360c; font-weight: 600; }
+  .winner { display: inline-block; background: #ffeb3b; border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 800; color: #333; margin-left: 4px; }
+  .winner-hyn { margin-left: 0; margin-right: 4px; }
+
+  /* HBM 점유율 비주얼 */
+  .share-section { padding: 24px 24px 20px; background: #fafafa; border-top: 1px solid #eee; }
+  .share-title { font-size: 13px; font-weight: 700; color: #37474f; margin-bottom: 16px; }
+  .share-item { margin-bottom: 14px; }
+  .share-label { display: flex; justify-content: space-between; margin-bottom: 5px; }
+  .share-label span { font-size: 12px; color: #546e7a; font-weight: 600; }
+  .share-track { height: 14px; background: #e0e0e0; border-radius: 8px; overflow: hidden; position: relative; }
+  .share-bar {
+    height: 100%;
+    border-radius: 8px;
+    position: absolute; left: 0; top: 0;
+    transition: width 1.2s cubic-bezier(.4,0,.2,1);
+  }
+
+  .footer-note { padding: 14px 24px; font-size: 11px; color: #90a4ae; border-top: 1px solid #f0f0f0; text-align: center; background: #fff; }
+
+  @media (max-width: 600px) {
+    .vs-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .kpi-metric { font-size: 17px; }
+    .compare-table tbody td { font-size: 11px; padding: 10px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="vs-header">
+    <div class="brand">🔵 삼성전자 <small>005930 | DS 부문 강화 중</small></div>
+    <div class="vs-badge">VS</div>
+    <div class="brand" style="text-align:right;">🟠 SK하이닉스 <small>000660 | HBM 시장 선도</small></div>
+  </div>
+  <div class="vs-body">
+    <!-- KPI 비교 상단 -->
+    <div class="kpi-grid">
+      <div class="kpi-col blue">
+        <h3>삼성전자</h3>
+        <div class="kpi-metric">80~148조</div>
+        <div class="kpi-sub">2026년 영업이익 전망</div>
+      </div>
+      <div class="kpi-col center"><div class="center-icon">⚡</div></div>
+      <div class="kpi-col orange" style="text-align:right;">
+        <h3>SK하이닉스</h3>
+        <div class="kpi-metric">37.6조</div>
+        <div class="kpi-sub">1Q26 영업이익 (최대 분기)</div>
+      </div>
+    </div>
+
+    <!-- 비교 테이블 -->
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="th-sam">삼성전자</th>
+          <th class="th-cat">비교 항목</th>
+          <th class="th-hyn">SK하이닉스</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-sam">21만~85만원 <span class="winner">▲</span></td>
+          <td class="td-cat">목표주가</td>
+          <td class="td-hyn"><span class="winner winner-hyn">▲</span> 190만~300만원</td>
+        </tr>
+        <tr>
+          <td class="td-sam">2,000조+ <span class="winner">▲</span></td>
+          <td class="td-cat">시가총액</td>
+          <td class="td-hyn">별도 조회 필요</td>
+        </tr>
+        <tr>
+          <td class="td-sam">HBM4 최초 양산출하 <span class="winner">▲</span></td>
+          <td class="td-cat">HBM 전략</td>
+          <td class="td-hyn"><span class="winner winner-hyn">▲</span> 수율 안정·엔비디아 독점</td>
+        </tr>
+        <tr>
+          <td class="td-sam">28~30%</td>
+          <td class="td-cat">HBM4 점유율</td>
+          <td class="td-hyn"><span class="winner winner-hyn">▲</span> 54~55%</td>
+        </tr>
+        <tr>
+          <td class="td-sam">60% (ASIC HBM3E)</td>
+          <td class="td-cat">ASIC 채널</td>
+          <td class="td-hyn">엔비디아 중심</td>
+        </tr>
+        <tr>
+          <td class="td-sam">AMD 채널 확보 <span class="winner">▲</span></td>
+          <td class="td-cat">신규 고객</td>
+          <td class="td-hyn"><span class="winner winner-hyn">▲</span> 구글 TPU v7</td>
+        </tr>
+        <tr>
+          <td class="td-sam">4나노 자체 파운드리 <span class="winner">▲</span></td>
+          <td class="td-cat">생산 구조</td>
+          <td class="td-hyn">MR-MUF 패키징</td>
+        </tr>
+        <tr>
+          <td class="td-sam">105% 증가 전망</td>
+          <td class="td-cat">HBM 매출 증가율</td>
+          <td class="td-hyn"><span class="winner winner-hyn">▲</span> 72% 증가, 54조 전망</td>
+        </tr>
+        <tr>
+          <td class="td-sam">~72% (영업이익률)</td>
+          <td class="td-cat">수익성</td>
+          <td class="td-hyn"><span class="winner winner-hyn">▲</span> 72% (1Q26 실적)</td>
+        </tr>
+        <tr>
+          <td class="td-sam">메모리+파운드리+가전 <span class="winner">▲</span></td>
+          <td class="td-cat">사업 다각화</td>
+          <td class="td-hyn">메모리 집중</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- HBM 점유율 시각화 -->
+    <div class="share-section">
+      <div class="share-title">📊 2026년 HBM 시장점유율 전망 (카운터포인트리서치·대신증권)</div>
+      <div class="share-item">
+        <div class="share-label">
+          <span>HBM4 전체 기준</span>
+          <span style="color:#78909c;">SK 54% | 삼성 29% | 마이크론 17%</span>
+        </div>
+        <div class="share-track" style="height:22px; border-radius:10px;">
+          <div style="position:absolute;left:0;top:0;width:54%;height:100%;background:linear-gradient(90deg,#ef6c00,#ff8f00);border-radius:10px 0 0 10px; display:flex;align-items:center;padding-left:8px;color:#fff;font-size:11px;font-weight:700;">SK 54%</div>
+          <div style="position:absolute;left:54%;top:0;width:29%;height:100%;background:linear-gradient(90deg,#1565c0,#1976d2); display:flex;align-items:center;padding-left:6px;color:#fff;font-size:11px;font-weight:700;">삼성 29%</div>
+          <div style="position:absolute;left:83%;top:0;width:17%;height:100%;background:#90a4ae;border-radius:0 10px 10px 0; display:flex;align-items:center;padding-left:4px;color:#fff;font-size:10px;font-weight:700;">MU 17%</div>
+        </div>
+      </div>
+      <div class="share-item">
+        <div class="share-label">
+          <span>엔비디아향 HBM3E</span>
+          <span style="color:#78909c;">SK 71% | 삼성 소량 | 마이크론 29%</span>
+        </div>
+        <div class="share-track" style="height:22px; border-radius:10px;">
+          <div style="position:absolute;left:0;top:0;width:71%;height:100%;background:linear-gradient(90deg,#ef6c00,#ff8f00);border-radius:10px 0 0 10px; display:flex;align-items:center;padding-left:8px;color:#fff;font-size:11px;font-weight:700;">SK 71%</div>
+          <div style="position:absolute;left:71%;top:0;width:29%;height:100%;background:#90a4ae;border-radius:0 10px 10px 0; display:flex;align-items:center;padding-left:6px;color:#fff;font-size:11px;font-weight:700;">마이크론 29%</div>
+        </div>
+      </div>
+      <div class="share-item">
+        <div class="share-label">
+          <span>ASIC향 HBM3E (삼성 강점)</span>
+          <span style="color:#78909c;">삼성 60%</span>
+        </div>
+        <div class="share-track" style="height:22px; border-radius:10px;">
+          <div style="position:absolute;left:0;top:0;width:60%;height:100%;background:linear-gradient(90deg,#1565c0,#42a5f5);border-radius:10px 0 0 10px; display:flex;align-items:center;padding-left:8px;color:#fff;font-size:11px;font-weight:700;">삼성 60%</div>
+          <div style="position:absolute;left:60%;top:0;width:40%;height:100%;background:#b0bec5;border-radius:0 10px 10px 0; display:flex;align-items:center;padding-left:6px;color:#fff;font-size:11px;font-weight:700;">기타 40%</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-note">출처: 대신증권·카운터포인트리서치·UBS·골드만삭스 (2026.01~06) | 투자 참고용. 실제 투자 시 반드시 전문가 상담을 받으세요.</div>
+  </div>
+</div>
+</body>
+</html>
