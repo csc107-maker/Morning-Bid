@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="2026년 6~7월 주요 경제 일정 타임라인 — 한국 증시 대응 전략" />
+  <meta property="og:description" content="6월 10일 미국 CPI, 6월 16~17일 FOMC, MSCI 재분류, 2분기 어닝시즌까지 — 꼭 체크해야 할 경제 캘린더." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80" />
+  <meta property="og:url" content="https://yourblog.com/korea-stock-black-friday-2026" />
+  <title>주요 경제 일정 타임라인</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f4f7fb;
+      padding: 20px 14px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1565c0, #0d47a1);
+      padding: 22px 28px;
+      color: #fff;
+    }
+
+    .header h2 { font-size: 18px; font-weight: 800; margin-bottom: 4px; }
+    .header p  { font-size: 12px; color: rgba(255,255,255,0.7); }
+
+    .timeline {
+      padding: 20px 24px 24px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 52px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: #e8edf3;
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 44px 44px 1fr;
+      gap: 0 14px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .tl-item:last-child { margin-bottom: 0; }
+
+    .tl-date {
+      text-align: right;
+      padding-top: 4px;
+    }
+
+    .tl-date .month {
+      font-size: 10px;
+      color: #9aacba;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .tl-date .day {
+      font-size: 20px;
+      font-weight: 900;
+      color: #1a1a2e;
+      line-height: 1;
+    }
+
+    .tl-dot-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 6px;
+    }
+
+    .tl-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px currentColor;
+      flex-shrink: 0;
+    }
+
+    .dot-red    { color: #e53935; background: #e53935; }
+    .dot-blue   { color: #1565c0; background: #1565c0; }
+    .dot-orange { color: #f57c00; background: #f57c00; }
+    .dot-green  { color: #2e7d32; background: #2e7d32; }
+    .dot-purple { color: #6a1b9a; background: #6a1b9a; }
+    .dot-teal   { color: #00695c; background: #00695c; }
+
+    .tl-content {
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 12px 14px;
+      border-left: 3px solid #e8edf3;
+    }
+
+    .tl-content.important { border-left-color: #e53935; background: #fff8f8; }
+    .tl-content.fomc      { border-left-color: #1565c0; background: #f0f4ff; }
+    .tl-content.msci      { border-left-color: #6a1b9a; background: #f8f0ff; }
+    .tl-content.earning   { border-left-color: #2e7d32; background: #f0fff4; }
+    .tl-content.warn      { border-left-color: #f57c00; background: #fff8f0; }
+
+    .tl-tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+
+    .tag-red    { background: #ffebee; color: #c62828; }
+    .tag-blue   { background: #e3f2fd; color: #0d47a1; }
+    .tag-orange { background: #fff3e0; color: #e65100; }
+    .tag-green  { background: #e8f5e9; color: #1b5e20; }
+    .tag-purple { background: #f3e5f5; color: #4a148c; }
+    .tag-teal   { background: #e0f2f1; color: #004d40; }
+
+    .tl-content h3 {
+      font-size: 14px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 5px;
+    }
+
+    .tl-content p {
+      font-size: 12px;
+      color: #556;
+      line-height: 1.6;
+    }
+
+    .tl-content .time-note {
+      font-size: 11px;
+      color: #9aacba;
+      margin-top: 5px;
+      display: block;
+    }
+
+    .footer-note {
+      background: #f7f9fc;
+      padding: 10px 24px;
+      font-size: 11px;
+      color: #9aacba;
+      border-top: 1px solid #eef0f3;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>📅 2026년 6~7월 주요 경제 일정</h2>
+      <p>이 일정들이 한국 증시의 향방을 결정합니다 — 반드시 체크하세요</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="month">6월</div><div class="day">05</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot dot-red"></div></div>
+        <div class="tl-content important">
+          <span class="tl-tag tag-red">🔴 오늘</span>
+          <h3>한국 증시 '검은 금요일' — 코스피 6.76% 급락</h3>
+          <p>브로드컴 쇼크 + 중동 긴장 + 사이드카 발동. 코스닥 1000선 붕괴.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="month">6월</div><div class="day">10</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot dot-red"></div></div>
+        <div class="tl-content important">
+          <span class="tl-tag tag-red">🔴 최중요</span>
+          <h3>미국 5월 CPI (소비자물가지수) 발표</h3>
+          <p>인플레이션이 유가 급등 영향을 받기 시작했는지 확인. 예상보다 높으면 금리 인하 기대 완전 소멸 → 증시 추가 하락 위험.</p>
+          <span class="time-note">⏰ 한국 시간 밤 9:30 PM (서머타임 기준)</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="month">6월</div><div class="day">16</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot dot-blue"></div></div>
+        <div class="tl-content fomc">
+          <span class="tl-tag tag-blue">🔵 FOMC</span>
+          <h3>미국 연준 FOMC 금리 결정 + 점도표 공개</h3>
+          <p>점도표(dot plot)와 SEP(경제전망)이 함께 공개되는 분기 회의. 연내 금리 인하 횟수가 줄어들면 시장에 추가 충격. 기자회견(파월 의장)에서 중동·인플레이션 발언 주목.</p>
+          <span class="time-note">⏰ 결과: 한국시간 6/17 새벽 3:00 AM</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="month">6월</div><div class="day">下</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot dot-purple"></div></div>
+        <div class="tl-content msci">
+          <span class="tl-tag tag-purple">🟣 한국 특이점</span>
+          <h3>MSCI 반기 리뷰 — 한국 시장 재분류 결정</h3>
+          <p>한국이 MSCI 선진국 지수로 재분류되면 수십조 원의 글로벌 패시브 자금 유입 가능. 2026년 최대 투자 이벤트 중 하나. 편입 실패 시 외국인 매도 가능성.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="month">6월</div><div class="day">下</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot dot-orange"></div></div>
+        <div class="tl-content warn">
+          <span class="tl-tag tag-orange">🟠 주의</span>
+          <h3>'네 마녀의 날' — 선물·옵션 만기일</h3>
+          <p>6월 선물·옵션 동시 만기일. 수급 변동성 극대화 구간. 기관·외국인의 프로그램 매도 집중 가능성. 개인 투자자는 특히 주의.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="month">7월</div><div class="day">~</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot dot-green"></div></div>
+        <div class="tl-content earning">
+          <span class="tl-tag tag-green">🟢 어닝시즌</span>
+          <h3>미국 2분기 실적 발표 시즌 시작</h3>
+          <p>빅테크 (엔비디아·마이크로소프트·애플·알파벳·아마존) 실적이 코스피 반도체주 방향 결정. 브로드컴 쇼크 이후 시장 기대치 조정돼 어닝 서프라이즈 가능성도 존재.</p>
+          <span class="time-note">⏰ 7월 중순~하순 집중 발표</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date"><div class="month">7월</div><div class="day">14</div></div>
+        <div class="tl-dot-wrap"><div class="tl-dot dot-red"></div></div>
+        <div class="tl-content important">
+          <span class="tl-tag tag-red">🔴 중요</span>
+          <h3>미국 6월 CPI 발표</h3>
+          <p>유가 급등의 소비자물가 전이 여부 2차 확인. 이 수치가 하반기 금리 경로를 결정짓는 핵심 데이터.</p>
+          <span class="time-note">⏰ 한국 시간 밤 9:30 PM</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-note">
+      출처: BLS 공식 일정, 연방준비제도(Fed) FOMC 캘린더, KB Think, 키움투자자산운용 | 투자 권유 아님
+    </div>
+  </div>
+</body>
+</html>
