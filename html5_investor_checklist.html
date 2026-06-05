@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="폭락장 투자자 생존 체크리스트 — 2026년 6월 한국 증시 대응 전략" />
+  <meta property="og:description" content="공황 매도, 빚투, 성급한 저점 매수는 금물! 지금 당장 확인해야 할 투자자 7가지 체크리스트." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80" />
+  <meta property="og:url" content="https://yourblog.com/korea-stock-black-friday-2026" />
+  <title>투자자 체크리스트</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f0f4f8;
+      padding: 20px 14px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #2e7d32, #388e3c);
+      padding: 22px 28px;
+      color: #fff;
+    }
+
+    .header h2 { font-size: 18px; font-weight: 800; margin-bottom: 4px; }
+    .header p  { font-size: 12px; color: rgba(255,255,255,0.75); }
+
+    .checklist { padding: 14px 20px 20px; }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 12px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      background: #f8fafc;
+      border: 1.5px solid #eef0f3;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .check-item:hover { background: #f0f4f8; }
+    .check-item.checked { background: #f1fff3; border-color: #a5d6a7; }
+
+    .checkbox {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      border: 2px solid #ccc;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      background: #fff;
+      transition: all 0.2s;
+      margin-top: 1px;
+    }
+
+    .check-item.checked .checkbox {
+      background: #2e7d32;
+      border-color: #2e7d32;
+      color: #fff;
+    }
+
+    .check-num {
+      font-size: 10px;
+      font-weight: 700;
+      color: #9aacba;
+      width: 20px;
+      text-align: center;
+      padding-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .check-text { flex: 1; }
+
+    .check-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 3px;
+    }
+
+    .check-desc {
+      font-size: 12px;
+      color: #667;
+      line-height: 1.6;
+    }
+
+    .check-tag {
+      display: inline-block;
+      font-size: 10px;
+      padding: 1px 7px;
+      border-radius: 20px;
+      margin-right: 4px;
+      margin-top: 4px;
+    }
+
+    .tag-danger { background: #ffebee; color: #c62828; }
+    .tag-safe   { background: #e8f5e9; color: #1b5e20; }
+    .tag-warn   { background: #fff3e0; color: #e65100; }
+
+    .progress-bar-wrap {
+      padding: 14px 20px;
+      border-top: 1px solid #eef0f3;
+      background: #fafbfc;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: #556;
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      height: 8px;
+      background: #e8edf3;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2e7d32, #66bb6a);
+      border-radius: 8px;
+      transition: width 0.4s ease;
+    }
+
+    .progress-msg {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #2e7d32;
+      font-weight: 600;
+      min-height: 18px;
+    }
+
+    .footer-note {
+      background: #f7f9fc;
+      padding: 10px 24px;
+      font-size: 11px;
+      color: #9aacba;
+      border-top: 1px solid #eef0f3;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>✅ 폭락장 투자자 생존 체크리스트</h2>
+      <p>지금 당장 확인하세요 — 이것만 지켜도 손실을 크게 줄일 수 있습니다</p>
+    </div>
+
+    <div class="checklist" id="checklist">
+
+      <div class="check-item" onclick="toggle(this)">
+        <div class="check-num">01</div>
+        <div class="checkbox">✓</div>
+        <div class="check-text">
+          <div class="check-title">공황 매도는 하지 않는다</div>
+          <div class="check-desc">폭락 당일 공포에 팔면 대부분 최저점에 손실 확정. 데이터 확인 없이 손실 매도는 후회의 시작.</div>
+          <span class="check-tag tag-danger">❌ 금지</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this)">
+        <div class="check-num">02</div>
+        <div class="checkbox">✓</div>
+        <div class="check-text">
+          <div class="check-title">빚투(신용융자)는 즉시 점검·정리</div>
+          <div class="check-desc">신용융자 반대매매가 하락을 증폭시킵니다. 레버리지 포지션은 폭락장에서 치명적. 지금 당장 신용 잔액을 확인하세요.</div>
+          <span class="check-tag tag-danger">❌ 절대금지</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this)">
+        <div class="check-num">03</div>
+        <div class="checkbox">✓</div>
+        <div class="check-text">
+          <div class="check-title">6월 10일 CPI 결과를 먼저 확인한다</div>
+          <div class="check-desc">CPI가 예상보다 높으면 추가 하락 가능. 낮으면 반등 신호. 결과 확인 전 대규모 추가 매수는 도박입니다.</div>
+          <span class="check-tag tag-warn">⚠️ 필수 확인</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this)">
+        <div class="check-num">04</div>
+        <div class="checkbox">✓</div>
+        <div class="check-text">
+          <div class="check-title">분할 매수 원칙을 세운다</div>
+          <div class="check-desc">저점이 어디인지 아무도 모릅니다. 총 매수 금액을 3~5회로 나눠 분할 매수하면 평균 단가 리스크를 줄일 수 있습니다.</div>
+          <span class="check-tag tag-safe">✅ 추천 전략</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this)">
+        <div class="check-num">05</div>
+        <div class="checkbox">✓</div>
+        <div class="check-text">
+          <div class="check-title">포트폴리오에 방어주를 편입한다</div>
+          <div class="check-desc">금융주, 방산, 유틸리티, 인프라 섹터는 폭락장에서도 선방합니다. 오늘처럼 반도체만 하락할 때 방어주가 완충 역할을 합니다.</div>
+          <span class="check-tag tag-safe">✅ 추천</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this)">
+        <div class="check-num">06</div>
+        <div class="checkbox">✓</div>
+        <div class="check-text">
+          <div class="check-title">현금 비중 20~30%는 반드시 유지</div>
+          <div class="check-desc">FOMC(6/16~17)와 CPI(6/10)까지 불확실성 구간. 현금은 '기회비용'이 아니라 '기회 포착 자원'입니다.</div>
+          <span class="check-tag tag-safe">✅ 필수</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this)">
+        <div class="check-num">07</div>
+        <div class="checkbox">✓</div>
+        <div class="check-text">
+          <div class="check-title">중장기 관점을 유지한다</div>
+          <div class="check-desc">AI 슈퍼사이클, HBM 수요, MSCI 선진국 편입 가능성 등 중장기 펀더멘털은 훼손되지 않았습니다. 단기 노이즈에 흔들리지 마세요.</div>
+          <span class="check-tag tag-safe">✅ 마인드셋</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span>체크리스트 완료도</span>
+        <span id="prog-count">0 / 7</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+      </div>
+      <div class="progress-msg" id="prog-msg"></div>
+    </div>
+
+    <div class="footer-note">※ 본 체크리스트는 투자 정보 제공 목적이며 특정 종목 매수·매도를 권유하지 않습니다.</div>
+  </div>
+
+  <script>
+    const messages = [
+      '', '시작이 좋습니다! 계속 체크해보세요.', '잘 하고 계세요. 리스크 관리가 중요합니다.',
+      '절반 완료! 흔들리지 않는 투자자가 되고 있습니다.', '훌륭합니다! 조금만 더!',
+      '거의 다 왔습니다. 마지막 두 개만 더!', '아주 훌륭해요! 마지막 하나!',
+      '🎉 완벽합니다! 폭락장에서도 살아남는 투자자입니다!'
+    ];
+
+    function toggle(el) {
+      el.classList.toggle('checked');
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const total = 7;
+      const checked = document.querySelectorAll('.check-item.checked').length;
+      const pct = Math.round((checked / total) * 100);
+      document.getElementById('prog-fill').style.width = pct + '%';
+      document.getElementById('prog-count').textContent = checked + ' / ' + total;
+      document.getElementById('prog-msg').textContent = messages[checked] || '';
+    }
+  </script>
+</body>
+</html>
