@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta property="og:title" content="알파벳 AI CapEx 수혜 기업 완전 분석"/>
+<meta property="og:description" content="알파벳의 1,800억 달러 AI 설비투자가 어떤 기업들에 어떤 신호를 주는지 섹터별로 분석합니다."/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80"/>
+<meta property="og:url" content="https://yourblog.com/alphabet-capex-beneficiaries"/>
+<title>알파벳 AI CapEx 수혜 기업 분석</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=DM+Mono:wght@500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#f8fafc;padding:28px 16px}
+.wrap{max-width:820px;margin:0 auto}
+.header{text-align:center;margin-bottom:32px}
+.tag{display:inline-block;background:#0f172a;color:#f59e0b;font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:12px}
+h2{font-size:22px;font-weight:900;color:#0f172a;margin-bottom:6px}
+.sub{font-size:13px;color:#64748b}
+
+/* CapEx 헤더 */
+.capex-bar{background:linear-gradient(135deg,#0f172a,#1e40af);border-radius:16px;padding:20px 24px;margin-bottom:28px;color:#fff;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.capex-num{font-family:'DM Mono',monospace;font-size:36px;font-weight:900;color:#fbbf24;white-space:nowrap}
+.capex-right{}
+.capex-title{font-size:14px;font-weight:700;margin-bottom:4px}
+.capex-desc{font-size:12px;opacity:.75;line-height:1.6}
+
+/* 섹터 카드 */
+.sector-grid{display:flex;flex-direction:column;gap:16px;margin-bottom:24px}
+.sector-card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.06)}
+.sector-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sector-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.sector-name{font-size:15px;font-weight:700;color:#0f172a}
+.sector-sub{font-size:12px;color:#64748b}
+.impact-level{margin-left:auto;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px}
+.impact-high{background:#dcfce7;color:#15803d}
+.impact-mid{background:#fef3c7;color:#b45309}
+.impact-watch{background:#f0f9ff;color:#0369a1}
+
+.companies{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.co-chip{border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;border:1.5px solid}
+.co-chip.global{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+.co-chip.kr{background:#fdf4ff;color:#7e22ce;border-color:#e9d5ff}
+.co-chip.kr::after{content:'🇰🇷';margin-left:3px;font-size:10px}
+
+.reason{font-size:12px;color:#475569;line-height:1.7;background:#f8fafc;border-radius:8px;padding:10px 12px}
+
+/* 한국 별도 섹션 */
+.kr-section{background:linear-gradient(135deg,#fdf4ff,#f5f3ff);border:1.5px solid #e9d5ff;border-radius:14px;padding:20px;margin-bottom:24px}
+.kr-title{font-size:14px;font-weight:700;color:#6d28d9;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.kr-table{width:100%;border-collapse:collapse;font-size:12px}
+.kr-table th{background:#f5f3ff;padding:8px 10px;text-align:left;color:#5b21b6;font-weight:700}
+.kr-table td{padding:8px 10px;border-bottom:1px solid #ede9fe;color:#374151}
+.kr-table tr:last-child td{border-bottom:none}
+.impact-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px}
+.dot-high{background:#16a34a}
+.dot-mid{background:#d97706}
+
+.src{font-size:11px;color:#aaa;text-align:right;margin-top:16px}
+.disclaimer{font-size:11px;color:#94a3b8;background:#f1f5f9;border-radius:8px;padding:10px 14px;margin-top:12px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="tag">💡 수혜 기업 분석</div>
+    <h2>알파벳 CapEx 1,800억 달러 — 누가 웃나?</h2>
+    <p class="sub">AI 인프라 투자의 수혜는 반도체부터 전력까지 전 밸류체인에 퍼진다</p>
+  </div>
+
+  <div class="capex-bar">
+    <div class="capex-num">$1,750~1,850억</div>
+    <div class="capex-right">
+      <div class="capex-title">알파벳 2026년 설비투자(CapEx) 가이던스</div>
+      <div class="capex-desc">전년(2025년) 대비 약 2배 수준. 데이터센터·GPU·TPU·네트워크·전력 인프라 전방위 투자.<br/>이 자금이 흘러가는 공급망 기업들이 직·간접 수혜권에 놓인다.</div>
+    </div>
+  </div>
+
+  <div class="sector-grid">
+
+    <!-- 반도체 -->
+    <div class="sector-card">
+      <div class="sector-head">
+        <div class="sector-icon" style="background:#dbeafe">🔵</div>
+        <div>
+          <div class="sector-name">반도체 · GPU · AI 가속기</div>
+          <div class="sector-sub">AI 연산의 심장 — 가장 직접적인 수혜 섹터</div>
+        </div>
+        <div class="impact-level impact-high">직접 수혜 ★★★</div>
+      </div>
+      <div class="companies">
+        <span class="co-chip global">NVIDIA (NVDA)</span>
+        <span class="co-chip global">AMD</span>
+        <span class="co-chip global">Intel (INTC)</span>
+        <span class="co-chip global">Broadcom (AVGO)</span>
+        <span class="co-chip kr">SK하이닉스</span>
+        <span class="co-chip kr">삼성전자</span>
+      </div>
+      <div class="reason">
+        알파벳은 자체 TPU 외에 NVIDIA GPU를 대규모 도입. 데이터센터 증설은 곧 GPU·HBM(고대역폭 메모리) 수요 폭발을 의미. SK하이닉스의 HBM3e, 삼성전자의 HBM4가 핵심 공급원. 2025년 5개 하이퍼스케일러 채권 발행액만 1,210억 달러에 달해 반도체 업사이클이 장기화될 전망.
+      </div>
+    </div>
+
+    <!-- 데이터센터 -->
+    <div class="sector-card">
+      <div class="sector-head">
+        <div class="sector-icon" style="background:#dcfce7">🟢</div>
+        <div>
+          <div class="sector-name">데이터센터 · 부동산 · 장비</div>
+          <div class="sector-sub">물리적 AI 공간 — 건설 착공액 급등</div>
+        </div>
+        <div class="impact-level impact-high">직접 수혜 ★★★</div>
+      </div>
+      <div class="companies">
+        <span class="co-chip global">Equinix (EQIX)</span>
+        <span class="co-chip global">Digital Realty (DLR)</span>
+        <span class="co-chip global">Vertiv (VRT)</span>
+        <span class="co-chip global">Eaton (ETN)</span>
+        <span class="co-chip kr">두산에너빌리티</span>
+      </div>
+      <div class="reason">
+        2025년 데이터센터 건설 착공액 777억 달러 기록. 2026년에는 880억 달러 상당의 착공 전 파이프라인이 대기 중. 알파벳은 2026년 3월 말 기준 미착공 데이터센터 리스 잔액만 756억 달러. 냉각·전력공급 장비에 대한 특수 수요가 일반 서버 장비보다 빠르게 증가.
+      </div>
+    </div>
+
+    <!-- 전력·에너지 -->
+    <div class="sector-card">
+      <div class="sector-head">
+        <div class="sector-icon" style="background:#fef3c7">🟡</div>
+        <div>
+          <div class="sector-name">전력 · 에너지 인프라</div>
+          <div class="sector-sub">AI는 전기를 먹는다 — 전력 수요 급증 장기 수혜</div>
+        </div>
+        <div class="impact-level impact-mid">중·장기 수혜 ★★</div>
+      </div>
+      <div class="companies">
+        <span class="co-chip global">NextEra Energy (NEE)</span>
+        <span class="co-chip global">Dominion Energy (D)</span>
+        <span class="co-chip global">GE Vernova (GEV)</span>
+        <span class="co-chip global">Constellation Energy (CEG)</span>
+        <span class="co-chip kr">LS Electric</span>
+      </div>
+      <div class="reason">
+        대형 AI 데이터센터 한 곳의 전력 소비는 수만 가구 도시 전체와 맞먹음. 알파벳은 재생에너지 구매협약(PPA) 세계 1위 기업. AI 투자 확대는 재생에너지·전력망 투자와 병행될 수밖에 없어, 관련 에너지 기업 장기 수주 증가 예상.
+      </div>
+    </div>
+
+    <!-- 광통신·네트워킹 -->
+    <div class="sector-card">
+      <div class="sector-head">
+        <div class="sector-icon" style="background:#fee2e2">🔴</div>
+        <div>
+          <div class="sector-name">광통신 · 네트워킹 · 해저 케이블</div>
+          <div class="sector-sub">데이터 고속도로 — 알파벳 자체 해저 케이블 보유</div>
+        </div>
+        <div class="impact-level impact-mid">직·간접 수혜 ★★</div>
+      </div>
+      <div class="companies">
+        <span class="co-chip global">Cisco (CSCO)</span>
+        <span class="co-chip global">Juniper (JNPR)</span>
+        <span class="co-chip global">Corning (GLW)</span>
+        <span class="co-chip global">SubCom</span>
+        <span class="co-chip kr">대한광통신</span>
+      </div>
+      <div class="reason">
+        알파벳은 글로벌 해저 케이블 네트워크를 직접 소유·운영. CapEx 확대는 국제 데이터 트래픽 처리를 위한 광섬유·라우터·스위치 수요 증가로 직결. 코닝의 광섬유 제품군이 대표 수혜.
+      </div>
+    </div>
+
+    <!-- 클라우드 경쟁사 -->
+    <div class="sector-card">
+      <div class="sector-head">
+        <div class="sector-icon" style="background:#f0fdf4">⚡</div>
+        <div>
+          <div class="sector-name">클라우드 경쟁사 — 투자 가속 신호</div>
+          <div class="sector-sub">경쟁 압박으로 추격 투자 불가피</div>
+        </div>
+        <div class="impact-level impact-watch">경쟁 촉발 ⚡</div>
+      </div>
+      <div class="companies">
+        <span class="co-chip global">Microsoft (MSFT)</span>
+        <span class="co-chip global">Amazon AWS (AMZN)</span>
+        <span class="co-chip global">Oracle (ORCL)</span>
+        <span class="co-chip global">Meta (META)</span>
+      </div>
+      <div class="reason">
+        알파벳의 공격적 투자는 경쟁사들에 "뒤처지면 시장을 잃는다"는 압박을 가중. 오라클, 아마존, 마이크로소프트 모두 2026년 인프라 지출을 급격히 늘리는 중. 전략가들은 5개 하이퍼스케일러의 5년 내 총 채무 발행이 3조 달러에 달할 것으로 예측. 경쟁사의 투자 확대가 공급망 전체에 2차 수혜를 줌.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 한국 관련주 -->
+  <div class="kr-section">
+    <div class="kr-title">🇰🇷 국내 관련주 수혜 시사점 (정보 제공 목적)</div>
+    <table class="kr-table">
+      <thead>
+        <tr><th>기업명</th><th>연결 고리</th><th>수혜 강도</th><th>주요 리스크</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>SK하이닉스</strong></td>
+          <td>HBM3e·HBM4 AI GPU 공급</td>
+          <td><span class="impact-dot dot-high"></span>높음</td>
+          <td>HBM 공급과잉 가능성</td>
+        </tr>
+        <tr>
+          <td><strong>삼성전자</strong></td>
+          <td>HBM, 서버 DRAM, 파운드리</td>
+          <td><span class="impact-dot dot-high"></span>높음</td>
+          <td>HBM 수율·품질 이슈</td>
+        </tr>
+        <tr>
+          <td><strong>삼성전기</strong></td>
+          <td>AI 서버용 MLCC·기판</td>
+          <td><span class="impact-dot dot-mid"></span>중간</td>
+          <td>단가 인하 압력</td>
+        </tr>
+        <tr>
+          <td><strong>두산에너빌리티</strong></td>
+          <td>데이터센터 냉각·전력 설비</td>
+          <td><span class="impact-dot dot-mid"></span>중간</td>
+          <td>수주 시차 존재</td>
+        </tr>
+        <tr>
+          <td><strong>LS Electric</strong></td>
+          <td>전력 인프라·배전반</td>
+          <td><span class="impact-dot dot-mid"></span>중간</td>
+          <td>내수 의존도 높음</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="disclaimer">⚠️ 본 자료는 투자 권유가 아닌 정보 제공 목적으로 작성되었습니다. 실제 투자는 반드시 전문가 상담 및 본인 판단 하에 이루어져야 합니다.</div>
+  <div class="src">출처: Bloomberg, ConstructConnect, SEC Edgar, Reuters, Morgan Stanley (2026)</div>
+</div>
+</body>
+</html>
