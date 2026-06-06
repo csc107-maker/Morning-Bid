@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI 반도체 포트폴리오 구성 가이드 2026" />
+<meta property="og:description" content="반도체 급락기에 코어·성장·헷지 비중을 어떻게 배분해야 할까? 전문가 관점의 포트폴리오 시각화." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200" />
+<meta property="og:url" content="https://yourblog.com/semiconductor-portfolio-2026" />
+<title>포트폴리오 구성 가이드</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #F8F4FF;
+    padding: 24px 16px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 28px rgba(100,50,200,0.10);
+  }
+
+  .header {
+    background: linear-gradient(120deg, #3730A3 0%, #4338CA 55%, #6D28D9 100%);
+    padding: 26px 30px 20px;
+    color: #fff;
+  }
+
+  .h-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #C4B5FD;
+    margin-bottom: 10px;
+  }
+
+  .h-title {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.35;
+    margin-bottom: 5px;
+  }
+
+  .h-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* Donut + Legend */
+  .viz-section {
+    padding: 28px;
+    border-bottom: 1px solid #EDE9FE;
+  }
+
+  .section-hd {
+    font-size: 13px;
+    font-weight: 700;
+    color: #4338CA;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-hd::before {
+    content: '';
+    width: 4px;
+    height: 16px;
+    background: #6D28D9;
+    border-radius: 2px;
+  }
+
+  .chart-container {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .donut-wrap {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+  }
+
+  .donut-svg {
+    transform: rotate(-90deg);
+    width: 160px;
+    height: 160px;
+  }
+
+  .donut-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .donut-label-main {
+    font-size: 13px;
+    font-weight: 900;
+    color: #3730A3;
+  }
+
+  .donut-label-sub {
+    font-size: 10px;
+    color: #9CA3AF;
+  }
+
+  .legend-list {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .legend-info { flex: 1; }
+
+  .legend-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 2px;
+  }
+
+  .legend-pct {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  /* Allocation Details */
+  .alloc-section {
+    padding: 22px 28px;
+    border-bottom: 1px solid #EDE9FE;
+  }
+
+  .alloc-card {
+    background: #F5F3FF;
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid #DDD6FE;
+    margin-bottom: 12px;
+  }
+
+  .alloc-card:last-child { margin-bottom: 0; }
+
+  .alloc-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .alloc-badge {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .alloc-pct {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .alloc-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+    flex: 1;
+  }
+
+  .stock-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .s-chip {
+    background: #fff;
+    border: 1px solid #DDD6FE;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .s-chip .s-reason {
+    font-size: 10px;
+    color: #6B7280;
+    display: block;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  /* Risk Table */
+  .risk-section {
+    padding: 22px 28px 28px;
+    background: #F8F4FF;
+  }
+
+  .risk-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .risk-table th {
+    background: #DDD6FE;
+    color: #4338CA;
+    font-weight: 700;
+    padding: 9px 12px;
+    text-align: left;
+  }
+
+  .risk-table td {
+    padding: 10px 12px;
+    color: #374151;
+    border-bottom: 1px solid #EDE9FE;
+    vertical-align: top;
+  }
+
+  .risk-level {
+    display: inline-block;
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .rl-high { background: #FEE2E2; color: #B91C1C; }
+  .rl-mid  { background: #FEF3C7; color: #B45309; }
+  .rl-low  { background: #DCFCE7; color: #15803D; }
+
+  .footer-note {
+    padding: 12px 28px;
+    font-size: 10px;
+    color: #9CA3AF;
+    border-top: 1px solid #EDE9FE;
+    background: #fff;
+  }
+
+  @media (max-width: 480px) {
+    .chart-container { flex-direction: column; align-items: flex-start; }
+    .viz-section, .alloc-section, .risk-section { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="h-tag">💼 포트폴리오 가이드</div>
+    <div class="h-title">AI 반도체 포트폴리오<br>급락기 자산 배분 전략</div>
+    <div class="h-sub">참고용 예시 배분 · 투자 권유 아님 · 2026년 6월 기준</div>
+  </div>
+
+  <div class="viz-section">
+    <div class="section-hd">추천 자산 배분 비율</div>
+    <div class="chart-container">
+      <div class="donut-wrap">
+        <svg class="donut-svg" viewBox="0 0 160 160">
+          <!-- Core 65% -->
+          <circle cx="80" cy="80" r="60" fill="none" stroke="#4338CA" stroke-width="22"
+            stroke-dasharray="245 132" stroke-dashoffset="0"/>
+          <!-- Growth 25% -->
+          <circle cx="80" cy="80" r="60" fill="none" stroke="#059669" stroke-width="22"
+            stroke-dasharray="94 283" stroke-dashoffset="-245"/>
+          <!-- Hedge 10% -->
+          <circle cx="80" cy="80" r="60" fill="none" stroke="#D97706" stroke-width="22"
+            stroke-dasharray="38 340" stroke-dashoffset="-339"/>
+        </svg>
+        <div class="donut-label">
+          <div class="donut-label-main">AI<br>반도체</div>
+          <div class="donut-label-sub">포트폴리오</div>
+        </div>
+      </div>
+      <div class="legend-list">
+        <div class="legend-item">
+          <div class="legend-color" style="background:#4338CA;"></div>
+          <div class="legend-info">
+            <div class="legend-name">코어 (Core)</div>
+            <div class="legend-pct" style="color:#4338CA;">60~70%</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background:#059669;"></div>
+          <div class="legend-info">
+            <div class="legend-name">성장 (Growth)</div>
+            <div class="legend-pct" style="color:#059669;">20~30%</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background:#D97706;"></div>
+          <div class="legend-info">
+            <div class="legend-name">헷지 (Hedge)</div>
+            <div class="legend-pct" style="color:#D97706;">10%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alloc-section">
+    <div class="section-hd">구성 종목 예시</div>
+
+    <div class="alloc-card">
+      <div class="alloc-card-header">
+        <span class="alloc-badge" style="background:#EEF2FF;color:#4338CA;">코어</span>
+        <span class="alloc-pct" style="color:#4338CA;">60~70%</span>
+        <span class="alloc-name">장기 AI 인프라 수혜주</span>
+      </div>
+      <div class="stock-chips">
+        <div class="s-chip" style="border-color:#93C5FD;">삼성전자
+          <span class="s-reason">HBM4·D램 LTA 장기계약<br>목표주가 50~61만원</span>
+        </div>
+        <div class="s-chip" style="border-color:#93C5FD;">SK하이닉스
+          <span class="s-reason">HBM 1위, 엔비디아 독점공급<br>목표주가 300~400만원</span>
+        </div>
+        <div class="s-chip" style="border-color:#93C5FD;">엔비디아 (NVDA)
+          <span class="s-reason">AI GPU 시장 90% 장악<br>이번 급락 속 홀로 강세</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="alloc-card" style="background:#F0FDF4;border-color:#A7F3D0;">
+      <div class="alloc-card-header">
+        <span class="alloc-badge" style="background:#ECFDF5;color:#059669;">성장</span>
+        <span class="alloc-pct" style="color:#059669;">20~30%</span>
+        <span class="alloc-name">AI 생태계 확장 수혜주</span>
+      </div>
+      <div class="stock-chips">
+        <div class="s-chip" style="border-color:#86EFAC;">브로드컴 (AVGO)
+          <span class="s-reason">커스텀 ASIC, 단기 과잉 하락<br>애널 44명 매수의견</span>
+        </div>
+        <div class="s-chip" style="border-color:#86EFAC;">TSMC (TSM)
+          <span class="s-reason">파운드리, HBM4 패키징 협력<br>삼성전자 SOCAMM 연계</span>
+        </div>
+        <div class="s-chip" style="border-color:#86EFAC;">마이크론 (MU)
+          <span class="s-reason">HBM3E 진입, 2027년 점유율↑<br>모건스탠리 목표가 상향</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="alloc-card" style="background:#FFFBEB;border-color:#FDE68A;">
+      <div class="alloc-card-header">
+        <span class="alloc-badge" style="background:#FEF3C7;color:#B45309;">헷지</span>
+        <span class="alloc-pct" style="color:#D97706;">10%</span>
+        <span class="alloc-name">변동성 대비 자산</span>
+      </div>
+      <div class="stock-chips">
+        <div class="s-chip" style="border-color:#FDE68A;">채권 ETF
+          <span class="s-reason">금리 인하 기대 시 수익<br>주식 변동성 완충</span>
+        </div>
+        <div class="s-chip" style="border-color:#FDE68A;">금 ETF (GLD)
+          <span class="s-reason">지정학 리스크 헷지<br>이란 분쟁 시 수혜</span>
+        </div>
+        <div class="s-chip" style="border-color:#FDE68A;">현금성 자산
+          <span class="s-reason">추가 급락 시 매수 실탄<br>MMF 등 단기 운용</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-section">
+    <div class="section-hd" style="color:#4338CA;">주요 리스크 모니터링</div>
+    <table class="risk-table">
+      <thead>
+        <tr><th>리스크 요인</th><th>수준</th><th>모니터링 포인트</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>레버리지 ETF 변동성 배가</td>
+          <td><span class="risk-level rl-high">高</span></td>
+          <td>삼성·SK 레버리지 ETF 단기 급락 시 -2배 손실. 장기 보유 금물.</td>
+        </tr>
+        <tr>
+          <td>브로드컴 "칩만" 전략 불확실성</td>
+          <td><span class="risk-level rl-mid">中</span></td>
+          <td>시스템 납품 철수가 고객 마진 확장에 미치는 영향 추적 필요.</td>
+        </tr>
+        <tr>
+          <td>중국 VMware 규제 리스크</td>
+          <td><span class="risk-level rl-mid">中</span></td>
+          <td>VMware 중국 매출 비중 및 대안 경쟁사 진입 여부 확인.</td>
+        </tr>
+        <tr>
+          <td>HBM ASP(평균판매가) 하락</td>
+          <td><span class="risk-level rl-mid">中</span></td>
+          <td>2026년 HBM blended ASP YoY -10% 전망(한국투자증권). 수익성 압박 가능.</td>
+        </tr>
+        <tr>
+          <td>미·이란 지정학 리스크</td>
+          <td><span class="risk-level rl-low">低~中</span></td>
+          <td>중동 분쟁 확산 시 유가·금 상승. 헷지 자산 비중 확인.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer-note">
+    ⚠️ 본 포트폴리오는 참고용 예시이며 투자 권유가 아닙니다. 개인의 투자 성향·목표·기간에 따라 다르며, 반드시 전문 투자 상담을 받으시기 바랍니다. 주식 투자는 원금 손실 위험이 있습니다.
+  </div>
+</div>
+</body>
+</html>
