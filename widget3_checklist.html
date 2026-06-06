@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="반도체 주가 급락 시 투자자 정보 판단 체크리스트" />
+<meta property="og:description" content="뉴스 진실성 판단, 시장 과잉반응 분별, 투자 심리 점검을 위한 5단계 체크리스트" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=1200" />
+<meta property="og:url" content="https://yourblog.com/investor-checklist-semiconductor" />
+<title>투자자 판단 체크리스트</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=Space+Grotesk:wght@600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #FFFBEB;
+    padding: 24px 16px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 28px rgba(180,100,0,0.09);
+  }
+
+  .header {
+    background: linear-gradient(120deg, #78350F 0%, #92400E 50%, #B45309 100%);
+    padding: 26px 30px 20px;
+    color: #fff;
+  }
+
+  .h-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #FDE68A;
+    margin-bottom: 10px;
+  }
+
+  .h-title {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.35;
+    margin-bottom: 5px;
+  }
+
+  .h-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* Checklist */
+  .checklist-section {
+    padding: 26px 28px;
+    border-bottom: 1px solid #FEF3C7;
+  }
+
+  .section-hd {
+    font-size: 13px;
+    font-weight: 700;
+    color: #92400E;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-hd::before {
+    content: '';
+    width: 4px;
+    height: 16px;
+    background: #D97706;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .check-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .check-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+    align-items: center;
+    background: #FFFBEB;
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid #FDE68A;
+    transition: all 0.2s;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .check-item:hover { border-color: #D97706; background: #FEF9EE; }
+  .check-item.checked { background: #ECFDF5; border-color: #6EE7B7; }
+
+  .check-num {
+    width: 44px;
+    height: 44px;
+    background: #FDE68A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 900;
+    color: #78350F;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  .check-item.checked .check-num {
+    background: #059669;
+    color: #fff;
+  }
+
+  .check-content {}
+
+  .check-q {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .check-hint {
+    font-size: 11px;
+    color: #6B7280;
+    line-height: 1.5;
+  }
+
+  .check-item.checked .check-q { color: #065F46; }
+
+  /* Psychology */
+  .psych-section {
+    padding: 24px 28px;
+    border-bottom: 1px solid #FEF3C7;
+  }
+
+  .psych-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .psych-card {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  .psych-icon { font-size: 24px; margin-bottom: 8px; }
+  .psych-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #78350F;
+    margin-bottom: 6px;
+  }
+  .psych-desc {
+    font-size: 11px;
+    color: #6B7280;
+    line-height: 1.6;
+  }
+
+  /* Signal */
+  .signal-section {
+    padding: 20px 28px 28px;
+    background: #FFFBEB;
+  }
+
+  .signal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .signal-table th {
+    background: #FDE68A;
+    color: #78350F;
+    font-weight: 700;
+    padding: 10px 12px;
+    text-align: left;
+  }
+
+  .signal-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #FEF3C7;
+    color: #374151;
+    vertical-align: top;
+  }
+
+  .badge {
+    display: inline-block;
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .badge.panic { background: #FEE2E2; color: #B91C1C; }
+  .badge.oppo  { background: #DCFCE7; color: #15803D; }
+  .badge.caution { background: #FEF3C7; color: #B45309; }
+
+  .reset-btn {
+    display: block;
+    margin: 0 28px 24px;
+    background: #D97706;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    font-family: inherit;
+  }
+
+  .reset-btn:hover { background: #B45309; }
+
+  .progress-bar {
+    margin: 0 28px 20px;
+    background: #FEF3C7;
+    border-radius: 8px;
+    height: 8px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #059669, #34D399);
+    border-radius: 8px;
+    transition: width 0.4s;
+    width: 0%;
+  }
+
+  .progress-label {
+    margin: 0 28px 6px;
+    font-size: 11px;
+    color: #6B7280;
+  }
+
+  .footer-note {
+    padding: 12px 28px;
+    font-size: 10px;
+    color: #9CA3AF;
+    border-top: 1px solid #FEF3C7;
+    background: #fff;
+  }
+
+  @media (max-width: 480px) {
+    .psych-grid { grid-template-columns: 1fr; }
+    .checklist-section, .psych-section, .signal-section { padding: 16px 16px; }
+    .progress-bar, .progress-label, .reset-btn { margin-left: 16px; margin-right: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="h-tag">🧠 투자자 판단 도구</div>
+    <div class="h-title">급락 시 정보 진실성 판단<br>5단계 체크리스트</div>
+    <div class="h-sub">항목을 클릭해 체크하세요 · 브로드컴·삼성·SK하이닉스 케이스 적용</div>
+  </div>
+
+  <div class="checklist-section">
+    <div class="section-hd">정보 판단 체크리스트</div>
+
+    <div class="progress-label" id="progress-label">0 / 5 완료</div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+    <div class="check-items" id="check-list">
+      <div class="check-item" onclick="toggleCheck(this, 0)">
+        <div class="check-num">1</div>
+        <div class="check-content">
+          <div class="check-q">실적 수치가 시장 컨센서스를 상회하는가?</div>
+          <div class="check-hint">브로드컴 EPS 2.44달러 vs 기대치 2.40달러 → 상회 ✓. 단, 가이던스가 더 중요할 수 있음.</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this, 1)">
+        <div class="check-num">2</div>
+        <div class="check-content">
+          <div class="check-q">미래 가이던스가 시장 기대보다 높은가, 낮은가?</div>
+          <div class="check-hint">브로드컴은 AI 매출 1,000억 달러 이상 "유지" → 상향을 기대한 시장에 실망. 이게 주가 하락의 핵심 원인.</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this, 2)">
+        <div class="check-num">3</div>
+        <div class="check-content">
+          <div class="check-q">이 뉴스는 '신규 정보'인가, '이미 알려진 정보'인가?</div>
+          <div class="check-hint">삼성·SK 장기계약 뉴스는 사실이나, 5월 주가 급등에 이미 반영된 재료일 수 있음. 새로운 호재인지 확인 필수.</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this, 3)">
+        <div class="check-num">4</div>
+        <div class="check-content">
+          <div class="check-q">장기 펀더멘털은 어떻게 변했는가?</div>
+          <div class="check-hint">HBM 시장 2027년 800억 달러 전망, 공급 부족 2~3년 지속(모건스탠리). 장기 펀더멘털 변화 없음 → 이번 하락은 단기 과잉반응 가능성.</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this, 4)">
+        <div class="check-num">5</div>
+        <div class="check-content">
+          <div class="check-q">하락이 섹터 동조 하락인가, 개별 기업 악재인가?</div>
+          <div class="check-hint">삼성·SK 하락은 브로드컴 쇼크에 따른 SOX지수 동조 하락. 개별 악재 아님. 코스피 서킷브레이커도 글로벌 연동 결과.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="psych-section">
+    <div class="section-hd">투자자 심리 함정 4가지</div>
+    <div class="psych-grid">
+      <div class="psych-card">
+        <div class="psych-icon">📰</div>
+        <div class="psych-title">소문에 사고 뉴스에 팔아라</div>
+        <div class="psych-desc">실적 발표 전 급등 → 발표 후 매도. 브로드컴이 정확히 이 패턴. 실적 전에 포지션 점검 필요.</div>
+      </div>
+      <div class="psych-card">
+        <div class="psych-icon">😱</div>
+        <div class="psych-title">공포는 이성보다 빠르다</div>
+        <div class="psych-desc">장기계약이 좋은 뉴스여도 단기 패닉 매도 앞에서 "팔고 보자"가 먼저. 5~10% 하락에 멘탈 관리.</div>
+      </div>
+      <div class="psych-card">
+        <div class="psych-icon">🏷️</div>
+        <div class="psych-title">완벽 전제 밸류에이션</div>
+        <div class="psych-desc">P/E 58배 → 완벽 이하 결과에도 폭락. 고밸류 주식은 기대치 충족만으로 부족.</div>
+      </div>
+      <div class="psych-card">
+        <div class="psych-icon">🐑</div>
+        <div class="psych-title">알고리즘 동조 매도</div>
+        <div class="psych-desc">SOX지수 하락 시 외국인이 한국 반도체주도 기계적 매도. 펀더멘털과 무관한 하락.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="signal-section">
+    <div class="section-hd" style="color:#92400E;">급락 상황별 대응 시그널</div>
+    <table class="signal-table">
+      <thead>
+        <tr>
+          <th>상황</th>
+          <th>신호 유형</th>
+          <th>대응 방향</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>실적 상회 + 가이던스 실망으로 하락</td>
+          <td><span class="badge oppo">매수 기회</span></td>
+          <td>단기 과잉반응 가능, 분할 매수 고려</td>
+        </tr>
+        <tr>
+          <td>섹터 동조 하락 (SOX 연동)</td>
+          <td><span class="badge oppo">기회</span></td>
+          <td>개별 기업 악재 아님, 펀더멘털 확인 후 대응</td>
+        </tr>
+        <tr>
+          <td>기업 전략 변화 불확실성 (칩만 판매)</td>
+          <td><span class="badge caution">주의</span></td>
+          <td>향후 Q&A, CEO 발언 추가 확인 필요</td>
+        </tr>
+        <tr>
+          <td>레버리지 ETF 보유 중 급락</td>
+          <td><span class="badge panic">위험</span></td>
+          <td>손실 배가 구조, 리스크 관리 우선</td>
+        </tr>
+        <tr>
+          <td>장기계약 확인 + 주가 이미 고점</td>
+          <td><span class="badge caution">선반영</span></td>
+          <td>호재 이미 주가 반영 여부 체크 후 판단</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button class="reset-btn" onclick="resetAll()">🔄 체크리스트 초기화</button>
+
+  <div class="footer-note">
+    ⚠️ 투자 권유 아님. 개인 판단 보조 도구. 투자 결정 전 전문 상담사와 상의하세요.
+  </div>
+</div>
+
+<script>
+  const checked = [false, false, false, false, false];
+
+  function toggleCheck(el, idx) {
+    checked[idx] = !checked[idx];
+    if (checked[idx]) {
+      el.classList.add('checked');
+    } else {
+      el.classList.remove('checked');
+    }
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const cnt = checked.filter(Boolean).length;
+    const pct = (cnt / 5) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = cnt + ' / 5 완료' + (cnt === 5 ? ' ✅ 판단 준비 완료!' : '');
+  }
+
+  function resetAll() {
+    for (let i = 0; i < 5; i++) checked[i] = false;
+    document.querySelectorAll('.check-item').forEach(el => el.classList.remove('checked'));
+    updateProgress();
+  }
+</script>
+</body>
+</html>
