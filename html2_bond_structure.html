@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta property="og:title" content="알파벳 320억 달러 채권 구조 완전 분석"/>
+<meta property="og:description" content="알파벳이 발행한 역사적 채권의 트랑쉐 구조, 통화 배분, 금리 조건을 시각적으로 분석합니다."/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80"/>
+<meta property="og:url" content="https://yourblog.com/alphabet-bond-structure"/>
+<title>알파벳 채권 구조 분석</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=DM+Mono:wght@500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#fafbff;padding:32px 16px}
+.wrap{max-width:800px;margin:0 auto}
+.header{text-align:center;margin-bottom:36px}
+.tag{display:inline-block;background:#0f172a;color:#38bdf8;font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:12px}
+h2{font-size:22px;font-weight:900;color:#0f172a;margin-bottom:6px}
+.sub{font-size:13px;color:#64748b}
+
+/* 통화 파이 */
+.currency-section{margin-bottom:28px}
+.section-title{font-size:14px;font-weight:700;color:#0f172a;margin-bottom:14px;padding-left:4px;border-left:3px solid #3b82f6}
+
+.currency-bars{display:flex;flex-direction:column;gap:10px}
+.bar-row{display:grid;grid-template-columns:80px 1fr 100px;align-items:center;gap:12px}
+.bar-label{font-size:13px;font-weight:600;color:#334155}
+.bar-track{background:#e2e8f0;border-radius:6px;height:28px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:10px;font-size:12px;font-weight:700;color:#fff;transition:width 1s ease}
+.bar-usd{background:linear-gradient(90deg,#2563eb,#3b82f6);width:63%}
+.bar-gbp{background:linear-gradient(90deg,#7c3aed,#a78bfa);width:22%}
+.bar-chf{background:linear-gradient(90deg,#059669,#34d399);width:10%}
+.bar-other{background:linear-gradient(90deg,#d97706,#fbbf24);width:5%}
+.bar-amount{font-family:'DM Mono',monospace;font-size:13px;font-weight:700;color:#0f172a;text-align:right}
+
+/* 트랑쉐 그리드 */
+.tranche-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:28px}
+.tranche-card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 8px rgba(0,0,0,0.07);border-top:3px solid #2563eb;text-align:center}
+.tranche-card.highlight{border-top-color:#7c3aed;background:linear-gradient(135deg,#faf5ff,#fff)}
+.t-year{font-family:'DM Mono',monospace;font-size:24px;font-weight:700;color:#2563eb;margin-bottom:2px}
+.t-year.purple{color:#7c3aed}
+.t-label{font-size:11px;color:#64748b;margin-bottom:8px}
+.t-rate{font-size:12px;font-weight:600;color:#0f172a}
+.t-badge{display:inline-block;font-size:10px;background:#dbeafe;color:#1d4ed8;padding:2px 8px;border-radius:10px;margin-top:6px;font-weight:700}
+.t-badge.special{background:#ede9fe;color:#6d28d9}
+
+/* 센추리 본드 하이라이트 */
+.century-box{background:linear-gradient(135deg,#1e1b4b 0%,#4c1d95 100%);border-radius:16px;padding:24px;margin-bottom:28px;color:#fff;position:relative;overflow:hidden}
+.century-box::before{content:'100';position:absolute;right:-20px;top:-30px;font-size:140px;font-weight:900;color:rgba(255,255,255,0.05);font-family:'DM Mono',monospace}
+.c-tag{display:inline-block;background:rgba(255,255,255,0.15);font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;margin-bottom:10px;letter-spacing:1px}
+.c-title{font-size:18px;font-weight:900;margin-bottom:10px}
+.c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.c-stat{background:rgba(255,255,255,0.1);border-radius:10px;padding:12px;text-align:center}
+.c-num{font-family:'DM Mono',monospace;font-size:20px;font-weight:700;margin-bottom:2px}
+.c-desc{font-size:10px;opacity:.75}
+
+/* 비교 */
+.compare-box{background:#fff;border-radius:14px;padding:20px;box-shadow:0 1px 8px rgba(0,0,0,0.07);margin-bottom:20px}
+.compare-title{font-size:13px;font-weight:700;color:#0f172a;margin-bottom:14px}
+.compare-table{width:100%;border-collapse:collapse;font-size:12px}
+.compare-table th{background:#f1f5f9;padding:8px 12px;text-align:left;font-weight:700;color:#475569;border-radius:4px}
+.compare-table td{padding:8px 12px;border-bottom:1px solid #f1f5f9;color:#334155}
+.compare-table tr:last-child td{border-bottom:none}
+.highlight-row td{background:#eff6ff;font-weight:700;color:#1d4ed8}
+
+.src{font-size:11px;color:#aaa;text-align:right;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="tag">🏦 채권 구조 완전 분석</div>
+    <h2>알파벳 $320억 채권 — 어떻게 구성됐나?</h2>
+    <p class="sub">3개 통화, 8개 트랑쉐, 100년 만기까지 — 역사적 채권 발행의 해부</p>
+  </div>
+
+  <!-- 통화 배분 -->
+  <div class="currency-section">
+    <div class="section-title">1. 통화별 발행 비중 (추산)</div>
+    <div class="currency-bars">
+      <div class="bar-row">
+        <div class="bar-label">🇺🇸 USD</div>
+        <div class="bar-track"><div class="bar-fill bar-usd">약 63%</div></div>
+        <div class="bar-amount">≈ $200억</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">🇬🇧 GBP</div>
+        <div class="bar-track"><div class="bar-fill bar-gbp">약 22%</div></div>
+        <div class="bar-amount">≈ $70억</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">🇨🇭 CHF</div>
+        <div class="bar-track"><div class="bar-fill bar-chf">약 10%</div></div>
+        <div class="bar-amount">≈ $32억</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">기타</div>
+        <div class="bar-track"><div class="bar-fill bar-other">약 5%</div></div>
+        <div class="bar-amount">≈ $10억</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 센추리 본드 -->
+  <div class="century-box">
+    <div class="c-tag">★ CENTURY BOND — 기술 기업 29년 만의 첫 발행</div>
+    <div class="c-title">100년 만기 GBP 채권 — 시장이 알파벳의 미래에 베팅하다</div>
+    <div class="c-grid">
+      <div class="c-stat">
+        <div class="c-num">10x</div>
+        <div class="c-desc">수요 초과배수<br/>(£1억 목표)</div>
+      </div>
+      <div class="c-stat">
+        <div class="c-num">120bp</div>
+        <div class="c-desc">10년 영국 국채<br/>대비 스프레드</div>
+      </div>
+      <div class="c-stat">
+        <div class="c-num">2126년</div>
+        <div class="c-desc">만기일<br/>(100년 후)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 트랑쉐 구조 -->
+  <div class="section-title" style="margin-bottom:14px">2. USD 트랑쉐 구조 (7개)</div>
+  <div class="tranche-grid">
+    <div class="tranche-card">
+      <div class="t-year">3Y</div>
+      <div class="t-label">3년물 (2029 만기)</div>
+      <div class="t-rate">단기 유동성용</div>
+      <div class="t-badge">일반</div>
+    </div>
+    <div class="tranche-card">
+      <div class="t-year">5Y</div>
+      <div class="t-label">5년물 (2031 만기)</div>
+      <div class="t-rate">중기 운영자금</div>
+      <div class="t-badge">일반</div>
+    </div>
+    <div class="tranche-card">
+      <div class="t-year">7Y</div>
+      <div class="t-label">7년물 (2033 만기)</div>
+      <div class="t-rate">CapEx 매칭</div>
+      <div class="t-badge">일반</div>
+    </div>
+    <div class="tranche-card">
+      <div class="t-year">10Y</div>
+      <div class="t-label">10년물 (2036 만기)</div>
+      <div class="t-rate">기관 투자자 선호</div>
+      <div class="t-badge">주력</div>
+    </div>
+    <div class="tranche-card">
+      <div class="t-year">20Y</div>
+      <div class="t-label">20년물 (2046 만기)</div>
+      <div class="t-rate">연금·보험사</div>
+      <div class="t-badge">장기</div>
+    </div>
+    <div class="tranche-card">
+      <div class="t-year">30Y</div>
+      <div class="t-label">30년물 (2056 만기)</div>
+      <div class="t-rate">초장기 기관</div>
+      <div class="t-badge">장기</div>
+    </div>
+    <div class="tranche-card highlight">
+      <div class="t-year purple">40Y</div>
+      <div class="t-label">40년물 (2066 만기) ★최장</div>
+      <div class="t-rate">USD 최장 만기</div>
+      <div class="t-badge special">USD 최장기</div>
+    </div>
+  </div>
+
+  <!-- 비교표 -->
+  <div class="compare-box">
+    <div class="compare-title">📋 역대 기술기업 센추리 본드 비교</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>기업</th>
+          <th>발행 시기</th>
+          <th>규모</th>
+          <th>통화</th>
+          <th>결과</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>모토로라</td>
+          <td>1997년</td>
+          <td>미공개</td>
+          <td>USD</td>
+          <td>⚠️ 이후 사업 쇠퇴</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>알파벳 (구글)</td>
+          <td>2026년 2월</td>
+          <td>£1억 (GBP)</td>
+          <td>GBP</td>
+          <td>✅ 수요 10배 성공</td>
+        </tr>
+        <tr>
+          <td>옥스퍼드 대학교</td>
+          <td>2017년</td>
+          <td>£750만</td>
+          <td>GBP</td>
+          <td>✅ 대학 최초</td>
+        </tr>
+        <tr>
+          <td>멕시코 정부</td>
+          <td>2015년</td>
+          <td>$15억</td>
+          <td>USD</td>
+          <td>✅ 신흥국 최초</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="src">출처: Bloomberg, CNBC, Reuters, SEC Edgar, Euronews (2026)</div>
+</div>
+</body>
+</html>
