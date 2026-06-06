@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="삼성전자·SK하이닉스 HBM 장기계약 타임라인 2025~2027" />
+<meta property="og:description" content="AI 빅테크와 맺은 삼성·SK하이닉스의 메모리 장기공급계약(LTA) 주요 일정과 시장 전망을 정리합니다." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200" />
+<meta property="og:url" content="https://yourblog.com/samsung-sk-lta-timeline" />
+<title>장기계약 타임라인 위젯</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=IBM+Plex+Mono:wght@500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #F0FDF4;
+    padding: 24px 16px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 28px rgba(5,150,70,0.09);
+  }
+
+  .top-bar {
+    background: linear-gradient(120deg, #064E3B 0%, #065F46 50%, #059669 100%);
+    padding: 26px 30px 20px;
+    color: #fff;
+  }
+
+  .top-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #A7F3D0;
+    margin-bottom: 10px;
+  }
+
+  .top-title {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.35;
+    margin-bottom: 5px;
+  }
+
+  .top-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #D1FAE5;
+  }
+
+  .stat-box {
+    background: #fff;
+    padding: 18px 14px;
+    text-align: center;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: #6B7280;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  .stat-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 19px;
+    font-weight: 600;
+    color: #065F46;
+    margin-bottom: 3px;
+  }
+
+  .stat-note {
+    font-size: 10px;
+    color: #9CA3AF;
+  }
+
+  /* Timeline */
+  .timeline-section {
+    padding: 28px 28px 20px;
+  }
+
+  .section-hd {
+    font-size: 13px;
+    font-weight: 700;
+    color: #065F46;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-hd::before {
+    content: '';
+    width: 4px;
+    height: 16px;
+    background: #059669;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, #059669, #D1FAE5);
+    border-radius: 2px;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 22px;
+  }
+
+  .tl-item:last-child { margin-bottom: 0; }
+
+  .tl-dot {
+    position: absolute;
+    left: -24px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #059669;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #059669;
+  }
+
+  .tl-dot.future {
+    background: #D1FAE5;
+    box-shadow: 0 0 0 2px #059669;
+  }
+
+  .tl-date {
+    font-size: 10px;
+    font-weight: 700;
+    color: #059669;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .tl-head {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 4px;
+  }
+
+  .tl-body {
+    font-size: 12px;
+    color: #6B7280;
+    line-height: 1.7;
+  }
+
+  .tl-chip {
+    display: inline-block;
+    background: #ECFDF5;
+    border: 1px solid #A7F3D0;
+    border-radius: 10px;
+    padding: 2px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #065F46;
+    margin-top: 6px;
+    margin-right: 4px;
+  }
+
+  .tl-chip.orange {
+    background: #FFF7ED;
+    border-color: #FED7AA;
+    color: #C2410C;
+  }
+
+  /* Market Forecast */
+  .forecast-section {
+    padding: 20px 28px 28px;
+    background: #F0FDF4;
+  }
+
+  .forecast-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .forecast-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid #D1FAE5;
+  }
+
+  .fc-year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #059669;
+    margin-bottom: 4px;
+  }
+
+  .fc-val {
+    font-size: 22px;
+    font-weight: 900;
+    color: #064E3B;
+    margin-bottom: 4px;
+  }
+
+  .fc-desc {
+    font-size: 11px;
+    color: #6B7280;
+    line-height: 1.5;
+  }
+
+  .share-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 12px;
+  }
+
+  .share-table th {
+    background: #ECFDF5;
+    color: #065F46;
+    font-weight: 700;
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #D1FAE5;
+  }
+
+  .share-table td {
+    padding: 10px 12px;
+    color: #374151;
+    border-bottom: 1px solid #F0FDF4;
+  }
+
+  .bar-bg {
+    background: #F0FDF4;
+    border-radius: 4px;
+    height: 8px;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: #059669;
+  }
+
+  .bar-fill.sec { background: #1D4ED8; }
+  .bar-fill.mic { background: #D97706; }
+
+  .footer-note {
+    padding: 12px 28px;
+    background: #fff;
+    font-size: 10px;
+    color: #9CA3AF;
+    border-top: 1px solid #D1FAE5;
+  }
+
+  @media (max-width: 480px) {
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .forecast-grid { grid-template-columns: 1fr; }
+    .timeline-section, .forecast-section { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-bar">
+    <div class="top-tag">📦 장기계약 분석</div>
+    <div class="top-title">삼성전자 · SK하이닉스<br>AI 빅테크 HBM·D램 장기공급계약 현황</div>
+    <div class="top-sub">2025~2027 주요 계약 타임라인 및 시장 전망 | 2026년 6월 기준</div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-label">LTA 계약 규모</div>
+      <div class="stat-val">수십조원</div>
+      <div class="stat-note">AI 빅테크 5년 D램</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">HBM 시장 2026</div>
+      <div class="stat-val">$530억</div>
+      <div class="stat-note">전년비 +77% 성장</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">공급부족 전망</div>
+      <div class="stat-val">2~3년</div>
+      <div class="stat-note">모건스탠리 분석</div>
+    </div>
+  </div>
+
+  <div class="timeline-section">
+    <div class="section-hd">주요 계약 타임라인</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2024년 하반기</div>
+        <div class="tl-head">SK하이닉스, 엔비디아 HBM3E 독점 공급 시작</div>
+        <div class="tl-body">HBM3E 8단·12단 세계 최초 양산. 엔비디아 블랙웰 GPU에 탑재. SK하이닉스가 HBM 시장 절대 강자 지위 확보.</div>
+        <span class="tl-chip">SK하이닉스</span>
+        <span class="tl-chip">엔비디아</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2026년 4월</div>
+        <div class="tl-head">AI 빅테크, D램 5년 장기공급계약 요청</div>
+        <div class="tl-body">구글, 마이크로소프트 등 AI 빅테크가 삼성·SK하이닉스에 5년 LTA 요청. 최저가격 보장 및 선금 10~30% 지급 조건 협의. SK하이닉스는 구글과도 별도 장기계약 협의 중.</div>
+        <span class="tl-chip">삼성전자</span>
+        <span class="tl-chip">SK하이닉스</span>
+        <span class="tl-chip orange">수십조원 규모</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2026년 1분기</div>
+        <div class="tl-head">양사 "D램·낸드 완판" 선언</div>
+        <div class="tl-body">삼성전자 메모리 1Q 매출 74.8조원(전년비 +292%). SK하이닉스 1Q 매출 52.5조원. 양사 모두 2027년까지 공급 부족 지속 예견. LTA 증가 추세 확인.</div>
+        <span class="tl-chip">삼성전자</span>
+        <span class="tl-chip">SK하이닉스</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot future"></div>
+        <div class="tl-date">2026년 하반기 (예정)</div>
+        <div class="tl-head">SK하이닉스, 엔비디아 HBM4 납품 시작</div>
+        <div class="tl-body">SK하이닉스 청주 M15X 팹에서 HBM4 공급. 가격·물량·시기 모두 확정. 삼성전자는 큰 틀 합의, 세부 조율 중.</div>
+        <span class="tl-chip">SK하이닉스</span>
+        <span class="tl-chip orange">HBM4</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot future"></div>
+        <div class="tl-date">2027년 (전망)</div>
+        <div class="tl-head">삼성전자, HBM 시장점유율 동등 수준 달성</div>
+        <div class="tl-body">UBS 전망: 2027년 삼성전자·SK하이닉스 각각 ~40%, 마이크론 ~20%. HBM 시장 약 800억 달러 규모 확장. HBM4E 개발 완료 예정.</div>
+        <span class="tl-chip">삼성전자</span>
+        <span class="tl-chip">UBS 전망</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="forecast-section">
+    <div class="section-hd" style="margin-bottom:14px;">HBM 시장 전망</div>
+    <div class="forecast-grid">
+      <div class="forecast-card">
+        <div class="fc-year">2026년</div>
+        <div class="fc-val">$530억</div>
+        <div class="fc-desc">전년비 +77% 성장<br>HBM3E 중심, HBM4 전환 초기</div>
+      </div>
+      <div class="forecast-card">
+        <div class="fc-year">2027년</div>
+        <div class="fc-val">$800억</div>
+        <div class="fc-desc">연평균 성장률 +65%<br>HBM4 본격 확대</div>
+      </div>
+    </div>
+
+    <table class="share-table" style="margin-top: 18px;">
+      <thead>
+        <tr>
+          <th>기업</th>
+          <th>2026 HBM 점유율</th>
+          <th>2027 전망</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SK하이닉스</td>
+          <td>
+            ~50% (1위)
+            <div class="bar-bg"><div class="bar-fill" style="width:50%"></div></div>
+          </td>
+          <td>~40% (UBS)</td>
+        </tr>
+        <tr>
+          <td>삼성전자</td>
+          <td>
+            ~35%
+            <div class="bar-bg"><div class="bar-fill sec" style="width:35%"></div></div>
+          </td>
+          <td>~40% (UBS)</td>
+        </tr>
+        <tr>
+          <td>마이크론</td>
+          <td>
+            ~15%
+            <div class="bar-bg"><div class="bar-fill mic" style="width:15%"></div></div>
+          </td>
+          <td>~20% (UBS)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer-note">
+    ⚠️ 투자 권유 아님. 출처: 한국경제, 전자신문, UBS 리서치, 한국투자증권, 모건스탠리, 비즈한국 (2026.04~06)
+  </div>
+</div>
+</body>
+</html>
