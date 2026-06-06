@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="브로드컴 2Q 실적 vs 주가 반응 분석 | 2026년 6월" />
+<meta property="og:description" content="역대 최고 실적에도 주가가 15% 폭락한 브로드컴, 그 진짜 이유를 데이터로 분석합니다." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200" />
+<meta property="og:url" content="https://yourblog.com/broadcom-analysis-2026" />
+<title>브로드컴 실적 분석 위젯</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #F0F4FF;
+    padding: 24px 16px;
+  }
+
+  .widget-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(30,60,150,0.10);
+  }
+
+  .widget-header {
+    background: linear-gradient(120deg, #1A2B6D 0%, #1E3A8A 60%, #2563EB 100%);
+    padding: 28px 32px 22px;
+    color: #fff;
+  }
+
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #93C5FD;
+  }
+
+  .header-title {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #E8EDF8;
+    border-bottom: 1px solid #E8EDF8;
+  }
+
+  .metric-box {
+    background: #fff;
+    padding: 20px 18px;
+    text-align: center;
+  }
+
+  .metric-label {
+    font-size: 11px;
+    color: #6B7280;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .metric-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A2B6D;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .metric-value.up { color: #059669; }
+  .metric-value.down { color: #DC2626; }
+  .metric-value.neutral { color: #D97706; }
+
+  .metric-sub {
+    font-size: 11px;
+    color: #9CA3AF;
+  }
+
+  .section {
+    padding: 24px 28px;
+    border-bottom: 1px solid #F1F5F9;
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1A2B6D;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: #2563EB;
+    border-radius: 2px;
+  }
+
+  .reason-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .reason-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #F8FAFF;
+    border-radius: 12px;
+    padding: 14px 16px;
+    border-left: 4px solid #DC2626;
+  }
+
+  .reason-item.positive { border-left-color: #059669; }
+  .reason-item.warning  { border-left-color: #D97706; }
+
+  .reason-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .reason-text {
+    flex: 1;
+  }
+
+  .reason-title-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 4px;
+  }
+
+  .reason-desc {
+    font-size: 12px;
+    color: #6B7280;
+    line-height: 1.6;
+  }
+
+  .verdict-box {
+    margin: 24px 28px 28px;
+    background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+    border-radius: 14px;
+    padding: 20px 22px;
+    border: 1px solid #BFDBFE;
+  }
+
+  .verdict-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1D4ED8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .verdict-text {
+    font-size: 14px;
+    color: #1E3A8A;
+    font-weight: 600;
+    line-height: 1.7;
+  }
+
+  .analyst-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .analyst-chip {
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    color: #1D4ED8;
+    font-weight: 600;
+  }
+
+  .analyst-chip span {
+    color: #059669;
+  }
+
+  .footer-note {
+    padding: 14px 28px;
+    background: #F8FAFF;
+    font-size: 11px;
+    color: #9CA3AF;
+    border-top: 1px solid #E8EDF8;
+  }
+
+  @media (max-width: 480px) {
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .widget-header { padding: 20px; }
+    .section { padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="widget-wrap">
+  <div class="widget-header">
+    <div class="header-tag">📊 실적 분석 리포트</div>
+    <div class="header-title">브로드컴(AVGO) 2026 회계연도 2Q<br>역대 최고 실적 → 주가 -15%</div>
+    <div class="header-sub">2026년 6월 3일 발표 · 6월 6일 기준</div>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-box">
+      <div class="metric-label">2Q 총 매출</div>
+      <div class="metric-value up">$222억</div>
+      <div class="metric-sub">전년비 +48% ↑</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">AI 반도체 매출</div>
+      <div class="metric-value up">$108억</div>
+      <div class="metric-sub">전년비 +143% ↑</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">장중 주가 낙폭</div>
+      <div class="metric-value down">-15%↓</div>
+      <div class="metric-sub">479 → 385달러대</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">비GAAP EPS</div>
+      <div class="metric-value up">$2.44</div>
+      <div class="metric-sub">컨센 $2.40 상회 ↑</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">AI 가이던스(FY27)</div>
+      <div class="metric-value neutral">$1,000억+</div>
+      <div class="metric-sub">기존 유지 → 실망</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">52주 범위</div>
+      <div class="metric-value">$241~495</div>
+      <div class="metric-sub">현재 $385 수준</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">주가 급락 3대 원인</div>
+    <ul class="reason-list">
+      <li class="reason-item">
+        <span class="reason-icon">📉</span>
+        <div class="reason-text">
+          <div class="reason-title-text">AI 가이던스 상향 미달</div>
+          <div class="reason-desc">시장은 2027년 AI 매출 1,200억 달러 이상을 기대했으나, 경영진은 기존 "1,000억 달러 이상"을 유지. 번스타인 "AI 가이던스 미달이 주가 하락의 주된 원인"으로 지목.</div>
+        </div>
+      </li>
+      <li class="reason-item">
+        <span class="reason-icon">🔄</span>
+        <div class="reason-text">
+          <div class="reason-title-text">"칩만(chip-only)" 전략 변화 발표</div>
+          <div class="reason-desc">Hock Tan CEO가 통합 AI 시스템 대신 칩만 공급한다고 발표. 시스템 솔루션 납품 시 더 높은 단가를 기대하던 투자자들에게 불확실성으로 작용.</div>
+        </div>
+      </li>
+      <li class="reason-item">
+        <span class="reason-icon">🏷️</span>
+        <div class="reason-text">
+          <div class="reason-title-text">완벽을 전제로 한 밸류에이션</div>
+          <div class="reason-desc">실적 발표 전 주가가 급등해 선행 P/E 58배까지 상승. "완벽한 결과"를 이미 가격에 반영한 상태에서 확인 수준에 그친 결과에 프리미엄 멀티플 재평가 발생.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">긍정 신호도 있다</div>
+    <ul class="reason-list">
+      <li class="reason-item positive">
+        <span class="reason-icon">✅</span>
+        <div class="reason-text">
+          <div class="reason-title-text">주요 애널리스트 목표주가 오히려 상향</div>
+          <div class="reason-desc">모닝스타 $550→$650, 뱅크오브아메리카·제프리스 매수 유지. "수요는 만족할 줄 모르고, 고객은 몇 년 앞서 약정 중" (TIKR 분석).</div>
+        </div>
+      </li>
+      <li class="reason-item warning">
+        <span class="reason-icon">⚠️</span>
+        <div class="reason-text">
+          <div class="reason-title-text">ASIC 비중 확대 → 매출총이익률 하락 리스크</div>
+          <div class="reason-desc">VMware(매총이익률 93%)가 완충 역할이지만, 중국의 VMware 규제 우려가 잠재 리스크. 현재 60~62% 수준으로 추가 하락 가능성 존재.</div>
+        </div>
+      </li>
+    </ul>
+    <div class="analyst-row">
+      <div class="analyst-chip">Jefferies <span>BUY $550↑</span></div>
+      <div class="analyst-chip">Bernstein <span>AI 가이던스 미달 경고</span></div>
+      <div class="analyst-chip">Morningstar <span>$650↑</span></div>
+      <div class="analyst-chip">에버코어 <span>시장수익률 상회</span></div>
+    </div>
+  </div>
+
+  <div class="verdict-box">
+    <div class="verdict-label">📌 핵심 판단</div>
+    <div class="verdict-text">
+      이번 하락은 기업 펀더멘털 악화가 아닌, <strong>"기대 초과 실패"</strong>에 따른 고밸류에이션 주식의 전형적 조정. 장기 AI 수요는 여전히 견조하며, 단기 과잉 반응 후 반등 가능성에 주목하는 시각이 다수.
+    </div>
+  </div>
+
+  <div class="footer-note">
+    ⚠️ 본 정보는 투자 권유가 아닌 참고 목적입니다. 투자 결정 전 전문가 상담 권장. 출처: Investing.com, TradingKey, TIKR, Bernstein, Morningstar (2026.06)
+  </div>
+</div>
+</body>
+</html>
