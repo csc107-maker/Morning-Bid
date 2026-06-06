@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta property="og:title" content="알파벳 A, 320억 달러 채권 발행 성공 — AI 시대 자본전쟁의 서막"/>
+<meta property="og:description" content="구글 모기업 알파벳이 2026년 역사적 채권 발행에 성공했습니다. 100년 만기 채권, 10배 수요 초과, 32조원의 진짜 의미를 분석합니다."/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80"/>
+<meta property="og:url" content="https://yourblog.com/alphabet-bond-2026"/>
+<title>알파벳 채권 발행 썸네일 배너</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=DM+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:#0a0f1e;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+
+.banner{
+  width:100%;max-width:760px;
+  background:linear-gradient(135deg,#0d1b3e 0%,#0a2a6b 50%,#0d1b3e 100%);
+  border-radius:20px;
+  padding:40px 36px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+/* 배경 원 장식 */
+.banner::before{
+  content:'';
+  position:absolute;
+  top:-80px;right:-80px;
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(59,130,246,0.15) 0%,transparent 70%);
+  border-radius:50%;
+}
+.banner::after{
+  content:'';
+  position:absolute;
+  bottom:-60px;left:-60px;
+  width:250px;height:250px;
+  background:radial-gradient(circle,rgba(124,58,237,0.12) 0%,transparent 70%);
+  border-radius:50%;
+}
+
+.grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+
+.content{position:relative;z-index:2}
+
+.top-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.label-group{display:flex;gap:8px;flex-wrap:wrap}
+.label{font-size:11px;font-weight:700;letter-spacing:1.5px;padding:4px 12px;border-radius:20px}
+.l-blue{background:rgba(59,130,246,0.2);color:#93c5fd;border:1px solid rgba(59,130,246,0.3)}
+.l-gold{background:rgba(251,191,36,0.15);color:#fcd34d;border:1px solid rgba(251,191,36,0.3)}
+.l-purple{background:rgba(124,58,237,0.2);color:#c4b5fd;border:1px solid rgba(124,58,237,0.3)}
+
+.date-badge{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.05);padding:4px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.08)}
+
+.main-title{font-size:28px;font-weight:900;color:#fff;line-height:1.35;margin-bottom:10px}
+.main-title span{color:#60a5fa}
+.accent{background:linear-gradient(90deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:28px;max-width:520px}
+
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:28px}
+.stat-box{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 16px;text-align:center}
+.stat-num{font-family:'DM Mono',monospace;font-size:22px;font-weight:700;color:#60a5fa;margin-bottom:4px}
+.stat-num.gold{color:#fbbf24}
+.stat-num.purple{color:#c4b5fd}
+.stat-num.green{color:#6ee7b7}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.4}
+
+.bottom-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.source-text{font-size:11px;color:rgba(255,255,255,0.3)}
+.ticker-row{display:flex;gap:8px}
+.ticker{font-family:'DM Mono',monospace;font-size:12px;font-weight:700;background:rgba(96,165,250,0.1);color:#93c5fd;border:1px solid rgba(96,165,250,0.2);padding:4px 12px;border-radius:8px}
+
+/* 장식 라인 */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);margin:20px 0}
+
+.century-highlight{background:linear-gradient(90deg,rgba(124,58,237,0.15),rgba(59,130,246,0.1));border:1px solid rgba(124,58,237,0.3);border-radius:10px;padding:10px 16px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.century-icon{font-size:20px}
+.century-text{font-size:12px;color:rgba(255,255,255,0.7);line-height:1.5}
+.century-text strong{color:#c4b5fd}
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="grid-bg"></div>
+  <div class="content">
+
+    <div class="top-row">
+      <div class="label-group">
+        <div class="label l-gold">★ 역사적 채권 발행</div>
+        <div class="label l-blue">AI 인프라</div>
+        <div class="label l-purple">센추리 본드</div>
+      </div>
+      <div class="date-badge">2026. 02. 09–10</div>
+    </div>
+
+    <div class="main-title">
+      알파벳(A), <span class="accent">$320억</span> 채권 발행 성공<br/>
+      AI 시대 <span style="color:#60a5fa">자본전쟁의 서막</span>이 올랐다
+    </div>
+
+    <div class="desc">
+      구글 모기업 알파벳이 역사적인 다통화 채권 발행에 성공했습니다. 미국 달러·영국 파운드·스위스 프랑 3개 통화, 
+      100년 만기 센추리 본드까지 포함한 이 채권이 보내는 신호는 무엇일까요?
+    </div>
+
+    <div class="century-highlight">
+      <div class="century-icon">🏛️</div>
+      <div class="century-text">
+        <strong>100년 만기 채권(센추리 본드)</strong> — 1997년 모토로라 이후 기술기업 최초. 
+        £1억 목표 대비 <strong>10배 수요</strong> 초과. 시장이 알파벳의 '100년 후 미래'에 베팅했습니다.
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num gold">$320억</div>
+        <div class="stat-label">채권 총 조달액<br/>(≈44조 원)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3개</div>
+        <div class="stat-label">통화 (USD·GBP·CHF)<br/>다국적 동시 발행</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num green">10x</div>
+        <div class="stat-label">100년 채권 수요<br/>초과배수</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num purple">$1,850억</div>
+        <div class="stat-label">2026년 CapEx<br/>가이던스 (최대치)</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="bottom-row">
+      <div class="source-text">출처: Bloomberg · CNBC · Reuters · SEC Edgar (2026)</div>
+      <div class="ticker-row">
+        <div class="ticker">GOOGL</div>
+        <div class="ticker">GOOG</div>
+        <div class="ticker">NASDAQ</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
