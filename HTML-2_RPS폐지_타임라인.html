@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="RPS 폐지 일정 타임라인 – 태양광 사업자 대응 가이드 2026" />
+<meta property="og:description" content="2026년 RPS 폐지 법안 상임위 통과, 2027년 단계적 폐지 시작 – 고정가격계약 마지막 기회 체크" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/E3F2FD/0D47A1?text=RPS+%ED%8F%90%EC%A7%80+%ED%83%80%EC%9E%84%EB%9D%BC%EC%9D%B8" />
+<meta property="og:url" content="https://blog.naver.com/ecosolution1218" />
+<title>RPS 폐지 타임라인 – 태양광 사업자 필독</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }
+  body { background: #fce4ec; padding: 24px 16px; min-height: 100vh; }
+  .wrap { max-width: 680px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 28px rgba(183,28,28,0.13); }
+
+  /* 헤더 */
+  .top { background: linear-gradient(135deg, #b71c1c, #ef5350); color: white; padding: 22px 28px; }
+  .top h2 { font-size: 19px; font-weight: 800; }
+  .top p { font-size: 12.5px; opacity: 0.9; margin-top: 5px; line-height: 1.5; }
+  .alert-box { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); border-radius: 10px; padding: 10px 14px; margin-top: 12px; font-size: 13px; font-weight: 700; }
+
+  /* 타임라인 */
+  .timeline { background: white; padding: 28px 24px; position: relative; }
+  .tl-line { position: absolute; left: 52px; top: 28px; bottom: 28px; width: 3px; background: linear-gradient(to bottom, #e53935, #ff8a65, #1565c0, #2e7d32); border-radius: 3px; }
+
+  .step { display: flex; gap: 18px; margin-bottom: 28px; position: relative; align-items: flex-start; }
+  .step:last-child { margin-bottom: 0; }
+
+  .dot-wrap { width: 56px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+  .dot { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: white; flex-shrink: 0; position: relative; z-index: 1; box-shadow: 0 3px 10px rgba(0,0,0,0.2); }
+  .dot.done { background: radial-gradient(circle, #e53935, #b71c1c); }
+  .dot.urgent { background: radial-gradient(circle, #f57c00, #e65100); animation: pulse 1.5s ease-in-out infinite; }
+  .dot.plan { background: radial-gradient(circle, #1976d2, #0d47a1); }
+  .dot.future { background: radial-gradient(circle, #388e3c, #1b5e20); }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(245,124,0,0.5); }
+    50% { box-shadow: 0 0 0 10px rgba(245,124,0,0); }
+  }
+
+  .info { flex: 1; padding-top: 4px; }
+  .info-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+  .info h3 { font-size: 15px; font-weight: 800; color: #1a1a1a; }
+  .badge { display: inline-block; font-size: 10px; padding: 2px 9px; border-radius: 20px; font-weight: 700; }
+  .badge.done { background: #ffebee; color: #c62828; }
+  .badge.urgent { background: #fff3e0; color: #e65100; }
+  .badge.plan { background: #e3f2fd; color: #0d47a1; }
+  .badge.future { background: #e8f5e9; color: #1b5e20; }
+  .info p { font-size: 13px; color: #555; line-height: 1.65; }
+  .info .detail { font-size: 12px; color: #888; margin-top: 5px; padding: 8px 10px; background: #f9f9f9; border-radius: 7px; border-left: 3px solid #e0e0e0; }
+
+  /* 행동 촉구 박스 */
+  .action-box { background: #fff8e1; border: 2px solid #ffa000; border-radius: 12px; padding: 16px 20px; margin: 20px 24px; }
+  .action-box h3 { font-size: 14px; font-weight: 800; color: #e65100; margin-bottom: 8px; }
+  .action-box ul { list-style: none; }
+  .action-box li { font-size: 13px; color: #444; padding: 4px 0; display: flex; gap: 8px; }
+  .action-box li::before { content: "✅"; }
+
+  /* 각주 */
+  .footer { background: #f5f5f5; padding: 12px 24px; font-size: 11px; color: #999; text-align: center; line-height: 1.6; }
+  .footer a { color: #b71c1c; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 헤더 -->
+  <div class="top">
+    <h2>📅 RPS 폐지 타임라인 – 태양광 사업자 필독</h2>
+    <p>신재생에너지 공급의무화(RPS) 제도 종료와 새로운 재생에너지 구매 제도 전환 일정</p>
+    <div class="alert-box">🚨 고정가격계약 입찰 6월 중순 공고 예정 — 이번이 현행 방식 마지막 가능성!</div>
+  </div>
+
+  <!-- 타임라인 -->
+  <div class="timeline">
+    <div class="tl-line"></div>
+
+    <div class="step">
+      <div class="dot-wrap">
+        <div class="dot done">완료</div>
+      </div>
+      <div class="info">
+        <div class="info-head">
+          <h3>2026년 5월 — RPS 폐지 법안 상임위 통과</h3>
+          <span class="badge done">확정</span>
+        </div>
+        <p>RPS(신재생에너지 공급의무화제도) 폐지 법안이 국회 상임위원회를 통과했습니다. 현행 REC 현물시장 운영 방식이 단계적으로 종료될 예정입니다.</p>
+        <div class="detail">📌 현물시장 REC 판매 방식은 폐지 전환 기간 동안 계속 유효하나, 장기 계획 수립이 필요합니다.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="dot-wrap">
+        <div class="dot urgent">임박</div>
+      </div>
+      <div class="info">
+        <div class="info-head">
+          <h3>2026년 6월 중순 — 고정가격계약 경쟁입찰 공고</h3>
+          <span class="badge urgent">⚡ 긴급 확인</span>
+        </div>
+        <p>약 1년간 중단됐던 고정가격계약 경쟁입찰이 재개될 예정입니다. 현행 방식의 마지막 입찰이 될 가능성이 높아 사업자들의 적극적인 참여가 권장됩니다.</p>
+        <div class="detail">💡 고정가격계약은 20년 장기 고정 수익 보장 제도입니다. 수익 안정성 측면에서 현물시장보다 유리합니다.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="dot-wrap">
+        <div class="dot plan">예정</div>
+      </div>
+      <div class="info">
+        <div class="info-head">
+          <h3>2027년 — RPS 단계적 폐지 시작</h3>
+          <span class="badge plan">준비 필요</span>
+        </div>
+        <p>RPS 제도 폐지가 본격 시작됩니다. REC 현물시장 운영 방식이 변경되며, 태양광 발전소 수익 구조가 달라집니다. 정부의 후속 제도 발표를 지속 모니터링해야 합니다.</p>
+        <div class="detail">⚠️ 2027년 이후 준공 예정 사업자는 새로운 제도 기준에 맞는 수익 모델을 미리 검토해야 합니다.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="dot-wrap">
+        <div class="dot future">미래</div>
+      </div>
+      <div class="info">
+        <div class="info-head">
+          <h3>2027년 이후 — 새 재생에너지 구매 제도 전환 완료</h3>
+          <span class="badge future">장기 전략</span>
+        </div>
+        <p>RPS 대체 제도 하에서 태양광 수익 구조가 전면 개편됩니다. 직접 PPA(전력구매계약), RE100 기업 직접 거래 등 다양한 판로 개척이 중요해집니다.</p>
+        <div class="detail">📋 지금부터 RE100 기업 직접 거래 채널, 전력중개사업자(VPP) 연계 등 대안 수익 경로를 탐색하세요.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 행동 촉구 박스 -->
+  <div class="action-box">
+    <h3>🎯 태양광 사업자 지금 당장 해야 할 일</h3>
+    <ul>
+      <li>고정가격계약 입찰 공고 모니터링 (rps.energy.or.kr)</li>
+      <li>현재 REC 판매 계약 방식 재검토</li>
+      <li>2027년 이후 대체 수익 모델 사전 탐색</li>
+      <li>에너지공단 정책 뉴스레터 구독 설정</li>
+    </ul>
+  </div>
+
+  <!-- 각주 -->
+  <div class="footer">
+    출처: 해줌 블로그, 한국에너지공단, 국회 법안 진행 현황 (2026.05~06)<br>
+    블로그: <a href="https://blog.naver.com/ecosolution1218" target="_blank">ecosolution1218</a> | 태양광 발전소 운영 + 에너지 재테크
+  </div>
+
+</div>
+</body>
+</html>
