@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="원달러 1560원 붕괴 — 외국인 매도·금리·인플레이션 연쇄 위기 분석" />
+<meta property="og:description" content="외국인 순매도 → 원화 급락 → 수입물가 상승 → 금리 인상 압력 → 기업 이자부담 급증. 피해 상장사 총정리." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/won-currency-crisis-2026" />
+<title>환율 위기 연쇄 분석 타임라인</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(160deg, #f0f4ff 0%, #e8f0fe 50%, #f5f0ff 100%);
+    padding: 24px;
+    color: #1a1a2e;
+  }
+
+  .widget-header {
+    background: linear-gradient(135deg, #1565C0 0%, #1976D2 60%, #283593 100%);
+    border-radius: 16px;
+    padding: 26px 30px;
+    margin-bottom: 28px;
+    color: white;
+    box-shadow: 0 8px 28px rgba(21,101,192,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  .widget-header::after {
+    content: '₩';
+    position: absolute;
+    right: 20px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 100px;
+    font-weight: 900;
+    opacity: 0.08;
+    font-family: 'Bebas Neue';
+  }
+  .widget-header .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .widget-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .widget-header p { font-size: 13px; opacity: 0.85; }
+
+  /* 타임라인 */
+  .timeline-section {
+    background: white;
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  }
+  .section-label {
+    font-size: 14px;
+    font-weight: 900;
+    color: #1565C0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e3f2fd;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label .icon { font-size: 18px; }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #1565C0, #e53935, #e65100);
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 22px;
+    padding-bottom: 4px;
+  }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot {
+    position: absolute;
+    left: -24px; top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #1565C0;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #1565C0;
+  }
+  .tl-dot.red { background: #e53935; box-shadow: 0 0 0 2px #e53935; }
+  .tl-dot.orange { background: #e65100; box-shadow: 0 0 0 2px #e65100; }
+  .tl-dot.dark { background: #212121; box-shadow: 0 0 0 2px #212121; }
+  .tl-date {
+    font-size: 11px;
+    font-weight: 700;
+    color: #78909c;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .tl-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+  }
+  .tl-desc {
+    font-size: 13px;
+    color: #546e7a;
+    line-height: 1.6;
+  }
+  .tl-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+  .tl-badge.b1 { background: #e3f2fd; color: #1565C0; }
+  .tl-badge.b2 { background: #fce4ec; color: #c62828; }
+  .tl-badge.b3 { background: #fff3e0; color: #e65100; }
+  .tl-badge.b4 { background: #ede7f6; color: #4527a0; }
+
+  /* 피해 업종 카드 */
+  .damage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .damage-card {
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    border-left: 5px solid #e53935;
+    position: relative;
+  }
+  .damage-card.medium { border-left-color: #e65100; }
+  .damage-card.light { border-left-color: #fbc02d; }
+  .damage-icon { font-size: 26px; margin-bottom: 8px; }
+  .damage-sector {
+    font-size: 14px;
+    font-weight: 900;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+  }
+  .damage-reason {
+    font-size: 12px;
+    color: #546e7a;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .damage-level {
+    font-size: 11px;
+    font-weight: 800;
+    color: #e53935;
+  }
+  .damage-card.medium .damage-level { color: #e65100; }
+  .damage-card.light .damage-level { color: #f57f17; }
+
+  /* 방어 전략 박스 */
+  .strategy-box {
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    border-radius: 16px;
+    padding: 22px 26px;
+    border: 1.5px solid #a5d6a7;
+    margin-bottom: 16px;
+  }
+  .strategy-box h3 {
+    font-size: 15px;
+    font-weight: 900;
+    color: #2e7d32;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .strategy-list { list-style: none; }
+  .strategy-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #c8e6c9;
+    font-size: 13px;
+    color: #2e7d32;
+    line-height: 1.5;
+  }
+  .strategy-list li:last-child { border-bottom: none; }
+  .strategy-list .num {
+    background: #2e7d32;
+    color: white;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .disclaimer {
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 11px;
+    color: #777;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="widget-header">
+  <div class="eyebrow">🚨 환율 위기 분석 리포트</div>
+  <h2>원달러 1,561원 붕괴<br>— 연쇄 충격 타임라인</h2>
+  <p>외국인 매도 → 원화 급락 → 수입물가 폭등 → 금리 인상 압력 → 기업 이자 부담 급증</p>
+</div>
+
+<!-- 타임라인 -->
+<div class="timeline-section">
+  <div class="section-label"><span class="icon">📅</span> 2026년 6월 충격 전파 타임라인</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2026.06.01</div>
+      <div class="tl-title">코스피 8,800선 역대 최고 — 그러나 외국인은 '팔자'</div>
+      <div class="tl-desc">사상 최고가 경신에도 외국인 주식 8조원 순매도 → 채권으로 이동. 위험 신호 간과됨.</div>
+      <span class="tl-badge b1">경고 신호</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-date">2026.06.04 (현지시간)</div>
+      <div class="tl-title">브로드컴 쇼크 — AI 가이던스 미달로 -12.6% 폭락</div>
+      <div class="tl-desc">브로드컴 2분기 매출 222억 달러로 예상 하회, AI 반도체 가이던스 1,000억$ 유지(상향 불발). 나스닥 반도체 섹터 전반 급락. S&P500 발 SpaceX IPO 패스트트랙 거부 동시 악재.</div>
+      <span class="tl-badge b2">핵심 트리거</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-date">2026.06.05</div>
+      <div class="tl-title">코스피 5.5% 급락 — '검은 금요일' 사이드카 발동</div>
+      <div class="tl-desc">삼성전자 -7.2%, SK하이닉스 -9.3% 동반 폭락. 코스피200 선물 5% 하락으로 서킷브레이커 발동. 8,160선 마감.</div>
+      <span class="tl-badge b2">사이드카 발동</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot orange"></div>
+      <div class="tl-date">2026.06.05~06 야간</div>
+      <div class="tl-title">원달러 1,561원 — 17년 만의 최고치 돌파</div>
+      <div class="tl-desc">외국인 주식 매도 달러 전환 + 미국 고용 호조(금리 인하 후퇴) + 중동 긴장 지속 3중 악재. 원-유로도 1,800원 돌파(2009년 이후 최초).</div>
+      <span class="tl-badge b3">환율 위기</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot dark"></div>
+      <div class="tl-date">2026.06.08~ (이번 주 예상)</div>
+      <div class="tl-title">미국 CPI 발표·ECB 금리결정 — 추가 변동성 예고</div>
+      <div class="tl-desc">미국 5월 소비자물가지수(CPI) 발표, 유럽중앙은행(ECB) 통화정책회의. 환율 1,500원대 하방 경직 지속 전망. SpaceX 나스닥 상장(6/12 목표) 자금 이동 변수.</div>
+      <span class="tl-badge b4">주요 이벤트</span>
+    </div>
+  </div>
+</div>
+
+<!-- 환율 피해 업종 -->
+<div class="section-label" style="padding: 0 0 10px 0;"><span class="icon">⚡</span> 환율 급등 피해 업종 분석</div>
+<div class="damage-grid">
+  <div class="damage-card">
+    <div class="damage-icon">✈️</div>
+    <div class="damage-sector">항공·운송</div>
+    <div class="damage-reason">달러 표시 항공유·리스 비용 급증. 원화 수입→외화 지출 구조. 대한항공·아시아나 직격탄.</div>
+    <div class="damage-level">🔴 피해 매우 높음</div>
+  </div>
+  <div class="damage-card">
+    <div class="damage-icon">🏗️</div>
+    <div class="damage-sector">건설·부동산 리츠</div>
+    <div class="damage-reason">금리 인상 압력 → 이자 부담 급증 → 미분양 악화. 달러 조달 외채 多보유사 직격.</div>
+    <div class="damage-level">🔴 피해 매우 높음</div>
+  </div>
+  <div class="damage-card medium">
+    <div class="damage-icon">🛢️</div>
+    <div class="damage-sector">정유·화학</div>
+    <div class="damage-reason">원유 달러 결제. 환율 상승 시 원재료 비용 폭등. 롯데케미칼·LG화학 영업 마진 압박.</div>
+    <div class="damage-level">🟠 피해 높음</div>
+  </div>
+  <div class="damage-card medium">
+    <div class="damage-icon">🏭</div>
+    <div class="damage-sector">중소 제조·내수소비</div>
+    <div class="damage-reason">수입 원자재 가격 전가 → 소비자물가 압박. 가계 실질구매력 약화 → 내수 침체.</div>
+    <div class="damage-level">🟠 피해 높음</div>
+  </div>
+  <div class="damage-card light">
+    <div class="damage-icon">📦</div>
+    <div class="damage-sector">유통·식품</div>
+    <div class="damage-reason">수입 식자재 가격 인상 → 원가 상승. 소비 심리 위축. 고물가 장기화 시 구매력 악화.</div>
+    <div class="damage-level">🟡 피해 중간</div>
+  </div>
+  <div class="damage-card light">
+    <div class="damage-icon">💳</div>
+    <div class="damage-sector">카드·금융(일부)</div>
+    <div class="damage-reason">금리 인상은 은행 NIM 개선이나, 연체율 상승·대출 부실화 리스크 동반. 양날의 검.</div>
+    <div class="damage-level">🟡 혼재 (선별 필요)</div>
+  </div>
+</div>
+
+<!-- 나만의 방어 전략 -->
+<div class="strategy-box">
+  <h3>🛡️ 이 공포에서 벗어나기 위한 나만의 해법 — 5가지 원칙</h3>
+  <ul class="strategy-list">
+    <li><span class="num">1</span><strong>분할 매수 원칙 사수</strong> — 급락 1~2일차에는 관망, 3~5일차부터 핵심 반도체주(삼성전자·SK하이닉스) 5분할 소량 매수 시작. 저점 확인 전 전액 투입 금지.</li>
+    <li><span class="num">2</span><strong>달러 헤지 자산 편입</strong> — 포트폴리오 10~15%를 달러 예금 또는 달러 ETF(TIGER 미국달러단기채권 등)로 환율 위험 상쇄.</li>
+    <li><span class="num">3</span><strong>환율 수혜주 소량 편입</strong> — 수출 비중 높은 자동차(현대차·기아), 방산(한화에어로스페이스) 등은 달러 매출로 오히려 수혜.</li>
+    <li><span class="num">4</span><strong>SpaceX IPO 자금 흐름 주시</strong> — 6/12 나스닥 상장 전후 ETF·기술주 자금 이탈 여부 확인 후 반등 타이밍 포착.</li>
+    <li><span class="num">5</span><strong>손절 라인 사전 설정</strong> — 삼성전자 30만원, SK하이닉스 195만원 이탈 시 즉시 비중 50% 축소. 감정적 대응 금지.</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ※ 본 자료는 투자 참고 정보이며, 투자 권유가 아닙니다. 출처: Bloomberg, 이데일리, 머니투데이, Investing.com, 시사저널, 나무위키 환율 사태 (2026.06 기준). 실제 투자 결정은 본인 책임 하에 신중히 판단하시기 바랍니다.
+</div>
+
+</body>
+</html>
