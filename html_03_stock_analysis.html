@@ -1,205 +1,326 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta property="og:title" content="2026년 6월 5일 코스피 유망 종목 분석 — SK하이닉스, 삼성전자, 한화에어로스페이스 등" />
-<meta property="og:description" content="HBM 반도체, 방산, 조선, 전력기기 5개 유망 종목 PER·PBR·ROE 밸류에이션 분석표 및 매수근거/리스크 총정리" />
-<meta property="og:image" content="https://via.placeholder.com/1200x630/faf5ff/7c3aed?text=2026.06.05+Korea+Stock+Analysis" />
-<meta property="og:url" content="https://blog.naver.com/csc107" />
-<title>2026.06.05 코스피 종목 분석 카드</title>
-<!-- [삽입 위치] 블로그 본문 "추천 종목 분석" 섹션 직후에 삽입 -->
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-    background: #faf5ff;
-    padding: 24px 16px;
-  }
-  .header { text-align: center; margin-bottom: 28px; }
-  .header h2 { font-size: 1.25rem; font-weight: 700; color: #4c1d95; margin-bottom: 6px; }
-  .header .badge { display: inline-block; background: #7c3aed; color: #fff; font-size: 0.78rem; padding: 4px 14px; border-radius: 20px; font-weight: 600; }
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; max-width: 1000px; margin: 0 auto; }
-  .scard { background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 14px rgba(124,58,237,0.09); }
-  .scard-header { padding: 14px 18px 10px; display: flex; justify-content: space-between; align-items: flex-start; }
-  .scard-ticker { font-size: 0.68rem; font-weight: 700; color: #6b7280; letter-spacing: 0.05em; }
-  .scard-name { font-size: 1.02rem; font-weight: 800; color: #111827; margin-top: 2px; }
-  .scard-sector { display: inline-block; font-size: 0.68rem; font-weight: 600; padding: 3px 10px; border-radius: 12px; margin-top: 6px; }
-  .s-semi  { background: #ede9fe; color: #6d28d9; }
-  .s-def   { background: #fef9c3; color: #854d0e; }
-  .s-ship  { background: #dbeafe; color: #1e40af; }
-  .s-power { background: #dcfce7; color: #15803d; }
-  .rating-badge { font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
-  .r-buy    { background: #dcfce7; color: #15803d; }
-  .r-watch  { background: #fef9c3; color: #854d0e; }
-  .val-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
-  .val-table th { background: #f3f4f6; color: #6b7280; padding: 7px 10px; text-align: left; font-weight: 600; font-size: 0.72rem; }
-  .val-table td { padding: 7px 10px; border-bottom: 1px solid #f9fafb; color: #374151; font-weight: 500; }
-  .val-table tr:last-child td { border-bottom: none; }
-  .highlight { color: #7c3aed; font-weight: 700; }
-  .tags-row { display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 18px; background: #fafafa; }
-  .tag { font-size: 0.67rem; font-weight: 600; padding: 3px 9px; border-radius: 10px; }
-  .tag-buy  { background: #dcfce7; color: #15803d; }
-  .tag-risk { background: #fee2e2; color: #991b1b; }
-  .scard-body { padding: 0 18px 14px; }
-  .section-label { font-size: 0.72rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; margin: 10px 0 5px; }
-  .footer-note { text-align: center; font-size: 0.7rem; color: #9ca3af; margin-top: 20px; }
-  @media (max-width: 480px) { .scard-name { font-size: 0.9rem; } }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="2026년 6월 8일 추천 종목 분석 — SK하이닉스 & 한화에어로스페이스" />
+  <meta property="og:description" content="PER, PBR, ROE, 목표주가, 매수 근거, 리스크 — 오늘 코스피 상승 유망 2종목 완전 분석" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/FAF5FF/7C3AED?text=Stock+Analysis+2026.06.08" />
+  <meta property="og:url" content="https://blog.naver.com/csc107" />
+  <title>종목 분석 카드 | 2026.06.08</title>
+  <style>
+    /* ===== 삽입 위치: 기업 분석 섹션 직후 ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      background: #faf5ff;
+      padding: 20px;
+      color: #1e293b;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+
+    .title-box {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .title-box h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+    .title-box p  { font-size: 0.82rem; opacity: 0.85; }
+
+    .stock-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+    }
+    .stock-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .stock-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .icon-blue   { background: #dbeafe; }
+    .icon-orange { background: #ffedd5; }
+    .stock-info h3 { font-size: 1.2rem; font-weight: 800; color: #1e293b; }
+    .stock-info p  { font-size: 0.78rem; color: #64748b; margin-top: 2px; }
+    .rating-badge {
+      margin-left: auto;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .strong-buy { background: #f0fdf4; color: #15803d; border: 1.5px solid #86efac; }
+
+    .valuation-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-bottom: 16px;
+    }
+    .valuation-table th {
+      background: #f8fafc;
+      color: #64748b;
+      font-weight: 600;
+      padding: 9px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .valuation-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #1e293b;
+    }
+    .valuation-table tr:last-child td { border-bottom: none; }
+    .val-highlight {
+      font-weight: 700;
+      color: #7c3aed;
+    }
+
+    .tags-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+    .tag {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .tag-buy  { background: #ecfdf5; color: #059669; }
+    .tag-risk { background: #fef2f2; color: #dc2626; }
+
+    .target-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+    .target-item { text-align: center; flex: 1; min-width: 80px; }
+    .target-item .t-label { font-size: 0.68rem; color: #94a3b8; font-weight: 600; margin-bottom: 3px; }
+    .target-item .t-value { font-size: 1rem; font-weight: 800; }
+    .t-current  { color: #1e293b; }
+    .t-target   { color: #7c3aed; }
+    .t-upside   { color: #22c55e; }
+    .t-low      { color: #f97316; }
+    .divider    { width: 1px; background: #e2e8f0; align-self: stretch; }
+
+    .analyst-bar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .analyst-label { font-size: 0.72rem; color: #64748b; width: 80px; }
+    .bar-bg {
+      flex: 1;
+      height: 8px;
+      background: #f1f5f9;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .bar-fill { height: 100%; border-radius: 4px; background: #22c55e; }
+    .analyst-count { font-size: 0.72rem; font-weight: 700; color: #15803d; }
+
+    .separator { border: none; border-top: 2px dashed #e2e8f0; margin: 24px 0; }
+
+    .footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #94a3b8;
+      margin-top: 16px;
+    }
+    @media (max-width: 600px) {
+      .rating-badge { margin-left: 0; }
+      .valuation-table th, .valuation-table td { padding: 7px 8px; }
+    }
+  </style>
 </head>
 <body>
-<div class="header">
-  <h2>📌 2026.06.05 코스피 유망 종목 분석</h2>
-  <span class="badge">밸류에이션 · 매수근거 · 리스크 종합</span>
-</div>
+  <!-- [삽입 위치] 기업 분석 섹션 직후 -->
+  <div class="container">
+    <div class="title-box">
+      <h2>🏆 오늘의 추천 종목 완전 분석</h2>
+      <p>밸류에이션 · 목표주가 · 매수근거 · 리스크 | 2026년 6월 8일</p>
+    </div>
 
-<div class="cards-grid">
-
-  <!-- SK하이닉스 -->
-  <div class="scard">
-    <div class="scard-header">
-      <div>
-        <div class="scard-ticker">KRX: 000660</div>
-        <div class="scard-name">SK하이닉스</div>
-        <span class="scard-sector s-semi">반도체 · HBM</span>
+    <!-- ===== 종목 1: SK하이닉스 ===== -->
+    <div class="stock-card">
+      <div class="stock-header">
+        <div class="stock-icon icon-blue">💾</div>
+        <div class="stock-info">
+          <h3>SK하이닉스 (000660)</h3>
+          <p>반도체 · HBM · AI메모리 | KOSPI</p>
+        </div>
+        <span class="rating-badge strong-buy">⭐ STRONG BUY</span>
       </div>
-      <span class="rating-badge r-buy">★ 적극 매수</span>
-    </div>
-    <div class="scard-body">
-      <div class="section-label">밸류에이션 (2026E)</div>
-    </div>
-    <table class="val-table">
-      <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-      <tr><td>Forward PER</td><td class="highlight">6.79배</td><td>삼성전자 추월</td></tr>
-      <tr><td>PBR</td><td>1.7배</td><td>GS 추정</td></tr>
-      <tr><td>Q1 영업이익률</td><td class="highlight">72%</td><td>사상 최고</td></tr>
-      <tr><td>HBM 점유율</td><td>~57%</td><td>글로벌 1위</td></tr>
-      <tr><td>52주 수익률</td><td class="highlight">+200%+</td><td>연초 대비</td></tr>
-    </table>
-    <div class="tags-row">
-      <span class="tag tag-buy">Nvidia 협력</span>
-      <span class="tag tag-buy">HBM5 양산</span>
-      <span class="tag tag-buy">이익 구조적 성장</span>
-      <span class="tag tag-risk">고점 차익실현 주의</span>
-    </div>
-  </div>
 
-  <!-- 삼성전자 -->
-  <div class="scard">
-    <div class="scard-header">
-      <div>
-        <div class="scard-ticker">KRX: 005930</div>
-        <div class="scard-name">삼성전자</div>
-        <span class="scard-sector s-semi">반도체 · AI메모리</span>
+      <div class="target-row">
+        <div class="target-item">
+          <div class="t-label">현재 주가 (추정)</div>
+          <div class="t-value t-current">~1,400,000원</div>
+        </div>
+        <div class="divider"></div>
+        <div class="target-item">
+          <div class="t-label">컨센서스 목표</div>
+          <div class="t-value t-target">1,790,287원</div>
+        </div>
+        <div class="divider"></div>
+        <div class="target-item">
+          <div class="t-label">최고 목표주가</div>
+          <div class="t-value t-upside">2,700,000원</div>
+        </div>
+        <div class="divider"></div>
+        <div class="target-item">
+          <div class="t-label">최저 목표주가</div>
+          <div class="t-value t-low">1,030,000원</div>
+        </div>
       </div>
-      <span class="rating-badge r-buy">★ 매수</span>
-    </div>
-    <div class="scard-body">
-      <div class="section-label">밸류에이션 (2026E)</div>
-    </div>
-    <table class="val-table">
-      <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-      <tr><td>Forward PER</td><td class="highlight">6.77배</td><td>JPMorgan 기준 8배 적용</td></tr>
-      <tr><td>시가총액</td><td>2,000조 원+</td><td>사상 최초 돌파</td></tr>
-      <tr><td>EPS 컨센 변화</td><td class="highlight">+102%</td><td>최근 1개월</td></tr>
-      <tr><td>52주 수익률</td><td>+160%</td><td>연초 대비</td></tr>
-      <tr><td>파운드리 순위</td><td>글로벌 2위</td><td>TSMC 다음</td></tr>
-    </table>
-    <div class="tags-row">
-      <span class="tag tag-buy">HBM4 양산 본격화</span>
-      <span class="tag tag-buy">AI 메모리 수주 확대</span>
-      <span class="tag tag-risk">노조 파업 리스크</span>
-      <span class="tag tag-risk">영업이익 -12% 영향 가능</span>
-    </div>
-  </div>
 
-  <!-- 한화에어로스페이스 -->
-  <div class="scard">
-    <div class="scard-header">
-      <div>
-        <div class="scard-ticker">KRX: 012450</div>
-        <div class="scard-name">한화에어로스페이스</div>
-        <span class="scard-sector s-def">방산 · 항공우주</span>
+      <table class="valuation-table">
+        <thead>
+          <tr>
+            <th>지표</th>
+            <th>수치</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>P/E (2026E)</td><td class="val-highlight">19.60x</td><td>실적 대비 저평가 구간</td></tr>
+          <tr><td>2026E 매출</td><td class="val-highlight">319조원</td><td>YoY +198% (43개 애널리스트 추정)</td></tr>
+          <tr><td>2026 1Q 영업이익</td><td class="val-highlight">37.61조원</td><td>YoY +405%</td></tr>
+          <tr><td>영업이익률 (1Q26)</td><td class="val-highlight">72%</td><td>NVIDIA(65%) 초과</td></tr>
+          <tr><td>HBM4 점유율 전망</td><td class="val-highlight">~70%</td><td>UBS 추정, 엔비디아 Rubin 기준</td></tr>
+          <tr><td>시가총액</td><td class="val-highlight">$1조 달러 돌파</td><td>연초 대비 +250%</td></tr>
+        </tbody>
+      </table>
+
+      <div class="analyst-bar">
+        <span class="analyst-label">매수 의견</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div>
+        <span class="analyst-count">36명 / 0명 매도</span>
       </div>
-      <span class="rating-badge r-buy">★ 매수</span>
-    </div>
-    <div class="scard-body">
-      <div class="section-label">밸류에이션 (2026E)</div>
-    </div>
-    <table class="val-table">
-      <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-      <tr><td>목표주가</td><td class="highlight">175만 원</td><td>하나증권</td></tr>
-      <tr><td>현재가 대비 상승여력</td><td>+23%</td><td>현재 ~142만원</td></tr>
-      <tr><td>PER</td><td>32배</td><td>고평가 주의</td></tr>
-      <tr><td>2026 매출 전망</td><td>30조 원</td><td>증권사 컨센서스</td></tr>
-      <tr><td>애널리스트 의견</td><td class="highlight">만장일치 매수</td><td>21인</td></tr>
-    </table>
-    <div class="tags-row">
-      <span class="tag tag-buy">천무 노르웨이 1.3조 수주</span>
-      <span class="tag tag-buy">NATO 방산 수요</span>
-      <span class="tag tag-risk">PER 32배 고평가</span>
-    </div>
-  </div>
 
-  <!-- HD한국조선해양 -->
-  <div class="scard">
-    <div class="scard-header">
-      <div>
-        <div class="scard-ticker">KRX: 329180</div>
-        <div class="scard-name">HD한국조선해양</div>
-        <span class="scard-sector s-ship">조선 · 해양</span>
+      <br>
+      <div class="tags-title">✅ 매수 근거</div>
+      <div class="tag-row">
+        <span class="tag tag-buy">HBM 공급부족 2028년까지</span>
+        <span class="tag tag-buy">삼성 대비 HBM4 선점</span>
+        <span class="tag tag-buy">엔비디아 Rubin 탑재 확정</span>
+        <span class="tag tag-buy">영업이익률 72% 신기록</span>
+        <span class="tag tag-buy">AI 인프라 투자 연 30%↑</span>
       </div>
-      <span class="rating-badge r-buy">★ 매수</span>
-    </div>
-    <div class="scard-body">
-      <div class="section-label">투자 포인트 (2026E)</div>
-    </div>
-    <table class="val-table">
-      <tr><th>항목</th><th>내용</th><th>비고</th></tr>
-      <tr><td>수주 잔고</td><td class="highlight">역대 최고</td><td>2027년 건조 확보</td></tr>
-      <tr><td>수혜 요인</td><td>LNG·방산·AI인프라</td><td>3중 수혜</td></tr>
-      <tr><td>LNG 선박 수요</td><td>급증세</td><td>탄소 규제 연동</td></tr>
-      <tr><td>애널리스트</td><td>긍정적</td><td>주요 IB 매수</td></tr>
-    </table>
-    <div class="tags-row">
-      <span class="tag tag-buy">LNG 친환경 선박</span>
-      <span class="tag tag-buy">방산 함정 수출</span>
-      <span class="tag tag-risk">철강가 상승 마진 압박</span>
-    </div>
-  </div>
 
-  <!-- 효성중공업 -->
-  <div class="scard">
-    <div class="scard-header">
-      <div>
-        <div class="scard-ticker">KRX: 298040</div>
-        <div class="scard-name">효성중공업</div>
-        <span class="scard-sector s-power">전력기기 · AI인프라</span>
+      <div class="tags-title">⚠️ 리스크</div>
+      <div class="tag-row">
+        <span class="tag tag-risk">단기 급등 차익실현 압력</span>
+        <span class="tag tag-risk">삼성 HBM4 추격 가속</span>
+        <span class="tag tag-risk">중동 리스크 → IT 투자 위축</span>
+        <span class="tag tag-risk">AI 과잉 투자 우려 재부상</span>
       </div>
-      <span class="rating-badge r-watch">관심 매수</span>
     </div>
-    <div class="scard-body">
-      <div class="section-label">투자 포인트 (2026E)</div>
+
+    <hr class="separator">
+
+    <!-- ===== 종목 2: 한화에어로스페이스 ===== -->
+    <div class="stock-card">
+      <div class="stock-header">
+        <div class="stock-icon icon-orange">🚀</div>
+        <div class="stock-info">
+          <h3>한화에어로스페이스 (012450)</h3>
+          <p>방산 · 우주 · 항공엔진 | KOSPI</p>
+        </div>
+        <span class="rating-badge strong-buy">⭐ STRONG BUY</span>
+      </div>
+
+      <div class="target-row">
+        <div class="target-item">
+          <div class="t-label">현재 주가</div>
+          <div class="t-value t-current">1,162,000원</div>
+        </div>
+        <div class="divider"></div>
+        <div class="target-item">
+          <div class="t-label">컨센서스 목표</div>
+          <div class="t-value t-target">1,795,938원</div>
+        </div>
+        <div class="divider"></div>
+        <div class="target-item">
+          <div class="t-label">상승 여력</div>
+          <div class="t-value t-upside">+54.6%</div>
+        </div>
+        <div class="divider"></div>
+        <div class="target-item">
+          <div class="t-label">최고 목표주가</div>
+          <div class="t-value t-low">2,100,000원</div>
+        </div>
+      </div>
+
+      <table class="valuation-table">
+        <thead>
+          <tr>
+            <th>지표</th>
+            <th>수치</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>컨센서스 목표주가</td><td class="val-highlight">1,795,938원</td><td>현재 대비 +54.6%</td></tr>
+          <tr><td>애널리스트 목표범위</td><td class="val-highlight">1,345,000 ~ 2,100,000원</td><td>21명 전원 매수</td></tr>
+          <tr><td>비즈니스 포트폴리오</td><td class="val-highlight">방산·우주·엔진·위성</td><td>K9 자주포, 천무 다연장</td></tr>
+          <tr><td>주요 수출 시장</td><td class="val-highlight">폴란드·루마니아·인도</td><td>K방산 수출 수십조원 목표</td></tr>
+          <tr><td>VIX 상관</td><td class="val-highlight">역방향 우위</td><td>지정학 리스크 헤지 특성</td></tr>
+        </tbody>
+      </table>
+
+      <div class="analyst-bar">
+        <span class="analyst-label">매수 의견</span>
+        <div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div>
+        <span class="analyst-count">21명 / 0명 매도</span>
+      </div>
+
+      <br>
+      <div class="tags-title">✅ 매수 근거</div>
+      <div class="tag-row">
+        <span class="tag tag-buy">글로벌 지정학 리스크 헤지</span>
+        <span class="tag tag-buy">K방산 수출 확대 지속</span>
+        <span class="tag tag-buy">우주 발사체 사업 확장</span>
+        <span class="tag tag-buy">NATO 방위비 2% 상향 수혜</span>
+        <span class="tag tag-buy">VIX 상승기 방산 상대강도</span>
+      </div>
+
+      <div class="tags-title">⚠️ 리스크</div>
+      <div class="tag-row">
+        <span class="tag tag-risk">중동 휴전 시 단기 조정 가능</span>
+        <span class="tag tag-risk">수출 계약 지연 리스크</span>
+        <span class="tag tag-risk">환율 수혜 감소 (원화 강세)</span>
+      </div>
     </div>
-    <table class="val-table">
-      <tr><th>항목</th><th>내용</th><th>비고</th></tr>
-      <tr><td>수혜 요인</td><td class="highlight">AI 데이터센터 전력</td><td>글로벌 투자 급증</td></tr>
-      <tr><td>제품군</td><td>초고압 변압기·차단기</td><td>공급 부족 중</td></tr>
-      <tr><td>수출 시장</td><td>미국·유럽</td><td>IRA 수혜</td></tr>
-      <tr><td>애널리스트</td><td>긍정적</td><td>증권사 매수 의견</td></tr>
-    </table>
-    <div class="tags-row">
-      <span class="tag tag-buy">AI 전력 인프라 수혜</span>
-      <span class="tag tag-buy">미국 IRA 수혜</span>
-      <span class="tag tag-risk">단기 급등 후 조정 가능성</span>
-    </div>
+
+    <div class="footer">※ 투자 정보 제공 목적 | 투자 권유 아님 | 최종 판단 책임은 투자자 본인 | 출처: Goldman Sachs, UBS, 한국투자증권, Yahoo Finance</div>
   </div>
-
-</div>
-
-<div class="footer-note">
-  ※ 2026년 6월 5일 기준 / 출처: Bloomberg, JPMorgan, Goldman Sachs, 하나증권, 서울경제<br>
-  본 내용은 투자 정보 제공 목적이며, 투자 권유가 아닙니다. 투자 판단의 최종 책임은 투자자 본인에게 있습니다.
-</div>
 </body>
 </html>
