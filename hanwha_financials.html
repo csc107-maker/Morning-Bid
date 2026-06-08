@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:title" content="한화오션 재무 실적 분석 | 2025~2026년 1분기" />
+<meta property="og:description" content="한화오션 매출·영업이익·수주 역대 최고 달성 — 2025년 및 2026년 1분기 핵심 재무지표 분석" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/0a3060/ffffff?text=HanwhaOcean+Financials+2025-2026" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/hanwha-ocean-financials" />
+<title>한화오션 재무 실적 분석</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #eef3fa;
+    padding: 24px 16px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(120deg, #0a2540 0%, #1a5080 50%, #0d8a5a 100%);
+    border-radius: 14px 14px 0 0;
+    padding: 24px 28px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '📊';
+    position: absolute;
+    right: 24px;
+    top: 14px;
+    font-size: 48px;
+    opacity: 0.18;
+  }
+  .header h2 { font-size: 18px; font-weight: 900; }
+  .header p { font-size: 12px; opacity: 0.7; margin-top: 4px; }
+  .section-title {
+    background: #f0f5fb;
+    padding: 10px 24px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #4a6a90;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    border-bottom: 1px solid #e0eaf5;
+  }
+  .metrics-grid {
+    background: #fff;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background-color: #e0eaf5;
+  }
+  .metric {
+    background: #fff;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .metric-label {
+    font-size: 11px;
+    color: #8a9ab5;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .metric-value {
+    font-size: 26px;
+    font-weight: 900;
+    color: #0a2540;
+    font-family: 'Bebas Neue', 'Noto Sans KR', sans-serif;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .metric-unit {
+    font-size: 11px;
+    color: #6a8aaa;
+    font-weight: 600;
+    margin-top: 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .metric-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-top: 6px;
+  }
+  .up { background: #d4f5e2; color: #0d7a3e; }
+  .up::before { content: '▲ '; font-size: 9px; }
+  .q1-grid {
+    background: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background-color: #e0eaf5;
+    border-top: 1px solid #e0eaf5;
+  }
+  .analyst-box {
+    background: #fff;
+    padding: 20px 24px;
+    border-top: 1px solid #e8eef5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .analyst-card {
+    background: linear-gradient(135deg, #eaf3ff 0%, #f0f8ff 100%);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border-left: 4px solid #0e6eb8;
+  }
+  .analyst-card.green { border-left-color: #0d7a3e; background: linear-gradient(135deg, #eaffed 0%, #f5fff7 100%); }
+  .analyst-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6a90b0;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .analyst-value {
+    font-size: 22px;
+    font-weight: 900;
+    color: #0a2540;
+    font-family: 'Bebas Neue', 'Noto Sans KR', sans-serif;
+    letter-spacing: 1px;
+  }
+  .analyst-note {
+    font-size: 11px;
+    color: #5e7a99;
+    margin-top: 3px;
+  }
+  .bottom-bar {
+    background: #0a2540;
+    border-radius: 0 0 14px 14px;
+    padding: 13px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255,255,255,0.65);
+    font-size: 11px;
+  }
+  @media (max-width: 600px) {
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .q1-grid { grid-template-columns: repeat(2, 1fr); }
+    .analyst-box { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <h2>한화오션 재무 실적 & 증권사 분석</h2>
+    <p>2025년 연간 역대 최고 + 2026년 1분기 서프라이즈</p>
+  </div>
+
+  <div class="section-title">📈 2025년 연간 실적 (역대 최고)</div>
+  <div class="metrics-grid">
+    <div class="metric">
+      <div class="metric-label">연간 매출</div>
+      <div class="metric-value">12.7조</div>
+      <div class="metric-unit">원</div>
+      <div class="metric-change up">+18% YoY</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">영업이익</div>
+      <div class="metric-value">1.1조</div>
+      <div class="metric-unit">원</div>
+      <div class="metric-change up">+366% YoY</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">수주 금액</div>
+      <div class="metric-value">$95.5억</div>
+      <div class="metric-unit">달러 (약 14조원)</div>
+      <div class="metric-change up">역대 최고</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">영업이익률</div>
+      <div class="metric-value">8.7%</div>
+      <div class="metric-unit">수익성 개선</div>
+      <div class="metric-change up">전년比 개선</div>
+    </div>
+  </div>
+
+  <div class="section-title">📊 2026년 1분기 실적 (컨센서스 상회)</div>
+  <div class="q1-grid">
+    <div class="metric">
+      <div class="metric-label">1Q26 매출</div>
+      <div class="metric-value">3.2조</div>
+      <div class="metric-unit">원</div>
+      <div class="metric-change up">+2.1% YoY</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">1Q26 영업이익</div>
+      <div class="metric-value">4,411억</div>
+      <div class="metric-unit">원</div>
+      <div class="metric-change up">+70.6% YoY</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">1Q26 영업이익률</div>
+      <div class="metric-value">13.7%</div>
+      <div class="metric-unit">컨센서스 상회</div>
+      <div class="metric-change up">상선 수익률 견인</div>
+    </div>
+  </div>
+
+  <div class="analyst-box">
+    <div class="analyst-card">
+      <div class="analyst-label">IBK투자증권 목표주가</div>
+      <div class="analyst-value">141,000원</div>
+      <div class="analyst-note">투자의견 매수 유지 | 오지훈 애널리스트</div>
+    </div>
+    <div class="analyst-card green">
+      <div class="analyst-label">글로벌 잠수함 시장 성장 전망</div>
+      <div class="analyst-value">323억$</div>
+      <div class="analyst-note">2030년 (2025년 264억$ → CAGR +4.17%)<br>출처: 모르도 인텔리전스</div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <span>※ 상기 실적은 공시 및 증권사 분석 기준 | 투자 권유 아님</span>
+    <span>출처: IBK투자증권, 한화오션 공시, 글로벌이코노믹</span>
+  </div>
+</div>
+</body>
+</html>
