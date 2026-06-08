@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="젠슨 황 방한 + 김정호 교수 분석 종합 투자 전략"/>
+<meta property="og:description" content="HBM 공급망 핵심 수혜주 분석. 단기·중기·장기 시나리오별 종목 전략 카드."/>
+<meta property="og:image" content="https://via.placeholder.com/1200x630/fff8e1/e65100?text=Investment+Strategy+HBM+HBF+2026"/>
+<meta property="og:url" content="https://yourblog.com/jensen-huang-korea-hbm-kimjungho"/>
+<title>종합 투자 전략 카드</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+.invest-widget{
+  font-family:'Noto Sans KR',sans-serif;
+  background:linear-gradient(140deg,#fffde7 0%,#fff8e1 55%,#fce4ec 100%);
+  border:1px solid #ffe082;
+  border-radius:22px;
+  padding:38px 34px;
+  max-width:760px;
+  margin:32px auto;
+  box-shadow:0 10px 40px rgba(230,81,0,.09);
+}
+.iw-tag{font-size:12px;font-weight:700;letter-spacing:2px;color:#e65100;text-transform:uppercase;margin-bottom:6px}
+.iw-title{font-size:22px;font-weight:900;color:#0d1b3e;margin-bottom:8px;line-height:1.3}
+.iw-sub{font-size:13px;color:#78909c;margin-bottom:20px;line-height:1.65}
+
+.disclaimer{
+  background:#fff3e0;border:1.5px solid #ff8f00;border-radius:12px;
+  padding:12px 16px;font-size:12px;color:#bf360c;font-weight:600;
+  margin-bottom:24px;display:flex;align-items:flex-start;gap:10px;line-height:1.5;
+}
+
+/* 핵심 분석 박스 */
+.insight-box{
+  background:linear-gradient(135deg,#0d1b3e,#1a3a6b);
+  border-radius:16px;padding:22px 24px;color:#fff;margin-bottom:22px;
+}
+.ib-title{font-size:12px;font-weight:700;color:#90caf9;letter-spacing:1px;margin-bottom:10px;text-transform:uppercase}
+.ib-text{font-size:14px;line-height:1.75;color:#e3f2fd}
+.ib-text strong{color:#fff;font-weight:800}
+
+/* 투자 축 3개 */
+.axis-section{margin-bottom:22px}
+.axis-label{
+  font-size:12px;font-weight:800;letter-spacing:1px;
+  text-transform:uppercase;padding:6px 14px;border-radius:20px;
+  display:inline-block;margin-bottom:12px;
+}
+.axis-1{background:#e3f2fd;color:#1565c0}
+.axis-2{background:#e8f5e9;color:#2e7d32}
+.axis-3{background:#f3e5f5;color:#6a1b9a}
+
+.stock-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stock-card{
+  background:#fff;border-radius:16px;padding:18px 16px;
+  border:1px solid #f0f0f0;
+  box-shadow:0 3px 10px rgba(0,0,0,.06);
+  position:relative;overflow:hidden;
+  transition:transform .2s,box-shadow .2s;
+}
+.stock-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.12)}
+.stock-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.sc-sk::before{background:linear-gradient(90deg,#1565c0,#42a5f5)}
+.sc-ss::before{background:linear-gradient(90deg,#1b5e20,#43a047)}
+.sc-nv::before{background:linear-gradient(90deg,#76ff03,#00e5ff)}
+.sc-mu::before{background:linear-gradient(90deg,#e65100,#ff8f00)}
+.sc-nv2::before{background:linear-gradient(90deg,#00c73c,#03a9f4)}
+.sc-hd::before{background:linear-gradient(90deg,#c62828,#e65100)}
+
+.sc-ticker{font-family:'Space Mono',monospace;font-size:11px;color:#90a4ae;letter-spacing:1px;margin-bottom:3px}
+.sc-name{font-size:16px;font-weight:900;color:#0d1b3e;margin-bottom:3px}
+.sc-risk-row{display:flex;align-items:center;gap:6px;margin-bottom:10px}
+.risk-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
+.risk-low{background:#e8f5e9;color:#2e7d32}
+.risk-mid{background:#fff3e0;color:#e65100}
+.risk-high{background:#fce4ec;color:#c62828}
+.sc-pts{list-style:none;padding:0;margin-bottom:10px}
+.sc-pts li{font-size:12px;color:#546e7a;padding:3px 0;display:flex;align-items:flex-start;gap:6px;line-height:1.5}
+.sc-risk-note{font-size:11px;color:#e65100;font-weight:600;padding:6px 10px;background:#fff3e0;border-radius:8px}
+
+/* 요약 테이블 */
+.summary-table-wrap{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:16px}
+.st-header{background:linear-gradient(90deg,#bf360c,#e65100);padding:12px 16px}
+.st-header-title{font-size:13px;font-weight:800;color:#fff;letter-spacing:0.5px}
+table.st{width:100%;border-collapse:collapse}
+table.st thead tr{background:#fff9f0}
+table.st thead th{font-size:11px;font-weight:700;color:#78909c;padding:10px 14px;text-align:left;border-bottom:2px solid #f0e0d0;letter-spacing:.5px}
+table.st tbody tr:nth-child(even){background:#fffbf7}
+table.st tbody td{font-size:12px;color:#37474f;padding:10px 14px;border-bottom:1px solid #faeee0}
+table.st tbody td:first-child{font-weight:700;color:#0d1b3e}
+.star{color:#ff8f00}
+
+.src-note{font-size:11px;color:#90a4ae;margin-top:16px;text-align:right;line-height:1.6}
+@media(max-width:600px){
+  .stock-grid{grid-template-columns:1fr}
+  .invest-widget{padding:24px 16px}
+}
+</style>
+</head>
+<body>
+<div class="invest-widget">
+  <div class="iw-tag">💡 종합 투자 전략</div>
+  <div class="iw-title">젠슨 황 방한 × 김정호 교수 분석 — 수혜주 전략 카드</div>
+  <p class="iw-sub">두 이야기가 교차하는 지점에서 읽는 투자 시나리오 3축</p>
+
+  <div class="disclaimer">
+    <span>⚠️</span>
+    이 내용은 공개 데이터 기반 정보 제공이며, 투자 권유가 아닙니다. 모든 투자 결정은 본인 판단·책임 하에 이루어져야 합니다. 주식은 원금 손실 위험이 있습니다.
+  </div>
+
+  <div class="insight-box">
+    <div class="ib-title">🏦 핵심 분석 (하나증권 · 2026.06)</div>
+    <div class="ib-text">
+      "AI 산업의 진짜 수혜는 <strong>GPU 주변부 테마가 아니라</strong>, 공급망의 <strong>가장 확실한 병목 지점</strong>에서 나온다." — 김정호 교수와 하나증권이 같은 방향을 가리키는 핵심 메시지. <strong>그 병목은 HBM</strong>이며, 장기적으로는 <strong>HBF</strong>로 이어진다.
+    </div>
+  </div>
+
+  <div class="axis-section">
+    <span class="axis-label axis-1">🛡 축 1 — HBM 공급망 직접 수혜 (단기 가장 확실)</span>
+    <div class="stock-grid">
+      <div class="stock-card sc-sk">
+        <div class="sc-ticker">000660.KS</div>
+        <div class="sc-name">SK하이닉스</div>
+        <div class="sc-risk-row"><span class="risk-badge risk-low">리스크 낮음</span></div>
+        <ul class="sc-pts">
+          <li>✅ HBM4 점유율 60~70% (UBS)</li>
+          <li>✅ Vera Rubin 1순위 공급사</li>
+          <li>✅ $13B 신규 HBM 패키징 공장 투자</li>
+          <li>✅ HBM 시장 최초 수익성 흑자</li>
+        </ul>
+        <div class="sc-risk-note">⚠️ HBF 전환기 수익성 압박 변수</div>
+      </div>
+      <div class="stock-card sc-ss">
+        <div class="sc-ticker">005930.KS</div>
+        <div class="sc-name">삼성전자</div>
+        <div class="sc-risk-row"><span class="risk-badge risk-low">리스크 낮음</span></div>
+        <ul class="sc-pts">
+          <li>✅ HBM4 세계 최초 양산 (2026.02)</li>
+          <li>✅ HBM4E 샘플 세계 최초 출하</li>
+          <li>✅ R&D 37.7조 사상 최대 투자</li>
+          <li>✅ D램+낸드 동시 생산 → HBF 유리</li>
+        </ul>
+        <div class="sc-risk-note">⚠️ SK하이닉스 대비 점유율 열세 (25~30%)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="axis-section">
+    <span class="axis-label axis-2">⚡ 축 2 — GPU 플랫폼 생태계 (현재 지배자)</span>
+    <div class="stock-grid">
+      <div class="stock-card sc-nv">
+        <div class="sc-ticker">NVDA.US</div>
+        <div class="sc-name">엔비디아</div>
+        <div class="sc-risk-row"><span class="risk-badge risk-mid">리스크 중간</span></div>
+        <ul class="sc-pts">
+          <li>✅ Vera Rubin Q3 2026 출하</li>
+          <li>✅ CUDA 20년 생태계 해자</li>
+          <li>⚠️ 현재 주가에 상당 부분 선반영</li>
+          <li>⚠️ 김정호 교수: 2~3년 내 지배력 하락 전망</li>
+        </ul>
+        <div class="sc-risk-note">⚠️ ASIC·TPU 대안 칩 경쟁 심화 중</div>
+      </div>
+      <div class="stock-card sc-mu">
+        <div class="sc-ticker">MU.US</div>
+        <div class="sc-name">마이크론</div>
+        <div class="sc-risk-row"><span class="risk-badge risk-high">리스크 높음</span></div>
+        <ul class="sc-pts">
+          <li>✅ HBM4 3사 인증 완료</li>
+          <li>✅ 발표 당일 -7.74% 급락 → 단기 관심</li>
+          <li>⚠️ HBM 비중 한국 2사 대비 낮음</li>
+          <li>⚠️ 점유율 잔여 수준, 변동성 큼</li>
+        </ul>
+        <div class="sc-risk-note">⚠️ 단기 트레이딩 성격 강함</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="axis-section">
+    <span class="axis-label axis-3">🔮 축 3 — HBF·메모리 센트릭 미래 (장기 베팅)</span>
+    <div class="stock-grid">
+      <div class="stock-card sc-nv2">
+        <div class="sc-ticker">035420.KS</div>
+        <div class="sc-name">네이버</div>
+        <div class="sc-risk-row"><span class="risk-badge risk-mid">리스크 중간</span></div>
+        <ul class="sc-pts">
+          <li>✅ 젠슨 황과 직접 회동 (2026.06)</li>
+          <li>✅ HyperCLOVA X AI 인프라 확장</li>
+          <li>✅ 데이터센터 협력 가능성</li>
+          <li>⚠️ 직접 수혜 공시 확인 필요</li>
+        </ul>
+        <div class="sc-risk-note">⚠️ 구체적 협력 내용 미공개</div>
+      </div>
+      <div class="stock-card sc-hd">
+        <div class="sc-ticker">005380.KS</div>
+        <div class="sc-name">현대차</div>
+        <div class="sc-risk-row"><span class="risk-badge risk-mid">리스크 중간</span></div>
+        <ul class="sc-pts">
+          <li>✅ Physical AI·로봇 협력 논의</li>
+          <li>✅ 엔비디아 Omniverse 자율주행 연계</li>
+          <li>✅ APEC 250,000 GPU 파트너</li>
+          <li>⚠️ AI 수혜 실적 반영 시간 필요</li>
+        </ul>
+        <div class="sc-risk-note">⚠️ 자동차 경기 + AI 수혜 혼합 변수</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-table-wrap">
+    <div class="st-header"><div class="st-header-title">📊 종목별 기간별 매력도 요약 (★ 5점 만점 / 주관적 분석)</div></div>
+    <table class="st">
+      <thead><tr><th>종목</th><th>단기(1년)</th><th>중기(3년)</th><th>핵심 변수</th></tr></thead>
+      <tbody>
+        <tr><td>SK하이닉스</td><td><span class="star">★★★★</span>☆</td><td><span class="star">★★★★</span>☆</td><td>HBM4 점유율 유지 + HBF 대응</td></tr>
+        <tr><td>삼성전자</td><td><span class="star">★★★</span>☆☆</td><td><span class="star">★★★★★</span></td><td>HBM4E 수율 + HBF 선점 성공 여부</td></tr>
+        <tr><td>엔비디아</td><td><span class="star">★★★</span>☆☆</td><td><span class="star">★★★</span>☆☆</td><td>GPU 혁신 지속 가능성 + CUDA 해자</td></tr>
+        <tr><td>마이크론</td><td><span class="star">★★</span>☆☆☆</td><td><span class="star">★★★</span>☆☆</td><td>HBM 점유율 확대 여부</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="src-note">
+    출처: 하나증권, UBS, TrendForce, TechTimes, 아이뉴스24, 전자신문, KB증권 (2026.06)<br>
+    ⚠️ 본 내용은 정보 제공 목적이며 투자 권유가 아닙니다. 투자 결정은 본인 책임입니다.
+  </div>
+</div>
+</body>
+</html>
