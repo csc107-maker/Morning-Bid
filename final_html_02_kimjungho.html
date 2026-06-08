@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="김정호 교수 'GPU 혁신 끝났다' — 주장의 진실과 한계"/>
+<meta property="og:description" content="HBM 아버지 김정호 교수의 메모리 센트릭 주장, 글로벌 데이터와 반론 동시 분석"/>
+<meta property="og:image" content="https://via.placeholder.com/1200x630/1b5e20/a5d6a7?text=Memory+Centric+vs+GPU+Centric"/>
+<meta property="og:url" content="https://yourblog.com/jensen-huang-korea-hbm-kimjungho"/>
+<title>김정호 교수 주장 분석 카드</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+.prof-widget{
+  font-family:'Noto Sans KR',sans-serif;
+  background:linear-gradient(140deg,#f1f8e9 0%,#e8f5e9 50%,#e8eaf6 100%);
+  border:1px solid #c8e6c9;
+  border-radius:22px;
+  padding:38px 34px;
+  max-width:760px;
+  margin:32px auto;
+  box-shadow:0 10px 40px rgba(27,94,32,.10);
+}
+.pw-tag{font-size:12px;font-weight:700;letter-spacing:2px;color:#2e7d32;text-transform:uppercase;margin-bottom:6px}
+.pw-title{font-size:22px;font-weight:900;color:#0d1b3e;margin-bottom:8px;line-height:1.3}
+.pw-sub{font-size:13px;color:#5a7a6a;margin-bottom:28px;line-height:1.65}
+
+/* 교수 프로필 배너 */
+.prof-banner{
+  background:#fff;border-radius:16px;padding:20px 22px;
+  border-left:6px solid #2e7d32;
+  margin-bottom:24px;
+  display:flex;align-items:flex-start;gap:16px;
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+.pb-avatar{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,#1b5e20,#43a047);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;flex-shrink:0;
+}
+.pb-name{font-size:17px;font-weight:900;color:#0d1b3e;margin-bottom:3px}
+.pb-role{font-size:12px;color:#2e7d32;font-weight:700;margin-bottom:6px}
+.pb-desc{font-size:12px;color:#546e7a;line-height:1.6}
+
+/* 주장 3요소 */
+.claim-list{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.claim-item{
+  background:#fff;border-radius:14px;padding:18px 20px;
+  display:flex;align-items:flex-start;gap:14px;
+  border:1px solid #e0f0e0;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+  transition:transform .2s;
+}
+.claim-item:hover{transform:translateX(4px)}
+.ci-num{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,#2e7d32,#66bb6a);
+  color:#fff;font-weight:900;font-size:15px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+.ci-title{font-size:14px;font-weight:800;color:#0d1b3e;margin-bottom:4px}
+.ci-text{font-size:13px;color:#546e7a;line-height:1.6}
+.ci-badge{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:2px 8px;border-radius:20px;margin-top:6px;
+}
+.badge-fact{background:#e8f5e9;color:#1b5e20}
+.badge-caution{background:#fff8e1;color:#f57f17}
+
+/* 찬성 vs 반론 비교 */
+.verdict-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.verdict-card{background:#fff;border-radius:14px;padding:20px 18px;border-top:5px solid}
+.verdict-card.agree{border-top-color:#2e7d32}
+.verdict-card.counter{border-top-color:#c62828}
+.vc-header{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.vc-icon{font-size:22px}
+.vc-title{font-size:14px;font-weight:800;color:#0d1b3e}
+.vc-list{list-style:none;padding:0}
+.vc-list li{
+  font-size:12px;color:#546e7a;padding:5px 0;
+  border-bottom:1px solid #f5f5f5;
+  line-height:1.5;
+  display:flex;align-items:flex-start;gap:7px;
+}
+.vc-list li:last-child{border-bottom:none}
+.vc-list li .li-dot{font-size:14px;flex-shrink:0;margin-top:-1px}
+
+/* 최종 판정 */
+.verdict-final{
+  background:linear-gradient(135deg,#0d1b3e,#1565c0);
+  border-radius:16px;padding:22px 24px;color:#fff;
+}
+.vf-title{font-size:13px;font-weight:700;color:#90caf9;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase}
+.vf-table{width:100%;border-collapse:collapse}
+.vf-table tr{border-bottom:1px solid rgba(255,255,255,.1)}
+.vf-table tr:last-child{border-bottom:none}
+.vf-table td{padding:8px 10px;font-size:12px;color:#e3f2fd;vertical-align:middle}
+.vf-table td:first-child{font-weight:700;color:#fff;width:55%}
+.verdict-tag{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:2px 8px;border-radius:20px;
+}
+.vt-o{background:#e8f5e9;color:#1b5e20}
+.vt-x{background:#fce4ec;color:#c62828}
+.vt-w{background:#fff8e1;color:#f57f17}
+
+.src-note{font-size:11px;color:#90a4ae;margin-top:18px;text-align:right}
+@media(max-width:600px){
+  .verdict-grid{grid-template-columns:1fr}
+  .prof-widget{padding:24px 16px}
+}
+</style>
+</head>
+<body>
+<div class="prof-widget">
+  <div class="pw-tag">🎓 전문가 주장 분석</div>
+  <div class="pw-title">'HBM 아버지' 김정호 교수의 경고 — 얼마나 맞는가?</div>
+  <p class="pw-sub">"GPU 혁신은 거의 끝났다" — 이 선언을 데이터와 반론으로 검증합니다</p>
+
+  <div class="prof-banner">
+    <div class="pb-avatar">👨‍🔬</div>
+    <div>
+      <div class="pb-name">김정호 KAIST 교수</div>
+      <div class="pb-role">HBM 개념 창안자 · 'HBM의 아버지' · KAIST 전기전자공학부</div>
+      <div class="pb-desc">1996년부터 KAIST 재직. HBM 기본 구조와 TSV 기술 창안. 2010년부터 HBM 상용화 설계 직접 참여. 2025년 HBM4~HBM8 장기 로드맵 발표. 강대원상·백남상 공학상 수상.</div>
+    </div>
+  </div>
+
+  <div class="claim-list">
+    <div class="claim-item">
+      <div class="ci-num">1</div>
+      <div>
+        <div class="ci-title">"GPU 크기를 2배로 늘려도 메모리 대역폭이 부족하면 무용지물"</div>
+        <div class="ci-text">AI 성능의 실제 병목은 GPU 연산력이 아닌 메모리 대역폭에 있다. AI는 이미 '메모리 바운드' 상태다.</div>
+        <span class="ci-badge badge-fact">✅ 글로벌 학계 동의</span>
+      </div>
+    </div>
+    <div class="claim-item">
+      <div class="ci-num">2</div>
+      <div>
+        <div class="ci-title">"AI 모델이 커질수록 메모리 수요는 100배, 길게 보면 1000배 늘어난다"</div>
+        <div class="ci-text">HBM 중심 구조만으로는 한계에 도달한다. 속도는 HBM, 용량은 HBF(고대역폭 낸드플래시)로 가야 한다.</div>
+        <span class="ci-badge badge-fact">✅ 방향 일치</span>
+      </div>
+    </div>
+    <div class="claim-item">
+      <div class="ci-num">3</div>
+      <div>
+        <div class="ci-title">"GPU 혁신은 거의 끝났다. 엔비디아도 2~3년 내 시장 지배력이 떨어진다"</div>
+        <div class="ci-text">메모리 신기술이 AI 반도체 혁신을 이어가며, 삼성전자·SK하이닉스에 구조적 기회가 열린다.</div>
+        <span class="ci-badge badge-caution">⚠️ 부분 동의 / 시점 논란</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="verdict-grid">
+    <div class="verdict-card agree">
+      <div class="vc-header"><span class="vc-icon">✅</span><span class="vc-title">동의하는 근거</span></div>
+      <ul class="vc-list">
+        <li><span class="li-dot">•</span>TrendForce: 2026년 HBM 수요 전년比 70%+ 증가</li>
+        <li><span class="li-dot">•</span>마이크론: 2026년 HBM 물량 완전 매진 공시</li>
+        <li><span class="li-dot">•</span>XCENA: 메모리 병목 명제로 $135M 투자 유치</li>
+        <li><span class="li-dot">•</span>삼성·엔비디아 공동 연구: HBM-PNM 기술 개발 중</li>
+        <li><span class="li-dot">•</span>구글 TPU·아마존 Trainium 등 ASIC 대안 급성장</li>
+      </ul>
+    </div>
+    <div class="verdict-card counter">
+      <div class="vc-header"><span class="vc-icon">⚠️</span><span class="vc-title">반론 / 한계</span></div>
+      <ul class="vc-list">
+        <li><span class="li-dot">•</span>KAIST 논문 'Hybe': PIM 단독 대체보다 GPU+NPU 조합이 효과적</li>
+        <li><span class="li-dot">•</span>GPU-PIM 결합 시 지연은 여전히 GPU 연산에 종속</li>
+        <li><span class="li-dot">•</span>Vera Rubin: Grace Blackwell 대비 10배 성능 — GPU 혁신 계속 중</li>
+        <li><span class="li-dot">•</span>CUDA 20년 생태계 — 단기 대체 불가</li>
+        <li><span class="li-dot">•</span>HBF 2038년 전망 — 불확실성 큰 장기 예측</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="verdict-final">
+    <div class="vf-title">📊 주장별 최종 검증 판정</div>
+    <table class="vf-table">
+      <tr><td>"AI 병목은 이미 메모리로 이동했다"</td><td><span class="verdict-tag vt-o">✅ 정확</span></td></tr>
+      <tr><td>"HBM만으론 부족, HBF 시대 온다"</td><td><span class="verdict-tag vt-o">✅ 방향 맞음</span></td></tr>
+      <tr><td>"삼성·SK하이닉스가 최대 수혜자"</td><td><span class="verdict-tag vt-o">✅ 데이터 지지</span></td></tr>
+      <tr><td>"GPU 혁신은 거의 끝났다"</td><td><span class="verdict-tag vt-w">⚠️ 부분 동의</span></td></tr>
+      <tr><td>"메모리가 GPU를 물리적으로 대체"</td><td><span class="verdict-tag vt-x">❌ 과장 / 공존이 현실</span></td></tr>
+    </table>
+  </div>
+  <div class="src-note">출처: 아이뉴스24, 서울경제, 전자신문, KAIST 논문 Hybe(ISCA 2025), TrendForce (2026.02~06) | 투자 권유 아님</div>
+</div>
+</body>
+</html>
