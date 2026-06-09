@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="삼성전자 2026년 2분기 실적 전망 완전 분석 — 슈퍼사이클"/>
+<meta property="og:description" content="1분기 57.2조 신기록 이후 2분기 84~100조 전망, HBM4 양산 현황, 증권사 컨센서스, DRAM·NAND 가격 상승률 완전 분석"/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80"/>
+<meta property="og:url" content="https://blog.example.com/samsung-q2-2026-earnings"/>
+<title>삼성전자 2026년 2분기 실적 전망 — 2부</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:#f0f4f8;color:#1a2332;line-height:1.75;font-size:15px}
+.page{max-width:880px;margin:0 auto;padding:24px 18px 56px}
+.hero{background:#0f2744;border-radius:16px;padding:40px 38px 32px;margin-bottom:24px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-40px;top:-40px;width:200px;height:200px;border-radius:50%;background:rgba(16,185,129,.06)}
+.hero-kicker{display:inline-block;background:rgba(16,185,129,.18);border:1px solid rgba(16,185,129,.35);border-radius:20px;padding:4px 14px;font-size:11px;color:#6ee7b7;margin-bottom:16px;letter-spacing:.5px}
+.hero h1{font-size:25px;font-weight:800;color:#fff;line-height:1.35;margin-bottom:10px}
+.hero h1 em{color:#34d399;font-style:normal}
+.hero p{font-size:14px;color:#94a3b8;line-height:1.75;max-width:600px}
+.hero-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#64748b}
+.hero-meta b{color:#94a3b8}
+/* KPI */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:#fff;border-radius:10px;padding:14px;text-align:center;border:1px solid #e2e8f0}
+.kpi .kv{font-size:20px;font-weight:800;margin-bottom:3px}
+.kpi .kl{font-size:11px;color:#64748b;margin-bottom:4px}
+.kpi .kt{font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block}
+.t-g{background:#dcfce7;color:#166534}.t-b{background:#dbeafe;color:#1e40af}.t-a{background:#fef3c7;color:#92400e}.t-r{background:#fee2e2;color:#991b1b}
+/* SEC */
+.sec{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:26px;margin-bottom:18px}
+.sec-h{font-size:16px;font-weight:800;color:#0f2744;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.sec-h .num{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;flex-shrink:0}
+.sec-sub{font-size:13px;color:#64748b;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #f1f5f9;line-height:1.7}
+.chart-wrap{position:relative;width:100%}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px;font-size:12px;color:#64748b}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:12px;height:12px;border-radius:2px;display:inline-block}
+/* CONS CARDS */
+.cons-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
+.cons-card{border-radius:10px;padding:12px;border:1px solid #e2e8f0}
+.cons-badge{font-size:11px;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:6px;font-weight:700}
+.cons-firm{font-size:14px;font-weight:700;color:#1a2332;margin-bottom:2px}
+.cons-val{font-size:21px;font-weight:800;margin-bottom:4px}
+/* HBM TABLE */
+.dt{width:100%;border-collapse:collapse;font-size:13px}
+.dt th{background:#f8fafc;color:#475569;font-weight:700;padding:9px 12px;text-align:left;border-bottom:2px solid #e2e8f0;font-size:12px}
+.dt td{padding:9px 12px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+.dt tr:last-child td{border-bottom:none}
+.dt .hl{background:#f0fdf4}
+.dt .dim{background:#f8fafc;color:#94a3b8}
+.bd{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:600}
+.bd-g{background:#dcfce7;color:#166534}.bd-b{background:#dbeafe;color:#1e40af}.bd-a{background:#fef3c7;color:#92400e}.bd-r{background:#fee2e2;color:#991b1b}.bd-gy{background:#f1f5f9;color:#475569}
+/* PRICE BARS */
+.price-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.price-label{font-size:13px;font-weight:700;color:#1a2332;width:90px;flex-shrink:0}
+.price-bar-bg{flex:1;height:28px;background:#f1f5f9;border-radius:6px;overflow:hidden}
+.price-bar{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px}
+.price-bar span{font-size:12px;font-weight:800}
+/* SCENARIO */
+.scen-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.scen-label{font-size:12px;color:#64748b;width:96px;flex-shrink:0}
+.scen-bg{flex:1;height:22px;background:#f1f5f9;border-radius:5px;overflow:hidden}
+.scen-bar{height:100%;border-radius:5px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px}
+.scen-bar span{font-size:11px;font-weight:700}
+/* INSIGHT */
+.insight{background:#f8fafc;border-left:3px solid #059669;border-radius:0 10px 10px 0;padding:12px 14px;font-size:13px;color:#475569;line-height:1.75;margin-top:12px}
+.insight b{color:#1a2332}
+.quote{background:#0f2744;border-radius:12px;padding:16px 20px;margin:14px 0}
+.quote p{color:#e2e8f0;font-size:14px;font-style:italic;line-height:1.8;margin-bottom:5px}
+.quote .src{color:#34d399;font-size:11px}
+.disc{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px 16px;font-size:12px;color:#64748b;line-height:1.75;margin-bottom:14px}
+.footer{text-align:center;font-size:12px;color:#94a3b8;margin-top:10px;line-height:2}
+.ht a{color:#3b82f6;text-decoration:none;margin-right:3px}
+@media(max-width:600px){.kpi-row{grid-template-columns:1fr 1fr}.cons-grid{grid-template-columns:1fr}.hero h1{font-size:20px}.hero{padding:28px 22px}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="hero">
+  <div class="hero-kicker">📊 2부 — 2분기 실적 & HBM 완전 분석</div>
+  <h1>1분기 57조 신기록,<br>2분기는 <em>84조~100조?</em></h1>
+  <p>삼성전자 2026년 분기별 영업이익 추이, 증권사 컨센서스, HBM 세대별 경쟁 현황, DRAM·NAND 가격 상승률, 연간 영업이익 시나리오를 완전 분석합니다.</p>
+  <div class="hero-meta">
+    <span>📅 <b>2026년 6월 9일</b></span>
+    <span>📰 <b>삼성전자 공시·KB증권·유안타·키움·트렌드포스 종합</b></span>
+  </div>
+</div>
+
+<!-- KPI -->
+<div class="kpi-row">
+  <div class="kpi"><div class="kl">26Q1 영업이익 (신기록)</div><div class="kv" style="color:#166534">57.2조</div><div class="kt t-g">YoY +756%</div></div>
+  <div class="kpi"><div class="kl">26Q2 컨센서스</div><div class="kv" style="color:#166534">84~100조</div><div class="kt t-g">증권사 범위</div></div>
+  <div class="kpi"><div class="kl">26 연간 전망 (KB)</div><div class="kv" style="color:#92400e">375조</div><div class="kt t-a">YoY +3배+</div></div>
+  <div class="kpi"><div class="kl">26Q4 목표 (KB)</div><div class="kv" style="color:#1e40af">107조</div><div class="kt t-b">가속 성장 구간</div></div>
+</div>
+
+<!-- 차트1: 분기별 영업이익 -->
+<div class="sec">
+  <div class="sec-h"><div class="num" style="background:#059669">1</div>분기별 영업이익 추이 및 2분기 전망</div>
+  <p class="sec-sub">2025Q2 저점 4.7조에서 출발한 슈퍼사이클이 2026Q4 107조를 향해 가속 성장 중입니다.</p>
+  <div class="legend">
+    <span><i style="background:#059669"></i>확정 실적</span>
+    <span><i style="background:#f59e0b"></i>컨센서스 전망</span>
+    <span><i style="background:#dc2626"></i>키움증권 최고 전망</span>
+  </div>
+  <div class="chart-wrap" style="height:280px"><canvas id="cQ" role="img" aria-label="삼성전자 분기별 영업이익 추이">25Q1 6.7조, 25Q2 4.7조, 25Q3 9.8조, 25Q4 20조, 26Q1 57.2조, 26Q2 84조전망, 26Q3 108조전망, 26Q4 107조전망</canvas></div>
+  <div class="insight"><b>핵심:</b> 불과 4개 분기 만에 영업이익 12배 급증. KB증권 "26Q1 57조를 저점으로 4분기 107조까지 가속 성장 구간 진입". 키움증권은 2Q 100조, 3Q 108조를 전망하며 업사이드를 열어놨다.</div>
+</div>
+
+<!-- 차트2: 증권사 컨센서스 -->
+<div class="sec">
+  <div class="sec-h"><div class="num" style="background:#2563eb">2</div>증권사별 2분기 영업이익 컨센서스 비교</div>
+  <p class="sec-sub">70조(메리츠 하단)~100조(키움 상단)의 폭넓은 범위 — 중간값 약 84~86조.</p>
+  <div class="legend">
+    <span><i style="background:#2563eb"></i>2Q 영업이익 전망 (좌축)</span>
+    <span><i style="background:#93c5fd"></i>연간(2026) 전망 (우축)</span>
+  </div>
+  <div class="chart-wrap" style="height:250px"><canvas id="cCons" role="img" aria-label="증권사별 컨센서스">키움100조, 유안타86.8조, KB84조, 에프앤가이드80조, 한국투자77조, 메리츠70조</canvas></div>
+  <div class="cons-grid">
+    <div class="cons-card" style="border-color:#fca5a5;background:#fff1f2">
+      <div class="cons-badge" style="background:#fee2e2;color:#991b1b">최고 전망</div>
+      <div class="cons-firm">키움증권</div>
+      <div class="cons-val" style="color:#dc2626">100조</div>
+      <div style="font-size:11px;color:#64748b">DRAM+55% QoQ, NAND+72% 반영</div>
+    </div>
+    <div class="cons-card" style="border-color:#6ee7b7;background:#f0fdf4">
+      <div class="cons-badge" style="background:#dcfce7;color:#166534">컨센서스 상단</div>
+      <div class="cons-firm">유안타증권</div>
+      <div class="cons-val" style="color:#059669">86.8조</div>
+      <div style="font-size:11px;color:#64748b">메모리 가격 상승 + HBM4 수혜</div>
+    </div>
+    <div class="cons-card" style="border-color:#93c5fd;background:#eff6ff">
+      <div class="cons-badge" style="background:#dbeafe;color:#1e40af">컨센서스 중심</div>
+      <div class="cons-firm">KB증권</div>
+      <div class="cons-val" style="color:#1e40af">84조</div>
+      <div style="font-size:11px;color:#64748b">연간 375조, 목표주가 530,000원</div>
+    </div>
+  </div>
+</div>
+
+<!-- DRAM/NAND 가격 -->
+<div class="sec">
+  <div class="sec-h"><div class="num" style="background:#7c3aed">3</div>DRAM·NAND 가격 상승률 전망</div>
+  <p class="sec-sub">메모리 가격이 이번 슈퍼사이클을 완성하는 핵심 연료입니다.</p>
+  <div style="margin-bottom:18px">
+    <div style="font-size:13px;font-weight:700;color:#1a2332;margin-bottom:12px">2Q QoQ 가격 상승률 (트렌드포스 전망)</div>
+    <div class="price-row"><div class="price-label">DRAM</div><div class="price-bar-bg"><div class="price-bar" style="width:78%;background:#059669"><span style="color:#fff">+55~63%</span></div></div></div>
+    <div class="price-row"><div class="price-label">NAND Flash</div><div class="price-bar-bg"><div class="price-bar" style="width:94%;background:#2563eb"><span style="color:#fff">+70~75%</span></div></div></div>
+  </div>
+  <div>
+    <div style="font-size:13px;font-weight:700;color:#1a2332;margin-bottom:12px">2026년 연간 가격 상승률 (KB증권 전망)</div>
+    <div class="price-row"><div class="price-label">DRAM (YoY)</div><div class="price-bar-bg"><div class="price-bar" style="width:100%;background:#d97706"><span style="color:#451a03">+308%</span></div></div></div>
+    <div class="price-row"><div class="price-label">NAND (YoY)</div><div class="price-bar-bg"><div class="price-bar" style="width:83%;background:#7c3aed"><span style="color:#fff">+256%</span></div></div></div>
+  </div>
+  <div class="insight"><b>트렌드포스 전망:</b> 2분기 DRAM 계약가격 QoQ +58~63%, NAND +70~75% 상승. 수요 대비 공급이 역대 최저 수준으로 타이트 — 공급 부족을 우려한 고객들이 2027년 수요를 미리 접수하는 이례적 상황.</div>
+</div>
+
+<!-- HBM 세대별 비교 -->
+<div class="sec">
+  <div class="sec-h"><div class="num" style="background:#d97706">4</div>HBM 세대별 성능·공급 비교</div>
+  <p class="sec-sub">HBM4부터 삼성의 반격이 시작됐습니다. HBM3 품질 이슈 이후 복귀 완성.</p>
+  <div style="overflow-x:auto">
+    <table class="dt">
+      <thead><tr><th style="width:90px">세대</th><th style="width:110px">대역폭</th><th>삼성전자</th><th>SK하이닉스</th><th>마이크론</th></tr></thead>
+      <tbody>
+        <tr><td><b>HBM3</b><br><span style="font-size:11px;color:#94a3b8">5세대</span></td><td style="font-size:12px;color:#64748b">819 GB/s</td><td><span class="bd bd-r">품질이슈 → 2순위</span></td><td><span class="bd bd-g">1순위 공급</span></td><td><span class="bd bd-gy">공급 중</span></td></tr>
+        <tr><td><b>HBM3E</b><br><span style="font-size:11px;color:#94a3b8">5.5세대</span></td><td style="font-size:12px;color:#64748b">1.15 TB/s</td><td><span class="bd bd-b">인증 완료</span></td><td><span class="bd bd-g">시장 선도</span></td><td><span class="bd bd-b">공급 개시</span></td></tr>
+        <tr class="hl"><td><b style="color:#166534">HBM4 ★</b><br><span style="font-size:11px;color:#059669">6세대</span></td><td style="font-size:12px;color:#166534;font-weight:700">11.7+ Gbps</td><td><span class="bd bd-g">양산 출하 (2월~)</span></td><td><span class="bd bd-g">1순위 유지</span></td><td><span class="bd bd-a">2Q 목표</span></td></tr>
+        <tr><td><b>HBM4E</b><br><span style="font-size:11px;color:#94a3b8">6.5세대</span></td><td style="font-size:12px;color:#64748b">14+ Gbps 추정</td><td><span class="bd bd-a">하반기 샘플링</span></td><td><span class="bd bd-a">개발 중</span></td><td><span class="bd bd-a">개발 중</span></td></tr>
+        <tr class="dim"><td><b>HBM5</b><br><span style="font-size:11px">7세대</span></td><td style="font-size:12px">미정</td><td><span class="bd bd-gy">장기 논의 (전영현)</span></td><td><span class="bd bd-gy">장기 계획</span></td><td><span class="bd bd-gy">장기 계획</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="quote" style="margin-top:14px">
+    <p>"단기적으로 HBM4와 SOCAMM2를 안정적으로 공급하는 게 중요하다. 중장기적으로는 공동 개발을 포함한 협력 방안도 이야기했다."</p>
+    <div class="src">— 전영현 삼성전자 DS부문장 부회장, 2026.06.08 미디어 브리핑</div>
+  </div>
+</div>
+
+<!-- 연간 시나리오 -->
+<div class="sec">
+  <div class="sec-h"><div class="num" style="background:#dc2626">5</div>2026년 연간 영업이익 시나리오</div>
+  <p class="sec-sub">170조(보수적)에서 488조(초낙관)까지 — 메모리 가격의 지속성이 관건입니다.</p>
+  <div class="chart-wrap" style="height:200px"><canvas id="cScen" role="img" aria-label="시나리오별 연간 영업이익">베어 170조, 베이스 335조, 불 375조, 최강세 488조</canvas></div>
+  <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <div style="background:#f0fdf4;border:1px solid #6ee7b7;border-radius:10px;padding:12px">
+      <div style="font-size:12px;font-weight:700;color:#065f46;margin-bottom:6px">슈퍼사이클 지속 조건</div>
+      <div style="font-size:12px;color:#047857;line-height:1.8">• AI 데이터센터 투자 확대 유지<br>• 빅테크 2027년 수요 조기 접수<br>• HBM4 양산 정상화 지속<br>• DRAM +300%, NAND +250% 유지</div>
+    </div>
+    <div style="background:#fff1f2;border:1px solid #fca5a5;border-radius:10px;padding:12px">
+      <div style="font-size:12px;font-weight:700;color:#7f1d1d;margin-bottom:6px">시나리오 하락 조건</div>
+      <div style="font-size:12px;color:#991b1b;line-height:1.8">• AI 투자 버블 붕괴<br>• 메모리 가격 모멘텀 둔화<br>• 신규 팹 공급 확대 가속<br>• 미·중 반도체 추가 제재</div>
+    </div>
+  </div>
+</div>
+
+<div class="disc">⚠️ 본 콘텐츠는 삼성전자 공시, KB증권·유안타·키움·메리츠 리포트, 트렌드포스 등 공개 자료를 취합한 정보 제공 목적이며, 투자 권유가 아닙니다. 투자 결정에 따른 손익은 투자자 본인에게 귀속됩니다.</div>
+<div class="footer">
+  <div class="ht"><a href="#">#삼성전자실적</a><a href="#">#2분기전망</a><a href="#">#HBM4</a><a href="#">#반도체슈퍼사이클</a><a href="#">#DRAM가격</a><a href="#">#NAND</a><a href="#">#KB증권</a><a href="#">#키움증권</a><a href="#">#유안타증권</a><a href="#">#DS부문</a><a href="#">#57조</a><a href="#">#84조</a><a href="#">#100조</a><a href="#">#메모리가격</a><a href="#">#AI반도체</a></div>
+  <p style="margin-top:8px">ⓒ 2026 삼성전자 2분기 실적 분석 2부</p>
+</div>
+</div>
+
+<script>
+const tc='#888780', gc='rgba(136,135,128,.15)';
+
+new Chart(document.getElementById('cQ'),{
+  type:'bar',
+  data:{
+    labels:['25Q1','25Q2','25Q3','25Q4','26Q1','26Q2\n전망','26Q3\n전망','26Q4\n전망'],
+    datasets:[
+      {label:'확정',data:[6.7,4.7,9.8,20,57.2,null,null,null],backgroundColor:'#059669',borderRadius:5,borderSkipped:false},
+      {label:'컨센서스',data:[null,null,null,null,null,84,null,107],backgroundColor:'#f59e0b',borderRadius:5,borderSkipped:false},
+      {label:'키움 최고',data:[null,null,null,null,null,100,108,null],backgroundColor:'#dc2626',borderRadius:5,borderSkipped:false}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y!==null?c.parsed.y+'조 원':''}}},scales:{x:{grid:{display:false},ticks:{color:tc,font:{size:11},autoSkip:false}},y:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'조'},title:{display:true,text:'영업이익 (조 원)',color:tc,font:{size:11}}}}}
+});
+
+new Chart(document.getElementById('cCons'),{
+  type:'bar',
+  data:{
+    labels:['키움증권','유안타증권','KB증권','에프앤가이드','한국투자','메리츠'],
+    datasets:[
+      {label:'2Q 전망',data:[100,86.8,84,80,77,70],backgroundColor:['#dc2626','#059669','#2563eb','#f59e0b','#7c3aed','#94a3b8'],borderRadius:5,borderSkipped:false,yAxisID:'y'},
+      {label:'연간',data:[null,null,375,392.5,335,null],backgroundColor:'#bfdbfe',borderRadius:5,borderSkipped:false,yAxisID:'y2'}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y!==null?c.parsed.y+'조 원':''}}},scales:{x:{grid:{display:false},ticks:{color:tc,font:{size:11},autoSkip:false}},y:{position:'left',grid:{color:gc},ticks:{color:'#059669',callback:v=>v+'조'},min:0,max:120},y2:{position:'right',grid:{display:false},ticks:{color:'#2563eb',callback:v=>v+'조'},min:0,max:500}}}
+});
+
+new Chart(document.getElementById('cScen'),{
+  type:'bar',
+  data:{
+    labels:['베어케이스\n(보수)','베이스케이스\n(기본)','불케이스\n(낙관)','최강세\n(KB 2027)'],
+    datasets:[{data:[170,335,375,488],backgroundColor:['#94a3b8','#2563eb','#059669','#d97706'],borderRadius:6,borderSkipped:false}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'조 원'}}},scales:{x:{grid:{display:false},ticks:{color:tc,font:{size:11},autoSkip:false}},y:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'조'},max:550}}}
+});
+</script>
+</body>
+</html>
