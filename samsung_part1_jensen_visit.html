@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="젠슨 황 방한 완전 분석 — 이재용은 왜 없었나?"/>
+<meta property="og:description" content="2026년 6월 방한에서 이재용 삼성전자 회장이 자리에 없었던 진짜 이유, 전영현 부회장 회동 결과, 삼성·SK·현대차·LG·네이버 협력 타임라인 완전 정리"/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1200&q=80"/>
+<meta property="og:url" content="https://blog.example.com/jensen-huang-korea-2026-part1"/>
+<title>젠슨 황 방한 완전 분석 — 1부</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:#f0f4f8;color:#1a2332;line-height:1.75;font-size:15px}
+.page{max-width:880px;margin:0 auto;padding:24px 18px 56px}
+.hero{background:#0d1b2a;border-radius:16px;padding:40px 38px 32px;margin-bottom:24px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-50px;bottom:-50px;width:240px;height:240px;border-radius:50%;background:rgba(96,165,250,.06)}
+.hero-kicker{display:inline-block;background:rgba(96,165,250,.18);border:1px solid rgba(96,165,250,.35);border-radius:20px;padding:4px 14px;font-size:11px;color:#93c5fd;margin-bottom:16px;letter-spacing:.5px}
+.hero h1{font-size:25px;font-weight:800;color:#fff;line-height:1.35;margin-bottom:10px}
+.hero h1 em{color:#60a5fa;font-style:normal}
+.hero p{font-size:14px;color:#94a3b8;line-height:1.75;max-width:600px}
+.hero-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#64748b}
+.hero-meta b{color:#94a3b8}
+.sec{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:26px;margin-bottom:18px}
+.sec-h{font-size:16px;font-weight:800;color:#0d1b2a;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.sec-h .badge{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;flex-shrink:0}
+.sec-sub{font-size:13px;color:#64748b;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #f1f5f9;line-height:1.7}
+/* TIMELINE */
+.tl{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:14px}
+.tl-left{display:flex;flex-direction:column;align-items:center;min-width:56px}
+.tl-dot{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;border:2px solid transparent}
+.tl-line{width:2px;flex:1;min-height:16px;background:#e2e8f0;margin:3px 0}
+.tl-body{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:13px 15px;flex:1;margin-bottom:12px}
+.tl-date{font-size:11px;color:#94a3b8;margin-bottom:4px;font-weight:600}
+.tl-title{font-size:14px;font-weight:700;color:#1a2332;margin-bottom:5px}
+.tl-desc{font-size:12px;color:#475569;line-height:1.65}
+.tl-hl{border-color:#93c5fd;background:#eff6ff}
+/* COMPARE */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.cmp-card{border-radius:12px;padding:16px;border:1px solid}
+.cmp-kicker{font-size:11px;font-weight:700;padding:2px 9px;border-radius:10px;display:inline-block;margin-bottom:8px}
+.cmp-title{font-size:14px;font-weight:700;margin-bottom:10px}
+.cmp-row{display:flex;gap:8px;align-items:flex-start;font-size:12px;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)}
+.cmp-row:last-child{border-bottom:none}
+.cmp-ico{flex-shrink:0;margin-top:1px}
+/* CORP GRID */
+.corp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.corp-card{border:1px solid #e2e8f0;border-radius:10px;padding:13px}
+.corp-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;margin-bottom:8px}
+.corp-name{font-size:13px;font-weight:700;color:#1a2332;margin-bottom:6px}
+.corp-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.corp-meet{font-size:11px;color:#94a3b8;line-height:1.6}
+/* BD */
+.bd{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:600}
+.bd-g{background:#dcfce7;color:#166534}
+.bd-b{background:#dbeafe;color:#1e40af}
+.bd-a{background:#fef3c7;color:#92400e}
+.bd-r{background:#fee2e2;color:#991b1b}
+.bd-p{background:#ede9fe;color:#5b21b6}
+.bd-gy{background:#f1f5f9;color:#475569}
+/* QUOTE */
+.quote{background:#0d1b2a;border-radius:12px;padding:18px 22px;margin:14px 0}
+.quote p{color:#e2e8f0;font-size:14px;font-style:italic;line-height:1.8;margin-bottom:6px}
+.quote .src{color:#60a5fa;font-size:11px}
+/* INSIGHT */
+.insight{background:#f8fafc;border-left:3px solid #2563eb;border-radius:0 10px 10px 0;padding:12px 14px;font-size:13px;color:#475569;line-height:1.75;margin-top:12px}
+.insight b{color:#1a2332}
+/* FOOTER */
+.footer{text-align:center;font-size:12px;color:#94a3b8;margin-top:10px;line-height:2}
+.ht a{color:#3b82f6;text-decoration:none;margin-right:3px}
+.disc{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px 16px;font-size:12px;color:#64748b;line-height:1.75;margin-bottom:14px}
+@media(max-width:600px){.cmp,.corp-grid{grid-template-columns:1fr}.hero h1{font-size:20px}.hero{padding:28px 22px}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="hero">
+  <div class="hero-kicker">📌 1부 — 젠슨 황 방한 완전 분석</div>
+  <h1>젠슨 황이 이재용 회장을 만나지<br>않은 <em>진짜 이유</em>는?</h1>
+  <p>2026년 6월 방한에서 삼성전자 이재용 회장이 자리에 없었던 배경, 전영현 부회장 회동 결과, 삼성·SK·현대차·LG·네이버 협력 내용을 타임라인으로 정리합니다.</p>
+  <div class="hero-meta">
+    <span>📅 <b>2026년 6월 9일</b></span>
+    <span>📰 <b>파이낸셜뉴스·한국일보·뉴시스·디일렉 종합</b></span>
+  </div>
+</div>
+
+<!-- 핵심 팩트 -->
+<div class="sec">
+  <div class="sec-h"><div class="badge" style="background:#2563eb">!</div>이재용 불참 — 핵심 팩트 2가지</div>
+  <p class="sec-sub">많은 분들이 "두 사람 사이가 멀어졌나?" 걱정했지만, 사실은 정반대입니다.</p>
+  <div class="cmp">
+    <div class="cmp-card" style="border-color:#fcd34d;background:#fffbeb">
+      <div class="cmp-kicker" style="background:#fef3c7;color:#92400e">방한 불참 이유</div>
+      <div class="cmp-title" style="color:#78350f">해외 출장 일정 충돌</div>
+      <div class="cmp-row"><span class="cmp-ico">✈️</span><div style="color:#92400e">젠슨 황 방한 기간(6/5~8) 이재용 회장이 해외 출장 중. 갈등 아닌 단순 일정 충돌.</div></div>
+      <div class="cmp-row"><span class="cmp-ico">🏢</span><div style="color:#92400e">전영현 DS부문장 부회장이 공식 대표로 6월 8일 신라호텔에서 회동 진행.</div></div>
+    </div>
+    <div class="cmp-card" style="border-color:#93c5fd;background:#eff6ff">
+      <div class="cmp-kicker" style="background:#dbeafe;color:#1e40af">비공개 선행 회동 (더 중요)</div>
+      <div class="cmp-title" style="color:#1e3a5f">미국 캘리포니아 비공개 만찬</div>
+      <div class="cmp-row"><span class="cmp-ico">🇺🇸</span><div style="color:#1e40af">이재용 회장이 직접 캘리포니아를 찾아 젠슨 황과 단독 저녁 식사 — 방한 수 주 전.</div></div>
+      <div class="cmp-row"><span class="cmp-ico">🎙️</span><div style="color:#1e40af">젠슨 황이 방한 중 취재진에게 직접 공개 확인. "멋진 저녁 식사를 했다."</div></div>
+    </div>
+  </div>
+  <div class="quote">
+    <p>"(이재용 회장과는) 몇 주 전 미국 캘리포니아에서 멋진 저녁 식사를 했다."</p>
+    <div class="src">— 젠슨 황 엔비디아 CEO, 2026.06.07 취재진 질의응답</div>
+  </div>
+</div>
+
+<!-- 방한 타임라인 -->
+<div class="sec">
+  <div class="sec-h"><div class="badge" style="background:#7c3aed">2</div>2026 방한 전체 타임라인</div>
+  <p class="sec-sub">GTC 타이베이 직후 한국만을 겨냥한 순수 사업 목적 방문 — 회동 기업 9곳+.</p>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot" style="background:#dbeafe;color:#1e40af;border-color:#93c5fd">5월</div><div class="tl-line"></div></div>
+      <div class="tl-body tl-hl"><div class="tl-date">방한 수 주 전 (5월 중순 추정)</div><div class="tl-title">이재용 → 미국 캘리포니아 비공개 만찬 <span class="bd bd-b">핵심</span></div><div class="tl-desc">이재용 삼성전자 회장이 직접 실리콘밸리를 방문해 젠슨 황과 비공개 저녁 식사. HBM4E·파운드리 협력이 주요 어젠다로 추정.</div></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot" style="background:#dcfce7;color:#166534;border-color:#6ee7b7">6/1</div><div class="tl-line"></div></div>
+      <div class="tl-body"><div class="tl-date">6월 1일 — 대만 타이베이 GTC</div><div class="tl-title">한국 파트너사 핵심 관계자 사전 회식 <span class="bd bd-gy">사전 네트워킹</span></div><div class="tl-desc">SK하이닉스, 삼성전자, LG사이언스파크, 두산로보틱스, 네이버클라우드 핵심 관계자와 타이베이 현지 포차에서 방한 전 사전 논의.</div></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot" style="background:#fef3c7;color:#92400e;border-color:#fcd34d">6/5</div><div class="tl-line"></div></div>
+      <div class="tl-body"><div class="tl-date">6월 5일 — 방한 첫날</div><div class="tl-title">김포공항 입국 + T1 '페이커' 면담 <span class="bd bd-a">공식 시작</span></div><div class="tl-desc">김포비즈니스항공센터 입국. "삼성과의 미팅 예정" 현장 발언. LoL 프로게이머 이상혁(페이커) 면담. "AI 구축 가속화" 강조.</div></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot" style="background:#fef3c7;color:#92400e;border-color:#fcd34d">6/6</div><div class="tl-line"></div></div>
+      <div class="tl-body" style="border-color:#fcd34d;background:#fffbeb"><div class="tl-date">6월 6일 저녁</div><div class="tl-title">성수동 '삼소(삼겹살+소주) 회동' ⭐ <span class="bd bd-a">최대 하이라이트</span></div><div class="tl-desc">최태원 SK, 구광모 LG, 이해진 네이버, 정의선 현대차 참석. AI 반도체·로보틱스·피지컬AI·데이터센터 협력 논의. 이재용 회장 해외 출장으로 불참. 계산은 이해진 의장이 네이버페이로 결제.</div></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot" style="background:#fef3c7;color:#92400e;border-color:#fcd34d">6/7</div><div class="tl-line"></div></div>
+      <div class="tl-body"><div class="tl-date">6월 7일</div><div class="tl-title">잠실 두산베어스 시구 + 깐부치킨 2차 회동</div><div class="tl-desc">잠실경기장 프로야구 시구. 저녁 깐부치킨 삼성점에서 최태원·곽노정 SK하이닉스 사장·정재헌 SK텔레콤 사장과 치맥 회동. "SK하이닉스와 매우 큰 성과" 직접 발언.</div></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot" style="background:#dbeafe;color:#1e40af;border-color:#93c5fd">6/8</div></div>
+      <div class="tl-body" style="border-color:#93c5fd;background:#eff6ff"><div class="tl-date">6월 8일 — 방한 마지막 날</div><div class="tl-title">전영현 삼성전자 부회장 공식 회동 + 신라호텔 AI 에코시스템 간담회 <span class="bd bd-b">삼성 공식</span></div><div class="tl-desc">전영현 부회장과 HBM4·SOCAMM2·HBM4E·HBM5·파운드리(그록 LPU·자율주행 칩) 협력 심층 논의. "오늘 가장 좋은 이야기를 나눈 것 같다"고 부회장 직접 발언. 네이버 1784 방문 후 귀국.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 기업별 협력 매트릭스 -->
+<div class="sec">
+  <div class="sec-h"><div class="badge" style="background:#059669">3</div>기업별 협력 분야 매트릭스</div>
+  <p class="sec-sub">이번 방한 회동이 예정된 국내 기업만 9곳+. 기업별 어젠다를 정리합니다.</p>
+  <div class="corp-grid">
+    <div class="corp-card" style="border-color:#93c5fd">
+      <div class="corp-av" style="background:#dbeafe;color:#1e40af">삼</div>
+      <div class="corp-name">삼성전자</div>
+      <div class="corp-tags"><span class="bd bd-b">HBM4 공급</span><span class="bd bd-b">파운드리</span><span class="bd bd-b">그록 LPU</span></div>
+      <div class="corp-meet">✅ 이재용 → CA 비공개 선행 회동<br>✅ 전영현 부회장 6/8 신라호텔</div>
+    </div>
+    <div class="corp-card" style="border-color:#6ee7b7">
+      <div class="corp-av" style="background:#dcfce7;color:#166534">SK</div>
+      <div class="corp-name">SK그룹</div>
+      <div class="corp-tags"><span class="bd bd-g">HBM 1순위</span><span class="bd bd-g">AI 팩토리</span><span class="bd bd-g">AI 클라우드</span></div>
+      <div class="corp-meet">✅ 최태원·곽노정 6/7 깐부치킨<br>✅ 6/8 AI 팩토리 파트너십 발표</div>
+    </div>
+    <div class="corp-card" style="border-color:#c4b5fd">
+      <div class="corp-av" style="background:#ede9fe;color:#5b21b6">LG</div>
+      <div class="corp-name">LG그룹</div>
+      <div class="corp-tags"><span class="bd bd-p">AI 인프라</span><span class="bd bd-p">에너지</span></div>
+      <div class="corp-meet">✅ 구광모 회장 삼소 회동 참석</div>
+    </div>
+    <div class="corp-card" style="border-color:#6ee7b7">
+      <div class="corp-av" style="background:#dcfce7;color:#166534">네</div>
+      <div class="corp-name">네이버</div>
+      <div class="corp-tags"><span class="bd bd-g">AI 플랫폼</span><span class="bd bd-g">클라우드</span></div>
+      <div class="corp-meet">✅ 이해진 의장 삼소 회동<br>✅ 6/8 네이버 1784 사옥 방문</div>
+    </div>
+    <div class="corp-card" style="border-color:#fca5a5">
+      <div class="corp-av" style="background:#fee2e2;color:#991b1b">현</div>
+      <div class="corp-name">현대차그룹</div>
+      <div class="corp-tags"><span class="bd bd-r">피지컬 AI</span><span class="bd bd-r">자율주행</span><span class="bd bd-r">새만금 AI밸리</span></div>
+      <div class="corp-meet">✅ 정의선 회장 삼소·현대차 사옥</div>
+    </div>
+    <div class="corp-card" style="border-color:#fcd34d">
+      <div class="corp-av" style="background:#fef3c7;color:#92400e">두</div>
+      <div class="corp-name">두산로보틱스</div>
+      <div class="corp-tags"><span class="bd bd-a">산업 로봇</span><span class="bd bd-a">Isaac AI</span></div>
+      <div class="corp-meet">✅ 매디슨 황 4/29 사전 방문<br>✅ 회동 대상 포함</div>
+    </div>
+  </div>
+  <div class="insight"><b>핵심 결론:</b> 이재용 회장의 공개 자리 불참은 관계 소원이 아닌 일정 충돌. 오히려 공개 무대보다 먼저, 더 밀도 있는 비공개 만찬이 캘리포니아에서 이미 성사됐다. 삼성과 엔비디아의 관계는 HBM4→HBM4E→HBM5→파운드리 공동 개발로 진화하고 있다.</div>
+</div>
+
+<div class="disc">⚠️ 본 콘텐츠는 파이낸셜뉴스·한국일보·뉴시스·디일렉 등 공개 매체를 취합한 정보 제공 목적이며, 투자 권유가 아닙니다.</div>
+<div class="footer">
+  <div class="ht"><a href="#">#젠슨황방한</a><a href="#">#이재용</a><a href="#">#삼성전자</a><a href="#">#HBM4</a><a href="#">#전영현</a><a href="#">#최태원</a><a href="#">#구광모</a><a href="#">#이해진</a><a href="#">#정의선</a><a href="#">#엔비디아</a><a href="#">#깐부회동</a><a href="#">#삼소회동</a><a href="#">#AI반도체</a><a href="#">#피지컬AI</a><a href="#">#새만금AI밸리</a></div>
+  <p style="margin-top:8px">ⓒ 2026 삼성전자·엔비디아 협력 분석 1부</p>
+</div>
+</div>
+</body>
+</html>
