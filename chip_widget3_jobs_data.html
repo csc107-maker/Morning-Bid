@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026년 5월 미국 고용지표 분석 | Jobs Heat</title>
+  <meta property="og:title" content="2026년 5월 미국 고용지표 분석 — Jobs Heat" />
+  <meta property="og:description" content="5월 비농업 고용 +172K, 예상의 2배 서프라이즈 — 연준 금리 인상 가능성 50%로 급등. 상세 데이터 분석" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/1a4731/ffffff?text=US+Jobs+Heat+May+2026" />
+  <meta property="og:url" content="https://yourblog.com/us-jobs-heat-may-2026" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+      background: #f0f7f4;
+      padding: 24px 16px;
+    }
+    .wrap { max-width: 780px; margin: 0 auto; }
+
+    .header-band {
+      background: linear-gradient(135deg, #1a4731, #276749);
+      border-radius: 14px;
+      padding: 20px 24px;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .header-band .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .header-band h2 { font-size: 20px; font-weight: 900; line-height: 1.3; }
+    .header-band .sub { font-size: 13px; opacity: 0.85; margin-top: 6px; }
+
+    /* Stat row */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 480px) { .stat-row { grid-template-columns: 1fr; } }
+    .stat-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+    .stat-card .sc-label { font-size: 10px; color: #718096; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
+    .stat-card .sc-val { font-size: 28px; font-weight: 900; }
+    .sc-val.green { color: #276749; }
+    .sc-val.blue { color: #2b6cb0; }
+    .sc-val.gray { color: #4a5568; }
+    .stat-card .sc-note { font-size: 11px; color: #718096; margin-top: 5px; line-height: 1.4; }
+    .stat-card .sc-vs {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #f0fff4;
+      color: #276749;
+    }
+
+    /* Comparison bar */
+    .compare-box {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      margin-bottom: 18px;
+    }
+    .compare-box h3 { font-size: 13px; font-weight: 800; color: #2d3748; margin-bottom: 14px; }
+    .bar-row { margin-bottom: 14px; }
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #4a5568;
+      margin-bottom: 5px;
+    }
+    .bar-label .val { font-weight: 700; }
+    .bar-track {
+      background: #e2e8f0;
+      border-radius: 6px;
+      height: 14px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width 0.4s ease;
+    }
+    .bar-fill.actual { background: #276749; }
+    .bar-fill.forecast { background: #a0aec0; }
+    .bar-fill.avg3m { background: #2b6cb0; }
+    .bar-fill.breakeven { background: #e53e3e; }
+
+    /* Fed table */
+    .table-wrap {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      margin-bottom: 16px;
+    }
+    .table-wrap table { width: 100%; border-collapse: collapse; }
+    .table-wrap thead tr { background: #1a4731; color: #fff; }
+    .table-wrap thead th {
+      padding: 11px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+    }
+    .table-wrap tbody tr { border-bottom: 1px solid #e2e8f0; }
+    .table-wrap tbody tr:last-child { border-bottom: none; }
+    .table-wrap tbody tr:nth-child(even) { background: #f0fff4; }
+    .table-wrap tbody td { padding: 11px 14px; font-size: 13px; color: #2d3748; }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .tag-red { background: #fff5f5; color: #c53030; }
+    .tag-orange { background: #fffaf0; color: #c05621; }
+    .tag-blue { background: #ebf8ff; color: #2b6cb0; }
+
+    .good-news-note {
+      background: #fff3cd;
+      border-left: 4px solid #f6ad55;
+      border-radius: 0 10px 10px 0;
+      padding: 13px 16px;
+      margin-bottom: 16px;
+    }
+    .good-news-note strong { font-size: 12px; color: #c05621; display: block; margin-bottom: 4px; }
+    .good-news-note p { font-size: 13px; color: #4a5568; line-height: 1.6; }
+
+    .source-bar {
+      text-align: center;
+      font-size: 11px;
+      color: #a0aec0;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="header-band">
+      <div class="badge">② JOBS HEAT · 2026년 5월 고용 지표</div>
+      <h2>미국 고용 과열 — 예상의 2배 서프라이즈,<br>연준 금리 인상 가능성 50%로 급등</h2>
+      <div class="sub">Bureau of Labor Statistics 발표 | 2026년 6월 6일(금)</div>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="sc-label">5월 비농업 고용(NFP)</div>
+        <div class="sc-val green">+172K</div>
+        <div class="sc-note">예상치 +88,000명</div>
+        <div class="sc-vs">예상의 약 2배 ↑</div>
+      </div>
+      <div class="stat-card">
+        <div class="sc-label">실업률 (3개월 연속)</div>
+        <div class="sc-val blue">4.3%</div>
+        <div class="sc-note">변동 없이 유지</div>
+        <div class="sc-vs" style="background:#ebf8ff;color:#2b6cb0;">3개월 연속 동일</div>
+      </div>
+      <div class="stat-card">
+        <div class="sc-label">시간당 임금 증가율</div>
+        <div class="sc-val gray">+3.4%</div>
+        <div class="sc-note">전월 3.6%에서 소폭 하락</div>
+        <div class="sc-vs" style="background:#f0fff4;color:#276749;">연간 기준</div>
+      </div>
+    </div>
+
+    <!-- Bar comparison -->
+    <div class="compare-box">
+      <h3>📊 고용 수치 비교 — 숫자로 보는 과열의 정도</h3>
+      <div class="bar-row">
+        <div class="bar-label"><span>5월 실제 고용 (Actual)</span><span class="val" style="color:#276749;">+172,000명</span></div>
+        <div class="bar-track"><div class="bar-fill actual" style="width:86%;"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>월가 예상치 (Forecast)</span><span class="val" style="color:#a0aec0;">+88,000명</span></div>
+        <div class="bar-track"><div class="bar-fill forecast" style="width:44%;"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>최근 3개월 평균 (3M Avg)</span><span class="val" style="color:#2b6cb0;">+188,000명</span></div>
+        <div class="bar-track"><div class="bar-fill avg3m" style="width:94%;"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>경제 브레이크이븐 레이트 (과열 기준)</span><span class="val" style="color:#e53e3e;">0~50,000명</span></div>
+        <div class="bar-track"><div class="bar-fill breakeven" style="width:25%;"></div></div>
+      </div>
+      <p style="font-size:11px;color:#718096;margin-top:10px;">※ 브레이크이븐 레이트: 과열 없이 노동가능인구 성장을 충족하는 월 신규 고용 범위 (경제학자 추정치)</p>
+    </div>
+
+    <!-- Good news bad news -->
+    <div class="good-news-note">
+      <strong>💡 "Good News is Bad News" — 고용이 좋은데 왜 주식이 내려갈까요?</strong>
+      <p>
+        인플레이션이 완전히 잡히지 않은 상황에서 고용이 지나치게 강하면,
+        연준(Fed)이 금리를 다시 <strong>인상</strong>할 수 있다는 신호로 해석됩니다.
+        금리 인상은 기업 자금 조달 비용을 높이고 주식의 상대 매력을 낮춰 주가 하락 압력으로 이어집니다.
+      </p>
+    </div>
+
+    <!-- Fed table -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>연준(Fed) 전망 항목</th>
+            <th>변화 내용</th>
+            <th>시장 반응</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12개월 이내 금리 인상 0.25%p</td>
+            <td><strong>100% 완전 반영</strong></td>
+            <td><span class="tag tag-red">🔴 인상 기정사실화</span></td>
+          </tr>
+          <tr>
+            <td>10월 FOMC 금리 인상 가능성</td>
+            <td><strong>약 50%</strong> 수준으로 급등</td>
+            <td><span class="tag tag-red">🔴 인상 가능성 급등</span></td>
+          </tr>
+          <tr>
+            <td>미국 10년물·30년물 국채 금리</td>
+            <td><strong>급등</strong> (스파이크)</td>
+            <td><span class="tag tag-orange">🟠 채권 매도세 확산</span></td>
+          </tr>
+          <tr>
+            <td>달러/유로 환율</td>
+            <td><strong>달러 강세</strong> 전환</td>
+            <td><span class="tag tag-orange">🟠 ECB 인하 기대 반영</span></td>
+          </tr>
+          <tr>
+            <td>3~4월 고용 소급 상향수정</td>
+            <td><strong>+93,000명</strong> 추가 반영</td>
+            <td><span class="tag tag-red">🔴 과열 장기화 신호</span></td>
+          </tr>
+          <tr>
+            <td>트럼프 대통령 입장</td>
+            <td>금리 <strong>인하</strong> 촉구</td>
+            <td><span class="tag tag-blue">🔵 연준과 충돌 변수</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="source-bar">
+      <strong>출처:</strong> BLS Nonfarm Payrolls (2026.06.06) · CME FedWatch Tool · Bloomberg · Reuters Morning Bid (Mike Dolan)
+    </div>
+  </div>
+</body>
+</html>
