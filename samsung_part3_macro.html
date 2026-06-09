@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="삼성전자 거시경제 완전 분석 — 환율·금리·유가·리스크 총정리"/>
+<meta property="og:description" content="원달러 1,562원·기준금리 2.5%·WTI 60달러 — 삼성전자 실적을 둘러싼 4대 거시 변수와 리스크 vs 기회 매트릭스 완전 분석"/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80"/>
+<meta property="og:url" content="https://blog.example.com/samsung-macro-2026-part3"/>
+<title>삼성전자 거시경제 분석 — 3부</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:#f0f4f8;color:#1a2332;line-height:1.75;font-size:15px}
+.page{max-width:880px;margin:0 auto;padding:24px 18px 56px}
+.hero{background:#1a1a2e;border-radius:16px;padding:40px 38px 32px;margin-bottom:24px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;left:-40px;bottom:-40px;width:220px;height:220px;border-radius:50%;background:rgba(249,168,37,.05)}
+.hero-kicker{display:inline-block;background:rgba(249,168,37,.18);border:1px solid rgba(249,168,37,.35);border-radius:20px;padding:4px 14px;font-size:11px;color:#fcd34d;margin-bottom:16px;letter-spacing:.5px}
+.hero h1{font-size:25px;font-weight:800;color:#fff;line-height:1.35;margin-bottom:10px}
+.hero h1 em{color:#fbbf24;font-style:normal}
+.hero p{font-size:14px;color:#94a3b8;line-height:1.75;max-width:600px}
+.hero-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#64748b}
+.hero-meta b{color:#94a3b8}
+/* KPI */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:#fff;border-radius:10px;padding:14px;text-align:center;border:1px solid #e2e8f0}
+.kpi .kv{font-size:20px;font-weight:800;margin-bottom:3px}
+.kpi .kl{font-size:11px;color:#64748b;margin-bottom:4px}
+.kpi .kt{font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block}
+.t-a{background:#fef3c7;color:#92400e}.t-g{background:#dcfce7;color:#166534}.t-b{background:#dbeafe;color:#1e40af}.t-r{background:#fee2e2;color:#991b1b}
+/* SEC */
+.sec{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:26px;margin-bottom:18px}
+.sec-h{font-size:16px;font-weight:800;color:#1a1a2e;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.sec-h .num{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;flex-shrink:0}
+.sec-sub{font-size:13px;color:#64748b;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #f1f5f9;line-height:1.7}
+/* MACRO 4GRID */
+.m4{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.mc{border-radius:12px;padding:16px;border:1px solid}
+.mc-badge{font-size:11px;font-weight:700;padding:2px 9px;border-radius:10px;display:inline-block;margin-bottom:7px}
+.mc-val{font-size:22px;font-weight:800;margin-bottom:3px}
+.mc-sub{font-size:12px;margin-bottom:8px}
+.mc-desc{font-size:12px;line-height:1.65;margin-bottom:10px}
+.mc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.mc-tag{font-size:11px;padding:2px 8px;border-radius:10px}
+.gauge-bg{height:5px;border-radius:3px;background:#e2e8f0;margin-bottom:3px;overflow:hidden}
+.gauge-bar{height:100%;border-radius:3px}
+.gauge-lbl{display:flex;justify-content:space-between;font-size:10px;color:#94a3b8}
+/* IMPACT */
+.impact-sec{background:#f8fafc;border-radius:10px;padding:14px}
+.imp-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.imp-row:last-child{margin-bottom:0}
+.imp-lbl{font-size:12px;color:#64748b;width:80px;flex-shrink:0}
+.imp-bg{flex:1;height:8px;background:#fff;border-radius:4px;overflow:hidden;border:1px solid #e2e8f0}
+.imp-bar{height:100%;border-radius:4px}
+.imp-result{font-size:11px;font-weight:700;width:60px;text-align:right}
+/* RISK */
+.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.risk-col{border-radius:12px;padding:16px;border:1px solid}
+.risk-head{font-size:14px;font-weight:700;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid;display:flex;align-items:center;gap:8px}
+.risk-item{display:flex;gap:8px;align-items:flex-start;padding:8px;border-radius:8px;margin-bottom:6px}
+.risk-item:last-child{margin-bottom:0}
+.r-ico{font-size:15px;flex-shrink:0;margin-top:1px}
+.r-ttl{font-size:12px;font-weight:700;margin-bottom:2px}
+.r-desc{font-size:11px;line-height:1.6}
+/* CHART */
+.chart-wrap{position:relative;width:100%}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px;font-size:12px;color:#64748b}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:12px;height:12px;border-radius:2px;display:inline-block}
+/* QUOTE */
+.quote{background:#1a1a2e;border-radius:12px;padding:16px 20px;margin:14px 0}
+.quote p{color:#e2e8f0;font-size:14px;font-style:italic;line-height:1.8;margin-bottom:5px}
+.quote .src{color:#fbbf24;font-size:11px}
+/* SUMMARY */
+.summary{background:#1a1a2e;border-radius:12px;padding:20px 24px}
+.summary h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:14px}
+.sum-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sum-item{background:#0d1117;border-radius:8px;padding:12px;border:1px solid rgba(255,255,255,.08)}
+.sum-kicker{font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;display:inline-block;margin-bottom:5px}
+.sum-text{font-size:12px;color:#94a3b8;line-height:1.75}
+.insight{background:#f8fafc;border-left:3px solid #d97706;border-radius:0 10px 10px 0;padding:12px 14px;font-size:13px;color:#475569;line-height:1.75;margin-top:12px}
+.insight b{color:#1a2332}
+.disc{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px 16px;font-size:12px;color:#64748b;line-height:1.75;margin-bottom:14px}
+.footer{text-align:center;font-size:12px;color:#94a3b8;margin-top:10px;line-height:2}
+.ht a{color:#3b82f6;text-decoration:none;margin-right:3px}
+@media(max-width:600px){.kpi-row,.m4,.risk-grid,.sum-grid{grid-template-columns:1fr}.hero h1{font-size:20px}.hero{padding:28px 22px}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="hero">
+  <div class="hero-kicker">🌐 3부 — 거시경제 & 리스크 완전 분석</div>
+  <h1>환율 1,562원·금리 2.5%·유가 60달러<br><em>삼성전자 실적 방정식</em>을 풀다</h1>
+  <p>원달러 환율·한국은행 기준금리·WTI 유가·중동 지정학 4대 거시 변수가 삼성전자 실적에 미치는 영향과 리스크 vs 기회 매트릭스를 분석합니다.</p>
+  <div class="hero-meta">
+    <span>📅 <b>2026년 6월 9일</b></span>
+    <span>📰 <b>한국은행·수출입은행·Bloomberg·Investing.com 종합</b></span>
+  </div>
+</div>
+
+<!-- KPI -->
+<div class="kpi-row">
+  <div class="kpi"><div class="kl">원·달러 환율 (야간)</div><div class="kv" style="color:#92400e">1,562원</div><div class="kt t-a">17년 만에 고점</div></div>
+  <div class="kpi"><div class="kl">한은 기준금리</div><div class="kv" style="color:#166534">2.50%</div><div class="kt t-g">동결 유지</div></div>
+  <div class="kpi"><div class="kl">WTI 유가 2Q 전망</div><div class="kv" style="color:#166534">$60~65</div><div class="kt t-g">배럴 (수은)</div></div>
+  <div class="kpi"><div class="kl">중동 리스크</div><div class="kv" style="color:#991b1b">미·이란↑</div><div class="kt t-r">긴장 재고조</div></div>
+</div>
+
+<!-- 4대 변수 카드 -->
+<div class="sec">
+  <div class="sec-h"><div class="num" style="background:#d97706">1</div>4대 거시 변수 현황 카드</div>
+  <p class="sec-sub">환율·금리·유가·지정학 4가지 변수가 삼성전자 실적에 어떻게 작용하는지 분석합니다.</p>
+  <div class="m4">
+    <div class="mc" style="border-color:#fcd34d;background:#fffbeb">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div class="mc-badge" style="background:#fef3c7;color:#92400e">원·달러 환율</div><div class="mc-val" style="color:#92400e">1,562원</div><div class="mc-sub" style="color:#d97706">야간시장 (2026년 6월초)</div></div>
+        <div style="font-size:30px;color:#f59e0b;font-weight:700">↑</div>
+      </div>
+      <div class="mc-desc" style="color:#78350f">장중 1,549원 → 야간 1,562원. 원·유로 17년 만에 1,800원 돌파. 1분기 환이익 +1.8조 발생.</div>
+      <div class="mc-tags"><span class="mc-tag" style="background:#dcfce7;color:#166534">수출 환이익 +1.8조</span><span class="mc-tag" style="background:#fee2e2;color:#991b1b">수입 원가↑</span></div>
+      <div class="gauge-bg"><div class="gauge-bar" style="width:82%;background:#f59e0b"></div></div>
+      <div class="gauge-lbl"><span>1,100</span><span style="color:#92400e;font-weight:700">현재 1,562</span><span>1,600</span></div>
+    </div>
+    <div class="mc" style="border-color:#6ee7b7;background:#f0fdf4">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div class="mc-badge" style="background:#dcfce7;color:#065f46">기준금리</div><div class="mc-val" style="color:#065f46">2.50%</div><div class="mc-sub" style="color:#059669">2026년 1월 이후 동결</div></div>
+        <div style="font-size:30px;color:#10b981;font-weight:700">→</div>
+      </div>
+      <div class="mc-desc" style="color:#064e3b">반도체 수출 호조로 GDP 2.6% 상향. 물가 목표 수준 안정. CAPEX 재무비용 관리 가능.</div>
+      <div class="mc-tags"><span class="mc-tag" style="background:#dcfce7;color:#166534">CAPEX 안정</span><span class="mc-tag" style="background:#dcfce7;color:#166634">재무부담 제한</span></div>
+      <div class="gauge-bg"><div class="gauge-bar" style="width:42%;background:#10b981"></div></div>
+      <div class="gauge-lbl"><span>0%</span><span style="color:#065f46;font-weight:700">현재 2.5%</span><span>6%</span></div>
+    </div>
+    <div class="mc" style="border-color:#6ee7b7;background:#f0fdf4">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div class="mc-badge" style="background:#dcfce7;color:#065f46">WTI 유가</div><div class="mc-val" style="color:#065f46">$60~65</div><div class="mc-sub" style="color:#059669">배럴 (2Q 수은 전망)</div></div>
+        <div style="font-size:30px;color:#34d399;font-weight:700">↓</div>
+      </div>
+      <div class="mc-desc" style="color:#064e3b">공급과잉·지정학 완화 배경. 연평균 55달러 전망. 단, 중동 재고조로 단기 급등 리스크.</div>
+      <div class="mc-tags"><span class="mc-tag" style="background:#dcfce7;color:#166534">전력·물류 안정</span><span class="mc-tag" style="background:#fef3c7;color:#92400e">중동 리스크</span></div>
+      <div class="gauge-bg"><div class="gauge-bar" style="width:46%;background:#34d399"></div></div>
+      <div class="gauge-lbl"><span>$20</span><span style="color:#065f46;font-weight:700">현재 $60~65</span><span>$120</span></div>
+    </div>
+    <div class="mc" style="border-color:#fca5a5;background:#fff1f2">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div class="mc-badge" style="background:#fee2e2;color:#991b1b">지정학 리스크</div><div class="mc-val" style="color:#991b1b">중동 재고조</div><div class="mc-sub" style="color:#dc2626">미·이란 분쟁 장기화</div></div>
+        <div style="font-size:30px;color:#f87171;font-weight:700">!</div>
+      </div>
+      <div class="mc-desc" style="color:#7f1d1d">호르무즈 해협 리스크 상존. 유가 급등+원화 추가 약세 복합 충격. AI 심리 위축 변수.</div>
+      <div class="mc-tags"><span class="mc-tag" style="background:#fee2e2;color:#991b1b">에너지 비용↑</span><span class="mc-tag" style="background:#fee2e2;color:#991b1b">공급망 불안</span></div>
+      <div class="gauge-bg"><div class="gauge-bar" style="width:68%;background:#f87171"></div></div>
+      <div class="gauge-lbl"><span>안전</span><span style="color:#991b1b;font-weight:700">현재 위험↑</span><span>최고조</span></div>
+    </div>
+  </div>
+  <!-- 영향 강도 바 -->
+  <div class="impact-sec">
+    <div style="font-size:13px;font-weight:700;color:#1a2332;margin-bottom:12px">삼성전자 실적 영향 강도 종합</div>
+    <div class="imp-row"><span class="imp-lbl">원달러 환율</span><div class="imp-bg"><div class="imp-bar" style="width:70%;background:#f59e0b"></div></div><span class="imp-result" style="color:#d97706">단기 호재</span></div>
+    <div class="imp-row"><span class="imp-lbl">기준금리</span><div class="imp-bg"><div class="imp-bar" style="width:50%;background:#10b981"></div></div><span class="imp-result" style="color:#059669">안정 중립</span></div>
+    <div class="imp-row"><span class="imp-lbl">유가</span><div class="imp-bg"><div class="imp-bar" style="width:55%;background:#34d399"></div></div><span class="imp-result" style="color:#065f46">긍정 요인</span></div>
+    <div class="imp-row"><span class="imp-lbl">지정학</span><div class="imp-bg"><div class="imp-bar" style="width:68%;background:#f87171"></div></div><span class="imp-result" style="color:#dc2626">최대 리스크</span></div>
+  </div>
+</div>
+
+<!-- 거시 영향 차트 -->
+<div class="sec">
+  <div class="sec-h"><div class="num" style="background:#7c3aed">2</div>거시 변수별 삼성전자 실적 영향 강도 분석</div>
+  <p class="sec-sub">AI 수요와 메모리 가격이 가장 강력한 긍정 요인. 지정학이 유일한 구조적 리스크.</p>
+  <div class="legend">
+    <span><i style="background:#059669"></i>긍정 요인</span>
+    <span><i style="background:#dc2626"></i>부정 요인</span>
+  </div>
+  <div class="chart-wrap" style="height:240px"><canvas id="cMacro" role="img" aria-label="거시 변수별 영향 강도">AI수요+5, 메모리가격+5, HBM4+4, 환율효과+3, 유가안정+2, 금리동결+1, 지정학리스크-3, AI버블-2</canvas></div>
+</div>
+
+<!-- 리스크 vs 기회 -->
+<div class="sec">
+  <div class="sec-h"><div class="num" style="background:#dc2626">3</div>리스크 vs 기회 매트릭스</div>
+  <p class="sec-sub">투자자가 반드시 확인해야 할 6대 기회 요인과 6대 리스크 요인입니다.</p>
+  <div class="risk-grid">
+    <div class="risk-col" style="border-color:#6ee7b7;background:#f0fdf4">
+      <div class="risk-head" style="color:#065f46;border-bottom-color:#6ee7b7">
+        <div style="width:24px;height:24px;background:#dcfce7;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#059669;font-size:13px;flex-shrink:0">+</div>
+        기회 요인 (Bull)
+      </div>
+      <div class="risk-item" style="background:#dcfce7">
+        <span class="r-ico">🚀</span><div><div class="r-ttl" style="color:#065f46">AI 데이터센터 가속</div><div class="r-desc" style="color:#047857">빅테크 2027년 수요 미리 접수 — 공급충족률 역대 최저</div></div>
+      </div>
+      <div class="risk-item" style="background:#dcfce7">
+        <span class="r-ico">💾</span><div><div class="r-ttl" style="color:#065f46">HBM4 양산 정상화</div><div class="r-desc" style="color:#047857">엔비디아 공급망 공식 복귀, 매출 3배 이상</div></div>
+      </div>
+      <div class="risk-item" style="background:#dcfce7">
+        <span class="r-ico">📈</span><div><div class="r-ttl" style="color:#065f46">메모리 가격 급등</div><div class="r-desc" style="color:#047857">DRAM +308%, NAND +256% (KB 연간 전망)</div></div>
+      </div>
+      <div class="risk-item" style="background:#dcfce7">
+        <span class="r-ico">💱</span><div><div class="r-ttl" style="color:#065f46">고환율 환이익</div><div class="r-desc" style="color:#047857">1Q 부품 사업 환효과 +1.8조, 지속 가능</div></div>
+      </div>
+      <div class="risk-item" style="background:#dcfce7">
+        <span class="r-ico">🏭</span><div><div class="r-ttl" style="color:#065f46">파운드리 수주</div><div class="r-desc" style="color:#047857">그록 LPU·테슬라 A16·차세대 공동 개발</div></div>
+      </div>
+      <div class="risk-item" style="background:#dcfce7">
+        <span class="r-ico">📊</span><div><div class="r-ttl" style="color:#065f46">밸류에이션 저평가</div><div class="r-desc" style="color:#047857">엔비디아 대비 시총 5분의 1 — 이익 격차 축소</div></div>
+      </div>
+    </div>
+    <div class="risk-col" style="border-color:#fca5a5;background:#fff1f2">
+      <div class="risk-head" style="color:#7f1d1d;border-bottom-color:#fca5a5">
+        <div style="width:24px;height:24px;background:#fee2e2;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#dc2626;font-size:13px;flex-shrink:0">−</div>
+        리스크 요인 (Bear)
+      </div>
+      <div class="risk-item" style="background:#fee2e2">
+        <span class="r-ico">📉</span><div><div class="r-ttl" style="color:#7f1d1d">실적·주가 괴리</div><div class="r-desc" style="color:#991b1b">57조 신기록에도 주가 반응 제한 — 코리아 디스카운트</div></div>
+      </div>
+      <div class="risk-item" style="background:#fee2e2">
+        <span class="r-ico">🔄</span><div><div class="r-ttl" style="color:#7f1d1d">메모리 가격 둔화</div><div class="r-desc" style="color:#991b1b">가격 모멘텀 둔화 시 좋은 실적에도 주가 조정</div></div>
+      </div>
+      <div class="risk-item" style="background:#fee2e2">
+        <span class="r-ico">🔥</span><div><div class="r-ttl" style="color:#7f1d1d">중동 긴장 재고조</div><div class="r-desc" style="color:#991b1b">유가 급등 + 원화 추가 약세 복합 충격</div></div>
+      </div>
+      <div class="risk-item" style="background:#fee2e2">
+        <span class="r-ico">🏗️</span><div><div class="r-ttl" style="color:#7f1d1d">신규 팹 증설 지연</div><div class="r-desc" style="color:#991b1b">리드타임 이슈로 수요 폭발에 공급 대응 한계</div></div>
+      </div>
+      <div class="risk-item" style="background:#fee2e2">
+        <span class="r-ico">🫧</span><div><div class="r-ttl" style="color:#7f1d1d">AI 투자 버블 붕괴</div><div class="r-desc" style="color:#991b1b">빅테크 지출 급감 시 메모리 수요 급랭</div></div>
+      </div>
+      <div class="risk-item" style="background:#fee2e2">
+        <span class="r-ico">🔒</span><div><div class="r-ttl" style="color:#7f1d1d">미·중 반도체 제재</div><div class="r-desc" style="color:#991b1b">추가 수출 통제 시 중국향 메모리 타격</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="insight"><b>종합 판단:</b> 환율·금리·유가 3개 거시변수가 현 수준에서 삼성전자에 우호적으로 정렬. AI 수요 구조적 성장과 결합해 2분기 역대 최대 실적 경신이 유력. 단, 중동 지정학 리스크와 코리아 디스카운트는 지속 모니터링 필수.</div>
+</div>
+
+<!-- 총정리 요약 -->
+<div class="sec">
+  <div class="sec-h"><div class="num" style="background:#1a1a2e">✓</div>총정리 — 완벽한 정렬의 순간</div>
+  <p class="sec-sub">젠슨 황 방한·2분기 실적·거시경제 세 가지 이야기가 하나의 결론으로 수렴합니다.</p>
+  <div class="summary">
+    <h3>6가지 핵심 결론</h3>
+    <div class="sum-grid">
+      <div class="sum-item">
+        <div class="sum-kicker" style="background:rgba(96,165,250,.2);color:#93c5fd">① 이재용 불참</div>
+        <div class="sum-text">해외 출장으로 인한 일정 충돌. 캘리포니아 비공개 만찬이 먼저 성사 — 관계 소원 아님.</div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-kicker" style="background:rgba(52,211,153,.2);color:#6ee7b7">② 삼성 엔비디아 협력</div>
+        <div class="sum-text">전영현 부회장 "HBM4·SOCAMM2 공급, HBM4E·HBM5·파운드리 중장기 공동 개발 논의."</div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-kicker" style="background:rgba(52,211,153,.2);color:#6ee7b7">③ 1분기 신기록</div>
+        <div class="sum-text">매출 133.9조·영업이익 57.2조 (+756% YoY). 분기 역대 최대. DS 부문 53.7조 단독 견인.</div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-kicker" style="background:rgba(251,191,36,.2);color:#fcd34d">④ 2분기 전망</div>
+        <div class="sum-text">KB증권 84조, 유안타 86.8조, 키움 100조. DRAM +55~63% QoQ, NAND +70~75% 전망.</div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-kicker" style="background:rgba(249,168,37,.2);color:#fcd34d">⑤ 거시경제</div>
+        <div class="sum-text">원달러 1,562원(환이익), 기준금리 2.5% 동결(CAPEX 안정), WTI 60달러(원가 관리). 삼성에 우호적 정렬.</div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-kicker" style="background:rgba(248,113,113,.2);color:#fca5a5">⑥ 리스크</div>
+        <div class="sum-text">중동 긴장 재고조가 최대 변수. 코리아 디스카운트·메모리 가격 모멘텀 지속 여부 모니터링 필요.</div>
+      </div>
+    </div>
+  </div>
+  <div class="quote" style="margin-top:14px">
+    <p>"분기 영업이익은 1분기 57조를 저점으로 4분기 107조까지 가속 성장 구간에 진입할 전망."</p>
+    <div class="src">— KB증권 리서치센터 (2026.04)</div>
+  </div>
+</div>
+
+<div class="disc">⚠️ 본 콘텐츠는 한국은행·한국수출입은행·Bloomberg·KB증권·유안타·키움증권 등 공개 자료를 취합한 정보 제공 목적이며, 투자 권유가 아닙니다. 투자 결정에 따른 손익은 투자자 본인에게 귀속됩니다.</div>
+<div class="footer">
+  <div class="ht"><a href="#">#원달러환율</a><a href="#">#한국은행기준금리</a><a href="#">#WTI유가</a><a href="#">#중동리스크</a><a href="#">#삼성전자</a><a href="#">#거시경제분석</a><a href="#">#슈퍼사이클</a><a href="#">#AI반도체</a><a href="#">#반도체투자</a><a href="#">#삼성전자목표주가</a><a href="#">#코리아디스카운트</a><a href="#">#KB증권</a><a href="#">#리스크분석</a><a href="#">#기회요인</a><a href="#">#투자분석</a></div>
+  <p style="margin-top:8px">ⓒ 2026 삼성전자 거시경제 분석 3부</p>
+</div>
+</div>
+
+<script>
+const tc='#888780', gc='rgba(136,135,128,.15)';
+new Chart(document.getElementById('cMacro'),{
+  type:'bar',
+  data:{
+    labels:['AI 수요','메모리\n가격','HBM4\n수혜','환율\n효과','유가\n안정','금리\n동결','지정학\n리스크','AI\n버블'],
+    datasets:[{
+      data:[5,5,4,3,2,1,-3,-2],
+      backgroundColor:ctx=>ctx.parsed.y>=0?'#059669':'#dc2626',
+      borderRadius:5,borderSkipped:false,label:'영향 강도'
+    }]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'영향 강도: '+c.parsed.y}}},scales:{x:{grid:{display:false},ticks:{color:tc,font:{size:11},autoSkip:false}},y:{grid:{color:gc},min:-4,max:6,ticks:{color:tc},title:{display:true,text:'영향 강도 (긍정↑ / 부정↓)',color:tc,font:{size:11}}}}}
+});
+</script>
+</body>
+</html>
