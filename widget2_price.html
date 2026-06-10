@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026년 5월 SMP·REC 가격 동향 대시보드</title>
+  <meta property="og:title" content="2026년 5월 태양광 SMP·REC 가격 동향 및 고정가격계약 비교" />
+  <meta property="og:description" content="2026년 5월 기준 육지/제주 SMP·REC 가격과 고정가격계약·한전 요금과의 비교 분석" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=SMP+REC+가격+동향" />
+  <meta property="og:url" content="https://example.com/smp-rec-price-dashboard" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f0fdf4;
+      padding: 24px 16px;
+    }
+    .widget-wrap { max-width: 860px; margin: 0 auto; }
+    .widget-title { text-align: center; font-size: 22px; font-weight: 900; color: #1e293b; margin-bottom: 4px; }
+    .widget-subtitle { text-align: center; font-size: 13px; color: #64748b; margin-bottom: 24px; }
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .price-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      border-top: 4px solid;
+    }
+    .price-card.smp-land { border-color: #3b82f6; }
+    .price-card.smp-jeju { border-color: #6366f1; }
+    .price-card.rec-land { border-color: #10b981; }
+    .price-card.rec-jeju { border-color: #f59e0b; }
+    .price-card-top {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .price-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .smp-land .price-icon { background: #eff6ff; color: #3b82f6; }
+    .smp-jeju .price-icon { background: #eef2ff; color: #6366f1; }
+    .rec-land .price-icon { background: #ecfdf5; color: #10b981; }
+    .rec-jeju .price-icon { background: #fffbeb; color: #f59e0b; }
+    .price-label { font-size: 12px; color: #64748b; }
+    .price-main { font-size: 28px; font-weight: 900; color: #1e293b; line-height: 1; margin-bottom: 4px; }
+    .price-unit { font-size: 12px; color: #94a3b8; }
+    .price-trend {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-top: 6px;
+    }
+    .trend-up { background: #fef2f2; color: #ef4444; }
+    .trend-down { background: #f0fdf4; color: #22c55e; }
+    .trend-side { background: #f8fafc; color: #64748b; }
+    .compare-section {
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      margin-bottom: 16px;
+    }
+    .compare-title {
+      font-size: 14px; font-weight: 700; color: #1e293b; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .compare-title i { color: #6366f1; }
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .bar-label {
+      font-size: 12px; color: #475569; min-width: 150px; font-weight: 500;
+    }
+    .bar-track {
+      flex: 1;
+      height: 22px;
+      background: #f1f5f9;
+      border-radius: 11px;
+      overflow: hidden;
+      position: relative;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: flex-end;
+      padding-right: 8px;
+      font-size: 11px; font-weight: 700; color: #fff;
+      transition: width 0.8s ease;
+    }
+    .bar-fill.b1 { background: linear-gradient(90deg, #3b82f6, #2563eb); width: 78%; }
+    .bar-fill.b2 { background: linear-gradient(90deg, #10b981, #059669); width: 100%; }
+    .bar-fill.b3 { background: linear-gradient(90deg, #f59e0b, #d97706); width: 99%; }
+    .bar-fill.b4 { background: linear-gradient(90deg, #ef4444, #dc2626); width: 99.2%; }
+    .bar-val { font-size: 12px; font-weight: 700; color: #374151; min-width: 80px; text-align: right; }
+    .insight-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #ecfdf5 100%);
+      border-radius: 12px;
+      padding: 16px 20px;
+      border-left: 4px solid #3b82f6;
+    }
+    .insight-box p {
+      font-size: 12.5px; color: #374151; line-height: 1.7;
+    }
+    .insight-box strong { color: #1d4ed8; }
+    .source-note { text-align: center; font-size: 11px; color: #94a3b8; margin-top: 14px; }
+    @media (max-width: 540px) {
+      .price-grid { grid-template-columns: 1fr 1fr; }
+      .bar-label { min-width: 110px; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-wrap">
+    <div class="widget-title">📈 SMP·REC 가격 동향 대시보드</div>
+    <div class="widget-subtitle">2026년 5월 기준 | 전력거래소 공식 데이터</div>
+
+    <div class="price-grid">
+      <div class="price-card smp-land">
+        <div class="price-card-top">
+          <div class="price-icon"><i class="ti ti-bolt"></i></div>
+          <div class="price-label">SMP · 육지</div>
+        </div>
+        <div class="price-main">121<span style="font-size:18px;">.88</span></div>
+        <div class="price-unit">원 / kWh</div>
+        <div class="price-trend trend-up"><i class="ti ti-arrow-up" style="font-size:10px;"></i> 4월 대비 소폭 상승</div>
+      </div>
+
+      <div class="price-card smp-jeju">
+        <div class="price-card-top">
+          <div class="price-icon"><i class="ti ti-bolt"></i></div>
+          <div class="price-label">SMP · 제주</div>
+        </div>
+        <div class="price-main">118<span style="font-size:18px;">.97</span></div>
+        <div class="price-unit">원 / kWh</div>
+        <div class="price-trend trend-down"><i class="ti ti-arrow-down" style="font-size:10px;"></i> 봄철 발전 증가로 하락</div>
+      </div>
+
+      <div class="price-card rec-land">
+        <div class="price-card-top">
+          <div class="price-icon"><i class="ti ti-certificate"></i></div>
+          <div class="price-label">REC · 육지</div>
+        </div>
+        <div class="price-main">71,019</div>
+        <div class="price-unit">원 / 1REC</div>
+        <div class="price-trend trend-down"><i class="ti ti-arrow-down" style="font-size:10px;"></i> 공급량 증가로 완만 하락</div>
+      </div>
+
+      <div class="price-card rec-jeju">
+        <div class="price-card-top">
+          <div class="price-icon"><i class="ti ti-certificate"></i></div>
+          <div class="price-label">REC · 제주</div>
+        </div>
+        <div class="price-main">88,201</div>
+        <div class="price-unit">원 / 1REC</div>
+        <div class="price-trend trend-up"><i class="ti ti-arrow-up" style="font-size:10px;"></i> 재생에너지 비중 높아 강세</div>
+      </div>
+    </div>
+
+    <div class="compare-section">
+      <div class="compare-title">
+        <i class="ti ti-chart-bar"></i> 주요 단가 비교 (원/kWh 기준, 2026년 5월)
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">SMP (육지 현물)</div>
+        <div class="bar-track"><div class="bar-fill b1">121.88원</div></div>
+        <div class="bar-val">121.88원</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">고정가격계약 상한</div>
+        <div class="bar-track"><div class="bar-fill b2">157원</div></div>
+        <div class="bar-val">157.00원</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">직접PPA 20년 상한</div>
+        <div class="bar-track"><div class="bar-fill b3">156원</div></div>
+        <div class="bar-val">156.00원</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">한전 산업용(을) 요금</div>
+        <div class="bar-track"><div class="bar-fill b4">155.8원</div></div>
+        <div class="bar-val">155.80원</div>
+      </div>
+      <div style="font-size:11px;color:#94a3b8;margin-top:8px;">* 고정가격계약·직접PPA는 SMP 포함 합산 기준 / 한전 산업용(을) 고압A 선택3 봄·가을철 최대부하 기준 (2025.4)</div>
+    </div>
+
+    <div class="insight-box">
+      <p>
+        💡 <strong>핵심 포인트:</strong> 한전 산업용 전기요금은 2022년 대비 약 <strong>54% 급등</strong>(100.9원→155.8원)했습니다. 기업 입장에서 직접 PPA로 20년 요금을 고정하면 향후 전기요금 인상 리스크를 완전히 차단할 수 있습니다. 이것이 직접 PPA 수요가 구조적으로 증가하는 핵심 이유입니다.
+      </p>
+    </div>
+
+    <div class="source-note">📊 전력거래소 전력시장통계 · 한국에너지공단 · 한국태양에너지학회지(2025.10) 기반 정리</div>
+  </div>
+</body>
+</html>
