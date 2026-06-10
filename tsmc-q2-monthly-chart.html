@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TSMC 매출 추이 타임라인</title>
+  <meta property="og:title" content="TSMC 분기별 매출 추이 & 2분기 2026 월별 실적 타임라인" />
+  <meta property="og:description" content="TSMC 2024~2026 분기 매출 성장 추이 시각화. 2분기 4월·5월 월별 매출 포함. AI 수요로 역대 최고 실적 경신 중." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/0f766e/ffffff?text=TSMC+Revenue+Timeline" />
+  <meta property="og:url" content="https://yourblog.com/tsmc-q2-2026" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:#f0fdf4;padding:20px 14px}
+    .wrap{max-width:860px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(15,118,110,.14)}
+
+    /* HEADER */
+    .hd{background:linear-gradient(135deg,#0f766e,#065f46);padding:20px 24px;color:#fff}
+    .hd h2{font-size:1.05rem;font-weight:800}
+    .hd p{font-size:.76rem;opacity:.85;margin-top:4px}
+
+    /* CHART SECTION */
+    .cs{background:#fff;padding:20px 20px 12px}
+    .cs-title{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#6b7280;margin-bottom:14px}
+
+    /* BAR CHART — flex column-reverse trick */
+    .bar-chart{display:flex;align-items:flex-end;gap:4px;height:200px;padding:0 4px}
+    .bi{flex:1;display:flex;flex-direction:column;align-items:center;min-width:0}
+    .bi-meta{display:flex;flex-direction:column;align-items:center;gap:1px;margin-bottom:3px}
+    .bi-val{font-size:.58rem;font-weight:800;color:#1e293b;white-space:nowrap;text-align:center}
+    .bi-yoy{font-size:.54rem;font-weight:600;color:#16a34a;white-space:nowrap;text-align:center}
+    .bi-bar{width:100%;border-radius:5px 5px 0 0;min-height:6px}
+    .bi-lbl{font-size:.56rem;color:#64748b;text-align:center;margin-top:4px;line-height:1.3}
+    .axis{height:2px;background:#e2e8f0;margin:2px 0 6px}
+    .chart-note{font-size:.62rem;color:#9ca3af;margin-top:4px;line-height:1.5}
+
+    /* Q2 MONTHLY CARDS — flex 3열 */
+    .tl-section{background:#fff;border-top:1px solid #d1fae5;padding:18px 20px 20px}
+    .tl-title{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#6b7280;margin-bottom:16px}
+    .tl-cards{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+    .tl-card{width:calc(33.333% - 7px);min-width:140px;flex-shrink:0;border-radius:12px;padding:16px 14px;text-align:center;border:2px solid}
+    .tl-card.done{background:#f0fdf4;border-color:#6ee7b7}
+    .tl-card.hot{background:#ecfdf5;border-color:#34d399;position:relative}
+    .tl-card.pending{background:#f9fafb;border-color:#e5e7eb}
+    .new-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#059669;color:#fff;font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
+    .tl-month{font-size:.78rem;font-weight:700;color:#374151;margin-bottom:6px}
+    .tl-val{font-size:1.05rem;font-weight:900;color:#065f46;margin-bottom:5px}
+    .tl-yoy{display:inline-block;padding:2px 8px;border-radius:8px;font-size:.68rem;font-weight:700;background:#dcfce7;color:#166534;margin-bottom:4px}
+    .tl-mom{font-size:.65rem;color:#6b7280}
+    .tl-pend{color:#9ca3af;font-size:.78rem;font-weight:600}
+
+    /* CUMULATIVE BOX — flex 4열 */
+    .cum-box{background:linear-gradient(135deg,#ecfdf5,#d1fae5);border:1.5px solid #6ee7b7;border-radius:12px;padding:14px 16px;display:flex;flex-wrap:wrap;gap:12px}
+    .cum-item{width:calc(25% - 10px);min-width:120px;flex-shrink:0}
+    .cum-item .cl{font-size:.67rem;color:#047857;font-weight:600;margin-bottom:2px}
+    .cum-item .cv{font-size:1rem;font-weight:800;color:#065f46}
+    .cum-item .cs{font-size:.63rem;color:#6b7280;margin-top:1px}
+    .fn{text-align:center;font-size:.62rem;color:#94a3b8;margin-top:12px;line-height:1.6}
+
+    @media(max-width:580px){
+      .tl-card{width:calc(50% - 6px)}
+      .cum-item{width:calc(50% - 7px)}
+    }
+    @media(max-width:340px){
+      .tl-card,.cum-item{width:100%}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hd">
+    <h2>📈 TSMC 분기별 매출 추이 & 2분기 월별 트래킹</h2>
+    <p>2024 Q3 ~ 2026 Q2 가이던스 | AI 수요 주도 역대 최대 실적 경신 궤도</p>
+  </div>
+
+  <!-- BAR CHART -->
+  <div class="cs">
+    <div class="cs-title">분기별 매출 추이 (USD 억 달러)</div>
+    <div class="bar-chart">
+      <div class="bi">
+        <div class="bi-meta"><div class="bi-val">$235억</div><div class="bi-yoy">+36%</div></div>
+        <div class="bi-bar" style="height:90px;background:linear-gradient(180deg,#6ee7b7,#34d399)"></div>
+        <div class="bi-lbl">Q3<br/>2024</div>
+      </div>
+      <div class="bi">
+        <div class="bi-meta"><div class="bi-val">$268억</div><div class="bi-yoy">+39%</div></div>
+        <div class="bi-bar" style="height:108px;background:linear-gradient(180deg,#6ee7b7,#34d399)"></div>
+        <div class="bi-lbl">Q4<br/>2024</div>
+      </div>
+      <div class="bi">
+        <div class="bi-meta"><div class="bi-val">$256억</div><div class="bi-yoy">+35%</div></div>
+        <div class="bi-bar" style="height:103px;background:linear-gradient(180deg,#10b981,#059669)"></div>
+        <div class="bi-lbl">Q1<br/>2025</div>
+      </div>
+      <div class="bi">
+        <div class="bi-meta"><div class="bi-val">$298억</div><div class="bi-yoy">+33%</div></div>
+        <div class="bi-bar" style="height:120px;background:linear-gradient(180deg,#10b981,#059669)"></div>
+        <div class="bi-lbl">Q2<br/>2025</div>
+      </div>
+      <div class="bi">
+        <div class="bi-meta"><div class="bi-val">$330억</div><div class="bi-yoy">+39%</div></div>
+        <div class="bi-bar" style="height:133px;background:linear-gradient(180deg,#0f766e,#0d9488)"></div>
+        <div class="bi-lbl">Q3<br/>2025</div>
+      </div>
+      <div class="bi">
+        <div class="bi-meta"><div class="bi-val">$337억</div><div class="bi-yoy">+37%</div></div>
+        <div class="bi-bar" style="height:138px;background:linear-gradient(180deg,#0f766e,#0d9488)"></div>
+        <div class="bi-lbl">Q4<br/>2025</div>
+      </div>
+      <div class="bi">
+        <div class="bi-meta">
+          <div class="bi-val" style="color:#1a56db">$359억 ✓</div>
+          <div class="bi-yoy" style="color:#1a56db">+41%</div>
+        </div>
+        <div class="bi-bar" style="height:155px;background:linear-gradient(180deg,#1a56db,#1d4ed8)"></div>
+        <div class="bi-lbl" style="color:#1a56db;font-weight:700">Q1<br/>2026</div>
+      </div>
+      <div class="bi">
+        <div class="bi-meta">
+          <div class="bi-val" style="color:#7c3aed">~$396억*</div>
+          <div class="bi-yoy" style="color:#7c3aed">+32%</div>
+        </div>
+        <div class="bi-bar" style="height:168px;background:rgba(124,58,237,.2);border:2.5px dashed #7c3aed;border-bottom:none;border-radius:5px 5px 0 0"></div>
+        <div class="bi-lbl" style="color:#7c3aed;font-weight:700">Q2<br/>2026*</div>
+      </div>
+    </div>
+    <div class="axis"></div>
+    <div class="chart-note">
+      🔵 파란색: Q1 2026 실제 실적 | 🟣 점선: Q2 2026 가이던스 중간값 ($39.0~40.2B)<br/>
+      * Q2 2026 실제 발표: 2026년 7월 중순 예정
+    </div>
+  </div>
+
+  <!-- Q2 MONTHLY CARDS -->
+  <div class="tl-section">
+    <div class="tl-title">2분기 월별 매출 트래킹 (NT$ 기준)</div>
+    <div class="tl-cards">
+      <!-- April -->
+      <div class="tl-card done">
+        <div class="tl-month">📅 4월 2026</div>
+        <div class="tl-val">NT$4,107B</div>
+        <span class="tl-yoy">YoY +17.5%</span>
+        <div class="tl-mom">MoM -1.1% | 5월 8일 발표</div>
+      </div>
+      <!-- May — HOT: just released today -->
+      <div class="tl-card hot" style="position:relative">
+        <div class="new-badge">🔥 오늘 발표!</div>
+        <div class="tl-month">📅 5월 2026</div>
+        <div class="tl-val">NT$4,170B</div>
+        <span class="tl-yoy">YoY +30.1%</span>
+        <div class="tl-mom">MoM +1.5% | 6월 10일 발표</div>
+      </div>
+      <!-- June — pending -->
+      <div class="tl-card pending">
+        <div class="tl-month">📅 6월 2026</div>
+        <div class="tl-pend">발표 예정</div>
+        <br/>
+        <div style="font-size:.67rem;color:#9ca3af;margin-top:4px">7월 10일 발표 예정</div>
+      </div>
+    </div>
+
+    <!-- CUMULATIVE BOX -->
+    <div class="cum-box">
+      <div class="cum-item">
+        <div class="cl">4~5월 누적 매출</div>
+        <div class="cv">NT$8,277B</div>
+        <div class="cs">약 $26.1B USD</div>
+      </div>
+      <div class="cum-item">
+        <div class="cl">Q2 가이던스 중간값</div>
+        <div class="cv">$39.6B</div>
+        <div class="cs">NT$1조 2,540B 수준</div>
+      </div>
+      <div class="cum-item">
+        <div class="cl">가이던스 달성률</div>
+        <div class="cv">~65%</div>
+        <div class="cs">6월 발표 후 확정</div>
+      </div>
+      <div class="cum-item">
+        <div class="cl">Q2 실적 발표일</div>
+        <div class="cv">7월 중순</div>
+        <div class="cs">컨퍼런스 콜 포함</div>
+      </div>
+    </div>
+    <div class="fn">
+      ※ 출처: TSMC 공식 IR(investor.tsmc.com), SEC 6-K 공시, Investing.com<br/>
+      ※ NT$ = 대만달러 | 환율 1USD ≈ 31.7 NT$ 기준 | 본 자료는 투자 참고용입니다.
+    </div>
+  </div>
+</div>
+</body>
+</html>
