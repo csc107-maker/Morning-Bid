@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026.06.10 투자자별 수급 분석</title>
+  <meta property="og:title" content="2026.06.10 코스피 투자자별 수급 분석 | 개인 4.7조 vs 외국인·기관 5조 대결" />
+  <meta property="og:description" content="오늘 코스피 수급: 개인 +4.72조 순매수, 외국인 -3.48조, 기관 -1.50조 순매도. 스마트머니의 지속 이탈 분석." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/2D3748/FFFFFF?text=Investor+Flow+Analysis+June+10" />
+  <meta property="og:url" content="https://yourblog.com/kospi-flow-20260610" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', -apple-system, sans-serif;
+      background: #F7F9FC;
+      padding: 0;
+    }
+    .wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 16px 24px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: #2D3748;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .header h2 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #1A1A2E;
+      margin-bottom: 4px;
+    }
+    .header p { font-size: 12px; color: #666; }
+    .flow-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin-bottom: 12px;
+    }
+    .flow-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #F0F0F0;
+    }
+    .investor-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .investor-row:last-child { margin-bottom: 0; }
+    .investor-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .investor-icon.individual { background: #EBF4FF; }
+    .investor-icon.foreign { background: #FFF5F5; }
+    .investor-icon.institution { background: #FFF5F5; }
+    .investor-info { flex: 1; }
+    .investor-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1A1A2E;
+      margin-bottom: 6px;
+    }
+    .bar-wrap {
+      position: relative;
+      height: 18px;
+      background: #F5F5F5;
+      border-radius: 9px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 9px;
+      position: absolute;
+      top: 0;
+    }
+    .bar-fill.buy {
+      background: linear-gradient(90deg, #4299E1, #2B6CB0);
+      left: 0;
+    }
+    .bar-fill.sell {
+      background: linear-gradient(90deg, #FC8181, #E53E3E);
+      right: 0;
+    }
+    .investor-amount {
+      font-size: 16px;
+      font-weight: 900;
+      text-align: right;
+      min-width: 130px;
+    }
+    .investor-amount.buy { color: #2B6CB0; }
+    .investor-amount.sell { color: #E53E3E; }
+    .investor-sub {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 2px;
+      text-align: right;
+    }
+    /* Battle visualization */
+    .battle-box {
+      background: linear-gradient(135deg, #EBF8FF, #F0FFF4);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      border: 1.5px solid #BEE3F8;
+    }
+    .battle-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #2C5282;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .battle-meter {
+      display: flex;
+      height: 24px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .battle-buy {
+      background: linear-gradient(90deg, #4299E1, #2B6CB0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 0 8px;
+    }
+    .battle-sell {
+      background: linear-gradient(90deg, #FC8181, #E53E3E);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 0 8px;
+    }
+    .battle-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #555;
+    }
+    .insight-box {
+      background: #FFFBEB;
+      border: 1.5px solid #FAD463;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .insight-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #744210;
+      margin-bottom: 6px;
+    }
+    .insight-text {
+      font-size: 12px;
+      color: #5A3E28;
+      line-height: 1.65;
+    }
+    .kosdaq-section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+      margin-bottom: 12px;
+    }
+    .kosdaq-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .kosdaq-rows {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+    .k-item {
+      text-align: center;
+      padding: 8px 6px;
+      border-radius: 8px;
+      background: #F9FAFC;
+    }
+    .k-label { font-size: 10px; color: #999; margin-bottom: 3px; }
+    .k-val { font-size: 13px; font-weight: 800; }
+    .k-val.blue { color: #2B6CB0; }
+    .k-val.red { color: #E53E3E; }
+    .footer-note {
+      font-size: 10.5px;
+      color: #aaa;
+      text-align: center;
+      padding-top: 8px;
+      border-top: 1px solid #E8EDF5;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="badge">💰 수급 분석</div>
+      <h2>개인 vs 외국인·기관 — 오늘의 대결</h2>
+      <p>2026년 6월 10일 코스피 투자자별 순매수·매도 현황</p>
+    </div>
+
+    <div class="flow-card">
+      <div class="flow-title">▶ 코스피 투자자별 수급 (오후 마감 기준)</div>
+
+      <!-- Individual -->
+      <div class="investor-row">
+        <div class="investor-icon individual">👤</div>
+        <div class="investor-info">
+          <div class="investor-name">개인 투자자</div>
+          <div class="bar-wrap">
+            <div class="bar-fill buy" style="width:47%;"></div>
+          </div>
+        </div>
+        <div>
+          <div class="investor-amount buy">+4조 7,221억</div>
+          <div class="investor-sub">순매수 ▲</div>
+        </div>
+      </div>
+
+      <!-- Foreign -->
+      <div class="investor-row">
+        <div class="investor-icon foreign">🌏</div>
+        <div class="investor-info">
+          <div class="investor-name">외국인 투자자</div>
+          <div class="bar-wrap">
+            <div class="bar-fill sell" style="width:35%;"></div>
+          </div>
+        </div>
+        <div>
+          <div class="investor-amount sell">-3조 4,821억</div>
+          <div class="investor-sub">순매도 ▼</div>
+        </div>
+      </div>
+
+      <!-- Institution -->
+      <div class="investor-row">
+        <div class="investor-icon institution">🏢</div>
+        <div class="investor-info">
+          <div class="investor-name">기관 투자자</div>
+          <div class="bar-wrap">
+            <div class="bar-fill sell" style="width:15%;"></div>
+          </div>
+        </div>
+        <div>
+          <div class="investor-amount sell">-1조 4,955억</div>
+          <div class="investor-sub">순매도 ▼</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Battle Meter -->
+    <div class="battle-box">
+      <div class="battle-title">📊 매수/매도 힘 대결 (비례 표현)</div>
+      <div class="battle-meter">
+        <div class="battle-buy" style="width:48%;">개인 4.7조 ▶</div>
+        <div class="battle-sell" style="width:52%;">◀ 외인+기관 5조</div>
+      </div>
+      <div class="battle-labels">
+        <span>🔵 개인: 순매수 4조 7,221억</span>
+        <span>🔴 외인+기관: 순매도 4조 9,776억</span>
+      </div>
+    </div>
+
+    <!-- Insight -->
+    <div class="insight-box">
+      <div class="insight-title">⚠️ 심층 해석: 왜 이 수급이 위험 신호인가?</div>
+      <div class="insight-text">
+        개인이 역대급 순매수를 기록했음에도 지수는 -4.52% 하락했습니다. 이는 외국인의 매도 물량이 개인의 매수 능력을 압도했다는 의미입니다.<br/><br/>
+        <strong>외국인은 현재 20거래일 연속 순매도</strong> 중으로 알려졌습니다. 이는 일시적 패닉이 아닌 <strong>구조적 포지션 축소</strong>의 성격입니다. 원달러 환율 1,524원 수준은 외국인의 달러 기준 수익률을 지속적으로 깎아내리고 있습니다. 개인의 적극적 저가매수가 '저점 매수 기회'인지, '위험 구간에서의 역행'인지는 향후 외국인 매도 지속 여부에 달려 있습니다.
+      </div>
+    </div>
+
+    <!-- KOSDAQ flows -->
+    <div class="kosdaq-section">
+      <div class="kosdaq-title">▶ 코스닥 수급 (-1.67% 마감)</div>
+      <div class="kosdaq-rows">
+        <div class="k-item">
+          <div class="k-label">외국인</div>
+          <div class="k-val red">-2,860억</div>
+        </div>
+        <div class="k-item">
+          <div class="k-label">개인</div>
+          <div class="k-val blue">+2,771억</div>
+        </div>
+        <div class="k-item">
+          <div class="k-label">기관</div>
+          <div class="k-val blue">+60억</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#888;margin-top:8px;text-align:center;">
+        코스닥은 외국인 노출 낮아 코스피 대비 낙폭 제한
+      </div>
+    </div>
+
+    <div class="footer-note">
+      출처: 아시아경제·뉴스핌 (2026.06.10 마감 기준) | 투자 권유 아님
+    </div>
+  </div>
+</body>
+</html>
