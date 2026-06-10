@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TSMC 실적 분석 카드 | 2026.06.10</title>
+  <meta property="og:title" content="TSMC 2026년 Q1 실적 & 5월 매출 전망 분석" />
+  <meta property="og:description" content="TSMC Q1 2026 매출 $35.9B(+40.6% y/y), 순이익 +58.3%. Q2 가이던스 $39~40.2B. AI·HPC 매출 61%. 5월 매출 오늘 발표." />
+  <meta property="og:image" content="https://your-blog.com/images/tsmc-performance-2026.png" />
+  <meta property="og:url" content="https://your-blog.com/investment-report-20260610" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.2.0/dist/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd 0%, #e8eaf6 100%);
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .widget {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+    .widget-header {
+      background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+      color: #fff;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .widget-header .icon-wrap {
+      background: rgba(255,255,255,0.18);
+      border-radius: 50%;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .widget-header h2 { font-size: 18px; font-weight: 700; line-height: 1.35; }
+    .widget-header .sub { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+    .widget-body { padding: 24px 28px; }
+    .section-title {
+      font-size: 14px; font-weight: 700; color: #0d47a1;
+      margin: 16px 0 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .kpi-card {
+      background: #e3f2fd;
+      border-radius: 10px;
+      padding: 14px 12px;
+      text-align: center;
+      border: 1px solid #bbdefb;
+    }
+    .kpi-card .label { font-size: 11.5px; color: #546e7a; margin-bottom: 5px; font-weight: 500; }
+    .kpi-card .value { font-size: 22px; font-weight: 800; color: #0d47a1; line-height: 1; }
+    .kpi-card .value.green { color: #2e7d32; }
+    .kpi-card .note { font-size: 11px; color: #90a4ae; margin-top: 3px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    thead tr { background: #e3f2fd; }
+    thead th { padding: 10px 12px; text-align: left; color: #0d47a1; font-weight: 700; font-size: 12px; }
+    tbody tr { border-bottom: 1px solid #f5f5f5; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 10px 12px; color: #37474f; line-height: 1.5; }
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 20px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9px; top: 6px; bottom: 6px;
+      width: 2px;
+      background: #90caf9;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 14px;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -19px; top: 5px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #1565c0;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #1565c0;
+    }
+    .tl-item .date { font-size: 11px; color: #90a4ae; font-weight: 600; margin-bottom: 2px; }
+    .tl-item .text { font-size: 13px; color: #37474f; line-height: 1.5; }
+    .tl-item .text strong { color: #0d47a1; }
+    .chip-pie {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .chip-seg {
+      border-radius: 8px;
+      padding: 10px 14px;
+      text-align: center;
+      min-width: 80px;
+    }
+    .chip-seg .pct { font-size: 22px; font-weight: 800; }
+    .chip-seg .nm { font-size: 11px; margin-top: 2px; }
+    .chip-seg.s3 { background: #1565c0; color: #fff; flex: 1; }
+    .chip-seg.s5 { background: #1976d2; color: #fff; flex: 2; }
+    .chip-seg.s7 { background: #1e88e5; color: #fff; flex: 1; }
+    .chip-seg.other { background: #e3f2fd; color: #546e7a; flex: 1.5; }
+    .guidance-box {
+      background: #f3e5f5;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      border-left: 5px solid #7b1fa2;
+    }
+    .guidance-box .title { font-size: 13px; font-weight: 700; color: #6a1b9a; margin-bottom: 8px; }
+    .guidance-box .row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .guidance-box .key { font-size: 12.5px; color: #546e7a; }
+    .guidance-box .val { font-size: 12.5px; font-weight: 700; color: #4a148c; }
+    .risk-box {
+      background: #fff8e1;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      font-size: 12.5px;
+      color: #5d4037;
+      border-left: 4px solid #ff8f00;
+      line-height: 1.7;
+    }
+    .source {
+      background: #f5f5f5;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 11px;
+      color: #90a4ae;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget">
+    <div class="widget-header">
+      <div class="icon-wrap"><i class="ti ti-cpu"></i></div>
+      <div>
+        <h2>TSMC 실적 & 매출 분석 | AI 수요 고속 성장</h2>
+        <div class="sub">TWSE: 2330 | NYSE: TSM | Q1 2026 확정 + 5월 매출 오늘 발표 예정</div>
+      </div>
+    </div>
+    <div class="widget-body">
+
+      <div class="section-title"><i class="ti ti-chart-bar"></i> Q1 2026 핵심 실적 지표</div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="label">Q1 매출 (달러)</div>
+          <div class="value">$35.9B</div>
+          <div class="note">+40.6% y/y</div>
+        </div>
+        <div class="kpi-card">
+          <div class="label">순이익 성장</div>
+          <div class="value green">+58.3%</div>
+          <div class="note">NT$572.48억</div>
+        </div>
+        <div class="kpi-card">
+          <div class="label">총이익률</div>
+          <div class="value">66.2%</div>
+          <div class="note">역대 최고 수준</div>
+        </div>
+        <div class="kpi-card">
+          <div class="label">영업이익률</div>
+          <div class="value">58.1%</div>
+          <div class="note">OPM 사상 최고</div>
+        </div>
+        <div class="kpi-card">
+          <div class="label">EPS (ADR)</div>
+          <div class="value">$3.49</div>
+          <div class="note">NT$22.08/주</div>
+        </div>
+        <div class="kpi-card">
+          <div class="label">AI·HPC 매출 비중</div>
+          <div class="value">61%</div>
+          <div class="note">전체 매출 중</div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-layers-intersect"></i> 공정별 웨이퍼 매출 구성 (Q1 2026)</div>
+      <div class="chip-pie">
+        <div class="chip-seg s3">
+          <div class="pct">25%</div>
+          <div class="nm">3nm</div>
+        </div>
+        <div class="chip-seg s5">
+          <div class="pct">36%</div>
+          <div class="nm">5nm</div>
+        </div>
+        <div class="chip-seg s7">
+          <div class="pct">13%</div>
+          <div class="nm">7nm</div>
+        </div>
+        <div class="chip-seg other">
+          <div class="pct">26%</div>
+          <div class="nm">7nm 이상</div>
+        </div>
+      </div>
+      <div style="font-size:11.5px; color:#546e7a; margin-bottom:18px; padding: 8px 12px; background:#f5f5f5; border-radius:6px;">
+        📌 <strong>첨단 공정(7nm 이하) 비중 74%</strong>. 5nm가 36%로 최대. 3nm(25%) 급성장 중. AI 가속기·스마트폰 AP 수요가 주도.
+      </div>
+
+      <div class="guidance-box">
+        <div class="title">📊 Q2 2026 경영진 가이던스</div>
+        <div class="row"><div class="key">Q2 매출 가이던스</div><div class="val">USD 390~402억</div></div>
+        <div class="row"><div class="key">총이익률 가이던스</div><div class="val">65.5~67.5%</div></div>
+        <div class="row"><div class="key">영업이익률 가이던스</div><div class="val">56.5~58.5%</div></div>
+        <div class="row"><div class="key">2026 연간 성장 목표</div><div class="val">달러 기준 +30% 이상</div></div>
+        <div class="row"><div class="key">환율 가정</div><div class="val">USD 1 = NTD 31.7</div></div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-timeline"></i> 월간 매출 추이 & 5월 전망</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="date">2026년 1월</div>
+          <div class="text"><strong>NT$3,877억</strong> | 1~4월 누계 시작. 강한 AI 수요 기반.</div>
+        </div>
+        <div class="tl-item">
+          <div class="date">2026년 2월</div>
+          <div class="text">월간 변동 (설 연휴 영업일 감소). 연간 성장세 유지.</div>
+        </div>
+        <div class="tl-item">
+          <div class="date">2026년 3월</div>
+          <div class="text"><strong>NT$4,152억</strong> (추정) | Q1 최대 월간 매출.</div>
+        </div>
+        <div class="tl-item">
+          <div class="date">2026년 4월</div>
+          <div class="text"><strong>NT$4,107억</strong> (+17.5% y/y, -1.1% m/m) | 6개월래 최저 성장률. 분기 초반 조정.</div>
+        </div>
+        <div class="tl-item" style="opacity:0.75">
+          <div class="date">2026년 5월 (오늘 발표)</div>
+          <div class="text"><strong>NT$4,200~4,500억 예상</strong> | Q2 가이던스 달성 위해 5~6월 가속 필요. 분기 컨센서스는 ~35% 성장.</div>
+        </div>
+      </div>
+
+      <div class="risk-box">
+        ⚠️ <strong>중동 분쟁 공급망 리스크:</strong> 헬륨·수소 등 특수 가스 공급 차질 우려. 그러나 TSMC 경영진은 "다수 공급원 확보 및 안전 재고 유지로 단기 영향 없다" 확인. 에너지 비용 상승은 중장기 마진 압박 요인.
+      </div>
+
+      <div class="section-title"><i class="ti ti-table"></i> 분기별 실적 추이</div>
+      <table>
+        <thead>
+          <tr>
+            <th>분기</th>
+            <th>매출 (USD)</th>
+            <th>y/y 성장</th>
+            <th>순이익 성장</th>
+            <th>총이익률</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Q1 2025</td>
+            <td>$25.5B</td>
+            <td>—</td>
+            <td>—</td>
+            <td>58.8%</td>
+          </tr>
+          <tr>
+            <td>Q2 2025</td>
+            <td>$28.2B</td>
+            <td>+36.0%</td>
+            <td>—</td>
+            <td>61.5%</td>
+          </tr>
+          <tr>
+            <td>Q3 2025</td>
+            <td>$32.1B</td>
+            <td>+39.0%</td>
+            <td>—</td>
+            <td>63.5%</td>
+          </tr>
+          <tr>
+            <td>Q4 2025</td>
+            <td>$33.8B</td>
+            <td>+38.8%</td>
+            <td>—</td>
+            <td>64.9%</td>
+          </tr>
+          <tr>
+            <td style="color:#0d47a1;font-weight:700">Q1 2026 (확정)</td>
+            <td style="font-weight:700">$35.9B</td>
+            <td style="color:#2e7d32;font-weight:700">+40.6%</td>
+            <td style="color:#2e7d32;font-weight:700">+58.3%</td>
+            <td style="font-weight:700">66.2%</td>
+          </tr>
+          <tr style="background:#e3f2fd">
+            <td style="color:#7b1fa2;font-weight:700">Q2 2026 (가이던스)</td>
+            <td style="font-weight:700">$39~40.2B</td>
+            <td style="color:#7b1fa2;font-weight:700">~35%+</td>
+            <td>—</td>
+            <td>65.5~67.5%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="source">
+        📊 데이터 출처: TSMC 공식 실적 발표 (2026.04.16) | TSMC 4월 월간 매출 보고 (2026.05.08) | CNBC | Bloomberg | SEC Form 6-K | StockTitan
+      </div>
+    </div>
+  </div>
+</body>
+</html>
