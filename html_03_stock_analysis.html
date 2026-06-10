@@ -3,159 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="2026년 6월 10일 추천 종목 분석 — SK하이닉스·삼성전자·한화에어로스페이스" />
-  <meta property="og:description" content="AI메모리 슈퍼사이클 수혜주 SK하이닉스(HBM4), 극저평가 삼성전자(PER 4.5배), 방산 수출 한화에어로스페이스 완전 분석 카드" />
-  <meta property="og:image" content="https://via.placeholder.com/1200x630/faf5ff/6d28d9?text=2026.06.10+Stock+Analysis" />
+  <meta property="og:title" content="2026.06.11 오늘의 추천 종목 분석 — SK하이닉스·한화에어로스페이스" />
+  <meta property="og:description" content="HBM4 슈퍼사이클 수혜주 SK하이닉스 PER 13.27배, 한화에어로스페이스 목표주가 174만원. 오늘 코스피 추천 종목 상세 분석" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/7c3aed/ffffff?text=2026.06.11+추천+종목+분석" />
   <meta property="og:url" content="https://blog.naver.com/csc107" />
-  <title>종목 분석 카드 — 2026.06.10</title>
+  <title>2026.06.11 추천 종목 분석</title>
+  <!-- [삽입 위치] 추천 종목 섹션 직후 -->
   <style>
     * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:#faf5ff; padding:20px; }
-    .container { max-width:900px; margin:0 auto; }
-    .header { text-align:center; margin-bottom:24px; }
-    .header h2 { font-size:1.3rem; font-weight:800; color:#4c1d95; margin-bottom:6px; }
-    .header p { font-size:.82rem; color:#7c3aed; }
-    .stock-card { background:#fff; border-radius:16px; padding:24px; margin-bottom:20px; box-shadow:0 2px 14px rgba(109,40,217,.1); border-top:5px solid #8b5cf6; }
-    .stock-card.hynix { border-top-color:#0ea5e9; }
-    .stock-card.samsung { border-top-color:#f59e0b; }
-    .stock-card.hanwha { border-top-color:#10b981; }
-    .stock-header { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:16px; }
-    .stock-info { }
-    .stock-ticker { font-size:.72rem; font-weight:800; color:#94a3b8; letter-spacing:.08em; margin-bottom:4px; }
-    .stock-name { font-size:1.2rem; font-weight:900; color:#1e293b; margin-bottom:6px; }
-    .stock-sector { font-size:.75rem; color:#64748b; }
-    .rating-box { text-align:center; background:#f8fafc; border-radius:10px; padding:10px 16px; min-width:100px; }
-    .rating-label { font-size:.68rem; color:#94a3b8; font-weight:700; margin-bottom:4px; }
-    .rating-value { font-size:1.1rem; font-weight:900; color:#7c3aed; }
-    .table-wrap { overflow-x:auto; margin:16px 0; }
-    table { width:100%; border-collapse:collapse; font-size:.8rem; }
-    th { background:#f8fafc; color:#475569; font-weight:700; padding:8px 12px; text-align:left; border-bottom:2px solid #e2e8f0; }
-    td { padding:8px 12px; color:#334155; border-bottom:1px solid #f1f5f9; }
-    tr:last-child td { border-bottom:none; }
-    .highlight { color:#7c3aed; font-weight:800; }
-    .tags-row { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 8px; }
-    .tag { padding:4px 12px; border-radius:999px; font-size:.73rem; font-weight:700; }
-    .tag-buy { background:#dcfce7; color:#15803d; }
-    .tag-risk { background:#fee2e2; color:#b91c1c; }
-    .desc { font-size:.8rem; color:#475569; line-height:1.7; margin-top:10px; }
-    .footer-note { text-align:center; font-size:.72rem; color:#94a3b8; margin-top:16px; line-height:1.6; }
-    @media(max-width:520px){ .stock-name{font-size:1rem;} table{font-size:.73rem;} }
+    body { font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:transparent; }
+    .container { max-width:780px; margin:0 auto; padding:20px 16px; }
+    .header {
+      background:linear-gradient(135deg,#7c3aed,#a855f7);
+      border-radius:16px; padding:18px 22px; color:white; margin-bottom:20px; text-align:center;
+    }
+    .header h2 { font-size:17px; font-weight:700; margin-bottom:4px; }
+    .header p  { font-size:12px; opacity:.85; }
+    .stock-card {
+      background:white; border-radius:16px; padding:20px;
+      box-shadow:0 3px 16px rgba(0,0,0,.08); margin-bottom:20px;
+      border-top:5px solid var(--accent,#7c3aed);
+    }
+    .stock-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+    .stock-icon { width:44px; height:44px; border-radius:10px; background:var(--accent,#7c3aed); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+    .stock-name { font-size:17px; font-weight:800; color:#111827; }
+    .stock-ticker { font-size:12px; color:#6b7280; margin-top:2px; }
+    .badge {
+      font-size:10px; font-weight:700; padding:3px 9px; border-radius:20px;
+      display:inline-block; margin-left:auto;
+    }
+    .badge-buy { background:#dcfce7; color:#15803d; }
+    table { width:100%; border-collapse:collapse; margin-bottom:14px; font-size:13px; }
+    th { background:#f8fafc; color:#374151; font-weight:700; padding:8px 10px; text-align:left; border-bottom:1px solid #e5e7eb; }
+    td { padding:8px 10px; border-bottom:1px solid #f3f4f6; color:#374151; }
+    td:last-child { font-weight:700; color:#111827; text-align:right; }
+    .tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+    .tag-green { background:#dcfce7; color:#15803d; font-size:11px; font-weight:600; padding:3px 9px; border-radius:20px; }
+    .tag-red   { background:#fee2e2; color:#dc2626; font-size:11px; font-weight:600; padding:3px 9px; border-radius:20px; }
+    .section-label { font-size:12px; font-weight:700; color:#6b7280; margin-bottom:8px; }
+    .footer-note { margin-top:16px; font-size:11px; color:#9ca3af; text-align:center; }
+    @media(max-width:480px){ td, th { font-size:11px; padding:6px 8px; } }
   </style>
 </head>
 <body>
-<!-- [삽입 위치: 추천 종목 분석 섹션 직후 — PER·PBR·ROE 종목 분석 카드] -->
 <div class="container">
+
   <div class="header">
-    <h2>🎯 2026.06.10 추천 관심 종목 분석</h2>
-    <p>글로벌 지표·뉴스 종합 분석 기반 · 투자 참고용 정보입니다</p>
+    <h2>📌 2026.06.11 추천 종목 분석</h2>
+    <p>기준: 2026년 6월 10일 종가 / 출처: CNBC, AInvest, Yahoo Finance, AlphaSpread</p>
   </div>
 
   <!-- SK하이닉스 -->
-  <div class="stock-card hynix">
+  <div class="stock-card" style="--accent:#3b82f6">
     <div class="stock-header">
-      <div class="stock-info">
-        <div class="stock-ticker">KRX: 000660</div>
+      <div class="stock-icon">🧠</div>
+      <div>
         <div class="stock-name">SK하이닉스</div>
-        <div class="stock-sector">반도체 / AI메모리 / HBM4</div>
+        <div class="stock-ticker">KRX: 000660 | HBM4 NVIDIA 1위 공급사</div>
       </div>
-      <div class="rating-box">
-        <div class="rating-label">애널리스트 평가</div>
-        <div class="rating-value">강력 매수</div>
-      </div>
+      <span class="badge badge-buy">강력 매수</span>
     </div>
-    <div class="tags-row">
-      <span class="tag tag-buy">✅ HBM 2026 완판</span>
-      <span class="tag tag-buy">✅ 엔비디아 HBM4 파트너</span>
-      <span class="tag tag-buy">✅ 시총 1조 달러 돌파</span>
-      <span class="tag tag-buy">✅ 외국인 집중 매수</span>
-      <span class="tag tag-risk">⚠️ 삼성 HBM4 양산 리스크</span>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-        <tr><td>현재 PER</td><td class="highlight">13.27배 (순방향 6.5배)</td><td>AI 성장 감안 시 저평가</td></tr>
-        <tr><td>목표주가 (NH투자증권)</td><td class="highlight">3,200,000원</td><td>HBM4 수요 강세 반영</td></tr>
-        <tr><td>목표주가 (JPM·CLSA)</td><td>~1,250,000원</td><td>보수적 추정</td></tr>
-        <tr><td>HBM 시장 점유율</td><td class="highlight">~70% (UBS 전망)</td><td>엔비디아 루빈 플랫폼</td></tr>
-        <tr><td>2026년 HBM 공급</td><td class="highlight">Sold-Out (완판)</td><td>실적 가시성 최고 수준</td></tr>
-        <tr><td>6월 9일 등락률</td><td class="highlight">+16.01%</td><td>반도체 급반등 주도</td></tr>
-      </table>
-    </div>
-    <div class="desc">AI 서버 인프라 폭증에 따른 HBM 수요 초과공급 상태가 2027년까지 지속될 전망입니다. 엔비디아와의 독점적 파트너십, 시총 1조 달러 돌파, 외국인 집중 매수가 투자 매력을 높이고 있습니다.</div>
-  </div>
 
-  <!-- 삼성전자 -->
-  <div class="stock-card samsung">
-    <div class="stock-header">
-      <div class="stock-info">
-        <div class="stock-ticker">KRX: 005930</div>
-        <div class="stock-name">삼성전자</div>
-        <div class="stock-sector">반도체 / 파운드리 / 가전</div>
-      </div>
-      <div class="rating-box">
-        <div class="rating-label">KB증권 평가</div>
-        <div class="rating-value">역사적 저평가</div>
-      </div>
+    <div class="section-label">📊 밸류에이션 지표</div>
+    <table>
+      <tr><th>지표</th><th>SK하이닉스</th><th>업종 평균</th></tr>
+      <tr><td>PER (Trailing)</td><td>13.27배</td><td>14.44배</td></tr>
+      <tr><td>영업이익률 (Q1 2026)</td><td>72%</td><td>~40%</td></tr>
+      <tr><td>영업이익 YoY 성장률</td><td>+405%</td><td>—</td></tr>
+      <tr><td>HBM4 NVIDIA 점유율</td><td>60~70%</td><td>—</td></tr>
+      <tr><td>애널리스트 목표주가 (평균)</td><td>₩1,160,315</td><td>—</td></tr>
+      <tr><td>52주 수익률</td><td>+186%</td><td>—</td></tr>
+      <tr><td>시가총액 (2026년 5월)</td><td>1,000조원 돌파</td><td>—</td></tr>
+    </table>
+
+    <div class="section-label">✅ 매수 근거</div>
+    <div class="tags">
+      <span class="tag-green">어제 -7.25% → 기술적 반등</span>
+      <span class="tag-green">PER 13배 업종 대비 저평가</span>
+      <span class="tag-green">HBM4 수요 2028년까지 지속</span>
+      <span class="tag-green">NH투자증권 목표 ₩320만원</span>
+      <span class="tag-green">NVIDIA 루빈 독점 수주</span>
     </div>
-    <div class="tags-row">
-      <span class="tag tag-buy">✅ PER 4.5배 극저평가</span>
-      <span class="tag tag-buy">✅ HBM 회복 사이클 진입</span>
-      <span class="tag tag-buy">✅ 파운드리 GAA 전환</span>
-      <span class="tag tag-buy">✅ 배당 확대 정책</span>
-      <span class="tag tag-risk">⚠️ SK하이닉스 대비 HBM 경쟁 열위</span>
+
+    <div class="section-label">⚠️ 리스크</div>
+    <div class="tags">
+      <span class="tag-red">중동 리스크 지속 시 추가 하락</span>
+      <span class="tag-red">삼성 HBM4 퀄 승인 시 점유율 희석</span>
+      <span class="tag-red">미 금리 상승 시 밸류 부담</span>
     </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-        <tr><td>현재 PER</td><td class="highlight">약 4.5배</td><td>역사적 극저평가 구간</td></tr>
-        <tr><td>현재 PBR</td><td class="highlight">약 1.7배</td><td>자산 가치 대비 저평가</td></tr>
-        <tr><td>목표 PBR (한국투자증권)</td><td>5배 (ROE 50% 반영)</td><td>PER 11배 상당</td></tr>
-        <tr><td>목표주가 (한국투자증권)</td><td class="highlight">570,000원</td><td>최고 낙관 추정</td></tr>
-        <tr><td>목표주가 (NH투자증권)</td><td>490,000원</td><td>HBM 회복 반영</td></tr>
-        <tr><td>6월 9일 등락률</td><td class="highlight">+9.1%</td><td>반도체 반등 동반 상승</td></tr>
-      </table>
-    </div>
-    <div class="desc">PER 4.5배는 역사적으로 극도의 저평가 구간입니다. HBM 회복 사이클 진입 시 실적 레버리지가 극대화될 수 있으며, 파운드리 GAA 공정 전환 및 배당 확대 정책이 추가 매수 근거를 제공합니다.</div>
   </div>
 
   <!-- 한화에어로스페이스 -->
-  <div class="stock-card hanwha">
+  <div class="stock-card" style="--accent:#f59e0b">
     <div class="stock-header">
-      <div class="stock-info">
-        <div class="stock-ticker">KRX: 012450</div>
+      <div class="stock-icon" style="background:#f59e0b">🚀</div>
+      <div>
         <div class="stock-name">한화에어로스페이스</div>
-        <div class="stock-sector">방산 / K9 자주포 / 항공엔진</div>
+        <div class="stock-ticker">KRX: 012450 | 한국 최대 방산 기업</div>
       </div>
-      <div class="rating-box">
-        <div class="rating-label">21명 애널리스트</div>
-        <div class="rating-value">Strong Buy</div>
-      </div>
+      <span class="badge badge-buy">강력 매수</span>
     </div>
-    <div class="tags-row">
-      <span class="tag tag-buy">✅ 외국인 45.08% 보유·증가 중</span>
-      <span class="tag tag-buy">✅ NATO·유럽 방산 수출 수혜</span>
-      <span class="tag tag-buy">✅ 전원 매도 의견 없음 (0명)</span>
-      <span class="tag tag-buy">✅ 기관·외국인 동반 매수</span>
-      <span class="tag tag-risk">⚠️ 중동 휴전 시 모멘텀 단기 약화 가능</span>
+
+    <div class="section-label">📊 밸류에이션 지표</div>
+    <table>
+      <tr><th>지표</th><th>한화에어로스페이스</th><th>비고</th></tr>
+      <tr><td>PER (2026E)</td><td>23.1배</td><td>업종 평균 53.2배 대비 저평가</td></tr>
+      <tr><td>Price/Sales</td><td>2.59배</td><td>—</td></tr>
+      <tr><td>현재가 (6/9 기준)</td><td>₩1,023,000</td><td>—</td></tr>
+      <tr><td>애널리스트 목표주가 (평균)</td><td>₩1,738,810</td><td>+70% 업사이드</td></tr>
+      <tr><td>목표주가 최고</td><td>₩2,100,000</td><td>+105% 업사이드</td></tr>
+      <tr><td>애널리스트 투자의견</td><td>강력 매수</td><td>21명 전원 매수</td></tr>
+      <tr><td>수주 잔고</td><td>72조원 이상</td><td>약 5년치 생산분</td></tr>
+    </table>
+
+    <div class="section-label">✅ 매수 근거</div>
+    <div class="tags">
+      <span class="tag-green">미·이란 충돌로 중동 방산 수요 급증</span>
+      <span class="tag-green">PER 23배, 글로벌 동종比 상대 저평가</span>
+      <span class="tag-green">수주잔고 72조원 = 5년 가시성</span>
+      <span class="tag-green">애널리스트 21명 전원 매수</span>
+      <span class="tag-green">$37B K-방산 수출 슈퍼사이클</span>
     </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>지표</th><th>수치</th><th>비고</th></tr>
-        <tr><td>목표주가 평균</td><td class="highlight">1,557,857원</td><td>애널리스트 21명 컨센서스</td></tr>
-        <tr><td>목표주가 최고</td><td class="highlight">2,100,000원</td><td>낙관 시나리오</td></tr>
-        <tr><td>목표주가 최저</td><td>1,345,000원</td><td>보수적 시나리오</td></tr>
-        <tr><td>외국인 보유 비율</td><td class="highlight">45.08%</td><td>1개월 전 대비 +0.80%p 증가</td></tr>
-        <tr><td>매수 의견 애널리스트</td><td class="highlight">21명 (매도 0명)</td><td>전원 매수·강력매수</td></tr>
-        <tr><td>주요 수출국</td><td>폴란드·호주·루마니아·인도</td><td>K9·레드백·항공엔진</td></tr>
-      </table>
+
+    <div class="section-label">⚠️ 리스크</div>
+    <div class="tags">
+      <span class="tag-red">중동 휴전 시 단기 차익실현</span>
+      <span class="tag-red">생산 능력 한계로 납기 지연</span>
+      <span class="tag-red">급등 후 변동성 확대 구간</span>
     </div>
-    <div class="desc">유럽·NATO 재무장 사이클의 최대 수혜주입니다. 외국인 보유 비율이 꾸준히 증가하고 있으며, 21명의 애널리스트가 모두 매수를 추천하는 강력한 투자 의견이 형성되어 있습니다.</div>
   </div>
 
-  <div class="footer-note">
-    ※ 수치는 2026년 6월 9일 기준 수집 데이터입니다. 실제 투자 시 최신 데이터를 확인하세요.<br/>
-    본 내용은 투자 정보 제공 목적이며, 투자 권유가 아닙니다. 투자 판단의 최종 책임은 투자자 본인에게 있습니다.
-  </div>
+  <div class="footer-note">⚠️ 본 정보는 투자 참고 목적이며 투자 권유가 아닙니다. 투자 판단 책임은 본인에게 있습니다.</div>
 </div>
 </body>
 </html>
