@@ -9,147 +9,74 @@
   <meta property="og:image" content="https://via.placeholder.com/1200x630/d97706/ffffff?text=TSMC+Analyst+Ratings" />
   <meta property="og:url" content="https://yourblog.com/tsmc-q2-2026" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-      background: #fffbeb;
-      padding: 24px 16px;
-    }
-    .widget-wrap { max-width: 860px; margin: 0 auto; }
-    .header {
-      background: linear-gradient(135deg, #d97706, #92400e);
-      border-radius: 16px 16px 0 0;
-      padding: 20px 26px;
-      color: #fff;
-    }
-    .header h2 { font-size: 1.1rem; font-weight: 800; }
-    .header p { font-size: 0.78rem; opacity: 0.85; margin-top: 4px; }
-    .stock-ticker {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.18);
-      border-radius: 8px; padding: 6px 14px; margin-top: 10px;
-    }
-    .ticker-price { font-size: 1.4rem; font-weight: 900; }
-    .ticker-change { font-size: 0.78rem; background: #4ade80; color: #14532d; padding: 2px 8px; border-radius: 6px; font-weight: 700; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:#fffbeb;padding:20px 14px}
+    .wrap{max-width:860px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(217,119,6,.13)}
 
-    /* Consensus box */
-    .consensus-row {
-      background: #fff;
-      padding: 16px 22px;
-      display: flex; flex-wrap: wrap; gap: 16px;
-    }
-    .con-card {
-      flex: 1; min-width: 130px;
-      background: #fffbeb;
-      border: 1.5px solid #fde68a;
-      border-radius: 10px;
-      padding: 12px 14px;
-      text-align: center;
-    }
-    .con-card .cl { font-size: 0.68rem; color: #92400e; font-weight: 700; }
-    .con-card .cv { font-size: 1.15rem; font-weight: 900; color: #78350f; margin-top: 3px; }
-    .con-card .cs { font-size: 0.63rem; color: #78350f; opacity: 0.7; margin-top: 2px; }
-    /* Analyst table */
-    .table-section {
-      background: #fff;
-      padding: 0 22px 8px;
-    }
-    .section-label {
-      font-size: 0.7rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1.2px;
-      color: #6b7280;
-      padding: 14px 0 8px;
-    }
-    .analyst-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.8rem;
-    }
-    .analyst-table th {
-      background: #fffbeb;
-      padding: 9px 10px;
-      text-align: left;
-      color: #92400e;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: .3px;
-    }
-    .analyst-table td {
-      padding: 10px 10px;
-      border-bottom: 1px solid #fef3c7;
-      color: #1e293b;
-      vertical-align: middle;
-    }
-    .analyst-table tr:hover td { background: #fffbeb; }
-    .firm-name { font-weight: 700; color: #1e293b; }
-    .rating-badge {
-      display: inline-block;
-      padding: 3px 9px;
-      border-radius: 10px;
-      font-size: 0.68rem;
-      font-weight: 700;
-    }
-    .buy { background: #dcfce7; color: #166534; }
-    .overweight { background: #dbeafe; color: #1e40af; }
-    .hold { background: #f3f4f6; color: #374151; }
-    .target-col { font-weight: 800; color: #d97706; }
-    .tp-bar-wrap { height: 6px; background: #fef3c7; border-radius: 3px; overflow: hidden; min-width: 80px; }
-    .tp-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg,#f59e0b,#d97706); }
-    .arrow-up { color: #16a34a; font-weight: 700; }
-    .arrow-new { color: #7c3aed; font-weight: 700; }
-    /* Risk table */
-    .risk-section {
-      background: #fff;
-      padding: 0 22px 22px;
-      border-radius: 0 0 16px 16px;
-      border-top: 1px solid #fde68a;
-    }
-    .risk-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.78rem;
-      margin-top: 2px;
-    }
-    .risk-table th {
-      background: #fef9c3;
-      padding: 8px 10px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: #78350f;
-      text-align: left;
-    }
-    .risk-table td {
-      padding: 9px 10px;
-      border-bottom: 1px solid #fef3c7;
-      color: #374151;
-      vertical-align: top;
-    }
-    .risk-high { color: #dc2626; font-weight: 700; }
-    .risk-mid { color: #d97706; font-weight: 700; }
-    .risk-low { color: #16a34a; font-weight: 700; }
-    .footer-note {
-      text-align: center;
-      font-size: 0.65rem;
-      color: #94a3b8;
-      margin-top: 16px;
-    }
+    /* HEADER */
+    .hd{background:linear-gradient(135deg,#d97706,#92400e);padding:20px 24px;color:#fff}
+    .hd h2{font-size:1.05rem;font-weight:800}
+    .hd p{font-size:.76rem;opacity:.85;margin-top:4px}
+    .ticker{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.18);border-radius:8px;padding:6px 14px;margin-top:10px;flex-wrap:wrap}
+    .t-price{font-size:1.3rem;font-weight:900}
+    .t-chg{background:#4ade80;color:#14532d;padding:2px 8px;border-radius:6px;font-size:.74rem;font-weight:700}
+
+    /* CONSENSUS CARDS — flexbox 4열 */
+    .con-row{background:#fff;padding:16px;display:flex;flex-wrap:wrap;gap:10px}
+    .con-card{width:calc(25% - 8px);min-width:140px;flex-shrink:0;background:#fffbeb;border:1.5px solid #fde68a;border-top:4px solid #d97706;border-radius:10px;padding:12px 14px;text-align:center}
+    .con-card .cl{font-size:.66rem;color:#92400e;font-weight:700;margin-bottom:4px}
+    .con-card .cv{font-size:1.1rem;font-weight:900;color:#78350f}
+    .con-card .cs{font-size:.62rem;color:#78350f;opacity:.7;margin-top:3px}
+
+    /* SECTION LABEL */
+    .slbl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:#6b7280;padding:14px 16px 8px;background:#fff}
+
+    /* ANALYST TABLE */
+    .tbl-wrap{background:#fff;padding:0 16px 8px}
+    table.at{width:100%;border-collapse:collapse;font-size:.78rem}
+    table.at th{background:#fffbeb;padding:9px 10px;text-align:left;color:#92400e;font-size:.68rem;font-weight:700;letter-spacing:.3px}
+    table.at td{padding:9px 10px;border-bottom:1px solid #fef3c7;color:#1e293b;vertical-align:middle}
+    table.at tr:hover td{background:#fffbeb}
+    .rbdg{display:inline-block;padding:3px 8px;border-radius:8px;font-size:.64rem;font-weight:700}
+    .rbuy{background:#dcfce7;color:#166534}
+    .row{background:#dbeafe;color:#1e40af}
+    .rhold{background:#f3f4f6;color:#374151}
+    .tc{font-weight:800;color:#d97706}
+    .aup{color:#16a34a;font-weight:700}
+    .anew{color:#7c3aed;font-weight:700}
+    .bar-w{height:6px;background:#fef3c7;border-radius:3px;overflow:hidden;min-width:70px;margin-top:3px}
+    .bar-f{height:100%;border-radius:3px;background:linear-gradient(90deg,#f59e0b,#d97706)}
+
+    /* RISK TABLE */
+    .risk-wrap{background:#fff;padding:0 16px 20px;border-top:1px solid #fde68a}
+    table.rt{width:100%;border-collapse:collapse;font-size:.76rem;margin-top:2px}
+    table.rt th{background:#fef9c3;padding:8px 10px;font-size:.67rem;font-weight:700;color:#78350f;text-align:left}
+    table.rt td{padding:8px 10px;border-bottom:1px solid #fef3c7;color:#374151;vertical-align:top}
+    .rh{color:#dc2626;font-weight:700}
+    .rm{color:#d97706;font-weight:700}
+    .rl{color:#16a34a;font-weight:700}
+    .fn{text-align:center;font-size:.62rem;color:#94a3b8;margin-top:12px;line-height:1.6}
+
+    @media(max-width:560px){.con-card{width:calc(50% - 6px)}}
+    @media(max-width:360px){.con-card{width:100%}}
   </style>
 </head>
 <body>
-<div class="widget-wrap">
-  <div class="header">
+<div class="wrap">
+  <!-- HEADER -->
+  <div class="hd">
     <h2>📊 TSMC 애널리스트 목표주가 & 리스크 분석</h2>
     <p>Q1 2026 어닝 서프라이즈 이후 월가 반응 종합 | 2026.04 기준</p>
-    <div class="stock-ticker">
+    <div class="ticker">
       <span>TSM (NYSE)</span>
-      <span class="ticker-price">$370.58</span>
-      <span class="ticker-change">+1.39%</span>
-      <span style="font-size:0.7rem; opacity:0.8">2026.04.16 종가</span>
+      <span class="t-price">$370.58</span>
+      <span class="t-chg">+1.39%</span>
+      <span style="font-size:.68rem;opacity:.8">2026.04.16 종가</span>
     </div>
   </div>
 
-  <!-- Consensus Summary -->
-  <div class="consensus-row">
+  <!-- CONSENSUS CARDS -->
+  <div class="con-row">
     <div class="con-card">
       <div class="cl">애널리스트 컨센서스</div>
       <div class="cv">매수</div>
@@ -163,7 +90,7 @@
     <div class="con-card">
       <div class="cl">2026 매출 성장 전망</div>
       <div class="cv">+30%</div>
-      <div class="cs">Goldman 기존 22%→30% 상향</div>
+      <div class="cs">Goldman 22%→30% 상향</div>
     </div>
     <div class="con-card">
       <div class="cl">현재가 대비 상승여력</div>
@@ -172,149 +99,102 @@
     </div>
   </div>
 
-  <!-- Analyst Ratings Table -->
-  <div class="table-section">
-    <div class="section-label">🏦 주요 증권사 투자의견 (Q1 2026 실적 발표 이후)</div>
-    <table class="analyst-table">
+  <!-- ANALYST TABLE -->
+  <div class="slbl">🏦 주요 증권사 투자의견 (Q1 2026 실적 발표 이후)</div>
+  <div class="tbl-wrap">
+    <table class="at">
       <thead>
         <tr>
-          <th>증권사</th>
-          <th>투자의견</th>
-          <th>목표주가</th>
-          <th>변화</th>
-          <th>목표가 달성도</th>
-          <th>주요 코멘트</th>
+          <th>증권사</th><th>의견</th><th>목표주가</th><th>변화</th><th>달성도</th><th>주요 코멘트</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="firm-name">🏅 골드만삭스<br/><span style="font-size:0.65rem;color:#6b7280;">Goldman Sachs</span></td>
-          <td><span class="rating-badge buy">BUY</span></td>
-          <td class="target-col">$550</td>
-          <td class="arrow-up">↑ 대폭 상향</td>
+          <td><strong>🏅 골드만삭스</strong><br/><span style="font-size:.62rem;color:#6b7280">Goldman Sachs</span></td>
+          <td><span class="rbdg rbuy">BUY</span></td>
+          <td class="tc">$550</td>
+          <td class="aup">↑ 대폭 상향</td>
           <td>
-            <div style="font-size:0.65rem;color:#6b7280;margin-bottom:2px;">현재가 대비 +48%</div>
-            <div class="tp-bar-wrap"><div class="tp-bar-fill" style="width:67%;"></div></div>
+            <div style="font-size:.62rem;color:#6b7280">현재가 대비 +48%</div>
+            <div class="bar-w"><div class="bar-f" style="width:67%"></div></div>
           </td>
-          <td style="font-size:0.7rem;">AI 수요 "다년간 핵심 성장 동력". 2026/27 성장률 22%→30%/28% 상향</td>
+          <td style="font-size:.69rem">AI 수요 "다년간 핵심 성장 동력". 2026/27 성장률 22%→30%/28% 상향</td>
         </tr>
         <tr>
-          <td class="firm-name">🏦 모건스탠리<br/><span style="font-size:0.65rem;color:#6b7280;">Morgan Stanley</span></td>
-          <td><span class="rating-badge overweight">Overweight</span></td>
-          <td class="target-col">유지</td>
-          <td style="color:#d97706;">= 의견 유지</td>
+          <td><strong>🏦 모건스탠리</strong><br/><span style="font-size:.62rem;color:#6b7280">Morgan Stanley</span></td>
+          <td><span class="rbdg row">Overweight</span></td>
+          <td class="tc">유지</td>
+          <td style="color:#d97706">= 의견 유지</td>
           <td>
-            <div style="font-size:0.65rem;color:#6b7280;margin-bottom:2px;">지속 상승 전망</div>
-            <div class="tp-bar-wrap"><div class="tp-bar-fill" style="width:55%;"></div></div>
+            <div style="font-size:.62rem;color:#6b7280">지속 상승 전망</div>
+            <div class="bar-w"><div class="bar-f" style="width:55%"></div></div>
           </td>
-          <td style="font-size:0.7rem;">웨이퍼 단가↑ + AI칩 주문 강세 = 비수기에도 어닝 서프라이즈</td>
+          <td style="font-size:.69rem">웨이퍼 단가↑ + AI칩 주문 강세 = 비수기에도 어닝 서프라이즈</td>
         </tr>
         <tr>
-          <td class="firm-name">🏦 D.A. 데이비슨<br/><span style="font-size:0.65rem;color:#6b7280;">D.A. Davidson</span></td>
-          <td><span class="rating-badge buy">BUY</span></td>
-          <td class="target-col">$450</td>
-          <td class="arrow-new">★ 신규 커버리지</td>
+          <td><strong>🏦 D.A. 데이비슨</strong><br/><span style="font-size:.62rem;color:#6b7280">D.A. Davidson</span></td>
+          <td><span class="rbdg rbuy">BUY</span></td>
+          <td class="tc">$450</td>
+          <td class="anew">★ 신규 커버리지</td>
           <td>
-            <div style="font-size:0.65rem;color:#6b7280;margin-bottom:2px;">현재가 대비 +21%</div>
-            <div class="tp-bar-wrap"><div class="tp-bar-fill" style="width:55%;"></div></div>
+            <div style="font-size:.62rem;color:#6b7280">현재가 대비 +21%</div>
+            <div class="bar-w"><div class="bar-f" style="width:55%"></div></div>
           </td>
-          <td style="font-size:0.7rem;">2026.02 신규 개시. AI 인프라 필수재 지위 강조</td>
+          <td style="font-size:.69rem">2026.02 신규 개시. AI 인프라 필수재 지위 강조</td>
         </tr>
         <tr>
-          <td class="firm-name">🏦 바클레이즈<br/><span style="font-size:0.65rem;color:#6b7280;">Barclays</span></td>
-          <td><span class="rating-badge overweight">Overweight</span></td>
-          <td class="target-col">$450</td>
-          <td class="arrow-up">↑ 상향</td>
+          <td><strong>🏦 바클레이즈</strong><br/><span style="font-size:.62rem;color:#6b7280">Barclays</span></td>
+          <td><span class="rbdg row">Overweight</span></td>
+          <td class="tc">$450</td>
+          <td class="aup">↑ 상향</td>
           <td>
-            <div style="font-size:0.65rem;color:#6b7280;margin-bottom:2px;">현재가 대비 +21%</div>
-            <div class="tp-bar-wrap"><div class="tp-bar-fill" style="width:55%;"></div></div>
+            <div style="font-size:.62rem;color:#6b7280">현재가 대비 +21%</div>
+            <div class="bar-w"><div class="bar-f" style="width:55%"></div></div>
           </td>
-          <td style="font-size:0.7rem;">선단공정 수요 강도 지속. 목표가 상향 (2026.01 기준)</td>
+          <td style="font-size:.69rem">선단공정 수요 강도 지속. 목표가 상향 (2026.01)</td>
         </tr>
         <tr>
-          <td class="firm-name">🏦 베른스타인<br/><span style="font-size:0.65rem;color:#6b7280;">Bernstein SocGen</span></td>
-          <td><span class="rating-badge overweight">Outperform</span></td>
-          <td class="target-col">$351</td>
-          <td class="arrow-up">↑ $330→$351</td>
+          <td><strong>🏦 베른스타인</strong><br/><span style="font-size:.62rem;color:#6b7280">Bernstein SocGen</span></td>
+          <td><span class="rbdg row">Outperform</span></td>
+          <td class="tc">$351</td>
+          <td class="aup">↑ $330→$351</td>
           <td>
-            <div style="font-size:0.65rem;color:#6b7280;margin-bottom:2px;">현재가 대비 -5%</div>
-            <div class="tp-bar-wrap"><div class="tp-bar-fill" style="width:43%;"></div></div>
+            <div style="font-size:.62rem;color:#6b7280">현재가 대비 -5%</div>
+            <div class="bar-w"><div class="bar-f" style="width:43%"></div></div>
           </td>
-          <td style="font-size:0.7rem;">AI·비AI 모두 강한 수요. 목표가 소폭 상향. 상대적 보수적 시각</td>
+          <td style="font-size:.69rem">AI·비AI 모두 강한 수요. 보수적 시각 유지</td>
         </tr>
         <tr>
-          <td class="firm-name">🏦 TD 코웬<br/><span style="font-size:0.65rem;color:#6b7280;">TD Cowen</span></td>
-          <td><span class="rating-badge hold">Hold</span></td>
-          <td class="target-col">-</td>
-          <td style="color:#6b7280;">= 중립</td>
+          <td><strong>🏦 TD 코웬</strong><br/><span style="font-size:.62rem;color:#6b7280">TD Cowen</span></td>
+          <td><span class="rbdg rhold">Hold</span></td>
+          <td class="tc">—</td>
+          <td style="color:#6b7280">= 중립</td>
           <td>
-            <div style="font-size:0.65rem;color:#6b7280;margin-bottom:2px;">밸류에이션 부담</div>
-            <div class="tp-bar-wrap"><div class="tp-bar-fill" style="width:30%;background:#94a3b8;"></div></div>
+            <div style="font-size:.62rem;color:#6b7280">밸류에이션 부담</div>
+            <div class="bar-w"><div class="bar-f" style="width:30%;background:#94a3b8"></div></div>
           </td>
-          <td style="font-size:0.7rem;">지정학 리스크·밸류에이션 부담 감안, 중립 유지</td>
+          <td style="font-size:.69rem">지정학 리스크·밸류에이션 감안, 중립 유지</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- Key Risks Table -->
-  <div class="risk-section">
-    <div class="section-label" style="padding-top:16px;">⚠️ 핵심 리스크 vs 기회 요인</div>
-    <table class="risk-table">
-      <thead>
-        <tr>
-          <th>구분</th>
-          <th>내용</th>
-          <th>영향도</th>
-          <th>현황</th>
-        </tr>
-      </thead>
+  <!-- RISK TABLE -->
+  <div class="slbl">⚠️ 핵심 리스크 vs 기회 요인</div>
+  <div class="risk-wrap">
+    <table class="rt">
+      <thead><tr><th>구분</th><th>내용</th><th>영향도</th><th>현황</th></tr></thead>
       <tbody>
-        <tr>
-          <td><span class="risk-high">🔴 리스크</span></td>
-          <td>대만 지정학 리스크 (양안관계)</td>
-          <td class="risk-high">높음</td>
-          <td>해외 팹 분산으로 완화 중</td>
-        </tr>
-        <tr>
-          <td><span class="risk-mid">🟡 리스크</span></td>
-          <td>미국 관세 정책·수출규제</td>
-          <td class="risk-mid">중간</td>
-          <td>애리조나 팹 $200억 투자로 대응</td>
-        </tr>
-        <tr>
-          <td><span class="risk-mid">🟡 리스크</span></td>
-          <td>해외 팹 마진 희석 효과</td>
-          <td class="risk-mid">중간</td>
-          <td>N2 수율 개선으로 상쇄 기대</td>
-        </tr>
-        <tr>
-          <td><span class="risk-low">🟢 기회</span></td>
-          <td>AI 가속기 CAGR +45% (5년)</td>
-          <td class="risk-low">매우 긍정</td>
-          <td>엔비디아·구글·아마존 주문 증가</td>
-        </tr>
-        <tr>
-          <td><span class="risk-low">🟢 기회</span></td>
-          <td>2nm(N2)/N2P·A16 공정 양산</td>
-          <td class="risk-low">매우 긍정</td>
-          <td>2026H2 본격 양산 → 마진 개선</td>
-        </tr>
-        <tr>
-          <td><span class="risk-low">🟢 기회</span></td>
-          <td>소버린 AI 수요(중동·유럽)</td>
-          <td class="risk-low">긍정</td>
-          <td>국가 주도 AI 투자 확대</td>
-        </tr>
-        <tr>
-          <td><span class="risk-low">🟢 기회</span></td>
-          <td>일반 서버 수요 YoY +10%+</td>
-          <td class="risk-low">긍정</td>
-          <td>에이전틱 AI 확산에 따른 추가 수요</td>
-        </tr>
+        <tr><td><span class="rh">🔴 리스크</span></td><td>대만 지정학 리스크 (양안관계)</td><td class="rh">높음</td><td>해외 팹 분산으로 완화 중</td></tr>
+        <tr><td><span class="rm">🟡 리스크</span></td><td>미국 관세 정책·수출규제</td><td class="rm">중간</td><td>애리조나 팹 $200억 투자로 대응</td></tr>
+        <tr><td><span class="rm">🟡 리스크</span></td><td>해외 팹 마진 희석 효과</td><td class="rm">중간</td><td>N2 수율 개선으로 상쇄 기대</td></tr>
+        <tr><td><span class="rl">🟢 기회</span></td><td>AI 가속기 CAGR +45% (5년)</td><td class="rl">매우 긍정</td><td>엔비디아·구글·아마존 주문 증가</td></tr>
+        <tr><td><span class="rl">🟢 기회</span></td><td>2nm(N2)/N2P·A16 공정 양산</td><td class="rl">매우 긍정</td><td>2026H2 본격 양산 → 마진 개선</td></tr>
+        <tr><td><span class="rl">🟢 기회</span></td><td>소버린 AI 수요 (중동·유럽)</td><td class="rl">긍정</td><td>국가 주도 AI 투자 확대</td></tr>
+        <tr><td><span class="rl">🟢 기회</span></td><td>일반 서버 수요 YoY +10%+</td><td class="rl">긍정</td><td>에이전틱 AI 확산에 따른 추가 수요</td></tr>
       </tbody>
     </table>
-    <div class="footer-note">
+    <div class="fn">
       ※ 출처: Bloomberg, Goldman Sachs Research, Morgan Stanley, Barclays, Benzinga Korea, Investing.com<br/>
       ※ 목표주가는 각 증권사 발표 기준이며 언제든 변경될 수 있습니다. 본 자료는 투자 참고용이며 투자 권고가 아닙니다.
     </div>
