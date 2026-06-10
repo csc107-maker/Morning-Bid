@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>태양광 발전사업자 계약 선택 가이드 2026</title>
+  <meta property="og:title" content="태양광 발전사업자 계약 선택 가이드 2026 - RPS vs 직접 PPA" />
+  <meta property="og:description" content="발전소 가중치, 규모, 운영 상황에 따른 RPS 고정가격계약 vs 직접 PPA 선택 가이드" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=계약+선택+가이드" />
+  <meta property="og:url" content="https://example.com/solar-contract-guide-2026" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #fef9f0;
+      padding: 24px 16px;
+    }
+    .widget-wrap { max-width: 860px; margin: 0 auto; }
+    .widget-title { text-align: center; font-size: 22px; font-weight: 900; color: #1e293b; margin-bottom: 4px; }
+    .widget-subtitle { text-align: center; font-size: 13px; color: #64748b; margin-bottom: 24px; }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .guide-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 3px 16px rgba(0,0,0,0.08);
+    }
+    .guide-card-header {
+      padding: 16px 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .header-rps { background: linear-gradient(135deg, #1d4ed8, #3b82f6); }
+    .header-ppa { background: linear-gradient(135deg, #059669, #10b981); }
+    .header-icon {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: #fff;
+    }
+    .header-text h3 { font-size: 15px; font-weight: 700; color: #fff; }
+    .header-text p { font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 1px; }
+    .rec-tag {
+      margin-left: auto;
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+    }
+
+    .guide-body { padding: 16px 20px 20px; }
+    .condition-title {
+      font-size: 12px; font-weight: 700; color: #64748b;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      margin-bottom: 10px; display: flex; align-items: center; gap: 5px;
+    }
+    .condition-item {
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: 7px 0; border-bottom: 1px dashed #f1f5f9;
+    }
+    .condition-item:last-child { border-bottom: none; }
+    .cond-icon {
+      width: 22px; height: 22px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; flex-shrink: 0;
+    }
+    .icon-rps { background: #dbeafe; color: #1d4ed8; }
+    .icon-ppa { background: #d1fae5; color: #059669; }
+    .cond-text { font-size: 12.5px; color: #374151; line-height: 1.5; }
+
+    .result-box {
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-top: 12px;
+    }
+    .result-rps { background: #eff6ff; border-left: 3px solid #3b82f6; }
+    .result-ppa { background: #ecfdf5; border-left: 3px solid #10b981; }
+    .result-box p { font-size: 12px; color: #374151; line-height: 1.6; }
+    .result-box strong { font-weight: 700; }
+
+    .special-cases {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px 24px;
+      box-shadow: 0 3px 16px rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+    .special-title {
+      font-size: 14px; font-weight: 700; color: #1e293b;
+      margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+    }
+    .special-title i { color: #f59e0b; }
+    .special-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .special-card {
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .special-card.sc1 { background: #fffbeb; border: 1.5px solid #fde68a; }
+    .special-card.sc2 { background: #eff6ff; border: 1.5px solid #bfdbfe; }
+    .special-card.sc3 { background: #ecfdf5; border: 1.5px solid #a7f3d0; }
+    .special-card .sc-icon { font-size: 26px; margin-bottom: 6px; }
+    .special-card .sc-label { font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
+    .special-card .sc-rec { font-size: 11px; color: #64748b; line-height: 1.5; }
+    .sc-answer {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .ans-contract { background: #dbeafe; color: #1d4ed8; }
+    .ans-ppa { background: #d1fae5; color: #059669; }
+    .ans-both { background: #fef3c7; color: #92400e; }
+
+    .expert-box {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      border-radius: 16px;
+      padding: 20px 24px;
+      color: #fff;
+    }
+    .expert-box .eq-title {
+      font-size: 14px; font-weight: 700; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .expert-box .eq-title i { color: #f59e0b; }
+    .expert-box p { font-size: 13px; line-height: 1.8; color: #e2e8f0; }
+    .expert-box strong { color: #fbbf24; }
+
+    .source-note { text-align: center; font-size: 11px; color: #94a3b8; margin-top: 14px; }
+    @media (max-width: 600px) {
+      .guide-grid, .special-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-wrap">
+    <div class="widget-title">🧭 발전사업자 유형별 계약 선택 가이드</div>
+    <div class="widget-subtitle">2026년 기준 · 내 발전소에 맞는 최적 계약은?</div>
+
+    <div class="guide-grid">
+      <!-- RPS 고정가격계약 추천 -->
+      <div class="guide-card">
+        <div class="guide-card-header header-rps">
+          <div class="header-icon"><i class="ti ti-building-bank"></i></div>
+          <div class="header-text">
+            <h3>RPS 고정가격계약 추천</h3>
+            <p>정부 보증 · 안정 우선</p>
+          </div>
+          <div class="rec-tag">고정 수익</div>
+        </div>
+        <div class="guide-body">
+          <div class="condition-title"><i class="ti ti-checks"></i> 이런 경우 선택하세요</div>
+          <div class="condition-item">
+            <div class="cond-icon icon-rps"><i class="ti ti-weight"></i></div>
+            <div class="cond-text"><strong>가중치 1.0 이상</strong> 발전소<br/>(건물 일체형, 영농형, ESS 연계)</div>
+          </div>
+          <div class="condition-item">
+            <div class="cond-icon icon-rps"><i class="ti ti-building"></i></div>
+            <div class="cond-text"><strong>PF 대출이 필요한</strong> 신규 발전소<br/>금융기관 심사 통과 절대 유리</div>
+          </div>
+          <div class="condition-item">
+            <div class="cond-icon icon-rps"><i class="ti ti-home"></i></div>
+            <div class="cond-text"><strong>1MW 미만 소규모</strong> 발전사업자<br/>소규모 별도 입찰 트랙 참여</div>
+          </div>
+          <div class="condition-item">
+            <div class="cond-icon icon-rps"><i class="ti ti-shield"></i></div>
+            <div class="cond-text"><strong>변동성 리스크 최소화</strong>가 목표인 경우<br/>20년 안정 수익 확보</div>
+          </div>
+          <div class="result-box result-rps">
+            <p>✅ <strong>추가 포인트:</strong> 재생에너지 예측·준중앙·입찰제도 참여로 고정 수익 外 추가 정산금까지 받을 수 있습니다. 단, 입찰 탈락 리스크를 대비한 플랜B 수립 권장.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 직접 PPA 추천 -->
+      <div class="guide-card">
+        <div class="guide-card-header header-ppa">
+          <div class="header-icon"><i class="ti ti-plug"></i></div>
+          <div class="header-text">
+            <h3>직접 PPA 추천</h3>
+            <p>민간 협상 · 수익 극대화</p>
+          </div>
+          <div class="rec-tag">성장 선택</div>
+        </div>
+        <div class="guide-body">
+          <div class="condition-title"><i class="ti ti-checks"></i> 이런 경우 선택하세요</div>
+          <div class="condition-item">
+            <div class="cond-icon icon-ppa"><i class="ti ti-weight"></i></div>
+            <div class="cond-text"><strong>가중치 1.0 미만</strong> 발전소<br/>(일반 지상형·산지형 등)</div>
+          </div>
+          <div class="condition-item">
+            <div class="cond-icon icon-ppa"><i class="ti ti-certificate"></i></div>
+            <div class="cond-text"><strong>이미 고정가격계약 완료</strong>된 사업자<br/>추가 발전소를 PPA로 다각화</div>
+          </div>
+          <div class="condition-item">
+            <div class="cond-icon icon-ppa"><i class="ti ti-users"></i></div>
+            <div class="cond-text"><strong>RE100 기업 네트워크</strong> 보유<br/>또는 중개 RESCO와 협력 가능</div>
+          </div>
+          <div class="condition-item">
+            <div class="cond-icon icon-ppa"><i class="ti ti-trending-up"></i></div>
+            <div class="cond-text"><strong>장기 수익 극대화</strong>를 원하는 경우<br/>시장 가격 상승 시 혜택 극대화</div>
+          </div>
+          <div class="result-box result-ppa">
+            <p>✅ <strong>추가 포인트:</strong> 1MW 미만 발전소는 VPP(가상발전소) 집합 모델로 직접 PPA 참여 가능. 2025년 하반기 이후 집합형 PPA 제도 완전 정착됨.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 특수 상황별 -->
+    <div class="special-cases">
+      <div class="special-title"><i class="ti ti-sparkles"></i> 특수 상황별 빠른 선택 가이드</div>
+      <div class="special-grid">
+        <div class="special-card sc1">
+          <div class="sc-icon">🏭</div>
+          <div class="sc-label">현물시장 REC 판매 중</div>
+          <div class="sc-rec">2026년까지만 현물시장 유지 가능. 2027년 전환시장 통해 고정가격계약 또는 PPA로 전환 필요</div>
+          <div class="sc-answer ans-both">⚠️ 조기 전환 권장</div>
+        </div>
+        <div class="special-card sc2">
+          <div class="sc-icon">🆕</div>
+          <div class="sc-label">2026년 이후 신규 준공</div>
+          <div class="sc-rec">REC 발급 불가. 직접 PPA 또는 재생에너지 계약시장 중 반드시 하나 선택해야 함</div>
+          <div class="sc-answer ans-both">→ 가중치 따라 결정</div>
+        </div>
+        <div class="special-card sc3">
+          <div class="sc-icon">📋</div>
+          <div class="sc-label">기존 고정가격계약 완료</div>
+          <div class="sc-rec">계약 기간(최대 20년)까지 REC 계속 발급. 계약 종료 시점에 새 제도로 재계약 검토</div>
+          <div class="sc-answer ans-contract">✓ 기존 계약 유지</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 전문가 한 마디 -->
+    <div class="expert-box">
+      <div class="eq-title"><i class="ti ti-award"></i> 전문가 최종 분석</div>
+      <p>
+        <strong>단기(2026~2028):</strong> 가중치 높은 발전소는 지금 당장 고정가격계약 입찰 참여가 유리. 20년 수익을 확정하고 재생에너지 입찰제도 추가 수익까지 누리는 것이 최선.<br/><br/>
+        <strong>중장기(2028~):</strong> 직접 PPA 시장의 구조적 성장은 불가피. 한전 전기요금 인상 압력 + 글로벌 RE100 의무 강화 + EU CBAM 본격화가 직접 PPA 수요를 지속 밀어올릴 것. <strong>포트폴리오를 나눠 두 방식을 병행하는 전략이 가장 안정적.</strong>
+      </p>
+    </div>
+
+    <div class="source-note">📊 산업통상자원부, 전력거래소, 한국에너지공단 (2026년 5월 기준) | 본 가이드는 참고용이며 실제 계약은 전문 컨설턴트와 상담하시기 바랍니다.</div>
+  </div>
+</body>
+</html>
