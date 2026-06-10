@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026.06.10 섹터별 등락 현황</title>
+  <meta property="og:title" content="2026.06.10 코스피 섹터별 등락 분석 | 전기전자 -7.47% vs 건설 +1.75%" />
+  <meta property="og:description" content="오늘 코스피 섹터별 성과: 전기전자 -7.47%, 보험 -6.81%, 금융 -4.52% 급락. 건설 +1.75%, 조선·방산 강세. 중동 리스크 속 섹터 로테이션 분석." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/1A202C/FFFFFF?text=KOSPI+Sector+Performance+20260610" />
+  <meta property="og:url" content="https://yourblog.com/kospi-sector-20260610" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', -apple-system, sans-serif;
+      background: #F4F7F6;
+      padding: 0;
+    }
+    .wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 16px 24px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: #276749;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .header h2 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #1A1A2E;
+      margin-bottom: 4px;
+    }
+    .header p { font-size: 12px; color: #666; }
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #555;
+      margin: 0 0 10px 0;
+      padding: 0 2px;
+      letter-spacing: 0.3px;
+    }
+    /* Heatmap Grid */
+    .heatmap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    @media(max-width: 480px) {
+      .heatmap { grid-template-columns: repeat(2, 1fr); }
+    }
+    .heat-cell {
+      border-radius: 10px;
+      padding: 12px 10px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .heat-cell::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.12;
+      border-radius: 10px;
+    }
+    .heat-cell .sector-name {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: inherit;
+      margin-bottom: 5px;
+      line-height: 1.2;
+    }
+    .heat-cell .sector-pct {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    /* Down cells */
+    .heat-cell.d1 { background: #C53030; color: #fff; }
+    .heat-cell.d2 { background: #E53E3E; color: #fff; }
+    .heat-cell.d3 { background: #FC8181; color: #742A2A; }
+    .heat-cell.d4 { background: #FEB2B2; color: #742A2A; }
+    .heat-cell.d5 { background: #FED7D7; color: #742A2A; }
+    /* Up cells */
+    .heat-cell.u1 { background: #276749; color: #fff; }
+    .heat-cell.u2 { background: #38A169; color: #fff; }
+    .heat-cell.u3 { background: #9AE6B4; color: #22543D; }
+    /* Major stocks section */
+    .stocks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .stock-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 12px 14px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 4px solid #ddd;
+    }
+    .stock-card.down { border-left-color: #E53E3E; }
+    .stock-card.up { border-left-color: #38A169; }
+    .stock-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1A1A2E;
+    }
+    .stock-price {
+      font-size: 11px;
+      color: #888;
+      margin-top: 2px;
+    }
+    .stock-change {
+      font-size: 15px;
+      font-weight: 900;
+    }
+    .stock-change.down { color: #E53E3E; }
+    .stock-change.up { color: #38A169; }
+    .insight-sector {
+      background: linear-gradient(135deg, #EBF8FF, #E6FFFA);
+      border: 1.5px solid #81E6D9;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .insight-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #234E52;
+      margin-bottom: 8px;
+    }
+    .insight-text {
+      font-size: 12px;
+      color: #2D3748;
+      line-height: 1.65;
+    }
+    .footer-note {
+      font-size: 10.5px;
+      color: #aaa;
+      text-align: center;
+      padding-top: 8px;
+      border-top: 1px solid #E8EDF5;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="badge">📊 섹터 분석</div>
+      <h2>섹터 히트맵 — 중동 위기가 바꾼 업종 지형</h2>
+      <p>2026년 6월 10일 코스피 업종별 등락</p>
+    </div>
+
+    <div class="section-title">▶ 코스피 업종별 등락률 (진할수록 강도 큼)</div>
+    <div class="heatmap">
+      <div class="heat-cell d1">
+        <div class="sector-name">전기·전자</div>
+        <div class="sector-pct">-7.47%</div>
+      </div>
+      <div class="heat-cell d2">
+        <div class="sector-name">보험</div>
+        <div class="sector-pct">-6.81%</div>
+      </div>
+      <div class="heat-cell d3">
+        <div class="sector-name">금융</div>
+        <div class="sector-pct">-4.52%</div>
+      </div>
+      <div class="heat-cell d3">
+        <div class="sector-name">유통</div>
+        <div class="sector-pct">-4.39%</div>
+      </div>
+      <div class="heat-cell d3">
+        <div class="sector-name">기계·장비</div>
+        <div class="sector-pct">-3.87%</div>
+      </div>
+      <div class="heat-cell d4">
+        <div class="sector-name">화학</div>
+        <div class="sector-pct">-3.28%</div>
+      </div>
+      <div class="heat-cell d5">
+        <div class="sector-name">의약품</div>
+        <div class="sector-pct">-2.10%</div>
+      </div>
+      <div class="heat-cell u3">
+        <div class="sector-name">섬유·의복</div>
+        <div class="sector-pct">+1.17%</div>
+      </div>
+      <div class="heat-cell u2">
+        <div class="sector-name">건설</div>
+        <div class="sector-pct">+1.75%</div>
+      </div>
+    </div>
+
+    <div class="section-title">▶ 주요 종목 등락 (코스피)</div>
+    <div class="stocks-grid">
+      <div class="stock-card down">
+        <div>
+          <div class="stock-name">삼성전자</div>
+          <div class="stock-price">329,000원</div>
+        </div>
+        <div class="stock-change down">-7.30%</div>
+      </div>
+      <div class="stock-card down">
+        <div>
+          <div class="stock-name">SK하이닉스</div>
+          <div class="stock-price">2,048,000원</div>
+        </div>
+        <div class="stock-change down">-9.16%</div>
+      </div>
+      <div class="stock-card down">
+        <div>
+          <div class="stock-name">삼성생명</div>
+          <div class="stock-price">—</div>
+        </div>
+        <div class="stock-change down">-7.80%</div>
+      </div>
+      <div class="stock-card down">
+        <div>
+          <div class="stock-name">현대차</div>
+          <div class="stock-price">—</div>
+        </div>
+        <div class="stock-change down">-7.50%</div>
+      </div>
+      <div class="stock-card up">
+        <div>
+          <div class="stock-name">LS일렉트릭</div>
+          <div class="stock-price">—</div>
+        </div>
+        <div class="stock-change up">+4.5%</div>
+      </div>
+      <div class="stock-card up">
+        <div>
+          <div class="stock-name">한화오션</div>
+          <div class="stock-price">—</div>
+        </div>
+        <div class="stock-change up">+4.2%</div>
+      </div>
+      <div class="stock-card up">
+        <div>
+          <div class="stock-name">HD한국조선해양</div>
+          <div class="stock-price">—</div>
+        </div>
+        <div class="stock-change up">+2.0%</div>
+      </div>
+      <div class="stock-card up">
+        <div>
+          <div class="stock-name">HD현대중공업</div>
+          <div class="stock-price">—</div>
+        </div>
+        <div class="stock-change up">+1.9%</div>
+      </div>
+    </div>
+
+    <div class="insight-sector">
+      <div class="insight-title">🔍 왜 조선·방산·건설은 올랐나?</div>
+      <div class="insight-text">
+        <strong>① 호르무즈 해협 불안 → 에너지 우회 수송 수요↑</strong><br/>
+        미·이란 충돌 격화로 호르무즈 해협 통행 리스크가 높아지면, LNG·원유 운반선의 우회 노선 운항이 늘어납니다. 한국 조선 3사는 글로벌 LNG선 발주의 80%↑를 독점하고 있어 수혜가 직접적입니다.<br/><br/>
+        <strong>② 방위비 증가 기대 → 방산·방위 인프라 수요↑</strong><br/>
+        중동 분쟁 장기화는 각국의 방위비 지출 확대로 이어질 수 있습니다. LS일렉트릭(군용 전력 시스템)이 강세를 보인 배경입니다.<br/><br/>
+        <strong>③ 섹터 로테이션 — 과열된 AI·반도체에서 저평가 산업주로</strong><br/>
+        코스피 시총의 50%를 넘는 전기전자 섹터가 급락하자, 상대적으로 저평가된 구(舊)경제 섹터로 자금이 이동하는 <strong>섹터 로테이션</strong>이 진행됐습니다.
+      </div>
+    </div>
+
+    <div class="footer-note">
+      출처: 아시아경제 (2026.06.10) | 투자 권유 아님 | 일부 수치 장중 기준
+    </div>
+  </div>
+</body>
+</html>
