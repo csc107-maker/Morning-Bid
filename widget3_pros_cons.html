@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RPS vs 직접 PPA 장단점 심층 비교</title>
+  <meta property="og:title" content="RPS 고정가격계약 vs 직접 PPA 장단점 심층 비교표" />
+  <meta property="og:description" content="태양광 발전사업자를 위한 RPS 고정가격계약과 직접 PPA의 장점·단점 전면 비교 분석" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=장단점+비교표" />
+  <meta property="og:url" content="https://example.com/rps-ppa-pros-cons" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #fff7f0;
+      padding: 24px 16px;
+    }
+    .widget-wrap { max-width: 860px; margin: 0 auto; }
+    .widget-title { text-align: center; font-size: 22px; font-weight: 900; color: #1e293b; margin-bottom: 4px; }
+    .widget-subtitle { text-align: center; font-size: 13px; color: #64748b; margin-bottom: 24px; }
+
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 700; color: #1e293b;
+      margin-bottom: 12px;
+    }
+    .section-badge {
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 12px; font-weight: 700;
+    }
+    .badge-rps { background: #dbeafe; color: #1d4ed8; }
+    .badge-ppa { background: #d1fae5; color: #059669; }
+
+    .pros-cons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .pros-section, .cons-section {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+    .section-header {
+      padding: 12px 18px;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 700;
+    }
+    .pros-header { background: #f0fdf4; color: #059669; }
+    .cons-header { background: #fef2f2; color: #ef4444; }
+    .item-list { padding: 8px 0; }
+    .item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 18px;
+      border-bottom: 1px solid #f8fafc;
+    }
+    .item:last-child { border-bottom: none; }
+    .item-icon {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .icon-green { background: #ecfdf5; color: #059669; }
+    .icon-red { background: #fef2f2; color: #ef4444; }
+    .icon-blue { background: #eff6ff; color: #3b82f6; }
+    .icon-orange { background: #fff7ed; color: #f97316; }
+    .item-text { font-size: 12.5px; color: #374151; line-height: 1.6; }
+    .item-text strong { color: #1e293b; font-weight: 700; }
+
+    .full-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      margin-bottom: 16px;
+    }
+    .full-table thead tr {
+      background: linear-gradient(90deg, #1d4ed8 0%, #059669 100%);
+    }
+    .full-table thead th {
+      padding: 14px 16px;
+      font-size: 13px; font-weight: 700; color: #fff; text-align: center;
+    }
+    .full-table thead th:first-child { text-align: left; background: #1e293b; }
+    .full-table tbody tr:nth-child(even) { background: #f8fafc; }
+    .full-table tbody tr:hover { background: #f0f7ff; }
+    .full-table td {
+      padding: 11px 16px;
+      font-size: 12.5px; color: #374151;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: middle;
+    }
+    .full-table td:first-child { font-weight: 600; color: #475569; }
+    .full-table td:nth-child(2), .full-table td:nth-child(3) { text-align: center; }
+    .chip {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px; font-weight: 700;
+    }
+    .chip-good { background: #dcfce7; color: #15803d; }
+    .chip-bad { background: #fee2e2; color: #b91c1c; }
+    .chip-mid { background: #fef9c3; color: #854d0e; }
+    .chip-neutral { background: #f1f5f9; color: #475569; }
+
+    .source-note { text-align: center; font-size: 11px; color: #94a3b8; margin-top: 14px; }
+    @media (max-width: 600px) {
+      .pros-cons-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-wrap">
+    <div class="widget-title">⚖️ 장단점 심층 비교 분석</div>
+    <div class="widget-subtitle">RPS 고정가격계약 vs 직접 PPA | 2026년 에너지 시장 기준</div>
+
+    <!-- RPS 장단점 -->
+    <div class="section-label" style="margin-top:4px;">
+      <span class="section-badge badge-rps">🏛 RPS 고정가격계약</span>
+    </div>
+    <div class="pros-cons-grid" style="margin-bottom:16px;">
+      <div class="pros-section">
+        <div class="section-header pros-header"><i class="ti ti-circle-check-filled"></i> 장점 (4가지)</div>
+        <div class="item-list">
+          <div class="item">
+            <div class="item-icon icon-green"><i class="ti ti-building-bank"></i></div>
+            <div class="item-text"><strong>PF 금융 조달 탁월</strong><br/>공급의무자(한전) 보증으로 대출 심사 절대 유리</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-green"><i class="ti ti-plus"></i></div>
+            <div class="item-text"><strong>재생에너지 입찰제도 추가 수익</strong><br/>고정 수익 외 예측·준중앙제도로 추가 정산 가능</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-green"><i class="ti ti-shield-check"></i></div>
+            <div class="item-text"><strong>20년 안정적 현금흐름</strong><br/>정부가 보증하는 수익구조로 사업계획 수립 용이</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-green"><i class="ti ti-users"></i></div>
+            <div class="item-text"><strong>소규모도 별도 트랙 참여</strong><br/>1MW 미만 소규모 발전소 전용 입찰 트랙 존재</div>
+          </div>
+        </div>
+      </div>
+      <div class="cons-section">
+        <div class="section-header cons-header"><i class="ti ti-circle-x-filled"></i> 단점 (3가지)</div>
+        <div class="item-list">
+          <div class="item">
+            <div class="item-icon icon-red"><i class="ti ti-lock"></i></div>
+            <div class="item-text"><strong>가격 협상력 없음</strong><br/>상한가(157원) 이상 수령 불가. 입찰 탈락 리스크</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-red"><i class="ti ti-clock-off"></i></div>
+            <div class="item-text"><strong>제도 폐지 리스크</strong><br/>RPS 2029년 완전 폐지 → 계약시장 전환 불확실성</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-red"><i class="ti ti-tournament"></i></div>
+            <div class="item-text"><strong>경쟁 입찰의 불확실성</strong><br/>공고 일정에 맞춰 입찰 필요, 탈락 시 수익 공백</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PPA 장단점 -->
+    <div class="section-label">
+      <span class="section-badge badge-ppa">🤝 직접 PPA</span>
+    </div>
+    <div class="pros-cons-grid" style="margin-bottom:20px;">
+      <div class="pros-section">
+        <div class="section-header pros-header"><i class="ti ti-circle-check-filled"></i> 장점 (4가지)</div>
+        <div class="item-list">
+          <div class="item">
+            <div class="item-icon icon-green"><i class="ti ti-weight"></i></div>
+            <div class="item-text"><strong>가중치 무관 수익화</strong><br/>가중치 0.7~0.8 낮은 발전소도 단가 협상으로 커버</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-green"><i class="ti ti-trending-up"></i></div>
+            <div class="item-text"><strong>상한가 초과 단가 협상 가능</strong><br/>RE100 수요 초과로 시장가보다 높은 계약 체결 사례 존재</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-green"><i class="ti ti-world"></i></div>
+            <div class="item-text"><strong>구조적 수요 급증</strong><br/>PPA 계약용량 2024년 84% 급증 / K-RE100 923개사</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-green"><i class="ti ti-leaf"></i></div>
+            <div class="item-text"><strong>CBAM·RE100 대응 기업 장기 파트너십</strong><br/>글로벌 공급망 참여 조건으로 RE100 필수화</div>
+          </div>
+        </div>
+      </div>
+      <div class="cons-section">
+        <div class="section-header cons-header"><i class="ti ti-circle-x-filled"></i> 단점 (4가지)</div>
+        <div class="item-list">
+          <div class="item">
+            <div class="item-icon icon-red"><i class="ti ti-search"></i></div>
+            <div class="item-text"><strong>기업 발굴 부담</strong><br/>RE100 이행 기업 직접 발굴 또는 중개사(RESCO) 필요</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-red"><i class="ti ti-plug-connected"></i></div>
+            <div class="item-text"><strong>망 이용요금 부담</strong><br/>OFF-SITE PPA 시 최종 납부액 약 139.35원/kWh까지 상승</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-red"><i class="ti ti-plus-minus"></i></div>
+            <div class="item-text"><strong>추가 수익 없음</strong><br/>재생에너지 예측·준중앙·입찰제도 수익 참여 불가</div>
+          </div>
+          <div class="item">
+            <div class="item-icon icon-red"><i class="ti ti-alert-triangle"></i></div>
+            <div class="item-text"><strong>기업 신용 리스크</strong><br/>20년 계약 중 기업 경영 악화 시 계약 불이행 가능성</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 항목별 비교 테이블 -->
+    <table class="full-table">
+      <thead>
+        <tr>
+          <th style="width:34%;">비교 항목</th>
+          <th>RPS 고정가격계약</th>
+          <th>직접 PPA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>수익 예측 가능성</td><td><span class="chip chip-good">★★★ 매우 높음</span></td><td><span class="chip chip-good">★★★ 높음 (장기계약 시)</span></td></tr>
+        <tr><td>가격 협상력</td><td><span class="chip chip-bad">없음 (상한가 제한)</span></td><td><span class="chip chip-good">자유 협상 가능</span></td></tr>
+        <tr><td>가중치 1.0 미만 발전소</td><td><span class="chip chip-bad">불리</span></td><td><span class="chip chip-good">유리 (단가로 커버)</span></td></tr>
+        <tr><td>PF 금융 조달</td><td><span class="chip chip-good">매우 유리</span></td><td><span class="chip chip-mid">상대적 복잡</span></td></tr>
+        <tr><td>추가 수익 (입찰제도)</td><td><span class="chip chip-good">참여 가능</span></td><td><span class="chip chip-bad">불가</span></td></tr>
+        <tr><td>소규모 (1MW 미만)</td><td><span class="chip chip-good">별도 트랙 가능</span></td><td><span class="chip chip-mid">VPP 집합 시 가능</span></td></tr>
+        <tr><td>망 이용요금 부담</td><td><span class="chip chip-good">없음</span></td><td><span class="chip chip-bad">오프사이트 시 발생</span></td></tr>
+        <tr><td>장기 성장성</td><td><span class="chip chip-mid">제도 전환 중</span></td><td><span class="chip chip-good">구조적 확대</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="source-note">📊 산업통상자원부, 한국에너지공단, 전력거래소, 한국태양에너지학회지(2025) 기반 분석</div>
+  </div>
+</body>
+</html>
