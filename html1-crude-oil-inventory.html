@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>미국 원유 재고 & 시장 충격 분석 | 2026.06.10</title>
+  <meta property="og:title" content="미국 원유 재고 공급 충격 분석 2026년 6월" />
+  <meta property="og:description" content="EIA 주간 보고서 기준 미국 원유 재고 -800만 배럴, 5년 평균 2% 하회. 호르무즈 봉쇄로 글로벌 원유 공급 위기 심화 분석." />
+  <meta property="og:image" content="https://your-blog.com/images/crude-oil-inventory-2026.png" />
+  <meta property="og:url" content="https://your-blog.com/investment-report-20260610" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.2.0/dist/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .widget {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+    .widget-header {
+      background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+      color: #fff;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .widget-header .icon-wrap {
+      background: rgba(255,255,255,0.18);
+      border-radius: 50%;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .widget-header h2 { font-size: 18px; font-weight: 700; line-height: 1.35; }
+    .widget-header .sub { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+    .widget-body { padding: 24px 28px; }
+    .alert-box {
+      background: #fff3e0;
+      border-left: 5px solid #ff6f00;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #bf360c;
+    }
+    .alert-box strong { color: #e65100; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .stat-card {
+      background: #f5f7ff;
+      border-radius: 10px;
+      padding: 16px 14px;
+      text-align: center;
+      border: 1px solid #e8eaf6;
+    }
+    .stat-card .label {
+      font-size: 11.5px;
+      color: #607d8b;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .stat-card .value {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1a237e;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-card .value.red { color: #c62828; }
+    .stat-card .value.orange { color: #e65100; }
+    .stat-card .note { font-size: 11px; color: #90a4ae; }
+    .section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a237e;
+      margin: 18px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    thead tr { background: #e8eaf6; }
+    thead th {
+      padding: 10px 12px;
+      text-align: left;
+      color: #1a237e;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    tbody tr { border-bottom: 1px solid #f0f0f0; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 10px 12px; color: #37474f; line-height: 1.4; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge.danger { background: #ffebee; color: #c62828; }
+    .badge.warning { background: #fff3e0; color: #e65100; }
+    .badge.ok { background: #e8f5e9; color: #2e7d32; }
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 18px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: #c5cae9;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 14px;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -19px;
+      top: 5px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #3949ab;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #3949ab;
+    }
+    .tl-item .date { font-size: 11px; color: #90a4ae; font-weight: 600; margin-bottom: 2px; }
+    .tl-item .text { font-size: 13px; color: #37474f; line-height: 1.5; }
+    .tl-item .text strong { color: #c62828; }
+    .source {
+      background: #f5f5f5;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 11px;
+      color: #90a4ae;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget">
+    <div class="widget-header">
+      <div class="icon-wrap"><i class="ti ti-oil"></i></div>
+      <div>
+        <h2>미국 원유 재고 & 공급 충격 분석</h2>
+        <div class="sub">EIA 주간 보고서 기준 | 2026년 6월 10일 업데이트</div>
+      </div>
+    </div>
+    <div class="widget-body">
+
+      <div class="alert-box">
+        <strong>⚠ 공급 충격 경고</strong> — 호르무즈 해협 사실상 봉쇄로 중동 6개국 하루 <strong>1,050만 배럴</strong> 생산 차질. IEA는 "수십 년 만의 가장 심각한 공급 위기"로 규정.
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="label">상업 원유 재고 (5/29)</div>
+          <div class="value red">▼800만</div>
+          <div class="note">배럴 | 433.7만 배럴 잔존</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">5년 평균 대비</div>
+          <div class="value orange">-2%</div>
+          <div class="note">5년 평균 이하 수준</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">전체 원유+SPR 합산</div>
+          <div class="value red">▼9,000만</div>
+          <div class="note">배럴 | 최근 고점 대비</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">브렌트유 전망 (5~6월)</div>
+          <div class="value orange">$106</div>
+          <div class="note">4월 평균 $117/b에서 하락</div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-table"></i> 주간 재고 현황 비교표</div>
+      <table>
+        <thead>
+          <tr>
+            <th>항목</th>
+            <th>변화량 (5/29 주간)</th>
+            <th>현재 재고</th>
+            <th>5년 평균 대비</th>
+            <th>상태</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>상업 원유</strong></td>
+            <td>▼800만 배럴</td>
+            <td>4억 3,370만 배럴</td>
+            <td>-2%</td>
+            <td><span class="badge warning">주의</span></td>
+          </tr>
+          <tr>
+            <td><strong>전체 석유재고</strong></td>
+            <td>▼260만 배럴</td>
+            <td>—</td>
+            <td>—</td>
+            <td><span class="badge warning">주의</span></td>
+          </tr>
+          <tr>
+            <td><strong>휘발유</strong></td>
+            <td>▼540만 배럴</td>
+            <td>2억 4,410만 배럴</td>
+            <td>-6%</td>
+            <td><span class="badge danger">부족</span></td>
+          </tr>
+          <tr>
+            <td><strong>경유(증류유)</strong></td>
+            <td>▼250만 배럴</td>
+            <td>1억 1,690만 배럴</td>
+            <td>-3%</td>
+            <td><span class="badge warning">주의</span></td>
+          </tr>
+          <tr>
+            <td><strong>프로판/프로필렌</strong></td>
+            <td>+210만 배럴</td>
+            <td>—</td>
+            <td>+39%</td>
+            <td><span class="badge ok">여유</span></td>
+          </tr>
+          <tr>
+            <td><strong>정유소 가동률</strong></td>
+            <td>-0.1%p</td>
+            <td>94.7%</td>
+            <td>—</td>
+            <td><span class="badge ok">정상</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title"><i class="ti ti-timeline"></i> 공급 위기 타임라인</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="date">2026년 2월 28일</div>
+          <div class="text">미국·이스라엘과 이란 간 군사 충돌 발발. <strong>호르무즈 해협 실질적 마비</strong> 시작 (하루 2,000만 배럴 규모 항로).</div>
+        </div>
+        <div class="tl-item">
+          <div class="date">2026년 4월</div>
+          <div class="text">중동 6개국 집단 생산 차단 확인. EIA 추정 <strong>1,050만 b/d 공급 차질</strong>. 브렌트유 4월 7일 <strong>$138/b 최고치</strong> 기록.</div>
+        </div>
+        <div class="tl-item">
+          <div class="date">2026년 5월 하순</div>
+          <div class="text">호르무즈 해협 부분 재개통 시작. 그러나 <strong>원유 재고 급감 추세 지속</strong>. 상업+SPR 합산 9,000만 배럴 감소.</div>
+        </div>
+        <div class="tl-item">
+          <div class="date">2026년 6월 (현재)</div>
+          <div class="text">EIA STEO: 2Q26 글로벌 원유 재고 하루 평균 <strong>850만 배럴 감소</strong> 전망. 가격 $106/b 유지 예상.</div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-chart-bar"></i> 시장 충격 연쇄 효과</div>
+      <table>
+        <thead>
+          <tr>
+            <th>원유 재고 결과</th>
+            <th>유가 영향</th>
+            <th>인플레이션 영향</th>
+            <th>시장 반응</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge danger">예상보다 더 감소</span></td>
+            <td>유가 급등</td>
+            <td>에너지 CPI 상향</td>
+            <td>달러 강세, 주식 하락</td>
+          </tr>
+          <tr>
+            <td><span class="badge warning">예상 수준 감소</span></td>
+            <td>현 수준 유지</td>
+            <td>현 인플레 지속</td>
+            <td>관망, 변동 제한</td>
+          </tr>
+          <tr>
+            <td><span class="badge ok">예상보다 증가</span></td>
+            <td>유가 하락</td>
+            <td>에너지 CPI 하향</td>
+            <td>달러 약세, 주식 반등</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="source">
+        📊 데이터 출처: EIA Weekly Petroleum Status Report (5/29 기준) | EIA Short-Term Energy Outlook (2026년 5월) | Energy News Beat | 에너지경제연구원 | Investing.com
+      </div>
+    </div>
+  </div>
+</body>
+</html>
