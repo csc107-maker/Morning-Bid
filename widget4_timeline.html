@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>한국 재생에너지 제도 변화 타임라인 2012~2030</title>
+  <meta property="og:title" content="RPS 도입부터 폐지까지 - 한국 재생에너지 제도 변화 타임라인" />
+  <meta property="og:description" content="2012년 RPS 도입부터 2030년 재생에너지 계약시장 완전 전환까지의 핵심 제도 변화 타임라인" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=재생에너지+제도+타임라인" />
+  <meta property="og:url" content="https://example.com/renewable-energy-timeline" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f5f3ff;
+      padding: 24px 16px;
+    }
+    .widget-wrap { max-width: 760px; margin: 0 auto; }
+    .widget-title { text-align: center; font-size: 22px; font-weight: 900; color: #1e293b; margin-bottom: 4px; }
+    .widget-subtitle { text-align: center; font-size: 13px; color: #64748b; margin-bottom: 28px; }
+
+    .phase-bar {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .phase-seg {
+      flex: 1;
+      padding: 8px 6px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .phase-seg.p1 { background: #3b82f6; flex: 1.2; }
+    .phase-seg.p2 { background: #8b5cf6; flex: 1.8; }
+    .phase-seg.p3 { background: #f59e0b; flex: 1; }
+    .phase-seg.p4 { background: #ef4444; flex: 1; }
+    .phase-seg.p5 { background: #10b981; flex: 1; }
+
+    .timeline {
+      position: relative;
+      padding-left: 44px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 10px;
+      bottom: 10px;
+      width: 3px;
+      background: linear-gradient(180deg, #3b82f6 0%, #8b5cf6 35%, #f59e0b 55%, #ef4444 75%, #10b981 100%);
+      border-radius: 3px;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .tl-dot {
+      position: absolute;
+      left: -36px;
+      top: 8px;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 1;
+    }
+    .dot-blue { background: #3b82f6; color: #fff; }
+    .dot-purple { background: #8b5cf6; color: #fff; }
+    .dot-amber { background: #f59e0b; color: #fff; }
+    .dot-red { background: #ef4444; color: #fff; }
+    .dot-green { background: #10b981; color: #fff; }
+    .dot-key {
+      width: 30px; height: 30px;
+      left: -38px;
+      box-shadow: 0 0 0 4px rgba(239,68,68,0.2);
+    }
+
+    .tl-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 14px 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      border-left: 4px solid;
+    }
+    .tl-card.c-blue { border-color: #3b82f6; }
+    .tl-card.c-purple { border-color: #8b5cf6; }
+    .tl-card.c-amber { border-color: #f59e0b; }
+    .tl-card.c-red { border-color: #ef4444; }
+    .tl-card.c-green { border-color: #10b981; }
+
+    .tl-year {
+      font-size: 12px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;
+    }
+    .tl-year .year-badge {
+      font-size: 13px; font-weight: 900;
+      padding: 1px 8px;
+      border-radius: 6px;
+    }
+    .year-blue { background: #dbeafe; color: #1d4ed8; }
+    .year-purple { background: #ede9fe; color: #6d28d9; }
+    .year-amber { background: #fef3c7; color: #92400e; }
+    .year-red { background: #fee2e2; color: #991b1b; }
+    .year-green { background: #dcfce7; color: #14532d; }
+
+    .tl-title { font-size: 14px; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
+    .tl-desc { font-size: 12px; color: #64748b; line-height: 1.6; }
+    .tl-highlight {
+      display: inline-block;
+      background: #fef9c3;
+      color: #92400e;
+      font-size: 11px; font-weight: 700;
+      padding: 2px 8px; border-radius: 6px; margin-top: 5px;
+    }
+
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      background: #fff; border-radius: 12px;
+      padding: 12px 16px;
+      margin-top: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 11px; color: #475569;
+    }
+    .legend-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .source-note { text-align: center; font-size: 11px; color: #94a3b8; margin-top: 14px; }
+  </style>
+</head>
+<body>
+  <div class="widget-wrap">
+    <div class="widget-title">📅 한국 재생에너지 제도 변화 타임라인</div>
+    <div class="widget-subtitle">RPS 도입(2012) → RPS 완전 폐지(2029) → 계약시장 전환 완료</div>
+
+    <div class="phase-bar">
+      <div class="phase-seg p1">🏛 RPS 기반 구축<br/>2012~2016</div>
+      <div class="phase-seg p2">🔄 제도 고도화<br/>2017~2024</div>
+      <div class="phase-seg p3">⚠️ 전환기<br/>2025~2026</div>
+      <div class="phase-seg p4">🚨 일몰·전환<br/>2027~2029</div>
+      <div class="phase-seg p5">🌱 새시장<br/>2030~</div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot dot-blue"><i class="ti ti-flag"></i></div>
+        <div class="tl-card c-blue">
+          <div class="tl-year"><span class="year-badge year-blue">2012.02</span></div>
+          <div class="tl-title">🏛 RPS 제도 도입</div>
+          <div class="tl-desc">신재생에너지 공급의무화제도 시행. 발전사업자 총 발전량의 일정 비율을 신재생에너지로 공급 의무화. 태양광·풍력 보급 본격화.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-blue"><i class="ti ti-file-invoice"></i></div>
+        <div class="tl-card c-blue">
+          <div class="tl-year"><span class="year-badge year-blue">2017.01</span></div>
+          <div class="tl-title">📋 고정가격 경쟁입찰제 개편</div>
+          <div class="tl-desc">기존 12년 판매사업자 선정 방식 → SMP+REC 합산가격 20년 고정가격 경쟁입찰제로 개정. 발전사업자 장기 안정 수익 기반 마련.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-purple"><i class="ti ti-plug"></i></div>
+        <div class="tl-card c-purple">
+          <div class="tl-year"><span class="year-badge year-purple">2022.01</span></div>
+          <div class="tl-title">🤝 직접 PPA 고시 시행</div>
+          <div class="tl-desc">재생에너지 발전사업자-기업 간 직접 전력구매계약(PPA) 제도 도입. RE100 이행 기업의 새로운 재생에너지 조달 수단 등장. 거래수수료 3년 면제 혜택.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-purple"><i class="ti ti-trending-up"></i></div>
+        <div class="tl-card c-purple">
+          <div class="tl-year"><span class="year-badge year-purple">2024</span></div>
+          <div class="tl-title">📈 PPA 시장 폭발적 성장</div>
+          <div class="tl-desc">PPA 누적 계약용량 1,679MW (전년比 84% 급증). K-RE100 기업 905개사 돌파. 한전 산업용 요금 2022년 대비 54% 급등으로 PPA 매력도 급상승.</div>
+          <div class="tl-highlight">⬆ PPA 계약 84% 급증</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-amber dot-key"><i class="ti ti-alert-triangle"></i></div>
+        <div class="tl-card c-amber">
+          <div class="tl-year"><span class="year-badge year-amber">2025.10</span></div>
+          <div class="tl-title">⚠️ RPS 폐지 법안 최초 발의</div>
+          <div class="tl-desc">신재생에너지법 개정안 발의. 신규 REC 발급 2026년 12월 31일 종료, RPS 제도 2029년 폐지 예고. 발전사업자 대응 전략 논의 본격화.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-amber"><i class="ti ti-news"></i></div>
+        <div class="tl-card c-amber">
+          <div class="tl-year"><span class="year-badge year-amber">2026.05 현재</span></div>
+          <div class="tl-title">🏛 RPS 폐지 법안 국회 상임위 통과</div>
+          <div class="tl-desc">신재생에너지법 개정안 산자중기위 통과. 재생에너지 기본계획(100GW) 발표. 고정가격계약 재개. 재생에너지 계약시장 도입 확정. 발전사업자 최종 선택 국면.</div>
+          <div class="tl-highlight">📌 현재 위치 - 역사적 전환점</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-red"><i class="ti ti-lock"></i></div>
+        <div class="tl-card c-red">
+          <div class="tl-year"><span class="year-badge year-red">2026.12.31</span></div>
+          <div class="tl-title">🔴 신규 REC 발급 종료</div>
+          <div class="tl-desc">이 날 이후 준공하는 발전소는 REC 발급 불가. 대신 거래 불가능한 '발전정보 인증서'만 발급. 2026년 이후 준공 발전소는 직접 PPA 또는 재생에너지 계약시장만 가능.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-red"><i class="ti ti-exchange"></i></div>
+        <div class="tl-card c-red">
+          <div class="tl-year"><span class="year-badge year-red">2027</span></div>
+          <div class="tl-title">🔄 재생에너지 계약시장(전환시장) 운영 개시</div>
+          <div class="tl-desc">현물시장에서 직접 PPA 또는 고정가격계약으로 전환할 수 있는 별도 전환시장 3년간 운영(~2029). 소규모 설비용 통합사업자(RESCO) 제도 신설.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-red"><i class="ti ti-x"></i></div>
+        <div class="tl-card c-red">
+          <div class="tl-year"><span class="year-badge year-red">2029.12.31</span></div>
+          <div class="tl-title">❌ RPS 제도 완전 폐지</div>
+          <div class="tl-desc">신재생에너지법 상 RPS 제도 효력 완전 종료. REC 현물시장 폐지. 단, 기존 고정가격계약 발전소는 계약 기간(최대 20년)까지 REC 계속 발급.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-green"><i class="ti ti-leaf"></i></div>
+        <div class="tl-card c-green">
+          <div class="tl-year"><span class="year-badge year-green">2030</span></div>
+          <div class="tl-title">🌱 재생에너지 100GW 목표 달성 시점</div>
+          <div class="tl-desc">정부의 제1차 재생에너지 기본계획(2026.5) 기준 2030년 재생에너지 설비 100GW 목표. 직접 PPA + 재생에너지 계약시장 양축 체제로 완전 전환.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#3b82f6;"></div> RPS 기반기</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6;"></div> 제도 고도화</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div> 전환 준비기</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ef4444;"></div> RPS 일몰기</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div> 새 시장 체제</div>
+    </div>
+
+    <div class="source-note">📊 신재생에너지법 개정안, 산업통상자원부, 한국에너지공단, 전력거래소 공시 기반 정리</div>
+  </div>
+</body>
+</html>
