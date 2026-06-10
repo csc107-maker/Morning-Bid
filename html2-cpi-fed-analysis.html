@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>미국 5월 CPI 전망 & Fed 금리 분석 | 2026.06.10</title>
+  <meta property="og:title" content="미국 5월 CPI 4.2% 전망 & Fed 금리 인상 시나리오 분석 2026" />
+  <meta property="og:description" content="미국 5월 CPI 전년비 +4.2% 예상, 근원 CPI +2.9%. 오늘 발표! 금리 인상/동결 시나리오와 한국 시장 영향 분석." />
+  <meta property="og:image" content="https://your-blog.com/images/cpi-fed-analysis-2026.png" />
+  <meta property="og:url" content="https://your-blog.com/investment-report-20260610" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.2.0/dist/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: linear-gradient(135deg, #fce4ec 0%, #fff9c4 100%);
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .widget {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+    .widget-header {
+      background: linear-gradient(135deg, #b71c1c 0%, #c62828 100%);
+      color: #fff;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .widget-header .icon-wrap {
+      background: rgba(255,255,255,0.18);
+      border-radius: 50%;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .widget-header h2 { font-size: 18px; font-weight: 700; line-height: 1.35; }
+    .widget-header .sub { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+    .widget-body { padding: 24px 28px; }
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #ffebee;
+      border: 1px solid #ef9a9a;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #c62828;
+      margin-bottom: 16px;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #f44336;
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+    .cpi-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .cpi-box {
+      border-radius: 12px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .cpi-box.headline { background: #ffebee; border: 2px solid #ef9a9a; }
+    .cpi-box.core { background: #fff9c4; border: 2px solid #fff176; }
+    .cpi-box .label { font-size: 12px; color: #607d8b; font-weight: 600; margin-bottom: 6px; }
+    .cpi-box .big-num {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .cpi-box.headline .big-num { color: #b71c1c; }
+    .cpi-box.core .big-num { color: #f9a825; }
+    .cpi-box .prev { font-size: 12px; color: #90a4ae; }
+    .cpi-box .mom { font-size: 13px; font-weight: 700; margin-top: 4px; }
+    .section-title {
+      font-size: 14px; font-weight: 700; color: #b71c1c;
+      margin: 18px 0 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    thead tr { background: #ffebee; }
+    thead th { padding: 10px 12px; text-align: left; color: #b71c1c; font-weight: 700; font-size: 12px; }
+    tbody tr { border-bottom: 1px solid #f5f5f5; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 10px 12px; color: #37474f; line-height: 1.5; }
+    .trend-bar-wrap {
+      margin-bottom: 20px;
+    }
+    .trend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+    .trend-label { font-size: 12px; width: 70px; color: #546e7a; font-weight: 600; text-align: right; }
+    .bar-bg {
+      flex: 1;
+      background: #f5f5f5;
+      border-radius: 6px;
+      height: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #fff;
+      transition: width 0.5s ease;
+    }
+    .bar-fill.b1 { background: #ef9a9a; width: 40%; }
+    .bar-fill.b2 { background: #e57373; width: 52%; }
+    .bar-fill.b3 { background: #ef5350; width: 58%; }
+    .bar-fill.b4 { background: #e53935; width: 65%; }
+    .bar-fill.b5 { background: #c62828; width: 74%; }
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .scenario-card {
+      border-radius: 10px;
+      padding: 14px 16px;
+      border: 1px solid transparent;
+    }
+    .scenario-card.bad { background: #ffebee; border-color: #ef9a9a; }
+    .scenario-card.neutral { background: #fff9c4; border-color: #fff176; }
+    .scenario-card.good { background: #e8f5e9; border-color: #a5d6a7; }
+    .scenario-card .s-label { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+    .scenario-card.bad .s-label { color: #c62828; }
+    .scenario-card.neutral .s-label { color: #f57f17; }
+    .scenario-card.good .s-label { color: #2e7d32; }
+    .scenario-card .s-desc { font-size: 12.5px; color: #546e7a; line-height: 1.6; }
+    .fomc-box {
+      background: #e3f2fd;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      border-left: 5px solid #1976d2;
+    }
+    .fomc-box .title { font-size: 13px; font-weight: 700; color: #1565c0; margin-bottom: 8px; }
+    .fomc-box .row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .fomc-box .key { font-size: 12.5px; color: #546e7a; }
+    .fomc-box .val { font-size: 12.5px; font-weight: 700; color: #1a237e; }
+    .source {
+      background: #f5f5f5;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 11px;
+      color: #90a4ae;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget">
+    <div class="widget-header">
+      <div class="icon-wrap"><i class="ti ti-chart-infographic"></i></div>
+      <div>
+        <h2>미국 5월 CPI 전망 & Fed 금리 분석</h2>
+        <div class="sub">BLS 발표일 2026.06.10 오전 8:30 ET | FactSet·BofA·Kiplinger 예측치 집계</div>
+      </div>
+    </div>
+    <div class="widget-body">
+
+      <div class="live-badge">
+        <div class="live-dot"></div>
+        오늘(6/10) 발표 — 2026년 5월 CPI 라이브 데이터
+      </div>
+
+      <div class="cpi-compare">
+        <div class="cpi-box headline">
+          <div class="label">헤드라인 CPI (전년비)</div>
+          <div class="big-num">4.2%</div>
+          <div class="prev">직전 4월: +3.8%</div>
+          <div class="mom" style="color:#b71c1c">월간: +0.5% 전망</div>
+        </div>
+        <div class="cpi-box core">
+          <div class="label">근원 CPI (전년비, 식품·에너지 제외)</div>
+          <div class="big-num">2.9%</div>
+          <div class="prev">직전 4월: +2.8%</div>
+          <div class="mom" style="color:#f57f17">월간: +0.3% 전망</div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-chart-bar"></i> 월별 헤드라인 CPI 추이 (전년비)</div>
+      <div class="trend-bar-wrap">
+        <div class="trend-item">
+          <div class="trend-label">2025.12</div>
+          <div class="bar-bg"><div class="bar-fill b1">+2.7%</div></div>
+        </div>
+        <div class="trend-item">
+          <div class="trend-label">2026.01</div>
+          <div class="bar-bg"><div class="bar-fill b1">+2.4%</div></div>
+        </div>
+        <div class="trend-item">
+          <div class="trend-label">2026.02</div>
+          <div class="bar-bg"><div class="bar-fill b2">+2.8%</div></div>
+        </div>
+        <div class="trend-item">
+          <div class="trend-label">2026.03</div>
+          <div class="bar-bg"><div class="bar-fill b3">+3.3%</div></div>
+        </div>
+        <div class="trend-item">
+          <div class="trend-label">2026.04</div>
+          <div class="bar-bg"><div class="bar-fill b4">+3.8%</div></div>
+        </div>
+        <div class="trend-item">
+          <div class="trend-label">2026.05 <small>(전망)</small></div>
+          <div class="bar-bg"><div class="bar-fill b5">+4.2% (예상)</div></div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-building-bank"></i> Fed 금리 현황 & FOMC 일정</div>
+      <div class="fomc-box">
+        <div class="title">📌 현재 연방기금금리 &amp; 6월 FOMC 전망</div>
+        <div class="row"><div class="key">현재 연방기금금리</div><div class="val">3.50~3.75%</div></div>
+        <div class="row"><div class="key">6월 FOMC 일정</div><div class="val">2026년 6월 16~17일</div></div>
+        <div class="row"><div class="key">금리 동결 확률 (CME FedWatch)</div><div class="val">99.1%</div></div>
+        <div class="row"><div class="key">연내 금리 인상 확률</div><div class="val">70%+</div></div>
+        <div class="row"><div class="key">현 Fed 의장</div><div class="val">Kevin Warsh (5/15 취임)</div></div>
+        <div class="row"><div class="key">4월 FOMC 표결</div><div class="val">8대 4 동결 (1992년 이후 최다 반대)</div></div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-alert-triangle"></i> CPI 결과별 시장 시나리오</div>
+      <div class="scenario-grid">
+        <div class="scenario-card bad">
+          <div class="s-label">❌ 충격 시나리오: CPI 4.5% 이상 상회</div>
+          <div class="s-desc">달러 급등, 국채 금리 폭등, 주식시장 급락 압력. CME FedWatch 연내 인상 기대 급상승. 원달러 환율 1,550원 이상 위험. 한국 외국인 자금 이탈 가능성.</div>
+        </div>
+        <div class="scenario-card neutral">
+          <div class="s-label">⚖️ 중립 시나리오: CPI 4.2% 예상 부합</div>
+          <div class="s-desc">시장 반응 제한적. 달러 소폭 강세 또는 중립. 6월 FOMC 동결 기대 유지. 연내 인상 가능성은 70% 수준 그대로. 원화 현 수준 유지.</div>
+        </div>
+        <div class="scenario-card good">
+          <div class="s-label">✅ 긍정 시나리오: CPI 4.0% 이하 하회</div>
+          <div class="s-desc">달러 약세, 주식 반등, 채권 가격 상승. 금리 인하 가능성 시장에 재반영 시작. 원화 강세 지지, 외국인 자금 한국 유입 기대 강화. 성장주 수혜.</div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-list-details"></i> 주요 기관별 CPI 예측치</div>
+      <table>
+        <thead>
+          <tr>
+            <th>기관</th>
+            <th>헤드라인 CPI (전년비)</th>
+            <th>헤드라인 (월간)</th>
+            <th>근원 CPI (전년비)</th>
+            <th>근원 (월간)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>FactSet 집계 (중간값)</strong></td>
+            <td style="color:#b71c1c;font-weight:700">+4.2%</td>
+            <td>+0.5%</td>
+            <td style="color:#f57f17;font-weight:700">+2.9%</td>
+            <td>+0.3%</td>
+          </tr>
+          <tr>
+            <td>Bank of America</td>
+            <td>+4.2%</td>
+            <td>+0.46%</td>
+            <td>+2.8%</td>
+            <td>+0.20%</td>
+          </tr>
+          <tr>
+            <td>Deutsche Bank</td>
+            <td>+4.2%</td>
+            <td>+0.5%</td>
+            <td>+2.9%</td>
+            <td>+0.3%</td>
+          </tr>
+          <tr>
+            <td>Kiplinger 집계</td>
+            <td>+4.2%</td>
+            <td>+0.5%</td>
+            <td>+2.9%</td>
+            <td>+0.3%</td>
+          </tr>
+          <tr>
+            <td><strong>직전 4월 실제값</strong></td>
+            <td>+3.8%</td>
+            <td>+0.6%</td>
+            <td>+2.8%</td>
+            <td>+0.4%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="source">
+        📊 데이터 출처: FactSet CPI 전망 집계(2026.06.09) | BLS CPI 보도자료 | Bank of America | Deutsche Bank | Kiplinger | CME FedWatch | CBS News | Morningstar | Trading Economics
+      </div>
+    </div>
+  </div>
+</body>
+</html>
