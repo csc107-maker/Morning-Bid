@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HPSP 종목 심층 분석 | 2026.06.10</title>
+  <meta property="og:title" content="HPSP(403870) 종목 재분석 2026 — 고압수소어닐링 독점 기술, 하반기 도약 준비" />
+  <meta property="og:description" content="HPSP 현재가 44,150원 vs 목표가 평균 59,714원(+35%). Q1 저점 통과, 2026 연간 매출 +33~44% 전망. ZAM·HBM4 신규 모멘텀 분석." />
+  <meta property="og:image" content="https://your-blog.com/images/hpsp-analysis-2026.png" />
+  <meta property="og:url" content="https://your-blog.com/investment-report-20260610" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.2.0/dist/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 100%);
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .widget {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+    .widget-header {
+      background: linear-gradient(135deg, #4a148c 0%, #6a1b9a 100%);
+      color: #fff;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .widget-header .icon-wrap {
+      background: rgba(255,255,255,0.18);
+      border-radius: 50%;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .widget-header h2 { font-size: 18px; font-weight: 700; line-height: 1.35; }
+    .widget-header .sub { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+    .widget-body { padding: 24px 28px; }
+    .price-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .price-box {
+      background: #f3e5f5;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #ce93d8;
+      text-align: center;
+    }
+    .price-box .pl { font-size: 12px; color: #7b1fa2; font-weight: 600; margin-bottom: 4px; }
+    .price-box .pv { font-size: 30px; font-weight: 900; color: #4a148c; line-height: 1; }
+    .price-box .ps { font-size: 11.5px; color: #9c27b0; margin-top: 4px; }
+    .price-box.target { background: #e8f5e9; border-color: #a5d6a7; }
+    .price-box.target .pl { color: #2e7d32; }
+    .price-box.target .pv { color: #1b5e20; }
+    .price-box.target .ps { color: #388e3c; }
+    .upside-badge {
+      background: linear-gradient(90deg, #43a047, #66bb6a);
+      color: #fff;
+      border-radius: 8px;
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    .upside-badge .sub-t { font-size: 12px; opacity: 0.85; font-weight: 400; margin-top: 2px; }
+    .section-title {
+      font-size: 14px; font-weight: 700; color: #4a148c;
+      margin: 16px 0 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .kpi-mini {
+      background: #f3e5f5;
+      border-radius: 8px;
+      padding: 12px 10px;
+      text-align: center;
+      border: 1px solid #e1bee7;
+    }
+    .kpi-mini .kl { font-size: 11px; color: #7b1fa2; font-weight: 500; margin-bottom: 4px; }
+    .kpi-mini .kv { font-size: 17px; font-weight: 800; color: #4a148c; }
+    .kpi-mini .kn { font-size: 10.5px; color: #ab47bc; margin-top: 2px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    thead tr { background: #f3e5f5; }
+    thead th { padding: 10px 12px; text-align: left; color: #4a148c; font-weight: 700; font-size: 12px; }
+    tbody tr { border-bottom: 1px solid #f5f5f5; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 10px 12px; color: #37474f; line-height: 1.5; }
+    .momentum-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .momentum-list li {
+      background: #f3e5f5;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      border-left: 4px solid #7b1fa2;
+      font-size: 13px;
+      color: #37474f;
+      line-height: 1.6;
+    }
+    .momentum-list li strong { color: #4a148c; }
+    .momentum-list li .tag {
+      display: inline-block;
+      background: #7b1fa2;
+      color: #fff;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 10.5px;
+      font-weight: 700;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    .risk-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .risk-item {
+      background: #ffebee;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: #c62828;
+      border-left: 3px solid #ef9a9a;
+      line-height: 1.5;
+    }
+    .analyst-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .analyst-card {
+      background: #e8f5e9;
+      border-radius: 8px;
+      padding: 10px 10px;
+      text-align: center;
+      border: 1px solid #c8e6c9;
+    }
+    .analyst-card .name { font-size: 11px; color: #388e3c; font-weight: 600; margin-bottom: 4px; }
+    .analyst-card .tp { font-size: 16px; font-weight: 800; color: #1b5e20; }
+    .analyst-card .opinion { font-size: 10.5px; color: #43a047; font-weight: 700; margin-top: 2px; }
+    .quarterly-forecast {
+      background: #e8eaf6;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+    }
+    .quarterly-forecast .title { font-size: 13px; font-weight: 700; color: #1a237e; margin-bottom: 10px; }
+    .qf-bars { display: flex; align-items: flex-end; gap: 8px; height: 80px; }
+    .qf-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .qf-bar { width: 100%; border-radius: 4px 4px 0 0; transition: height 0.3s; display: flex; align-items: flex-start; justify-content: center; padding-top: 4px; font-size: 10px; font-weight: 700; color: #fff; }
+    .qf-bar.q1 { background: #9fa8da; height: 33%; }
+    .qf-bar.q2 { background: #5c6bc0; height: 52%; }
+    .qf-bar.q3 { background: #3949ab; height: 70%; }
+    .qf-bar.q4 { background: #1a237e; height: 95%; }
+    .qf-label { font-size: 11px; color: #546e7a; font-weight: 600; }
+    .qf-val { font-size: 11px; color: #1a237e; font-weight: 700; }
+    .source {
+      background: #f5f5f5;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 11px;
+      color: #90a4ae;
+      margin-top: 16px;
+    }
+    .disclaimer {
+      background: #fff9c4;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 11px;
+      color: #6d4c41;
+      margin-top: 10px;
+      border-left: 3px solid #ffd54f;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget">
+    <div class="widget-header">
+      <div class="icon-wrap"><i class="ti ti-microscope"></i></div>
+      <div>
+        <h2>HPSP(403870) 심층 재분석 | 고압수소어닐링 독점</h2>
+        <div class="sub">코스닥 | 기계·장비·반도체 전공정 | 2026년 6월 10일 기준</div>
+      </div>
+    </div>
+    <div class="widget-body">
+
+      <div class="price-section">
+        <div class="price-box">
+          <div class="pl">현재 주가 (6/2 기준)</div>
+          <div class="pv">44,150원</div>
+          <div class="ps">52주 범위: 21,900~67,800원</div>
+        </div>
+        <div class="price-box target">
+          <div class="pl">컨센서스 목표주가 (평균)</div>
+          <div class="pv">59,714원</div>
+          <div class="ps">7개 증권사 전원 BUY | 최고 70,000원</div>
+        </div>
+      </div>
+
+      <div class="upside-badge">
+        📈 상승 여력 +35.25%
+        <div class="sub-t">현재가(44,150원) → 컨센서스 목표가(59,714원) 기준 | 2026년 하반기 실적 반등 주목</div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-chart-line"></i> 핵심 투자 지표</div>
+      <div class="kpi-row">
+        <div class="kpi-mini">
+          <div class="kl">시가총액</div>
+          <div class="kv">~3.84조</div>
+          <div class="kn">원</div>
+        </div>
+        <div class="kpi-mini">
+          <div class="kl">PER (현재)</div>
+          <div class="kv">41~48x</div>
+          <div class="kn">프리미엄 멀티플</div>
+        </div>
+        <div class="kpi-mini">
+          <div class="kl">Q1 영업이익률</div>
+          <div class="kv">50.5%</div>
+          <div class="kn">글로벌 장비 최상위</div>
+        </div>
+        <div class="kpi-mini">
+          <div class="kl">2026E OPM</div>
+          <div class="kv">54.5%</div>
+          <div class="kn">4년 연속 50%+</div>
+        </div>
+        <div class="kpi-mini">
+          <div class="kl">2026E ROE</div>
+          <div class="kv">29.6%</div>
+          <div class="kn">25년 24.8%에서 회복</div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-chart-bar"></i> 2026년 분기별 매출 전망 (억 원)</div>
+      <div class="quarterly-forecast">
+        <div class="title">📊 하반기 집중 투자 사이클 — 계단식 상승 전망</div>
+        <div class="qf-bars">
+          <div class="qf-bar-wrap">
+            <div class="qf-bar q1">319</div>
+            <div class="qf-label">Q1(실제)</div>
+            <div class="qf-val">319억</div>
+          </div>
+          <div class="qf-bar-wrap">
+            <div class="qf-bar q2">480</div>
+            <div class="qf-label">Q2(추정)</div>
+            <div class="qf-val">~480억</div>
+          </div>
+          <div class="qf-bar-wrap">
+            <div class="qf-bar q3">660</div>
+            <div class="qf-label">Q3(전망)</div>
+            <div class="qf-val">~660억</div>
+          </div>
+          <div class="qf-bar-wrap">
+            <div class="qf-bar q4">800+</div>
+            <div class="qf-label">Q4(전망)</div>
+            <div class="qf-val">800억+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-rocket"></i> 핵심 투자 모멘텀 3가지</div>
+      <ul class="momentum-list">
+        <li>
+          <span class="tag">단기</span>
+          <strong>NAND 투자 확대 수혜</strong> — 한국투자증권: "올해 낸드 투자 확대 모멘텀이 직접적으로 HPSP 실적 증가에 기여할 것". 목표가 29% 상향. 선단 파운드리 + DRAM + NAND 하반기 투자 집중 확인.
+        </li>
+        <li>
+          <span class="tag">중기</span>
+          <strong>HBM4 하이브리드 본딩 확장</strong> — 기존 소자 어닐링에서 HBM4 하이브리드 본딩의 '접합 어닐링(Bonding Annealing)' 영역으로 확장. HBM 밸류체인의 핵심 슈퍼 을(乙)로 자리매김 가능.
+        </li>
+        <li>
+          <span class="tag">장기</span>
+          <strong>ZAM 차세대 메모리 옵션</strong> — Intel·SoftBank 주도, 일본 NEDO 지원 ZAM(Z-Angle Memory) 프로젝트 핵심 공급자로 지목. 2027년 프로토타입, 2030년 상용화. 멀티플 프리미엄 정당성 강화.
+        </li>
+      </ul>
+
+      <div class="section-title"><i class="ti ti-building"></i> 애널리스트 목표주가 현황</div>
+      <div class="analyst-grid">
+        <div class="analyst-card">
+          <div class="name">한국투자증권</div>
+          <div class="tp">65,000원</div>
+          <div class="opinion">▲ 상향 (BUY)</div>
+        </div>
+        <div class="analyst-card">
+          <div class="name">BNK투자증권</div>
+          <div class="tp">66,000원</div>
+          <div class="opinion">▲ 상향 (BUY)</div>
+        </div>
+        <div class="analyst-card">
+          <div class="name">삼성증권</div>
+          <div class="tp">65,000원</div>
+          <div class="opinion">BUY 유지</div>
+        </div>
+        <div class="analyst-card">
+          <div class="name">알파증류소</div>
+          <div class="tp">60,000원</div>
+          <div class="opinion">BUY</div>
+        </div>
+        <div class="analyst-card">
+          <div class="name">컨센서스 평균</div>
+          <div class="tp">59,714원</div>
+          <div class="opinion">7개사 전원 BUY</div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-alert-triangle"></i> 단기 투자 리스크</div>
+      <div class="risk-items">
+        <div class="risk-item">📉 <strong>원달러 강세 장기화</strong> — 달러 강세는 수익성엔 플러스, 투자심리엔 악영향.</div>
+        <div class="risk-item">📊 <strong>고PER 밸류에이션 부담</strong> — 금리 인상 환경에서 고성장주 멀티플 압축 위험.</div>
+        <div class="risk-item">🏦 <strong>크레센도 오버행</strong> — 대주주 블록딜 매각 진행 중 (단계적 해소 국면).</div>
+        <div class="risk-item">⏱️ <strong>신규 고객 매출 확인 필요</strong> — Q1 신규 고객 매출 추정에 그침. Q2에서 확인 필요.</div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-table"></i> 연간 실적 전망 요약</div>
+      <table>
+        <thead>
+          <tr>
+            <th>항목</th>
+            <th>2024 실적</th>
+            <th>2025 실적</th>
+            <th>2026E 전망</th>
+            <th>y/y 성장</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>매출액</strong></td>
+            <td>~1,840억원</td>
+            <td>~1,764억원</td>
+            <td>2,341~2,497억원</td>
+            <td style="color:#2e7d32;font-weight:700">+33~44%</td>
+          </tr>
+          <tr>
+            <td><strong>영업이익</strong></td>
+            <td>~939억원</td>
+            <td>~899억원</td>
+            <td>1,245~1,361억원</td>
+            <td style="color:#2e7d32;font-weight:700">+38~51%</td>
+          </tr>
+          <tr>
+            <td><strong>영업이익률</strong></td>
+            <td>51%대</td>
+            <td>51%대</td>
+            <td><strong>54.5%</strong></td>
+            <td>+3~4%p</td>
+          </tr>
+          <tr>
+            <td><strong>ROE</strong></td>
+            <td>~33%</td>
+            <td>24.8%</td>
+            <td><strong>29.6%</strong></td>
+            <td>+4.8%p</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="source">
+        📊 데이터 출처: 삼성증권 리서치 (2026.05.15) | NH투자증권 | 한국투자증권 | BNK투자증권 | 대신증권 | 알파증류소 | Investing.com | AlphaSquare | LittleB Project
+      </div>
+      <div class="disclaimer">
+        ⚠️ 본 자료는 공개 데이터 기반 정보 제공 목적이며, 투자 권유가 아닙니다. 투자 결과에 대한 책임은 투자자 본인에게 있습니다.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
