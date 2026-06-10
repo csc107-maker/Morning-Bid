@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RPS 고정가격계약 vs 직접 PPA 핵심 비교</title>
+  <meta property="og:title" content="RPS 고정가격계약 vs 직접 PPA 핵심 비교 카드" />
+  <meta property="og:description" content="2026년 기준 정부 주도 RPS 고정가격계약과 직접 PPA의 핵심 구조 및 특징 비교표" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=RPS+vs+PPA+비교" />
+  <meta property="og:url" content="https://example.com/rps-ppa-comparison" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f0f7ff;
+      padding: 24px 16px;
+    }
+    .widget-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .widget-title {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 900;
+      color: #1e293b;
+      margin-bottom: 6px;
+    }
+    .widget-subtitle {
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+    .cards-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .card {
+      flex: 1;
+      min-width: 280px;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .card-header {
+      padding: 20px 24px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card-header.rps { background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%); }
+    .card-header.ppa { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
+    .card-icon {
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: #fff;
+    }
+    .card-header-text h3 {
+      font-size: 15px; font-weight: 700; color: #fff; line-height: 1.2;
+    }
+    .card-header-text p {
+      font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 2px;
+    }
+    .card-badge {
+      margin-left: auto;
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .card-body { padding: 20px 24px 24px; }
+    .metric-row {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f5f9;
+      gap: 12px;
+    }
+    .metric-row:last-child { border-bottom: none; }
+    .metric-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .metric-icon.rps { background: #eff6ff; color: #1d4ed8; }
+    .metric-icon.ppa { background: #ecfdf5; color: #059669; }
+    .metric-label {
+      font-size: 11px; color: #94a3b8; line-height: 1.2; min-width: 80px;
+    }
+    .metric-value {
+      font-size: 13px; font-weight: 700; color: #1e293b; margin-left: auto; text-align: right;
+    }
+    .metric-value.good { color: #059669; }
+    .metric-value.caution { color: #d97706; }
+    .metric-value.neutral { color: #6366f1; }
+    .badge-row {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .badge-row.rps { background: #eff6ff; color: #1d4ed8; border-left: 3px solid #1d4ed8; }
+    .badge-row.ppa { background: #ecfdf5; color: #059669; border-left: 3px solid #059669; }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      color: #94a3b8;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e2e8f0;
+    }
+    .vs-badge {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 900; color: #64748b;
+    }
+    .source-note {
+      text-align: center;
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-wrap">
+    <div class="widget-title">⚡ RPS 고정가격계약 vs 직접 PPA 핵심 비교</div>
+    <div class="widget-subtitle">2026년 현재 기준 | 태양광 발전사업자 계약 방식 선택 가이드</div>
+
+    <div class="cards-row">
+      <!-- RPS Card -->
+      <div class="card">
+        <div class="card-header rps">
+          <div class="card-icon"><i class="ti ti-building-bank"></i></div>
+          <div class="card-header-text">
+            <h3>RPS 고정가격계약</h3>
+            <p>정부 주도 · 공급의무자와 20년 계약</p>
+          </div>
+          <div class="card-badge">현행</div>
+        </div>
+        <div class="card-body">
+          <div class="metric-row">
+            <div class="metric-icon rps"><i class="ti ti-users"></i></div>
+            <div class="metric-label">계약 상대방</div>
+            <div class="metric-value">한전·발전5개사<br/><span style="font-size:11px;color:#64748b;">(공급의무자)</span></div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon rps"><i class="ti ti-coins"></i></div>
+            <div class="metric-label">가격 결정</div>
+            <div class="metric-value">정부 상한가<br/><span style="font-size:11px;color:#64748b;">경쟁입찰 (157원/kWh↓)</span></div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon rps"><i class="ti ti-calendar"></i></div>
+            <div class="metric-label">계약 기간</div>
+            <div class="metric-value neutral">20년 고정</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon rps"><i class="ti ti-weight"></i></div>
+            <div class="metric-label">가중치 적용</div>
+            <div class="metric-value good">✓ 적용 (수익↑)</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon rps"><i class="ti ti-plus"></i></div>
+            <div class="metric-label">추가 수익</div>
+            <div class="metric-value good">✓ 입찰제도 참여</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon rps"><i class="ti ti-building"></i></div>
+            <div class="metric-label">PF 금융 조달</div>
+            <div class="metric-value good">★★★ 매우 유리</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon rps"><i class="ti ti-trending-up"></i></div>
+            <div class="metric-label">미래 방향</div>
+            <div class="metric-value caution">계약시장 전환<br/><span style="font-size:11px;color:#64748b;">2029년 RPS 폐지 예정</span></div>
+          </div>
+          <div class="badge-row rps">
+            <i class="ti ti-star-filled" style="font-size:13px;"></i> <strong>추천 대상:</strong> 가중치 1.0 이상 발전소, PF 대출 필요, 소규모 사업자
+          </div>
+        </div>
+      </div>
+
+      <!-- PPA Card -->
+      <div class="card">
+        <div class="card-header ppa">
+          <div class="card-icon"><i class="ti ti-plug"></i></div>
+          <div class="card-header-text">
+            <h3>직접 PPA</h3>
+            <p>민간 주도 · RE100 기업과 직접 계약</p>
+          </div>
+          <div class="card-badge">성장中</div>
+        </div>
+        <div class="card-body">
+          <div class="metric-row">
+            <div class="metric-icon ppa"><i class="ti ti-users"></i></div>
+            <div class="metric-label">계약 상대방</div>
+            <div class="metric-value">RE100 이행 기업<br/><span style="font-size:11px;color:#64748b;">(삼성·LG·SK 등)</span></div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon ppa"><i class="ti ti-coins"></i></div>
+            <div class="metric-label">가격 결정</div>
+            <div class="metric-value">기업과 자유 협상<br/><span style="font-size:11px;color:#64748b;">상한가 이상도 가능</span></div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon ppa"><i class="ti ti-calendar"></i></div>
+            <div class="metric-label">계약 기간</div>
+            <div class="metric-value neutral">10~20년 (협의)</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon ppa"><i class="ti ti-weight"></i></div>
+            <div class="metric-label">가중치 적용</div>
+            <div class="metric-value caution">✗ 미적용<br/><span style="font-size:11px;color:#64748b;">단가 협상이 핵심</span></div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon ppa"><i class="ti ti-plus"></i></div>
+            <div class="metric-label">추가 수익</div>
+            <div class="metric-value caution">✗ 입찰제도 불가</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon ppa"><i class="ti ti-building"></i></div>
+            <div class="metric-label">PF 금융 조달</div>
+            <div class="metric-value caution">★★ 상대적 복잡</div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-icon ppa"><i class="ti ti-trending-up"></i></div>
+            <div class="metric-label">미래 방향</div>
+            <div class="metric-value good">지속 확대 전망<br/><span style="font-size:11px;color:#64748b;">84% 계약 급증 (2024)</span></div>
+          </div>
+          <div class="badge-row ppa">
+            <i class="ti ti-star-filled" style="font-size:13px;"></i> <strong>추천 대상:</strong> 가중치 1.0 미만 발전소, 장기 고수익 희망, 기업 네트워크 보유
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="source-note">
+      📊 데이터 출처: 전력거래소, 한국에너지공단, 산업통상자원부 (2026년 5월 기준)
+    </div>
+  </div>
+</body>
+</html>
