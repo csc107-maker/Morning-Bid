@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>코스피 시총 쏠림 분석 — 삼성·하이닉스 50.7%</title>
+  <meta property="og:title" content="코스피 시총의 50.7%는 삼성+SK하이닉스 | 반도체 쏠림의 역습" />
+  <meta property="og:description" content="5월 29일 기준 삼성전자+SK하이닉스 합산 시총 = 코스피의 50.7%. 코스피가 사실상 반도체 레버리지 ETF가 된 이유와 구조적 위험 분석." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/553C9A/FFFFFF?text=KOSPI+Concentration+Risk+50.7%" />
+  <meta property="og:url" content="https://yourblog.com/kospi-concentration-risk" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', -apple-system, sans-serif;
+      background: #FAF5FF;
+      padding: 0;
+    }
+    .wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 16px 24px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: #553C9A;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .header h2 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #1A1A2E;
+      margin-bottom: 4px;
+    }
+    .header p { font-size: 12px; color: #666; }
+    /* Donut chart using SVG */
+    .donut-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .donut-wrap {
+      flex-shrink: 0;
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+    .donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .donut-pct {
+      font-size: 24px;
+      font-weight: 900;
+      color: #553C9A;
+      line-height: 1;
+    }
+    .donut-label {
+      font-size: 10px;
+      color: #888;
+      margin-top: 2px;
+    }
+    .legend {
+      flex: 1;
+      min-width: 160px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .legend-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1A1A2E;
+    }
+    .legend-sub {
+      font-size: 10.5px;
+      color: #888;
+    }
+    /* Comparison table */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+      margin-bottom: 14px;
+    }
+    .compare-table th {
+      background: #553C9A;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    .compare-table td {
+      padding: 10px 12px;
+      font-size: 12px;
+      border-bottom: 1px solid #F0F0F0;
+      color: #333;
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:nth-child(even) td { background: #FAF5FF; }
+    .compare-table .highlight td {
+      font-weight: 700;
+      color: #553C9A;
+      background: #EDE9FE;
+    }
+    .td-pct {
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .td-pct.danger { color: #E53E3E; }
+    .td-pct.warn { color: #D69E2E; }
+    .td-pct.safe { color: #38A169; }
+    /* Risk indicator */
+    .risk-bar-section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+      margin-bottom: 14px;
+    }
+    .risk-label { font-size: 12px; font-weight: 700; color: #444; margin-bottom: 10px; }
+    .risk-track {
+      height: 20px;
+      background: #F0F0F0;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 4px;
+    }
+    .risk-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #9F7AEA, #553C9A);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .risk-axis {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #bbb;
+    }
+    /* Implication */
+    .implication {
+      background: linear-gradient(135deg, #FFF5F5, #FAF5FF);
+      border: 1.5px solid #E9D8FD;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .impl-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #553C9A;
+      margin-bottom: 8px;
+    }
+    .impl-text {
+      font-size: 12px;
+      color: #4A5568;
+      line-height: 1.65;
+    }
+    .footer-note {
+      font-size: 10.5px;
+      color: #aaa;
+      text-align: center;
+      padding-top: 8px;
+      border-top: 1px solid #E8EDF5;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="badge">⚠️ 집중 리스크 분석</div>
+      <h2>코스피 시총의 절반, 두 종목이 점령했다</h2>
+      <p>삼성전자 + SK하이닉스 = 코스피 시총 50.7% (2026.05.29 기준)</p>
+    </div>
+
+    <!-- Donut Chart -->
+    <div class="donut-section">
+      <div class="donut-wrap">
+        <svg viewBox="0 0 36 36" width="150" height="150">
+          <!-- Background circle -->
+          <circle cx="18" cy="18" r="15.9155" fill="none" stroke="#EDE9FE" stroke-width="3.5"/>
+          <!-- Samsung ~32% -->
+          <circle cx="18" cy="18" r="15.9155" fill="none" stroke="#553C9A" stroke-width="3.5"
+            stroke-dasharray="32 68" stroke-dashoffset="25" />
+          <!-- Hynix ~18.7% -->
+          <circle cx="18" cy="18" r="15.9155" fill="none" stroke="#9F7AEA" stroke-width="3.5"
+            stroke-dasharray="18.7 81.3" stroke-dashoffset="-7" />
+          <!-- Others 49.3% -->
+          <circle cx="18" cy="18" r="15.9155" fill="none" stroke="#E2E8F0" stroke-width="3.5"
+            stroke-dasharray="49.3 50.7" stroke-dashoffset="-25.7" />
+        </svg>
+        <div class="donut-center">
+          <div class="donut-pct">50.7%</div>
+          <div class="donut-label">삼성+하이닉스</div>
+        </div>
+      </div>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#553C9A;"></div>
+          <div>
+            <div class="legend-text">삼성전자 ~32%</div>
+            <div class="legend-sub">코스피 시총 1위</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#9F7AEA;"></div>
+          <div>
+            <div class="legend-text">SK하이닉스 ~18.7%</div>
+            <div class="legend-sub">코스피 시총 2위</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#E2E8F0;"></div>
+          <div>
+            <div class="legend-text">나머지 전체 49.3%</div>
+            <div class="legend-sub">1,800여 종목 합산</div>
+          </div>
+        </div>
+        <div style="font-size:10px;color:#bbb;margin-top:6px;">※ 2026.05.29 기준 추정</div>
+      </div>
+    </div>
+
+    <!-- Comparison -->
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>지수</th>
+          <th>상위 2종목 비중</th>
+          <th>평가</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><strong>🇰🇷 코스피 (2026)</strong></td>
+          <td class="td-pct danger">50.7%</td>
+          <td>🔴 극단적 쏠림</td>
+        </tr>
+        <tr>
+          <td>🇺🇸 S&P500</td>
+          <td class="td-pct warn">~14%</td>
+          <td>🟡 주의 수준</td>
+        </tr>
+        <tr>
+          <td>🇯🇵 Nikkei225</td>
+          <td class="td-pct safe">~9%</td>
+          <td>🟢 일반 수준</td>
+        </tr>
+        <tr>
+          <td>🇨🇳 CSI300</td>
+          <td class="td-pct safe">~7%</td>
+          <td>🟢 분산 구조</td>
+        </tr>
+        <tr>
+          <td>🇬🇧 FTSE100</td>
+          <td class="td-pct safe">~12%</td>
+          <td>🟢 일반 수준</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Risk Bar -->
+    <div class="risk-bar-section">
+      <div class="risk-label">📊 코스피 집중도 리스크 수준 (글로벌 주요지수 대비)</div>
+      <div class="risk-track">
+        <div class="risk-fill" style="width:88%;">극단적 위험 88%</div>
+      </div>
+      <div class="risk-axis">
+        <span>분산 (0%)</span>
+        <span>50.7% = 글로벌 최고 수준</span>
+        <span>초집중 (100%)</span>
+      </div>
+    </div>
+
+    <!-- Implication -->
+    <div class="implication">
+      <div class="impl-title">🧨 이 쏠림이 만드는 '증폭 효과'</div>
+      <div class="impl-text">
+        삼성전자·SK하이닉스가 시총 절반을 차지한 상황에서, 두 종목이 오늘처럼 <strong>-7~9% 하락</strong>하면 이것만으로 코스피를 <strong>3.5~4.5%p</strong> 끌어내립니다. 여기에 다른 섹터의 동조 하락이 더해지면 -4~6% 낙폭은 구조적으로 나올 수밖에 없습니다.<br/><br/>
+        반대로 상승장에서는 이 두 종목이 +10~16% 오를 때 코스피가 전 세계에서 가장 빠르게 상승하는 효과도 있습니다. 지난 6월 9일(화) 코스피가 +8.2%라는 놀라운 반등을 기록한 것도 같은 이유입니다.<br/><br/>
+        키움증권 한지영 연구원: <em>"이들 두 종목의 분 단위 주가·수급 변동이 지수 전체를 통째로 흔드는 전이 현상이 발생하고 있다."</em>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      출처: TokenPost, 더페어, 키움증권 (2026.06.10) | 비중 수치는 추정치 포함 | 투자 권유 아님
+    </div>
+  </div>
+</body>
+</html>
