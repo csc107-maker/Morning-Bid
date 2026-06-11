@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="2026년 6월 11일 한국 증시 핵심 데이터 대시보드" />
+  <meta property="og:description" content="코스피 7,730 · 외국인 23연속 순매도 -74조 · 스페이스X IPO 750억$ · 빚투 잔액 42.9조 — 핵심 지표 한눈에" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/F0F7FF/1E3A5F?text=KOSPI+Market+Data+June+2026" />
+  <meta property="og:url" content="https://blog.example.com/kospi-market-data-june-2026" />
+  <title>6월 11일 한국 증시 핵심 데이터</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: #F8FAFF;
+      padding: 28px 16px;
+      min-height: 100vh;
+    }
+
+    .widget-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .widget-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .widget-top h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.3;
+    }
+
+    .widget-top h2 span {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6B7280;
+      margin-bottom: 4px;
+    }
+
+    .update-badge {
+      background: #DBEAFE;
+      color: #1D4ED8;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    /* Main KOSPI card */
+    .main-card {
+      background: linear-gradient(135deg, #1E3A5F 0%, #1D4ED8 100%);
+      border-radius: 18px;
+      padding: 24px 28px;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .main-card .mc-left .mc-label {
+      font-size: 12px;
+      color: #93C5FD;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .main-card .mc-left .mc-value {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .main-card .mc-left .mc-sub {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .change-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .change-pill.neg { background: #FEE2E2; color: #B91C1C; }
+    .change-pill.pos { background: #D1FAE5; color: #065F46; }
+
+    .main-card .mc-right {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .mc-mini {
+      background: rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 10px 14px;
+      min-width: 110px;
+    }
+
+    .mc-mini .mini-label {
+      font-size: 10px;
+      color: #93C5FD;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .mc-mini .mini-val {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .mc-mini .mini-val.red { color: #FCA5A5; }
+    .mc-mini .mini-val.green { color: #86EFAC; }
+
+    /* Cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .main-card .mc-right { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 400px) {
+      .cards-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .metric-card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      padding: 16px 18px;
+      box-shadow: 0 2px 12px rgba(30,58,95,0.07);
+      border-top: 3px solid transparent;
+      transition: transform 0.2s;
+    }
+
+    .metric-card:hover { transform: translateY(-2px); }
+
+    .metric-card.red-top   { border-top-color: #EF4444; }
+    .metric-card.green-top { border-top-color: #10B981; }
+    .metric-card.blue-top  { border-top-color: #2563EB; }
+    .metric-card.orange-top { border-top-color: #F59E0B; }
+    .metric-card.purple-top { border-top-color: #7C3AED; }
+
+    .metric-card .mc-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .metric-card.red-top    .mc-icon { background: #FEF2F2; color: #EF4444; }
+    .metric-card.green-top  .mc-icon { background: #F0FDF4; color: #10B981; }
+    .metric-card.blue-top   .mc-icon { background: #EFF6FF; color: #2563EB; }
+    .metric-card.orange-top .mc-icon { background: #FFFBEB; color: #F59E0B; }
+    .metric-card.purple-top .mc-icon { background: #F5F3FF; color: #7C3AED; }
+
+    .metric-card .mc-label {
+      font-size: 11px;
+      color: #6B7280;
+      font-weight: 600;
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .metric-card .mc-number {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      color: #111827;
+    }
+
+    .metric-card.red-top    .mc-number { color: #DC2626; }
+    .metric-card.green-top  .mc-number { color: #059669; }
+    .metric-card.orange-top .mc-number { color: #D97706; }
+    .metric-card.purple-top .mc-number { color: #7C3AED; }
+
+    .metric-card .mc-desc {
+      font-size: 11px;
+      color: #9CA3AF;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* Foreign investor flow row */
+    .flow-card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      padding: 20px 24px;
+      box-shadow: 0 2px 12px rgba(30,58,95,0.07);
+      margin-bottom: 16px;
+    }
+
+    .flow-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flow-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .flow-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .flow-label {
+      min-width: 56px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .flow-bar-bg {
+      flex: 1;
+      height: 20px;
+      background: #F3F4F6;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .flow-bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      transition: width 1s ease;
+    }
+
+    .flow-bar-fill span {
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .flow-val {
+      min-width: 80px;
+      text-align: right;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .flow-val.red   { color: #DC2626; }
+    .flow-val.green { color: #059669; }
+    .flow-val.gray  { color: #6B7280; }
+
+    /* SpaceX IPO highlight */
+    .spacex-card {
+      background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+      border-radius: 14px;
+      padding: 20px 24px;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .spacex-left {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .spacex-label {
+      font-size: 11px;
+      color: #94A3B8;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .spacex-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .spacex-title span { color: #60A5FA; }
+
+    .spacex-desc {
+      font-size: 12px;
+      color: #94A3B8;
+      line-height: 1.6;
+    }
+
+    .spacex-right {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .sx-stat {
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 10px 14px;
+      text-align: center;
+    }
+
+    .sx-stat .sx-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: #60A5FA;
+      line-height: 1;
+    }
+
+    .sx-stat .sx-lbl {
+      font-size: 10px;
+      color: #94A3B8;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .source-note {
+      text-align: center;
+      font-size: 11px;
+      color: #9CA3AF;
+      padding: 8px 0;
+    }
+  </style>
+</head>
+<body>
+<div class="widget-wrap">
+
+  <div class="widget-top">
+    <h2>
+      <span>📊 2026년 6월 11일 기준</span>
+      한국 증시 핵심 지표 대시보드
+    </h2>
+    <div class="update-badge">⚡ 최신 데이터</div>
+  </div>
+
+  <!-- Main KOSPI Card -->
+  <div class="main-card">
+    <div class="mc-left">
+      <div class="mc-label">KOSPI (전일 종가)</div>
+      <div class="mc-value">7,730<span style="font-size:22px">.82</span></div>
+      <div class="mc-sub">
+        <span class="change-pill neg">
+          <i class="ti ti-trending-down" style="font-size:14px"></i>
+          -366.11p (-4.52%)
+        </span>
+        <span style="font-size:12px;color:#93C5FD">6월 10일 종가</span>
+      </div>
+    </div>
+    <div class="mc-right">
+      <div class="mc-mini">
+        <div class="mini-label">52주 고점</div>
+        <div class="mini-val">8,933</div>
+      </div>
+      <div class="mc-mini">
+        <div class="mini-label">장중 저점(6/8)</div>
+        <div class="mini-val red">7,339</div>
+      </div>
+      <div class="mc-mini">
+        <div class="mini-label">삼성전자</div>
+        <div class="mini-val red">302,500</div>
+      </div>
+      <div class="mc-mini">
+        <div class="mini-label">SK하이닉스</div>
+        <div class="mini-val red">2,048,000</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 metric cards -->
+  <div class="cards-grid">
+
+    <div class="metric-card red-top">
+      <div class="mc-icon"><i class="ti ti-users"></i></div>
+      <div class="mc-label">외국인 연속 순매도</div>
+      <div class="mc-number">23일</div>
+      <div class="mc-desc">누적 매도 -74조 원 / 6/10 단일 -2조7,750억</div>
+    </div>
+
+    <div class="metric-card orange-top">
+      <div class="mc-icon"><i class="ti ti-alert-circle"></i></div>
+      <div class="mc-label">2026년 매도 사이드카</div>
+      <div class="mc-number">11회+</div>
+      <div class="mc-desc">금융위기 이후 최다 / 서킷브레이커 2회 포함</div>
+    </div>
+
+    <div class="metric-card purple-top">
+      <div class="mc-icon"><i class="ti ti-credit-card"></i></div>
+      <div class="mc-label">5대은행 빚투 잔액</div>
+      <div class="mc-number">42.9조</div>
+      <div class="mc-desc">3년 7개월 만의 최대 / 6월 5일간 +1.4조 증가</div>
+    </div>
+
+    <div class="metric-card red-top">
+      <div class="mc-icon"><i class="ti ti-currency-won"></i></div>
+      <div class="mc-label">원/달러 환율 고점</div>
+      <div class="mc-number">1,555원</div>
+      <div class="mc-desc">6/8 장중 기록 / 2009년 금융위기 이후 17년 만의 최고</div>
+    </div>
+
+    <div class="metric-card blue-top">
+      <div class="mc-icon"><i class="ti ti-rocket"></i></div>
+      <div class="mc-label">SpaceX 공모 규모</div>
+      <div class="mc-number">$750억</div>
+      <div class="mc-desc">주당 $135 / 기업가치 $1.75조 / 역사상 최대 IPO</div>
+    </div>
+
+    <div class="metric-card green-top">
+      <div class="mc-icon"><i class="ti ti-shopping-cart"></i></div>
+      <div class="mc-label">개인 순매수 (6/10)</div>
+      <div class="mc-number">+4.86조</div>
+      <div class="mc-desc">저가 매수세 유입 / 개인 vs 외국인+기관 역대급 맞불</div>
+    </div>
+
+  </div>
+
+  <!-- Foreign investor flow -->
+  <div class="flow-card">
+    <h3><i class="ti ti-arrows-exchange" style="color:#2563EB"></i> 투자자별 순매수 현황 (2026.06.10)</h3>
+    <div class="flow-bars">
+
+      <div class="flow-row">
+        <div class="flow-label">개인</div>
+        <div class="flow-bar-bg">
+          <div class="flow-bar-fill" style="width:100%;background:linear-gradient(90deg,#10B981,#059669)">
+            <span>저가 매수</span>
+          </div>
+        </div>
+        <div class="flow-val green">+4조 8,643억</div>
+      </div>
+
+      <div class="flow-row">
+        <div class="flow-label">외국인</div>
+        <div class="flow-bar-bg">
+          <div class="flow-bar-fill" style="width:57%;background:linear-gradient(90deg,#EF4444,#DC2626)">
+            <span>IPO 자금 확보</span>
+          </div>
+        </div>
+        <div class="flow-val red">-2조 7,750억</div>
+      </div>
+
+      <div class="flow-row">
+        <div class="flow-label">기관</div>
+        <div class="flow-bar-bg">
+          <div class="flow-bar-fill" style="width:47%;background:linear-gradient(90deg,#F59E0B,#D97706)">
+            <span>차익 실현</span>
+          </div>
+        </div>
+        <div class="flow-val" style="color:#D97706">-2조 2,670억</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SpaceX card -->
+  <div class="spacex-card">
+    <div class="spacex-left">
+      <div class="spacex-label">🚀 Global Event · June 11–12, 2026</div>
+      <div class="spacex-title">SpaceX <span>SPCX</span> IPO<br/>공모가 확정 D-Day</div>
+      <div class="spacex-desc">오늘(현지시각 6/11) 공모가 최종 확정 예정.<br/>내일 나스닥 상장 첫 거래. 외국인 자금 유출 마무리 기대 vs<br/>7월 나스닥100 편입 변동성 경계.</div>
+    </div>
+    <div class="spacex-right">
+      <div class="sx-stat">
+        <div class="sx-val">$135</div>
+        <div class="sx-lbl">공모가</div>
+      </div>
+      <div class="sx-stat">
+        <div class="sx-val">$1.75T</div>
+        <div class="sx-lbl">기업가치</div>
+      </div>
+      <div class="sx-stat">
+        <div class="sx-val">$75B</div>
+        <div class="sx-lbl">조달 규모</div>
+      </div>
+      <div class="sx-stat">
+        <div class="sx-val">2배+</div>
+        <div class="sx-lbl">초과청약</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="source-note">
+    출처: 한국거래소, 파이낸셜뉴스, 헤럴드경제, 로이터, Bloomberg, Investing.com | 기준: 2026.06.11 오전
+  </div>
+
+</div>
+</body>
+</html>
