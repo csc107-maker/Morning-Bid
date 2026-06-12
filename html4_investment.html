@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="삼성전자 vs SK하이닉스 반도체 투자 비교 2026 | 레미콘 파업 영향" />
+<meta property="og:description" content="삼성전자 평택 캠퍼스 450조·SK하이닉스 용인 클러스터 31조~600조 투자 현황 및 레미콘 파업 영향 비교 분석" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=1200&h=630&fit=crop&q=80" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/semiconductor-investment-2026" />
+<title>삼성 vs SK하이닉스 반도체 투자 비교 2026</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+    background-color: #F0F9FF;
+    padding: 28px 16px;
+    color: #1e293b;
+  }
+  .wrap { max-width: 740px; margin: 0 auto; }
+
+  /* Header */
+  .hdr {
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin-bottom: 24px;
+    border: 1px solid #BAE6FD;
+    border-top: 5px solid #0284C7;
+    box-shadow: 0 2px 10px rgba(2,132,199,0.08);
+  }
+  .hdr-top { display: flex; align-items: center; gap: 14px; }
+  .hdr-ico { background: #E0F2FE; border-radius: 10px; padding: 10px; font-size: 1.5rem; color: #0284C7; }
+  .hdr h1 { font-size: 1.05rem; font-weight: 800; color: #0C4A6E; }
+  .hdr p { font-size: 0.78rem; color: #64748B; margin-top: 3px; }
+  .hdr-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .hdr-chip { background: #E0F2FE; color: #0369A1; padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
+
+  /* Summary bar */
+  .summary {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px;
+  }
+  @media(max-width:460px) { .summary { grid-template-columns: 1fr; } }
+  .sum-card {
+    border-radius: 12px;
+    padding: 18px 20px;
+    border: 1px solid transparent;
+  }
+  .sum-card.samsung { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-color: #BFDBFE; }
+  .sum-card.hynix { background: linear-gradient(135deg, #FFF5F5, #FEE2E2); border-color: #FECACA; }
+  .sum-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .sum-logo { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 900; color: #fff; flex-shrink: 0; }
+  .sum-company { font-size: 0.88rem; font-weight: 800; }
+  .sum-site { font-size: 0.72rem; color: #64748B; }
+  .sum-stat { }
+  .sum-num { font-size: 1.4rem; font-weight: 900; }
+  .sum-unit { font-size: 0.78rem; font-weight: 700; margin-left: 2px; }
+  .sum-desc { font-size: 0.72rem; color: #64748B; margin-top: 3px; }
+
+  /* Main table */
+  .tbl-wrap {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border: 1px solid #E0F2FE;
+    margin-bottom: 20px;
+    overflow-x: auto;
+  }
+  table { width: 100%; border-collapse: collapse; min-width: 500px; }
+  thead tr { background: linear-gradient(135deg, #0C4A6E, #0284C7); }
+  thead th { padding: 13px 16px; text-align: left; font-size: 0.78rem; font-weight: 700; color: #fff; }
+  thead th.center { text-align: center; }
+  thead th.samsung-h { background: rgba(255,255,255,0.12); }
+  thead th.hynix-h { background: rgba(0,0,0,0.1); }
+
+  tbody tr { border-bottom: 1px solid #E0F2FE; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #F0F9FF; }
+  tbody tr:hover { background: #E0F2FE; transition: background 0.15s; }
+
+  td { padding: 11px 16px; font-size: 0.79rem; vertical-align: middle; }
+  td.category { font-weight: 700; color: #0C4A6E; background: #F0F9FF !important; font-size: 0.76rem; }
+  td.samsung-val { color: #1D4ED8; font-weight: 600; text-align: center; }
+  td.hynix-val { color: #B91C1C; font-weight: 600; text-align: center; }
+  td.neutral-val { color: #374151; font-weight: 500; text-align: center; }
+
+  /* Status pill */
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.68rem; font-weight: 700; }
+  .pill-red { background: #FEE2E2; color: #B91C1C; }
+  .pill-yellow { background: #FEF3C7; color: #92400E; }
+  .pill-green { background: #DCFCE7; color: #15803D; }
+  .pill-blue { background: #DBEAFE; color: #1D4ED8; }
+  .pill-gray { background: #F3F4F6; color: #374151; }
+
+  /* Market context */
+  .market-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 22px;
+    border: 1px solid #E0F2FE;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    margin-bottom: 16px;
+  }
+  .mkt-title { font-size: 0.8rem; font-weight: 800; color: #0C4A6E; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+  .mkt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media(max-width:480px) { .mkt-grid { grid-template-columns: 1fr 1fr; } }
+  .mkt-item { text-align: center; padding: 12px 8px; background: #F0F9FF; border-radius: 8px; border: 1px solid #BAE6FD; }
+  .mkt-val { font-size: 1.15rem; font-weight: 900; color: #0C4A6E; }
+  .mkt-label { font-size: 0.68rem; color: #0369A1; margin-top: 3px; font-weight: 600; }
+  .mkt-sub { font-size: 0.64rem; color: #94A3B8; margin-top: 2px; }
+
+  /* Disclaimer */
+  .disc {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-size: 0.74rem;
+    color: #78350F;
+    display: flex; align-items: flex-start; gap: 8px;
+    margin-bottom: 10px;
+  }
+  .disc i { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+  .foot {
+    background: #E0F2FE; border-radius: 8px; padding: 10px 14px;
+    font-size: 0.72rem; color: #0369A1;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .foot i { font-size: 0.95rem; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="hdr">
+    <div class="hdr-top">
+      <div class="hdr-ico"><i class="ti ti-chart-bar"></i></div>
+      <div>
+        <h1>삼성전자 vs SK하이닉스 반도체 투자 현황 및 파업 영향 비교</h1>
+        <p>2026년 6월 레미콘 운송 파업 기준 · AI 반도체 팹 건설 투자 분석</p>
+      </div>
+    </div>
+    <div class="hdr-chips">
+      <span class="hdr-chip">📅 2026년 6월 12일 기준</span>
+      <span class="hdr-chip">🏭 평택 P5 + 용인 클러스터</span>
+      <span class="hdr-chip">💰 AI 메모리 슈퍼사이클</span>
+    </div>
+  </div>
+
+  <!-- Summary cards -->
+  <div class="summary">
+    <div class="sum-card samsung">
+      <div class="sum-logo-row">
+        <div class="sum-logo" style="background:linear-gradient(135deg,#1428A0,#0066CC);">S</div>
+        <div>
+          <div class="sum-company">삼성전자</div>
+          <div class="sum-site">평택 캠퍼스 P5</div>
+        </div>
+      </div>
+      <div class="sum-stat">
+        <div class="sum-num" style="color:#1428A0;">450<span class="sum-unit" style="color:#1428A0;">조 원</span></div>
+        <div class="sum-desc">국내 5년 투자 계획 (반도체 포함)</div>
+      </div>
+    </div>
+    <div class="sum-card hynix">
+      <div class="sum-logo-row">
+        <div class="sum-logo" style="background:linear-gradient(135deg,#EA1818,#FF6B00);">SK</div>
+        <div>
+          <div class="sum-company">SK하이닉스</div>
+          <div class="sum-site">용인 반도체 클러스터</div>
+        </div>
+      </div>
+      <div class="sum-stat">
+        <div class="sum-num" style="color:#B91C1C;">31<span class="sum-unit" style="color:#B91C1C;">조 원</span></div>
+        <div class="sum-desc">용인 1팹 총 투자 (최종 클러스터 ~600조)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Comparison Table -->
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:30%;">비교 항목</th>
+          <th class="center samsung-h" style="width:35%;">🔵 삼성전자</th>
+          <th class="center hynix-h" style="width:35%;">🔴 SK하이닉스</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="category"><i class="ti ti-map-pin" style="font-size:0.9rem;margin-right:4px;"></i> 주요 현장</td>
+          <td class="samsung-val">평택 캠퍼스 P5 (P4 병행)</td>
+          <td class="hynix-val">용인 반도체 클러스터 1팹</td>
+        </tr>
+        <tr>
+          <td class="category"><i class="ti ti-coin" style="font-size:0.9rem;margin-right:4px;"></i> 투자 규모</td>
+          <td class="samsung-val">450조 원 (5년, 국내 전체)</td>
+          <td class="hynix-val">31조 원 (1팹) · 최종 ~600조</td>
+        </tr>
+        <tr>
+          <td class="category"><i class="ti ti-tool" style="font-size:0.9rem;margin-right:4px;"></i> 공사 목표</td>
+          <td class="samsung-val">P5 일정 최소 6개월 단축</td>
+          <td class="hynix-val">클린룸 2027년 2월 (앞당김)</td>
+        </tr>
+        <tr>
+          <td class="category"><i class="ti ti-cpu" style="font-size:0.9rem;margin-right:4px;"></i> 주요 생산품</td>
+          <td class="samsung-val">HBM4, 차세대 DRAM, NAND</td>
+          <td class="hynix-val">HBM(고대역폭), 1c DRAM</td>
+        </tr>
+        <tr>
+          <td class="category"><i class="ti ti-alert-triangle" style="font-size:0.9rem;margin-right:4px;"></i> 파업 영향</td>
+          <td class="samsung-val"><span class="pill pill-yellow">타설 차질 발생</span></td>
+          <td class="hynix-val"><span class="pill pill-red">전면 중단 확인</span></td>
+        </tr>
+        <tr>
+          <td class="category"><i class="ti ti-message" style="font-size:0.9rem;margin-right:4px;"></i> 공식 입장</td>
+          <td class="samsung-val"><span class="pill pill-gray">코멘트 거부</span></td>
+          <td class="hynix-val"><span class="pill pill-green">단기 영향 제한적</span></td>
+        </tr>
+        <tr>
+          <td class="category"><i class="ti ti-settings" style="font-size:0.9rem;margin-right:4px;"></i> 대응 조치</td>
+          <td class="samsung-val">미공개</td>
+          <td class="hynix-val">건설 순서 조정, 선행 공정 완료</td>
+        </tr>
+        <tr>
+          <td class="category"><i class="ti ti-building-factory-2" style="font-size:0.9rem;margin-right:4px;"></i> 부지 규모</td>
+          <td class="samsung-val">평택 캠퍼스 전체 (P1~P5)</td>
+          <td class="hynix-val">약 420만 ㎡ (127만 평)</td>
+        </tr>
+        <tr>
+          <td class="category"><i class="ti ti-users" style="font-size:0.9rem;margin-right:4px;"></i> 주요 고객</td>
+          <td class="samsung-val">Google, Tesla, 자체 파운드리</td>
+          <td class="hynix-val">엔비디아 (HBM 핵심 공급사)</td>
+        </tr>
+        <tr>
+          <td class="category"><i class="ti ti-chart-line" style="font-size:0.9rem;margin-right:4px;"></i> 건설사</td>
+          <td class="samsung-val">삼성C&T (Samsung C&T)</td>
+          <td class="hynix-val">SK에코플랜트 등</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Market Context -->
+  <div class="market-box">
+    <div class="mkt-title"><i class="ti ti-trending-up"></i> 2026년 2분기 반도체 시장 현황 (TrendForce)</div>
+    <div class="mkt-grid">
+      <div class="mkt-item">
+        <div class="mkt-val" style="color:#DC2626;">+58~63%</div>
+        <div class="mkt-label">DRAM 가격 상승</div>
+        <div class="mkt-sub">Q2 2026 (전분기比)</div>
+      </div>
+      <div class="mkt-item">
+        <div class="mkt-val" style="color:#7C3AED;">+70~75%</div>
+        <div class="mkt-label">NAND 가격 상승</div>
+        <div class="mkt-sub">Q2 2026 (전분기比)</div>
+      </div>
+      <div class="mkt-item">
+        <div class="mkt-val" style="color:#0284C7;">+33%/yr</div>
+        <div class="mkt-label">HBM 시장 성장률</div>
+        <div class="mkt-sub">2025~2030 CAGR</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disc">
+    <i class="ti ti-info-circle"></i>
+    <span>
+      <strong>투자 면책 고지:</strong> 이 분석은 공개된 언론 보도 및 기업 공시를 기반으로 작성된 정보 제공 목적의 내용이며, 투자 권유가 아닙니다. 투자 결정 시 반드시 전문 금융 자문사와 상담하시기 바랍니다. 건설 일정 및 투자 규모는 공식 발표 기준이며 변동 가능합니다.
+    </span>
+  </div>
+
+  <div class="foot">
+    <i class="ti ti-database"></i>
+    <span><strong>출처:</strong> Reuters, SK하이닉스 이사회 결의(2026.02), TrendForce(2026.03), KED Global, The Korea Herald, 서울경제, 아시아경제 (2026년 6월 12일 기준)</span>
+  </div>
+
+</div>
+</body>
+</html>
