@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="레미콘 파업 핵심 수치 | 삼성·SK하이닉스 반도체 건설 영향" />
+<meta property="og:description" content="8,000명 파업 참여, 68.3% 부결, 31조원 투자 위협 — 2026년 6월 레미콘 운송 중단 핵심 데이터 분석" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=630&fit=crop&q=80" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/concrete-strike-data-2026" />
+<title>레미콘 파업 핵심 수치 2026</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+    background-color: #F8FAFC;
+    padding: 28px 16px;
+    color: #1e293b;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  /* Header */
+  .hdr {
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-top: 4px solid #0EA5E9;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .hdr-icon { background: #F0F9FF; border-radius: 10px; padding: 10px; font-size: 1.6rem; color: #0EA5E9; }
+  .hdr h1 { font-size: 1.1rem; font-weight: 800; color: #0F172A; }
+  .hdr p { font-size: 0.78rem; color: #64748B; margin-top: 3px; }
+
+  /* Section title */
+  .sec-title {
+    font-size: 0.7rem; font-weight: 700; color: #0EA5E9; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* Grid */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
+  @media(max-width:500px) { .grid-3, .grid-2 { grid-template-columns: 1fr 1fr; } }
+  @media(max-width:360px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+
+  /* Stat cards */
+  .stat-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 14px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .stat-card.blue::before { background: #3B82F6; }
+  .stat-card.red::before { background: #EF4444; }
+  .stat-card.amber::before { background: #F59E0B; }
+  .stat-card.green::before { background: #10B981; }
+  .stat-card.purple::before { background: #8B5CF6; }
+  .stat-card.slate::before { background: #64748B; }
+
+  .stat-icon { font-size: 1.4rem; margin-bottom: 6px; }
+  .stat-icon.blue { color: #3B82F6; }
+  .stat-icon.red { color: #EF4444; }
+  .stat-icon.amber { color: #F59E0B; }
+  .stat-icon.green { color: #10B981; }
+  .stat-icon.purple { color: #8B5CF6; }
+  .stat-icon.slate { color: #64748B; }
+
+  .stat-num { font-size: 1.5rem; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+  .stat-num.blue { color: #1D4ED8; }
+  .stat-num.red { color: #DC2626; }
+  .stat-num.amber { color: #B45309; }
+  .stat-num.green { color: #059669; }
+  .stat-num.purple { color: #6D28D9; }
+  .stat-num.slate { color: #334155; }
+
+  .stat-unit { font-size: 0.7rem; font-weight: 700; margin-left: 2px; }
+  .stat-label { font-size: 0.72rem; color: #64748B; font-weight: 500; margin-top: 4px; line-height: 1.4; }
+  .stat-sub { font-size: 0.67rem; color: #94A3B8; margin-top: 3px; }
+
+  /* Investment cards */
+  .inv-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .inv-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .inv-logo { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 900; color: #fff; flex-shrink: 0; }
+  .inv-name { font-size: 0.88rem; font-weight: 800; color: #0F172A; }
+  .inv-site { font-size: 0.72rem; color: #64748B; }
+
+  .inv-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #F1F5F9; }
+  .inv-row:last-child { border-bottom: none; }
+  .inv-key { font-size: 0.75rem; color: #475569; }
+  .inv-val { font-size: 0.8rem; font-weight: 700; color: #0F172A; }
+  .inv-val.warn { color: #EF4444; }
+  .inv-val.ok { color: #059669; }
+
+  /* Progress bar */
+  .prog-wrap { margin-top: 12px; }
+  .prog-label { display: flex; justify-content: space-between; font-size: 0.7rem; color: #64748B; margin-bottom: 4px; }
+  .prog-bar { height: 8px; background: #F1F5F9; border-radius: 4px; overflow: hidden; }
+  .prog-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }
+
+  /* Alert */
+  .alert-box {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-left: 4px solid #F59E0B;
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex; gap: 10px;
+    margin-top: 8px;
+    font-size: 0.78rem; color: #78350F;
+    line-height: 1.5;
+  }
+  .alert-box i { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+  .foot {
+    background: #F1F5F9; border-radius: 8px; padding: 10px 14px;
+    font-size: 0.72rem; color: #475569; margin-top: 8px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .foot i { font-size: 0.95rem; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="hdr">
+    <div class="hdr-icon"><i class="ti ti-chart-infographic"></i></div>
+    <div>
+      <h1>핵심 수치로 본 레미콘 파업 영향</h1>
+      <p>2026년 6월 · 수도권 레미콘 운송 중단 · 삼성전자·SK하이닉스 반도체 건설 현장</p>
+    </div>
+  </div>
+
+  <!-- Section 1: Strike Stats -->
+  <div class="sec-title"><i class="ti ti-users"></i> 파업 규모 지표</div>
+  <div class="grid-3">
+    <div class="stat-card blue">
+      <div class="stat-icon blue"><i class="ti ti-truck"></i></div>
+      <div class="stat-num blue">8,000<span class="stat-unit">명</span></div>
+      <div class="stat-label">파업 참여 조합원</div>
+      <div class="stat-sub">전국레미콘운송노조(전운련)</div>
+    </div>
+    <div class="stat-card red">
+      <div class="stat-icon red"><i class="ti ti-alert-triangle"></i></div>
+      <div class="stat-num red">72.7<span class="stat-unit">%</span></div>
+      <div class="stat-label">수도권 기사 파업 참여율</div>
+      <div class="stat-sub">1만 1천명 중 8천명</div>
+    </div>
+    <div class="stat-card amber">
+      <div class="stat-icon amber"><i class="ti ti-x"></i></div>
+      <div class="stat-num amber">68.3<span class="stat-unit">%</span></div>
+      <div class="stat-label">잠정합의안 부결률</div>
+      <div class="stat-sub">조합원 찬반 투표 결과</div>
+    </div>
+  </div>
+
+  <!-- Section 2: Negotiation -->
+  <div class="sec-title"><i class="ti ti-currency-won"></i> 운반비 협상 현황</div>
+  <div class="grid-3">
+    <div class="stat-card green">
+      <div class="stat-icon green"><i class="ti ti-building-factory"></i></div>
+      <div class="stat-num green">2,500<span class="stat-unit">원</span></div>
+      <div class="stat-label">제조사 초기 제안</div>
+      <div class="stat-sub">회당 운반비 인상액</div>
+    </div>
+    <div class="stat-card purple">
+      <div class="stat-icon purple"><i class="ti ti-handshake"></i></div>
+      <div class="stat-num purple">4,200<span class="stat-unit">원</span></div>
+      <div class="stat-label">잠정합의안 (부결)</div>
+      <div class="stat-sub">5.3% 인상 수준</div>
+    </div>
+    <div class="stat-card red">
+      <div class="stat-icon red"><i class="ti ti-mood-angry"></i></div>
+      <div class="stat-num red">8,000<span class="stat-unit">원</span></div>
+      <div class="stat-label">노조 요구액</div>
+      <div class="stat-sub">회당 운반비 인상 요구</div>
+    </div>
+  </div>
+
+  <!-- Section 3: Impact -->
+  <div class="sec-title"><i class="ti ti-building"></i> 반도체 현장 영향</div>
+  <div class="grid-2">
+    <div class="stat-card slate">
+      <div class="stat-icon slate"><i class="ti ti-map-pin"></i></div>
+      <div class="stat-num slate">90<span class="stat-unit">%</span>+</div>
+      <div class="stat-label">평택·용인 전운련 가입률</div>
+      <div class="stat-sub">대체 운송 수단 극히 제한</div>
+    </div>
+    <div class="stat-card blue">
+      <div class="stat-icon blue"><i class="ti ti-truck-loading"></i></div>
+      <div class="stat-num blue">~1,000<span class="stat-unit">대</span></div>
+      <div class="stat-label">반도체 현장 투입 차량</div>
+      <div class="stat-sub">전체 약 7,000대 중</div>
+    </div>
+  </div>
+
+  <!-- Section 4: Investment -->
+  <div class="sec-title"><i class="ti ti-coin"></i> 위협받는 투자 규모</div>
+  <div class="grid-2">
+    <div class="inv-card">
+      <div class="inv-header">
+        <div class="inv-logo" style="background:linear-gradient(135deg,#1428A0,#0066CC);">S</div>
+        <div>
+          <div class="inv-name">삼성전자</div>
+          <div class="inv-site">평택 캠퍼스 P5</div>
+        </div>
+      </div>
+      <div class="inv-row"><span class="inv-key">국내 투자계획 (5년)</span><span class="inv-val">450조 원</span></div>
+      <div class="inv-row"><span class="inv-key">P5 공사 일정</span><span class="inv-val">6개월 앞당김</span></div>
+      <div class="inv-row"><span class="inv-key">회사 입장</span><span class="inv-val warn">코멘트 거부</span></div>
+      <div class="prog-wrap">
+        <div class="prog-label"><span>공사 진행률 (추정)</span><span>~60%</span></div>
+        <div class="prog-bar"><div class="prog-fill" style="width:60%;background:linear-gradient(90deg,#1428A0,#0066CC);"></div></div>
+      </div>
+    </div>
+    <div class="inv-card">
+      <div class="inv-header">
+        <div class="inv-logo" style="background:linear-gradient(135deg,#EA1818,#FF6B00);">SK</div>
+        <div>
+          <div class="inv-name">SK하이닉스</div>
+          <div class="inv-site">용인 반도체 클러스터</div>
+        </div>
+      </div>
+      <div class="inv-row"><span class="inv-key">1팹 총 투자</span><span class="inv-val">31조 원</span></div>
+      <div class="inv-row"><span class="inv-key">클러스터 최종 예상</span><span class="inv-val">~600조 원</span></div>
+      <div class="inv-row"><span class="inv-key">회사 입장</span><span class="inv-val ok">단기 영향 제한적</span></div>
+      <div class="prog-wrap">
+        <div class="prog-label"><span>1팹 공사 진행률 (추정)</span><span>~40%</span></div>
+        <div class="prog-bar"><div class="prog-fill" style="width:40%;background:linear-gradient(90deg,#EA1818,#FF6B00);"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <i class="ti ti-bulb"></i>
+    <span>
+      <strong>레미콘 특성:</strong> 생산 후 1.5~2시간 내 타설 필수. 재고 비축·냉동 보관 불가능. 운송 중단 = 생산 중단 동시 발생. '당일 생산·당일 타설' 원칙으로 운송 파업의 즉각적 타격이 매우 큼.
+    </span>
+  </div>
+
+  <div class="foot">
+    <i class="ti ti-database"></i>
+    <span>출처: Reuters, 아시아경제, 뉴데일리, SK하이닉스 공시(2026.02), KED Global, TrendForce (2026년 6월 기준)</span>
+  </div>
+
+</div>
+</body>
+</html>
