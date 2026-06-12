@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="레미콘 파업 단기·장기 리스크 분석 | 삼성·SK하이닉스 반도체 건설" />
+<meta property="og:description" content="레미콘 파업 지속 기간별 삼성전자·SK하이닉스 반도체 공장 건설 영향 단기·중기·장기 리스크 시나리오 분석" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=630&fit=crop&q=80" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/concrete-strike-risk-2026" />
+<title>레미콘 파업 리스크 분석 2026</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+    background-color: #FAFAFA;
+    padding: 28px 16px;
+    color: #1e293b;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  /* Header */
+  .hdr {
+    background: linear-gradient(135deg, #7F1D1D 0%, #DC2626 100%);
+    color: #fff;
+    padding: 22px 24px;
+    border-radius: 14px;
+    margin-bottom: 28px;
+  }
+  .hdr-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .hdr-ico { background: rgba(255,255,255,0.15); border-radius: 8px; padding: 8px; font-size: 1.4rem; }
+  .hdr h1 { font-size: 1.1rem; font-weight: 800; }
+  .hdr p { font-size: 0.79rem; opacity: 0.82; margin-top: 3px; }
+  .hdr-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hdr-chip { background: rgba(255,255,255,0.18); padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; }
+
+  /* Scenario cards */
+  .scenarios { display: flex; flex-direction: column; gap: 18px; margin-bottom: 28px; }
+  .sc-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border: 1px solid #E5E7EB;
+  }
+  .sc-header {
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .sc-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+  .sc-title { font-size: 0.9rem; font-weight: 800; }
+  .sc-period { font-size: 0.72rem; font-weight: 600; margin-left: auto; padding: 3px 10px; border-radius: 20px; }
+  .sc-body { padding: 16px 20px; }
+
+  /* Green scenario */
+  .sc-card.green .sc-header { background: #F0FDF4; }
+  .sc-card.green .sc-dot { background: #22C55E; }
+  .sc-card.green .sc-title { color: #15803D; }
+  .sc-card.green .sc-period { background: #DCFCE7; color: #15803D; }
+
+  /* Yellow scenario */
+  .sc-card.yellow .sc-header { background: #FFFBEB; }
+  .sc-card.yellow .sc-dot { background: #F59E0B; }
+  .sc-card.yellow .sc-title { color: #92400E; }
+  .sc-card.yellow .sc-period { background: #FEF3C7; color: #92400E; }
+
+  /* Red scenario */
+  .sc-card.red .sc-header { background: #FFF5F5; }
+  .sc-card.red .sc-dot { background: #EF4444; }
+  .sc-card.red .sc-title { color: #B91C1C; }
+  .sc-card.red .sc-period { background: #FEE2E2; color: #B91C1C; }
+
+  /* Risk items */
+  .risk-list { list-style: none; }
+  .risk-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0; border-bottom: 1px dashed #F1F5F9;
+    font-size: 0.8rem; color: #374151; line-height: 1.5;
+  }
+  .risk-item:last-child { border-bottom: none; }
+  .risk-item i { font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+  .risk-item.ok i { color: #22C55E; }
+  .risk-item.warn i { color: #F59E0B; }
+  .risk-item.bad i { color: #EF4444; }
+  .risk-item strong { color: #111827; }
+
+  /* Company comparison */
+  .comp-title {
+    font-size: 0.7rem; font-weight: 700; color: #6366F1;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
+  }
+  .comp-title::after { content: ''; flex: 1; height: 1px; background: #C7D2FE; }
+
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+  @media(max-width:480px) { .comp-grid { grid-template-columns: 1fr; } }
+
+  .comp-card {
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .comp-header { padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
+  .comp-logo { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900; color: #fff; flex-shrink: 0; }
+  .comp-name { font-size: 0.85rem; font-weight: 800; }
+  .comp-body { padding: 12px 14px; }
+  .comp-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #F9FAFB; font-size: 0.74rem; }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-key { color: #6B7280; }
+  .comp-val { font-weight: 700; }
+  .comp-val.ok { color: #059669; }
+  .comp-val.warn { color: #D97706; }
+  .comp-val.bad { color: #DC2626; }
+  .comp-val.neutral { color: #374151; }
+
+  /* Supply chain impact */
+  .chain-box {
+    background: #EEF2FF;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .chain-title { font-size: 0.8rem; font-weight: 800; color: #3730A3; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+  .chain-flow {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+    font-size: 0.74rem;
+  }
+  .chain-step {
+    background: #fff;
+    border: 1px solid #C7D2FE;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #1e293b;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .chain-step.halt { background: #FEE2E2; border-color: #FECACA; color: #B91C1C; }
+  .chain-arrow { color: #6366F1; font-size: 1rem; }
+
+  .foot {
+    background: #F1F5F9; border-radius: 8px; padding: 10px 14px;
+    font-size: 0.72rem; color: #475569;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .foot i { font-size: 0.95rem; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="hdr">
+    <div class="hdr-top">
+      <div class="hdr-ico"><i class="ti ti-shield-exclamation"></i></div>
+      <div>
+        <h1>레미콘 파업 기간별 리스크 시나리오 분석</h1>
+        <p>파업 지속 기간에 따른 삼성전자·SK하이닉스 반도체 건설 영향 예측</p>
+      </div>
+    </div>
+    <div class="hdr-meta">
+      <span class="hdr-chip">📅 2026년 6월 기준</span>
+      <span class="hdr-chip">⚠️ 파업 D+4 진행 중</span>
+    </div>
+  </div>
+
+  <!-- Scenarios -->
+  <div class="scenarios">
+
+    <!-- Green: Short-term resolve -->
+    <div class="sc-card green">
+      <div class="sc-header">
+        <div class="sc-dot"></div>
+        <div class="sc-title">🟢 시나리오 A — 조기 해결 (2주 이내)</div>
+        <div class="sc-period">낮은 피해</div>
+      </div>
+      <div class="sc-body">
+        <ul class="risk-list">
+          <li class="risk-item ok"><i class="ti ti-check"></i><span>레미콘 타설 재개 → 공사 일정 흡수 가능. 선제적으로 완료된 물량으로 완충</span></li>
+          <li class="risk-item ok"><i class="ti ti-check"></i><span>삼성 P5·SK하이닉스 1팹 <strong>전체 일정 큰 영향 없음</strong></span></li>
+          <li class="risk-item ok"><i class="ti ti-check"></i><span>주가 영향 제한적. 투자자 관심 일과성 이벤트로 소화</span></li>
+          <li class="risk-item ok"><i class="ti ti-check"></i><span>SK하이닉스 용인 1팹 클린룸 <strong>2027년 2월</strong> 가동 목표 유지 가능</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Yellow: 2-4 weeks -->
+    <div class="sc-card yellow">
+      <div class="sc-header">
+        <div class="sc-dot"></div>
+        <div class="sc-title">🟡 시나리오 B — 중기화 (2주~1개월)</div>
+        <div class="sc-period">중간 피해</div>
+      </div>
+      <div class="sc-body">
+        <ul class="risk-list">
+          <li class="risk-item warn"><i class="ti ti-alert-circle"></i><span>콘크리트 타설 일정 누적 지연 → <strong>철골 조립 공사 차질</strong> 시작</span></li>
+          <li class="risk-item warn"><i class="ti ti-alert-circle"></i><span>장비·전기·설비 설치 선행 작업 미완성으로 후속 공정 줄줄이 밀림</span></li>
+          <li class="risk-item warn"><i class="ti ti-alert-circle"></i><span>삼성 P5 및 SK하이닉스 1팹 <strong>완공 시점 수주~수개월 지연</strong> 가능성</span></li>
+          <li class="risk-item warn"><i class="ti ti-alert-circle"></i><span>건설주(삼성C&T·SK에코플랜트) <strong>2분기 실적 일시 영향</strong></span></li>
+          <li class="risk-item warn"><i class="ti ti-alert-circle"></i><span>ASML 등 반도체 장비 납품 일정 재조정 필요 가능성</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Red: 1 month+ -->
+    <div class="sc-card red">
+      <div class="sc-header">
+        <div class="sc-dot"></div>
+        <div class="sc-title">🔴 시나리오 C — 장기화 (1개월 이상)</div>
+        <div class="sc-period">심각한 피해</div>
+      </div>
+      <div class="sc-body">
+        <ul class="risk-list">
+          <li class="risk-item bad"><i class="ti ti-x"></i><span>SK하이닉스 용인 1팹 <strong>클린룸 가동 시작 2027년 2월 → 지연</strong>. HBM 공급 스케줄 재조정</span></li>
+          <li class="risk-item bad"><i class="ti ti-x"></i><span>삼성 P5 공사 일정 <strong>6개월 단축 목표 달성 불가</strong>. 차세대 DRAM/HBM4 양산 시점 연기</span></li>
+          <li class="risk-item bad"><i class="ti ti-x"></i><span>엔비디아 등 AI 칩 고객사의 <strong>장기 공급 계약 이행 불확실성</strong> 증가</span></li>
+          <li class="risk-item bad"><i class="ti ti-x"></i><span>글로벌 메모리 공급 부족 심화 → <strong>DRAM/NAND 가격 추가 상승</strong> 압력</span></li>
+          <li class="risk-item bad"><i class="ti ti-x"></i><span>자본 지출 집행 대비 생산 기여 시점 지연 → <strong>ROI 저하 및 투자자 신뢰 훼손</strong></span></li>
+          <li class="risk-item bad"><i class="ti ti-x"></i><span>정부 긴급 중재 요청, 사회적 이슈화로 <strong>추가 노사 갈등 비용</strong> 발생 가능</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Company Response -->
+  <div class="comp-title"><i class="ti ti-building-factory-2"></i> 기업별 현황 비교</div>
+  <div class="comp-grid">
+    <div class="comp-card">
+      <div class="comp-header" style="background:#EFF6FF;">
+        <div class="comp-logo" style="background:linear-gradient(135deg,#1428A0,#0066CC);">S</div>
+        <div class="comp-name">삼성전자</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><span class="comp-key">현장</span><span class="comp-val neutral">평택 P5 캠퍼스</span></div>
+        <div class="comp-row"><span class="comp-key">영향 상태</span><span class="comp-val bad">타설 차질 발생</span></div>
+        <div class="comp-row"><span class="comp-key">공식 입장</span><span class="comp-val warn">코멘트 거부</span></div>
+        <div class="comp-row"><span class="comp-key">공사 목표</span><span class="comp-val ok">6개월 단축 추진</span></div>
+        <div class="comp-row"><span class="comp-key">주요 생산품</span><span class="comp-val neutral">HBM4, DRAM</span></div>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-header" style="background:#FFF5F5;">
+        <div class="comp-logo" style="background:linear-gradient(135deg,#EA1818,#FF6B00);">SK</div>
+        <div class="comp-name">SK하이닉스</div>
+      </div>
+      <div class="comp-body">
+        <div class="comp-row"><span class="comp-key">현장</span><span class="comp-val neutral">용인 클러스터 1팹</span></div>
+        <div class="comp-row"><span class="comp-key">영향 상태</span><span class="comp-val warn">전면 중단 확인</span></div>
+        <div class="comp-row"><span class="comp-key">공식 입장</span><span class="comp-val ok">단기 영향 제한적</span></div>
+        <div class="comp-row"><span class="comp-key">공사 목표</span><span class="comp-val ok">2027년 2월 클린룸</span></div>
+        <div class="comp-row"><span class="comp-key">주요 생산품</span><span class="comp-val neutral">HBM, 차세대 DRAM</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supply chain cascade -->
+  <div class="chain-box">
+    <div class="chain-title"><i class="ti ti-arrows-right"></i> 공정 연쇄 지연 구조 (장기화 시)</div>
+    <div class="chain-flow">
+      <div class="chain-step halt">레미콘 타설 ⛔</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step">철골 조립 지연</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step">장비 반입 불가</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step">클린룸 완공 연기</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step">HBM 양산 지연</div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-step">AI 공급망 영향</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <i class="ti ti-database"></i>
+    <span>출처: Reuters, Finimize, 서울경제, 아시아경제, SK하이닉스 공시, TrendForce, KED Global (2026년 6월 기준)</span>
+  </div>
+
+</div>
+</body>
+</html>
