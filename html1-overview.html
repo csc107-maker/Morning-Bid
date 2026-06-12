@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steel River Energy Center — 프로젝트 개요 대시보드</title>
+  <!-- OG Tags -->
+  <meta property="og:title" content="Steel River Energy Center — 미국 최대 태양광+배터리 프로젝트 개요" />
+  <meta property="og:description" content="아칸소주 2.45GW 태양광·2.9GWh 배터리 초대형 에너지 단지 핵심 수치 대시보드 | 총 투자 45억 달러 이상" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80" />
+  <meta property="og:url" content="https://blog.naver.com/steel-river-overview" />
+  <!-- Tabler Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #EBF5FF; color: #1e293b; }
+    .widget { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+
+    /* ─── 헤더 ─── */
+    .header {
+      background: linear-gradient(135deg, #1a56db 0%, #3b82f6 100%);
+      border-radius: 16px;
+      padding: 28px 24px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .header-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.2); border-radius: 20px;
+      padding: 4px 12px; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.5px; margin-bottom: 12px;
+    }
+    .header h1 { font-size: 22px; font-weight: 900; line-height: 1.3; margin-bottom: 6px; }
+    .header p { font-size: 13px; opacity: 0.85; }
+
+    /* ─── 메트릭 카드 5개 ─── */
+    .metrics { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; margin-bottom: 20px; }
+    .metric-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(26,86,219,0.08);
+      border-top: 3px solid #3b82f6;
+    }
+    .metric-card .icon { font-size: 22px; color: #3b82f6; margin-bottom: 8px; }
+    .metric-card .value { font-size: 20px; font-weight: 900; color: #1a56db; line-height: 1.1; }
+    .metric-card .unit { font-size: 11px; color: #6b7280; margin-top: 2px; }
+    .metric-card .label { font-size: 11px; color: #374151; font-weight: 600; margin-top: 4px; }
+
+    /* ─── 2단 그리드 ─── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+
+    /* ─── 프로젝트 기본 정보 표 ─── */
+    .info-box { background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 2px 8px rgba(26,86,219,0.06); }
+    .info-box h3 { font-size: 13px; font-weight: 700; color: #1a56db; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .info-table { width: 100%; border-collapse: collapse; }
+    .info-table tr { border-bottom: 1px solid #e0ecff; }
+    .info-table tr:last-child { border-bottom: none; }
+    .info-table td { padding: 8px 4px; font-size: 12px; vertical-align: top; }
+    .info-table td:first-child { color: #6b7280; font-weight: 500; width: 38%; }
+    .info-table td:last-child { color: #1e293b; font-weight: 700; }
+
+    /* ─── Phase 그리드 ─── */
+    .phase-box { background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 2px 8px rgba(26,86,219,0.06); }
+    .phase-box h3 { font-size: 13px; font-weight: 700; color: #1a56db; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .phase-grid { display: flex; flex-direction: column; gap: 8px; }
+    .phase-item {
+      border-radius: 10px; padding: 10px 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .phase-item.done { background: #eff6ff; border-left: 3px solid #3b82f6; }
+    .phase-item.pending { background: #f8fafc; border-left: 3px solid #94a3b8; }
+    .phase-status { font-size: 18px; flex-shrink: 0; }
+    .phase-info .phase-name { font-size: 12px; font-weight: 700; color: #1e293b; }
+    .phase-info .phase-spec { font-size: 11px; color: #6b7280; margin-top: 2px; }
+    .phase-tag {
+      margin-left: auto; padding: 2px 8px;
+      border-radius: 10px; font-size: 10px; font-weight: 700;
+    }
+    .phase-tag.done-tag { background: #dbeafe; color: #1d4ed8; }
+    .phase-tag.soon-tag { background: #f1f5f9; color: #64748b; }
+
+    /* ─── 배지 행 ─── */
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+    }
+    .badge-blue { background: #dbeafe; color: #1d4ed8; }
+    .badge-green { background: #dcfce7; color: #166534; }
+    .badge-orange { background: #ffedd5; color: #9a3412; }
+
+    /* ─── 하단 노트 ─── */
+    .notice {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .notice .notice-icon { color: #3b82f6; font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .notice p { font-size: 11.5px; color: #1e40af; line-height: 1.6; }
+    .notice strong { font-weight: 700; }
+
+    /* ─── 반응형 ─── */
+    @media (max-width: 600px) {
+      .metrics { grid-template-columns: repeat(3,1fr); }
+      .metrics .metric-card:nth-child(4), .metrics .metric-card:nth-child(5) { grid-column: span 1; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 420px) {
+      .metrics { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="widget">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="header-badge">
+      <i class="ti ti-solar-panel"></i>
+      2026.06.11 파이낸싱 클로즈
+    </div>
+    <h1>🌞 Steel River Energy Center<br>프로젝트 핵심 대시보드</h1>
+    <p>미국 역대 최대 태양광+배터리 복합 에너지단지 · 아칸소주 미시시피 카운티</p>
+  </div>
+
+  <!-- 핵심 메트릭 5개 -->
+  <div class="metrics">
+    <div class="metric-card">
+      <div class="icon"><i class="ti ti-currency-dollar"></i></div>
+      <div class="value">$3.5B</div>
+      <div class="unit">약 4조 8천억 원</div>
+      <div class="label">1·2단계 파이낸싱</div>
+    </div>
+    <div class="metric-card">
+      <div class="icon"><i class="ti ti-bolt"></i></div>
+      <div class="value">2.45<span style="font-size:14px">GW</span></div>
+      <div class="unit">3단계 완공 기준</div>
+      <div class="label">태양광 발전 용량</div>
+    </div>
+    <div class="metric-card">
+      <div class="icon"><i class="ti ti-battery-charging"></i></div>
+      <div class="value">2.9<span style="font-size:14px">GWh</span></div>
+      <div class="unit">720 MW 출력</div>
+      <div class="label">배터리 저장 용량</div>
+    </div>
+    <div class="metric-card">
+      <div class="icon"><i class="ti ti-users"></i></div>
+      <div class="value">700+</div>
+      <div class="unit">건설 일자리</div>
+      <div class="label">지역 고용 창출</div>
+    </div>
+    <div class="metric-card">
+      <div class="icon"><i class="ti ti-calendar-check"></i></div>
+      <div class="value">2029</div>
+      <div class="unit">3단계 완공 목표</div>
+      <div class="label">전체 준공 예정</div>
+    </div>
+  </div>
+
+  <!-- 배지 행 -->
+  <div class="badge-row">
+    <span class="badge badge-blue"><i class="ti ti-sun"></i> First Solar 미국산 패널</span>
+    <span class="badge badge-green"><i class="ti ti-leaf"></i> Green Loan 인증</span>
+    <span class="badge badge-orange"><i class="ti ti-building-factory"></i> 100% 미국산 구조 철강</span>
+    <span class="badge badge-blue"><i class="ti ti-map-pin"></i> 아칸소 현지 공급망</span>
+  </div>
+
+  <!-- 2단 그리드: 기본 정보 + Phase 현황 -->
+  <div class="two-col">
+    <div class="info-box">
+      <h3><i class="ti ti-info-circle"></i> 프로젝트 기본 정보</h3>
+      <table class="info-table">
+        <tr><td>📍 위치</td><td>아칸소주 미시시피 카운티</td></tr>
+        <tr><td>🏢 개발사</td><td>Cypress Creek Energy</td></tr>
+        <tr><td>👤 CEO</td><td>Kevin Smith</td></tr>
+        <tr><td>📅 인수</td><td>2026년 3월 (Swift Current)</td></tr>
+        <tr><td>💰 총 투자</td><td>$4.5B+ (전체 3단계)</td></tr>
+        <tr><td>📄 PPA</td><td>20년 vPPA (빅테크 익명)</td></tr>
+        <tr><td>🏭 장비</td><td>First Solar (미국산)</td></tr>
+        <tr><td>🏘 공급 가구</td><td>약 40~50만 세대</td></tr>
+      </table>
+    </div>
+    <div class="phase-box">
+      <h3><i class="ti ti-chart-timeline"></i> 3단계 개발 현황</h3>
+      <div class="phase-grid">
+        <div class="phase-item done">
+          <div class="phase-status">✅</div>
+          <div class="phase-info">
+            <div class="phase-name">Phase 1</div>
+            <div class="phase-spec">815MW 태양광 + 960MWh 배터리</div>
+          </div>
+          <span class="phase-tag done-tag">파이낸싱 완료</span>
+        </div>
+        <div class="phase-item done">
+          <div class="phase-status">✅</div>
+          <div class="phase-info">
+            <div class="phase-name">Phase 2</div>
+            <div class="phase-spec">815MW 태양광 + 960MWh 배터리</div>
+          </div>
+          <span class="phase-tag done-tag">파이낸싱 완료</span>
+        </div>
+        <div class="phase-item pending">
+          <div class="phase-status">🔜</div>
+          <div class="phase-info">
+            <div class="phase-name">Phase 3</div>
+            <div class="phase-spec">815MW 태양광 + 960MWh 배터리</div>
+          </div>
+          <span class="phase-tag soon-tag">별도 파이낸싱</span>
+        </div>
+        <div class="phase-item done" style="background:#eff6ff; border-left:3px solid #1d4ed8;">
+          <div class="phase-status">⚡</div>
+          <div class="phase-info">
+            <div class="phase-name" style="color:#1d4ed8;">합계</div>
+            <div class="phase-spec">2.45GW 태양광 + 2.9GWh 배터리</div>
+          </div>
+          <span class="phase-tag done-tag" style="background:#bfdbfe;">2029 완공</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 노트 -->
+  <div class="notice">
+    <div class="notice-icon"><i class="ti ti-bulb"></i></div>
+    <p><strong>참고:</strong> 이번 $3.5B 파이낸싱은 Phase 1+2 (1.63GW 태양광 + 1.9GWh 배터리) 건설 자금입니다. Phase 3는 별도 파이낸싱으로 추진 예정이며, 총 자본 투자 규모는 $4.5B 이상(약 6.2조 원)으로 확대됩니다. 미국 역대 최대 규모 태양광+배터리 프로젝트 중 하나입니다.</p>
+  </div>
+
+</div>
+</body>
+</html>
