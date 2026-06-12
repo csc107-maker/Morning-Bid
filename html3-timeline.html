@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steel River Energy Center — 3단계 개발 타임라인</title>
+  <!-- OG Tags -->
+  <meta property="og:title" content="Steel River Energy Center 3단계 개발 타임라인 2020~2029" />
+  <meta property="og:description" content="Swift Current 개발 → Cypress Creek 인수 → Phase 1+2 파이낸싱 → 2029년 2.45GW 완공까지 단계별 로드맵" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80" />
+  <meta property="og:url" content="https://blog.naver.com/steel-river-timeline" />
+  <!-- Tabler Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #FFFBEB; color: #1e293b; }
+    .widget { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+
+    /* ─── 헤더 ─── */
+    .header {
+      background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+      border-radius: 16px;
+      padding: 28px 24px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .header-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.2); border-radius: 20px;
+      padding: 4px 12px; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.5px; margin-bottom: 12px;
+    }
+    .header h1 { font-size: 22px; font-weight: 900; line-height: 1.3; margin-bottom: 6px; }
+    .header p { font-size: 13px; opacity: 0.85; }
+
+    /* ─── 마일스톤 3개 ─── */
+    .milestones { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 20px; }
+    .milestone-card {
+      background: #fff;
+      border-radius: 14px; padding: 16px 12px; text-align: center;
+      box-shadow: 0 2px 8px rgba(180,83,9,0.08);
+      border-top: 3px solid;
+    }
+    .milestone-card.m1 { border-color: #d97706; }
+    .milestone-card.m2 { border-color: #f59e0b; }
+    .milestone-card.m3 { border-color: #fbbf24; }
+    .milestone-card .m-date { font-size: 20px; font-weight: 900; color: #92400e; }
+    .milestone-card .m-label { font-size: 11px; color: #6b7280; margin: 4px 0 8px; }
+    .milestone-card .m-event { font-size: 12px; font-weight: 700; color: #374151; line-height: 1.4; }
+
+    /* ─── 세로 타임라인 ─── */
+    .timeline-title { font-size: 14px; font-weight: 700; color: #92400e; margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+    .timeline { position: relative; padding-left: 32px; margin-bottom: 20px; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 11px; top: 8px; bottom: 8px;
+      width: 2px; background: linear-gradient(to bottom, #d97706, #fbbf24, #d1d5db);
+      border-radius: 2px;
+    }
+    .tl-item { position: relative; margin-bottom: 16px; }
+    .tl-dot {
+      position: absolute; left: -26px; top: 16px;
+      width: 20px; height: 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700; z-index: 1;
+    }
+    .tl-dot.done { background: #d97706; color: #fff; box-shadow: 0 0 0 4px #fef3c7; }
+    .tl-dot.next { background: #e5e7eb; color: #9ca3af; box-shadow: 0 0 0 4px #f9fafb; }
+    .tl-card {
+      background: #fff;
+      border-radius: 14px; padding: 16px 18px;
+      box-shadow: 0 2px 8px rgba(180,83,9,0.07);
+    }
+    .tl-card.done-card { border-left: 4px solid #d97706; }
+    .tl-card.next-card { border-left: 4px solid #d1d5db; }
+    .tl-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .tl-phase-badge {
+      padding: 4px 12px; border-radius: 20px;
+      font-size: 11px; font-weight: 700;
+    }
+    .tl-phase-badge.done-badge { background: #fef3c7; color: #92400e; }
+    .tl-phase-badge.next-badge { background: #f1f5f9; color: #64748b; }
+    .tl-status { font-size: 12px; font-weight: 600; }
+    .tl-status.done-st { color: #d97706; }
+    .tl-status.next-st { color: #9ca3af; }
+    .tl-year { font-size: 11px; color: #9ca3af; margin-left: auto; }
+
+    .spec-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .spec-item {
+      background: #fffbeb; border-radius: 10px; padding: 10px;
+      text-align: center;
+    }
+    .tl-card.next-card .spec-item { background: #f8fafc; }
+    .spec-item .spec-icon { font-size: 16px; color: #d97706; margin-bottom: 4px; }
+    .tl-card.next-card .spec-item .spec-icon { color: #94a3b8; }
+    .spec-item .spec-val { font-size: 15px; font-weight: 900; color: #92400e; }
+    .tl-card.next-card .spec-item .spec-val { color: #64748b; }
+    .spec-item .spec-lbl { font-size: 10px; color: #9ca3af; margin-top: 2px; }
+
+    .tl-note { font-size: 11.5px; color: #6b7280; margin-top: 10px; line-height: 1.5; }
+    .tl-note strong { color: #374151; }
+
+    /* ─── 합계 카드 ─── */
+    .total-card {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border-radius: 14px; padding: 20px;
+      border: 1px solid #fcd34d;
+      margin-bottom: 0;
+    }
+    .total-card h3 { font-size: 14px; font-weight: 700; color: #78350f; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+    .total-nums { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .total-num { text-align: center; }
+    .total-num .tn-val { font-size: 22px; font-weight: 900; color: #92400e; }
+    .total-num .tn-lbl { font-size: 11px; color: #b45309; margin-top: 2px; }
+
+    /* ─── 반응형 ─── */
+    @media (max-width: 600px) {
+      .milestones { grid-template-columns: 1fr; }
+      .spec-row { grid-template-columns: 1fr 1fr; }
+      .total-nums { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="widget">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="header-badge">
+      <i class="ti ti-timeline"></i>
+      2020 → 2029 프로젝트 로드맵
+    </div>
+    <h1>📅 Steel River 3단계 개발<br>완전 타임라인</h1>
+    <p>스위프트 커런트 개발 시작부터 2029년 2.45GW 완전 가동까지</p>
+  </div>
+
+  <!-- 핵심 마일스톤 3개 -->
+  <div class="milestones">
+    <div class="milestone-card m1">
+      <div class="m-date">2020</div>
+      <div class="m-label">개발 시작</div>
+      <div class="m-event">Swift Current Energy<br>아칸소 프로젝트 착수</div>
+    </div>
+    <div class="milestone-card m2">
+      <div class="m-date">2026.03</div>
+      <div class="m-label">소유권 이전</div>
+      <div class="m-event">Cypress Creek Energy<br>전체 프로젝트 인수 완료</div>
+    </div>
+    <div class="milestone-card m3">
+      <div class="m-date">2026.06</div>
+      <div class="m-label">파이낸싱 클로즈</div>
+      <div class="m-event">$3.5B 1·2단계<br>건설 자금 확보 성공</div>
+    </div>
+  </div>
+
+  <!-- 세로 타임라인 -->
+  <div class="timeline-title"><i class="ti ti-ladder"></i> 단계별 건설 로드맵</div>
+  <div class="timeline">
+    <!-- Phase 1 -->
+    <div class="tl-item">
+      <div class="tl-dot done">P1</div>
+      <div class="tl-card done-card">
+        <div class="tl-header">
+          <span class="tl-phase-badge done-badge">Phase 1</span>
+          <span class="tl-status done-st">✅ 파이낸싱 완료</span>
+          <span class="tl-year">2026~2027 건설 예정</span>
+        </div>
+        <div class="spec-row">
+          <div class="spec-item">
+            <div class="spec-icon"><i class="ti ti-sun"></i></div>
+            <div class="spec-val">815<span style="font-size:11px">MW</span></div>
+            <div class="spec-lbl">태양광 발전</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-icon"><i class="ti ti-battery-charging"></i></div>
+            <div class="spec-val">960<span style="font-size:11px">MWh</span></div>
+            <div class="spec-lbl">배터리 용량</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-icon"><i class="ti ti-plug"></i></div>
+            <div class="spec-val">240<span style="font-size:11px">MW</span></div>
+            <div class="spec-lbl">배터리 출력</div>
+          </div>
+        </div>
+        <div class="tl-note">First Solar 미국산 패널 사용 · 미국산 구조 철강 100% · 아칸소 현지 조달</div>
+      </div>
+    </div>
+    <!-- Phase 2 -->
+    <div class="tl-item">
+      <div class="tl-dot done">P2</div>
+      <div class="tl-card done-card">
+        <div class="tl-header">
+          <span class="tl-phase-badge done-badge">Phase 2</span>
+          <span class="tl-status done-st">✅ 파이낸싱 완료</span>
+          <span class="tl-year">2027~2028 건설 예정</span>
+        </div>
+        <div class="spec-row">
+          <div class="spec-item">
+            <div class="spec-icon"><i class="ti ti-sun"></i></div>
+            <div class="spec-val">815<span style="font-size:11px">MW</span></div>
+            <div class="spec-lbl">태양광 발전</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-icon"><i class="ti ti-battery-charging"></i></div>
+            <div class="spec-val">960<span style="font-size:11px">MWh</span></div>
+            <div class="spec-lbl">배터리 용량</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-icon"><i class="ti ti-plug"></i></div>
+            <div class="spec-val">240<span style="font-size:11px">MW</span></div>
+            <div class="spec-lbl">배터리 출력</div>
+          </div>
+        </div>
+        <div class="tl-note"><strong>1+2단계 합산:</strong> 1.63GW 태양광 + 1.9GWh 배터리 · <strong>20년 vPPA</strong> (투자등급 기술 기업) 수익 기반</div>
+      </div>
+    </div>
+    <!-- Phase 3 -->
+    <div class="tl-item">
+      <div class="tl-dot next">P3</div>
+      <div class="tl-card next-card">
+        <div class="tl-header">
+          <span class="tl-phase-badge next-badge">Phase 3</span>
+          <span class="tl-status next-st">🔜 별도 파이낸싱 추진 예정</span>
+          <span class="tl-year">2028~2029 건설 예정</span>
+        </div>
+        <div class="spec-row">
+          <div class="spec-item">
+            <div class="spec-icon"><i class="ti ti-sun"></i></div>
+            <div class="spec-val">815<span style="font-size:11px">MW</span></div>
+            <div class="spec-lbl">태양광 발전</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-icon"><i class="ti ti-battery-charging"></i></div>
+            <div class="spec-val">960<span style="font-size:11px">MWh</span></div>
+            <div class="spec-lbl">배터리 용량</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-icon"><i class="ti ti-plug"></i></div>
+            <div class="spec-val">240<span style="font-size:11px">MW</span></div>
+            <div class="spec-lbl">배터리 출력</div>
+          </div>
+        </div>
+        <div class="tl-note">파이낸싱 미확정 · 시장 환경에 따라 조건 변동 가능 · Phase 1+2 수익성 확인 후 추진</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 전체 합계 -->
+  <div class="total-card">
+    <h3><i class="ti ti-trophy"></i> 2029년 전체 완공 시 — 최종 규모 합계</h3>
+    <div class="total-nums">
+      <div class="total-num">
+        <div class="tn-val">2.45<small style="font-size:14px">GW</small></div>
+        <div class="tn-lbl">태양광 총 발전 용량</div>
+      </div>
+      <div class="total-num">
+        <div class="tn-val">2.9<small style="font-size:14px">GWh</small></div>
+        <div class="tn-lbl">배터리 총 저장 용량</div>
+      </div>
+      <div class="total-num">
+        <div class="tn-val">$4.5B+</div>
+        <div class="tn-lbl">총 자본 투자 규모</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
