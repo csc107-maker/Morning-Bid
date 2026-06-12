@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steel River — 35억 달러 파이낸싱 구조 완전 해부</title>
+  <!-- OG Tags -->
+  <meta property="og:title" content="Steel River Energy Center 35억 달러 파이낸싱 구조 완전 해부" />
+  <meta property="og:description" content="Barclays·BNP Paribas·Santander·Wells Fargo 4개 글로벌 은행 완전 인수 | 건설금융+Tax Equity+vPPA 3층위 구조 분석" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80" />
+  <meta property="og:url" content="https://blog.naver.com/steel-river-financing" />
+  <!-- Tabler Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #ECFDF5; color: #1e293b; }
+    .widget { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+
+    /* ─── 헤더 ─── */
+    .header {
+      background: linear-gradient(135deg, #065f46 0%, #059669 100%);
+      border-radius: 16px;
+      padding: 28px 24px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .header-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.2); border-radius: 20px;
+      padding: 4px 12px; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.5px; margin-bottom: 12px;
+    }
+    .header h1 { font-size: 22px; font-weight: 900; line-height: 1.3; margin-bottom: 6px; }
+    .header p { font-size: 13px; opacity: 0.85; }
+
+    /* ─── 총액 배너 ─── */
+    .total-banner {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 18px;
+      box-shadow: 0 2px 10px rgba(5,150,105,0.1);
+      border: 1px solid #a7f3d0;
+    }
+    .total-icon { font-size: 36px; color: #059669; flex-shrink: 0; }
+    .total-text .total-label { font-size: 12px; color: #6b7280; font-weight: 500; }
+    .total-text .total-value { font-size: 30px; font-weight: 900; color: #065f46; line-height: 1.1; }
+    .total-text .total-sub { font-size: 12px; color: #374151; margin-top: 2px; }
+
+    /* ─── 4개 은행 카드 ─── */
+    .banks-title { font-size: 14px; font-weight: 700; color: #065f46; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .banks-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-bottom: 20px; }
+    .bank-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(5,150,105,0.08);
+      border-left: 4px solid;
+      position: relative;
+    }
+    .bank-card.barclays { border-color: #00aaff; }
+    .bank-card.bnp { border-color: #008940; }
+    .bank-card.santander { border-color: #ec0000; }
+    .bank-card.wells { border-color: #cf0a2c; }
+
+    .bank-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .bank-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .bank-icon.barclays { background: #e0f4ff; color: #00aaff; }
+    .bank-icon.bnp { background: #d1fae5; color: #008940; }
+    .bank-icon.santander { background: #fee2e2; color: #ec0000; }
+    .bank-icon.wells { background: #fee2e2; color: #cf0a2c; }
+    .bank-name { font-size: 13px; font-weight: 700; color: #1e293b; }
+    .bank-country { font-size: 10px; color: #9ca3af; }
+    .bank-roles { display: flex; flex-wrap: wrap; gap: 4px; }
+    .role-tag {
+      padding: 3px 8px; border-radius: 8px;
+      font-size: 10px; font-weight: 600;
+    }
+    .role-main { background: #f0fdf4; color: #166534; }
+    .role-special { background: #fffbeb; color: #92400e; font-weight: 700; }
+    .role-label { font-size: 11px; color: #6b7280; margin-top: 6px; }
+    .role-label strong { color: #374151; }
+
+    /* ─── 3층위 구조 ─── */
+    .structure-title { font-size: 14px; font-weight: 700; color: #065f46; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .structure-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 20px; }
+    .struct-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px 14px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(5,150,105,0.08);
+    }
+    .struct-card .s-num { font-size: 11px; font-weight: 700; color: #9ca3af; letter-spacing: 1px; margin-bottom: 8px; }
+    .struct-card .s-icon { font-size: 28px; margin-bottom: 10px; }
+    .struct-card .s-title { font-size: 13px; font-weight: 900; color: #065f46; margin-bottom: 6px; }
+    .struct-card .s-en { font-size: 10px; color: #9ca3af; margin-bottom: 10px; }
+    .struct-card .s-desc { font-size: 11.5px; color: #374151; line-height: 1.6; text-align: left; }
+    .struct-card .s-highlight {
+      margin-top: 10px; padding: 8px 10px;
+      background: #ecfdf5; border-radius: 8px;
+      font-size: 11px; color: #065f46; font-weight: 600; text-align: center;
+    }
+
+    /* ─── 그린론 배너 ─── */
+    .green-banner {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex; align-items: center; gap: 12px;
+      border: 1px solid #6ee7b7;
+    }
+    .green-banner .gb-icon { font-size: 28px; color: #065f46; flex-shrink: 0; }
+    .green-banner .gb-text h4 { font-size: 13px; font-weight: 700; color: #065f46; margin-bottom: 4px; }
+    .green-banner .gb-text p { font-size: 11.5px; color: #047857; line-height: 1.5; }
+
+    /* ─── 반응형 ─── */
+    @media (max-width: 600px) {
+      .banks-grid { grid-template-columns: 1fr; }
+      .structure-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="widget">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="header-badge">
+      <i class="ti ti-report-money"></i>
+      파이낸싱 구조 분석
+    </div>
+    <h1>💰 35억 달러 파이낸싱 구조<br>완전 해부</h1>
+    <p>건설금융 · Tax Equity · vPPA — 3층위 복합 금융 구조 시각화</p>
+  </div>
+
+  <!-- 총액 배너 -->
+  <div class="total-banner">
+    <div class="total-icon"><i class="ti ti-cash-banknote"></i></div>
+    <div class="total-text">
+      <div class="total-label">1·2단계 총 파이낸싱 규모 (2026.06.11 클로즈)</div>
+      <div class="total-value">$3,500,000,000</div>
+      <div class="total-sub">약 4조 8,000억 원 · 글로벌 4개 은행 완전 인수(Full Underwriting)</div>
+    </div>
+  </div>
+
+  <!-- 주선 은행 4개 -->
+  <div class="banks-title"><i class="ti ti-building-bank"></i> 주선 금융기관 — 코디네이팅 리드 어레인저 4社</div>
+  <div class="banks-grid">
+    <div class="bank-card barclays">
+      <div class="bank-header">
+        <div class="bank-icon barclays"><i class="ti ti-building-bank"></i></div>
+        <div><div class="bank-name">Barclays</div><div class="bank-country">영국 · 글로벌 투자은행</div></div>
+      </div>
+      <div class="bank-roles">
+        <span class="role-tag role-main">코디네이팅 리드 어레인저</span>
+        <span class="role-tag role-main">공동 북런너</span>
+        <span class="role-tag role-special">⭐ 그린론 에이전트</span>
+      </div>
+      <div class="role-label" style="margin-top:8px;"><strong>Green Loan Agent</strong> — 국제 LMA 기준 그린론 인증으로 ESG 자금 유입 채널 역할</div>
+    </div>
+    <div class="bank-card bnp">
+      <div class="bank-header">
+        <div class="bank-icon bnp"><i class="ti ti-building-bank"></i></div>
+        <div><div class="bank-name">BNP Paribas</div><div class="bank-country">프랑스 · 유럽 최대 은행</div></div>
+      </div>
+      <div class="bank-roles">
+        <span class="role-tag role-main">코디네이팅 리드 어레인저</span>
+        <span class="role-tag role-main">공동 북런너</span>
+        <span class="role-tag role-special">⭐ 헤지 코디네이터</span>
+      </div>
+      <div class="role-label" style="margin-top:8px;"><strong>Hedge Coordinator</strong> — 금리·환율·시장 리스크 헤지 구조 총괄 설계</div>
+    </div>
+    <div class="bank-card santander">
+      <div class="bank-header">
+        <div class="bank-icon santander"><i class="ti ti-building-bank"></i></div>
+        <div><div class="bank-name">Santander</div><div class="bank-country">스페인 · 유럽 4위 은행</div></div>
+      </div>
+      <div class="bank-roles">
+        <span class="role-tag role-main">코디네이팅 리드 어레인저</span>
+        <span class="role-tag role-main">공동 북런너</span>
+        <span class="role-tag role-special">⭐ 어드민 에이전트</span>
+      </div>
+      <div class="role-label" style="margin-top:8px;"><strong>Administrative Agent</strong> — 대출 행정·담보 관리·운영 총괄</div>
+    </div>
+    <div class="bank-card wells">
+      <div class="bank-header">
+        <div class="bank-icon wells"><i class="ti ti-building-bank"></i></div>
+        <div><div class="bank-name">Wells Fargo</div><div class="bank-country">미국 · 4대 메가뱅크</div></div>
+      </div>
+      <div class="bank-roles">
+        <span class="role-tag role-main">코디네이팅 리드 어레인저</span>
+        <span class="role-tag role-main">공동 북런너</span>
+        <span class="role-tag role-special">⭐ 헤지</span>
+      </div>
+      <div class="role-label" style="margin-top:8px;"><strong>Hedge</strong> — 추가 시장 리스크 헤지, 미국 현지 캐피털 마켓 연결</div>
+    </div>
+  </div>
+
+  <!-- 3층위 파이낸싱 구조 -->
+  <div class="structure-title"><i class="ti ti-layers-intersect"></i> 3층위 복합 파이낸싱 구조</div>
+  <div class="structure-grid">
+    <div class="struct-card">
+      <div class="s-num">LAYER 01</div>
+      <div class="s-icon">🏦</div>
+      <div class="s-title">건설 금융</div>
+      <div class="s-en">Construction Financing</div>
+      <div class="s-desc">4개 은행 완전 인수(Full Underwriting) 방식 공동 주선. Phase 1+2 건설 단계 전 기간 자금 보장. 시장 상황 악화 시에도 은행이 자금 책임.</div>
+      <div class="s-highlight">$3.5B · 4개 글로벌 은행</div>
+    </div>
+    <div class="struct-card">
+      <div class="s-num">LAYER 02</div>
+      <div class="s-icon">🏛</div>
+      <div class="s-title">세금공제 지분</div>
+      <div class="s-en">Tax Equity Financing</div>
+      <div class="s-desc">미공개 대형 투자자와 Tax Equity 클로즈 동시 완료. ITC(투자세액공제)·PTC(생산세액공제) 활용해 수익성 극대화. 미국 재생에너지 핵심 레버리지.</div>
+      <div class="s-highlight">IRA 세액공제 활용 · 익명 투자자</div>
+    </div>
+    <div class="struct-card">
+      <div class="s-num">LAYER 03</div>
+      <div class="s-icon">🤝</div>
+      <div class="s-title">가상 전력 구매</div>
+      <div class="s-en">Virtual PPA (vPPA)</div>
+      <div class="s-desc">투자등급 대형 기술 기업과 20년 초장기 vPPA 체결. 고정 단가·시장가 차액 정산 방식. AI 데이터센터 전력·REC 확보 목적. 안정적 현금흐름 보장.</div>
+      <div class="s-highlight">20년 장기 · 빅테크 익명 · 투자등급</div>
+    </div>
+  </div>
+
+  <!-- 그린론 배너 -->
+  <div class="green-banner">
+    <div class="gb-icon"><i class="ti ti-leaf"></i></div>
+    <div class="gb-text">
+      <h4>🌿 그린론(Green Loan) 인증 — 국제 LMA 기준 ESG 자금 조달</h4>
+      <p>바클레이즈가 그린론 에이전트를 담당함으로써 이 프로젝트는 국제 LMA(Loan Market Association) 그린론 원칙에 부합하는 ESG 투자 자산으로 공인받았습니다. 이는 전 세계 ESG·기후 펀드들이 추가로 자금을 집행할 수 있는 문을 열어줍니다.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
