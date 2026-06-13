@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="그린슈 옵션(Greenshoe Option) 완전 해설 | SpaceX IPO" />
+  <meta property="og:description" content="IPO 주가 안전판 '그린슈 옵션' 작동 원리 2단계 시나리오 — 주가 상승 시 옵션 행사, 하락 시 시장 매수로 가격 지지" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SpaceX-Logo-Xonly.svg/1280px-SpaceX-Logo-Xonly.svg.png" />
+  <meta property="og:url" content="https://blog.example.com/spacex-ipo-greenshoe-2026" />
+  <title>그린슈 옵션(Greenshoe Option) 완전 해설 | SpaceX IPO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f0fff8;
+      padding: 24px 16px;
+      min-width: 320px;
+    }
+    .widget {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,77,64,.10);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
+      padding: 22px 28px;
+      color: #fff;
+    }
+    .header-top {
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    }
+    .header-icon {
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,.18);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+    .header h2 { font-size: 19px; font-weight: 900; line-height: 1.2; }
+    .header p { font-size: 13px; color: #a7ffeb; margin-top: 4px; }
+    .header-tag {
+      margin-left: auto;
+      background: rgba(255,255,255,.2);
+      padding: 5px 12px; border-radius: 20px;
+      font-size: 12px; color: #e0f2f1; font-weight: 600; white-space: nowrap;
+    }
+
+    /* Origin note */
+    .origin {
+      background: #e8f5e9;
+      border-left: 4px solid #43a047;
+      margin: 0; padding: 12px 20px;
+      font-size: 13px; color: #2e7d32; line-height: 1.6;
+    }
+
+    /* Step flow */
+    .flow {
+      padding: 24px 24px 0;
+    }
+    .flow-title {
+      font-size: 14px; font-weight: 700; color: #37474f;
+      text-transform: uppercase; letter-spacing: .6px; margin-bottom: 16px;
+    }
+    .steps {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .step {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding-bottom: 0;
+    }
+    .step-left {
+      display: flex; flex-direction: column; align-items: center;
+      flex-shrink: 0;
+    }
+    .step-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 900; color: #fff;
+      background: #00796b;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .step-line {
+      width: 2px; background: #b2dfdb; flex: 1; min-height: 24px;
+    }
+    .step-body {
+      flex: 1; padding-bottom: 24px;
+    }
+    .step-title { font-size: 15px; font-weight: 700; color: #004d40; margin-bottom: 6px; }
+    .step-desc { font-size: 13px; color: #546e7a; line-height: 1.7; }
+    .step-chip {
+      display: inline-block;
+      background: #e0f2f1; color: #004d40;
+      border-radius: 20px; padding: 2px 10px; font-size: 12px; font-weight: 600;
+      margin-top: 6px; margin-right: 4px;
+    }
+
+    /* Fork section */
+    .fork-wrap {
+      padding: 0 24px 24px;
+    }
+    .fork-label {
+      text-align: center;
+      font-size: 14px; font-weight: 700; color: #37474f;
+      padding: 10px 0 16px;
+      letter-spacing: .4px;
+    }
+    .fork {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    @media (max-width: 500px) {
+      .fork { grid-template-columns: 1fr; }
+    }
+    .scenario {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .scenario.up { border: 1.5px solid #a5d6a7; }
+    .scenario.down { border: 1.5px solid #ef9a9a; }
+    .sc-head {
+      padding: 10px 14px;
+      font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .scenario.up .sc-head { background: #e8f5e9; color: #1b5e20; }
+    .scenario.down .sc-head { background: #ffebee; color: #b71c1c; }
+    .sc-body { padding: 12px 14px; background: #fff; }
+    .sc-body ol { list-style: none; padding: 0; }
+    .sc-body ol li {
+      display: flex; gap: 8px; align-items: flex-start;
+      font-size: 13px; color: #455a64; margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .sc-body ol li::before {
+      content: "→";
+      font-weight: 700; flex-shrink: 0;
+    }
+    .scenario.up .sc-body ol li::before { color: #2e7d32; }
+    .scenario.down .sc-body ol li::before { color: #c62828; }
+    .sc-result {
+      margin-top: 8px;
+      padding: 8px 12px; border-radius: 8px;
+      font-size: 13px; font-weight: 600;
+    }
+    .scenario.up .sc-result { background: #e8f5e9; color: #1b5e20; }
+    .scenario.down .sc-result { background: #ffebee; color: #b71c1c; }
+
+    /* Key numbers */
+    .keynums {
+      background: #e8f0fe;
+      border-top: 1px solid #c5cae9;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: #c5cae9;
+    }
+    @media (max-width: 540px) { .keynums { grid-template-columns: repeat(2, 1fr); } }
+    .keynum {
+      background: #f3f6ff;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .keynum-val { font-size: 20px; font-weight: 900; color: #1a237e; }
+    .keynum-label { font-size: 11px; color: #7986cb; margin-top: 3px; }
+
+    /* Footer */
+    .footer {
+      padding: 11px 24px; font-size: 11px; color: #90a4ae;
+      border-top: 1px solid #e8f5e9;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-top">
+        <div class="header-icon">🛡️</div>
+        <div>
+          <h2>그린슈 옵션(Greenshoe Option) 완전 해설</h2>
+          <p>IPO 주가 안전판 메커니즘 — SpaceX 사례 적용</p>
+        </div>
+        <div class="header-tag">Over-Allotment Option</div>
+      </div>
+    </div>
+
+    <!-- Origin -->
+    <div class="origin">
+      📌 정식 명칭: <strong>초과배정 옵션(Over-Allotment Option)</strong> — 1960년 <em>Green Shoe Manufacturing</em> IPO에서 최초 사용. 미국 대형 상장의 표준 구조.
+    </div>
+
+    <!-- Step flow -->
+    <div class="flow">
+      <div class="flow-title">🔁 작동 흐름 — 상장 전부터 30일</div>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">1</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">IPO 전: 초과 배정 실행</div>
+            <div class="step-desc">주관사(SpaceX = 모건 스탠리)는 실제 발행 예정 주식보다 <strong>최대 15% 더 많은 주식을 사전 배정</strong>해 기관투자자에게 판매합니다. 아직 실제로 발행되지 않은 '공허한(short)' 포지션 형성.</div>
+            <span class="step-chip">SpaceX 발행: 5억 5,560만주</span>
+            <span class="step-chip">초과 배정: +8,300만주</span>
+            <span class="step-chip">총 잠재 배정: 6억 3,890만주</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">2</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">상장일: 거래 시작</div>
+            <div class="step-desc">2026년 6월 12일, SPCX가 나스닥에서 거래를 시작. 공모가 <strong>$135</strong>로 개장 → 시초가 <strong>$150</strong>으로 11% 갭업 시작. 주가 방향에 따라 두 시나리오 중 하나가 전개됩니다.</div>
+            <span class="step-chip">공모가: $135/주</span>
+            <span class="step-chip">30일 행사 기한</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">3</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">30일 내: 주가 방향 확인 후 결정</div>
+            <div class="step-desc">모건 스탠리는 상장 후 최대 <strong>30일 이내</strong>에 그린슈 옵션 행사 여부를 결정해야 합니다. 주가가 공모가 위이면 행사, 아래이면 시장 매수로 대응.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Fork scenarios -->
+    <div class="fork-wrap">
+      <div class="fork-label">📊 주가 방향별 2가지 시나리오</div>
+      <div class="fork">
+
+        <!-- Up scenario -->
+        <div class="scenario up">
+          <div class="sc-head">
+            📈 시나리오 A: 주가 상승 (실제 상황)
+          </div>
+          <div class="sc-body">
+            <ol>
+              <li>주가가 공모가($135) 이상 유지 — SPCX 실제로 $161에 마감</li>
+              <li>모건 스탠리, 그린슈 옵션 <strong>행사</strong></li>
+              <li>SpaceX로부터 추가 8,300만주를 $135에 구매</li>
+              <li>공매도 포지션 청산 + 차익 실현</li>
+            </ol>
+            <div class="sc-result">
+              💰 SpaceX 추가 조달: 최대 <strong>$112억</strong><br />
+              총 최대 조달금액: <strong>$860억</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Down scenario -->
+        <div class="scenario down">
+          <div class="sc-head">
+            📉 시나리오 B: 주가 하락 (가정)
+          </div>
+          <div class="sc-body">
+            <ol>
+              <li>주가가 공모가($135) 아래로 하락</li>
+              <li>모건 스탠리, 그린슈 옵션 <strong>미행사</strong></li>
+              <li>공개 시장에서 직접 주식 매수 → 주가 하락 방어</li>
+              <li>초과 배정 포지션(short) 정리</li>
+            </ol>
+            <div class="sc-result">
+              🛡️ 효과: 주가 급락 방지, 안정적 가격 지지<br />
+              투자자 신뢰 유지
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Key numbers -->
+    <div class="keynums">
+      <div class="keynum">
+        <div class="keynum-val">15%</div>
+        <div class="keynum-label">초과배정 비율</div>
+      </div>
+      <div class="keynum">
+        <div class="keynum-val">8,300만</div>
+        <div class="keynum-label">옵션 행사 주식수</div>
+      </div>
+      <div class="keynum">
+        <div class="keynum-val">$112억</div>
+        <div class="keynum-label">추가 조달 가능</div>
+      </div>
+      <div class="keynum">
+        <div class="keynum-val">30일</div>
+        <div class="keynum-label">행사 결정 기한</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>출처: Reuters · MarketScreener · StockCram (2026.06.12)</span>
+      <span>안정화 에이전트: Morgan Stanley</span>
+    </div>
+  </div>
+</body>
+</html>
