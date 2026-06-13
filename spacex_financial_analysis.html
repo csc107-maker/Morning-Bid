@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="SpaceX 재무 현황 & 사업 구조 분석 | SPCX 2025 실적" />
+  <meta property="og:description" content="SpaceX 2025년 매출 187억 달러(+33%), 순손실 49억 달러 — Starlink, 팔콘, 스타십, xAI 합병 사업 구조 완전 분석" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SpaceX-Logo-Xonly.svg/1280px-SpaceX-Logo-Xonly.svg.png" />
+  <meta property="og:url" content="https://blog.example.com/spacex-financial-analysis-2026" />
+  <title>SpaceX 재무 현황 & 사업 구조 분석 | SPCX 2025 실적</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f9f0ff;
+      padding: 24px 16px;
+      min-width: 320px;
+    }
+    .widget {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(74,0,130,.09);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #4a148c 0%, #6a1b9a 60%, #7b1fa2 100%);
+      padding: 22px 28px;
+      color: #fff;
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    }
+    .header-icon {
+      width: 46px; height: 46px;
+      background: rgba(255,255,255,.18);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .header h2 { font-size: 18px; font-weight: 900; }
+    .header p { font-size: 12px; color: #e1bee7; margin-top: 4px; }
+    .header-tag {
+      margin-left: auto;
+      background: rgba(255,255,255,.18);
+      padding: 5px 12px; border-radius: 20px;
+      font-size: 12px; color: #f3e5f5; font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Section title */
+    .sec-title {
+      padding: 18px 24px 8px;
+      font-size: 13px; font-weight: 700; color: #6a1b9a;
+      text-transform: uppercase; letter-spacing: .6px;
+      border-bottom: 1px solid #f3e5f5;
+    }
+
+    /* ── Revenue vs Loss bars ── */
+    .fin-wrap { padding: 16px 24px; }
+    .fin-row {
+      display: flex; gap: 12px; align-items: center; margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .fin-year {
+      font-size: 14px; font-weight: 700; color: #4a148c;
+      width: 50px; flex-shrink: 0;
+    }
+    .fin-bars { flex: 1; min-width: 200px; }
+    .fin-bar-label { font-size: 12px; color: #78909c; margin-bottom: 3px; }
+    .fin-bar-bg {
+      height: 14px; border-radius: 20px; overflow: hidden;
+      background: #f3e5f5; margin-bottom: 6px;
+    }
+    .fin-bar-fill {
+      height: 100%; border-radius: 20px;
+    }
+    .rev { background: linear-gradient(90deg, #6a1b9a, #ab47bc); }
+    .loss { background: linear-gradient(90deg, #c62828, #ef5350); }
+    .profit { background: linear-gradient(90deg, #2e7d32, #66bb6a); }
+    .fin-vals {
+      display: flex; gap: 8px; font-size: 12px; color: #546e7a;
+      flex-wrap: wrap;
+    }
+    .val-chip {
+      padding: 2px 9px; border-radius: 20px; font-size: 12px; font-weight: 600;
+    }
+    .val-rev { background: #f3e5f5; color: #6a1b9a; }
+    .val-loss { background: #ffebee; color: #c62828; }
+    .val-profit { background: #e8f5e9; color: #2e7d32; }
+
+    /* ── P/S 비교 ── */
+    .ps-wrap { padding: 4px 24px 16px; }
+    .ps-row {
+      display: flex; gap: 10px; align-items: center; margin-bottom: 10px;
+    }
+    .ps-co { font-size: 13px; font-weight: 600; color: #37474f; width: 80px; flex-shrink: 0; }
+    .ps-bar-wrap { flex: 1; }
+    .ps-bar-bg { height: 10px; border-radius: 20px; background: #f3e5f5; overflow: hidden; }
+    .ps-bar-fill { height: 100%; border-radius: 20px; }
+    .ps-bar-spcx { background: linear-gradient(90deg, #e65100, #ff8f00); }
+    .ps-bar-nvda { background: linear-gradient(90deg, #1565c0, #42a5f5); }
+    .ps-bar-amzn { background: linear-gradient(90deg, #2e7d32, #66bb6a); }
+    .ps-bar-meta { background: linear-gradient(90deg, #1565c0, #7986cb); }
+    .ps-val { font-size: 14px; font-weight: 900; width: 50px; text-align: right; flex-shrink: 0; }
+    .ps-val.spcx-val { color: #e65100; }
+    .ps-val.nvda-val { color: #1565c0; }
+    .ps-val.amzn-val { color: #2e7d32; }
+
+    /* ── Business segments ── */
+    .seg-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 12px 24px 20px;
+    }
+    @media (max-width: 500px) { .seg-grid { grid-template-columns: 1fr; } }
+    .seg-card {
+      border-radius: 10px; overflow: hidden;
+      border: 1.5px solid #e1bee7;
+    }
+    .seg-head {
+      padding: 10px 14px;
+      font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .seg-body {
+      padding: 10px 14px; background: #fff;
+      font-size: 13px; color: #546e7a; line-height: 1.65;
+    }
+    .seg-tag {
+      display: inline-block;
+      padding: 1px 8px; border-radius: 20px;
+      font-size: 11px; font-weight: 600;
+      margin-top: 6px;
+    }
+
+    /* Analyst opinions */
+    .analyst-wrap {
+      background: #fafafa;
+      border-top: 1px solid #f3e5f5;
+      padding: 14px 24px;
+    }
+    .analyst-title { font-size: 13px; font-weight: 700; color: #6a1b9a; margin-bottom: 10px; }
+    .analyst-row {
+      display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; flex-wrap: wrap;
+    }
+    .analyst-firm {
+      min-width: 100px; font-size: 13px; font-weight: 700; color: #4a148c;
+    }
+    .analyst-rating {
+      padding: 2px 10px; border-radius: 20px; font-size: 12px; font-weight: 700;
+    }
+    .rating-sell { background: #ffebee; color: #c62828; }
+    .rating-buy { background: #e8f5e9; color: #2e7d32; }
+    .rating-watch { background: #fff3e0; color: #e65100; }
+    .analyst-note { font-size: 13px; color: #546e7a; }
+
+    /* Footer */
+    .footer {
+      padding: 10px 24px; font-size: 11px; color: #b0bec5;
+      border-top: 1px solid #f5f5f5;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-icon">📊</div>
+      <div>
+        <h2>SpaceX 재무 현황 & 사업 구조 분석</h2>
+        <p>2024 vs 2025 실적 비교 · 밸류에이션 · 사업부문</p>
+      </div>
+      <div class="header-tag">S-1 공시 기준</div>
+    </div>
+
+    <!-- Revenue section -->
+    <div class="sec-title">📈 연도별 실적 비교 (2024 vs 2025)</div>
+    <div class="fin-wrap">
+
+      <!-- 2025 -->
+      <div style="margin-bottom:18px;">
+        <div class="fin-year">2025</div>
+        <div class="fin-bars">
+          <div class="fin-bar-label">매출 $187억 (전년 대비 <strong>+33%</strong>)</div>
+          <div class="fin-bar-bg"><div class="fin-bar-fill rev" style="width:100%"></div></div>
+          <div class="fin-bar-label">순손실 $49억 (R&D 대규모 투자)</div>
+          <div class="fin-bar-bg"><div class="fin-bar-fill loss" style="width:26%"></div></div>
+        </div>
+        <div class="fin-vals">
+          <span class="val-chip val-rev">매출 $18.67B</span>
+          <span class="val-chip val-loss">순손실 $4.94B</span>
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div>
+        <div class="fin-year">2024</div>
+        <div class="fin-bars">
+          <div class="fin-bar-label">매출 $140억</div>
+          <div class="fin-bar-bg"><div class="fin-bar-fill rev" style="width:75%"></div></div>
+          <div class="fin-bar-label">순이익 $7.9억 (흑자)</div>
+          <div class="fin-bar-bg"><div class="fin-bar-fill profit" style="width:4%"></div></div>
+        </div>
+        <div class="fin-vals">
+          <span class="val-chip val-rev">매출 $14.02B</span>
+          <span class="val-chip val-profit">순이익 $791M</span>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;padding:10px 12px;background:#fff3e0;border-radius:8px;font-size:13px;color:#6d4c00;line-height:1.6;">
+        ⚠️ <strong>2025년 적자 전환 이유:</strong> 스타십 반복 개발, Starlink 인프라 확장, xAI 합병 관련 대규모 R&D 투자. 
+        S&P 500 편입 조건(4분기 연속 흑자) 미충족 → 지수 편입 불가 현 상황.
+      </div>
+    </div>
+
+    <!-- P/S Ratio comparison -->
+    <div class="sec-title">💹 주가매출비율(P/S) 비교 — SpaceX vs 빅테크</div>
+    <div class="ps-wrap">
+      <div style="font-size:12px;color:#90a4ae;margin-bottom:12px;">낮을수록 저평가. SpaceX는 절대적으로 높은 프리미엄 반영</div>
+
+      <div class="ps-row">
+        <span class="ps-co">SpaceX 🚀</span>
+        <div class="ps-bar-wrap">
+          <div class="ps-bar-bg"><div class="ps-bar-fill ps-bar-spcx" style="width:100%"></div></div>
+        </div>
+        <span class="ps-val spcx-val">~94x</span>
+      </div>
+      <div class="ps-row">
+        <span class="ps-co">Nvidia</span>
+        <div class="ps-bar-wrap">
+          <div class="ps-bar-bg"><div class="ps-bar-fill ps-bar-nvda" style="width:33%"></div></div>
+        </div>
+        <span class="ps-val nvda-val">~31x</span>
+      </div>
+      <div class="ps-row">
+        <span class="ps-co">Meta</span>
+        <div class="ps-bar-wrap">
+          <div class="ps-bar-bg"><div class="ps-bar-fill ps-bar-meta" style="width:8%"></div></div>
+        </div>
+        <span class="ps-val" style="color:#3949ab;">~8x</span>
+      </div>
+      <div class="ps-row">
+        <span class="ps-co">Amazon</span>
+        <div class="ps-bar-wrap">
+          <div class="ps-bar-bg"><div class="ps-bar-fill ps-bar-amzn" style="width:4%"></div></div>
+        </div>
+        <span class="ps-val amzn-val">~4x</span>
+      </div>
+    </div>
+
+    <!-- Business segments -->
+    <div class="sec-title">🛰️ 핵심 사업 부문</div>
+    <div class="seg-grid">
+
+      <div class="seg-card">
+        <div class="seg-head" style="background:#e8f5e9;">
+          <span>🌐</span> Starlink 위성 인터넷
+        </div>
+        <div class="seg-body">
+          수백만 가입자 확보. 고수익 반복 매출(ARR) 구조. 연간 수십억 달러 수익 목표.
+          직접 연결(Direct-to-Cell)로 스마트폰 직접 연결.
+          <div><span class="seg-tag" style="background:#e8f5e9;color:#2e7d32;">핵심 캐시카우</span></div>
+        </div>
+      </div>
+
+      <div class="seg-card">
+        <div class="seg-head" style="background:#e8eaf6;">
+          <span>🚀</span> Falcon 로켓
+        </div>
+        <div class="seg-body">
+          재사용 가능 로켓. 글로벌 발사 시장 점유율 80%+ 독점.
+          정부·상업 발사 계약으로 안정적 매출 기반 구축.
+          <div><span class="seg-tag" style="background:#e8eaf6;color:#3949ab;">글로벌 1위</span></div>
+        </div>
+      </div>
+
+      <div class="seg-card">
+        <div class="seg-head" style="background:#fff3e0;">
+          <span>🌕</span> Starship 프로그램
+        </div>
+        <div class="seg-body">
+          반복 개발 중인 차세대 초대형 로켓. 화성 탐사, 달 착륙선(아르테미스),
+          궤도 데이터센터 등 미래 성장 동력.
+          <div><span class="seg-tag" style="background:#fff3e0;color:#e65100;">미래 성장 동력</span></div>
+        </div>
+      </div>
+
+      <div class="seg-card">
+        <div class="seg-head" style="background:#f3e5f5;">
+          <span>🤖</span> xAI 합병 (2026.02)
+        </div>
+        <div class="seg-body">
+          일론 머스크의 AI 기업 xAI와 합병 완료.
+          궤도 AI 데이터센터 계획. 우주 인프라 + AI 결합이 재평가 핵심 포인트.
+          <div><span class="seg-tag" style="background:#f3e5f5;color:#6a1b9a;">AI 인프라 기업 재정의</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Analyst opinions -->
+    <div class="analyst-wrap">
+      <div class="analyst-title">📝 주요 애널리스트 의견</div>
+      <div class="analyst-row">
+        <span class="analyst-firm">Morningstar</span>
+        <span class="analyst-rating rating-watch">중립 / 과대평가</span>
+        <span class="analyst-note">적정 가치 <strong>$7,800억</strong> — 현재 IPO가의 절반 수준</span>
+      </div>
+      <div class="analyst-row">
+        <span class="analyst-firm">CFRA</span>
+        <span class="analyst-rating rating-sell">매도 (Sell)</span>
+        <span class="analyst-note">펀더멘털 대비 현저한 고평가 지적</span>
+      </div>
+      <div class="analyst-row">
+        <span class="analyst-firm">Wedbush</span>
+        <span class="analyst-rating rating-buy">낙관적 (Buy)</span>
+        <span class="analyst-note">"AI혁명의 다음 단계" — Dan Ives 애널리스트</span>
+      </div>
+      <div class="analyst-row">
+        <span class="analyst-firm">ARK Invest</span>
+        <span class="analyst-rating rating-buy">강력 매수</span>
+        <span class="analyst-note">2030년까지 <strong>$2.5조+</strong> 목표가 가능 전망</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>출처: SEC S-1 공시 · Reuters · CNBC · Morningstar · ARK Invest (2026.06.12)</span>
+      <span>※ 투자 권유 아님, 정보 제공 목적</span>
+    </div>
+  </div>
+</body>
+</html>
