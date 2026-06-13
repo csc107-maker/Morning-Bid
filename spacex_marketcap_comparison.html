@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="SpaceX 상장 후 미국 시총 TOP 10 비교 | 2026년 6월" />
+  <meta property="og:description" content="SpaceX 나스닥 상장 후 글로벌 시가총액 순위 — Nvidia 5.4조, Apple 3조, Microsoft, Alphabet, Amazon, SpaceX 2조 달러 클럽" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SpaceX-Logo-Xonly.svg/1280px-SpaceX-Logo-Xonly.svg.png" />
+  <meta property="og:url" content="https://blog.example.com/spacex-ipo-marketcap-ranking-2026" />
+  <title>SpaceX 상장 후 미국 시총 TOP 10 비교 | 2026년 6월</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fffdf0;
+      padding: 24px 16px;
+      min-width: 320px;
+    }
+    .widget {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(100,69,0,.10);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
+      padding: 22px 28px;
+      color: #fff;
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    }
+    .header-icon {
+      width: 46px; height: 46px;
+      background: rgba(255,255,255,.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .header h2 { font-size: 18px; font-weight: 900; }
+    .header p { font-size: 12px; color: #c5cae9; margin-top: 4px; }
+    .header-date {
+      margin-left: auto;
+      font-size: 12px; background: rgba(255,255,255,.18);
+      padding: 5px 12px; border-radius: 20px; white-space: nowrap;
+    }
+
+    /* Table */
+    .table-wrap { overflow-x: auto; padding: 0 0 4px; }
+    table {
+      width: 100%; border-collapse: collapse;
+      min-width: 460px;
+    }
+    thead th {
+      background: #f5f5ff;
+      font-size: 11px; font-weight: 700;
+      color: #3949ab; text-transform: uppercase; letter-spacing: .5px;
+      padding: 10px 16px; text-align: left;
+      border-bottom: 2px solid #c5cae9;
+    }
+    thead th.right { text-align: right; }
+    tbody tr {
+      border-bottom: 1px solid #f0f0ff;
+      transition: background .15s;
+    }
+    tbody tr:hover { background: #f8f9ff; }
+    tbody td {
+      padding: 12px 16px;
+      font-size: 14px; color: #37474f; vertical-align: middle;
+    }
+    tbody td.right { text-align: right; }
+
+    /* Rank */
+    .rank {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 900;
+    }
+    .rank-1 { background: #fff8e1; color: #f57f17; border: 2px solid #ffe082; }
+    .rank-2 { background: #f5f5f5; color: #607d8b; border: 2px solid #cfd8dc; }
+    .rank-3 { background: #fff3e0; color: #bf360c; border: 2px solid #ffcc80; }
+    .rank-n { background: #f5f5f5; color: #78909c; border: 2px solid #eceff1; }
+
+    /* Company name */
+    .co-name { font-weight: 700; color: #1a237e; font-size: 15px; }
+    .co-ticker {
+      display: inline-block;
+      background: #e8eaf6; color: #3949ab;
+      border-radius: 4px; padding: 1px 7px;
+      font-size: 11px; font-weight: 700;
+      margin-left: 6px; vertical-align: middle;
+    }
+    .co-sector { font-size: 11px; color: #90a4ae; display: block; margin-top: 2px; }
+
+    /* SpaceX highlight */
+    .spacex-row { background: #fff8e1 !important; }
+    .spacex-row td { border-top: 2px solid #ffe082; border-bottom: 2px solid #ffe082; }
+    .spacex-badge {
+      display: inline-block;
+      background: #ff6f00; color: #fff;
+      border-radius: 4px; padding: 1px 7px;
+      font-size: 10px; font-weight: 700; margin-left: 6px;
+    }
+
+    /* Market cap bar */
+    .bar-wrap { min-width: 100px; }
+    .bar-label { font-size: 13px; font-weight: 700; color: #1a237e; margin-bottom: 4px; }
+    .bar-bg {
+      background: #e8eaf6; border-radius: 20px; height: 7px; overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%; border-radius: 20px;
+      background: linear-gradient(90deg, #3949ab, #7986cb);
+    }
+    .bar-fill.spcx {
+      background: linear-gradient(90deg, #f57f17, #ffa726);
+    }
+
+    /* Change col */
+    .change-up { color: #2e7d32; font-weight: 700; }
+    .change-new { color: #e65100; font-weight: 700; }
+
+    /* Legend */
+    .legend {
+      padding: 10px 20px 14px;
+      display: flex; gap: 16px; flex-wrap: wrap;
+      font-size: 11px; color: #78909c; border-top: 1px solid #f0f0ff;
+    }
+    .legend span { display: flex; align-items: center; gap: 5px; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; }
+
+    /* Footer */
+    .footer {
+      padding: 10px 20px; font-size: 11px; color: #b0bec5;
+      border-top: 1px solid #f5f5f5;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-icon">🏆</div>
+      <div>
+        <h2>SpaceX 상장 이후 미국 시총 순위 (2026년 6월)</h2>
+        <p>SpaceX(SPCX) 진입 후 재편된 글로벌 빅테크 서열</p>
+      </div>
+      <div class="header-date">📅 2026.06.12 기준</div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th>기업명 / 티커</th>
+            <th>주요 사업</th>
+            <th class="right">시가총액</th>
+            <th class="right" style="min-width:120px">규모 비교</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rank rank-1">1</span></td>
+            <td>
+              <span class="co-name">Nvidia</span><span class="co-ticker">NVDA</span>
+              <span class="co-sector">AI 반도체 / GPU</span>
+            </td>
+            <td style="font-size:13px;color:#546e7a;">AI칩, H100/B200 GPU</td>
+            <td class="right"><div class="bar-label">$5.4조</div></td>
+            <td class="right">
+              <div class="bar-wrap">
+                <div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-2">2</span></td>
+            <td>
+              <span class="co-name">Apple</span><span class="co-ticker">AAPL</span>
+              <span class="co-sector">스마트폰 / 생태계</span>
+            </td>
+            <td style="font-size:13px;color:#546e7a;">iPhone, Mac, 서비스</td>
+            <td class="right"><div class="bar-label">$3.0조</div></td>
+            <td class="right">
+              <div class="bar-wrap">
+                <div class="bar-bg"><div class="bar-fill" style="width:56%"></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-3">3</span></td>
+            <td>
+              <span class="co-name">Microsoft</span><span class="co-ticker">MSFT</span>
+              <span class="co-sector">클라우드 / AI</span>
+            </td>
+            <td style="font-size:13px;color:#546e7a;">Azure, Office, Copilot</td>
+            <td class="right"><div class="bar-label">$2.8조</div></td>
+            <td class="right">
+              <div class="bar-wrap">
+                <div class="bar-bg"><div class="bar-fill" style="width:52%"></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-n">4</span></td>
+            <td>
+              <span class="co-name">Alphabet</span><span class="co-ticker">GOOGL</span>
+              <span class="co-sector">검색 / AI</span>
+            </td>
+            <td style="font-size:13px;color:#546e7a;">Google, YouTube, Gemini</td>
+            <td class="right"><div class="bar-label">$2.7조</div></td>
+            <td class="right">
+              <div class="bar-wrap">
+                <div class="bar-bg"><div class="bar-fill" style="width:50%"></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-n">5</span></td>
+            <td>
+              <span class="co-name">Amazon</span><span class="co-ticker">AMZN</span>
+              <span class="co-sector">이커머스 / 클라우드</span>
+            </td>
+            <td style="font-size:13px;color:#546e7a;">AWS, 이커머스, 광고</td>
+            <td class="right"><div class="bar-label">$2.6조</div></td>
+            <td class="right">
+              <div class="bar-wrap">
+                <div class="bar-bg"><div class="bar-fill" style="width:48%"></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="spacex-row">
+            <td><span class="rank rank-n" style="background:#fff3e0;color:#e65100;border:2px solid #ffa726;">6</span></td>
+            <td>
+              <span class="co-name">SpaceX</span><span class="co-ticker">SPCX</span>
+              <span class="spacex-badge">NEW</span>
+              <span class="co-sector">우주 / Starlink / AI (2026.06.12 상장)</span>
+            </td>
+            <td style="font-size:13px;color:#546e7a;">팔콘, 스타십, 스타링크</td>
+            <td class="right"><div class="bar-label" style="color:#e65100;">$2.1조</div></td>
+            <td class="right">
+              <div class="bar-wrap">
+                <div class="bar-bg"><div class="bar-fill spcx" style="width:39%"></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-n">7</span></td>
+            <td>
+              <span class="co-name">Broadcom</span><span class="co-ticker">AVGO</span>
+              <span class="co-sector">반도체 / 네트워크</span>
+            </td>
+            <td style="font-size:13px;color:#546e7a;">AI칩, 네트워킹</td>
+            <td class="right"><div class="bar-label">$1.85조</div></td>
+            <td class="right">
+              <div class="bar-wrap">
+                <div class="bar-bg"><div class="bar-fill" style="width:34%"></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-n">8</span></td>
+            <td>
+              <span class="co-name">Tesla</span><span class="co-ticker">TSLA</span>
+              <span class="co-sector">전기차 / 에너지 / AI</span>
+            </td>
+            <td style="font-size:13px;color:#546e7a;">전기차, FSD, Dojo</td>
+            <td class="right"><div class="bar-label">$1.72조</div></td>
+            <td class="right">
+              <div class="bar-wrap">
+                <div class="bar-bg"><div class="bar-fill" style="width:32%"></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-n">9</span></td>
+            <td>
+              <span class="co-name">Meta Platforms</span><span class="co-ticker">META</span>
+              <span class="co-sector">SNS / AI / VR</span>
+            </td>
+            <td style="font-size:13px;color:#546e7a;">Facebook, Instagram, Llama</td>
+            <td class="right"><div class="bar-label">$1.5조</div></td>
+            <td class="right">
+              <div class="bar-wrap">
+                <div class="bar-bg"><div class="bar-fill" style="width:28%"></div></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-n">10</span></td>
+            <td>
+              <span class="co-name">TSMC</span><span class="co-ticker">TSM</span>
+              <span class="co-sector">반도체 파운드리</span>
+            </td>
+            <td style="font-size:13px;color:#546e7a;">최첨단 칩 제조</td>
+            <td class="right"><div class="bar-label">$1.0조</div></td>
+            <td class="right">
+              <div class="bar-wrap">
+                <div class="bar-bg"><div class="bar-fill" style="width:19%"></div></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <span><span class="dot" style="background:#ffa726"></span> SpaceX — 신규 상장 (6위 진입)</span>
+      <span><span class="dot" style="background:#3949ab"></span> 기존 $2조+ 클럽: Nvidia·Apple·Microsoft·Alphabet·Amazon</span>
+      <span>SpaceX, 테슬라보다 $3,800억 초과</span>
+    </div>
+
+    <div class="footer">
+      <span>출처: CNBC · Bloomberg · Motley Fool · CompaniesMarketCap (2026.06.12)</span>
+      <span>※ 시총은 해당일 종가 기준 추정치, 실시간 변동</span>
+    </div>
+  </div>
+</body>
+</html>
