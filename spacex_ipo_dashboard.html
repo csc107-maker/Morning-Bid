@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="SpaceX SPCX IPO 핵심 지표 대시보드 | 2조 달러 돌파" />
+  <meta property="og:description" content="역대 최대 IPO SpaceX 나스닥 첫날 핵심 수치 분석 — 공모가 $135 → 종가 $161, 시총 2조 달러 돌파, 조달금액 750억 달러" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SpaceX-Logo-Xonly.svg/1280px-SpaceX-Logo-Xonly.svg.png" />
+  <meta property="og:url" content="https://blog.example.com/spacex-ipo-2026" />
+  <title>SpaceX SPCX IPO 핵심 지표 대시보드</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #eef4ff;
+      padding: 24px 16px;
+      min-width: 320px;
+    }
+    .widget {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(10,37,64,.10);
+    }
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #0a2540 0%, #1a4a8c 100%);
+      padding: 24px 28px 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .header-icon {
+      width: 52px; height: 52px;
+      background: rgba(255,255,255,.15);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+    }
+    .header-text h2 {
+      font-size: 20px; font-weight: 900; letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .header-text p {
+      font-size: 13px; color: #a8c7ff; margin-top: 3px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: #ff4f4f;
+      color: #fff;
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 13px; font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ── Price strip ── */
+    .price-strip {
+      background: #f0f7ff;
+      padding: 14px 28px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      border-bottom: 1px solid #dce8f8;
+    }
+    .price-main { font-size: 36px; font-weight: 900; color: #0a2540; }
+    .price-label { font-size: 12px; color: #607d8b; margin-right: 6px; }
+    .price-change {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 15px; font-weight: 700;
+    }
+    .price-ipo { font-size: 13px; color: #78909c; margin-left: 4px; }
+
+    /* ── Progress ── */
+    .progress-row {
+      padding: 10px 28px 4px;
+      font-size: 12px; color: #607d8b;
+    }
+    .progress-bar-bg {
+      background: #e8f0fe;
+      border-radius: 20px; height: 8px; margin-top: 6px; overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #1565c0, #42a5f5);
+      border-radius: 20px;
+      width: 19.2%;
+      transition: width .8s ease;
+    }
+
+    /* ── Cards grid ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #dce8f8;
+      border-top: 1px solid #dce8f8;
+    }
+    @media (max-width: 540px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    .card {
+      background: #fff;
+      padding: 18px 20px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 600;
+      color: #90a4ae; text-transform: uppercase; letter-spacing: .6px;
+      margin-bottom: 6px;
+    }
+    .card-value {
+      font-size: 22px; font-weight: 900; color: #0a2540;
+      line-height: 1.1;
+    }
+    .card-value.up { color: #2e7d32; }
+    .card-value.down { color: #c62828; }
+    .card-value.gold { color: #e65100; }
+    .card-sub {
+      font-size: 12px; color: #78909c; margin-top: 4px;
+    }
+
+    /* ── Record banner ── */
+    .record-row {
+      background: #fffde7;
+      border-top: 1px solid #ffe082;
+      padding: 12px 28px;
+      font-size: 13px; color: #6d4c00;
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    }
+    .record-row strong { font-weight: 700; }
+    .record-icon { font-size: 18px; }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 12px 28px;
+      font-size: 11px; color: #b0bec5;
+      border-top: 1px solid #eef2ff;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-icon">🚀</div>
+      <div class="header-text">
+        <h2>SpaceX (SPCX) — 나스닥 상장 핵심 지표</h2>
+        <p>2026년 6월 12일 · 역대 최대 IPO 기록 달성</p>
+      </div>
+      <div class="header-badge">역대 #1 IPO</div>
+    </div>
+
+    <!-- Price strip -->
+    <div class="price-strip">
+      <span class="price-label">종 가</span>
+      <span class="price-main">$160.95</span>
+      <span class="price-change">▲ +19.2%</span>
+      <span class="price-ipo">공모가 $135.00 기준</span>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-row">
+      <span>첫날 수익률 +19.2% (공모가 → 종가)</span>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width:60%"></div>
+      </div>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-label">공모가 (IPO Price)</div>
+        <div class="card-value">$135</div>
+        <div class="card-sub">2026년 6월 11일 확정</div>
+      </div>
+      <div class="card">
+        <div class="card-label">시초가 (Open)</div>
+        <div class="card-value up">$150</div>
+        <div class="card-sub">공모가 대비 +11.1%</div>
+      </div>
+      <div class="card">
+        <div class="card-label">장중 고가 (High)</div>
+        <div class="card-value up">$176</div>
+        <div class="card-sub">공모가 대비 +30.4%</div>
+      </div>
+      <div class="card">
+        <div class="card-label">시가총액 (Market Cap)</div>
+        <div class="card-value gold">$2.1조</div>
+        <div class="card-sub">미국 6위 기업</div>
+      </div>
+      <div class="card">
+        <div class="card-label">IPO 조달금액</div>
+        <div class="card-value">$750억</div>
+        <div class="card-sub">그린슈 포함 최대 $860억</div>
+      </div>
+      <div class="card">
+        <div class="card-label">첫날 거래대금</div>
+        <div class="card-value">$800억</div>
+        <div class="card-sub">거래량 5억주 이상</div>
+      </div>
+    </div>
+
+    <!-- Record banner -->
+    <div class="record-row">
+      <span class="record-icon">🏆</span>
+      <span>
+        <strong>역대 최대 IPO</strong> — 2019년 사우디 아람코($294억) 대비 <strong>2배 이상</strong> 규모.
+        일론 머스크, 세계 최초 <strong>순자산 1조 달러(트리리어네어)</strong> 달성.
+      </span>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span>출처: Reuters · Bloomberg · CNBC · Nasdaq (2026.06.12)</span>
+      <span>※ 투자 권유가 아닌 정보 제공 목적</span>
+    </div>
+  </div>
+</body>
+</html>
