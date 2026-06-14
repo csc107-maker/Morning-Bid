@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이란 전쟁 이후 유가 시나리오 분석 2026</title>
+
+  <!-- OG 메타 태그 -->
+  <meta property="og:title" content="이란 전쟁 이후 국제 유가 방향 — 3가지 시나리오 완전 분석" />
+  <meta property="og:description" content="종전협상·정유소 피격·OPEC+ 전략으로 살펴보는 유가 시나리오 ① 조기 종전 $80~90 ② 봉쇄 장기화 $100~117 ③ 확전 최대 $168" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1518623001395-125242310d0c?w=1200" />
+  <meta property="og:url" content="https://blog.example.com/iran-oil-scenarios-2026" />
+
+  <!-- Tabler Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+      background: #f0f9ff;
+      padding: 28px 20px;
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #0369a1;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0c4a6e;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .current-price-bar {
+      background: #fff;
+      border: 1.5px solid #bae6fd;
+      border-radius: 14px;
+      padding: 16px 22px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .price-item {
+      text-align: center;
+    }
+
+    .price-label {
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .price-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0369a1;
+    }
+
+    .price-unit {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+
+    .price-change {
+      font-size: 12px;
+      color: #ef4444;
+      font-weight: 600;
+    }
+
+    .price-change.down {
+      color: #22c55e;
+    }
+
+    .scenarios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .card {
+      border-radius: 18px;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      opacity: 0.12;
+    }
+
+    .card-s1 {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      border: 1.5px solid #6ee7b7;
+    }
+    .card-s1::before { background: #10b981; }
+
+    .card-s2 {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1.5px solid #fcd34d;
+    }
+    .card-s2::before { background: #f59e0b; }
+
+    .card-s3 {
+      background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+      border: 1.5px solid #fca5a5;
+    }
+    .card-s3::before { background: #ef4444; }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .badge-s1 { background: #10b981; color: #fff; }
+    .badge-s2 { background: #f59e0b; color: #fff; }
+    .badge-s3 { background: #ef4444; color: #fff; }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .card-price {
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .price-s1 { color: #059669; }
+    .price-s2 { color: #d97706; }
+    .price-s3 { color: #dc2626; }
+
+    .price-sub {
+      font-size: 11px;
+      color: #64748b;
+      margin-bottom: 14px;
+    }
+
+    .prob-bar-wrap {
+      margin-bottom: 12px;
+    }
+
+    .prob-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .prob-bar-bg {
+      height: 8px;
+      background: rgba(0,0,0,0.06);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .prob-bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width 1s ease;
+    }
+
+    .fill-s1 { background: #10b981; width: 55%; }
+    .fill-s2 { background: #f59e0b; width: 35%; }
+    .fill-s3 { background: #ef4444; width: 10%; }
+
+    .card-conditions {
+      list-style: none;
+      margin-top: 14px;
+    }
+
+    .card-conditions li {
+      font-size: 12px;
+      color: #475569;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 5px;
+      line-height: 1.45;
+    }
+
+    .card-conditions li::before {
+      content: '›';
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .recovery-box {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px 22px;
+      border: 1.5px solid #e2e8f0;
+      margin-bottom: 16px;
+    }
+
+    .recovery-box h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0c4a6e;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .rec-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .rec-row:last-child { border-bottom: none; }
+
+    .rec-facility {
+      flex: 1;
+      font-size: 12px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .rec-time {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ef4444;
+      white-space: nowrap;
+    }
+
+    .rec-bar-wrap {
+      width: 120px;
+      height: 6px;
+      background: #f1f5f9;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .rec-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #f59e0b, #ef4444);
+    }
+
+    .footnote {
+      font-size: 11px;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .source-tag {
+      font-size: 10.5px;
+      color: #94a3b8;
+      text-align: right;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 480px) {
+      .scenarios { grid-template-columns: 1fr; }
+      .current-price-bar { gap: 12px; }
+      .header h1 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <div class="eyebrow"><i class="ti ti-chart-bar"></i> 유가 시나리오 분석</div>
+    <h1>이란 전쟁 이후 국제 유가 방향<br>3가지 시나리오 완전 분석</h1>
+    <p>2026년 6월 15일 기준 | 출처: KIEP, Bloomberg, 국제금융센터</p>
+  </div>
+
+  <!-- 현재 유가 현황 -->
+  <div class="current-price-bar">
+    <div class="price-item">
+      <div class="price-label"><i class="ti ti-droplet"></i> 브렌트유 (현재)</div>
+      <div class="price-value">$87.33</div>
+      <div class="price-unit">/배럴</div>
+      <div class="price-change down">▼ 3.37% (MOU 기대감)</div>
+    </div>
+    <div class="price-item">
+      <div class="price-label"><i class="ti ti-droplet-filled"></i> WTI (현재)</div>
+      <div class="price-value">$84.88</div>
+      <div class="price-unit">/배럴</div>
+      <div class="price-change down">▼ 3.22%</div>
+    </div>
+    <div class="price-item">
+      <div class="price-label"><i class="ti ti-trending-up"></i> 52주 고점</div>
+      <div class="price-value">$126.41</div>
+      <div class="price-unit">브렌트유 기준</div>
+      <div class="price-change">▲ 전쟁 발발 직후</div>
+    </div>
+    <div class="price-item">
+      <div class="price-label"><i class="ti ti-calendar"></i> 전쟁 전 (2026.01)</div>
+      <div class="price-value">$63</div>
+      <div class="price-unit">/배럴 (평균)</div>
+    </div>
+  </div>
+
+  <!-- 3가지 시나리오 카드 -->
+  <div class="scenarios">
+
+    <div class="card card-s1">
+      <div class="card-badge badge-s1"><i class="ti ti-check"></i> 시나리오 ①</div>
+      <div class="card-title">조기 종전·휴전<br>(현재 시장이 반영 중)</div>
+      <div class="card-price price-s1">$80~90</div>
+      <div class="price-sub">배럴당 | 상당 기간 유지 전망</div>
+      <div class="prob-bar-wrap">
+        <div class="prob-label">
+          <span>시장 반영 확률</span>
+          <span style="color:#059669; font-weight:700">55%</span>
+        </div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill fill-s1"></div></div>
+      </div>
+      <ul class="card-conditions">
+        <li>MOU 체결·호르무즈 해협 기뢰 제거</li>
+        <li>이란 일부 제재 해제·석유 수출 허용</li>
+        <li>단, 카타르 LNG 복구 3~5년 소요</li>
+        <li>비OPEC 증산 여력 제한 → $70↓ 어렵다</li>
+        <li>지정학 리스크 프리미엄 $5~15 지속</li>
+      </ul>
+    </div>
+
+    <div class="card card-s2">
+      <div class="card-badge badge-s2"><i class="ti ti-alert-triangle"></i> 시나리오 ②</div>
+      <div class="card-title">호르무즈 봉쇄<br>장기화</div>
+      <div class="card-price price-s2">$100~117</div>
+      <div class="price-sub">배럴당 | 2026년 3Q 기준</div>
+      <div class="prob-bar-wrap">
+        <div class="prob-label">
+          <span>협상 결렬 시 복귀 리스크</span>
+          <span style="color:#d97706; font-weight:700">35%</span>
+        </div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill fill-s2"></div></div>
+      </div>
+      <ul class="card-conditions">
+        <li>협상 불발 또는 이란 MOU 이행 거부</li>
+        <li>IEA: 걸프 원유 차단 10~11mb/d</li>
+        <li>세계 원유 생산량의 약 10% 감소</li>
+        <li>비OPEC 증산으로 일부 상쇄 가능</li>
+        <li>WTI $100, 브렌트 $105~115 예상</li>
+      </ul>
+    </div>
+
+    <div class="card card-s3">
+      <div class="card-badge badge-s3"><i class="ti ti-flame"></i> 시나리오 ③</div>
+      <div class="card-title">확전<br>(최악 시나리오)</div>
+      <div class="card-price price-s3">$168~181</div>
+      <div class="price-sub">배럴당 | 2026년 3Q 피크</div>
+      <div class="prob-bar-wrap">
+        <div class="prob-label">
+          <span>확전 발생 가능성</span>
+          <span style="color:#dc2626; font-weight:700">10%</span>
+        </div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill fill-s3"></div></div>
+      </div>
+      <ul class="card-conditions">
+        <li>사우디·UAE 핵심 시설 추가 피격</li>
+        <li>KIEP: 3Q 브렌트유 $168 급등 전망</li>
+        <li>2027년 4Q에도 $174 유지</li>
+        <li>전쟁 전 대비 176% 높은 수준</li>
+        <li>글로벌 경기침체·스태그플레이션 우려</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 복구 기간 요약 -->
+  <div class="recovery-box">
+    <h3><i class="ti ti-tools" style="font-size:16px; color:#0369a1"></i> 에너지 시설 피격 복구 기간 — 왜 유가가 쉽게 내려오지 않나?</h3>
+
+    <div class="rec-row">
+      <div class="rec-facility">🇶🇦 카타르 라스 라판 LNG 단지</div>
+      <div class="rec-bar-wrap"><div class="rec-bar-fill" style="width:100%"></div></div>
+      <div class="rec-time">3~5년</div>
+    </div>
+    <div class="rec-row">
+      <div class="rec-facility">🇸🇦 사우디 라스 타누라 정유시설</div>
+      <div class="rec-bar-wrap"><div class="rec-bar-fill" style="width:55%"></div></div>
+      <div class="rec-time">수개월~1년</div>
+    </div>
+    <div class="rec-row">
+      <div class="rec-facility">🇰🇼 쿠웨이트 정유시설</div>
+      <div class="rec-bar-wrap"><div class="rec-bar-fill" style="width:45%"></div></div>
+      <div class="rec-time">수개월~1년</div>
+    </div>
+    <div class="rec-row">
+      <div class="rec-facility">🇮🇷 이란 사우스파스 가스 시설</div>
+      <div class="rec-bar-wrap"><div class="rec-bar-fill" style="width:70%"></div></div>
+      <div class="rec-time">1~3년</div>
+    </div>
+
+    <div class="source-tag">출처: KIEP (2026.03.24), IEA, 현대경제연구원</div>
+  </div>
+
+  <p class="footnote">※ 본 자료는 정보 제공 목적으로 작성됐으며, 투자 권유가 아닙니다. 투자 판단 및 결과에 대한 책임은 투자자 본인에게 있습니다.</p>
+
+</div>
+</body>
+</html>
