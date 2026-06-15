@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="캐나다 CPSP 잠수함 사업 핵심 지표 | 한화오션 수주전 2026" />
+  <meta property="og:description" content="60조원 규모 캐나다 초계잠수함 사업(CPSP) 핵심 수치·현황·일정 인포카드. 한화오션 vs TKMS 최종 수주전." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/0ea5e9/ffffff?text=CPSP+%ED%95%B5%EC%8B%AC+%EC%A7%80%ED%91%9C+%EC%9D%B8%ED%8F%AC%EC%B9%B4%EB%93%9C" />
+  <meta property="og:url" content="https://example.com/hanwha-ocean-cpsp-infocards" />
+  <title>CPSP 핵심 지표 | 한화오션 캐나다 잠수함 수주전</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.29.0/dist/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      background: #f0f9ff;
+      padding: 24px 16px 32px;
+      color: #1e3a5f;
+    }
+    .widget-wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .widget-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .widget-header .label {
+      display: inline-block;
+      background: #0ea5e9;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .widget-header h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0c2340;
+      line-height: 1.4;
+    }
+    .widget-header p {
+      font-size: 13px;
+      color: #4a7ba7;
+      margin-top: 6px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 580px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .card-wide { grid-column: span 2; }
+    }
+    @media (max-width: 360px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .card-wide { grid-column: span 1; }
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 18px 16px 16px;
+      box-shadow: 0 2px 12px rgba(14,165,233,0.10);
+      border-top: 4px solid #0ea5e9;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card.green { border-top-color: #22c55e; }
+    .card.amber { border-top-color: #f59e0b; }
+    .card.red   { border-top-color: #ef4444; }
+    .card.indigo{ border-top-color: #6366f1; }
+    .card.teal  { border-top-color: #14b8a6; }
+    .card-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      background: #e0f2fe;
+      color: #0284c7;
+      margin-bottom: 4px;
+    }
+    .card.green  .card-icon { background: #dcfce7; color: #16a34a; }
+    .card.amber  .card-icon { background: #fef3c7; color: #d97706; }
+    .card.red    .card-icon { background: #fee2e2; color: #dc2626; }
+    .card.indigo .card-icon { background: #e0e7ff; color: #4f46e5; }
+    .card.teal   .card-icon { background: #ccfbf1; color: #0f766e; }
+    .card-value {
+      font-size: 26px;
+      font-weight: 900;
+      color: #0c2340;
+      line-height: 1.1;
+    }
+    .card-unit {
+      font-size: 13px;
+      font-weight: 600;
+      color: #4a7ba7;
+      margin-left: 2px;
+    }
+    .card-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      letter-spacing: 0.3px;
+    }
+    .card-desc {
+      font-size: 11px;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+    .card-wide {
+      grid-column: span 1;
+    }
+    .status-bar {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 16px 20px;
+      box-shadow: 0 2px 12px rgba(14,165,233,0.10);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+      border-left: 5px solid #f59e0b;
+    }
+    .status-bar .icon {
+      font-size: 28px;
+      color: #d97706;
+      flex-shrink: 0;
+    }
+    .status-bar .text strong {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0c2340;
+      display: block;
+    }
+    .status-bar .text span {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+    .competitors-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .comp-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 2px 12px rgba(14,165,233,0.08);
+    }
+    .comp-card .comp-flag {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+    .comp-card .comp-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0c2340;
+    }
+    .comp-card .comp-model {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+    .comp-card .comp-backlog {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0ea5e9;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .comp-card.hanwha { border-top: 3px solid #0ea5e9; }
+    .comp-card.tkms   { border-top: 3px solid #6b7280; }
+    .footer-note {
+      text-align: center;
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 18px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-wrapper">
+    <div class="widget-header">
+      <div class="label">📊 사업 현황 인포카드</div>
+      <h2>캐나다 CPSP 잠수함 사업 핵심 지표</h2>
+      <p>Canadian Patrol Submarine Project · 2026년 6월 기준</p>
+    </div>
+
+    <!-- 핵심 지표 카드 6종 -->
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-icon"><i class="ti ti-ship"></i></div>
+        <div>
+          <span class="card-value">12</span>
+          <span class="card-unit">척</span>
+        </div>
+        <div class="card-label">최대 도입 척수</div>
+        <div class="card-desc">3,000톤급 디젤 잠수함<br>빅토리아급 4척 대체</div>
+      </div>
+
+      <div class="card amber">
+        <div class="card-icon"><i class="ti ti-currency-won"></i></div>
+        <div>
+          <span class="card-value">60</span>
+          <span class="card-unit">조 원</span>
+        </div>
+        <div class="card-label">총 사업 규모</div>
+        <div class="card-desc">건조 16조 + 30년 MRO<br>(일부 추산 최대 120조)</div>
+      </div>
+
+      <div class="card green">
+        <div class="card-icon"><i class="ti ti-calendar-event"></i></div>
+        <div>
+          <span class="card-value">30</span>
+          <span class="card-unit">년</span>
+        </div>
+        <div class="card-label">MRO 계약 기간</div>
+        <div class="card-desc">유지·보수·정비 포함<br>장기 협력 모델</div>
+      </div>
+
+      <div class="card indigo">
+        <div class="card-icon"><i class="ti ti-users"></i></div>
+        <div>
+          <span class="card-value">2</span>
+          <span class="card-unit">개사</span>
+        </div>
+        <div class="card-label">최종 경쟁 후보</div>
+        <div class="card-desc">한화오션(KOR) vs TKMS(DEU)<br>2025년 8월 최종 선정</div>
+      </div>
+
+      <div class="card red">
+        <div class="card-icon"><i class="ti ti-alert-triangle"></i></div>
+        <div>
+          <span class="card-value">6월 말</span>
+        </div>
+        <div class="card-label">우선협상 발표 예정</div>
+        <div class="card-desc">마크 카니 총리 공식 발표<br>캐나다 의회 여름 휴회 前</div>
+      </div>
+
+      <div class="card teal">
+        <div class="card-icon"><i class="ti ti-anchor"></i></div>
+        <div>
+          <span class="card-value">2032</span>
+        </div>
+        <div class="card-label">1번함 납기 목표</div>
+        <div class="card-desc">한화오션 제시 일정<br>2043년 12척 전체 완납</div>
+      </div>
+
+    </div>
+
+    <!-- 발표 임박 상태 바 -->
+    <div class="status-bar">
+      <div class="icon"><i class="ti ti-clock-exclamation"></i></div>
+      <div class="text">
+        <strong>⚡ 결전의 6월 — 우선협상대상자 발표 임박</strong>
+        <span>캐나다 국방조달 책임자 "향후 30일 이내 전격 발표" 예고 (2026.06.15 기준) · 늦어도 7월 7일 NATO 정상회의(앙카라) 이전 결론 전망</span>
+      </div>
+    </div>
+
+    <!-- 경쟁사 비교 -->
+    <div class="competitors-row">
+      <div class="comp-card hanwha">
+        <div class="comp-flag">🇰🇷</div>
+        <div class="comp-name">한화오션 + HD현대중공업</div>
+        <div class="comp-model">제안 모델: KSS-III Batch-II (장보고-III 배치-II)</div>
+        <div class="comp-backlog"><i class="ti ti-chart-bar"></i> 수주잔고 약 29조 원</div>
+        <div class="comp-model" style="margin-top:4px; color:#16a34a; font-weight:700;">▶ 세계 최초 AIP+리튬이온 하이브리드</div>
+      </div>
+      <div class="comp-card tkms">
+        <div class="comp-flag">🇩🇪</div>
+        <div class="comp-name">TKMS (티센크루프마린시스템즈)</div>
+        <div class="comp-model">제안 모델: Type 212CD (독일·노르웨이 공동 개발)</div>
+        <div class="comp-backlog"><i class="ti ti-chart-bar"></i> 수주잔고 약 34.5조 원</div>
+        <div class="comp-model" style="margin-top:4px; color:#6366f1; font-weight:700;">▶ NATO 동맹 외교 + 전통 강호</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      * 출처: 파이낸셜뉴스, 전자신문, 한국경제, SR타임스, 더구루 (2026.05~06) · 투자 권유 아님 · 일부 수치는 추산값
+    </div>
+  </div>
+</body>
+</html>
