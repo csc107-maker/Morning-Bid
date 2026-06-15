@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="CPSP 수주전 타임라인 | 한화오션 캐나다 잠수함 수주 연대표" />
+  <meta property="og:description" content="2023년 초기 협력부터 2026년 우선협상 발표, 2043년 완납까지 — 한화오션 캐나다 CPSP 잠수함 수주전 전체 타임라인" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/f0fdf4/14532d?text=CPSP+%EC%88%98%EC%A3%BC%EC%A0%84+%ED%83%80%EC%9E%84%EB%9D%BC%EC%9D%B8" />
+  <meta property="og:url" content="https://example.com/hanwha-ocean-cpsp-timeline" />
+  <title>CPSP 수주전 타임라인 | 한화오션 캐나다 잠수함</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.29.0/dist/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      background: #f0fdf4;
+      padding: 24px 16px 32px;
+      color: #1a2e1a;
+    }
+    .widget-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .widget-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .widget-header .label {
+      display: inline-block;
+      background: #22c55e;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .widget-header h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #14532d;
+      line-height: 1.4;
+    }
+    .widget-header p {
+      font-size: 13px;
+      color: #4b7a4b;
+      margin-top: 6px;
+    }
+    /* 타임라인 */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #86efac 0%, #22c55e 30%, #16a34a 60%, #0f766e 80%, #64748b 100%);
+      border-radius: 2px;
+    }
+    .tl-group {
+      margin-bottom: 6px;
+    }
+    .tl-year {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      color: #fff;
+      background: #16a34a;
+      padding: 2px 10px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      margin-left: 4px;
+    }
+    .tl-year.future { background: #0f766e; }
+    .tl-year.past   { background: #64748b; }
+    .tl-year.now    { background: #dc2626; animation: pulse 2s infinite; }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(220,38,38,0); }
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 14px;
+      padding-left: 20px;
+    }
+    .tl-dot {
+      position: absolute;
+      left: -23px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px #22c55e;
+      background: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .tl-dot.past   { background: #94a3b8; box-shadow: 0 0 0 2px #94a3b8; }
+    .tl-dot.now    { background: #dc2626; box-shadow: 0 0 0 2px #dc2626; animation: pulse-dot 2s infinite; }
+    .tl-dot.future { background: #0f766e; box-shadow: 0 0 0 2px #0f766e; }
+    .tl-dot.key    { background: #f59e0b; box-shadow: 0 0 0 2px #f59e0b; }
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    .tl-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 12px 14px;
+      box-shadow: 0 1px 8px rgba(34,197,94,0.12);
+      border-left: 4px solid #22c55e;
+    }
+    .tl-card.past { border-left-color: #94a3b8; }
+    .tl-card.now  { border-left-color: #dc2626; background: #fff5f5; }
+    .tl-card.future { border-left-color: #0f766e; background: #f0fdfa; }
+    .tl-card.key  { border-left-color: #f59e0b; background: #fffbeb; }
+    .tl-date {
+      font-size: 11px;
+      font-weight: 700;
+      color: #94a3b8;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .tl-date i { font-size: 13px; }
+    .tl-date.now { color: #dc2626; }
+    .tl-date.future { color: #0f766e; }
+    .tl-date.key { color: #d97706; }
+    .tl-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 3px;
+      line-height: 1.35;
+    }
+    .tl-desc {
+      font-size: 11.5px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+    .tl-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 8px;
+      margin-top: 5px;
+    }
+    .tl-badge.done    { background: #dcfce7; color: #16a34a; }
+    .tl-badge.hot     { background: #fee2e2; color: #dc2626; }
+    .tl-badge.pending { background: #fef3c7; color: #d97706; }
+    .tl-badge.goal    { background: #ccfbf1; color: #0f766e; }
+    /* 범례 */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+      justify-content: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: #64748b;
+    }
+    .legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 14px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-wrapper">
+    <div class="widget-header">
+      <div class="label">📅 수주전 타임라인</div>
+      <h2>CPSP 수주전 전체 연대표</h2>
+      <p>한화오션 캐나다 잠수함 사업 · 2023~2043</p>
+    </div>
+
+    <div class="timeline">
+
+      <!-- 2023 -->
+      <div class="tl-group">
+        <div class="tl-year past">2023</div>
+        <div class="tl-item">
+          <div class="tl-dot past"><i class="ti ti-check"></i></div>
+          <div class="tl-card past">
+            <div class="tl-date"><i class="ti ti-calendar"></i> 2023 · 초기</div>
+            <div class="tl-title">🇰🇷 한화오션·HD현대 캐나다 법인 설립</div>
+            <div class="tl-desc">기존 빅토리아급 정비 담당 밥콕사와 협력 협정 체결. 한국이 유리한 고지를 선점했다는 평가.</div>
+            <span class="tl-badge done">선점 완료</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="tl-group">
+        <div class="tl-year past">2024</div>
+        <div class="tl-item">
+          <div class="tl-dot past"><i class="ti ti-check"></i></div>
+          <div class="tl-card past">
+            <div class="tl-date"><i class="ti ti-calendar"></i> 2024년 6월</div>
+            <div class="tl-title">CAE 등 캐나다 4개사와 CPSP 파트너십 체결</div>
+            <div class="tl-desc">현지 산업 협력 네트워크 구축 착수. 조선·방산·첨단기술 협력망 확대 시작.</div>
+            <span class="tl-badge done">완료</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot past"><i class="ti ti-check"></i></div>
+          <div class="tl-card past">
+            <div class="tl-date"><i class="ti ti-calendar"></i> 2024년 11월</div>
+            <div class="tl-title">캐나다 해군 사령관, 한국 조선소 시찰</div>
+            <div class="tl-desc">앵거스 탑시 중장이 한화오션·HD현대중공업 방문, 잠수함 건조 시설 직접 확인.</div>
+            <span class="tl-badge done">완료</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="tl-group">
+        <div class="tl-year past">2025</div>
+        <div class="tl-item">
+          <div class="tl-dot past"><i class="ti ti-check"></i></div>
+          <div class="tl-card past">
+            <div class="tl-date"><i class="ti ti-calendar"></i> 2025년 8월</div>
+            <div class="tl-title">🎯 최종 후보 2개사 선정 — 한화오션 vs TKMS</div>
+            <div class="tl-desc">캐나다 정부, 전 세계 입찰자 중 한화오션+HD현대 컨소시엄과 독일 TKMS를 최종 후보로 압축. 본격 1:1 대결 시작.</div>
+            <span class="tl-badge done">선정 완료</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot past"><i class="ti ti-check"></i></div>
+          <div class="tl-card past">
+            <div class="tl-date"><i class="ti ti-calendar"></i> 2025년 10월 30일</div>
+            <div class="tl-title">마크 카니 총리, 도산안창호함 탑승</div>
+            <div class="tl-desc">마크 카니 캐나다 총리(앞줄 왼쪽 3번째), 김민석 국무총리, 김동관 한화그룹 부회장이 잠수함 장영실함에 함께 탑승. 정상급 외교 이벤트.</div>
+            <span class="tl-badge done">완료</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2026 상반기 -->
+      <div class="tl-group">
+        <div class="tl-year">2026 상반기</div>
+        <div class="tl-item">
+          <div class="tl-dot past"><i class="ti ti-check"></i></div>
+          <div class="tl-card past">
+            <div class="tl-date"><i class="ti ti-calendar"></i> 2026년 3월 25일</div>
+            <div class="tl-title">🚢 도산안창호함 태평양 횡단 출항</div>
+            <div class="tl-desc">진해 해군기지 출항 → 괌 → 하와이 → 캐나다 에스퀴몰트. 편도 약 14,000km. 대한민국 잠수함 사상 최장거리 항해.</div>
+            <span class="tl-badge done">완료</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot past"><i class="ti ti-check"></i></div>
+          <div class="tl-card past">
+            <div class="tl-date"><i class="ti ti-calendar"></i> 2026년 4월 2일</div>
+            <div class="tl-title">✅ 최종 제안서 제출 완료</div>
+            <div class="tl-desc">한화오션·TKMS 양측 캐나다 국방투자청(DIA)에 최종 제안서 제출. 이후 수정 제안 단계 진행.</div>
+            <span class="tl-badge done">완료</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot past"><i class="ti ti-check"></i></div>
+          <div class="tl-card past">
+            <div class="tl-date"><i class="ti ti-calendar"></i> 2026년 5월 23일</div>
+            <div class="tl-title">🇨🇦 도산안창호함 에스퀴몰트 기지 입항</div>
+            <div class="tl-desc">태평양 횡단 완료. 캐나다 해군 "1999년식 혼다 시빅 → 신형 테슬라" 극찬. NATO 통신망 호환성 실전 검증.</div>
+            <span class="tl-badge done">실전 검증 완료</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot past"><i class="ti ti-check"></i></div>
+          <div class="tl-card past">
+            <div class="tl-date"><i class="ti ti-calendar"></i> 2026년 5월 27~28일</div>
+            <div class="tl-title">⚔️ CANSEC 2026 — 수주전 마지막 무대</div>
+            <div class="tl-desc">캐나다 오타와 최대 방산 전시회. 한화오션 KSS-III 성능 + 범캐나다 경제 전략 공개. 온타리오주 장관·노바스코샤주 장관 방문. 한국 해군참모총장·방위사업청장 총출동.</div>
+            <span class="tl-badge done">전시 완료</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2026 결정 시점 -->
+      <div class="tl-group">
+        <div class="tl-year now">2026 결전</div>
+        <div class="tl-item">
+          <div class="tl-dot now"><i class="ti ti-flame"></i></div>
+          <div class="tl-card now">
+            <div class="tl-date now"><i class="ti ti-alert-circle"></i> 2026년 6월 말 (예정)</div>
+            <div class="tl-title">🔥 우선협상대상자 발표 예정</div>
+            <div class="tl-desc">마크 카니 총리 공식 선언 "6월 말 이전 발표". 캐나다 의회 여름 휴회(6/20경) 전 결론 가능성 높음. 늦어도 7월 7일 NATO 정상회의(앙카라) 이전.</div>
+            <span class="tl-badge hot">발표 임박</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot key"><i class="ti ti-circle-dot"></i></div>
+          <div class="tl-card key">
+            <div class="tl-date key"><i class="ti ti-calendar-event"></i> 2026년 7월 7일 (변수)</div>
+            <div class="tl-title">🏛️ NATO 정상회의 — 앙카라, 튀르키예</div>
+            <div class="tl-desc">독일과의 외교 부담으로 이 회의 직전 발표는 어려울 수 있음. 회의 이후 7월 초 발표 가능성도 존재. 캐나다의 독자적 결정 변수.</div>
+            <span class="tl-badge pending">변수 요인</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2026 이후 (수주 성공 가정) -->
+      <div class="tl-group">
+        <div class="tl-year future">2026~</div>
+        <div class="tl-item">
+          <div class="tl-dot future"><i class="ti ti-circle-dot"></i></div>
+          <div class="tl-card future">
+            <div class="tl-date future"><i class="ti ti-calendar"></i> 2026년 하반기 (예상)</div>
+            <div class="tl-title">계약 체결 및 설계·부품 생산 착수</div>
+            <div class="tl-desc">우선협상 → 본계약 체결 → KSS-III Batch-II 설계 착수. 캐나다 현지 산업협력 본격 가동.</div>
+            <span class="tl-badge goal">예정</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot future"><i class="ti ti-circle-dot"></i></div>
+          <div class="tl-card future">
+            <div class="tl-date future"><i class="ti ti-calendar"></i> 2032년</div>
+            <div class="tl-title">🚢 1번함 인도 목표</div>
+            <div class="tl-desc">계약 후 약 6년 뒤. 캐나다 빅토리아급 퇴역 시점에 맞춰 전력 공백 없이 인도 목표.</div>
+            <span class="tl-badge goal">1번함 납기 목표</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot future"><i class="ti ti-circle-dot"></i></div>
+          <div class="tl-card future">
+            <div class="tl-date future"><i class="ti ti-calendar"></i> 2035년</div>
+            <div class="tl-title">4척 인도 완료 목표</div>
+            <div class="tl-desc">총 12척 중 초도 4척 납기 완료. 빅토리아급 전면 퇴역과 맞물려 교체 작전.</div>
+            <span class="tl-badge goal">4척 납기 목표</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot future"><i class="ti ti-anchor"></i></div>
+          <div class="tl-card future">
+            <div class="tl-date future"><i class="ti ti-calendar"></i> 2043년</div>
+            <div class="tl-title">🏁 12척 전체 완납 + 30년 MRO 시작</div>
+            <div class="tl-desc">최대 12척 전체 납기 완료. 이후 30년간 부품 공급·승조원 교육·성능 개량·정비 MRO 사업 지속. 총 사업 기간 약 47년.</div>
+            <span class="tl-badge goal">최종 목표</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+
+    <!-- 범례 -->
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#22c55e;"></div>
+        <span>완료된 이벤트</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#dc2626;"></div>
+        <span>현재 진행 · 임박</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#f59e0b;"></div>
+        <span>외부 변수</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#0f766e;"></div>
+        <span>향후 목표 (수주 성공 가정)</span>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      * 출처: 파이낸셜뉴스, 전자신문, 국민일보, 뉴스웨이, 이코노미사이언스, 나무위키 CPSP (2026.05~06 기준)<br>
+      * 수주 성공 이후 일정은 한화오션 제안서 기준이며 변동 가능
+    </div>
+  </div>
+</body>
+</html>
