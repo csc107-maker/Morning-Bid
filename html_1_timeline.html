@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="SK하이닉스 미국 ADR 상장 & BD 풋옵션 핵심 이벤트 타임라인" />
+  <meta property="og:description" content="2026년 하반기 한국 증시 최대 빅이벤트 — SK하이닉스 ADR 상장과 소프트뱅크 BD 풋옵션 만기의 핵심 일정 타임라인" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/EFF6FF/1E40AF?text=SK+Hynix+ADR+Timeline" />
+  <meta property="og:url" content="" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>SK하이닉스 ADR & BD 풋옵션 타임라인</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+      background: #EFF6FF;
+      padding: 28px 16px 40px;
+      color: #1E293B;
+    }
+    .widget-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(59,130,246,0.12);
+      overflow: hidden;
+    }
+    .widget-header {
+      background: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 60%, #60A5FA 100%);
+      padding: 28px 32px 22px;
+      color: #fff;
+    }
+    .widget-header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.38);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 3px 12px;
+      margin-bottom: 10px;
+      color: #E0F2FE;
+    }
+    .widget-header h2 {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .widget-header p {
+      font-size: 13px;
+      opacity: 0.82;
+      margin-top: 6px;
+    }
+    .timeline-body {
+      padding: 32px 32px 24px;
+    }
+    .timeline {
+      position: relative;
+      padding-left: 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      background: linear-gradient(to bottom, #3B82F6, #60A5FA, #BAE6FD);
+      border-radius: 4px;
+    }
+    .tl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.18);
+      position: relative;
+      z-index: 2;
+    }
+    .dot-blue { background: #3B82F6; color: #fff; }
+    .dot-green { background: #10B981; color: #fff; }
+    .dot-orange { background: #F59E0B; color: #fff; }
+    .dot-red { background: #EF4444; color: #fff; }
+    .dot-purple { background: #8B5CF6; color: #fff; }
+    .dot-now { background: #DC2626; color: #fff; box-shadow: 0 0 0 5px rgba(220,38,38,0.22), 0 0 0 9px rgba(220,38,38,0.09); }
+    .tl-content { flex: 1; }
+    .tl-date {
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748B;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .tl-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+    .tl-desc {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.65;
+    }
+    .tl-tag {
+      display: inline-block;
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      margin-top: 6px;
+      border: 1px solid #BFDBFE;
+    }
+    .tl-tag.green { background: #F0FDF4; color: #15803D; border-color: #BBF7D0; }
+    .tl-tag.orange { background: #FFFBEB; color: #B45309; border-color: #FDE68A; }
+    .tl-tag.red { background: #FFF1F2; color: #BE123C; border-color: #FECDD3; }
+    .tl-tag.purple { background: #F5F3FF; color: #6D28D9; border-color: #DDD6FE; }
+    .now-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #FEF2F2;
+      color: #B91C1C;
+      border: 1.5px solid #FCA5A5;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 10px;
+      margin-top: 6px;
+    }
+    .blink { animation: blink 1.2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+    .footer-note {
+      background: #F0F9FF;
+      border-top: 1.5px solid #BAE6FD;
+      padding: 14px 32px;
+      font-size: 12px;
+      color: #0369A1;
+      text-align: center;
+    }
+    .footer-note strong { color: #1D4ED8; }
+    @media(max-width:600px){
+      .widget-header, .timeline-body { padding: 18px 16px; }
+      .footer-note { padding: 12px 16px; }
+      .widget-header h2 { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+<div class="widget-wrap">
+  <div class="widget-header">
+    <div class="badge">📅 2026 핵심 이벤트 타임라인</div>
+    <h2>SK하이닉스 ADR 상장 & 소프트뱅크 BD 풋옵션<br>완전 일정 로드맵</h2>
+    <p>한국 증시 판도를 바꿀 두 개의 빅이벤트 — 2021년부터 2026년 하반기까지의 핵심 일정</p>
+  </div>
+
+  <div class="timeline-body">
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot dot-blue"><i class="fa fa-flag"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2021년 6월</div>
+          <div class="tl-title">현대차그룹, 보스턴다이나믹스 인수 + 풋옵션 계약 체결</div>
+          <div class="tl-desc">현대차그룹이 소프트뱅크로부터 BD 지분 80%를 약 6억 6천만 달러에 인수. 계약서에 "4년·5년 내 IPO 미진행 시 소프트뱅크에 풋옵션 권리 부여" 조항 포함.</div>
+          <span class="tl-tag">BD 지분 인수 시작</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-blue"><i class="fa fa-chart-line"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 1월</div>
+          <div class="tl-title">CES 2026 — 아틀라스 로봇 공개, BD 기업가치 급등</div>
+          <div class="tl-desc">세계 최대 가전·IT 전시회 CES 2026에서 현대차그룹이 아틀라스 로봇을 공개. 보스턴다이나믹스 기업 가치가 30조~50조 원으로 급등. 현대차, 기아, 현대모비스 주가 일제 급등.</div>
+          <span class="tl-tag green">BD 가치 급등 모멘텀</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-green"><i class="fa fa-building-columns"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 3월 24일</div>
+          <div class="tl-title">SK하이닉스, SEC에 ADR 상장 F-1 비공개 제출</div>
+          <div class="tl-desc">SK하이닉스가 미국 증권거래위원회(SEC)에 Level 3 ADR 공모 등록신청서(Form F-1) 비공개 제출. 10조~15조 원 규모 자금 조달 목표. 순현금 100조 원 확보 전략 발표.</div>
+          <span class="tl-tag green">ADR 상장 절차 공식 시작</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-orange"><i class="fa fa-exclamation-triangle"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 6월 20일 ★</div>
+          <div class="tl-title">소프트뱅크 BD 풋옵션 2차 만기 도래!</div>
+          <div class="tl-desc">보스턴다이나믹스 인수 5주년. 2차 풋옵션 행사 기한 도래. 소프트뱅크(지분 9.7%)가 ①현대차에 지분 매도 ②제3자(삼성전자·구글) 매각 ③풋옵션 불행사(BD IPO 대기) 중 하나를 선택해야 하는 결정적 분기점.</div>
+          <span class="now-indicator"><span class="blink">●</span> 현재 진행 중</span>
+          <span class="tl-tag red">최고 주의 시점</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-purple"><i class="fa fa-rocket"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 7~8월 (예상)</div>
+          <div class="tl-title">SK하이닉스 미국 나스닥 ADR 상장 완료</div>
+          <div class="tl-desc">SEC 심사 완료 후 나스닥 상장 예정. 필라델피아 반도체지수(SOX) 편입 논의 본격화. 마이크론 보유 글로벌 펀드들의 리밸런싱 수요 발생. 글로벌 패시브 자금 유입 시작.</div>
+          <span class="tl-tag purple">ADR 상장 완료 예정</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot dot-green"><i class="fa fa-star"></i></div>
+        <div class="tl-content">
+          <div class="tl-date">2026년 하반기</div>
+          <div class="tl-title">SK하이닉스 100조 주주환원 실행 + BD IPO 여부 결정</div>
+          <div class="tl-desc">SK하이닉스 자사주 40조 원 매입 + 배당 확대 병행. BD IPO 준비 본격화(목표: 2027~2028년 나스닥 상장). 현대차그룹 지배구조 개편 가속화 시나리오 전개. 코리아 디스카운트 해소의 원년이 될 전망.</div>
+          <span class="tl-tag green">한국 증시 구조 변화 원년</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-note">
+    출처: DART 전자공시, Bloomberg, Reuters, 메리츠증권·한국투자증권 리포트, 이데일리, 뉴스핌 (2026.06) | <strong>본 위젯은 참고 정보 제공용이며 투자 권유가 아닙니다.</strong>
+  </div>
+</div>
+</body>
+</html>
