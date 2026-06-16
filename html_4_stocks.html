@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="SK하이닉스 ADR + BD 풋옵션 — 한국 수혜주 임팩트 완전 분석표" />
+  <meta property="og:description" content="SK하이닉스 미국 상장과 소프트뱅크 BD 풋옵션 만기로 수혜가 기대되는 한국 기업 상세 분석. 현대차·기아·현대모비스·한미반도체·솔브레인 등." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/F5F3FF/6D28D9?text=Korea+Stock+Impact+Analysis" />
+  <meta property="og:url" content="" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>한국 수혜주 임팩트 분석</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+      background: #F5F3FF;
+      padding: 28px 16px 40px;
+      color: #1E1B4B;
+    }
+    .imp-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .imp-header {
+      background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 55%, #A78BFA 100%);
+      border-radius: 18px 18px 0 0;
+      padding: 26px 30px 20px;
+      color: #fff;
+    }
+    .imp-header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 12px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .imp-header h2 { font-size: 20px; font-weight: 800; line-height: 1.35; }
+    .imp-header p { font-size: 12px; opacity: 0.85; margin-top: 5px; }
+
+    /* Tab selector */
+    .tab-bar {
+      display: flex;
+      background: #fff;
+      border-left: 1px solid #DDD6FE;
+      border-right: 1px solid #DDD6FE;
+      border-bottom: 2px solid #DDD6FE;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 12px 10px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: #6B7280;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .tab-btn.active { color: #7C3AED; border-bottom-color: #7C3AED; background: #F5F3FF; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Stock table */
+    .stock-table-wrap {
+      background: #fff;
+      border: 1px solid #DDD6FE;
+      border-top: none;
+      overflow-x: auto;
+    }
+    table.stock-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      min-width: 600px;
+    }
+    table.stock-table th {
+      background: #F5F3FF;
+      color: #5B21B6;
+      font-weight: 800;
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 2px solid #DDD6FE;
+      font-size: 11px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    table.stock-table td {
+      padding: 11px 12px;
+      border-bottom: 1px solid #EDE9FE;
+      vertical-align: top;
+      color: #374151;
+      line-height: 1.55;
+    }
+    table.stock-table tr:last-child td { border-bottom: none; }
+    table.stock-table .ticker {
+      font-size: 11px;
+      font-weight: 700;
+      color: #7C3AED;
+      background: #EDE9FE;
+      border-radius: 4px;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+    table.stock-table .co-name { font-weight: 800; color: #1E1B4B; font-size: 13px; }
+    .impact-badge {
+      display: inline-block;
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+    .ib-high { background: #F0FDF4; color: #15803D; border: 1px solid #BBF7D0; }
+    .ib-mid { background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; }
+    .ib-low { background: #FFF1F2; color: #BE123C; border: 1px solid #FECDD3; }
+    .ib-star { background: #F5F3FF; color: #6D28D9; border: 1px solid #DDD6FE; }
+    .reason-text { font-size: 12px; color: #475569; line-height: 1.6; }
+    .risk-text { font-size: 11px; color: #9CA3AF; margin-top: 3px; line-height: 1.5; }
+    .divider-row td {
+      background: #F5F3FF;
+      font-size: 11px;
+      font-weight: 800;
+      color: #5B21B6;
+      padding: 8px 12px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Risk summary */
+    .risk-section {
+      background: #fff;
+      border: 1px solid #DDD6FE;
+      border-top: 2px solid #7C3AED;
+      padding: 20px 24px 18px;
+      border-radius: 0 0 18px 18px;
+    }
+    .risk-section-title { font-size: 13px; font-weight: 800; color: #5B21B6; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+    .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .risk-card {
+      background: #F5F3FF;
+      border: 1.5px solid #DDD6FE;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .risk-card .risk-title { font-size: 12px; font-weight: 800; color: #5B21B6; margin-bottom: 6px; }
+    .risk-card ul { padding-left: 14px; }
+    .risk-card li { font-size: 11.5px; color: #475569; margin-bottom: 4px; line-height: 1.55; }
+
+    .footer-note {
+      background: #F5F3FF;
+      border-top: 1px solid #DDD6FE;
+      padding: 10px 24px;
+      font-size: 11px;
+      color: #5B21B6;
+      text-align: center;
+      margin-top: 0;
+    }
+    @media(max-width:600px){
+      .risk-grid { grid-template-columns: 1fr; }
+      .imp-header h2 { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="imp-wrap">
+  <div class="imp-header">
+    <div class="badge">📋 수혜주 임팩트 분석표</div>
+    <h2>SK하이닉스 ADR + 소프트뱅크 BD 풋옵션 — 한국 기업 영향도 분석</h2>
+    <p>두 이벤트가 촉발하는 한국 기업 밸류에이션 재평가 지도 | 2026년 6월 기준 분석 | 각 카테고리를 탭으로 전환하세요</p>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('tab1', this)">🔵 SK하이닉스 ADR 수혜주</button>
+    <button class="tab-btn" onclick="switchTab('tab2', this)">🟢 BD 풋옵션 수혜주</button>
+  </div>
+
+  <!-- Tab 1: SK Hynix ADR -->
+  <div id="tab1" class="tab-panel active">
+    <div class="stock-table-wrap">
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>종목 / 코드</th>
+            <th>수혜 강도</th>
+            <th>핵심 수혜 이유</th>
+            <th>주의 리스크</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="divider-row"><td colspan="4">▶ 직접 수혜군</td></tr>
+          <tr>
+            <td>
+              <div class="co-name">SK하이닉스</div>
+              <span class="ticker">000660</span>
+            </td>
+            <td><span class="impact-badge ib-star">⭐ 최직접</span></td>
+            <td>
+              <div class="reason-text">ADR 상장으로 코리아 디스카운트 해소. 나스닥·SOX 편입 시 글로벌 패시브 자금 대규모 유입. 마이크론 보유 펀드 리밸런싱 수요. MSCI 선진국 편입 논의 연계.</div>
+              <div style="margin-top:4px; font-size:11px; color:#7C3AED;">목표주가: 메리츠 295만 / 노무라 234만 / LS 210만 / 최고 400만</div>
+            </td>
+            <td><div class="risk-text">신주 발행 지분 희석 2%대 / 단기 과열 주의 / ADR-국내 주가 디커플링 가능</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">SK텔레콤</div>
+              <span class="ticker">017670</span>
+            </td>
+            <td><span class="impact-badge ib-high">직접 지분</span></td>
+            <td>
+              <div class="reason-text">SK하이닉스 지분 약 20% 보유. ADR 상장으로 지분 가치 직접 재평가. 배당 수입 확대 기대.</div>
+            </td>
+            <td><div class="risk-text">통신 본업 성장 둔화 / AI 설비투자 부담 병존</div></td>
+          </tr>
+          <tr class="divider-row"><td colspan="4">▶ 소부장 간접 수혜군 (HBM 투자 확대 직결)</td></tr>
+          <tr>
+            <td>
+              <div class="co-name">한미반도체</div>
+              <span class="ticker">042700</span>
+            </td>
+            <td><span class="impact-badge ib-high">높음</span></td>
+            <td><div class="reason-text">HBM 생산의 핵심 공정인 TC 본더(열압착 본딩기) 세계 1위 공급사. SK하이닉스 설비 투자 확대의 직접 수혜.</div></td>
+            <td><div class="risk-text">경쟁사 진입 리스크 / 단일 공정 의존</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">원익IPS</div>
+              <span class="ticker">240810</span>
+            </td>
+            <td><span class="impact-badge ib-high">높음</span></td>
+            <td><div class="reason-text">ALD(원자층 증착) 등 전공정 장비 공급. 용인 클러스터 투자 가속화 시 발주 확대.</div></td>
+            <td><div class="risk-text">반도체 장비 업종 전반 변동성</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">솔브레인</div>
+              <span class="ticker">357780</span>
+            </td>
+            <td><span class="impact-badge ib-mid">중간</span></td>
+            <td><div class="reason-text">HBM·DRAM 핵심 공정 소재 공급. SK하이닉스 생산능력 확대 시 소재 수요 동반 증가.</div></td>
+            <td><div class="risk-text">소재 가격 교섭력 / 공급 분산 리스크</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">심텍</div>
+              <span class="ticker">222800</span>
+            </td>
+            <td><span class="impact-badge ib-mid">중간</span></td>
+            <td><div class="reason-text">고부가 DRAM·HBM용 반도체 패키징 기판(FC-BGA) 공급. SK하이닉스 패키징 투자 확대 수혜.</div></td>
+            <td><div class="risk-text">고객사 집중 리스크</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">하나머티리얼즈</div>
+              <span class="ticker">166090</span>
+            </td>
+            <td><span class="impact-badge ib-mid">중간</span></td>
+            <td><div class="reason-text">식각 공정용 실리콘 소재 공급. HBM 생산 확대에 따른 소재 사용량 증가.</div></td>
+            <td><div class="risk-text">중국 경쟁사 가격 압박</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Tab 2: BD Put Option -->
+  <div id="tab2" class="tab-panel">
+    <div class="stock-table-wrap">
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>종목 / 코드</th>
+            <th>수혜 강도</th>
+            <th>핵심 수혜 이유</th>
+            <th>주의 리스크</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="divider-row"><td colspan="4">▶ BD 직접 지분 보유 기업</td></tr>
+          <tr>
+            <td>
+              <div class="co-name">현대차</div>
+              <span class="ticker">005380</span>
+            </td>
+            <td><span class="impact-badge ib-star">⭐ 최대 수혜</span></td>
+            <td><div class="reason-text">HMG글로벌 통해 BD 간접 지분 약 27.8%. BD IPO 시 지분 가치 수십조 원 재평가. 현대차 공장 아틀라스 2.5만 대 배치로 제조 혁신 효과. 시가총액 3위 탈환 모멘텀.</div></td>
+            <td><div class="risk-text">BD 적자 지속 / IPO 지연 가능성 / 자동차 본업 경쟁 심화</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">기아</div>
+              <span class="ticker">000270</span>
+            </td>
+            <td><span class="impact-badge ib-high">높음</span></td>
+            <td><div class="reason-text">HMG글로벌 통해 BD 간접 지분 약 17.1%. BD IPO 시 지분 가치 재평가. 제조 현장 로봇 도입 비용 절감 효과.</div></td>
+            <td><div class="risk-text">전기차 수익성 저하 / 중국 시장 경쟁</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">현대모비스</div>
+              <span class="ticker">012330</span>
+            </td>
+            <td><span class="impact-badge ib-star">⭐ 복합 수혜</span></td>
+            <td><div class="reason-text">HMG글로벌 통해 BD 간접 지분 11.2% + 아틀라스 핵심 액추에이터 독점 공급(연 35만 개 생산 능력 구축). 지분 가치 + 공급망 수익 동시 수혜. 정의선 회장 지배구조 개편 핵심 축.</div></td>
+            <td><div class="risk-text">지배구조 개편 불확실성 / 액추에이터 경쟁사 진입</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">현대글로비스</div>
+              <span class="ticker">086280</span>
+            </td>
+            <td><span class="impact-badge ib-high">높음</span></td>
+            <td><div class="reason-text">BD 직접 지분 11.3% 보유(정의선 회장도 지분 20% 보유). BD IPO 시 지분 가치 직접 실현. 로봇 공급망 최적화 사업 확장.</div></td>
+            <td><div class="risk-text">물류 본업 성장 둔화 / 중복 상장 이슈</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">삼성전자</div>
+              <span class="ticker">005930</span>
+            </td>
+            <td><span class="impact-badge ib-mid">시나리오 수혜</span></td>
+            <td><div class="reason-text">한국투자증권, "삼성전자가 소프트뱅크의 BD 9.9% 지분 인수 → 구글 프리IPO → 2028 IPO" 시나리오 제시. 빅테크 로봇 밸류에이션 편입 효과. AI 로봇 협업 서사 강화.</div></td>
+            <td><div class="risk-text">HBM 경쟁 열세 우려 지속 / 인수 여부 불확실</div></td>
+          </tr>
+          <tr class="divider-row"><td colspan="4">▶ BD 공급망 협력사 (밸류체인 편입 기업)</td></tr>
+          <tr>
+            <td>
+              <div class="co-name">현대오토에버</div>
+              <span class="ticker">307950</span>
+            </td>
+            <td><span class="impact-badge ib-mid">중간</span></td>
+            <td><div class="reason-text">BD 로봇·공장 시스템 통합(SI) 전담. 신규 도입 로봇이 기존 공장 시스템과 연결되도록 운영 체계 통합. 로봇 관제 소프트웨어 확장.</div></td>
+            <td><div class="risk-text">그룹사 의존도 높음</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">현대로템</div>
+              <span class="ticker">064350</span>
+            </td>
+            <td><span class="impact-badge ib-mid">중간</span></td>
+            <td><div class="reason-text">현대차그룹 로봇·방산 밸류체인. 로보틱스 모멘텀과 방산 성장이 동시에 밸류에이션 프리미엄 부여. BD 로봇과 방산 로봇의 교차 기술 적용.</div></td>
+            <td><div class="risk-text">방산 예산 불확실성 / 경쟁 심화</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="co-name">현대위아</div>
+              <span class="ticker">011210</span>
+            </td>
+            <td><span class="impact-badge ib-low">낮음~중간</span></td>
+            <td><div class="reason-text">그룹 내 로봇 제조 협력. 현대차 로봇 공장 전환 과정에서 공작기계·제조 시스템 수요 발생.</div></td>
+            <td><div class="risk-text">직접 수혜 규모 불확실</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Risk Summary -->
+  <div class="risk-section">
+    <div class="risk-section-title"><i class="fa fa-triangle-exclamation" style="color:#7C3AED"></i> 공통 리스크 요인 — 투자 전 반드시 확인하세요</div>
+    <div class="risk-grid">
+      <div class="risk-card">
+        <div class="risk-title">⚠️ SK하이닉스 ADR 리스크</div>
+        <ul>
+          <li>신주 발행에 따른 기존 주주 지분 희석 (~2%대)</li>
+          <li>미중 반도체 규제 강화 시 조달 자금 집행 차질</li>
+          <li>ADR-국내 주가 간 디커플링 발생 가능</li>
+          <li>현재 주가 52주 최저 대비 ~860% 상승 → 단기 과열</li>
+          <li>SOX/MSCI 편입은 상장 완료 이후 별도 프로세스</li>
+        </ul>
+      </div>
+      <div class="risk-card">
+        <div class="risk-title">⚠️ BD 풋옵션/IPO 리스크</div>
+        <ul>
+          <li>BD 2024년 실적: 매출 1,116억 / 순손실 -4,411억 (만성 적자)</li>
+          <li>IPO 일정 지연 가능성 높음 (2027~2028년 목표)</li>
+          <li>현대차그룹 계열사 BD 지분 보유 → 중복상장 금지 이슈</li>
+          <li>소프트뱅크 풋옵션 행사 시 현대차 5조+ 재무 부담</li>
+          <li>로봇 양산 일정(2028년) 지연 시 기업가치 하락</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    출처: 메리츠증권·한국투자증권·다올투자증권·NH투자증권 리포트, DART 전자공시, Bloomberg, 이데일리, 뉴스핌 (2026.06) | 본 위젯은 참고 정보 제공 목적이며 투자 권유가 아닙니다. 투자 책임은 투자자 본인에게 있습니다.
+  </div>
+</div>
+
+<script>
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
