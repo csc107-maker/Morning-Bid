@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="소프트뱅크 보스턴다이나믹스 풋옵션 — 3대 시나리오 완전 분석" />
+  <meta property="og:description" content="2026년 6월 20일 만기 소프트뱅크 BD 풋옵션. 현대차 지분 인수 vs 삼성전자 매각 vs BD IPO 공식화 — 세 가지 시나리오와 한국 기업 영향." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/F0FDF4/15803D?text=SoftBank+BD+Put+Option+Scenarios" />
+  <meta property="og:url" content="" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>소프트뱅크 BD 풋옵션 시나리오 분석</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+      background: #F0FDF4;
+      padding: 28px 16px 40px;
+      color: #0F172A;
+    }
+    .sc-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .sc-header {
+      background: linear-gradient(135deg, #14532D 0%, #15803D 55%, #22C55E 100%);
+      border-radius: 18px 18px 0 0;
+      padding: 26px 30px 20px;
+      color: #fff;
+    }
+    .sc-header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 12px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .sc-header h2 { font-size: 20px; font-weight: 800; line-height: 1.35; }
+    .sc-header p { font-size: 12px; opacity: 0.85; margin-top: 5px; }
+
+    /* Stakeholder summary */
+    .stake-bar {
+      background: #fff;
+      padding: 16px 24px;
+      border-left: 1px solid #BBF7D0;
+      border-right: 1px solid #BBF7D0;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .stake-segment {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #fff;
+      white-space: nowrap;
+      padding: 0 8px;
+    }
+    .seg1 { background: #15803D; border-radius: 8px 0 0 8px; flex: 56.4; }
+    .seg2 { background: #22C55E; flex: 22.6; }
+    .seg3 { background: #4ADE80; flex: 11.3; color: #14532D; }
+    .seg4 { background: #FCA5A5; flex: 9.7; color: #7F1D1D; border-radius: 0 8px 8px 0; }
+    .stake-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      padding: 12px 24px 16px;
+      background: #fff;
+      border-left: 1px solid #BBF7D0;
+      border-right: 1px solid #BBF7D0;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: #374151; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+    .legend-item strong { color: #0F172A; }
+
+    /* Scenario Cards */
+    .sc-cards-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      background: #fff;
+      border: 1px solid #BBF7D0;
+      border-top: 2px solid #22C55E;
+    }
+    .sc-card {
+      padding: 22px 18px;
+      border-right: 1px solid #DCFCE7;
+      position: relative;
+    }
+    .sc-card:last-child { border-right: none; }
+    .sc-num {
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .sc-tag {
+      display: inline-block;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 2px 10px;
+      margin-bottom: 10px;
+      letter-spacing: 0.03em;
+    }
+    .tag-low { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
+    .tag-mid { background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; }
+    .tag-high { background: #F0FDF4; color: #15803D; border: 1px solid #BBF7D0; }
+    .sc-card-title { font-size: 14px; font-weight: 800; color: #0F172A; margin-bottom: 8px; line-height: 1.4; }
+    .sc-card-desc { font-size: 12.5px; color: #475569; line-height: 1.7; margin-bottom: 12px; }
+    .prob-bar-wrap { margin-top: 6px; }
+    .prob-label { font-size: 11px; color: #6B7280; margin-bottom: 4px; font-weight: 700; }
+    .prob-bar-bg { background: #F1F5F9; border-radius: 999px; height: 10px; overflow: hidden; }
+    .prob-bar-fill { height: 100%; border-radius: 999px; }
+    .fill-low { background: linear-gradient(to right, #FCA5A5, #EF4444); width: 20%; }
+    .fill-mid { background: linear-gradient(to right, #FCD34D, #F59E0B); width: 35%; }
+    .fill-high { background: linear-gradient(to right, #4ADE80, #15803D); width: 70%; }
+    .sc-impact {
+      margin-top: 12px;
+      background: #F0FDF4;
+      border-radius: 8px;
+      padding: 10px 12px;
+      border: 1px solid #BBF7D0;
+    }
+    .sc-impact .impact-title { font-size: 11px; font-weight: 800; color: #15803D; margin-bottom: 5px; }
+    .sc-impact ul { padding-left: 14px; }
+    .sc-impact li { font-size: 11.5px; color: #374151; margin-bottom: 3px; line-height: 1.5; }
+
+    /* BD Valuation summary */
+    .val-section {
+      background: #fff;
+      border: 1px solid #BBF7D0;
+      border-top: none;
+      padding: 18px 24px 16px;
+    }
+    .val-section-title { font-size: 13px; font-weight: 800; color: #14532D; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .val-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+    .val-item { text-align: center; padding: 10px; background: #F0FDF4; border-radius: 8px; border: 1px solid #BBF7D0; }
+    .val-item .val-scenario { font-size: 10px; font-weight: 700; color: #15803D; margin-bottom: 4px; letter-spacing: 0.03em; }
+    .val-item .val-amount { font-size: 18px; font-weight: 900; color: #0F172A; }
+    .val-item .val-sub { font-size: 10px; color: #6B7280; margin-top: 2px; }
+
+    .footer-note {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-top: 2px solid #4ADE80;
+      border-radius: 0 0 18px 18px;
+      padding: 12px 24px;
+      font-size: 11px;
+      color: #15803D;
+      text-align: center;
+    }
+    @media(max-width:680px){
+      .sc-cards-wrap { grid-template-columns: 1fr; }
+      .sc-card { border-right: none; border-bottom: 1px solid #DCFCE7; }
+      .val-grid { grid-template-columns: repeat(2,1fr); }
+      .sc-header h2 { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="sc-wrap">
+  <!-- Header -->
+  <div class="sc-header">
+    <div class="badge">🤖 시나리오 분석 리포트</div>
+    <h2>소프트뱅크 보스턴다이나믹스 풋옵션 — 3대 시나리오 & 한국 기업 영향</h2>
+    <p>2026년 6월 20일 2차 만기 도래 | 소프트뱅크 잔여 지분 9.7% 처리 방향 분석 | 현재 BD 기업 가치 약 30~167조 원 추산</p>
+  </div>
+
+  <!-- Stakeholder bar -->
+  <div style="padding:14px 24px 6px; background:#fff; border-left:1px solid #BBF7D0; border-right:1px solid #BBF7D0;">
+    <div style="font-size:12px; font-weight:800; color:#14532D; margin-bottom:8px;">📊 보스턴다이나믹스 현재 지분 구조</div>
+  </div>
+  <div class="stake-bar">
+    <div class="stake-segment seg1">HMG글로벌 56.4%</div>
+    <div class="stake-segment seg2">정의선 22.6%</div>
+    <div class="stake-segment seg3">현대글로비스 11.3%</div>
+    <div class="stake-segment seg4">소프트뱅크 9.7%</div>
+  </div>
+  <div class="stake-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#15803D"></div> HMG글로벌 56.4% <strong>(현대차·기아·현대모비스 공동출자)</strong></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#22C55E"></div> 정의선 회장 22.6% <strong>(개인 직접 보유 — 승계 재원)</strong></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4ADE80"></div> 현대글로비스 11.3%</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#FCA5A5"></div> 소프트뱅크 9.7% <strong style="color:#B91C1C">(★ 풋옵션 행사 주체)</strong></div>
+  </div>
+
+  <!-- Scenario Cards -->
+  <div class="sc-cards-wrap">
+    <!-- Scenario 1 -->
+    <div class="sc-card">
+      <div class="sc-num" style="color:#EF4444">01</div>
+      <span class="sc-tag tag-low">⬇ 가능성 낮음 (20%)</span>
+      <div class="sc-card-title">소프트뱅크 풋옵션 행사<br>→ 현대차그룹 직접 인수</div>
+      <div class="sc-card-desc">소프트뱅크가 보유 9.7% 지분을 계약에 따라 현대차그룹에 매각. BD 기업가치 50조 원 기준, 인수 대금은 약 4조 8,500억 원. 현대차 재무에 단기 부담이 되나, 소프트뱅크와의 계약이 종결되며 IPO 추진이 자유로워짐.</div>
+      <div class="prob-bar-wrap">
+        <div class="prob-label">시장 예상 확률</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill fill-low"></div></div>
+      </div>
+      <div class="sc-impact">
+        <div class="impact-title">주가 영향 분석</div>
+        <ul>
+          <li>현대차·기아: 단기 재무 부담 우려 → <strong>소폭 하락 가능</strong></li>
+          <li>BD IPO 독자 추진 명분 생성 → <strong>중장기 긍정</strong></li>
+          <li>현대모비스 HD구조 개편 지연 우려</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scenario 2 -->
+    <div class="sc-card">
+      <div class="sc-num" style="color:#F59E0B">02</div>
+      <span class="sc-tag tag-mid">◆ 가능성 중간 (35%)</span>
+      <div class="sc-card-title">소프트뱅크 제3자 매각<br>→ 삼성전자·구글 참여</div>
+      <div class="sc-card-desc">소프트뱅크가 9.7% 지분을 삼성전자 혹은 구글 등 빅테크에 매각. 한국투자증권이 "삼성전자 인수 → 구글 프리IPO → 2028년 나스닥 IPO" 시나리오를 공식 제시. 이 경우 BD 기업가치 최초 시장 공정 가치 형성, 최대 167조 원 추산.</div>
+      <div class="prob-bar-wrap">
+        <div class="prob-label">시장 예상 확률</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill fill-mid"></div></div>
+      </div>
+      <div class="sc-impact">
+        <div class="impact-title">주가 영향 분석</div>
+        <ul>
+          <li>삼성전자: 로봇 밸류에이션 새로 편입 → <strong>강한 상승</strong></li>
+          <li>현대차그룹: BD 가치 최초 공정 평가 → <strong>전반적 급등</strong></li>
+          <li>정의선 회장 지분 처리 논의 가속화</li>
+          <li>구글-BD 협업 구체화 → AI로봇 프리미엄</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scenario 3 -->
+    <div class="sc-card">
+      <div class="sc-num" style="color:#15803D">03</div>
+      <span class="sc-tag tag-high">★ 가능성 높음 (45%)</span>
+      <div class="sc-card-title">풋옵션 불행사<br>→ BD 나스닥 IPO 공식화</div>
+      <div class="sc-card-desc">소프트뱅크가 단기 회수를 포기하고 BD 나스닥 IPO(2027~2028년 목표)를 통한 훨씬 큰 이익을 기다림. 아틀라스 양산(2028년 연 3만 대), 구글 딥마인드 AI 협업, 현대차 공장 2.5만 대 배치 계획 구체화가 근거. 정의선 회장 22.6% 지분이 승계 재원으로 기능.</div>
+      <div class="prob-bar-wrap">
+        <div class="prob-label">시장 예상 확률</div>
+        <div class="prob-bar-bg"><div class="prob-bar-fill fill-high"></div></div>
+      </div>
+      <div class="sc-impact">
+        <div class="impact-title">주가 영향 분석 (가장 광범위한 수혜)</div>
+        <ul>
+          <li>현대차: BD 지분 27.8% → 수십조 재평가 <strong style="color:#15803D">★최대 수혜</strong></li>
+          <li>현대모비스: 액추에이터 독점 공급 + 지분 가치</li>
+          <li>현대글로비스: 직접 지분 11.3% 가치화</li>
+          <li>현대차그룹 전체 순환출자 개편 트리거</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BD Valuation Range -->
+  <div class="val-section">
+    <div class="val-section-title"><i class="fa fa-scale-balanced" style="color:#15803D"></i> 보스턴다이나믹스 기업 가치 추산 (시나리오별)</div>
+    <div class="val-grid">
+      <div class="val-item">
+        <div class="val-scenario">인수 당시 (2021)</div>
+        <div class="val-amount">~1.2조</div>
+        <div class="val-sub">인수 당시 계약 기준</div>
+      </div>
+      <div class="val-item">
+        <div class="val-scenario">현재 시장 추정</div>
+        <div class="val-amount">30~50조</div>
+        <div class="val-sub">NH투자·다올투자 분석</div>
+      </div>
+      <div class="val-item">
+        <div class="val-scenario">IPO 시나리오</div>
+        <div class="val-amount">50~128조</div>
+        <div class="val-sub">CES 이후 시장 평가</div>
+      </div>
+      <div class="val-item">
+        <div class="val-scenario">최대치 시나리오</div>
+        <div class="val-amount">167조</div>
+        <div class="val-sub">한국투자증권 (구글 참여 시)</div>
+      </div>
+    </div>
+    <div style="margin-top:12px; font-size:11.5px; color:#6B7280; line-height:1.7; padding:10px; background:#F0FDF4; border-radius:8px; border:1px solid #BBF7D0;">
+      ⚠️ BD의 2024년 실적: 매출 1,116억 원 / 당기순이익 -4,411억 원 (적자). 기업 가치 추산은 미래 성장 기대치를 반영한 것으로, 실현 가능성에 대한 판단은 투자자 본인에게 있습니다.
+    </div>
+  </div>
+
+  <div class="footer-note">
+    출처: 블로터, 이데일리, 머니투데이, 한국투자증권 리포트 "Hello Boston Dynamics! This is Google" (2026.06.16), 다올투자증권 리포트 | 본 위젯은 참고 정보이며 투자 권유가 아닙니다.
+  </div>
+</div>
+</body>
+</html>
