@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JTBC·중앙그룹 신용등급 강등 일지</title>
+
+<meta property="og:title" content="JTBC 파산설과 중앙홀딩스 워크아웃, 진짜 상황은? 회생절차 총정리" />
+<meta property="og:description" content="NICE신용평가·한국기업평가·한국신용평가 3개 신용평가사가 일주일 사이 JTBC·중앙그룹 계열사 등급을 어떻게 조정했는지 한눈에 정리했습니다." />
+<meta property="og:image" content="여기에 썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="여기에 게시글 URL을 입력하세요" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+<style>
+  .jaCard{
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    background:#F7F9FC;
+    border:1px solid #E2E8F0;
+    border-radius:18px;
+    padding:28px 26px 24px;
+    max-width:760px;
+    margin:0 auto;
+    box-shadow:0 1px 3px rgba(15,36,64,0.06);
+    box-sizing:border-box;
+    color:#1B2430;
+  }
+  .jaCard *{box-sizing:border-box;}
+  .jaEyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    background:#0F2440;color:#FFFFFF;
+    font-size:12.5px;font-weight:700;letter-spacing:.3px;
+    padding:5px 12px;border-radius:999px;margin-bottom:14px;
+  }
+  .jaEyebrow i{font-size:14px;}
+  .jaTitleRow{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
+  .jaTitle{font-size:22px;font-weight:800;color:#0F2440;line-height:1.35;margin:0;}
+  .jaAsOf{font-size:12.5px;color:#8694A8;font-weight:600;white-space:nowrap;}
+  .jaSub{font-size:14px;color:#46566B;margin:4px 0 18px;line-height:1.6;}
+
+  .jaDivider{height:1px;background:#E2E8F0;margin:18px 0 14px;}
+  .jaFootRow{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+  .jaFootNote{font-size:11.5px;color:#9AA6B5;line-height:1.6;}
+  .jaFootNote b{color:#5B6472;}
+
+  /* Insight callout */
+  .jaInsight{
+    display:flex;gap:10px;align-items:flex-start;
+    background:#EAF0FA;border:1px solid #C9D9EF;border-radius:12px;
+    padding:12px 14px;margin-bottom:20px;
+  }
+  .jaInsight i{font-size:18px;color:#1F4E8C;margin-top:1px;}
+  .jaInsight p{margin:0;font-size:13px;color:#1F3A5C;line-height:1.55;font-weight:600;}
+
+  /* Agency blocks */
+  .jaAgencyBlock{margin-bottom:18px;}
+  .jaAgencyBlock:last-of-type{margin-bottom:0;}
+  .jaAgencyHead{
+    display:flex;align-items:center;gap:8px;margin-bottom:8px;
+  }
+  .jaAgencyDot{width:8px;height:8px;border-radius:50%;background:#1F4E8C;flex:0 0 auto;}
+  .jaAgencyName{font-size:14.5px;font-weight:800;color:#0F2440;}
+  .jaAgencyTag{font-size:11px;color:#8694A8;font-weight:600;}
+
+  .jaTableWrap{overflow-x:auto;border:1px solid #E2E8F0;border-radius:12px;background:#FFFFFF;}
+  table.jaTable{width:100%;border-collapse:collapse;font-size:12.5px;min-width:560px;}
+  table.jaTable th{
+    text-align:left;background:#F7F9FC;color:#5B6472;font-weight:700;
+    padding:9px 12px;border-bottom:1px solid #E2E8F0;white-space:nowrap;
+  }
+  table.jaTable td{
+    padding:9px 12px;border-bottom:1px solid #EEF1F5;color:#1B2430;vertical-align:middle;
+  }
+  table.jaTable tr:last-child td{border-bottom:none;}
+  table.jaTable td.co{font-weight:700;color:#0F2440;white-space:nowrap;}
+  table.jaTable td.move{font-weight:700;color:#B0312C;white-space:nowrap;}
+  table.jaTable td.date{color:#8694A8;white-space:nowrap;}
+
+  .jaScaleNote{
+    margin-top:14px;display:flex;gap:8px;align-items:flex-start;
+    font-size:11.5px;color:#8694A8;line-height:1.6;
+  }
+  .jaScaleNote i{font-size:14px;margin-top:1px;flex:0 0 auto;}
+</style>
+</head>
+<body style="margin:0;padding:18px;background:#F7F9FC;">
+
+<div class="jaCard">
+  <div class="jaEyebrow"><i class="ti ti-certificate"></i>신용등급 · 강등 일지</div>
+  <div class="jaTitleRow">
+    <p class="jaTitle">3개 신용평가사, 일주일 새 일제히 강등</p>
+    <span class="jaAsOf">2026.06.17(수) 기준</span>
+  </div>
+  <p class="jaSub">NICE신용평가·한국기업평가·한국신용평가가 6.12~6.15 사이 독립적으로 등급을 조정했습니다. 회사별·평가사별로 정리했습니다.</p>
+
+  <div class="jaInsight">
+    <i class="ti ti-bulb"></i>
+    <p>3개 신용평가사가 서로 다른 시점에, 그러나 모두 같은 방향(강등)으로 움직였다는 점이 이번 사태의 핵심 신호입니다.</p>
+  </div>
+
+  <div class="jaAgencyBlock">
+    <div class="jaAgencyHead"><span class="jaAgencyDot"></span><span class="jaAgencyName">NICE신용평가</span><span class="jaAgencyTag">· 6.12 정기평가 → 6.15 추가 강등</span></div>
+    <div class="jaTableWrap">
+      <table class="jaTable">
+        <thead><tr><th>대상회사</th><th>등급유형</th><th>변동(조정전→조정후)</th><th>조정일</th></tr></thead>
+        <tbody>
+          <tr><td class="co">JTBC</td><td>장기(무보증)</td><td class="move">BBB(부정적) → CCC → D</td><td class="date">6.12 / 6.15</td></tr>
+          <tr><td class="co">JTBC</td><td>단기(CP)</td><td class="move">A3 → C → D</td><td class="date">6.12 / 6.15</td></tr>
+          <tr><td class="co">중앙일보</td><td>장기</td><td class="move">BBB(부정적) → BB-</td><td class="date">6.12</td></tr>
+          <tr><td class="co">중앙일보</td><td>단기</td><td class="move">A3 → B-</td><td class="date">6.12</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="jaAgencyBlock">
+    <div class="jaAgencyHead"><span class="jaAgencyDot" style="background:#C9881F;"></span><span class="jaAgencyName">한국기업평가(KR)</span><span class="jaAgencyTag">· 6.12 → 6.15 2단계 강등</span></div>
+    <div class="jaTableWrap">
+      <table class="jaTable">
+        <thead><tr><th>대상회사</th><th>등급유형</th><th>변동(조정전→조정후)</th><th>조정일</th></tr></thead>
+        <tbody>
+          <tr><td class="co">JTBC</td><td>무보증</td><td class="move">BBB(부정적) → BB → C</td><td class="date">6.12 / 6.15</td></tr>
+          <tr><td class="co">JTBC</td><td>CP</td><td class="move">A3 → B → C</td><td class="date">6.12 / 6.15</td></tr>
+          <tr><td class="co">중앙일보</td><td>무보증</td><td class="move">BBB(부정적) → BB+ → B-</td><td class="date">6.12 / 6.15</td></tr>
+          <tr><td class="co">중앙일보</td><td>CP</td><td class="move">A3 → B+ → C</td><td class="date">6.12 / 6.15</td></tr>
+          <tr><td class="co">SLL중앙</td><td>장기/단기</td><td class="move">BBB→BB+ / A3→B+</td><td class="date">6.12</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="jaAgencyBlock">
+    <div class="jaAgencyHead"><span class="jaAgencyDot" style="background:#D6453F;"></span><span class="jaAgencyName">한국신용평가(KIS)</span><span class="jaAgencyTag">· 6.13 특별평가, 4개사 동시</span></div>
+    <div class="jaTableWrap">
+      <table class="jaTable">
+        <thead><tr><th>대상회사</th><th>등급유형</th><th>변동(조정전→조정후)</th><th>조정일</th></tr></thead>
+        <tbody>
+          <tr><td class="co">SLL중앙·중앙일보<br>콘텐트리중앙·메가박스중앙</td><td>무보증채</td><td class="move">BBB → BB</td><td class="date">6.13</td></tr>
+          <tr><td class="co">동 4개사</td><td>CP/단기</td><td class="move">→ B</td><td class="date">6.13</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="jaScaleNote">
+    <i class="ti ti-info-circle"></i>
+    <span>참고로 BBB-까지는 통상 '투자등급', BB+ 이하는 '투기등급(비우량채)'으로 분류됩니다. 이번 강등은 대부분 이 투자등급-투기등급 경계를 그대로 뚫고 내려간 사례입니다.</span>
+  </div>
+
+  <div class="jaDivider"></div>
+  <div class="jaFootRow">
+    <div class="jaFootNote"><b>자료 :</b> NICE신용평가, 한국기업평가(KR), 한국신용평가(KIS) 공식 보도자료 및 금융감독원 전자공시(DART) 종합</div>
+    <div class="jaFootNote"><b>참고 :</b> 평가사별 척도 산정 기준이 달라 단순 수치 비교에는 한계가 있습니다.</div>
+  </div>
+</div>
+
+</body>
+</html>
