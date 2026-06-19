@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="2026.06.18 오늘의 핵심 뉴스 TOP 5 — 코스피 영향 분석" />
-  <meta property="og:description" content="연준 금리동결, 미-이란 협정, 코스피 신고점, SK하이닉스 HBM4E, 골드만삭스 코스피 9000 목표 등 오늘 한국 증시를 움직일 핵심 뉴스" />
-  <meta property="og:image" content="https://via.placeholder.com/1200x630/f0fdf4/155724?text=2026.06.18+핵심뉴스+TOP5" />
-  <meta property="og:url" content="https://blog.naver.com/csc107" />
-  <title>2026.06.18 핵심 뉴스 타임라인</title>
-  <!-- [삽입 위치: 오늘의 핵심 뉴스 TOP 5 섹션 직후] -->
+  <meta property="og:title" content="오늘 코스피 핵심 뉴스 TOP5 — 2026년 6월 19일 장전 뉴스 타임라인" />
+  <meta property="og:description" content="SK하이닉스 HBM4E 출하, 코스피 사상 최고치, Fed 금리 시사 등 오늘 시장을 움직일 5대 뉴스를 정리했습니다." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/f0fdf4/14532d?text=핵심+뉴스+타임라인+2026.06.19" />
+  <meta property="og:url" content="https://blog.naver.com/your-blog/news-timeline-20260619" />
+  <title>핵심 뉴스 타임라인 — 2026.06.19</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
       background: #f0fdf4;
       padding: 24px 16px;
+      color: #1a2a1a;
     }
-    .container { max-width: 780px; margin: 0 auto; }
     .header { text-align: center; margin-bottom: 28px; }
-    .header h2 { font-size: 1.4rem; color: #155724; margin-bottom: 6px; }
-    .header p { font-size: 0.85rem; color: #4a7c59; }
-    .timeline { position: relative; padding-left: 32px; }
+    .header h2 { font-size: 1.4rem; font-weight: 800; color: #145214; margin-bottom: 4px; }
+    .header p { font-size: 0.85rem; color: #3a6a3a; }
+    .timeline {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 32px;
+    }
     .timeline::before {
       content: '';
       position: absolute;
@@ -28,164 +32,151 @@
       top: 0;
       bottom: 0;
       width: 3px;
-      background: linear-gradient(to bottom, #27ae60, #2980b9, #8e44ad, #e67e22, #16a085);
-      border-radius: 2px;
+      background: linear-gradient(to bottom, #22c55e, #86efac);
+      border-radius: 3px;
     }
     .news-item {
       position: relative;
       background: #ffffff;
       border-radius: 14px;
       padding: 18px 20px;
-      margin-bottom: 18px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(0,80,0,0.07);
+      border-left: 4px solid #22c55e;
     }
+    .news-item.caution { border-left-color: #f59e0b; }
     .news-item::before {
       content: '';
       position: absolute;
       left: -26px;
-      top: 22px;
+      top: 20px;
       width: 14px;
       height: 14px;
+      background: #22c55e;
       border-radius: 50%;
-      border: 3px solid #fff;
-      box-shadow: 0 0 0 2px #27ae60;
-      background: #27ae60;
+      border: 3px solid #f0fdf4;
     }
-    .news-item:nth-child(2)::before { background: #2980b9; box-shadow: 0 0 0 2px #2980b9; }
-    .news-item:nth-child(3)::before { background: #8e44ad; box-shadow: 0 0 0 2px #8e44ad; }
-    .news-item:nth-child(4)::before { background: #e67e22; box-shadow: 0 0 0 2px #e67e22; }
-    .news-item:nth-child(5)::before { background: #16a085; box-shadow: 0 0 0 2px #16a085; }
-    .news-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
-    .news-num { font-size: 1.1rem; font-weight: 800; color: #27ae60; min-width: 28px; }
-    .news-item:nth-child(2) .news-num { color: #2980b9; }
-    .news-item:nth-child(3) .news-num { color: #8e44ad; }
-    .news-item:nth-child(4) .news-num { color: #e67e22; }
-    .news-item:nth-child(5) .news-num { color: #16a085; }
-    .news-title { font-size: 0.95rem; font-weight: 700; color: #1a1a2e; flex: 1; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-    .tag {
-      font-size: 0.7rem; font-weight: 700; padding: 3px 9px;
+    .news-item.caution::before { background: #f59e0b; }
+    .news-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .news-rank {
+      font-size: 0.75rem;
+      font-weight: 800;
+      background: #dcfce7;
+      color: #15803d;
+      padding: 2px 9px;
       border-radius: 20px;
     }
-    .tag-good    { background: #d4edda; color: #155724; }
-    .tag-bad     { background: #f8d7da; color: #721c24; }
-    .tag-neutral { background: #e2e8f0; color: #374151; }
-    .tag-watch   { background: #fff3cd; color: #856404; }
-    .news-body { font-size: 0.82rem; color: #444; line-height: 1.6; }
+    .news-rank.caution { background: #fef3c7; color: #92400e; }
     .source-badge {
-      display: inline-block; margin-top: 10px;
-      font-size: 0.7rem; color: #888; background: #f5f5f5;
-      padding: 2px 8px; border-radius: 8px;
+      font-size: 0.72rem;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
     }
-    .footer { text-align: center; margin-top: 20px; font-size: 0.75rem; color: #999; }
-    @media (max-width: 480px) {
+    .tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .tag-good { background: #d1fae5; color: #065f46; }
+    .tag-caution { background: #fef9c3; color: #713f12; }
+    .news-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #1a2a1a;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .news-body { font-size: 0.84rem; color: #3a5a3a; line-height: 1.65; }
+    .footer-note { text-align: center; font-size: 0.75rem; color: #6a8a6a; margin-top: 20px; }
+    @media (max-width:480px) {
       .timeline { padding-left: 24px; }
-      .news-item { padding: 14px 14px; }
+      .timeline::before { left: 6px; }
+      .news-item::before { left: -20px; width: 12px; height: 12px; }
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <h2>📰 2026.06.18 오늘의 핵심 뉴스 TOP 5</h2>
-    <p>코스피 개장 전 반드시 확인해야 할 시장 이벤트</p>
-  </div>
-  <div class="timeline">
-
-    <div class="news-item">
-      <div class="news-header">
-        <span class="news-num">①</span>
-        <span class="news-title">연준(Fed) 금리 동결 — 연내 1회 인상 가능성 시사</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-neutral">중립</span>
-        <span class="tag tag-watch">주시 필요</span>
-        <span class="tag tag-bad">금리 인상 우려</span>
-      </div>
-      <div class="news-body">
-        케빈 워시 신임 연준 의장의 첫 FOMC에서 기준금리를 3.5~3.75%로 만장일치 동결했습니다.
-        정책 성명에서 기존 인하 편향 문구가 삭제됐고, 위원 9명이 연내 1회 이상 인상을 전망.
-        시장은 10월 인상 가능성을 반영하기 시작했습니다. 단기적으로 달러 강세와 채권금리 상승 압력이 있을 수 있어요.
-      </div>
-      <span class="source-badge">출처: CNBC, Fox Business, FedWatch</span>
-    </div>
-
-    <div class="news-item">
-      <div class="news-header">
-        <span class="news-num">②</span>
-        <span class="news-title">미-이란 평화협정 예비 합의 — 유가 5연속 하락</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-good">한국 호재</span>
-        <span class="tag tag-good">수입물가 하락</span>
-        <span class="tag tag-bad">에너지주 악재</span>
-      </div>
-      <div class="news-body">
-        스위스에서 미국-이란 잠정 합의 체결. 이란 원유 수출 재개 가능성 + 호르무즈 해협 60일 휴전 무통행료 개방.
-        WTI 유가 5거래일 연속 하락으로 $75~78/배럴 수준. 한국 수입물가 2개월 연속 하락세 강화 예상.
-        항공·소비재에 호재, 정유·에너지주에 단기 악재.
-      </div>
-      <span class="source-badge">출처: Reuters, Bloomberg, Trading Economics</span>
-    </div>
-
-    <div class="news-item">
-      <div class="news-header">
-        <span class="news-num">③</span>
-        <span class="news-title">코스피 8,864 사상 최고치 — 반도체가 이끌었다</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-good">강세 지속</span>
-        <span class="tag tag-good">외국인 복귀</span>
-        <span class="tag tag-watch">고점 피로감 주의</span>
-      </div>
-      <div class="news-body">
-        어제 코스피 +1.58% 상승하며 8,864 역대 최고치 경신. SK하이닉스 +5.88%, 삼성전자 +0.87%.
-        외국인이 2.1조원 순매수로 복귀(6/12 이후 지속). 골드만삭스 코스피 목표 9,000 상향.
-        코스피 2026년 YTD 상승률 +90%를 넘어서면서 아시아 최강 시장으로 부상.
-      </div>
-      <span class="source-badge">출처: Seoul Economic Daily, Goldman Sachs, Bloomberg</span>
-    </div>
-
-    <div class="news-item">
-      <div class="news-header">
-        <span class="news-num">④</span>
-        <span class="news-title">SK하이닉스, HBM4E 샘플 조기 출하 — 시장 기대치 상회</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-good">강력 호재</span>
-        <span class="tag tag-good">HBM4 시장지배</span>
-        <span class="tag tag-neutral">삼성 경쟁 위협</span>
-      </div>
-      <div class="news-body">
-        SK하이닉스가 HBM4E 샘플을 예정보다 조기 출하. 이달 중 선행 공급 개시 가능.
-        이 소식에 주가 +7% 급등. NVIDIA 공급망의 ~70% 독점 구도 유지.
-        HBM 공급 부족은 2028년까지 지속 전망(TrendForce). 2026년 영업이익률 72% 기록 (NVIDIA 65% 상회).
-      </div>
-      <span class="source-badge">출처: TradingKey, CNBC, TrendForce</span>
-    </div>
-
-    <div class="news-item">
-      <div class="news-header">
-        <span class="news-num">⑤</span>
-        <span class="news-title">골드만삭스 코스피 9,000 목표 — "300% 이익 성장, 아시아 최강"</span>
-      </div>
-      <div class="tags">
-        <span class="tag tag-good">강력 상승 전망</span>
-        <span class="tag tag-good">외국인 자금 유입</span>
-        <span class="tag tag-watch">고평가 리스크</span>
-      </div>
-      <div class="news-body">
-        골드만삭스가 코스피 목표를 9,000으로 상향. 2026년 한국 기업 이익 성장률 300% 전망 — 1999년 이후 아시아 최강.
-        AI 메모리 슈퍼사이클(HBM)이 핵심 드라이버. 코스피 YTD +90%는 삼성전자·SK하이닉스가 지수 50% 이상 차지.
-        단, 반도체 집중도 과도 시 재조정 리스크 동반.
-      </div>
-      <span class="source-badge">출처: Goldman Sachs, Yahoo Finance, Korea Times</span>
-    </div>
-
-  </div>
-  <div class="footer">
-    기준일: 2026.06.17~18 | ※ 본 내용은 투자 정보 제공 목적이며, 투자 권유가 아닙니다.
-  </div>
+<!-- [삽입 위치] 오늘의 핵심 뉴스 TOP5 섹션 직후 -->
+<div class="header">
+  <h2>📰 오늘의 핵심 뉴스 TOP 5 — 2026.06.19</h2>
+  <p>코스피 방향을 결정할 오늘의 핵심 뉴스를 타임라인으로 정리했습니다</p>
 </div>
+<div class="timeline">
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-rank">NEWS 01</span>
+      <span class="source-badge">SK하이닉스 공식 · TradingKey</span>
+      <span class="tag tag-good">🟢 호재</span>
+    </div>
+    <div class="news-title">SK하이닉스, HBM4E 12단 샘플 NVIDIA에 출하 완료 — 주가 +5% 급등</div>
+    <div class="news-body">
+      SK하이닉스가 6월 18일(현지 시간) 차세대 12층 스택 HBM4E 메모리 샘플을 주요 AI 고객사(NVIDIA 포함)에 공식 출하했다고 발표했습니다. 이는 NVIDIA의 차세대 Rubin 플랫폼 탑재를 위한 핵심 단계로, 발표 당일 SK하이닉스 주가는 5% 급등하며 사상 최고치를 기록했습니다. UBS는 SK하이닉스의 HBM4 시장점유율이 2026년 약 70%에 달할 것으로 전망합니다.
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-rank">NEWS 02</span>
+      <span class="source-badge">Trading Economics · CNBC</span>
+      <span class="tag tag-good">🟢 호재</span>
+    </div>
+    <div class="news-title">코스피 8,864p 사상 최고치 경신 — AI 반도체 강세 지속</div>
+    <div class="news-body">
+      6월 18일 코스피는 전일 대비 +1.58% 상승한 8,864포인트로 마감하며 연속 사상 최고치를 경신했습니다. 삼성전자·SK하이닉스·SK스퀘어가 동반 상승하며 지수를 끌어올렸습니다. 2026년 연초 대비 코스피 상승률은 +75% 이상으로, Goldman Sachs는 추가 35% 상승 여력이 있다고 분석했습니다.
+    </div>
+  </div>
+
+  <div class="news-item caution">
+    <div class="news-meta">
+      <span class="news-rank caution">NEWS 03</span>
+      <span class="source-badge">Bloomberg · Reuters · Fed</span>
+      <span class="tag tag-caution">⚠️ 주의</span>
+    </div>
+    <div class="news-title">Fed FOMC 금리 동결, 연내 인상 가능성 시사 — DXY 100.72 급등</div>
+    <div class="news-body">
+      미 연준(Fed)은 6월 FOMC에서 기준금리를 동결했으나, FOMC 위원 절반이 2026년 내 최소 1회 금리 인상 가능성을 언급했습니다. 이에 따라 달러인덱스(DXY)가 100.72로 상승하고 미국 10년물 국채 금리가 4.49%까지 올랐습니다. 단기적으로 외국인 자금 이탈 우려가 있으나, 한국 기업 실적의 강한 모멘텀이 이를 상쇄할 전망입니다.
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-rank">NEWS 04</span>
+      <span class="source-badge">Goldman Sachs · CNBC · JPMorgan</span>
+      <span class="tag tag-good">🟢 호재</span>
+    </div>
+    <div class="news-title">Goldman Sachs·JPMorgan 코스피 목표치 대폭 상향 — JPM 목표 10,000p</div>
+    <div class="news-body">
+      Goldman Sachs는 코스피가 이미 100% 상승했음에도 추가 35% 상승 여력이 있다고 분석했습니다. JPMorgan은 강세 시나리오 기준 코스피 목표치를 10,000포인트로 제시했습니다. 두 글로벌 투자은행의 강한 긍정 시각은 외국인 매수세를 지지하는 핵심 근거입니다. MSCI 코리아 PER 10.8배 vs. 아태 평균 15.4배 — 여전히 저평가 구간.
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-rank">NEWS 05</span>
+      <span class="source-badge">한국 정부 · 연합뉴스 · Korea Times</span>
+      <span class="tag tag-good">🟢 호재</span>
+    </div>
+    <div class="news-title">한국 정부, AI 분야 9.4조원 투자 발표 — 반도체·소부장재·AI데이터센터 수혜</div>
+    <div class="news-body">
+      한국 정부는 2027년까지 AI 분야에 9.4조원(약 69억 달러)을 투자한다고 발표했습니다. 주요 내용은 AI 반도체 생태계 강화, AI 데이터센터 건립, AI 소부장재 기업 지원 등입니다. 이는 삼성전자·SK하이닉스는 물론 관련 소부장재(소재·부품·장비) 기업들의 중장기 성장 가시성을 높이는 정책 모멘텀입니다.
+    </div>
+  </div>
+
+</div>
+<p class="footer-note">
+  ※ 출처: SK하이닉스 공식 발표 · TradingKey · CNBC · Goldman Sachs · Bloomberg · Reuters · 한국 정부<br>
+  ※ 본 내용은 투자 정보 제공 목적이며, 투자 권유가 아닙니다.
+</p>
 </body>
 </html>
