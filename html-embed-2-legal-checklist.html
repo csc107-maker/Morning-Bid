@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>사정변경의 원칙 체크표</title>
+
+<!-- ▼▼▼ 발행 시 og:title / og:description / og:image / og:url 값을 실제 블로그 정보로 교체하세요 ▼▼▼ -->
+<meta property="og:title" content="RE100 PPA 20년 계약, SMP 100원이면 진짜 계약파기될까? - 태양광 사업자 가이드" />
+<meta property="og:description" content="RE100 기업과 맺은 20년 태양광 PPA 계약, SMP가 170원에서 100원까지 떨어지면 정말 계약을 깰 수 있을까요? 판례와 최신 시장 데이터로 정확히 분석합니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/re100-ppa-smp-thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/yourid/포스트번호" />
+<!-- ▲▲▲ 교체 후 사용하세요 ▲▲▲ -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
+
+<style>
+  .re100-wrap-2 * { box-sizing: border-box; }
+  .re100-wrap-2 {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #F7F8FC;
+    border: 1px solid #E3E6F5;
+    border-radius: 18px;
+    padding: 32px 28px 26px;
+    max-width: 720px;
+    margin: 24px auto;
+    color: #1B1E36;
+  }
+  .re100-eyebrow-2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #3A43C9;
+    background: #E9EAFB;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .re100-title-2 {
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.4;
+    margin: 0 0 6px;
+  }
+  .re100-sub-2 {
+    font-size: 13.5px;
+    color: #565C82;
+    margin: 0 0 20px;
+  }
+
+  .re100-rows-2 { display: flex; flex-direction: column; gap: 10px; }
+  .re100-row-2 {
+    background: #FFFFFF;
+    border: 1px solid #E3E6F5;
+    border-radius: 14px;
+    padding: 16px 16px 14px;
+    position: relative;
+  }
+  .re100-row-2 .num-badge {
+    position: absolute;
+    top: -10px; left: 14px;
+    background: #3A43C9;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .re100-row-2 .req-title {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: #1B1E36;
+    margin: 4px 0 4px;
+  }
+  .re100-row-2 .req-desc {
+    font-size: 13px;
+    color: #565C82;
+    margin: 0 0 10px;
+    line-height: 1.55;
+  }
+  .re100-row-2 .req-apply {
+    background: #F2F3FC;
+    border-left: 3px solid #3A43C9;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: #2B2F52;
+    line-height: 1.55;
+  }
+  .re100-row-2 .req-apply b { color: #C42850; }
+
+  .re100-cite-2 {
+    margin-top: 18px;
+    background: #FFF8E8;
+    border: 1px solid #F2E2B8;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    color: #6B5410;
+    display: flex;
+    gap: 8px;
+    line-height: 1.6;
+  }
+  .re100-foot-2 {
+    margin-top: 12px;
+    font-size: 11.5px;
+    color: #8488AA;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body style="margin:0; background:#FFFFFF; padding:12px 0;">
+
+<div class="re100-wrap-2">
+  <span class="re100-eyebrow-2"><i class="ti ti-scale"></i> 법리 체크</span>
+  <p class="re100-title-2">'사정변경의 원칙', PPA에 적용될 수 있을까?</p>
+  <p class="re100-sub-2">대법원이 제시한 요건에 이번 사례(SMP 하락)를 그대로 대입해봤습니다.</p>
+
+  <div class="re100-rows-2">
+    <div class="re100-row-2">
+      <div class="num-badge">1</div>
+      <p class="req-title">현저한 사정변경</p>
+      <p class="req-desc">계약의 기초가 된 사정이 뚜렷하게, 크게 바뀌어야 합니다.</p>
+      <p class="req-apply">시장가격(SMP) 변동은 전력시장에서 늘 있어 온 통상적 변동 — <b>'현저한' 사정변경으로 보기 어려움</b></p>
+    </div>
+    <div class="re100-row-2">
+      <div class="num-badge">2</div>
+      <p class="req-title">예견 불가능성</p>
+      <p class="req-desc">계약 체결 당시 당사자가 그 변화를 예상할 수 없었어야 합니다.</p>
+      <p class="req-apply">전력 가격은 원래도 유가·환율·계절에 따라 변동 — 20년 장기계약 체결 시 가격변동 가능성은 <b>업계 상식, 예견 가능했다고 볼 여지가 큼</b></p>
+    </div>
+    <div class="re100-row-2">
+      <div class="num-badge">3</div>
+      <p class="req-title">중대한 불균형 / 목적달성 불능</p>
+      <p class="req-desc">계약을 유지하면 한쪽에 현저히 불공평한 결과가 생기거나, 계약 목적 자체를 이룰 수 없어야 합니다.</p>
+      <p class="req-apply">RE100 기업의 계약 목적은 '재생에너지 사용 인증' 확보 — 가격이 비싸졌다고 <b>그 목적 자체를 못 이루는 건 아님</b></p>
+    </div>
+    <div class="re100-row-2">
+      <div class="num-badge">4</div>
+      <p class="req-title">위험 인수 여부 (대법원 추가 기준)</p>
+      <p class="req-desc">당사자가 애초에 그 변경에 따른 위험을 떠안기로 한 경우엔 해지가 인정되지 않습니다.</p>
+      <p class="req-apply">PPA는 '가격을 고정해 시장변동 위험을 피하자'는 계약 — <b>가격 위험을 서로 떠안기로 합의한 것이므로 해지 근거로 쓰기 어려움</b></p>
+    </div>
+  </div>
+
+  <div class="re100-cite-2">
+    <i class="ti ti-gavel" style="margin-top:1px;"></i>
+    <span>참고 판례: 대법원 2017. 6. 8. 선고 2016다249557 판결 — 경제 상황 변화로 한쪽이 불이익을 입었다는 사정만으로는 사정변경을 이유로 한 계약 해지가 인정되지 않는다고 판시. (국가법령정보센터 / 대법원 판례속보 기준)</span>
+  </div>
+
+  <p class="re100-foot-2">
+    <i class="ti ti-info-circle"></i> 본 체크표는 일반적인 법리를 설명한 정보 제공용 콘텐츠입니다. 실제 사건에서는 개별 계약서 문구와 구체적 사실관계에 따라 결론이 달라질 수 있으며, 이는 법률 자문이 아닙니다.
+  </p>
+</div>
+
+</body>
+</html>
