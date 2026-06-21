@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SMP-PPA 가격차 분석</title>
+
+<!-- ▼▼▼ 발행 시 og:title / og:description / og:image / og:url 값을 실제 블로그 정보로 교체하세요 ▼▼▼ -->
+<meta property="og:title" content="RE100 PPA 20년 계약, SMP 100원이면 진짜 계약파기될까? - 태양광 사업자 가이드" />
+<meta property="og:description" content="RE100 기업과 맺은 20년 태양광 PPA 계약, SMP가 170원에서 100원까지 떨어지면 정말 계약을 깰 수 있을까요? 판례와 최신 시장 데이터로 정확히 분석합니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/re100-ppa-smp-thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/yourid/포스트번호" />
+<!-- ▲▲▲ 교체 후 사용하세요 ▲▲▲ -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
+
+<style>
+  .re100-wrap-1 * { box-sizing: border-box; }
+  .re100-wrap-1 {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #F6FAF8;
+    border: 1px solid #E1ECE6;
+    border-radius: 18px;
+    padding: 32px 28px 28px;
+    max-width: 720px;
+    margin: 24px auto;
+    color: #14302A;
+  }
+  .re100-eyebrow-1 {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0E7C5A;
+    background: #E3F5EC;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .re100-title-1 {
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.4;
+    margin: 0 0 6px;
+    color: #0F2620;
+  }
+  .re100-sub-1 {
+    font-size: 14px;
+    color: #4E6B61;
+    margin: 0 0 22px;
+  }
+  .re100-cards-1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .re100-card-1 {
+    background: #FFFFFF;
+    border: 1px solid #E1ECE6;
+    border-radius: 14px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .re100-card-1 .ic {
+    width: 34px; height: 34px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 17px;
+  }
+  .re100-card-1.ppa .ic { background: #E7EEFD; color: #2C53C9; }
+  .re100-card-1.smp .ic { background: #FDEDE3; color: #C9602C; }
+  .re100-card-1.gap .ic { background: #FCE9EC; color: #C42850; }
+  .re100-card-1 .num {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #0F2620;
+  }
+  .re100-card-1 .unit { font-size: 12px; font-weight: 600; color: #6B8079; }
+  .re100-card-1 .lab { font-size: 12.5px; color: #5C7268; margin-top: 6px; font-weight: 600; }
+
+  .re100-divider-1 { height: 1px; background: #E1ECE6; margin: 22px 0 18px; }
+
+  .re100-tablecap-1 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #14302A;
+    margin: 0 0 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  table.re100-table-1 {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  table.re100-table-1 th {
+    background: #EAF4EF;
+    color: #14302A;
+    text-align: left;
+    padding: 9px 10px;
+    font-weight: 700;
+  }
+  table.re100-table-1 td {
+    padding: 9px 10px;
+    border-top: 1px solid #EEF3F0;
+    color: #2A4A40;
+  }
+  table.re100-table-1 td.num { font-weight: 700; color: #0F2620; }
+
+  .re100-foot-1 {
+    margin-top: 16px;
+    font-size: 11.5px;
+    color: #7C9189;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body style="margin:0; background:#FFFFFF; padding:12px 0;">
+
+<div class="re100-wrap-1">
+  <span class="re100-eyebrow-1"><i class="ti ti-chart-bar"></i> 데이터로 보는 가격차</span>
+  <p class="re100-title-1">PPA 계약가 170원 vs SMP 100원, 그 70원의 간극</p>
+  <p class="re100-sub-1">직접 PPA는 시장가(SMP)와 무관하게 계약서상 고정단가가 정산단가가 됩니다.</p>
+
+  <div class="re100-cards-1">
+    <div class="re100-card-1 ppa">
+      <div class="ic"><i class="ti ti-file-text"></i></div>
+      <div class="num">170</div>
+      <div class="unit">원/kWh</div>
+      <div class="lab">PPA 계약 고정단가</div>
+    </div>
+    <div class="re100-card-1 smp">
+      <div class="ic"><i class="ti ti-bolt"></i></div>
+      <div class="num">100</div>
+      <div class="unit">원/kWh</div>
+      <div class="lab">가정한 SMP(시장가)</div>
+    </div>
+    <div class="re100-card-1 gap">
+      <div class="ic"><i class="ti ti-arrows-diff"></i></div>
+      <div class="num">70</div>
+      <div class="unit">원/kWh</div>
+      <div class="lab">기업의 기회비용</div>
+    </div>
+  </div>
+
+  <div class="re100-divider-1"></div>
+
+  <p class="re100-tablecap-1"><i class="ti ti-trending-up" style="color:#0E7C5A;"></i> 최근 SMP(육지) 동향 — "100원"이 비현실적인 가정은 아닙니다</p>
+  <table class="re100-table-1">
+    <thead>
+      <tr><th>시기</th><th>육지 SMP</th><th>비고</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2025년 말~2026년 초 (일부 시점)</td><td class="num">100원 이하</td><td>국제유가·가스 가격 하락 영향</td></tr>
+      <tr><td>2026년 1월</td><td class="num">110원대 중반</td><td>연초 횡보 구간</td></tr>
+      <tr><td>2026년 4월 평균</td><td class="num">118.54원</td><td>전월 대비 +8.75원, 상승 전환</td></tr>
+    </tbody>
+  </table>
+
+  <p class="re100-foot-1">
+    <i class="ti ti-info-circle"></i> 위 SMP 수치는 업계 공개 데이터(해줌 등)를 참고한 추정치입니다. 정확한 시간대별·월별 SMP는 전력거래소(KPX) EPSIS(전력통계정보시스템)에서 직접 확인하시길 권장합니다. 본 카드는 일반 정보 제공 목적이며 투자·계약 판단의 근거 자료로만 단독 사용하지 마세요.
+  </p>
+</div>
+
+</body>
+</html>
