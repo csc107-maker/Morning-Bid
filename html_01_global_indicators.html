@@ -1,126 +1,222 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="2026년 6월 19일 글로벌 시장 지표 — 오늘 코스피 방향은?" />
-  <meta property="og:description" content="VIX·WTI·환율·DXY·미국10년물·EWY 6대 글로벌 지표 한눈에 확인하세요." />
-  <meta property="og:image" content="https://via.placeholder.com/1200x630/e0f0ff/1a3a5c?text=글로벌+지표+카드+2026.06.19" />
-  <meta property="og:url" content="https://blog.naver.com/your-blog/global-indicators-20260619" />
-  <title>글로벌 지표 카드 — 2026.06.19</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-      background: #f0f6ff;
-      padding: 24px 16px;
-      color: #1a2a3a;
-    }
-    .report-header { text-align: center; margin-bottom: 24px; }
-    .report-header h2 { font-size: 1.4rem; font-weight: 800; color: #1a3a6a; margin-bottom: 4px; }
-    .report-header p { font-size: 0.85rem; color: #556b8a; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 2px 12px rgba(0,60,150,0.08);
-      border-top: 4px solid #4a90d9;
-      transition: transform 0.2s;
-    }
-    .card:hover { transform: translateY(-3px); }
-    .card.vix   { border-top-color: #5b8dee; }
-    .card.wti   { border-top-color: #f5a623; }
-    .card.krw   { border-top-color: #e8394f; }
-    .card.dxy   { border-top-color: #27ae60; }
-    .card.yield { border-top-color: #9b59b6; }
-    .card.ewy   { border-top-color: #16a085; }
-    .card-icon { font-size: 2rem; margin-bottom: 8px; }
-    .card-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; color: #7a8fa8; text-transform: uppercase; margin-bottom: 4px; }
-    .card-value { font-size: 2rem; font-weight: 900; line-height: 1.1; margin-bottom: 6px; }
-    .card.vix .card-value   { color: #2e6dc8; }
-    .card.wti .card-value   { color: #c07d00; }
-    .card.krw .card-value   { color: #c0132b; }
-    .card.dxy .card-value   { color: #1a7a42; }
-    .card.yield .card-value { color: #6d3a9b; }
-    .card.ewy .card-value   { color: #0d7060; }
-    .card-change { display: inline-block; font-size: 0.82rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; margin-bottom: 10px; }
-    .up      { background: #e8f5e9; color: #2e7d32; }
-    .down    { background: #fce4e4; color: #c62828; }
-    .neutral { background: #e8f0fe; color: #1a237e; }
-    .card-desc { font-size: 0.82rem; color: #556b8a; line-height: 1.5; }
-    .signal-badge { display: inline-block; font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 8px; margin-top: 8px; }
-    .signal-positive { background: #e0f7ef; color: #0b6e4f; border: 1px solid #81e0c4; }
-    .signal-caution  { background: #fff8e1; color: #7a5c00; border: 1px solid #ffd54f; }
-    .footer-note { text-align: center; font-size: 0.75rem; color: #8a9ab0; margin-top: 20px; }
-    @media (max-width:480px) { .card-value { font-size: 1.6rem; } .report-header h2 { font-size: 1.15rem; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="2026년 6월 22일 글로벌 시장 지표 현황 | 코스피 모닝 리포트" />
+<meta property="og:description" content="VIX 공포지수, WTI 유가, USD/KRW 환율, DXY 달러인덱스, 미국 10년물 금리, EWY 한국ETF 최신 현황 분석" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/f0f6ff/1e40af?text=Global+Market+Indicators+2026.06.22" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/global-indicators-20260622" />
+<title>글로벌 시장 지표 | 2026.06.22</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background: #f0f6ff;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e3a5f;
+    margin-bottom: 6px;
+  }
+  .header p {
+    font-size: 13px;
+    color: #6b7280;
+  }
+  .badge {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px 22px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border-left: 5px solid #3b82f6;
+    transition: transform 0.2s;
+  }
+  .card:hover { transform: translateY(-3px); }
+  .card.vix { border-left-color: #10b981; }
+  .card.wti { border-left-color: #f59e0b; }
+  .card.krw { border-left-color: #ef4444; }
+  .card.dxy { border-left-color: #8b5cf6; }
+  .card.rate { border-left-color: #06b6d4; }
+  .card.ewy { border-left-color: #0ea5e9; }
+  .card-icon { font-size: 26px; margin-bottom: 8px; }
+  .card-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .card-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .card-change {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .up { color: #ef4444; }
+  .down { color: #3b82f6; }
+  .neutral { color: #6b7280; }
+  .card-desc {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.5;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 8px;
+    margin-top: 6px;
+  }
+  .signal {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-top: 6px;
+  }
+  .signal.positive { background: #d1fae5; color: #065f46; }
+  .signal.caution { background: #fef3c7; color: #92400e; }
+  .signal.negative { background: #fee2e2; color: #991b1b; }
+  .disclaimer {
+    font-size: 11px;
+    color: #9ca3af;
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+  }
+  @media (max-width: 600px) {
+    .card-value { font-size: 24px; }
+    .grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  }
+  @media (max-width: 400px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-<!-- [삽입 위치] VIX 공포지수 분석 섹션 직후 -->
-<div class="report-header">
-  <h2>📊 글로벌 핵심 지표 — 2026년 6월 19일</h2>
-  <p>오늘 코스피를 움직이는 6가지 글로벌 신호를 한눈에 확인하세요</p>
+<!-- [삽입 위치] VIX 분석 섹션 직후 -->
+<div class="container">
+  <div class="header">
+    <div class="badge">📊 글로벌 시장 지표 | 2026.06.22</div>
+    <h2>오늘 코스피를 움직이는 6대 글로벌 지표</h2>
+    <p>기준: 6월 18~22일 (미국 6월 20일 연휴, 22일은 주말 이후 첫 거래일)</p>
+  </div>
+
+  <div class="grid">
+    <!-- VIX -->
+    <div class="card vix">
+      <div class="card-icon">😌</div>
+      <div class="card-title">VIX 공포지수</div>
+      <div class="card-value">16.78</div>
+      <div class="card-change down">▼ 안정 구간 (3월 고점 31.05)</div>
+      <div class="card-desc">
+        장기 평균(20) 이하로 시장이 차분한 상태.<br>
+        외국인 자금의 리스크 온(Risk-On) 환경 형성 중
+      </div>
+      <span class="signal positive">✓ 긍정적 — 매수 환경</span>
+    </div>
+
+    <!-- WTI -->
+    <div class="card wti">
+      <div class="card-icon">🛢️</div>
+      <div class="card-title">WTI 유가 ($/배럴)</div>
+      <div class="card-value">$76.54</div>
+      <div class="card-change down">▼ 안정 (3월 고점 대비 하락)</div>
+      <div class="card-desc">
+        80달러 이하 유지 → 수입 물가 안정.<br>
+        중동 긴장 완화 시 조선·해운 추가 수혜
+      </div>
+      <span class="signal positive">✓ 중립~긍정 — 수입국 유리</span>
+    </div>
+
+    <!-- USD/KRW -->
+    <div class="card krw">
+      <div class="card-icon">💱</div>
+      <div class="card-title">USD/KRW 환율</div>
+      <div class="card-value">1,512원</div>
+      <div class="card-change up">▲ 1,508.98→1,512.63 소폭 강달러</div>
+      <div class="card-desc">
+        수출 기업 환 수혜 (삼성·SK하이닉스 유리).<br>
+        수입 물가 상승·소비 위축은 부작용
+      </div>
+      <span class="signal caution">△ 주의 — 강달러 지속 경계</span>
+    </div>
+
+    <!-- DXY -->
+    <div class="card dxy">
+      <div class="card-icon">📈</div>
+      <div class="card-title">DXY 달러인덱스</div>
+      <div class="card-value">100.76</div>
+      <div class="card-change down">▼ 0.05% 하락 중 (100선 방향 탐색)</div>
+      <div class="card-desc">
+        100 하회 시 달러 약세 확인 → 신흥국 자금 유입.<br>
+        연준 동결 기조 속 하반기 인하 기대 존재
+      </div>
+      <span class="signal caution">△ 중립 — 100 이탈 여부 주목</span>
+    </div>
+
+    <!-- 미국 10년물 -->
+    <div class="card rate">
+      <div class="card-icon">📉</div>
+      <div class="card-title">미국 10년물 금리</div>
+      <div class="card-value">4.44%</div>
+      <div class="card-change down">▼ 안정 (2024년 5%+ 고점 대비)</div>
+      <div class="card-desc">
+        고금리 지속이나 추가 인상 가능성 낮음.<br>
+        하반기 인하 기대 시 AI·반도체 성장주 수혜
+      </div>
+      <span class="signal positive">✓ 중립~긍정 — 금리 인하 기대</span>
+    </div>
+
+    <!-- EWY -->
+    <div class="card ewy">
+      <div class="card-icon">🇰🇷</div>
+      <div class="card-title">EWY 한국 ETF ($)</div>
+      <div class="card-value">$219.20</div>
+      <div class="card-change up">▲ +6.89% (6/18 하루 급등)</div>
+      <div class="card-desc">
+        SK하이닉스 HBM4E 출하 + 코스피 9,000 돌파 반영.<br>
+        골드만삭스: 추가 35% 상승 여력 존재 (CNBC)
+      </div>
+      <span class="signal positive">✓ 강력 긍정 — 외국인 수요 확인</span>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    ⚠️ 본 내용은 투자 정보 제공 목적이며, 투자 권유가 아닙니다. 투자 판단의 최종 책임은 투자자 본인에게 있습니다.<br>
+    출처: Yahoo Finance, CNBC, XE.com, TradingView, Bloomberg, iShares (2026.06.18~22)
+  </div>
 </div>
-<div class="grid">
-  <div class="card vix">
-    <div class="card-icon">😰</div>
-    <div class="card-label">VIX 공포지수</div>
-    <div class="card-value">16.84</div>
-    <div class="card-change neutral">▼ 고점 22.22 → 안정화</div>
-    <div class="card-desc">S&amp;P500 30일 변동성 예측. 장기 평균(19) 이하 → 시장 안정. 6월 10일 22.22 고점 이후 빠르게 진정됨.</div>
-    <span class="signal-badge signal-positive">✅ 긍정 — 위험선호 환경</span>
-  </div>
-  <div class="card wti">
-    <div class="card-icon">🛢️</div>
-    <div class="card-label">WTI 유가 (배럴)</div>
-    <div class="card-value">$74.82</div>
-    <div class="card-change down">▼ 전주比 약 -$2 하락</div>
-    <div class="card-desc">미-이란 임시 평화 협정 소식으로 유가 하락. 한국 에너지 수입 비용 완화 → 무역수지 개선 기대.</div>
-    <span class="signal-badge signal-positive">✅ 긍정 — 에너지 비용 완화</span>
-  </div>
-  <div class="card krw">
-    <div class="card-icon">💱</div>
-    <div class="card-label">USD/KRW 환율</div>
-    <div class="card-value">1,512원</div>
-    <div class="card-change up">▲ 7일 대비 +0.77%</div>
-    <div class="card-desc">원화 약세 지속. Fed 금리 인상 시사로 달러 강세. 1,508~1,513 구간 등락. 당국 구두개입 가능 레벨 근접.</div>
-    <span class="signal-badge signal-caution">⚠️ 주의 — 환율 변동성 확대</span>
-  </div>
-  <div class="card dxy">
-    <div class="card-icon">💵</div>
-    <div class="card-label">DXY 달러인덱스</div>
-    <div class="card-value">100.72</div>
-    <div class="card-change up">▲ 2025년 5월 이후 최고</div>
-    <div class="card-desc">Fed FOMC 금리 인상 시사로 달러 강세. FOMC 위원 절반이 2026년 내 추가 인상 전망. 수출주 환산 이익 증가.</div>
-    <span class="signal-badge signal-caution">⚠️ 주의 — 달러 강세 지속</span>
-  </div>
-  <div class="card yield">
-    <div class="card-icon">📈</div>
-    <div class="card-label">미국 10년물 국채금리</div>
-    <div class="card-value">4.49%</div>
-    <div class="card-change up">▲ FOMC 후 소폭 상승</div>
-    <div class="card-desc">Fed 동결에도 인상 시사로 금리 오름세. 4.5% 미만은 성장주에 큰 부담 아님. 4.5% 돌파 시 성장주 밸류에이션 재평가 주의.</div>
-    <span class="signal-badge signal-caution">⚠️ 경계 — 4.5% 돌파 모니터링</span>
-  </div>
-  <div class="card ewy">
-    <div class="card-icon">🇰🇷</div>
-    <div class="card-label">EWY (iShares 한국 ETF)</div>
-    <div class="card-value">$205.08</div>
-    <div class="card-change up">▲ 코스피 동반 급등</div>
-    <div class="card-desc">iShares MSCI Korea ETF. $200대 유지 → 외국인의 한국 증시 신뢰 지속. 코스피 2026년 +75% 동반 상승 반영.</div>
-    <span class="signal-badge signal-positive">✅ 긍정 — 외국인 이탈 제한적</span>
-  </div>
-</div>
-<p class="footer-note">
-  ※ 데이터 기준: 2026년 6월 17~18일 종가 | 출처: Investing.com · CNBC · Bloomberg · TradingEconomics · XE.com<br>
-  ※ 본 내용은 투자 정보 제공 목적이며, 투자 권유가 아닙니다. 투자의 최종 판단은 본인에게 있습니다.
-</p>
 </body>
 </html>
