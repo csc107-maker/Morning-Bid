@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPS 폐지 타임라인 2026~2029</title>
+
+<meta property="og:title" content="RPS 폐지 타임라인 한눈에 보기 — 2026년 REC 발급마감부터 2029년 완전폐지까지" />
+<meta property="og:description" content="REC 신규발급 마감, 3년간 운영되는 전환시장, RPS 완전폐지까지 — 현물시장에서 PPA로 갈아탈 타이밍을 시기별로 정리했습니다." />
+<meta property="og:image" content="썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="포스트 URL을 입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+
+<style>
+  :root{
+    --cream:#FFFCF6;
+    --ink:#27231D;
+    --ink-soft:#7A7164;
+    --green:#15803D;
+    --green-dim:#DCFCE7;
+    --red:#DC2626;
+    --red-dim:#FEE2E2;
+    --amber:#B45309;
+    --amber-dim:#FEF3C7;
+    --line:#E9E1D2;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    font-family:'Pretendard', -apple-system, sans-serif;
+    color:var(--ink);
+    padding:28px 16px;
+  }
+  .wrap{max-width:680px; margin:0 auto;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    background:var(--green-dim); color:var(--green);
+    font-size:12.5px; font-weight:700;
+    padding:6px 12px; border-radius:100px; margin-bottom:14px;
+  }
+  h2{font-size:21px; font-weight:800; line-height:1.45; margin:0 0 8px; letter-spacing:-0.3px;}
+  .sub{font-size:14px; color:var(--ink-soft); margin:0 0 24px; line-height:1.6;}
+
+  .timeline{position:relative; padding-left:26px;}
+  .timeline::before{
+    content:"";
+    position:absolute; left:7px; top:6px; bottom:6px;
+    width:2px; background:linear-gradient(to bottom, var(--green), var(--amber), var(--red));
+  }
+  .item{position:relative; padding-bottom:24px;}
+  .item:last-child{padding-bottom:0;}
+  .dot{
+    position:absolute; left:-26px; top:2px;
+    width:16px; height:16px; border-radius:50%;
+    background:var(--white); border:3px solid var(--green);
+  }
+  .item.amber .dot{border-color:var(--amber);}
+  .item.red .dot{border-color:var(--red);}
+
+  .card{
+    background:var(--white); border:1px solid var(--line); border-radius:14px;
+    padding:14px 16px;
+  }
+  .year{
+    display:inline-block; font-size:11.5px; font-weight:800;
+    padding:3px 10px; border-radius:100px; margin-bottom:6px;
+  }
+  .item .year{background:var(--green-dim); color:var(--green);}
+  .item.amber .year{background:var(--amber-dim); color:var(--amber);}
+  .item.red .year{background:var(--red-dim); color:var(--red);}
+  .ttl{font-size:14.5px; font-weight:800; margin:0 0 4px; display:flex; align-items:center; gap:6px;}
+  .desc{font-size:12.5px; color:var(--ink-soft); line-height:1.6; margin:0;}
+
+  .tip{
+    margin-top:20px;
+    background:var(--amber-dim);
+    border-radius:14px; padding:16px 18px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .tip i{color:var(--amber); font-size:20px; margin-top:1px;}
+  .tip-text{font-size:13.5px; line-height:1.65;}
+  .tip-text b{color:var(--amber);}
+  .footnote{margin-top:14px; font-size:11px; color:var(--ink-soft); text-align:right;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow"><i class="ti ti-clock-hour-9"></i> 제도 일정</span>
+  <h2>RPS 폐지, 정확히 언제 무슨 일이?</h2>
+  <p class="sub">'29년에 한 번에 사라지는 게 아니라, 3년짜리 전환 구간이 먼저 열립니다.</p>
+
+  <div class="timeline">
+
+    <div class="item">
+      <div class="dot"></div>
+      <div class="card">
+        <span class="year">2026.12.31</span>
+        <p class="ttl"><i class="ti ti-file-x" style="color:var(--green)"></i> REC 신규 발급 마감</p>
+        <p class="desc">올해까지 준공·등록된 발전소까지만 신규 REC 발급 대상. 2027년 이후 준공 발전소는 현물시장 진입 자체가 불가합니다.</p>
+      </div>
+    </div>
+
+    <div class="item amber">
+      <div class="dot"></div>
+      <div class="card">
+        <span class="year">2027 ~ 2029</span>
+        <p class="ttl"><i class="ti ti-bridge" style="color:var(--amber)"></i> 재생에너지 계약시장(전환시장) 3년 운영</p>
+        <p class="desc">현물시장에서 직접PPA·고정가격계약으로 넘어갈 수 있는 가교 구간. 굳이 마지막 해까지 기다리지 않고, 이 3년 중 유리한 시점에 옮길 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="item red">
+      <div class="dot"></div>
+      <div class="card">
+        <span class="year">2029.12.31</span>
+        <p class="ttl"><i class="ti ti-flag-off" style="color:var(--red)"></i> RPS 제도 완전 폐지</p>
+        <p class="desc">REC 현물시장 종료. 다만 이미 고정가격계약을 맺은 발전소는 계약기간(최대 20년)까지 기존 방식대로 REC 발급이 계속됩니다.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tip">
+    <i class="ti ti-bulb"></i>
+    <div class="tip-text">
+      <b>전략 포인트:</b> "29년까지 버티다 막판에 갈아탄다"보다, 27~29년 매년 SMP·REC 시세와 PPA 협상가를 비교하며 유리한 타이밍에 옮기는 게 더 안전합니다. 마지막 순간엔 이동 수요가 몰려 협상력이 떨어질 수 있습니다.
+    </div>
+  </div>
+
+  <div class="footnote">자료: 산업통상자원부·기후에너지환경부 제1차 재생에너지 기본계획, 업계 보도 종합 · 2026.06 기준</div>
+</div>
+</body>
+</html>
