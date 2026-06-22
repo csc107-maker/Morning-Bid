@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMP·REC 수익 계산 검증 — 80원+74×1.2=168.8원 맞을까?</title>
+
+<meta property="og:title" content="SMP 80원 + REC 74,000원×1.2가중치 = 168.8원? 계산 전 꼭 확인할 3가지" />
+<meta property="og:description" content="산술은 맞지만 입력값에 함정이 있습니다. 정부의 80원 목표, RPS REC와 RE100 REC의 차이, 가중치 적용 기준을 데이터로 검증했습니다." />
+<meta property="og:image" content="썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="포스트 URL을 입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+
+<style>
+  :root{
+    --cream:#FFFBF5;
+    --ink:#2A2420;
+    --ink-soft:#796F62;
+    --teal:#0F766E;
+    --teal-dim:#CCFBF1;
+    --orange:#C2410C;
+    --orange-dim:#FFEDD5;
+    --line:#EEE4D4;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--cream); font-family:'Pretendard', -apple-system, sans-serif; color:var(--ink); padding:28px 16px;}
+  .wrap{max-width:680px; margin:0 auto;}
+  .eyebrow{display:inline-flex; align-items:center; gap:6px; background:var(--teal-dim); color:var(--teal); font-size:12.5px; font-weight:700; padding:6px 12px; border-radius:100px; margin-bottom:14px;}
+  h2{font-size:21px; font-weight:800; line-height:1.45; margin:0 0 8px; letter-spacing:-0.3px;}
+  .sub{font-size:14px; color:var(--ink-soft); margin:0 0 20px; line-height:1.6;}
+
+  .formula{
+    background:var(--white); border:1.5px solid var(--teal); border-radius:16px;
+    padding:18px; text-align:center; margin-bottom:8px;
+  }
+  .formula .calc{font-size:18px; font-weight:800; letter-spacing:-0.2px;}
+  .formula .calc .num{color:var(--teal);}
+  .formula .ok{
+    margin-top:8px; display:inline-flex; align-items:center; gap:5px;
+    font-size:12px; font-weight:700; color:var(--teal);
+  }
+
+  .arrow-down{text-align:center; color:var(--ink-soft); font-size:13px; margin:8px 0 14px;}
+
+  .checklist{display:flex; flex-direction:column; gap:10px; margin-bottom:18px;}
+  .check{
+    background:var(--white); border:1px solid var(--line); border-radius:14px;
+    padding:13px 15px; display:flex; gap:11px; align-items:flex-start;
+  }
+  .check .ic{
+    flex-shrink:0; width:26px; height:26px; border-radius:50%;
+    background:var(--orange-dim); color:var(--orange);
+    display:flex; align-items:center; justify-content:center; font-size:14px;
+  }
+  .check .body b{font-size:13.5px; display:block; margin-bottom:3px;}
+  .check .body span{font-size:12px; color:var(--ink-soft); line-height:1.55;}
+
+  table{width:100%; border-collapse:collapse; margin-top:4px; font-size:12px;}
+  th, td{padding:9px 8px; text-align:center; border-bottom:1px solid var(--line);}
+  th{color:var(--ink-soft); font-weight:700; font-size:11.5px;}
+  td.lbl{text-align:left; font-weight:700;}
+  .tbl-wrap{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin-bottom:16px;}
+  .tbl-title{font-size:13px; font-weight:800; margin-bottom:8px; display:flex; align-items:center; gap:6px;}
+  .tbl-title i{color:var(--teal);}
+
+  .footnote{margin-top:6px; font-size:11px; color:var(--ink-soft); text-align:right;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow"><i class="ti ti-calculator"></i> 계산 검증</span>
+  <h2>80원 + 74,000원×1.2가중치<br>= 168.8원, 맞을까?</h2>
+  <p class="sub">산식 구조는 정확합니다. 다만 세 가지 입력값을 검증하지 않으면 실제와 다른 결과가 나올 수 있어요.</p>
+
+  <div class="formula">
+    <div class="calc">80원 + (<span class="num">74,000원÷1,000</span>×1.2) = <span class="num">168.8원</span>/kWh</div>
+    <div class="ok"><i class="ti ti-check"></i> 산술 자체는 정확함</div>
+  </div>
+  <div class="arrow-down"><i class="ti ti-arrow-down"></i> 그런데 입력값 세 개를 확인하면</div>
+
+  <div class="checklist">
+    <div class="check">
+      <div class="ic"><i class="ti ti-alert-triangle"></i></div>
+      <div class="body">
+        <b>① "80원"은 SMP가 아니라 2035년 정부 계약단가 목표치</b>
+        <span>정부가 밝힌 80원은 현물 SMP가 아니라, 태양광 장기고정가격계약의 LCOE 기준 '올인원 상한가'를 2035년까지 80원 밑으로 낮춘다는 목표입니다. 이미 SMP+REC가 합쳐진 값일 수 있어, 여기에 REC를 또 더하면 이중계산이 될 수 있습니다.</span>
+      </div>
+    </div>
+    <div class="check">
+      <div class="ic"><i class="ti ti-chart-line"></i></div>
+      <div class="body">
+        <b>② 실제 SMP는 80원에 머물지 않음 — 연중 변동폭이 큽니다</b>
+        <span>2026년 초 80~90원대였던 SMP는 4월 118~130원대로 올랐고, 여름철엔 LNG 가격 급등 영향으로 160~200원대 전망도 나옵니다. 80원은 연중 저점 가정에 가깝습니다.</span>
+      </div>
+    </div>
+    <div class="check">
+      <div class="ic"><i class="ti ti-arrows-shuffle"></i></div>
+      <div class="body">
+        <b>③ RPS용 REC와 RE100용 REC는 가격이 다른 별도 시장</b>
+        <span>전력거래소 RPS 거래시장과 한국에너지공단 RE100 인증서 거래시장은 분리되어 있고, 가격도 다르게 움직입니다. "74,000원"이 어느 시장 가격인지 먼저 확인이 필요합니다.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <div class="tbl-title"><i class="ti ti-database"></i> 참고 — 2026년 상반기 실제 시세 데이터</div>
+    <table>
+      <tr><th>항목</th><th>육지 기준</th><th>비고</th></tr>
+      <tr><td class="lbl">SMP (4월)</td><td>118~130원/kWh</td><td>여름철 160~200원 전망</td></tr>
+      <tr><td class="lbl">REC 현물 (5월)</td><td>71,019원/REC</td><td>RPS 거래시장 기준</td></tr>
+      <tr><td class="lbl">직접PPA 상한</td><td>156원/kWh</td><td>산업부 기준</td></tr>
+      <tr><td class="lbl">고정가격계약 상한</td><td>157원/kWh</td><td>2025년 상반기 기준</td></tr>
+    </table>
+  </div>
+
+  <div class="footnote">자료: 전력거래소(KPX), 한국에너지공단, 증권사 리서치 종합 · 시세는 매주 변동되므로 실제 계산 시 최신 고시가 재확인 필요</div>
+</div>
+</body>
+</html>
