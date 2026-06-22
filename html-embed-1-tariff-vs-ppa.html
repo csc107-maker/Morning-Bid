@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>산업용 전기요금 vs 기업PPA 단가 — 같이 움직일까?</title>
+
+<meta property="og:title" content="산업용 전기요금이 올라도 기업PPA 단가는 안 떨어진다? 구조부터 확인하기" />
+<meta property="og:description" content="산업용 전기요금과 직접PPA·제3자PPA 계약 단가는 서로 다른 시스템으로 결정됩니다. 연료비조정단가, 2026년 1분기 동결 사례까지 데이터로 정리했습니다." />
+<meta property="og:image" content="썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="포스트 URL을 입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+
+<style>
+  :root{
+    --cream:#FFFBF2;
+    --ink:#2B2118;
+    --ink-soft:#6B6055;
+    --amber:#D97706;
+    --amber-dim:#FEF3C7;
+    --sky:#0284C7;
+    --sky-dim:#E0F2FE;
+    --line:#EBE3D4;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    font-family:'Pretendard', -apple-system, sans-serif;
+    color:var(--ink);
+    padding:28px 16px;
+  }
+  .wrap{
+    max-width:680px;
+    margin:0 auto;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--amber-dim);
+    color:var(--amber);
+    font-size:12.5px;
+    font-weight:700;
+    padding:6px 12px;
+    border-radius:100px;
+    margin-bottom:14px;
+  }
+  h2{
+    font-size:21px;
+    font-weight:800;
+    line-height:1.45;
+    margin:0 0 8px;
+    letter-spacing:-0.3px;
+  }
+  .sub{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+    line-height:1.6;
+  }
+  .compare{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:10px;
+    align-items:stretch;
+    margin-bottom:18px;
+  }
+  .col{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px 16px;
+  }
+  .col-head{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    font-weight:800;
+    margin-bottom:12px;
+  }
+  .col-head i{font-size:18px;}
+  .c-sky{color:var(--sky);}
+  .c-amber{color:var(--amber);}
+  .row{
+    display:flex;
+    justify-content:space-between;
+    font-size:12.5px;
+    padding:7px 0;
+    border-bottom:1px dashed var(--line);
+    gap:8px;
+  }
+  .row:last-child{border-bottom:none;}
+  .row .k{color:var(--ink-soft);}
+  .row .v{font-weight:700; text-align:right;}
+  .mid{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .mid-badge{
+    width:46px;height:46px;
+    border-radius:50%;
+    background:var(--cream);
+    border:1.5px dashed var(--ink-soft);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink-soft);
+    font-size:18px;
+  }
+  .verdict{
+    background:var(--sky-dim);
+    border-radius:14px;
+    padding:16px 18px;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .verdict i{
+    color:var(--sky);
+    font-size:20px;
+    margin-top:1px;
+  }
+  .verdict-text{
+    font-size:13.5px;
+    line-height:1.65;
+  }
+  .verdict-text b{color:var(--sky);}
+  .footnote{
+    margin-top:14px;
+    font-size:11px;
+    color:var(--ink-soft);
+    text-align:right;
+  }
+  @media (max-width:480px){
+    .compare{grid-template-columns:1fr; }
+    .mid{transform:rotate(90deg); padding:2px 0;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow"><i class="ti ti-bolt"></i> 가격 구조 비교</span>
+  <h2>산업용 전기요금이 오른다고<br>기업PPA 단가도 같이 오를까?</h2>
+  <p class="sub">두 가격은 같은 시장에서 결정되지 않습니다. 하나는 정부·한전이 정하고, 하나는 발전사업자와 기업이 개별 협상합니다.</p>
+
+  <div class="compare">
+    <div class="col">
+      <div class="col-head c-sky"><i class="ti ti-building-factory-2"></i> 산업용 전기요금</div>
+      <div class="row"><span class="k">결정 주체</span><span class="v">정부·한전</span></div>
+      <div class="row"><span class="k">연동 기준</span><span class="v">국제 LNG·유가</span></div>
+      <div class="row"><span class="k">조정 주기</span><span class="v">분기별 (비정기)</span></div>
+      <div class="row"><span class="k">2026년 1분기</span><span class="v">동결</span></div>
+      <div class="row"><span class="k">2024.10 대비 2022</span><span class="v">+75.8%</span></div>
+    </div>
+
+    <div class="mid"><div class="mid-badge"><i class="ti ti-arrows-right-left"></i></div></div>
+
+    <div class="col">
+      <div class="col-head c-amber"><i class="ti ti-file-certificate"></i> 기업·제3자 PPA</div>
+      <div class="row"><span class="k">결정 주체</span><span class="v">발전사·기업 협상</span></div>
+      <div class="row"><span class="k">연동 기준</span><span class="v">계약서 조항</span></div>
+      <div class="row"><span class="k">조정 주기</span><span class="v">계약기간 내 고정 多</span></div>
+      <div class="row"><span class="k">SMP 80원대 시기</span><span class="v">계약가 유지</span></div>
+      <div class="row"><span class="k">신규 협상 단가</span><span class="v">매년 시장따라 변동</span></div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <i class="ti ti-bulb"></i>
+    <div class="verdict-text">
+      <b>핵심:</b> 기존에 체결된 PPA 단가가 안 떨어지는 이유는 "산업용 요금이 올라서"가 아니라 "계약서에 고정가로 못박았기 때문"입니다. 두 가격은 서로 다른 시스템이라, 산업용 요금 인상이 PPA 단가 인상을 보장해주지 않습니다.
+    </div>
+  </div>
+
+  <div class="footnote">자료: 산업통상자원부, 한국전력, 언론보도 종합 · 2026.06 기준</div>
+</div>
+</body>
+</html>
