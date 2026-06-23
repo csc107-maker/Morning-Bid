@@ -3,269 +3,194 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="오늘 코스피 핵심 뉴스 TOP5 타임라인 | 2026.06.23" />
-<meta property="og:description" content="SK하이닉스 시총 1위, 한국 수출 60% 폭증, 원전 2기 확정, 씨티 코스피 10000p 상향 등 오늘 증시를 움직이는 핵심 5대 뉴스" />
-<meta property="og:image" content="https://via.placeholder.com/1200x630/f0fdf4/064e3b?text=Korea+Stock+Market+News+2026.06.23" />
-<meta property="og:url" content="https://blog.naver.com/your-blog/morning-report-20260623" />
-<title>오늘의 핵심 뉴스 TOP5 | 2026.06.23</title>
+<meta property="og:title" content="2026.06.24 한국 증시 핵심 뉴스 TOP 5 타임라인" />
+<meta property="og:description" content="코스피에 영향 주는 오늘의 5대 뉴스 — 브로드컴 쇼크, 수출 급증, HBM4 돌파, 유가 하락" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/0a2540/FFFFFF?text=Korea+Market+News+2026.06.24" />
+<meta property="og:url" content="https://blog.naver.com/csc107" />
+<title>뉴스 타임라인 | 2026.06.24</title>
 <style>
+  /* 삽입 위치: 핵심 뉴스 TOP 5 섹션 직후 */
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-    background: #f0fdf4;
-    padding: 20px;
-    min-height: 100vh;
-  }
-  .news-wrapper {
+  body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background: transparent; }
+  .nt-container {
+    background: #fffbf0;
+    border-radius: 16px;
+    padding: 24px;
     max-width: 860px;
-    margin: 0 auto;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 4px 24px rgba(0,100,60,0.10);
-    overflow: hidden;
+    margin: 20px auto;
+    box-shadow: 0 4px 20px rgba(180,120,0,0.10);
   }
-  .news-header {
-    background: linear-gradient(135deg, #064e3b 0%, #10b981 100%);
-    color: #fff;
-    padding: 22px 28px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
+  .nt-header {
+    text-align: center;
+    margin-bottom: 22px;
   }
-  .news-header h2 {
-    font-size: 1.18rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+  .nt-header h2 {
+    font-size: 1.25rem;
+    color: #7a4800;
+    font-weight: 800;
   }
-  .news-header .date-badge {
-    background: rgba(255,255,255,0.18);
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 0.82rem;
-    font-weight: 500;
-  }
-  .timeline {
-    padding: 24px 28px;
-    position: relative;
-  }
-  .timeline::before {
+  .nt-header p { font-size: 0.82rem; color: #a06020; margin-top: 4px; }
+  .nt-timeline { position: relative; padding-left: 36px; }
+  .nt-timeline::before {
     content: '';
     position: absolute;
-    left: 52px;
-    top: 24px;
-    bottom: 24px;
+    left: 14px;
+    top: 0; bottom: 0;
     width: 3px;
-    background: linear-gradient(to bottom, #10b981, #d1fae5);
-    border-radius: 3px;
+    background: linear-gradient(to bottom, #e67e22, #27ae60, #3498db, #9b59b6, #2ecc71);
+    border-radius: 2px;
   }
-  .timeline-item {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 22px;
-    align-items: flex-start;
+  .nt-item {
+    position: relative;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-left: 4px solid #e67e22;
   }
-  .timeline-item:last-child { margin-bottom: 0; }
-  .timeline-icon {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
+  .nt-item:nth-child(1) { border-left-color: #e74c3c; }
+  .nt-item:nth-child(2) { border-left-color: #e74c3c; }
+  .nt-item:nth-child(3) { border-left-color: #27ae60; }
+  .nt-item:nth-child(4) { border-left-color: #27ae60; }
+  .nt-item:nth-child(5) { border-left-color: #3498db; }
+  .nt-dot {
+    position: absolute;
+    left: -28px;
+    top: 18px;
+    width: 16px; height: 16px;
     border-radius: 50%;
+    background: #e67e22;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+  .nt-item:nth-child(1) .nt-dot { background: #e74c3c; }
+  .nt-item:nth-child(2) .nt-dot { background: #e74c3c; }
+  .nt-item:nth-child(3) .nt-dot { background: #27ae60; }
+  .nt-item:nth-child(4) .nt-dot { background: #27ae60; }
+  .nt-item:nth-child(5) .nt-dot { background: #3498db; }
+  .nt-top-row {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    position: relative;
-    z-index: 1;
-    background: #fff;
-    border: 3px solid #10b981;
-  }
-  .timeline-content {
-    flex: 1;
-    background: #f8fffe;
-    border-radius: 14px;
-    padding: 16px 18px;
-    border: 1px solid #d1fae5;
-    transition: box-shadow 0.18s;
-  }
-  .timeline-content:hover { box-shadow: 0 4px 16px rgba(16,185,129,0.15); }
-  .timeline-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
     margin-bottom: 8px;
   }
-  .timeline-title {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #111827;
-    line-height: 1.4;
-    flex: 1;
-  }
-  .tag {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 0.70rem;
-    font-weight: 700;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .tag-bullish { background: #d1fae5; color: #065f46; }
-  .tag-bearish { background: #fee2e2; color: #991b1b; }
-  .tag-neutral { background: #e5e7eb; color: #374151; }
-  .timeline-body {
-    font-size: 0.84rem;
-    color: #4b5563;
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-  .timeline-footer {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .source-badge {
-    background: #eff6ff;
-    color: #1d4ed8;
-    padding: 3px 10px;
-    border-radius: 12px;
+  .nt-num {
     font-size: 0.72rem;
+    font-weight: 800;
+    color: #bbb;
+    min-width: 22px;
+  }
+  .nt-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+  .badge-bad  { background: #fdecea; color: #c0392b; }
+  .badge-good { background: #eafaf1; color: #1e8449; }
+  .badge-neu  { background: #eaf0fb; color: #2471a3; }
+  .nt-source {
+    font-size: 0.68rem;
+    background: #f0f0f0;
+    color: #666;
+    padding: 2px 8px;
+    border-radius: 20px;
     font-weight: 600;
   }
-  .impact-text {
-    font-size: 0.74rem;
-    color: #6b7280;
-    font-weight: 500;
+  .nt-title {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.4;
+    margin-bottom: 6px;
   }
-  .news-footer {
-    background: #f8faff;
-    border-top: 1px solid #e5e7eb;
-    padding: 14px 22px;
-    font-size: 0.73rem;
-    color: #9ca3af;
+  .nt-body {
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  .nt-footer {
     text-align: center;
+    margin-top: 14px;
+    font-size: 0.72rem;
+    color: #aaa;
   }
-  @media (max-width: 480px) {
-    .timeline { padding: 14px; }
-    .timeline::before { left: 36px; }
-    .timeline-icon { width: 36px; height: 36px; font-size: 1rem; }
-    .timeline-title { font-size: 0.88rem; }
-    .news-header { padding: 16px; }
+  @media (max-width: 500px) {
+    .nt-container { padding: 14px; }
+    .nt-title { font-size: 0.9rem; }
   }
 </style>
 </head>
 <body>
-<!-- [삽입 위치: 핵심 뉴스 TOP 5 섹션 직후] -->
-<div class="news-wrapper">
-  <div class="news-header">
-    <h2>📰 오늘의 핵심 뉴스 TOP 5</h2>
-    <span class="date-badge">📅 2026년 6월 23일</span>
+<!-- [삽입 위치] 핵심 뉴스 TOP 5 섹션 직후 삽입 -->
+<div class="nt-container">
+  <div class="nt-header">
+    <h2>📰 2026.06.24 코스피 핵심 뉴스 타임라인</h2>
+    <p>오늘 한국 증시에 영향을 줄 5대 뉴스 — 호재·악재 분류</p>
   </div>
+  <div class="nt-timeline">
 
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <div class="timeline-icon">🏆</div>
-      <div class="timeline-content">
-        <div class="timeline-top">
-          <div class="timeline-title">SK하이닉스, 삼성전자 제치고 국내 시가총액 1위 등극</div>
-          <span class="tag tag-bullish">📈 호재</span>
-        </div>
-        <div class="timeline-body">
-          SK하이닉스 시총 2,082.5조 원 → 삼성전자(2,081.3조 원) 최초 추월. HBM4 시장 70% 점유, 연초 대비 +340% 상승이 배경. AI 메모리 왕좌 확인.
-        </div>
-        <div class="timeline-footer">
-          <span class="source-badge">MarketScreener</span>
-          <span class="source-badge">Bloomberg</span>
-          <span class="impact-text">🎯 반도체 섹터 전반 강세 지속 신호</span>
-        </div>
+    <div class="nt-item">
+      <div class="nt-dot"></div>
+      <div class="nt-top-row">
+        <span class="nt-num">#1</span>
+        <span class="nt-badge badge-bad">악재 🔴</span>
+        <span class="nt-source">Bloomberg · TradingKey</span>
       </div>
+      <div class="nt-title">브로드컴 AI 칩 가이던스 쇼크 — 삼성·SK하이닉스 폭락의 트리거</div>
+      <div class="nt-body">브로드컴이 3분기 AI 칩 매출 가이던스를 $16억 달러로 제시, 시장 예상치 $17.2억 달러를 7% 하회. AI 반도체 수요 피크아웃 우려가 재부각되며 한국 반도체 대형주 12% 이상 급락의 직접 원인이 됐습니다.</div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-icon">📦</div>
-      <div class="timeline-content">
-        <div class="timeline-top">
-          <div class="timeline-title">한국 6월 1~20일 수출 +60.4% 폭증, 반도체는 3배 성장</div>
-          <span class="tag tag-bullish">📈 호재</span>
-        </div>
-        <div class="timeline-body">
-          관세청 통계 기준, AI 서버용 HBM·고성능 DRAM 글로벌 수요 폭발이 원인. 코스피 랠리가 '버블'이 아닌 실물 이익 성장 기반임을 확인해주는 핵심 지표.
-        </div>
-        <div class="timeline-footer">
-          <span class="source-badge">관세청</span>
-          <span class="source-badge">Bloomberg</span>
-          <span class="source-badge">CNBC</span>
-          <span class="impact-text">🎯 삼성전자·SK하이닉스 실적 기반 확인</span>
-        </div>
+    <div class="nt-item">
+      <div class="nt-dot"></div>
+      <div class="nt-top-row">
+        <span class="nt-num">#2</span>
+        <span class="nt-badge badge-bad">주의 🟠</span>
+        <span class="nt-source">Bloomberg · CNBC</span>
       </div>
+      <div class="nt-title">코스피 서킷브레이커 하루 두 번 발동 — 2020년 코로나 이후 최대 폭락</div>
+      <div class="nt-body">6월 23일 코스피가 장중 6%+ 급락하며 하루 두 차례 서킷브레이커가 발동됐습니다. 삼성전자·SK하이닉스 각각 12%+ 하락 마감. 종가 기준 코스피 8,203선으로 6월 12일 이후 최저치를 기록했어요.</div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-icon">⚛️</div>
-      <div class="timeline-content">
-        <div class="timeline-top">
-          <div class="timeline-title">한국 정부, 신규 원전 2기 + SMR 1기 건설 공식 발표</div>
-          <span class="tag tag-bullish">📈 호재</span>
-        </div>
-        <div class="timeline-body">
-          AI 데이터센터 전력 수요 폭발 대응 및 탄소중립 목표 실현 목적. 두산에너빌리티(원전 주기기), HD한국조선해양(원자력 선박) 등 직접 수혜 예상. SMR 글로벌 시장 선점 기회.
-        </div>
-        <div class="timeline-footer">
-          <span class="source-badge">KED Global</span>
-          <span class="source-badge">산업통상자원부</span>
-          <span class="impact-text">🎯 두산에너빌리티·한화에어로 수혜</span>
-        </div>
+    <div class="nt-item">
+      <div class="nt-dot"></div>
+      <div class="nt-top-row">
+        <span class="nt-num">#3</span>
+        <span class="nt-badge badge-good">호재 🟢</span>
+        <span class="nt-source">CNBC · 관세청</span>
       </div>
+      <div class="nt-title">한국 6월 1~20일 수출 +60.4% 급증 — 반도체 출하 3배</div>
+      <div class="nt-body">6월 1~20일 한국 수출이 전년 동기 대비 60.4% 급증, 반도체 출하는 거의 3배를 기록했습니다. 주가 급락에도 실물 경제 펀더멘털은 여전히 탄탄하다는 증거. 골드만삭스 코스피 12개월 목표 12,000 상향의 근거이기도 해요.</div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-icon">⚠️</div>
-      <div class="timeline-content">
-        <div class="timeline-top">
-          <div class="timeline-title">미국-이란 협상 취소, 중동 지정학 불안 재부각</div>
-          <span class="tag tag-bearish">📉 악재</span>
-        </div>
-        <div class="timeline-body">
-          6월 22일 코스피 0.13% 하락의 직접 트리거. 그러나 유가 하락(WTI $74)과 동시에 발생 → 충격 제한적. 일시적 차익 실현 빌미로 해석. 추가 협상 재개 시 반등 가능.
-        </div>
-        <div class="timeline-footer">
-          <span class="source-badge">Reuters</span>
-          <span class="source-badge">Trading Economics</span>
-          <span class="impact-text">⚠️ 단기 변동성 요인, 펀더멘털 변화 없음</span>
-        </div>
+    <div class="nt-item">
+      <div class="nt-dot"></div>
+      <div class="nt-top-row">
+        <span class="nt-num">#4</span>
+        <span class="nt-badge badge-good">호재 🟢</span>
+        <span class="nt-source">Bloomberg</span>
       </div>
+      <div class="nt-title">삼성전자 HBM4 출시 4개월 만에 매출 10억 달러 돌파</div>
+      <div class="nt-body">삼성전자가 HBM4(5세대 고대역폭 메모리) 출시 4개월 만에 매출 10억 달러(약 1.5조원)를 돌파했습니다. HBM 시장 점유율을 30% 이상으로 끌어올리며 SK하이닉스 독주 체제에 균열이 생기고 있는 상황이에요.</div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-icon">🎯</div>
-      <div class="timeline-content">
-        <div class="timeline-top">
-          <div class="timeline-title">씨티 코스피 목표 10,000p, 골드만 35% 추가 상승 전망</div>
-          <span class="tag tag-bullish">📈 호재</span>
-        </div>
-        <div class="timeline-body">
-          씨티그룹, 코스피 목표치 8,500→10,000p 상향. 메모리 이익 성장·재정 건전성 근거. 골드만삭스도 현재 대비 35% 추가 상승 전망. 외국인 순매도에도 글로벌 IB 낙관론 유효.
-        </div>
-        <div class="timeline-footer">
-          <span class="source-badge">CNBC</span>
-          <span class="source-badge">Goldman Sachs</span>
-          <span class="source-badge">Citigroup</span>
-          <span class="impact-text">🎯 중장기 코스피 방향성 우상향 확인</span>
-        </div>
+    <div class="nt-item">
+      <div class="nt-dot"></div>
+      <div class="nt-top-row">
+        <span class="nt-num">#5</span>
+        <span class="nt-badge badge-neu">중립 🔵</span>
+        <span class="nt-source">TradingEconomics · Investing.com</span>
       </div>
+      <div class="nt-title">WTI 유가 $73.30 — 3개월 최저, 미·이란 협상 진전</div>
+      <div class="nt-body">미국-이란 평화 협상 진전, 미국의 이란 원유 60일 판매 라이선스 부여로 WTI 유가가 $73.30까지 하락했습니다. 에너지 100% 수입국인 한국에게는 물가 안정·기업 원가 절감 효과. 항공(대한항공), 화학, 해운 업종에 긍정적이에요.</div>
     </div>
 
   </div>
-
-  <div class="news-footer">
-    📌 출처: MarketScreener · Bloomberg · CNBC · KED Global · Reuters · Goldman Sachs · Citigroup | 기준: 2026.06.22~23 | 본 내용은 투자 권유가 아닙니다.
+  <div class="nt-footer">
+    ※ 정보 출처: Bloomberg, CNBC, TradingKey, TradingEconomics, Investing.com | 투자 참고용 — 투자 권유 아님
   </div>
 </div>
 </body>
