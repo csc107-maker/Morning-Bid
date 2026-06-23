@@ -3,199 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="2026.06.23 글로벌 핵심 지표 대시보드 | 코스피 아침 시황" />
-<meta property="og:description" content="VIX 16, WTI $74, 달러/원 1538원, DXY 101, 미국채 4.48%, EWY $219 — 오늘 코스피를 움직이는 6대 글로벌 지표 분석" />
-<meta property="og:image" content="https://via.placeholder.com/1200x630/e8f4fd/1a3a6b?text=2026.06.23+Global+Market+Dashboard" />
-<meta property="og:url" content="https://blog.naver.com/your-blog/morning-report-20260623" />
-<title>글로벌 지표 대시보드 | 2026.06.23</title>
+<meta property="og:title" content="2026년 6월 24일 글로벌 시장 지표 현황" />
+<meta property="og:description" content="VIX, WTI, 환율, DXY, 미국금리, EWY 6대 핵심 글로벌 지표 실시간 분석" />
+<meta property="og:image" content="https://via.placeholder.com/1200x630/0052CC/FFFFFF?text=Global+Market+Indicators+2026.06.24" />
+<meta property="og:url" content="https://blog.naver.com/csc107" />
+<title>글로벌 시장 지표 | 2026.06.24</title>
 <style>
-  /* 삽입 위치: VIX 섹션 직후 / 서론 하단 */
+  /* 삽입 위치: VIX 섹션 직후 */
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background: transparent;
+    padding: 0;
+  }
+  .gi-container {
     background: #f0f6ff;
-    padding: 20px;
-    min-height: 100vh;
-  }
-  .dashboard-wrapper {
+    border-radius: 16px;
+    padding: 24px;
     max-width: 860px;
-    margin: 0 auto;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 4px 24px rgba(0,80,200,0.10);
-    overflow: hidden;
+    margin: 20px auto;
+    box-shadow: 0 4px 20px rgba(0,82,204,0.10);
   }
-  .dashboard-header {
-    background: linear-gradient(135deg, #1a3a6b 0%, #2563eb 100%);
-    color: #fff;
-    padding: 22px 28px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
+  .gi-header {
+    text-align: center;
+    margin-bottom: 20px;
   }
-  .dashboard-header h2 {
-    font-size: 1.18rem;
+  .gi-header h2 {
+    font-size: 1.3rem;
+    color: #1a3a6b;
     font-weight: 700;
     letter-spacing: -0.5px;
   }
-  .dashboard-header .date-badge {
-    background: rgba(255,255,255,0.18);
-    border-radius: 20px;
-    padding: 4px 14px;
+  .gi-header p {
     font-size: 0.82rem;
-    font-weight: 500;
+    color: #5a7ab0;
+    margin-top: 4px;
   }
-  .indicators-grid {
+  .gi-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-    padding: 22px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
   }
-  .indicator-card {
-    border-radius: 14px;
-    padding: 18px 20px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.18s, box-shadow 0.18s;
+  .gi-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-top: 4px solid #4a90d9;
+    transition: transform 0.2s;
   }
-  .indicator-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.13);
-  }
-  .card-vix { background: linear-gradient(135deg, #fef3c7, #fde68a); border-left: 4px solid #f59e0b; }
-  .card-wti { background: linear-gradient(135deg, #d1fae5, #a7f3d0); border-left: 4px solid #10b981; }
-  .card-krw { background: linear-gradient(135deg, #fee2e2, #fecaca); border-left: 4px solid #ef4444; }
-  .card-dxy { background: linear-gradient(135deg, #e0e7ff, #c7d2fe); border-left: 4px solid #6366f1; }
-  .card-bond { background: linear-gradient(135deg, #fce7f3, #fbcfe8); border-left: 4px solid #ec4899; }
-  .card-ewy { background: linear-gradient(135deg, #d1fae5, #bbf7d0); border-left: 4px solid #059669; }
-  .card-label {
-    font-size: 0.74rem;
+  .gi-card:hover { transform: translateY(-3px); }
+  .gi-card.vix   { border-top-color: #e67e22; }
+  .gi-card.wti   { border-top-color: #27ae60; }
+  .gi-card.krw   { border-top-color: #8e44ad; }
+  .gi-card.dxy   { border-top-color: #2980b9; }
+  .gi-card.bond  { border-top-color: #c0392b; }
+  .gi-card.ewy   { border-top-color: #16a085; }
+  .gi-label {
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.7;
+    letter-spacing: 0.8px;
+    color: #7f8c8d;
     margin-bottom: 6px;
   }
-  .card-name {
-    font-size: 0.88rem;
+  .gi-name {
+    font-size: 0.85rem;
+    color: #2c3e50;
     font-weight: 600;
-    color: #374151;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
-  .card-value {
-    font-size: 1.75rem;
+  .gi-value {
+    font-size: 1.6rem;
     font-weight: 800;
-    color: #111827;
-    letter-spacing: -1px;
+    color: #1a3a6b;
     line-height: 1.1;
   }
-  .card-unit {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #6b7280;
-    margin-left: 3px;
-  }
-  .card-change {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 3px 10px;
+  .gi-change {
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-top: 4px;
+    padding: 2px 8px;
     border-radius: 20px;
-    font-size: 0.78rem;
-    font-weight: 700;
+    display: inline-block;
   }
-  .change-up { background: #fee2e2; color: #dc2626; }
-  .change-down { background: #d1fae5; color: #059669; }
-  .change-neutral { background: #e5e7eb; color: #6b7280; }
-  .card-signal {
-    margin-top: 10px;
-    font-size: 0.78rem;
-    color: #374151;
+  .up   { background: #ffeaea; color: #c0392b; }
+  .down { background: #eafaf1; color: #27ae60; }
+  .neu  { background: #f0f0f0; color: #555; }
+  .gi-signal {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: #7f8c8d;
     line-height: 1.4;
+    padding-top: 8px;
+    border-top: 1px dashed #e0e7f0;
   }
-  .signal-icon { margin-right: 4px; }
-  .dashboard-footer {
-    background: #f8faff;
-    border-top: 1px solid #e5e7eb;
-    padding: 14px 22px;
-    font-size: 0.73rem;
-    color: #9ca3af;
+  .gi-signal strong { color: #2c3e50; }
+  .gi-footer {
     text-align: center;
+    margin-top: 16px;
+    font-size: 0.72rem;
+    color: #95a5a6;
   }
   @media (max-width: 480px) {
-    .indicators-grid { grid-template-columns: 1fr; gap: 12px; padding: 14px; }
-    .card-value { font-size: 1.4rem; }
-    .dashboard-header { padding: 16px; }
+    .gi-value { font-size: 1.3rem; }
+    .gi-container { padding: 14px; }
   }
 </style>
 </head>
 <body>
-<!-- [삽입 위치: VIX 분석 섹션 직후 또는 서론 바로 아래] -->
-<div class="dashboard-wrapper">
-  <div class="dashboard-header">
-    <h2>🌐 글로벌 핵심 지표 대시보드</h2>
-    <span class="date-badge">📅 2026년 6월 23일 기준</span>
+<!-- [삽입 위치] VIX 공포지수 섹션 직후 삽입 -->
+<div class="gi-container">
+  <div class="gi-header">
+    <h2>📊 2026.06.24 글로벌 시장 지표 현황</h2>
+    <p>코스피 개장 전 필수 체크 — 6개 핵심 지표 (6월 23일 종가 기준)</p>
   </div>
+  <div class="gi-grid">
 
-  <div class="indicators-grid">
-    <!-- VIX -->
-    <div class="indicator-card card-vix">
-      <div class="card-label">📊 공포지수</div>
-      <div class="card-name">VIX (CBOE 변동성지수)</div>
-      <div class="card-value">16.4<span class="card-unit"></span></div>
-      <span class="card-change change-down">▼ 안정 구간</span>
-      <div class="card-signal"><span class="signal-icon">✅</span>장기 평균(19~20) 하회 → 시장 안정적</div>
+    <div class="gi-card vix">
+      <div class="gi-label">FEAR INDEX</div>
+      <div class="gi-name">VIX 공포지수</div>
+      <div class="gi-value">17.29</div>
+      <div class="gi-change up">▲ +5.36% (24h)</div>
+      <div class="gi-signal"><strong>중립 긴장</strong> — 20 미만은 본격 공황 아님. 한국 쇼크에도 미국 시장은 상대적으로 안정</div>
     </div>
 
-    <!-- WTI -->
-    <div class="indicator-card card-wti">
-      <div class="card-label">🛢️ 국제유가</div>
-      <div class="card-name">WTI 서부텍사스유</div>
-      <div class="card-value">$74.07<span class="card-unit">/BBL</span></div>
-      <span class="card-change change-down">▼ $1.78 하락</span>
-      <div class="card-signal"><span class="signal-icon">✅</span>미-이란 협상 진전 → 공급 증가 기대</div>
+    <div class="gi-card wti">
+      <div class="gi-label">CRUDE OIL</div>
+      <div class="gi-name">WTI 국제유가</div>
+      <div class="gi-value">$73.30</div>
+      <div class="gi-change down">▼ 3개월 최저</div>
+      <div class="gi-signal"><strong>한국 수혜</strong> — 미·이란 협상 진전으로 공급 증가. 항공·화학·해운 원가 절감 기대</div>
     </div>
 
-    <!-- USD/KRW -->
-    <div class="indicator-card card-krw">
-      <div class="card-label">💵 달러/원 환율</div>
-      <div class="card-name">USD / KRW</div>
-      <div class="card-value">1,538<span class="card-unit">원</span></div>
-      <span class="card-change change-up">▲ +0.73% 상승</span>
-      <div class="card-signal"><span class="signal-icon">⚠️</span>강달러 지속 → 수출주 수혜, 수입주 부담</div>
+    <div class="gi-card krw">
+      <div class="gi-label">USD / KRW</div>
+      <div class="gi-name">원달러 환율</div>
+      <div class="gi-value">1,537<span style="font-size:1rem">원</span></div>
+      <div class="gi-change up">▲ 고환율 지속</div>
+      <div class="gi-signal"><strong>수출주 유리</strong> — 방산·조선·반도체 달러 수익성 개선. 외국인 유입 시 저가 메리트 발생</div>
     </div>
 
-    <!-- DXY -->
-    <div class="indicator-card card-dxy">
-      <div class="card-label">📈 달러인덱스</div>
-      <div class="card-name">DXY (미국 달러 강도)</div>
-      <div class="card-value">101.0<span class="card-unit"></span></div>
-      <span class="card-change change-up">▲ +0.17%</span>
-      <div class="card-signal"><span class="signal-icon">⚠️</span>Fed 매파 위원 9명 → 달러 강세 지지</div>
+    <div class="gi-card dxy">
+      <div class="gi-label">DOLLAR INDEX</div>
+      <div class="gi-name">DXY 달러인덱스</div>
+      <div class="gi-value">101.38</div>
+      <div class="gi-change up">▲ 4연속 상승</div>
+      <div class="gi-signal"><strong>주의</strong> — 작년 4월 이후 최고치. EM 자금 이탈 압력 지속. 102 돌파 시 경계 강화</div>
     </div>
 
-    <!-- 미국 10년물 -->
-    <div class="indicator-card card-bond">
-      <div class="card-label">🏦 미국채 금리</div>
-      <div class="card-name">미국 10년물 국채수익률</div>
-      <div class="card-value">4.48<span class="card-unit">%</span></div>
-      <span class="card-change change-up">▲ 상승세</span>
-      <div class="card-signal"><span class="signal-icon">🔶</span>고금리 지속 → AI 투자 유지로 반도체 호재</div>
+    <div class="gi-card bond">
+      <div class="gi-label">US TREASURY</div>
+      <div class="gi-name">미국 10년물 금리</div>
+      <div class="gi-value">4.48<span style="font-size:1rem">%</span></div>
+      <div class="gi-change down">▼ 소폭 하락</div>
+      <div class="gi-signal"><strong>긍정적 신호</strong> — 4.5% 하회 시 성장주 부담 완화. 추가 하락 시 기술주 밸류에이션 지지</div>
     </div>
 
-    <!-- EWY -->
-    <div class="indicator-card card-ewy">
-      <div class="card-label">🇰🇷 한국 ETF</div>
-      <div class="card-name">EWY (iShares MSCI Korea)</div>
-      <div class="card-value">$219.2<span class="card-unit"></span></div>
-      <span class="card-change change-down">▲ 52주 최고 근접</span>
-      <div class="card-signal"><span class="signal-icon">🚀</span>52주 최고 $220.89에 근접 → 강세장 유지</div>
+    <div class="gi-card ewy">
+      <div class="gi-label">KOREA ETF (US)</div>
+      <div class="gi-name">EWY 한국 ETF</div>
+      <div class="gi-value">$197.45</div>
+      <div class="gi-change up">▲ NAV 대비 괴리</div>
+      <div class="gi-signal"><strong>반등 기대</strong> — NAV $216.94 대비 $197 거래. 과매도 판단 시 오늘 반발 매수 가능성</div>
     </div>
+
   </div>
-
-  <div class="dashboard-footer">
-    📌 출처: Investing.com · Bloomberg · Yahoo Finance · Trading Economics | 기준: 2026.06.22~23 | 본 내용은 투자 권유가 아닙니다.
+  <div class="gi-footer">
+    ※ 데이터 출처: Bloomberg, Investing.com, TradingEconomics, Yahoo Finance (6월 23일 기준) | 투자 참고용 — 투자 권유 아님
   </div>
 </div>
 </body>
