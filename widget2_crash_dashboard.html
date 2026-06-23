@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6월 23일 코스피 급락-반등 분석</title>
+<meta property="og:title" content="코스피 6월23일 급락의 진짜 이유 4가지 - 데이터로 보는 정밀 분석" />
+<meta property="og:description" content="국민연금 매도, 지정학 노이즈, 빅테크 약세까지 - 오늘 코스피가 흔들린 이유와 반등 트리거를 데이터로 정리했습니다." />
+<meta property="og:image" content="https://example.com/thumbnail.png" />
+<meta property="og:url" content="https://example.com/kospi-0623-crash-analysis" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    background: #F4F7FC;
+    padding: 28px 16px 36px;
+    color: #15233F;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  .head { text-align:center; margin-bottom: 20px; }
+  .head .eyebrow {
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12.5px; font-weight:700; color:#E11D48;
+    background:#FFF1F3; border:1px solid #FBC9D2;
+    padding:5px 12px; border-radius:999px; margin-bottom:12px;
+  }
+  .head h1 { font-size:21px; font-weight:800; color:#0F2C59; line-height:1.4; }
+  .head p { margin-top:6px; font-size:13px; color:#5B6B8C; }
+
+  /* 가격 타임라인 바 */
+  .price-track {
+    background:#FFFFFF; border:1px solid #E3E9F4; border-radius:16px;
+    padding:20px 18px 16px; margin-bottom:16px;
+    box-shadow:0 2px 10px rgba(15,44,89,0.05);
+  }
+  .price-track .label { font-size:12px; font-weight:700; color:#5B6B8C; margin-bottom:12px; }
+  .pt-row { display:flex; align-items:center; justify-content:space-between; gap:6px; }
+  .pt-point { text-align:center; flex:1; }
+  .pt-point .v { font-size:17px; font-weight:800; color:#0F2C59; }
+  .pt-point .v.down { color:#2563EB; }
+  .pt-point .v.up { color:#E11D48; }
+  .pt-point .t { font-size:10.5px; color:#8C99B5; margin-top:3px; }
+  .pt-arrow { color:#C7D0E3; font-size:18px; }
+  .bar { height:6px; background:#EEF2FB; border-radius:6px; margin-top:14px; position:relative; overflow:hidden; }
+  .bar .fill { position:absolute; left:32%; right:18%; top:0; bottom:0; background:linear-gradient(90deg,#2563EB,#E11D48); border-radius:6px; }
+
+  .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+  @media (max-width:700px){ .grid2{ grid-template-columns: 1fr; } }
+
+  .panel {
+    background:#FFFFFF; border:1px solid #E3E9F4; border-radius:16px;
+    padding:16px 16px 14px; box-shadow:0 2px 10px rgba(15,44,89,0.05);
+  }
+  .panel h2 {
+    font-size:13.5px; font-weight:800; color:#0F2C59;
+    display:flex; align-items:center; gap:6px; margin-bottom:10px;
+  }
+  .panel.down h2 i { color:#2563EB; }
+  .panel.up h2 i { color:#E11D48; }
+  .cause-item {
+    display:flex; gap:9px; align-items:flex-start;
+    padding:8px 0; border-bottom:1px dashed #EEF1F8;
+  }
+  .cause-item:last-child{ border-bottom:none; }
+  .cause-num {
+    flex-shrink:0; width:20px; height:20px; border-radius:6px;
+    background:#EEF2FB; color:#2563EB; font-size:11px; font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .panel.up .cause-num { background:#FFF1F3; color:#E11D48; }
+  .cause-text { font-size:12px; line-height:1.5; color:#2B3B5C; }
+  .cause-text b { color:#0F2C59; }
+
+  .stat-row { display:grid; grid-template-columns: repeat(3,1fr); gap:10px; margin-bottom:16px; }
+  @media (max-width:700px){ .stat-row{ grid-template-columns: 1fr; } }
+  .stat-card {
+    background:#FFFFFF; border:1px solid #E3E9F4; border-radius:14px;
+    padding:14px; text-align:center; box-shadow:0 2px 10px rgba(15,44,89,0.05);
+  }
+  .stat-card .ti { font-size:20px; color:#D97706; }
+  .stat-card .num { font-size:16px; font-weight:800; color:#0F2C59; margin:6px 0 2px; }
+  .stat-card .desc { font-size:11px; color:#8C99B5; }
+
+  .verdict {
+    background:#0F2C59; border-radius:16px; padding:18px 18px;
+    color:#fff; display:flex; gap:12px; align-items:flex-start;
+  }
+  .verdict .ti { font-size:22px; color:#FBBF24; margin-top:2px; }
+  .verdict b { color:#FBBF24; }
+  .verdict p { font-size:13px; line-height:1.6; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow"><i class="ti ti-activity"></i> 6.23 KOSPI INTRADAY</span>
+      <h1>코스피, 하루 만에 9000 붕괴 → 9100 회복한 이유</h1>
+      <p>2026년 6월 23일(화) 장중 흐름 데이터 정리</p>
+    </div>
+
+    <div class="price-track">
+      <div class="label">📍 오늘 장중 코스피 흐름 (지수)</div>
+      <div class="pt-row">
+        <div class="pt-point">
+          <div class="v">9,083</div>
+          <div class="t">시가 (-0.34%)</div>
+        </div>
+        <div class="pt-arrow"><i class="ti ti-arrow-narrow-right"></i></div>
+        <div class="pt-point">
+          <div class="v down">8,9xx</div>
+          <div class="t">장중 저점 (-2%↓)</div>
+        </div>
+        <div class="pt-arrow"><i class="ti ti-arrow-narrow-right"></i></div>
+        <div class="pt-point">
+          <div class="v up">9,100대</div>
+          <div class="t">개인매수 후 회복</div>
+        </div>
+      </div>
+      <div class="bar"><div class="fill"></div></div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel down">
+        <h2><i class="ti ti-trending-down"></i> 왜 빠졌나 — 4대 원인</h2>
+        <div class="cause-item">
+          <div class="cause-num">1</div>
+          <div class="cause-text"><b>국민연금 선제 매도</b> — 4거래일 1.27조원, 7월 강제 리밸런싱 우려(최대 60조)</div>
+        </div>
+        <div class="cause-item">
+          <div class="cause-num">2</div>
+          <div class="cause-text"><b>지정학 노이즈</b> — 美-이란 후속협상 불확실성, 김정은 발언</div>
+        </div>
+        <div class="cause-item">
+          <div class="cause-num">3</div>
+          <div class="cause-text"><b>美 빅테크 동조 약세</b> — 알파벳·아마존·MS 야간 급락 영향</div>
+        </div>
+        <div class="cause-item">
+          <div class="cause-num">4</div>
+          <div class="cause-text"><b>단기 과열 차익실현</b> — 한달여 만에 8000→9100 급등 부담</div>
+        </div>
+      </div>
+      <div class="panel up">
+        <h2><i class="ti ti-trending-up"></i> 왜 다시 올랐나 — 반등 트리거</h2>
+        <div class="cause-item">
+          <div class="cause-num">1</div>
+          <div class="cause-text"><b>이란산 원유 한시 허용</b> — 美 재무부, 60일간(8/21까지) 판매 허용</div>
+        </div>
+        <div class="cause-item">
+          <div class="cause-num">2</div>
+          <div class="cause-text"><b>호르무즈 핫라인 합의</b> — 안전 통항 메커니즘 구축, 유가 안정</div>
+        </div>
+        <div class="cause-item">
+          <div class="cause-num">3</div>
+          <div class="cause-text"><b>마이크론 +6.82%</b> — 앤트로픽과 메모리 공급·투자 계약 발표</div>
+        </div>
+        <div class="cause-item">
+          <div class="cause-num">4</div>
+          <div class="cause-text"><b>삼성 HBM4 마일스톤</b> — 매출 업계 최초 10억 달러 돌파</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <i class="ti ti-coin"></i>
+        <div class="num">1,539원</div>
+        <div class="desc">원/달러 환율 (오전 시가)</div>
+      </div>
+      <div class="stat-card">
+        <i class="ti ti-droplet"></i>
+        <div class="num">70달러대 중반</div>
+        <div class="desc">WTI 유가(배럴당)</div>
+      </div>
+      <div class="stat-card">
+        <i class="ti ti-cpu"></i>
+        <div class="num">+6.82%</div>
+        <div class="desc">마이크론(MU) 급등률</div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <i class="ti ti-bulb"></i>
+      <p><b>핵심 판단</b> — 이번 하락은 기업 펀더멘털 훼손이 아니라 <b>"국민연금 수급 부담 + 단기 멀티플 조정"</b>이 겹친 구간으로 해석됩니다. 6월 8일 급락 때와 유사하게 12개월 선행 이익 추정치는 유지되고 있어, 패닉 매도보다는 분할 매수 대응이 합리적이라는 평가가 우세합니다. (투자판단의 책임은 투자자 본인에게 있습니다)</p>
+    </div>
+  </div>
+</body>
+</html>
