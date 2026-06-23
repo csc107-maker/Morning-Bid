@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 6월 4주차 글로벌 증시 캘린더</title>
+<meta property="og:title" content="2026년 6월 4주차 글로벌 증시 주요 일정 타임라인" />
+<meta property="og:description" content="MSCI 리뷰, 마이크론 실적, PCE 물가지수까지 - 6월 22일~26일 한 주를 좌우할 핵심 일정을 한 장으로 정리했습니다." />
+<meta property="og:image" content="https://example.com/thumbnail.png" />
+<meta property="og:url" content="https://example.com/kospi-weekly-calendar" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    background: #F4F7FC;
+    padding: 28px 16px 36px;
+    color: #15233F;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  .head {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .head .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #D97706;
+    background: #FFF7E6;
+    border: 1px solid #FDE7B8;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .head h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0F2C59;
+    line-height: 1.4;
+  }
+  .head p {
+    margin-top: 6px;
+    font-size: 13.5px;
+    color: #5B6B8C;
+  }
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 720px) {
+    .timeline { grid-template-columns: 1fr; }
+  }
+  .day-card {
+    background: #FFFFFF;
+    border: 1px solid #E3E9F4;
+    border-radius: 14px;
+    padding: 16px 14px;
+    box-shadow: 0 2px 10px rgba(15,44,89,0.05);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .day-card.today {
+    border: 2px solid #E11D48;
+    box-shadow: 0 6px 18px rgba(225,29,72,0.18);
+  }
+  .today-badge {
+    position: absolute;
+    top: -11px;
+    right: 12px;
+    background: #E11D48;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 999px;
+    letter-spacing: .3px;
+  }
+  .date-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .date-num {
+    font-size: 19px;
+    font-weight: 800;
+    color: #0F2C59;
+  }
+  .date-dow {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #fff;
+    background: #2563EB;
+    padding: 2px 8px;
+    border-radius: 7px;
+  }
+  .day-card.today .date-dow { background: #E11D48; }
+  .flag-row {
+    display: flex;
+    gap: 4px;
+    font-size: 15px;
+  }
+  .evt-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .evt-list li {
+    font-size: 12px;
+    line-height: 1.45;
+    color: #2B3B5C;
+    display: flex;
+    gap: 6px;
+  }
+  .evt-list li .ti { font-size: 13px; color: #2563EB; margin-top: 1px; flex-shrink:0; }
+  .evt-list li.hot .ti { color: #E11D48; }
+  .evt-list li.hot { font-weight: 700; color: #0F2C59; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 5px;
+    margin-left: 2px;
+  }
+  .tag.korea { background:#E8F0FE; color:#2563EB; }
+  .tag.us { background:#FEEFEF; color:#E11D48; }
+  .tag.sport { background:#E9F8EE; color:#0E9F4F; }
+  .foot-note {
+    margin-top: 18px;
+    background: #FFF7E6;
+    border: 1px solid #FDE7B8;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 12px;
+    color: #7A5300;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .foot-note .ti { font-size: 15px; margin-top: 1px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow"><i class="ti ti-calendar-event"></i> WEEKLY MARKET CALENDAR</span>
+      <h1>2026년 6월 4주차, 한 주를 흔들 5가지 모먼트</h1>
+      <p>6월 22일(월) ~ 26일(금) · 한국시간 기준 정리</p>
+    </div>
+
+    <div class="timeline">
+      <!-- MON 6/22 -->
+      <div class="day-card">
+        <div class="date-row">
+          <span class="date-num">22</span>
+          <span class="date-dow">MON</span>
+        </div>
+        <div class="flag-row">🇰🇷🇨🇳🇪🇺</div>
+        <ul class="evt-list">
+          <li><i class="ti ti-pig-money"></i>청년미래적금 가입(~7/3)</li>
+          <li><i class="ti ti-ship"></i>6.1~20일 수출입데이터</li>
+          <li><i class="ti ti-currency-yuan"></i>中 LPR 발표</li>
+          <li><i class="ti ti-flask"></i>Bio USA 개막(~25일)</li>
+        </ul>
+      </div>
+      <!-- TUE 6/23 -->
+      <div class="day-card today">
+        <span class="today-badge">TODAY</span>
+        <div class="date-row">
+          <span class="date-num">23</span>
+          <span class="date-dow">TUE</span>
+        </div>
+        <div class="flag-row">🇰🇷🌍</div>
+        <ul class="evt-list">
+          <li class="hot"><i class="ti ti-trending-down"></i>코스피 9000선 등락 <span class="tag korea">실시간</span></li>
+          <li><i class="ti ti-chart-candle"></i>MSCI 리뷰<span class="tag us">24일 05:30 발표</span></li>
+          <li><i class="ti ti-world"></i>WEF 다롄회의(~25일)</li>
+          <li><i class="ti ti-shopping-cart"></i>아마존 프라임데이</li>
+        </ul>
+      </div>
+      <!-- WED 6/24 -->
+      <div class="day-card">
+        <div class="date-row">
+          <span class="date-num">24</span>
+          <span class="date-dow">WED</span>
+        </div>
+        <div class="flag-row">🇺🇸🇰🇷</div>
+        <ul class="evt-list">
+          <li><i class="ti ti-building-bank"></i>美 경상수지·신규주택판매</li>
+          <li class="hot"><i class="ti ti-shield-check"></i>연준 은행 스트레스테스트</li>
+          <li class="hot"><i class="ti ti-users"></i>현대차 파업 찬반투표</li>
+          <li><i class="ti ti-cpu"></i>마이크론 美 실적발표</li>
+        </ul>
+      </div>
+      <!-- THU 6/25 -->
+      <div class="day-card">
+        <div class="date-row">
+          <span class="date-num">25</span>
+          <span class="date-dow">THU</span>
+        </div>
+        <div class="flag-row">🇺🇸🇰🇷⚽</div>
+        <ul class="evt-list">
+          <li><i class="ti ti-chart-line"></i>美 GDP 확정치</li>
+          <li class="hot"><i class="ti ti-percentage"></i>5월 PCE·근원PCE</li>
+          <li><i class="ti ti-ball-football"></i>한국 vs 남아공(10시)</li>
+          <li class="hot"><i class="ti ti-cpu"></i>마이크론 실적(06시 KST)</li>
+        </ul>
+      </div>
+      <!-- FRI 6/26 -->
+      <div class="day-card">
+        <div class="date-row">
+          <span class="date-num">26</span>
+          <span class="date-dow">FRI</span>
+        </div>
+        <div class="flag-row">🇯🇵🇺🇸</div>
+        <ul class="evt-list">
+          <li><i class="ti ti-currency-yen"></i>도쿄 CPI·근원CPI</li>
+          <li><i class="ti ti-refresh"></i>러셀2000 반기 리밸런싱</li>
+          <li><i class="ti ti-car"></i>부산모빌리티쇼</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-note">
+      <i class="ti ti-alert-triangle"></i>
+      <div><b>일정 정정 안내</b> — 이미지 원본에는 MSCI 발표가 6/23로 표기되어 있으나, 국내 증권업계 자료 기준 실제 발표 시각은 <b>한국시간 6/24(수) 오전 5:30</b>입니다(현지 6/23 발표분). 마이크론 실적도 미국 현지 6/24 발표 후 한국시간 6/25 새벽에 반영됩니다.</div>
+    </div>
+  </div>
+</body>
+</html>
