@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>한화오션 주가, 캐나다 잠수함 변수에 어떻게 반응할까</title>
+
+<meta property="og:title" content="한화오션 주가와 캐나다 잠수함(CPSP) 시나리오별 영향 분석" />
+<meta property="og:description" content="현재가·목표주가·52주 변동폭부터 단독수주·분할발주·발표지연 시나리오별 영향까지 정리한 한화오션 투자 참고 데이터." />
+<meta property="og:image" content="여기에-실제-썸네일-이미지-URL을-입력하세요.png" />
+<meta property="og:url" content="여기에-실제-블로그-포스트-URL을-입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#F3F6FB;
+    --surface:#FFFFFF;
+    --ink:#0D1B33;
+    --muted:#5A6880;
+    --line:#E3E9F2;
+    --korea:#0B5FB0;
+    --korea-bg:#E0EEFC;
+    --germany:#3D4F66;
+    --germany-bg:#E8EBF0;
+    --amber:#C78222;
+    --amber-bg:#FBF1E2;
+    --danger:#C0392B;
+    --danger-bg:#FBEAE8;
+    --good:#1E8E5A;
+    --good-bg:#E4F5EC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--bg);
+    font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink);-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 40px;}
+  .head-eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--korea-bg);color:var(--korea);
+    font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:14px;
+  }
+  h2.title{font-size:24px;line-height:1.4;margin:0 0 8px;font-weight:800;letter-spacing:-0.3px;}
+  p.desc{font-size:14.5px;color:var(--muted);margin:0 0 24px;line-height:1.6;}
+
+  .stat-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px;
+  }
+  @media (max-width:560px){ .stat-grid{grid-template-columns:repeat(2,1fr);} }
+  .stat{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:14px 12px;
+  }
+  .stat .lbl{font-size:11.5px;color:var(--muted);margin-bottom:6px;}
+  .stat .val{font-size:18px;font-weight:800;line-height:1.25;}
+  .stat .val small{font-size:11px;font-weight:600;color:var(--muted);}
+  .stat .delta{font-size:12px;font-weight:700;margin-top:4px;}
+  .stat .delta.down{color:var(--danger);}
+  .stat .delta.up{color:var(--good);}
+
+  .ticker{
+    display:flex;align-items:center;justify-content:space-between;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;margin-bottom:22px;
+  }
+  .ticker .name{font-size:14px;font-weight:800;}
+  .ticker .code{font-size:12px;color:var(--muted);font-weight:600;}
+  .ticker .price{font-size:26px;font-weight:800;}
+  .ticker .range{font-size:11.5px;color:var(--muted);margin-top:2px;}
+
+  h4.sub{font-size:14px;font-weight:800;margin:0 0 12px;display:flex;align-items:center;gap:6px;}
+
+  .target-bar-wrap{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:18px 20px;margin-bottom:22px;
+  }
+  .target-row{position:relative;height:34px;background:#EEF1F6;border-radius:10px;margin:18px 0 6px;}
+  .target-fill{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--korea),#3C8FE0);border-radius:10px;}
+  .target-current, .target-avg{
+    position:absolute;top:-26px;font-size:11px;font-weight:700;transform:translateX(-50%);
+    white-space:nowrap;
+  }
+  .target-current{color:var(--ink);}
+  .target-avg{color:var(--korea);}
+  .target-legend{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);}
+  .opinion-row{display:flex;gap:6px;margin-top:14px;align-items:center;}
+  .opinion-bar{flex:1;height:10px;border-radius:6px;background:var(--good);}
+  .opinion-bar.sell{background:var(--danger);flex:0 0 5%;}
+  .opinion-txt{font-size:11.5px;color:var(--muted);}
+
+  .scenario-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:8px;}
+  .scenario{
+    background:var(--surface);border-radius:14px;padding:14px 16px;
+    border-left:5px solid var(--line);
+  }
+  .scenario.good{border-left-color:var(--good);}
+  .scenario.amber{border-left-color:var(--amber);}
+  .scenario.danger{border-left-color:var(--danger);}
+  .scenario .stitle{
+    display:flex;align-items:center;gap:6px;font-size:14px;font-weight:800;margin-bottom:4px;
+  }
+  .scenario.good .stitle i{color:var(--good);}
+  .scenario.amber .stitle i{color:var(--amber);}
+  .scenario.danger .stitle i{color:var(--danger);}
+  .scenario p{font-size:13px;color:var(--muted);margin:0;line-height:1.6;}
+  .scenario .tagp{
+    display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:6px;margin-left:6px;
+    background:var(--amber-bg);color:var(--amber);
+  }
+
+  .disclaimer{
+    margin-top:20px;font-size:11.5px;color:var(--muted);line-height:1.7;
+    border-top:1px solid var(--line);padding-top:14px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="head-eyebrow"><i class="ti ti-chart-candle"></i>&nbsp;MARKET DATA</span>
+  <h2 class="title">한화오션 주가, 지금 어디쯤 와 있나요?</h2>
+  <p class="desc">우선협상대상자 발표를 앞두고 시장이 반영하고 있는 기대와 불확실성을 데이터로 짚어봤습니다.</p>
+
+  <div class="ticker">
+    <div>
+      <div class="name">한화오션 <span class="code">(042660 · KRX)</span></div>
+      <div class="range">52주 범위 71,500원 ~ 154,800원</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="price">113,400원</div>
+      <div class="range">전일종가 116,500원</div>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="lbl">시가총액</div>
+      <div class="val">35.7<small>조원</small></div>
+    </div>
+    <div class="stat">
+      <div class="lbl">52주 최고가</div>
+      <div class="val">154,800<small>원</small></div>
+    </div>
+    <div class="stat">
+      <div class="lbl">최고가 대비</div>
+      <div class="val delta down">-26.7%</div>
+    </div>
+    <div class="stat">
+      <div class="lbl">평균 목표주가</div>
+      <div class="val">164,750<small>원</small></div>
+    </div>
+  </div>
+
+  <div class="target-bar-wrap">
+    <h4 class="sub"><i class="ti ti-target-arrow" style="color:var(--korea);"></i> 현재가 vs 평균 목표주가</h4>
+    <div class="target-row">
+      <div class="target-current" style="left:62%;">현재 113,400원</div>
+      <div class="target-fill" style="width:62%;"></div>
+      <div class="target-avg" style="left:96%;">목표 164,750원</div>
+    </div>
+    <div class="target-legend">
+      <span>0원</span>
+      <span>상승여력 +45.3% (애널리스트 평균 기준)</span>
+    </div>
+    <div class="opinion-row">
+      <div class="opinion-bar"></div>
+      <div class="opinion-bar sell"></div>
+    </div>
+    <p class="opinion-txt">매수 19명 · 매도 1명 — 펀더멘털(LNG선·KDDX)에는 긍정적, CPSP 결과가 변수</p>
+  </div>
+
+  <h4 class="sub"><i class="ti ti-list-details" style="color:var(--korea);"></i> 결과에 따른 3가지 시나리오</h4>
+  <div class="scenario-grid">
+    <div class="scenario good">
+      <div class="stitle"><i class="ti ti-circle-check"></i> 12척 단독 수주</div>
+      <p>2026년 3월 기준 시장이 가장 먼저 기대했던 그림입니다. 60조원 전체 물량과 30년 MRO 매출이 한화오션으로 귀속되며, 증권사들이 제시한 16만~18만원대 목표주가의 근거가 되는 시나리오입니다.</p>
+    </div>
+    <div class="scenario amber">
+      <div class="stitle"><i class="ti ti-arrows-split"></i> 6+6 분할 발주<span class="tagp">비공식 루머</span></div>
+      <p>2026년 3월 4일, 분할설이 보도되자 한화오션 주가는 하루 만에 14.7% 급락했습니다. 12척 중 절반만 가져가는 그림으로, 캐나다·독일 양국 정부는 공식적으로는 "단일 함종 도입"을 재확인한 상태입니다.</p>
+    </div>
+    <div class="scenario danger">
+      <div class="stitle"><i class="ti ti-clock-pause"></i> 발표 7월 순연</div>
+      <p>산업통상부 장관이 직접 언급한 가능성입니다. 결과가 늦어질수록 불확실성에 따른 단기 변동성이 커질 수 있으며, 7월 NATO 정상회의 일정과 맞물려 막판 정무적 판단이 개입될 여지도 있습니다.</p>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <i class="ti ti-info-circle"></i> 주가·목표주가 데이터는 Investing.com 기준 2026년 6월 23일 수치이며, 시점에 따라 달라질 수 있습니다. 이 콘텐츠는 정보 제공 목적이며 특정 종목에 대한 매수·매도 추천이 아닙니다. 투자 판단과 그 결과에 대한 책임은 투자자 본인에게 있습니다.
+  </div>
+
+</div>
+</body>
+</html>
