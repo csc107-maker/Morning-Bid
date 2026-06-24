@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ApexBridge Partners 태양광 모듈 공동구매</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    font-family:'Pretendard', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+    background:#FFFCF6; color:#16243E; padding:28px 16px;
+  }
+  .wrap { max-width:680px; margin:0 auto; }
+
+  .card {
+    position:relative; overflow:hidden;
+    background:linear-gradient(150deg,#16243E 0%, #1B355C 55%, #234674 100%);
+    border-radius:22px; padding:30px 26px; color:#FFFCF6;
+  }
+  .card::after {
+    content:""; position:absolute; right:-60px; top:-60px; width:220px; height:220px;
+    background:radial-gradient(circle, rgba(232,163,61,.35), transparent 70%);
+  }
+  .badge {
+    display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.12);
+    padding:5px 12px; border-radius:999px; font-size:11.5px; font-weight:700; color:#F2B85C;
+    margin-bottom:16px;
+  }
+  .headline { font-size:21px; font-weight:800; line-height:1.4; margin-bottom:10px; position:relative; z-index:1; }
+  .headline em { color:#F2B85C; font-style:normal; }
+  .lede { font-size:13.5px; color:#C9D2E0; line-height:1.7; margin-bottom:20px; position:relative; z-index:1; max-width:90%; }
+
+  .pain {
+    background:rgba(255,255,255,.07); border-radius:14px; padding:14px 16px; margin-bottom:18px;
+    font-size:12.8px; color:#E3E8F0; line-height:1.7; position:relative; z-index:1;
+  }
+  .pain b { color:#FFFCF6; }
+
+  .benefits { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:20px; position:relative; z-index:1; }
+  .benefit {
+    background:rgba(255,255,255,.08); border-radius:12px; padding:13px 12px;
+  }
+  .benefit i { color:#F2B85C; font-size:18px; margin-bottom:6px; display:block; }
+  .benefit .t { font-size:12.5px; font-weight:700; color:#FFFCF6; margin-bottom:3px; }
+  .benefit .d { font-size:11px; color:#B9C3D6; line-height:1.5; }
+
+  .cta-row { display:flex; gap:10px; flex-wrap:wrap; position:relative; z-index:1; }
+  .cta {
+    display:inline-flex; align-items:center; gap:7px; background:#F2B85C; color:#16243E;
+    font-weight:800; font-size:13.5px; padding:12px 20px; border-radius:11px; text-decoration:none;
+  }
+  .cta.ghost { background:transparent; border:1px solid rgba(255,255,255,.35); color:#FFFCF6; }
+
+  .contact-box {
+    margin-top:22px; background:#FFFFFF; border:1px solid #EDE6D8; border-radius:16px; padding:18px 18px;
+  }
+  .contact-box h3 { font-size:13.5px; font-weight:800; margin-bottom:10px; display:flex; align-items:center; gap:6px; }
+  .contact-box h3 i { color:#E8A33D; }
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12.5px; color:#3B4A63; }
+  .contact-grid div { display:flex; align-items:center; gap:6px; }
+  .contact-grid i { color:#9AA2AE; font-size:14px; }
+  .placeholder { color:#B5ADA0; font-style:italic; }
+
+  .fineprint { font-size:11px; color:#9AA2AE; margin-top:14px; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card">
+    <span class="badge"><i class="ti ti-rosette-discount"></i>PARTNER SPOTLIGHT</span>
+    <div class="headline">소량 구매라서 늘 비싸게 사셨다면,<br><em>이제는 협상력을 모아보세요.</em></div>
+    <p class="lede">ApexBridge Partners가 중소 태양광 시공사를 위한 <strong>모듈 공동구매 중개 서비스</strong>를 시작합니다. 여러 시공사의 수요를 모아 제조사·유통사와 직접 협상합니다.</p>
+
+    <div class="pain">
+      <i class="ti ti-quote"></i> "한 번에 몇 백 장씩 사는 대형 EPC사와, 매달 몇 십 kW씩 시공하는 우리 회사가 <b>같은 단가표</b>를 받을 수는 없을까요?" — 많은 중소 시공사 대표님들이 토로하시는 현실적인 고민입니다.
+    </div>
+
+    <div class="benefits">
+      <div class="benefit">
+        <i class="ti ti-stack-2"></i>
+        <div class="t">물량 통합</div>
+        <div class="d">참여 시공사 수요를 분기 단위로 모아 대량구매 단위로 협상</div>
+      </div>
+      <div class="benefit">
+        <i class="ti ti-scale"></i>
+        <div class="t">협상력 공유</div>
+        <div class="d">개별 구매로는 어려운 단가 조건을 공동 명의로 확보</div>
+      </div>
+      <div class="benefit">
+        <i class="ti ti-package"></i>
+        <div class="t">재고 부담 없음</div>
+        <div class="d">필요한 물량만큼만 우대 단가로 개별 구매 가능</div>
+      </div>
+      <div class="benefit">
+        <i class="ti ti-certificate"></i>
+        <div class="t">인증 확인 지원</div>
+        <div class="d">KC·국산 인증 가점 여부까지 함께 확인해 드립니다</div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="cta" href="#"><i class="ti ti-send"></i>공동구매 참여 문의하기</a>
+      <a class="cta ghost" href="#"><i class="ti ti-file-text"></i>참여 조건 자세히 보기</a>
+    </div>
+  </div>
+
+  <div class="contact-box">
+    <h3><i class="ti ti-building"></i>ApexBridge Partners 공동구매 담당</h3>
+    <div class="contact-grid">
+      <div><i class="ti ti-user"></i><span class="placeholder">[담당자명 입력]</span></div>
+      <div><i class="ti ti-phone"></i><span class="placeholder">[연락처 입력]</span></div>
+      <div><i class="ti ti-mail"></i><span class="placeholder">[이메일 입력]</span></div>
+      <div><i class="ti ti-map-pin"></i><span class="placeholder">서울 서초구 [상세주소]</span></div>
+    </div>
+  </div>
+
+  <p class="fineprint"><i class="ti ti-info-circle"></i> 공동구매 할인율은 참여 물량·시점·제조사 협상 결과에 따라 달라질 수 있으며, 위 'MW급 대량구매 5~15% 할인' 수치는 업계 일반 벤치마크(SolarTechOnline 등)이며 특정 거래의 확정 할인율을 보장하지 않습니다. 참여 전 세부 조건을 반드시 확인해 주세요.</p>
+
+</div>
+</body>
+</html>
