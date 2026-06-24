@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 태양광 모듈 가격 타임라인</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    font-family:'Pretendard', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+    background:#FFFCF6; color:#16243E; padding:28px 16px;
+  }
+  .wrap { max-width:680px; margin:0 auto; }
+  .eyebrow {
+    display:inline-flex; align-items:center; gap:6px;
+    background:#FFF4E1; color:#C97F1B; font-weight:700; font-size:12.5px;
+    padding:5px 12px; border-radius:999px;
+  }
+  h1 { font-size:21px; font-weight:800; margin:14px 0 4px; }
+  .sub { font-size:13px; color:#6B7686; margin-bottom:26px; }
+
+  .timeline { position:relative; padding-left:26px; }
+  .timeline::before {
+    content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px;
+    background:linear-gradient(180deg,#E8A33D,#2563AC 60%,#0E8A6D);
+  }
+  .item { position:relative; padding-bottom:22px; }
+  .item:last-child { padding-bottom:0; }
+  .dot {
+    position:absolute; left:-26px; top:2px; width:13px; height:13px; border-radius:50%;
+    background:#FFFFFF; border:3px solid #E8A33D;
+  }
+  .item.done .dot { border-color:#0E8A6D; }
+  .item.future .dot { border-color:#2563AC; background:#FFFCF6; }
+  .date {
+    font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:12px; color:#C97F1B;
+    margin-bottom:3px;
+  }
+  .item.future .date { color:#2563AC; }
+  .title { font-size:14.5px; font-weight:700; color:#16243E; margin-bottom:3px; }
+  .desc { font-size:12.5px; color:#6B7686; line-height:1.55; }
+  .tag {
+    display:inline-block; font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:6px;
+    margin-top:5px;
+  }
+  .tag.cn { background:#FCEBD8; color:#C97F1B; }
+  .tag.us { background:#E1EBF6; color:#2563AC; }
+  .tag.kr { background:#E4F2EC; color:#0E8A6D; }
+  .tag.fx { background:#F6E4E1; color:#C0392B; }
+
+  .legend { display:flex; gap:14px; margin-top:24px; padding-top:16px; border-top:1px solid #EDE6D8; flex-wrap:wrap; }
+  .legend span { font-size:11px; color:#6B7686; display:flex; align-items:center; gap:5px; }
+  .legend i { font-size:13px; }
+  .source { font-size:11px; color:#B5ADA0; margin-top:18px; text-align:right; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="eyebrow"><i class="ti ti-clock"></i>2026 TIMELINE</span>
+  <h1>🗓️ 모듈 가격을 뒤흔든 2026년 주요 사건들</h1>
+  <p class="sub">중국 정책 변화부터 한화솔루션 실적, 환율까지 — 한눈에 보는 연표</p>
+
+  <div class="timeline">
+
+    <div class="item done">
+      <div class="dot"></div>
+      <div class="date">2026.01.09</div>
+      <div class="title">중국 재정부, 수출증치세 환급 폐지 발표</div>
+      <div class="desc">태양전지·모듈·웨이퍼·인버터 등 249개 품목, 4월 1일부터 환급(최대 9%) 전면 폐지 예고</div>
+      <span class="tag cn">중국</span>
+    </div>
+
+    <div class="item done">
+      <div class="dot"></div>
+      <div class="date">2026.01~03</div>
+      <div class="title">국내 수입 급증 — '사재기' 구간</div>
+      <div class="desc">KITA 통계 기준 모듈 수입액 전년比 최대 122%↑ (2025.12) · 환급 폐지 전 선제 확보 수요</div>
+      <span class="tag kr">한국</span>
+    </div>
+
+    <div class="item done">
+      <div class="dot"></div>
+      <div class="date">2026.02.24</div>
+      <div class="title">美 상무부, 印·印尼·라오스 상계관세 예비판정</div>
+      <div class="desc">125.87% / 104.38% / 80.67% — 중국산 우회수출 통로 차단 조치</div>
+      <span class="tag us">미국</span>
+    </div>
+
+    <div class="item done">
+      <div class="dot"></div>
+      <div class="date">2026.04.01</div>
+      <div class="title">중국 수출증치세 환급 전면 폐지 시행</div>
+      <div class="desc">2013년 도입 이후 13년 만의 첫 철회. 배터리는 9%→6% 단계적 인하 후 2027년 완전 폐지</div>
+      <span class="tag cn">중국</span>
+    </div>
+
+    <div class="item done">
+      <div class="dot"></div>
+      <div class="date">2026.04.28</div>
+      <div class="title">한화솔루션 1분기 실적 발표 — 흑자 전환</div>
+      <div class="desc">영업이익 926억 원(+205.5%), 신재생 부문 ASP 전 분기比 +14%</div>
+      <span class="tag kr">한국</span>
+    </div>
+
+    <div class="item done">
+      <div class="dot"></div>
+      <div class="date">2026.04.29</div>
+      <div class="title">증권사 목표주가 상향 릴레이</div>
+      <div class="desc">유진투자증권 5만→8만 원(매수), 미래에셋증권 3.8만→5만 원(중립)</div>
+      <span class="tag kr">증권가</span>
+    </div>
+
+    <div class="item done">
+      <div class="dot"></div>
+      <div class="date">2026.06.05</div>
+      <div class="title">원/달러 환율, 17년래 최고치 근접</div>
+      <div class="desc">야간시장 장중 1,562.47원 — 2009년 3월 이후 최고 수준</div>
+      <span class="tag fx">환율</span>
+    </div>
+
+    <div class="item future">
+      <div class="dot"></div>
+      <div class="date">2026.07.06 (예정)</div>
+      <div class="title">美 상계관세 최종판정 예정</div>
+      <div class="desc">印·印尼·라오스 3국 최종판정 — 확정 시 우회수출 물량 사실상 차단 전망</div>
+      <span class="tag us">예정</span>
+    </div>
+
+  </div>
+
+  <div class="legend">
+    <span><i class="ti ti-circle-filled" style="color:#0E8A6D"></i>확정·발표 완료</span>
+    <span><i class="ti ti-circle-filled" style="color:#2563AC"></i>예정 이벤트</span>
+  </div>
+
+  <p class="source">자료: 중국 재정부·KITA·美 상무부·DART·증권사 리서치·외환시장 데이터 종합 (2026.6 기준)</p>
+</div>
+</body>
+</html>
