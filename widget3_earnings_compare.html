@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마이크론 vs 삼성전자 vs SK하이닉스 - 실적시즌 체크포인트</title>
+<meta name="description" content="마이크론 3분기 실적(6/24), 삼성전자 2분기 잠정실적, SK하이닉스 2분기 확정실적(7/29)의 핵심 체크포인트를 비교한 카드.">
+
+<meta property="og:title" content="마이크론·삼성전자·SK하이닉스, 실적시즌 한눈에 비교" />
+<meta property="og:description" content="발표일·컨센서스·HBM 상태·애널리스트 의견까지, 메모리 3사의 2026년 실적시즌 체크포인트를 한 장으로 정리했습니다." />
+<meta property="og:image" content="여기에 썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="여기에 이 글이 게시될 블로그 포스트 URL을 입력하세요" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.35.0/tabler-icons.min.css">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+<style>
+  .ec-wrap{
+    box-sizing:border-box;
+    width:100%;
+    max-width:920px;
+    margin:32px auto;
+    padding:34px 30px;
+    background:#FFFFFF;
+    border:1px solid #E7ECF3;
+    border-radius:22px;
+    box-shadow:0 18px 40px -22px rgba(15,42,74,0.18);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    color:#0B1F3D;
+  }
+  .ec-wrap *{ box-sizing:border-box; }
+  .ec-eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    background:#DBEAFE; color:#1D4ED8;
+    font-size:12.5px; font-weight:700; letter-spacing:0.04em;
+    padding:6px 14px; border-radius:20px; margin-bottom:14px;
+  }
+  .ec-title{ font-size:24px; font-weight:800; line-height:1.35; margin:0 0 8px; }
+  .ec-sub{ font-size:14px; color:#5B6B82; margin:0 0 26px; line-height:1.65; }
+
+  .ec-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+  .ec-card{
+    border:1px solid #EDF1F6;
+    border-radius:16px;
+    padding:18px 16px;
+    background:#FAFBFD;
+    display:flex;
+    flex-direction:column;
+  }
+  .ec-card-top{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:10px;
+  }
+  .ec-name{ font-size:16px; font-weight:800; color:#0B1F3D; }
+  .ec-ticker{ font-size:11.5px; color:#9AA5B5; font-weight:600; }
+  .ec-status{
+    font-size:11px; font-weight:700;
+    padding:4px 9px; border-radius:9px;
+    white-space:nowrap;
+  }
+  .status-pending{ background:#DBEAFE; color:#1D4ED8; }
+  .status-confirmed{ background:#DCFCE7; color:#15803D; }
+
+  .ec-date{
+    font-size:13px; color:#5B6B82; font-weight:600;
+    margin-bottom:14px;
+    display:flex; align-items:center; gap:6px;
+  }
+  .ec-date i{ color:#9AA5B5; }
+
+  .ec-row{
+    display:flex; justify-content:space-between; gap:10px;
+    font-size:13px; padding:8px 0;
+    border-bottom:1px solid #F1F4F8;
+  }
+  .ec-row:last-of-type{ border-bottom:none; }
+  .ec-row .k{ color:#8A94A6; flex-shrink:0; }
+  .ec-row .v{ color:#16233D; font-weight:700; text-align:right; }
+
+  .ec-note{
+    margin-top:12px;
+    background:#FFFFFF;
+    border:1px solid #EEF1F6;
+    border-radius:10px;
+    padding:10px 11px;
+    font-size:12px;
+    color:#5B6B82;
+    line-height:1.55;
+  }
+  .ec-note b{ color:#16233D; }
+
+  .ec-foot{
+    margin-top:24px; padding-top:16px;
+    border-top:1px dashed #E7ECF3;
+    font-size:11.5px; color:#9AA5B5; line-height:1.65;
+  }
+  .ec-disclaimer{
+    margin-top:14px;
+    background:#FFF7ED;
+    border:1px solid #FDE7C8;
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:12px;
+    color:#92400E;
+    line-height:1.6;
+  }
+  @media (max-width:760px){
+    .ec-grid{ grid-template-columns:1fr; }
+    .ec-wrap{ padding:24px 16px; border-radius:16px; }
+    .ec-title{ font-size:20px; }
+  }
+</style>
+</head>
+<body style="margin:0; background:#EEF2F8; padding:18px 0;">
+
+<div class="ec-wrap">
+  <span class="ec-eyebrow"><i class="ti ti-report-analytics"></i>&nbsp;실적시즌 체크포인트</span>
+  <h3 class="ec-title">마이크론 · 삼성전자 · SK하이닉스, 무엇을 봐야 하나</h3>
+  <p class="ec-sub">세 회사 모두 '얼마나 잘 벌었는지'보다 '얼마나 더 오래, 더 비싸게 팔 수 있는지'에 대한 경영진의 발언이 더 중요한 변수입니다.</p>
+
+  <div class="ec-grid">
+
+    <div class="ec-card">
+      <div class="ec-card-top">
+        <div><span class="ec-name">마이크론</span><br><span class="ec-ticker">NASDAQ: MU</span></div>
+        <span class="ec-status status-pending">발표 예정</span>
+      </div>
+      <div class="ec-date"><i class="ti ti-calendar"></i>2026.06.24 美 장마감 후</div>
+      <div class="ec-row"><span class="k">매출 컨센서스</span><span class="v">약 346억$</span></div>
+      <div class="ec-row"><span class="k">전년 대비 성장률(추정)</span><span class="v">+283%</span></div>
+      <div class="ec-row"><span class="k">매출이익률 가이던스</span><span class="v">약 81%</span></div>
+      <div class="ec-row"><span class="k">HBM 2026년 공급</span><span class="v">완판</span></div>
+      <div class="ec-row"><span class="k">분석가 의견</span><span class="v">전원 매수(27명)</span></div>
+      <div class="ec-note"><b>체크포인트</b> · HBM4 배분 물량, 2027년 가시성, Q4 가이던스가 38~40억$ 컨센서스를 넘어서는지</div>
+    </div>
+
+    <div class="ec-card">
+      <div class="ec-card-top">
+        <div><span class="ec-name">삼성전자</span><br><span class="ec-ticker">KRX: 005930</span></div>
+        <span class="ec-status status-pending">잠정실적 예상</span>
+      </div>
+      <div class="ec-date"><i class="ti ti-calendar"></i>2026년 7월 초(추정)</div>
+      <div class="ec-row"><span class="k">1분기 매출(확정)</span><span class="v">133.9조원</span></div>
+      <div class="ec-row"><span class="k">1분기 영업이익(확정)</span><span class="v">57.2조원</span></div>
+      <div class="ec-row"><span class="k">2분기 D램 가격(QoQ 전망)</span><span class="v">+58~63%</span></div>
+      <div class="ec-row"><span class="k">2분기 낸드 가격(QoQ 전망)</span><span class="v">+70~75%</span></div>
+      <div class="ec-row"><span class="k">현금성 자산(3월말)</span><span class="v">147조원+</span></div>
+      <div class="ec-note"><b>체크포인트</b> · HBM4E 샘플 공급 진행 상황, HBM 시장점유율 확대 속도(UBS는 2027년 SK하이닉스와 동률 전망)</div>
+    </div>
+
+    <div class="ec-card">
+      <div class="ec-card-top">
+        <div><span class="ec-name">SK하이닉스</span><br><span class="ec-ticker">KRX: 000660</span></div>
+        <span class="ec-status status-confirmed">확정 발표일</span>
+      </div>
+      <div class="ec-date"><i class="ti ti-calendar"></i>2026.07.29</div>
+      <div class="ec-row"><span class="k">매출 컨센서스</span><span class="v">약 81.07조원</span></div>
+      <div class="ec-row"><span class="k">12개월 목표주가(평균)</span><span class="v">약 271만원</span></div>
+      <div class="ec-row"><span class="k">분석가 의견</span><span class="v">매수 36 · 보유 2 · 매도 0</span></div>
+      <div class="ec-row"><span class="k">현금성 자산(3월말)</span><span class="v">54조원</span></div>
+      <div class="ec-row"><span class="k">나스닥 ADR 상장</span><span class="v">SEC 승인 시 8월 추진</span></div>
+      <div class="ec-note"><b>체크포인트</b> · HBM 2027년까지 공급부족 유지 여부, ADR 상장에 따른 기존 주주 희석 우려 해소 방안</div>
+    </div>
+
+  </div>
+
+  <div class="ec-disclaimer"><i class="ti ti-info-circle"></i>&nbsp;본 카드는 투자 자문이 아니며 공개된 컨센서스·공시 자료를 정리한 참고용 정보입니다. 실제 발표 수치 및 일정은 달라질 수 있습니다.</div>
+
+  <div class="ec-foot">
+    자료: Investing.com, LSEG, Micron Investor Relations, 삼성전자 1분기 공시, 서울경제, UBS 리포트, TradingKey, MBC뉴스 종합 · 2026.06.24 기준
+  </div>
+</div>
+
+</body>
+</html>
