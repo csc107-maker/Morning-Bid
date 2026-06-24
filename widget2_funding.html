@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>빅테크 채권시장 vs 블라인드펀드 - AI 자금조달 양극화</title>
+<meta name="description" content="알파벳·메타·아마존·오라클의 채권 발행 현황과 프라이빗크레딧(블라인드펀드) 스트레스 지표를 비교한 표.">
+
+<meta property="og:title" content="빅테크는 자금조달 끝냈는데, 블라인드펀드는 왜 흔들릴까" />
+<meta property="og:description" content="알파벳 5배 청약, 메타 6트랑셰 채권 vs 오라클 CDS 125bp, PIK대출 경고 - AI 자금조달의 양극화를 데이터로 비교했습니다." />
+<meta property="og:image" content="여기에 썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="여기에 이 글이 게시될 블로그 포스트 URL을 입력하세요" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.35.0/tabler-icons.min.css">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+<style>
+  .fc-wrap{
+    box-sizing:border-box;
+    width:100%;
+    max-width:800px;
+    margin:32px auto;
+    padding:34px 30px;
+    background:#FFFFFF;
+    border:1px solid #E7ECF3;
+    border-radius:22px;
+    box-shadow:0 18px 40px -22px rgba(15,42,74,0.18);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    color:#0B1F3D;
+  }
+  .fc-wrap *{ box-sizing:border-box; }
+  .fc-eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    background:#DBEAFE; color:#1D4ED8;
+    font-size:12.5px; font-weight:700; letter-spacing:0.04em;
+    padding:6px 14px; border-radius:20px; margin-bottom:14px;
+  }
+  .fc-title{ font-size:24px; font-weight:800; line-height:1.35; margin:0 0 8px; }
+  .fc-sub{ font-size:14px; color:#5B6B82; margin:0 0 26px; line-height:1.65; }
+
+  .fc-section{ margin-bottom:30px; }
+  .fc-section:last-of-type{ margin-bottom:0; }
+  .fc-sec-head{
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:14px;
+  }
+  .fc-sec-icon{
+    width:34px; height:34px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:17px; color:#fff; flex-shrink:0;
+  }
+  .fc-sec-title{ font-size:16.5px; font-weight:800; margin:0; }
+  .fc-sec-desc{ font-size:13px; color:#5B6B82; margin:2px 0 0; }
+
+  table.fc-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    overflow:hidden;
+    border-radius:14px;
+    border:1px solid #EDF1F6;
+  }
+  table.fc-table th{
+    text-align:left;
+    background:#F4F7FB;
+    color:#5B6B82;
+    font-weight:700;
+    font-size:12.5px;
+    padding:11px 14px;
+    border-bottom:1px solid #EDF1F6;
+  }
+  table.fc-table td{
+    padding:12px 14px;
+    border-bottom:1px solid #F1F4F8;
+    color:#16233D;
+    vertical-align:top;
+    line-height:1.5;
+  }
+  table.fc-table tr:last-child td{ border-bottom:none; }
+  table.fc-table tr:nth-child(even) td{ background:#FAFBFD; }
+  .fc-pill{
+    display:inline-block;
+    font-size:11px; font-weight:700;
+    padding:3px 9px; border-radius:9px;
+    white-space:nowrap;
+  }
+  .pill-green{ background:#DCFCE7; color:#15803D; }
+  .pill-red{ background:#FEE2E2; color:#B91C1C; }
+  .pill-amber{ background:#FEF3C7; color:#92400E; }
+  .fc-foot{
+    margin-top:24px; padding-top:16px;
+    border-top:1px dashed #E7ECF3;
+    font-size:11.5px; color:#9AA5B5; line-height:1.65;
+  }
+  .fc-callout{
+    margin-top:16px;
+    background:#F0F6FF;
+    border:1px solid #DCE8FB;
+    border-radius:14px;
+    padding:14px 16px;
+    font-size:13px;
+    color:#1E3A5F;
+    line-height:1.65;
+  }
+  .fc-callout i{ color:#2563EB; margin-right:6px; }
+  @media (max-width:520px){
+    .fc-wrap{ padding:24px 16px; border-radius:16px; }
+    .fc-title{ font-size:20px; }
+    table.fc-table{ font-size:12.5px; }
+    table.fc-table th, table.fc-table td{ padding:9px 9px; }
+  }
+</style>
+</head>
+<body style="margin:0; background:#EEF2F8; padding:18px 0;">
+
+<div class="fc-wrap">
+  <span class="fc-eyebrow"><i class="ti ti-coin"></i>&nbsp;AI 자금조달 리포트</span>
+  <h3 class="fc-title">빅테크는 돈을 미리 구했다 - 그런데 어디선가는 경고음이 울린다</h3>
+  <p class="fc-sub">AI 데이터센터 투자는 2026년에만 약 7,000억 달러 규모로 추정됩니다. 같은 'AI 자금조달'이라도 누가 빌려주느냐에 따라 온도차가 뚜렷합니다.</p>
+
+  <div class="fc-section">
+    <div class="fc-sec-head">
+      <div class="fc-sec-icon" style="background:#16A34A;"><i class="ti ti-rosette-discount-check"></i></div>
+      <div>
+        <p class="fc-sec-title">A. 공개 채권시장 - 빅테크는 이미 '완판' 행렬</p>
+        <p class="fc-sec-desc">우량 투자등급 기업들은 시장 충격이 오기 전, 길게는 5~6개월 전부터 자금을 확보해 뒀습니다.</p>
+      </div>
+    </div>
+    <table class="fc-table">
+      <tr><th>기업</th><th>시기</th><th>규모</th><th>비고</th></tr>
+      <tr>
+        <td><b>알파벳(구글)</b></td>
+        <td>2026.02</td>
+        <td>약 320억 달러<br>(글로벌 통합)</td>
+        <td>주문이 1,000억 달러 이상 몰려 약 5배 수요, 파운드(century bond) 일부 포함<span class="fc-pill pill-green" style="margin-left:6px;">초과청약</span></td>
+      </tr>
+      <tr>
+        <td><b>아마존</b></td>
+        <td>2026.03</td>
+        <td>약 540억 달러</td>
+        <td>빅테크 역대 최대 규모 단일 채권 발행 중 하나<span class="fc-pill pill-green" style="margin-left:6px;">대형 완판</span></td>
+      </tr>
+      <tr>
+        <td><b>메타</b></td>
+        <td>2026.05</td>
+        <td>약 250억 달러</td>
+        <td>6개 트랑셰, 2066년 만기 초장기물 포함. 동시에 연간 캐펙스 가이던스를 1,250억~1,450억 달러로 상향<span class="fc-pill pill-green" style="margin-left:6px;">신용등급 유지</span></td>
+      </tr>
+      <tr>
+        <td><b>오라클</b></td>
+        <td>2026년 상반기</td>
+        <td>약 250억 달러</td>
+        <td>피크 수요는 1,290억 달러로 흥행했지만, 신용부도스와프(CDS)는 글로벌 금융위기 수준으로 확대<span class="fc-pill pill-amber" style="margin-left:6px;">청약 흥행·신용 불안 공존</span></td>
+      </tr>
+    </table>
+    <div class="fc-callout"><i class="ti ti-info-circle"></i>알파벳·메타·아마존 등 5대 빅테크의 회사채 의존도는 아직 낮은 편입니다(부채/자본 0.4~0.7배, 美 투자등급 평균 약 3배). 문제의 핵심은 빅테크 본체가 아니라, 그 아래 단계의 자금조달 구조에 있습니다.</div>
+  </div>
+
+  <div class="fc-section">
+    <div class="fc-sec-head">
+      <div class="fc-sec-icon" style="background:#DC2626;"><i class="ti ti-alert-triangle"></i></div>
+      <div>
+        <p class="fc-sec-title">B. 블라인드펀드(프라이빗 크레딧) - 곳곳에서 경고음</p>
+        <p class="fc-sec-desc">데이터센터 SPV·신생 클라우드 기업에 대출하는 비공개 펀드 쪽은 분위기가 다릅니다.</p>
+      </div>
+    </div>
+    <table class="fc-table">
+      <tr><th>경고 지표</th><th>현재 상태</th><th>판단 기준</th></tr>
+      <tr>
+        <td>PIK 대출 비중<br><span style="color:#8A94A6; font-size:11.5px;">(이자를 현금이 아닌 빚으로 갚는 방식)</span></td>
+        <td>상승 추세 <span class="fc-pill pill-amber">관찰 필요</span></td>
+        <td>15% 초과 시 본격 경고 신호로 간주</td>
+      </tr>
+      <tr>
+        <td>상장 BDC(사모대출펀드) 주가</td>
+        <td>순자산가치 대비 -15~20% <span class="fc-pill pill-red">저평가 거래</span></td>
+        <td>시장이 이미 부실 위험을 일부 반영 중</td>
+      </tr>
+      <tr>
+        <td>오라클 CDS 스프레드</td>
+        <td>125bp 이상 <span class="fc-pill pill-red">2009년 위기 수준</span></td>
+        <td>투자등급(Baa2/BBB) 유지에도 시장은 정크본드처럼 가격 책정</td>
+      </tr>
+      <tr>
+        <td>2028년 만기도래 부채</td>
+        <td>566억$ → 2,150억$ <span class="fc-pill pill-amber">3.8배 증가(S&P 추정)</span></td>
+        <td>리파이낸싱 수요 집중 시 자금경색 위험</td>
+      </tr>
+      <tr>
+        <td>美 연준(Fed) 대응</td>
+        <td>2026.04 주요은행에 익스포저 공개 요구</td>
+        <td>은행의 프라이빗크레딧 간접 노출 우려 공식화</td>
+      </tr>
+    </table>
+    <div class="fc-callout"><i class="ti ti-info-circle"></i>UBS는 공격적 AI 디스럽션 시나리오에서 프라이빗크레딧 부도율이 최대 13%까지 치솟을 수 있다고 경고했습니다(하이일드채권 약 4%, 레버리지대출 약 8% 추정치 대비 높은 수준).</div>
+  </div>
+
+  <div class="fc-foot">
+    자료: Bloomberg, Reuters, Quinn Emanuel 법률 클라이언트 리포트, S&P Global, UBS, M&G Investments, Portfolio Adviser, CNBC, Fortune 종합 · 채권 발행 규모는 보도 시점 기준으로 환율·트랑셰 구성에 따라 최종 확정액과 차이가 있을 수 있습니다.
+  </div>
+</div>
+
+</body>
+</html>
