@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RE100 이행수단 5가지 비교 | 직접 PPA 기업 사례 정리</title>
+<meta name="description" content="녹색프리미엄, REC구매, 제3자PPA, 직접PPA, 자가소비 5가지 RE100 이행수단 비교표와 직접 PPA 실제 기업 사례">
+
+<meta property="og:title" content="직접 PPA, 어떤 기업이 어떤 조건으로 하고 있을까? (RE100 이행수단 비교)" />
+<meta property="og:description" content="RE100 이행수단 5종 비교표와 직접 PPA 실제 계약 사례, REC·신용등급 조건 정리" />
+<meta property="og:image" content="[여기에 썸네일 이미지 URL을 입력하세요]" />
+<meta property="og:url" content="[여기에 이 카드가 게시될 페이지 URL을 입력하세요]" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" onerror="this.remove()">
+<style>
+  :root{
+    --bg:#F4F7FA; --surface:#FFFFFF; --ink:#101D33; --ink-soft:#52617A; --line:#DEE6ED;
+    --accent-grid:#157A6E; --accent-grid-soft:#E3F2EF;
+    --accent-solar:#E08E2B; --accent-solar-soft:#FBEDDB;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);font-family:'Pretendard',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:820px;margin:0 auto;padding:36px 24px 40px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--accent-grid);background:var(--accent-grid-soft);padding:6px 12px;border-radius:999px;margin-bottom:14px;}
+  h1{font-size:25px;line-height:1.35;font-weight:800;margin:0 0 8px;letter-spacing:-0.01em;}
+  .sub{color:var(--ink-soft);font-size:14.5px;line-height:1.6;margin:0 0 24px;}
+
+  .tablecard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:6px;box-shadow:0 1px 2px rgba(16,29,51,.03);overflow:hidden; margin-bottom:22px;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  thead th{
+    background:#101D33;color:#fff;text-align:left;padding:11px 12px;font-weight:700;font-size:12px;letter-spacing:.01em;
+  }
+  thead th:first-child{border-radius:12px 0 0 0;}
+  thead th:last-child{border-radius:0 12px 0 0;}
+  tbody td{padding:11px 12px;border-bottom:1px solid var(--line);color:var(--ink);vertical-align:top;line-height:1.5;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr.highlight td{background:var(--accent-solar-soft);}
+  td.name{font-weight:700;white-space:nowrap;}
+  td.name i{margin-right:5px;color:var(--accent-solar);}
+
+  .case{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(16,29,51,.03);margin-bottom:22px;
+  }
+  .case-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .case-head .icon{width:38px;height:38px;border-radius:10px;background:var(--accent-grid-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-grid);font-size:19px;flex-shrink:0;}
+  .case-head .ti{font-size:15.5px;font-weight:800;}
+  .case-head .tsub{font-size:12px;color:var(--ink-soft);}
+  .case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px;}
+  @media (max-width:520px){.case-grid{grid-template-columns:1fr;}}
+  .stat{background:#F7F9FB;border:1px solid var(--line);border-radius:10px;padding:10px 12px;}
+  .stat .k{font-size:11px;color:var(--ink-soft);margin-bottom:3px;}
+  .stat .v{font-size:14.5px;font-weight:700;font-family:'SF Mono','IBM Plex Mono',monospace;}
+
+  .stats-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .pill{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;}
+  .pill .v{font-size:21px;font-weight:800;font-family:'SF Mono','IBM Plex Mono',monospace;color:var(--accent-grid);}
+  .pill .k{font-size:12px;color:var(--ink-soft);margin-top:3px;}
+
+  .src{margin-top:6px;text-align:right;font-size:11.5px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="eyebrow"><i class="ti ti-building-factory-2"></i>&nbsp;조달 방식 비교</span>
+  <h1>RE100 이행수단 5가지,<br>직접 PPA는 누가 어떻게 하고 있나</h1>
+  <p class="sub">한전을 거치지 않는 직접 PPA는 진입장벽이 있는 만큼, 다른 이행수단과 비교해서 봐야 합니다.</p>
+
+  <div class="tablecard">
+    <table>
+      <thead>
+        <tr><th>이행수단</th><th>운영기관</th><th>계약기간</th><th>가격 결정</th><th>적합한 기업</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name"><i class="ti ti-leaf"></i>녹색프리미엄</td>
+          <td>한전</td>
+          <td>1년 단위 입찰</td>
+          <td>입찰가(프리미엄)</td>
+          <td>소규모·진입 초기 기업</td>
+        </tr>
+        <tr>
+          <td class="name"><i class="ti ti-certificate"></i>REC 구매</td>
+          <td>전력거래소</td>
+          <td>현물 단위 거래</td>
+          <td>현물시장가(변동)</td>
+          <td>유연한 조달이 필요한 기업</td>
+        </tr>
+        <tr>
+          <td class="name"><i class="ti ti-route-2"></i>제3자 PPA</td>
+          <td>한전(중개)</td>
+          <td>10~20년</td>
+          <td>협상가+망이용료 등</td>
+          <td>한전 중개를 원하는 기업</td>
+        </tr>
+        <tr class="highlight">
+          <td class="name"><i class="ti ti-link"></i>직접 PPA</td>
+          <td>전력거래소(등록)</td>
+          <td>10~20년(최대 30년 사례)</td>
+          <td>1:1 직접 협상</td>
+          <td>신용등급 A+ 이상 대기업·우량기업</td>
+        </tr>
+        <tr>
+          <td class="name"><i class="ti ti-solar-panel"></i>자가소비</td>
+          <td>해당없음</td>
+          <td>설비 수명 기간</td>
+          <td>설치비 회수형</td>
+          <td>유휴부지·옥상이 있는 기업</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="case">
+    <div class="case-head">
+      <div class="icon"><i class="ti ti-map-pin"></i></div>
+      <div>
+        <div class="ti">실제 사례 · 파주시 공공 직접 PPA</div>
+        <div class="tsub">2026년, 국내 지방정부 최초 공공 직접 PPA 공급 협약</div>
+      </div>
+    </div>
+    <div class="case-grid">
+      <div class="stat"><div class="k">발전소</div><div class="v">문산정수장 태양광 1,040kW</div></div>
+      <div class="stat"><div class="k">수요기업</div><div class="v">관내 중소기업 9개사</div></div>
+      <div class="stat"><div class="k">계약기간 · 단가</div><div class="v">30년 · 160원/kWh 고정</div></div>
+      <div class="stat"><div class="k">전력중개</div><div class="v">SK이노베이션 E&S</div></div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="pill"><div class="v">1,679MW</div><div class="k">2025년 누적 PPA 계약 (42건)</div></div>
+    <div class="pill"><div class="v">98.7%</div><div class="k">그중 직접 PPA 비중(1,657MW)</div></div>
+    <div class="pill"><div class="v">A+ 이상</div><div class="k">권장 수요기업 신용등급</div></div>
+  </div>
+  <div class="src">출처: 한국RE100협의체 월간 동향(2026.6), 기업재생에너지재단(CREF), 지자체 보도자료</div>
+</div>
+</body>
+</html>
