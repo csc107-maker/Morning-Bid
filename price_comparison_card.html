@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정부 PPA vs 직접 PPA 가격 비교 | 2026년 kWh당 단가 데이터</title>
+<meta name="description" content="RPS 고정가격계약(정부 PPA)과 직접 PPA의 kWh당 실제 계약 단가를 비교한 데이터 카드">
+
+<meta property="og:title" content="정부 PPA vs 직접 PPA, kWh당 얼마나 차이날까? (2026년 데이터)" />
+<meta property="og:description" content="RPS 고정가격계약과 직접 PPA의 실제 계약 단가를 발전원별로 비교 정리" />
+<meta property="og:image" content="[여기에 썸네일 이미지 URL을 입력하세요]" />
+<meta property="og:url" content="[여기에 이 카드가 게시될 페이지 URL을 입력하세요]" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" onerror="this.remove()">
+<style>
+  :root{
+    --bg:#F4F7FA;
+    --surface:#FFFFFF;
+    --ink:#101D33;
+    --ink-soft:#52617A;
+    --line:#DEE6ED;
+    --accent-grid:#157A6E;
+    --accent-grid-soft:#E3F2EF;
+    --accent-solar:#E08E2B;
+    --accent-solar-soft:#FBEDDB;
+    --accent-alert:#C0472E;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);font-family:'Pretendard',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:780px;margin:0 auto;padding:36px 24px 40px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--accent-solar);background:var(--accent-solar-soft);padding:6px 12px;border-radius:999px;margin-bottom:14px;}
+  h1{font-size:25px;line-height:1.35;font-weight:800;margin:0 0 8px;letter-spacing:-0.01em;}
+  .sub{color:var(--ink-soft);font-size:14.5px;line-height:1.6;margin:0 0 26px;}
+
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px 22px;box-shadow:0 1px 2px rgba(16,29,51,.03);}
+  .row{margin-bottom:20px;}
+  .row:last-child{margin-bottom:0;}
+  .row-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+  .label{font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:6px;}
+  .badge{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;}
+  .badge.gov{background:var(--accent-grid-soft);color:var(--accent-grid);}
+  .badge.direct{background:var(--accent-solar-soft);color:var(--accent-solar);}
+  .value{font-family:'SF Mono','IBM Plex Mono',monospace;font-weight:700;font-size:14.5px;color:var(--ink);}
+  .value small{font-weight:500;color:var(--ink-soft);font-size:11.5px;}
+  .bar-track{position:relative;height:14px;background:#EEF1F5;border-radius:8px;overflow:hidden;}
+  .bar-fill{position:absolute;left:0;top:0;height:100%;border-radius:8px;}
+  .bar-fill.gov{background:linear-gradient(90deg,#0E5C53,#157A6E);}
+  .bar-fill.direct{background:linear-gradient(90deg,#C97A1E,#E08E2B);}
+
+  .gap-callout{
+    margin-top:22px;
+    background:linear-gradient(135deg,#FBEDDB,#F4F7FA);
+    border:1px solid #F0D6AC;
+    border-radius:14px;
+    padding:16px 18px;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .gap-callout i{font-size:20px;color:var(--accent-solar);margin-top:2px;}
+  .gap-callout .gtitle{font-weight:800;font-size:14.5px;margin-bottom:4px;}
+  .gap-callout .gdesc{font-size:13px;color:var(--ink-soft);line-height:1.6;}
+
+  .src{margin-top:18px;text-align:right;font-size:11.5px;color:var(--ink-soft);}
+
+  .foot{margin-top:22px;padding-top:14px;border-top:1px dashed var(--line);font-size:12px;color:var(--ink-soft);line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="eyebrow"><i class="ti ti-chart-bar"></i>&nbsp;가격 비교 데이터</span>
+  <h1>정부 PPA(고정가격계약) vs 직접 PPA<br>kWh당 단가, 실제로 얼마나 차이날까?</h1>
+  <p class="sub">2024~2026년 발표된 낙찰가·계약가 데이터를 기준으로 정리했습니다. 막대 길이는 0~200원/kWh 구간으로 환산.</p>
+
+  <div class="panel">
+    <div class="row">
+      <div class="row-head">
+        <span class="label"><i class="ti ti-building-bank" style="color:#157A6E"></i> 정부 PPA(고정가격계약, SMP+1REC)<span class="badge gov">안정형</span></span>
+        <span class="value">154.7원<small>/kWh</small></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill gov" style="width:77%"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-head">
+        <span class="label"><i class="ti ti-droplet" style="color:#E08E2B"></i> 직접 PPA · 수력<span class="badge direct">협상형</span></span>
+        <span class="value">150원~<small>/kWh</small></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill direct" style="width:75%"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-head">
+        <span class="label"><i class="ti ti-sun" style="color:#E08E2B"></i> 직접 PPA · 태양광<span class="badge direct">협상형</span></span>
+        <span class="value">170~185원<small>/kWh</small></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill direct" style="width:88%"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-head">
+        <span class="label"><i class="ti ti-wind" style="color:#E08E2B"></i> 직접 PPA · 육상풍력<span class="badge direct">협상형</span></span>
+        <span class="value">180원대 중반<small>/kWh</small></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill direct" style="width:93%"></div></div>
+    </div>
+
+    <div class="gap-callout">
+      <i class="ti ti-arrow-up-right"></i>
+      <div>
+        <div class="gtitle">직접 PPA가 정부 PPA보다 평균 +15~30원/kWh 높음</div>
+        <div class="gdesc">단, 직접 PPA는 가격이 높은 대신 ① 수요기업 신용등급(A+ 이상 권장) ② 수급 상황 ③ 중개수수료에 따라 변동성이 큽니다. 정부 PPA는 가격은 낮지만 20년간 고정되는 대신 안정성이 높습니다.</div>
+      </div>
+    </div>
+
+    <div class="src">출처: 한국에너지공단 고정가격계약 낙찰결과(2024~2025), 한국RE100협의체 월간 동향(2026.6) 종합</div>
+  </div>
+
+  <div class="foot"><b>참고</b> · 실제 계약 단가는 발전소 상태·계약기간·중개수수료 등에 따라 개별적으로 달라질 수 있습니다. 위 수치는 시장 평균 동향을 나타낸 참고 데이터입니다.</div>
+</div>
+</body>
+</html>
