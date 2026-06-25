@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>삼성전자·SK하이닉스 목표주가 비교 — 증권사 리서치 종합</title>
+
+<meta property="og:title" content="삼성전자·SK하이닉스 목표주가, 증권사들은 어디까지 보나" />
+<meta property="og:description" content="KB·노무라·미래에셋·유진·하나증권까지. 마이크론 실적 이후 상향된 삼성전자·SK하이닉스 목표주가와 밸류에이션을 한 장으로 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/samsung-skhynix-target-price-thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/samsung-skhynix-target-price-2026" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+
+<style>
+  :root{
+    --bg-page:#F1F5F9; --bg-card:#FFFFFF; --bg-soft:#F8FAFC; --border:#E2E8F0;
+    --navy:#0F172A; --gray:#64748B; --gray-light:#94A3B8;
+    --gold:#D97706; --gold-soft:#FEF3E2;
+    --red:#DC2626; --red-soft:#FEF2F2;
+    --blue:#2563EB; --blue-soft:#EFF6FF;
+    --green:#16A34A; --green-soft:#F0FDF4;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; font-family:'Noto Sans KR', sans-serif; background:var(--bg-page); color:var(--navy); padding:28px 14px; }
+  .wrap{ max-width:760px; margin:0 auto; background:var(--bg-card); border-radius:20px; border:1px solid var(--border); overflow:hidden; box-shadow:0 1px 3px rgba(15,23,42,0.04); }
+  .head{ padding:28px 30px 18px; border-bottom:1px solid var(--border); }
+  .eyebrow{ display:inline-flex; align-items:center; gap:6px; background:var(--green-soft); color:var(--green); font-size:12px; font-weight:700; padding:5px 12px; border-radius:999px; }
+  .head h1{ font-size:21px; font-weight:900; margin:14px 0 8px; line-height:1.4; }
+  .head p{ font-size:13.5px; color:var(--gray); margin:0; line-height:1.7; }
+
+  .price-row{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); }
+  .price-card{ background:var(--bg-card); padding:18px 22px; }
+  .price-card .name{ font-size:13px; color:var(--gray); display:flex; align-items:center; gap:6px; margin-bottom:6px;}
+  .price-card .price{ font-size:24px; font-weight:900; }
+  .price-card .chg{ font-size:13px; font-weight:700; color:var(--red); margin-top:4px; }
+  .price-card .asof{ font-size:11px; color:var(--gray-light); margin-top:6px; }
+
+  .section{ padding:22px 30px; border-top:1px solid var(--border); }
+  .section h2{ font-size:15px; font-weight:700; margin:0 0 14px; display:flex; align-items:center; gap:6px; }
+
+  .val-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:6px; }
+  .val-card{ background:var(--bg-soft); border:1px solid var(--border); border-radius:12px; padding:12px 14px; text-align:center; }
+  .val-card .v-label{ font-size:11.5px; color:var(--gray); margin-bottom:6px; }
+  .val-card .v-value{ font-size:19px; font-weight:900; }
+  .val-card.hl .v-value{ color:var(--gold); }
+
+  table{ width:100%; border-collapse:collapse; font-size:12.8px; }
+  th, td{ text-align:left; padding:9px 6px; border-bottom:1px solid var(--border); }
+  th{ color:var(--gray); font-weight:700; font-size:11.5px; }
+  td{ font-weight:500; }
+  td.tk{ font-weight:700; }
+  .badge{ display:inline-block; font-size:10.5px; font-weight:700; padding:2px 7px; border-radius:6px; }
+  .badge.up{ background:var(--red-soft); color:var(--red); }
+  .badge.samsung{ background:var(--blue-soft); color:var(--blue); }
+  .badge.hynix{ background:var(--gold-soft); color:var(--gold); }
+
+  .bull-bear{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px; }
+  .bb-card{ border-radius:12px; padding:16px 18px; }
+  .bb-card.bull{ background:var(--red-soft); border:1px solid #FECACA; }
+  .bb-card.bear{ background:var(--blue-soft); border:1px solid #BFDBFE; }
+  .bb-card h3{ font-size:13px; font-weight:700; margin:0 0 10px; display:flex; align-items:center; gap:6px; }
+  .bb-card.bull h3{ color:#991B1B; }
+  .bb-card.bear h3{ color:#1E40AF; }
+  .bb-card ul{ margin:0; padding-left:18px; font-size:12px; line-height:1.8; color:var(--navy); }
+
+  .foot{ padding:16px 30px 22px; font-size:11.5px; color:var(--gray-light); line-height:1.7; border-top:1px dashed var(--border); }
+
+  @media (max-width:480px){
+    .price-row{ grid-template-columns:1fr; }
+    .val-grid{ grid-template-columns:1fr; }
+    .bull-bear{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="head">
+    <span class="eyebrow"><i class="ti ti-target-arrow"></i> TARGET PRICE TRACKER</span>
+    <h1>삼성전자·SK하이닉스 목표주가, 증권사들은 어디까지 보나</h1>
+    <p>마이크론 어닝서프라이즈 이후 국내외 증권사의 목표주가 상향이 잇따르고 있습니다. 동일 시점 기준으로 비교한 결과입니다.</p>
+  </div>
+
+  <div class="price-row">
+    <div class="price-card">
+      <div class="name"><i class="ti ti-building-factory-2"></i> 삼성전자 (005930)</div>
+      <div class="price">340,500원</div>
+      <div class="chg">▲ +9.84% (전일 종가 310,000원)</div>
+      <div class="asof">기준: 2026.06.24 · Investing.com</div>
+    </div>
+    <div class="price-card">
+      <div class="name"><i class="ti ti-cpu"></i> SK하이닉스 (000660)</div>
+      <div class="price">2,615,000원</div>
+      <div class="chg">▲ 36만전자·280만닉스 재돌파(6/25 장초반)</div>
+      <div class="asof">기준: 2026.06.24 · Investing.com</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><i class="ti ti-scale"></i> 밸류에이션 비교 — 12개월 선행 PER</h2>
+    <div class="val-grid">
+      <div class="val-card hl">
+        <div class="v-label">삼성전자</div>
+        <div class="v-value">6.76배</div>
+      </div>
+      <div class="val-card hl">
+        <div class="v-label">SK하이닉스</div>
+        <div class="v-value">6.98배</div>
+      </div>
+      <div class="val-card">
+        <div class="v-label">마이크론</div>
+        <div class="v-value">~10배</div>
+      </div>
+    </div>
+    <div class="val-grid">
+      <div class="val-card">
+        <div class="v-label">삼성전자 2026년 영업이익 컨센서스</div>
+        <div class="v-value" style="font-size:16px;">약 360.8조원</div>
+      </div>
+      <div class="val-card">
+        <div class="v-label">SK하이닉스 2026년 영업이익 컨센서스</div>
+        <div class="v-value" style="font-size:16px;">약 261.0조원</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><i class="ti ti-report-money"></i> 증권사별 목표주가 상향 현황</h2>
+    <table>
+      <tr><th>증권사</th><th>종목</th><th>기존</th><th>신규 목표가</th></tr>
+      <tr><td>KB증권</td><td><span class="badge samsung">삼성전자</span></td><td>53만원</td><td class="tk">55만원</td></tr>
+      <tr><td>노무라증권</td><td><span class="badge samsung">삼성전자</span></td><td>59만원</td><td class="tk">67만원 <span class="badge up">대폭↑</span></td></tr>
+      <tr><td>다올투자증권</td><td><span class="badge samsung">삼성전자</span></td><td>—</td><td class="tk">58.5만원</td></tr>
+      <tr><td>한국투자증권</td><td><span class="badge samsung">삼성전자</span></td><td>—</td><td class="tk">57만원</td></tr>
+      <tr><td>유진투자증권</td><td><span class="badge samsung">삼성전자</span></td><td>—</td><td class="tk">56만원</td></tr>
+      <tr><td>하나증권</td><td><span class="badge samsung">삼성전자</span></td><td>—</td><td class="tk">48만원</td></tr>
+      <tr><td>미래에셋증권</td><td><span class="badge hynix">SK하이닉스</span></td><td>380만원</td><td class="tk">420만원 <span class="badge up">상향</span></td></tr>
+      <tr><td>유진투자증권</td><td><span class="badge hynix">SK하이닉스</span></td><td>—</td><td class="tk">370만원</td></tr>
+    </table>
+  </div>
+
+  <div class="section" style="border-bottom:none;">
+    <h2><i class="ti ti-arrows-diff"></i> 균형 잡힌 시각 — 낙관론과 신중론</h2>
+    <div class="bull-bear">
+      <div class="bb-card bull">
+        <h3><i class="ti ti-trending-up"></i> 낙관론 근거</h3>
+        <ul>
+          <li>UBS·미즈호·번스타인 등 글로벌IB 목표가 동시 상향</li>
+          <li>HBM4 수요가 2026~2027년 공급을 초과할 전망</li>
+          <li>SK하이닉스, Vera Rubin向 HBM4 물량 60~70% 확보 추정</li>
+          <li>현재 12개월 선행 PER이 마이크론보다 낮아 상승 여력 존재</li>
+        </ul>
+      </div>
+      <div class="bb-card bear">
+        <h3><i class="ti ti-alert-triangle"></i> 신중론 근거</h3>
+        <ul>
+          <li>2027~2028년 3사 동시 증설 시 공급과잉 전환 가능성</li>
+          <li>현재 80%대 이익률이 '사이클 정점'일 수 있다는 경고</li>
+          <li>높아진 기대치가 이미 주가에 선반영됐을 가능성</li>
+          <li>메모리 산업 특유의 경기 민감성은 여전히 상존</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    자료: Investing.com(2026.06.24 기준 시세) · 헤럴드경제 · 파이낸셜뉴스 · 뉴스1 · 잡학서가(증권사 리서치 종합) · 에프앤가이드 컨센서스. 목표주가는 발표 시점 기준이며 이후 변경될 수 있습니다. 본 콘텐츠는 정보 제공 목적이며 특정 종목에 대한 투자 권유가 아닙니다. 투자 결정은 본인 책임 하에 이뤄져야 합니다.
+  </div>
+
+</div>
+
+</body>
+</html>
