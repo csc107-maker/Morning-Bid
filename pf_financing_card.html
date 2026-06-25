@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PF 대출이 안 되는 이유 | 장기계약과 현금흐름 안정성의 관계</title>
+<meta name="description" content="프로젝트 파이낸싱(PF)에서 장기계약 여부가 대출 가능성을 가르는 이유를 현금흐름 구조로 설명">
+
+<meta property="og:title" content="장기계약 없이는 왜 PF 대출이 안 될까? (재생에너지 금융 구조 정리)" />
+<meta property="og:description" content="현물시장 매출과 장기계약 매출의 현금흐름 안정성 차이, DSCR이 대출에 미치는 영향 정리" />
+<meta property="og:image" content="[여기에 썸네일 이미지 URL을 입력하세요]" />
+<meta property="og:url" content="[여기에 이 카드가 게시될 페이지 URL을 입력하세요]" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" onerror="this.remove()">
+<style>
+  :root{
+    --bg:#F4F7FA; --surface:#FFFFFF; --ink:#101D33; --ink-soft:#52617A; --line:#DEE6ED;
+    --accent-alert:#C0472E; --accent-alert-soft:#FBE8E3;
+    --accent-grid:#157A6E; --accent-grid-soft:#E3F2EF;
+    --accent-solar:#E08E2B; --accent-solar-soft:#FBEDDB;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);font-family:'Pretendard',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:840px;margin:0 auto;padding:36px 24px 40px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--accent-grid);background:var(--accent-grid-soft);padding:6px 12px;border-radius:999px;margin-bottom:14px;}
+  h1{font-size:25px;line-height:1.35;font-weight:800;margin:0 0 8px;letter-spacing:-0.01em;}
+  .sub{color:var(--ink-soft);font-size:14.5px;line-height:1.6;margin:0 0 26px;}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media (max-width:600px){.cols{grid-template-columns:1fr;}}
+  .col-head{font-size:13px;font-weight:800;padding:8px 0;text-align:center;border-radius:10px;margin-bottom:14px;}
+  .col-head.bad{background:var(--accent-alert-soft);color:var(--accent-alert);}
+  .col-head.good{background:var(--accent-grid-soft);color:var(--accent-grid);}
+
+  .flowbox{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 15px;font-size:13px;line-height:1.55;margin-bottom:6px;box-shadow:0 1px 2px rgba(16,29,51,.03);}
+  .flowbox b{display:block;font-size:13.5px;margin-bottom:3px;}
+  .flowbox.start{border-top:3px solid var(--ink-soft);}
+  .flowbox.bad-end{border-top:3px solid var(--accent-alert);}
+  .flowbox.good-end{border-top:3px solid var(--accent-grid);}
+  .arrow{text-align:center;color:var(--ink-soft);font-size:16px;margin:2px 0 8px;}
+  .col.bad .arrow{color:var(--accent-alert);}
+  .col.good .arrow{color:var(--accent-grid);}
+
+  .gatekeeper{
+    margin-top:24px;background:linear-gradient(135deg,#FBEDDB,#F4F7FA);border:1px solid #F0D6AC;border-radius:14px;
+    padding:16px 18px;display:flex;gap:12px;align-items:flex-start;
+  }
+  .gatekeeper i{font-size:20px;color:var(--accent-solar);margin-top:2px;}
+  .gatekeeper .gt{font-weight:800;font-size:14.5px;margin-bottom:4px;}
+  .gatekeeper .gd{font-size:13px;color:var(--ink-soft);line-height:1.6;}
+
+  .databox{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;}
+  .dpill{flex:1;min-width:160px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 15px;}
+  .dpill .k{font-size:11.5px;color:var(--ink-soft);margin-bottom:3px;}
+  .dpill .v{font-size:17px;font-weight:800;font-family:'SF Mono','IBM Plex Mono',monospace;}
+
+  .foot{margin-top:22px;padding-top:14px;border-top:1px dashed var(--line);font-size:12px;color:var(--ink-soft);line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="eyebrow"><i class="ti ti-coin"></i>&nbsp;금융 구조 분석</span>
+  <h1>장기계약이 없으면 왜<br>은행 대출(PF)이 막힐까?</h1>
+  <p class="sub">PF(프로젝트 파이낸싱)는 사업주 신용이 아니라, <b>발전소가 앞으로 벌어들일 현금흐름</b>만 보고 빌려주는 돈입니다.</p>
+
+  <div class="cols">
+    <div class="col bad">
+      <div class="col-head bad">현물시장 매출 (SMP+REC 변동가)</div>
+      <div class="flowbox start"><b>매출 변동성 큼</b>매달 SMP·REC 가격에 따라 수익이 출렁임</div>
+      <div class="arrow"><i class="ti ti-arrow-down"></i></div>
+      <div class="flowbox"><b>DSCR 예측 어려움</b>20년 치 현금흐름을 안정적으로 산정하기 어려움</div>
+      <div class="arrow"><i class="ti ti-arrow-down"></i></div>
+      <div class="flowbox bad-end"><b>정식 PF 곤란</b>브리지론+시설자금대출 등 대안 활용, 사업주 자기자본 부담↑</div>
+    </div>
+
+    <div class="col good">
+      <div class="col-head good">장기계약 매출 (정부PPA·신용A+ 직접PPA)</div>
+      <div class="flowbox start"><b>매출 고정·예측 가능</b>10~20년간 거의 확정된 금액 수취</div>
+      <div class="arrow"><i class="ti ti-arrow-down"></i></div>
+      <div class="flowbox"><b>DSCR 안정적 산출</b>은행이 상환능력을 신뢰도 높게 평가</div>
+      <div class="arrow"><i class="ti ti-arrow-down"></i></div>
+      <div class="flowbox good-end"><b>정상 PF 가능</b>상대적으로 유리한 금리·한도로 자금 조달</div>
+    </div>
+  </div>
+
+  <div class="gatekeeper">
+    <i class="ti ti-shield-check"></i>
+    <div>
+      <div class="gt">그래서 직접 PPA는 "수요기업 신용등급"이 핵심 변수</div>
+      <div class="gd">직접 PPA의 매출 안정성은 결국 전기를 사주는 기업의 신용도에 달려 있습니다. 그래서 은행과 발전사업자 모두 수요기업 신용등급 <b>A+ 이상</b>을 사실상의 기준선으로 보는 경우가 많습니다.</div>
+    </div>
+  </div>
+
+  <div class="databox">
+    <div class="dpill"><div class="k">최근 5년 평균 SMP</div><div class="v">130.77원/kWh</div></div>
+    <div class="dpill"><div class="k">최근 5년 평균 REC</div><div class="v">65,764원</div></div>
+    <div class="dpill"><div class="k">정부 PPA(SMP+1REC)</div><div class="v">약 154.7원/kWh</div></div>
+  </div>
+
+  <div class="foot"><b>참고</b> · DSCR(부채상환계수)은 발전소가 벌어들이는 현금흐름이 매년 갚아야 할 원리금의 몇 배인지를 나타내는 지표로, 금융기관의 대출 한도·금리 결정에 핵심적으로 활용됩니다.</div>
+</div>
+</body>
+</html>
