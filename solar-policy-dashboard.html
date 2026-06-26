@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+  [사용 안내]
+  1) 이 파일 그대로 웹에 올리면 독립 페이지로 작동합니다.
+  2) 네이버블로그·티스토리 등 HTML 모드에 넣을 때는 <body>~</body> 사이 전체(스타일 포함)를 복사해 붙여넣으세요.
+  3) og:title / og:description / og:image / og:url 은 실제 발행 정보로 교체하세요.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>햇빛소득마을 추진 현황 대시보드</title>
+<meta property="og:title" content="햇빛소득마을 추진 현황, 숫자로 보기" />
+<meta property="og:description" content="이재명 정부 햇빛소득마을 정책의 목표·예산·융자 비율·법적 기반을 한눈에 정리한 대시보드" />
+<meta property="og:image" content="https://example.com/images/thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/sunshine-income-village" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+</head>
+<body style="margin:0;padding:0;background:#ffffff;">
+<style>
+  .ssm-wrap{
+    --bg:#F4F8FB; --surface:#FFFFFF; --ink:#102A43; --ink-soft:#486581;
+    --gold:#F2A93B; --gold-soft:#FDF1DC; --teal:#1B7F79; --teal-soft:#E3F1EF;
+    --terracotta:#D1603D; --line:#DCE6EE;
+    font-family:'Noto Sans KR', sans-serif;
+    background:var(--bg);
+    padding:32px 20px 36px;
+    border-radius:18px;
+    color:var(--ink);
+    max-width:880px;
+    margin:24px auto;
+    box-sizing:border-box;
+  }
+  .ssm-wrap *{box-sizing:border-box;}
+  .ssm-head{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+  .ssm-tag{
+    background:var(--teal); color:#fff; font-size:13px; font-weight:700;
+    padding:5px 12px; border-radius:999px; letter-spacing:.2px;
+  }
+  .ssm-title{
+    font-family:'Noto Serif KR', serif; font-weight:700; font-size:24px;
+    margin:14px 0 4px; line-height:1.35;
+  }
+  .ssm-sub{ color:var(--ink-soft); font-size:14.5px; margin:0 0 22px; line-height:1.6;}
+  .ssm-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:14px;
+  }
+  @media (max-width:560px){ .ssm-grid{grid-template-columns:1fr;} }
+  .ssm-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:18px 18px 16px; position:relative; overflow:hidden;
+  }
+  .ssm-card::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:5px;
+    background:linear-gradient(90deg,var(--accent),transparent 120%);
+  }
+  .ssm-card.c1{--accent:#F2A93B;} .ssm-card.c2{--accent:#1B7F79;}
+  .ssm-card.c3{--accent:#486581;} .ssm-card.c4{--accent:#D1603D;}
+  .ssm-card.c5{--accent:#102A43;}
+  .ssm-icon{
+    width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    background:var(--gold-soft); color:var(--accent); font-size:19px; margin-bottom:10px;
+  }
+  .ssm-card.c2 .ssm-icon{background:var(--teal-soft);}
+  .ssm-label{font-size:13px; color:var(--ink-soft); font-weight:500; margin-bottom:6px;}
+  .ssm-value{
+    font-family:'JetBrains Mono', monospace; font-weight:700; font-size:25px;
+    color:var(--ink); line-height:1.25;
+  }
+  .ssm-foot{font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.5;}
+  .ssm-source{
+    margin-top:18px; font-size:12px; color:var(--ink-soft); border-top:1px dashed var(--line);
+    padding-top:12px;
+  }
+</style>
+
+<div class="ssm-wrap">
+  <div class="ssm-head"><span class="ssm-tag">정책 개요</span></div>
+  <h3 class="ssm-title">햇빛소득마을 추진 현황, 숫자로 한눈에 보기</h3>
+  <p class="ssm-sub">마을공동체가 협동조합을 구성해 유휴부지·농지·저수지에 태양광을 설치하고, 발전 수익을 주민에게 환원하는 주민참여형 에너지 모델의 핵심 지표입니다.</p>
+
+  <div class="ssm-grid">
+    <div class="ssm-card c1">
+      <div class="ssm-icon"><i class="ti ti-target-arrow"></i></div>
+      <div class="ssm-label">5년간 추진 목표</div>
+      <div class="ssm-value">2,500개+</div>
+      <div class="ssm-foot">전국 약 3.75만 개 행정리 중 15곳당 1곳 비율</div>
+    </div>
+    <div class="ssm-card c5">
+      <div class="ssm-icon"><i class="ti ti-coin"></i></div>
+      <div class="ssm-label">정부 투입 예산</div>
+      <div class="ssm-value">5,500억원</div>
+      <div class="ssm-foot">행정안전부 추진단 총괄 · 농식품부·기후에너지환경부 공동 추진</div>
+    </div>
+    <div class="ssm-card c2">
+      <div class="ssm-icon"><i class="ti ti-percentage"></i></div>
+      <div class="ssm-label">설비투자 융자 지원</div>
+      <div class="ssm-value">최대 85%</div>
+      <div class="ssm-foot">장기 저리 융자, 공고 시기·대상별로 비율 변동</div>
+    </div>
+    <div class="ssm-card c3">
+      <div class="ssm-icon"><i class="ti ti-report-money"></i></div>
+      <div class="ssm-label">1MW 설비 추정 연수익</div>
+      <div class="ssm-value">1억~1.5억원</div>
+      <div class="ssm-foot">100가구 마을 기준 가구당 연 100만~150만원 배분 추산</div>
+    </div>
+    <div class="ssm-card c4" style="grid-column:1 / -1;">
+      <div class="ssm-icon"><i class="ti ti-gavel"></i></div>
+      <div class="ssm-label">법적 기반</div>
+      <div class="ssm-value" style="font-size:19px;">전기사업법 · 분산에너지법 개정 → 전력망 우선 접속권 추진</div>
+      <div class="ssm-foot">계통포화 지역에서도 1MW 내외 주민참여형 설비는 예외적으로 우선 접속을 허용하는 방향으로 논의 중(세부 시행 기준은 미확정)</div>
+    </div>
+  </div>
+
+  <div class="ssm-source">자료: 행정안전부·기후에너지환경부 발표, 파이낸셜뉴스(2026.5), 법률신문(2026.2~3), 서울경제(2026.5) 종합 정리. 수치는 추진단 발표 시점 기준으로 향후 변경될 수 있습니다.</div>
+</div>
+</body>
+</html>
