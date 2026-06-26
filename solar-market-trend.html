@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+  [사용 안내]
+  1) 이 파일 그대로 웹에 올리면 독립 페이지로 작동합니다.
+  2) 네이버블로그·티스토리 등 HTML 모드에 넣을 때는 <body>~</body> 사이 전체(스타일 포함)를 복사해 붙여넣으세요.
+  3) og:title / og:description / og:image / og:url 은 실제 발행 정보로 교체하세요.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026년 태양광 SMP·REC 가격 동향</title>
+<meta property="og:title" content="2026년 태양광 SMP·REC 가격 동향과 출력제어 현황" />
+<meta property="og:description" content="태양광 발전사업 수익의 두 축인 SMP·REC 가격이 왜 들쭉날쭉한지, 출력제어가 수익에 미치는 영향을 데이터로 정리" />
+<meta property="og:image" content="https://example.com/images/thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/sunshine-income-village" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+</head>
+<body style="margin:0;padding:0;background:#ffffff;">
+<style>
+  .smr-wrap{
+    --bg:#F4F8FB; --surface:#FFFFFF; --ink:#102A43; --ink-soft:#486581;
+    --gold:#F2A93B; --gold-soft:#FDF1DC; --teal:#1B7F79; --teal-soft:#E3F1EF;
+    --terracotta:#D1603D; --terracotta-soft:#FBEAE3; --line:#DCE6EE;
+    font-family:'Noto Sans KR', sans-serif;
+    background:var(--bg); padding:32px 22px 30px; border-radius:18px;
+    color:var(--ink); max-width:880px; margin:24px auto; box-sizing:border-box;
+  }
+  .smr-wrap *{box-sizing:border-box;}
+  .smr-tag{background:var(--gold); color:#102A43; font-size:13px; font-weight:700; padding:5px 12px; border-radius:999px;}
+  .smr-title{font-family:'Noto Serif KR',serif; font-weight:700; font-size:23px; margin:14px 0 6px; line-height:1.35;}
+  .smr-sub{color:var(--ink-soft); font-size:14.5px; margin:0 0 20px; line-height:1.6;}
+
+  .smr-panel{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px; margin-bottom:14px;}
+  .smr-panel h4{margin:0 0 14px; font-size:15px; font-weight:700; display:flex; align-items:center; gap:8px;}
+  .smr-panel h4 i{color:var(--teal);}
+
+  .smr-row{display:grid; grid-template-columns:54px 1fr 84px; align-items:center; gap:12px; margin-bottom:10px;}
+  .smr-row:last-child{margin-bottom:0;}
+  .smr-row .m{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px; color:var(--ink-soft);}
+  .smr-bar-bg{background:#EEF3F7; border-radius:999px; height:14px; overflow:hidden;}
+  .smr-bar{height:100%; border-radius:999px;}
+  .smr-bar.smp{background:linear-gradient(90deg,#F2A93B,#D1603D);}
+  .smr-bar.rec{background:linear-gradient(90deg,#1B7F79,#3FA79E);}
+  .smr-row .v{font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; text-align:right;}
+
+  .smr-stats{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  @media (max-width:560px){ .smr-stats{grid-template-columns:1fr;} }
+  .smr-stat{background:var(--terracotta-soft); border-radius:14px; padding:16px 18px;}
+  .smr-stat .num{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:26px; color:var(--terracotta);}
+  .smr-stat .lbl{font-size:13px; color:var(--ink-soft); margin-top:4px; line-height:1.5;}
+  .smr-source{margin-top:6px; font-size:12px; color:var(--ink-soft); border-top:1px dashed var(--line); padding-top:12px;}
+</style>
+
+<div class="smr-wrap">
+  <span class="smr-tag">시장 데이터</span>
+  <h3 class="smr-title">2026년 태양광 SMP·REC 가격, 왜 이렇게 들쭉날쭉할까?</h3>
+  <p class="smr-sub">태양광 수익은 전력 도매가격(SMP)과 신재생에너지공급인증서(REC) 두 축으로 결정됩니다. 2026년 1·3·5월 육지 평균 데이터로 변동성을 확인해보세요.</p>
+
+  <div class="smr-panel">
+    <h4><i class="ti ti-bolt"></i> SMP (전력도매가격, 원/kWh) — 육지 평균</h4>
+    <div class="smr-row"><span class="m">1월</span><div class="smr-bar-bg"><div class="smr-bar smp" style="width:79%"></div></div><span class="v">102.90원</span></div>
+    <div class="smr-row"><span class="m">3월</span><div class="smr-bar-bg"><div class="smr-bar smp" style="width:84%"></div></div><span class="v">109.79원</span></div>
+    <div class="smr-row"><span class="m">5월</span><div class="smr-bar-bg"><div class="smr-bar smp" style="width:94%"></div></div><span class="v">121.88원</span></div>
+  </div>
+
+  <div class="smr-panel">
+    <h4><i class="ti ti-certificate"></i> REC (공급인증서, 원/REC) — 육지 평균</h4>
+    <div class="smr-row"><span class="m">1월</span><div class="smr-bar-bg"><div class="smr-bar rec" style="width:67%"></div></div><span class="v">71,678원</span></div>
+    <div class="smr-row"><span class="m">3월</span><div class="smr-bar-bg"><div class="smr-bar rec" style="width:54%"></div></div><span class="v">70,356원</span></div>
+    <div class="smr-row"><span class="m">5월</span><div class="smr-bar-bg"><div class="smr-bar rec" style="width:60%"></div></div><span class="v">71,019원</span></div>
+  </div>
+
+  <div class="smr-stats">
+    <div class="smr-stat">
+      <div class="num">30회+</div>
+      <div class="lbl">2026년 1~4월 육지 기준 태양광 출력제어 발생 횟수</div>
+    </div>
+    <div class="smr-stat">
+      <div class="num">107일</div>
+      <div class="lbl">2026년 봄철 경부하기 대책기간, 역대 최장 운영</div>
+    </div>
+  </div>
+
+  <div class="smr-source">자료: 전력거래소(KPX) 가격 통계를 인용한 업계 모니터링(해줌, 2026.1~6) 집계 재구성. 제주 지역은 육지와 가격 흐름이 다르게 움직이는 경향이 있어 별도 확인이 필요합니다.</div>
+</div>
+</body>
+</html>
