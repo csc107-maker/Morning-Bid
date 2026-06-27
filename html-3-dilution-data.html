@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SK하이닉스 희석효과 및 밸류에이션 비교</title>
+<meta property="og:title" content="SK하이닉스 ADR 희석효과·밸류에이션 데이터 정리" />
+<meta property="og:description" content="SK하이닉스 신주발행에 따른 지분·EPS 희석률과 마이크론·샌디스크 대비 밸류에이션 갭, 증권가 시각을 데이터로 정리했습니다." />
+<meta property="og:image" content="여기에-썸네일-이미지-URL을-입력하세요.png" />
+<meta property="og:url" content="여기에-실제-게시-URL을-입력하세요" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+<style>
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:'Pretendard',-apple-system,sans-serif;background:#F5F7FB;color:#101A33;padding:32px 16px;}
+ .wrap{max-width:700px;margin:0 auto;}
+ .eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;
+   color:#0E2A52;background:#E8EDFA;border:1px solid #CBD7F2;padding:4px 10px;border-radius:20px;margin-bottom:10px;}
+ h1{font-size:21px;font-weight:800;color:#0E2A52;}
+ .sub{font-size:13.5px;color:#5B6478;margin-top:6px;}
+ h2{font-size:14.5px;font-weight:800;color:#1A2742;margin:26px 0 12px;display:flex;align-items:center;gap:6px;}
+ .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+ @media (max-width:560px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
+ .stat{background:#fff;border:1px solid #E3E7F0;border-radius:12px;padding:14px 10px;text-align:center;}
+ .stat .num{font-weight:800;font-size:19px;color:#0E2A52;font-variant-numeric:tabular-nums;}
+ .stat .num.warn{color:#B23A2E;}
+ .stat .lbl{font-size:11px;color:#5B6478;margin-top:4px;line-height:1.4;}
+
+ table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #E3E7F0;}
+ th,td{padding:10px 12px;font-size:12.5px;text-align:center;border-bottom:1px solid #EEF1F7;}
+ th{background:#F0F3FA;color:#3A4560;font-weight:700;font-size:11.5px;}
+ td.name{text-align:left;font-weight:700;color:#1A2742;}
+ tr:last-child td{border-bottom:none;}
+ .hl{background:#FFFBF3;}
+ .num-cell{font-variant-numeric:tabular-nums;font-weight:700;color:#0E2A52;}
+
+ .opinion-grid{display:flex;flex-direction:column;gap:10px;}
+ .opinion{background:#fff;border:1px solid #E3E7F0;border-radius:12px;padding:13px 14px;display:flex;gap:12px;align-items:flex-start;}
+ .opinion .ic{width:30px;height:30px;border-radius:8px;background:#E3F3F0;color:#157A6E;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;}
+ .opinion .firm{font-size:12.5px;font-weight:800;color:#0E2A52;}
+ .opinion .txt{font-size:12.5px;color:#3A4560;margin-top:2px;line-height:1.55;}
+ .foot{margin-top:22px;font-size:11.5px;color:#8893A8;line-height:1.7;border-top:1px dashed #DDE3EF;padding-top:14px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <span class="eyebrow"><i class="ti ti-chart-bar"></i> DATA BRIEFING</span>
+ <h1>희석효과와 밸류에이션, 숫자로 확인하기</h1>
+ <p class="sub">신주 발행이 실제로 주주가치에 미치는 영향을 정량 데이터로 정리했습니다.</p>
+
+ <h2><i class="ti ti-percentage"></i> 희석효과 4대 지표</h2>
+ <div class="stat-grid">
+   <div class="stat"><div class="num">2.5%</div><div class="lbl">신주 발행 비율<br>(1,779만 주)</div></div>
+   <div class="stat"><div class="num warn">-2.44%</div><div class="lbl">기존 주주<br>지분율 희석</div></div>
+   <div class="stat"><div class="num warn">-2.46%</div><div class="lbl">1분기 기준<br>EPS 희석</div></div>
+   <div class="stat"><div class="num">20.5→20.0%</div><div class="lbl">SK스퀘어<br>지분율 변화</div></div>
+ </div>
+
+ <h2><i class="ti ti-scale"></i> 글로벌 메모리 3사 밸류에이션 비교</h2>
+ <table>
+   <tr><th>기업</th><th>12개월 선행 PER</th><th>PBR</th></tr>
+   <tr class="hl"><td class="name">SK하이닉스</td><td class="num-cell">7.0배</td><td class="num-cell">3.6배</td></tr>
+   <tr><td class="name">마이크론 (美)</td><td class="num-cell">26.0배</td><td class="num-cell">7.8배</td></tr>
+   <tr><td class="name">샌디스크 (美)</td><td class="num-cell">17.6배</td><td class="num-cell">4.2배</td></tr>
+ </table>
+
+ <h2><i class="ti ti-message-2"></i> 증권가 시각</h2>
+ <div class="opinion-grid">
+   <div class="opinion"><div class="ic"><i class="ti ti-trending-up"></i></div>
+     <div><div class="firm">삼성증권</div><div class="txt">목표주가를 350만 원으로 35.7% 상향. 나스닥 상장에 따른 글로벌 재평가 기대를 반영했습니다.</div></div>
+   </div>
+   <div class="opinion"><div class="ic"><i class="ti ti-shield"></i></div>
+     <div><div class="firm">KB증권</div><div class="txt">희석 효과는 제한적인 수준이며, 상장으로 얻는 효과가 그보다 크다고 평가했습니다.</div></div>
+   </div>
+   <div class="opinion"><div class="ic"><i class="ti ti-refresh"></i></div>
+     <div><div class="firm">미래에셋증권</div><div class="txt">새로운 수요예측 과정에서 현재 사업 전망이 반영된 밸류에이션 기준점이 새로 형성될 가능성이 있다고 분석했습니다.</div></div>
+   </div>
+ </div>
+
+ <p class="foot">출처: 뉴스1·이투데이 보도(2026.6.24~25), 삼성증권·KB증권·미래에셋증권 리서치 인용 기사 기준<br>
+ ※ PER·PBR은 보도 시점 기준 추정치로, 실제 수치는 변동될 수 있습니다.</p>
+</div>
+</body>
+</html>
