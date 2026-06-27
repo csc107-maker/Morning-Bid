@@ -1,244 +1,138 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>한화오션 캐나다 잠수함(CPSP) 추진 타임라인</title>
-
-<meta property="og:title" content="한화오션 캐나다 잠수함(CPSP) 추진 타임라인 한눈에 보기" />
-<meta property="og:description" content="2025년 적격공급자 선정부터 2026년 6월 우선협상대상자 발표 임박까지, 60조원 캐나다 잠수함 수주전 핵심 일정을 시간순으로 정리했습니다." />
-<meta property="og:image" content="여기에-실제-썸네일-이미지-URL을-입력하세요.png" />
-<meta property="og:url" content="여기에-실제-블로그-포스트-URL을-입력하세요" />
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SK하이닉스 나스닥 ADR 상장 일정 타임라인</title>
+<meta property="og:title" content="SK하이닉스 나스닥 ADR 상장 일정 타임라인" />
+<meta property="og:description" content="2026년 3월 비공개 신청부터 7월 코스피 신주 추가 상장까지, SK하이닉스 ADR 상장 전체 절차를 한눈에 정리했습니다." />
+<meta property="og:image" content="여기에-썸네일-이미지-URL을-입력하세요.png" />
+<meta property="og:url" content="여기에-실제-게시-URL을-입력하세요" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
 <style>
-  :root{
-    --bg:#F3F6FB;
-    --surface:#FFFFFF;
-    --ink:#0D1B33;
-    --muted:#5A6880;
-    --line:#E3E9F2;
-    --korea:#0B5FB0;
-    --korea-bg:#E0EEFC;
-    --germany:#3D4F66;
-    --germany-bg:#E8EBF0;
-    --amber:#C78222;
-    --amber-bg:#FBF1E2;
-    --danger:#C0392B;
-    --danger-bg:#FBEAE8;
-    --radius:16px;
-  }
-  *{box-sizing:border-box;}
+  *{box-sizing:border-box;margin:0;padding:0;}
   body{
-    margin:0;
-    background:var(--bg);
-    font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
-    color:var(--ink);
-    -webkit-font-smoothing:antialiased;
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:#F5F7FB;
+    color:#101A33;
+    padding:32px 16px;
   }
-  .wrap{
-    max-width:720px;
-    margin:0 auto;
-    padding:32px 20px 40px;
+  .wrap{max-width:680px;margin:0 auto;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12px;font-weight:700;letter-spacing:.04em;
+    color:#157A6E;background:#E3F3F0;border:1px solid #BFE6E0;
+    padding:4px 10px;border-radius:20px;margin-bottom:10px;
   }
-  .head-eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    background:var(--korea-bg);
-    color:var(--korea);
-    font-size:13px;
-    font-weight:700;
-    padding:6px 14px;
-    border-radius:999px;
-    margin-bottom:14px;
+  h1{font-size:21px;font-weight:800;line-height:1.4;color:#0E2A52;}
+  .sub{font-size:13.5px;color:#5B6478;margin-top:6px;line-height:1.6;}
+
+  .rail{position:relative;padding-left:34px;margin-top:28px;}
+  .rail::before{
+    content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;
+    background:#DDE3EF;
   }
-  h2.title{
-    font-size:24px;
-    line-height:1.4;
-    margin:0 0 8px;
-    font-weight:800;
-    letter-spacing:-0.3px;
-  }
-  p.desc{
-    font-size:14.5px;
-    color:var(--muted);
-    margin:0 0 28px;
-    line-height:1.6;
-  }
-  .timeline{
-    position:relative;
-    margin-left:6px;
-    padding-left:34px;
-    border-left:2px solid var(--line);
-  }
-  .item{
-    position:relative;
-    padding-bottom:26px;
-  }
-  .item:last-child{padding-bottom:0;}
+  .step{position:relative;padding-bottom:26px;}
+  .step:last-child{padding-bottom:0;}
   .dot{
-    position:absolute;
-    left:-46px;
-    top:0;
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:15px;
-    color:#fff;
-    box-shadow:0 0 0 4px var(--bg);
+    position:absolute;left:-34px;top:0;width:24px;height:24px;border-radius:50%;
+    background:#FFFFFF;border:2px solid #C9D2E3;
+    display:flex;align-items:center;justify-content:center;font-size:13px;color:#8893A8;
   }
-  .dot.korea{background:var(--korea);}
-  .dot.germany{background:var(--germany);}
-  .dot.amber{background:var(--amber);}
-  .dot.danger{background:var(--danger);}
+  .step.done .dot{border-color:#157A6E;background:#157A6E;color:#fff;}
+  .step.now .dot{border-color:#C6892E;background:#C6892E;color:#fff;box-shadow:0 0 0 4px #F3E3C6;}
   .card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:14px;
+    background:#FFFFFF;border:1px solid #E3E7F0;border-radius:12px;
     padding:14px 16px;
   }
-  .date{
-    font-size:12.5px;
-    font-weight:700;
-    color:var(--korea);
-    margin-bottom:4px;
-    letter-spacing:0.2px;
-  }
-  .item.germany .date{color:var(--germany);}
-  .item.amber .date{color:var(--amber);}
-  .item.danger .date{color:var(--danger);}
-  .h{
-    font-size:16px;
-    font-weight:700;
-    margin:0 0 6px;
-    line-height:1.4;
-  }
-  .t{
-    font-size:13.5px;
-    color:var(--muted);
-    line-height:1.65;
-    margin:0;
-  }
+  .step.now .card{border-color:#E8C998;background:#FFFBF3;}
+  .date{font-weight:800;font-size:13px;color:#0E2A52;letter-spacing:.01em;}
   .tag{
-    display:inline-block;
-    font-size:11px;
-    font-weight:700;
-    padding:2px 8px;
-    border-radius:6px;
-    margin-left:6px;
+    display:inline-block;font-size:10.5px;font-weight:700;color:#9A6A1E;
+    background:#FBEBCF;border-radius:6px;padding:2px 6px;margin-left:6px;
     vertical-align:middle;
   }
-  .tag.unofficial{background:var(--amber-bg);color:var(--amber);}
-  .footnote{
-    margin-top:22px;
-    font-size:12px;
-    color:var(--muted);
-    line-height:1.7;
-    border-top:1px solid var(--line);
-    padding-top:14px;
+  .title{font-size:14.5px;font-weight:700;margin-top:4px;color:#1A2742;}
+  .desc{font-size:12.5px;color:#5B6478;margin-top:4px;line-height:1.55;}
+  .today-pill{
+    position:absolute;left:-2px;top:-26px;
+    background:#0E2A52;color:#fff;font-size:11px;font-weight:700;
+    padding:4px 9px;border-radius:8px;white-space:nowrap;
+  }
+  .foot{
+    margin-top:22px;font-size:11.5px;color:#8893A8;line-height:1.7;
+    border-top:1px dashed #DDE3EF;padding-top:14px;
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-
-  <span class="head-eyebrow"><i class="ti ti-anchor"></i>&nbsp;CPSP TIMELINE</span>
-  <h2 class="title">60조원 캐나다 잠수함 사업(CPSP), 여기까지 왔습니다</h2>
-  <p class="desc">2025년 적격공급자 선정부터 2026년 6월 막판 변수까지 — 한화오션과 TKMS의 수주전 핵심 일정을 시간순으로 정리했습니다.</p>
-
-  <div class="timeline">
-
-    <div class="item korea">
-      <div class="dot korea"><i class="ti ti-flag-3"></i></div>
-      <div class="card">
-        <div class="date">2025.08.26</div>
-        <p class="h">한화오션·TKMS, 적격공급자 2개사로 압축</p>
-        <p class="t">캐나다 정부가 공식 발표를 통해 한국 한화오션과 독일 TKMS를 CPSP 최종 후보로 선정. 일본은 2024년 11월, 자체 물량 부담을 이유로 사업 불참을 결정한 바 있습니다.</p>
-      </div>
-    </div>
-
-    <div class="item korea">
-      <div class="dot korea"><i class="ti ti-clipboard-list"></i></div>
-      <div class="card">
-        <div class="date">2025.11.20</div>
-        <p class="h">캐나다, 평가 기준 공식 통보</p>
-        <p class="t">잠수함 성능 20% · 재무옵션 15% · 경제적 이익 15% · 유지보수(MRO) 50%. 30년 운용을 고려해 'MRO 비중 50%'가 최대 변수로 떠올랐습니다.</p>
-      </div>
-    </div>
-
-    <div class="item korea">
-      <div class="dot korea"><i class="ti ti-file-text"></i></div>
-      <div class="card">
-        <div class="date">2026.03.02</div>
-        <p class="h">양사 최종 제안서 제출</p>
-        <p class="t">한화오션(KSS-III 배치-Ⅱ)과 TKMS(212CD)가 각각 최종 제안서를 제출. 이후 캐나다 정부는 경제적 혜택이 충분치 않다고 판단, 보완 제안 기간을 추가로 부여했습니다.</p>
-      </div>
-    </div>
-
-    <div class="item danger">
-      <div class="dot danger"><i class="ti ti-trending-down"></i></div>
-      <div class="card">
-        <div class="date">2026.03.04</div>
-        <p class="h">"6+6 분할설" 보도 · 한화오션 주가 14.7% 급락<span class="tag unofficial">비공식 보도</span></p>
-        <p class="t">캐나다 일간지 더글로브앤드메일이 익명 소식통을 인용해 "태평양은 한국, 대서양은 독일" 식의 분할 발주 가능성을 보도. 12척 단독 수주 기대가 흔들리며 시장이 즉각 반응했습니다. 캐나다 정부는 이후 단일 함종 도입 원칙을 재확인했습니다.</p>
-      </div>
-    </div>
-
-    <div class="item korea">
-      <div class="dot korea"><i class="ti ti-rocket"></i></div>
-      <div class="card">
-        <div class="date">2026.04.29</div>
-        <p class="h">보완 제안서 마감 — 경협 패키지 대폭 상향</p>
-        <p class="t">한화오션은 2026~2044년 캐나다 GDP에 약 941억 캐나다달러를 기여하겠다는 수정안을 제시. KPMG 분석 기준 700억 달러 이상의 경제적 기회, 약 50만 일자리(연환산 약 2만2500개) 창출 효과를 내세웠습니다.</p>
-      </div>
-    </div>
-
-    <div class="item germany">
-      <div class="dot germany"><i class="ti ti-building-factory-2"></i></div>
-      <div class="card">
-        <div class="date">2026.05 ~ 06</div>
-        <p class="h">TKMS, NATO·생산슬롯 양보 카드로 추격</p>
-        <p class="t">독일·노르웨이가 자국 해군용 212CD 생산 순번을 캐나다에 양보, 최소 4척을 2036년까지 인도 가능하다고 제안. 동시에 캐나다와 독일·노르웨이가 북극·북대서양에서 잠수함 24척을 공동 운용하자는 NATO 연합안도 내놨습니다.</p>
-      </div>
-    </div>
-
-    <div class="item korea">
-      <div class="dot korea"><i class="ti ti-ship"></i></div>
-      <div class="card">
-        <div class="date">2026.06.14 ~ 19</div>
-        <p class="h">韓 총력전 · 카니 총리 거제 방문 · 51:49 우세 전망</p>
-        <p class="t">한화오션이 국내 KDDX 사업 우선협상대상자로 선정되며 특수선 입지 강화. 마크 카니 캐나다 총리가 한화오션 거제조선소를 직접 방문했고, 업계에서는 "51대 49로 한화오션이 근소 우세"라는 전망이 나왔습니다.</p>
-      </div>
-    </div>
-
-    <div class="item amber">
-      <div class="dot amber"><i class="ti ti-alert-triangle"></i></div>
-      <div class="card">
-        <div class="date">2026.06.19 ~ 22</div>
-        <p class="h">"낙관은 어렵다" — 분위기 반전<span class="tag unofficial">최신</span></p>
-        <p class="t">이재명 대통령이 G7 정상회의 후 "낙관하기엔 호락호락하지 않다"고 언급. 김정관 산업통상부 장관은 "캐나다가 안보상 NATO 회원국인 독일을 택할 가능성을 배제할 수 없다"며 발표가 7월로 순연될 수 있고, 그 경우 6:6 분할설이 현지에서 다시 돈다고 전했습니다(공식 통보는 없었다는 점도 함께 밝혔습니다).</p>
-      </div>
-    </div>
-
-    <div class="item amber">
-      <div class="dot amber"><i class="ti ti-calendar-event"></i></div>
-      <div class="card">
-        <div class="date">2026.06.23 ~ 진행 중</div>
-        <p class="h">발표 시점, 이번 주 vs 7월 — 전망 엇갈림</p>
-        <p class="t">일부 보도는 "이르면 이번 주" 발표 가능성을, 일부는 "늦어도 7월 NATO 정상회의 전" 발표를 점치는 등 시점 전망이 일치하지 않는 상태입니다. 공식 발표 전까지는 어느 쪽도 확정된 사실이 아닙니다.</p>
-      </div>
-    </div>
-
+  <div class="head">
+    <span class="eyebrow"><i class="ti ti-clock-bolt"></i> ADR LISTING TIMELINE</span>
+    <h1>SK하이닉스 나스닥 ADR 상장, 지금 어디까지 왔을까요?</h1>
+    <p class="sub">2026년 3월 SEC 비공개 신청부터 7월 코스피 신주 추가 상장까지의 전체 절차입니다.</p>
   </div>
 
-  <div class="footnote">
-    자료: 캐나다 정부(canada.ca), CBC News, Global News, UPI, 한국일보, 전자신문, 뉴스1, 아주경제, 투데이신문, 딜사이트, 서울신문 등 종합 · 2026.06.23 기준이며 이후 상황에 따라 변경될 수 있습니다.
+  <div class="rail">
+    <div class="step done">
+      <div class="dot"><i class="ti ti-check"></i></div>
+      <div class="card">
+        <span class="date">2026. 03</span>
+        <div class="title">미국 SEC에 Form F-1 비공개 제출</div>
+        <div class="desc">나스닥 상장을 위한 사전 절차로 비공개 등록신청서를 제출했습니다.</div>
+      </div>
+    </div>
+
+    <div class="step done">
+      <div class="dot"><i class="ti ti-check"></i></div>
+      <div class="card">
+        <span class="date">2026. 06. 24</span>
+        <div class="title">이사회 결의 및 공시</div>
+        <div class="desc">신주 최대 1,779만 주(약 45조 4,500억 원) 발행을 통한 ADR 상장을 결의하고 공시했습니다.</div>
+      </div>
+    </div>
+
+    <div class="step now">
+      <div class="today-pill">오늘 · 2026.06.27</div>
+      <div class="dot"><i class="ti ti-point-filled"></i></div>
+      <div class="card">
+        <span class="date">2026. 07. 06</span><span class="tag">잠정</span>
+        <div class="title">증권신고서 효력 발생 · 수요예측 시작</div>
+        <div class="desc">기관투자자 대상 수요예측(북빌딩)이 시작될 예정입니다.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="dot"><i class="ti ti-currency-dollar"></i></div>
+      <div class="card">
+        <span class="date">2026. 07. 09 (현지시간)</span><span class="tag">잠정</span>
+        <div class="title">공모가 확정 · 인수계약 체결</div>
+        <div class="desc">수요예측 결과를 바탕으로 최종 공모가가 정해지고, 주관사와 인수계약을 체결합니다.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="dot"><i class="ti ti-building-bank"></i></div>
+      <div class="card">
+        <span class="date">2026. 07. 10</span><span class="tag">잠정</span>
+        <div class="title">나스닥 상장 · 거래 개시</div>
+        <div class="desc">ADR이 나스닥 글로벌셀렉트마켓에 공식 상장되어 거래가 시작됩니다.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="dot"><i class="ti ti-flag"></i></div>
+      <div class="card">
+        <span class="date">2026. 07. 29</span><span class="tag">잠정</span>
+        <div class="title">코스피 신주 추가 상장</div>
+        <div class="desc">ADR의 기초가 된 신주가 코스피에 추가 상장되며 전체 절차가 마무리됩니다.</div>
+      </div>
+    </div>
   </div>
 
+  <p class="foot">※ 7월 6일 이후 일정은 한미 금융당국의 심사·승인 결과 및 시장 상황에 따라 변경될 수 있는 잠정 일정입니다.<br>
+  출처: SK하이닉스 공시(2026.6.24), 삼성증권 리서치(2026.6.25), Investing.com(2026.6.25)</p>
 </div>
 </body>
 </html>
