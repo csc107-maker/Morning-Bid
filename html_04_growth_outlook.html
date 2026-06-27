@@ -1,265 +1,362 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="2026.06.24 한국 증시 지속성장 4대 근거 & 투자 결론" />
-<meta property="og:description" content="AI 전력 수요·K-방산·조선 슈퍼사이클·수출 펀더멘털 — 코스피 장기 성장 분석" />
-<meta property="og:image" content="https://via.placeholder.com/1200x630/2d1b69/FFFFFF?text=Korea+Growth+Outlook+2026.06.24" />
-<meta property="og:url" content="https://blog.naver.com/csc107" />
-<title>성장 전망 & 투자 결론 | 2026.06.24</title>
-<style>
-  /* 삽입 위치: 지속성장 근거 4가지 섹션 직후 */
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background: transparent; }
-  .go-container {
-    background: #faf5ff;
-    border-radius: 16px;
-    padding: 24px;
-    max-width: 900px;
-    margin: 20px auto;
-    box-shadow: 0 4px 20px rgba(120,50,200,0.10);
-  }
-  .go-header { text-align: center; margin-bottom: 22px; }
-  .go-header h2 { font-size: 1.25rem; color: #3b0764; font-weight: 800; }
-  .go-header p { font-size: 0.82rem; color: #7c3aed; margin-top: 4px; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="2026년 6월 27일 코스피 지속성장 근거 4가지 + 연도별 이익 전망" />
+  <meta property="og:description" content="AI반도체 슈퍼사이클, 방산·조선업 수주 러시, 외국인 순매수 재전환, 전력인프라 복합 성장 — 코스피 9000 향한 4대 성장 동력 분석" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/fffbf0/a16207?text=KOSPI+Growth+Outlook+2026.06.27" />
+  <meta property="og:url" content="https://blog.naver.com/csc107" />
+  <title>코스피 성장 전망 카드 | 2026.06.27</title>
+  <!-- [삽입 위치] 지속성장 근거 섹션 직후 -->
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      background: #fffbf0;
+      padding: 20px;
+      color: #1e293b;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .header h2 {
+      font-size: 1.4rem;
+      color: #a16207;
+      font-weight: 700;
+    }
+    .header p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
 
-  /* 4대 성장 근거 카드 */
-  .go-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-    margin-bottom: 24px;
-  }
-  .go-card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 18px 16px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-    border-top: 4px solid #7c3aed;
-  }
-  .go-card:nth-child(1) { border-top-color: #2563eb; }
-  .go-card:nth-child(2) { border-top-color: #16a34a; }
-  .go-card:nth-child(3) { border-top-color: #dc2626; }
-  .go-card:nth-child(4) { border-top-color: #0891b2; }
-  .go-card-num {
-    font-size: 2rem;
-    font-weight: 900;
-    color: #e0d0ff;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .go-card-title {
-    font-size: 0.92rem;
-    font-weight: 800;
-    color: #1a1a2e;
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-  .go-card-body {
-    font-size: 0.78rem;
-    color: #555;
-    line-height: 1.6;
-  }
-  .go-card-kpi {
-    margin-top: 8px;
-    padding: 6px 10px;
-    background: #f3e8ff;
-    border-radius: 8px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #6d28d9;
-  }
+    /* 4대 성장 근거 카드 */
+    .growth-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .growth-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .growth-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .growth-num {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .growth-title {
+      font-size: 1.0rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin: 6px 0 10px;
+      line-height: 1.35;
+    }
+    .growth-desc {
+      font-size: 0.83rem;
+      color: #475569;
+      line-height: 1.65;
+    }
+    .growth-kpi {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fef9c3;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #a16207;
+    }
 
-  /* 연도별 이익 전망 테이블 */
-  .go-table-title {
-    font-size: 1rem;
-    font-weight: 800;
-    color: #3b0764;
-    margin-bottom: 12px;
-    padding: 8px 14px;
-    background: linear-gradient(90deg, #ede9fe, #faf5ff);
-    border-radius: 8px;
-  }
-  .go-table-wrap { overflow-x: auto; margin-bottom: 22px; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.82rem;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  }
-  thead tr { background: #3b0764; }
-  thead th { color: #fff; padding: 10px 12px; text-align: center; font-weight: 700; font-size: 0.78rem; }
-  tbody tr:nth-child(even) { background: #faf5ff; }
-  tbody tr:hover { background: #ede9fe; }
-  td { padding: 10px 12px; text-align: center; color: #2c3e50; border-bottom: 1px solid #ede9fe; }
-  td.left { text-align: left; font-weight: 600; }
-  .val-up { color: #16a34a; font-weight: 700; }
-  .val-best { color: #dc2626; font-weight: 800; }
+    /* HBM 시장 전망 테이블 */
+    .section-label {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 24px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      min-width: 400px;
+    }
+    thead {
+      background: linear-gradient(135deg, #3b82f6, #6d28d9);
+      color: #fff;
+    }
+    th {
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    td {
+      padding: 11px 16px;
+      font-size: 0.85rem;
+      text-align: center;
+      color: #1e293b;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    td.highlight { font-weight: 800; color: #2563eb; }
+    td.future { color: #7c3aed; font-weight: 700; }
 
-  /* 투자 결론 박스 */
-  .go-conclusion {
-    background: linear-gradient(135deg, #1e1b4b, #2d1b69);
-    border-radius: 14px;
-    padding: 22px 24px;
-    color: #fff;
-  }
-  .go-conclusion h3 {
-    font-size: 1.05rem;
-    font-weight: 800;
-    margin-bottom: 14px;
-    color: #c4b5fd;
-  }
-  .go-con-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  .go-con-item {
-    background: rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 12px;
-    border-left: 3px solid #a78bfa;
-  }
-  .go-con-item h4 { font-size: 0.8rem; color: #c4b5fd; font-weight: 700; margin-bottom: 4px; }
-  .go-con-item p { font-size: 0.77rem; color: #ddd; line-height: 1.5; }
-  .go-disclaimer {
-    margin-top: 14px;
-    font-size: 0.72rem;
-    color: #a78bfa;
-    text-align: center;
-    padding: 8px;
-    border-top: 1px solid rgba(167,139,250,0.3);
-  }
+    /* KOSPI 이익 성장 테이블 */
+    .kospi-table thead { background: linear-gradient(135deg, #059669, #0ea5e9); }
 
-  .go-footer { text-align: center; margin-top: 14px; font-size: 0.72rem; color: #aaa; }
-  @media (max-width: 500px) {
-    .go-container { padding: 14px; }
-    .go-conclusion { padding: 16px; }
-  }
-</style>
+    /* 투자 결론 박스 */
+    .conclusion-box {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #0ea5e9 100%);
+      border-radius: 16px;
+      padding: 24px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .conclusion-box h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .conclusion-points {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .point {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    .point-num {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #fde68a;
+      min-width: 24px;
+    }
+    .point-text {
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+    .point-text strong { color: #fde68a; }
+
+    .disclaimer {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.78rem;
+      color: #7f1d1d;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .date-stamp {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.72rem;
+      color: #94a3b8;
+    }
+    @media (max-width: 480px) {
+      .growth-title { font-size: 0.9rem; }
+      th, td { padding: 9px 10px; font-size: 0.78rem; }
+    }
+  </style>
 </head>
 <body>
-<!-- [삽입 위치] 지속성장 근거 4가지 섹션 직후 삽입 -->
-<div class="go-container">
-  <div class="go-header">
-    <h2>🚀 지속성장 4대 근거 & 이익 전망 & 투자 결론</h2>
-    <p>AI 전력 · K-방산 · 조선 슈퍼사이클 · 수출 펀더멘털 — 2026년 6월 24일</p>
+
+<!-- [삽입 위치] 지속성장 근거 섹션 직후에 삽입하세요 -->
+
+<div class="header">
+  <h2>📈 코스피 지속 성장 근거 4가지</h2>
+  <p>2026년 6월 27일 기준 | 출처: Goldman Sachs, Bloomberg, 미래에셋증권, SK Hynix IR</p>
+</div>
+
+<!-- 4대 성장 근거 카드 -->
+<div class="growth-grid">
+
+  <div class="growth-card">
+    <div class="growth-icon">🧠</div>
+    <div class="growth-num">근거 01</div>
+    <div class="growth-title">AI 반도체 슈퍼사이클<br>HBM 공급 부족 2028년까지 지속</div>
+    <div class="growth-desc">골드만삭스: DRAM 공급-수요 격차 4.9%("15년 만에 최악의 공급 부족"). SK하이닉스 HBM4 점유율 70% 전망(UBS). AI GPU 필수 부품으로 HBM 교체 주기 가속화. 삼성전자 2026F 이익 성장률 300%.</div>
+    <div class="growth-kpi">📊 2026 HBM 시장 $60B 추정</div>
   </div>
 
-  <!-- 4대 성장 근거 카드 -->
-  <div class="go-grid">
-    <div class="go-card">
-      <div class="go-card-num">01</div>
-      <div class="go-card-title">AI 데이터센터<br>전력 수요 구조적 성장</div>
-      <div class="go-card-body">AI 모델 훈련·추론 전력 소비가 매년 2배씩 증가. 변압기·SMR·전선 수요는 단기 AI 버블 논쟁과 무관하게 실체적으로 증가 중.</div>
-      <div class="go-card-kpi">효성중공업·두산에너빌리티 +320%+ (2025)</div>
-    </div>
-    <div class="go-card">
-      <div class="go-card-num">02</div>
-      <div class="go-card-title">한국 수출<br>사상 최강 펀더멘털</div>
-      <div class="go-card-body">6월 1~20일 수출 +60.4%, 반도체 3배 급증. 골드만삭스 코스피 목표가 12,000 상향. 실물 경제가 주가 상승을 뒷받침 중.</div>
-      <div class="go-card-kpi">코스피 2026년 YTD +75% (6월 초 기준)</div>
-    </div>
-    <div class="go-card">
-      <div class="go-card-num">03</div>
-      <div class="go-card-title">K-방산<br>수주잔고 폭발적 증가</div>
-      <div class="go-card-body">K-방산 시가총액 전년 대비 2.5배 급증. 한화에어로스페이스 2026년 영업이익 4.5조원 전망. LIG넥스원 수주잔고 26조원 = 6년치 매출.</div>
-      <div class="go-card-kpi">한화에어로스페이스 주가 1년 +130%+</div>
-    </div>
-    <div class="go-card">
-      <div class="go-card-num">04</div>
-      <div class="go-card-title">조선 슈퍼사이클<br>본격 진입</div>
-      <div class="go-card-body">FID 승인 LNG 프로젝트 117척 수요 확정. 해군 함정 1,000척+ 교체 수요. 미국 동맹국 우대 정책으로 한국 조선소 5~7년 수주 가시성 확보.</div>
-      <div class="go-card-kpi">미국 LNG 캐리어 발주 50~100척 예상</div>
-    </div>
+  <div class="growth-card">
+    <div class="growth-icon">🛡️</div>
+    <div class="growth-num">근거 02</div>
+    <div class="growth-title">한국 방산·조선업<br>글로벌 수주 러시 진행 중</div>
+    <div class="growth-desc">NATO·중동·인도태평양 방산 수요 폭증. K9 자주포·K2전차·FA-50 수십 개국 수출. 한화에어로스페이스 방산 CAGR +38%. 조선업 LNG 교체 수요 + 선박 노후화 사이클 2030년까지 지속.</div>
+    <div class="growth-kpi">🛸 방산 CAGR +38% (3년 누적)</div>
   </div>
 
-  <!-- 연도별 이익 전망 테이블 -->
-  <div class="go-table-title">📊 주요 종목 연도별 이익 전망 (시장 컨센서스)</div>
-  <div class="go-table-wrap">
+  <div class="growth-card">
+    <div class="growth-icon">🌐</div>
+    <div class="growth-num">근거 03</div>
+    <div class="growth-title">외국인 순매수 재전환<br>75.5조원 방출 후 귀환</div>
+    <div class="growth-desc">5월 7일~6월 11일 24거래일간 75.5조원 순매도. 6월 11일 이후 삼성전자·SK하이닉스 순매수 전환. 지수 리밸런싱 및 파생상품 포지션 정리 완료 → 외국인 매수 여력 회복. 코스피 8,000~9,000 구간 외국인 재참여 기대.</div>
+    <div class="growth-kpi">💵 75.5조원 방출 → 재매수 전환</div>
+  </div>
+
+  <div class="growth-card">
+    <div class="growth-icon">⚡</div>
+    <div class="growth-num">근거 04</div>
+    <div class="growth-title">전력인프라·소부장·K-컬처<br>복합 섹터 성장 확산</div>
+    <div class="growth-desc">AI 데이터센터 전력 수요 폭발 → LS Electric·HD현대일렉트릭 수혜. 반도체 팹 증설 → 소재·부품·장비 동반 성장. K-컬처(하이브, SM) + K-뷰티 + K-푸드까지 글로벌 수출 확대. 코스피 상승 기반이 반도체 단일 섹터 넘어서 확산.</div>
+    <div class="growth-kpi">🏭 AI 인프라 + 소부장 + K-컬처</div>
+  </div>
+
+</div>
+
+<!-- HBM 시장 전망 테이블 -->
+<div class="section-label">📊 HBM 메모리 시장 규모 전망 (2024~2027E)</div>
+<div class="table-wrapper">
   <table>
     <thead>
       <tr>
-        <th>종목</th>
-        <th>구분</th>
-        <th>2024 실적</th>
-        <th>2025 실적/추정</th>
-        <th>2026E 전망</th>
-        <th>성장률</th>
+        <th>연도</th>
+        <th>HBM 시장 규모 (추정)</th>
+        <th>SK하이닉스 점유율</th>
+        <th>삼성전자 점유율</th>
+        <th>비고</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="left">한화에어로스페이스</td>
-        <td>영업이익</td>
-        <td>약 1.5조원</td>
-        <td>3조345억원</td>
-        <td class="val-best">4.5조원</td>
-        <td class="val-up">+48% YoY</td>
+        <td>2024</td>
+        <td class="highlight">$15B</td>
+        <td>50%</td>
+        <td>35%</td>
+        <td>HBM3E 양산 개시</td>
       </tr>
       <tr>
-        <td class="left">SK하이닉스</td>
-        <td>영업이익</td>
-        <td>약 23.5조원</td>
-        <td>약 43조원</td>
-        <td class="val-best">약 256~279조원*</td>
-        <td class="val-up">+492% (전망치 컨센서스)</td>
+        <td>2025</td>
+        <td class="highlight">$35B</td>
+        <td>55%</td>
+        <td>30%</td>
+        <td>HBM3E 주력</td>
       </tr>
       <tr>
-        <td class="left">삼성전자</td>
-        <td>HBM 매출</td>
-        <td>—</td>
-        <td>HBM4 출시</td>
-        <td class="val-best">10억달러+ (4개월)</td>
-        <td class="val-up">HBM 점유율 30%+</td>
+        <td class="future">2026E</td>
+        <td class="future">$60B</td>
+        <td class="future">60~70%</td>
+        <td class="future">20~30%</td>
+        <td class="future">HBM4 시대 개막</td>
       </tr>
       <tr>
-        <td class="left">LIG넥스원</td>
-        <td>수주잔고</td>
-        <td>약 20조원</td>
-        <td>26.2조원</td>
-        <td class="val-best">30조원+ 목표</td>
-        <td class="val-up">+31% YoY</td>
+        <td class="future">2027E</td>
+        <td class="future">$90B</td>
+        <td class="future">60%</td>
+        <td class="future">30%</td>
+        <td class="future">HBM4E 경쟁 심화</td>
       </tr>
     </tbody>
   </table>
-  </div>
-  <p style="font-size:0.7rem;color:#aaa;margin:-12px 0 18px;padding-left:4px;">*SK하이닉스 수치는 일부 증권사 낙관 추정치 포함. 검증 필요.</p>
+</div>
 
-  <!-- 투자 결론 박스 -->
-  <div class="go-conclusion">
-    <h3>🎯 오늘의 투자 결론 — 어떻게 대응할까요?</h3>
-    <div class="go-con-grid">
-      <div class="go-con-item">
-        <h4>🛡️ 방산·조선·전력</h4>
-        <p>AI 사이클과 독립적 성장 동력. 어제 급락을 분할 매수 기회로 활용 가능.</p>
-      </div>
-      <div class="go-con-item">
-        <h4>💾 반도체 (삼성·SK하이닉스)</h4>
-        <p>오늘 반등 시 단기 트레이딩 관점. 장기 보유 목적이라면 분할 접근 권장.</p>
-      </div>
-      <div class="go-con-item">
-        <h4>📊 환율 모니터링</h4>
-        <p>1,530원 이하로 원화 강세 전환 시 외국인 복귀 신호. 수급 전환점 주목.</p>
-      </div>
-      <div class="go-con-item">
-        <h4>⚡ VIX 경보 기준</h4>
-        <p>VIX 20 돌파 시 추가 공포 국면. 방어적 포지션 강화 및 현금 비중 확대.</p>
-      </div>
-    </div>
-    <div class="go-disclaimer">
-      📌 본 내용은 투자 정보 제공 목적으로 작성되었으며, 투자 권유가 아닙니다. 투자 판단의 최종 책임은 투자자 본인에게 있습니다.
-    </div>
-  </div>
+<!-- 코스피 이익 성장 전망 테이블 -->
+<div class="section-label">📊 코스피 기업 이익 성장 전망 (Goldman Sachs 기준)</div>
+<div class="table-wrapper">
+  <table class="kospi-table">
+    <thead>
+      <tr>
+        <th>구분</th>
+        <th>2024A</th>
+        <th>2025A</th>
+        <th>2026E</th>
+        <th>평가</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>코스피 EPS 성장률</td>
+        <td>+12%</td>
+        <td>+85%</td>
+        <td class="highlight">+300%</td>
+        <td>아시아 최고</td>
+      </tr>
+      <tr>
+        <td>MSCI Korea 이익</td>
+        <td>+15%</td>
+        <td>+60%</td>
+        <td class="highlight">+30%</td>
+        <td>APAC +15% 대비 2배</td>
+      </tr>
+      <tr>
+        <td>SK하이닉스 OP YoY</td>
+        <td>흑자전환</td>
+        <td>+200%</td>
+        <td class="highlight">+405%</td>
+        <td>2026 Q1 기준</td>
+      </tr>
+      <tr>
+        <td>코스피 목표 (GS)</td>
+        <td>2,800</td>
+        <td>5,500</td>
+        <td class="highlight">9,000</td>
+        <td>최고 확신 시장</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-  <div class="go-footer">
-    ※ 출처: Bloomberg, Goldman Sachs, 미래에셋증권, CNBC, KED Global | 2026.06.24 기준
+<!-- 투자 결론 박스 -->
+<div class="conclusion-box">
+  <h3>💬 오늘의 투자 결론</h3>
+  <div class="conclusion-points">
+    <div class="point">
+      <div class="point-num">①</div>
+      <div class="point-text"><strong>VIX 18.76 하락</strong> — 공포 완화. 시장이 AI 쇼크를 소화 중. 단기 저가 매수 기회 탐색 구간.</div>
+    </div>
+    <div class="point">
+      <div class="point-num">②</div>
+      <div class="point-text"><strong>SK하이닉스 PER 5.8배</strong> — 이익 대비 극도 저평가. 추가 조정 시 분할 매수 전략 유효.</div>
+    </div>
+    <div class="point">
+      <div class="point-num">③</div>
+      <div class="point-text"><strong>방산·조선(한화에어로·HD한국조선)</strong> — 반도체와 다른 사이클. 변동성 분산·방어 역할 가능.</div>
+    </div>
+    <div class="point">
+      <div class="point-num">④</div>
+      <div class="point-text"><strong>LS Electric</strong> — AI 전력인프라 장기 성장 수혜. 반도체 조정기 방어적 대안 종목.</div>
+    </div>
   </div>
 </div>
+
+<div class="disclaimer">
+  ⚠️ 본 내용은 투자 정보 제공 목적으로 작성되었으며, 투자 권유가 아닙니다.<br>
+  투자 판단의 최종 책임은 투자자 본인에게 있습니다. 모든 투자에는 원금 손실의 위험이 있습니다.
+</div>
+
+<div class="date-stamp">
+  📡 출처: Goldman Sachs Research, Bloomberg, SK Hynix IR, 미래에셋증권, CNBC | 2026.06.27 기준
+</div>
+
 </body>
 </html>
