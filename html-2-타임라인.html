@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>연령대별 노후 소득설계 타임라인</title>
+<meta property="og:title" content="노후 소득 분리과세 투자, 어떤 상품이 나에게 맞을까?" />
+<meta property="og:description" content="40대부터 65세까지, 연령대별 분리과세·비과세 상품 준비 타임라인" />
+<meta property="og:image" content="https://your-domain.com/images/og_thumbnail.png" />
+<meta property="og:url" content="https://your-domain.com/노후소득-분리과세투자비교" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg:#F7F3EC;
+    --card:#FFFFFF;
+    --teal:#11574A;
+    --teal-dark:#0C3E35;
+    --gold:#C68A3D;
+    --text:#1C2521;
+    --gray:#5C6660;
+    --line:#E4DCC9;
+    --coral:#D96C4F;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--bg);
+    font-family:'Noto Sans KR',sans-serif;color:var(--text);
+    padding:32px 16px 48px;
+  }
+  .wrap{max-width:680px;margin:0 auto;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:13px;font-weight:700;color:var(--teal);
+    background:#E8F0EC;border-radius:20px;padding:5px 14px;margin-bottom:14px;
+  }
+  h2.title{
+    font-family:'Noto Serif KR',serif;
+    font-size:26px;font-weight:700;margin:0 0 8px;line-height:1.4;
+  }
+  p.desc{color:var(--gray);font-size:15px;margin:0 0 30px;line-height:1.6;}
+
+  .timeline{position:relative;padding-left:46px;}
+  .timeline::before{
+    content:"";position:absolute;left:18px;top:6px;bottom:6px;
+    width:2px;background:var(--line);
+  }
+  .step{position:relative;margin-bottom:26px;}
+  .step:last-child{margin-bottom:0;}
+  .node{
+    position:absolute;left:-46px;top:0;
+    width:38px;height:38px;border-radius:50%;
+    background:var(--teal);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:17px;
+    box-shadow:0 0 0 4px var(--bg);
+    z-index:2;
+  }
+  .step.highlight .node{background:var(--gold);}
+  .card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:16px 18px;
+  }
+  .age{
+    display:inline-block;font-size:12px;font-weight:700;
+    color:var(--gold);letter-spacing:.02em;margin-bottom:4px;
+  }
+  .step.highlight .age{color:var(--coral);}
+  .step-title{font-size:16px;font-weight:700;margin:0 0 6px;}
+  .step-desc{font-size:13.5px;color:var(--gray);line-height:1.55;margin:0;}
+  .tag{
+    display:inline-block;margin-top:8px;font-size:11.5px;font-weight:700;
+    background:#FBEFE2;color:var(--coral);border-radius:8px;padding:3px 8px;
+  }
+
+  .foot{
+    margin-top:24px;font-size:12px;color:var(--gray);
+    display:flex;align-items:center;gap:6px;
+  }
+
+  @media (max-width:480px){
+    h2.title{font-size:22px;}
+    .timeline{padding-left:40px;}
+    .node{left:-40px;width:34px;height:34px;font-size:15px;}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="eyebrow"><i class="ti ti-calendar-time"></i>&nbsp;연령대별 준비 가이드</span>
+    <h2 class="title">노후 소득설계, 언제 무엇을 챙겨야 할까</h2>
+    <p class="desc">분리과세·비과세 상품은 가입 시점에 따라 혜택이 달라집니다. 연령대별 체크포인트를 따라가 보세요.</p>
+
+    <div class="timeline">
+      <div class="step">
+        <div class="node"><i class="ti ti-seedling"></i></div>
+        <div class="card">
+          <span class="age">40대</span>
+          <h3 class="step-title">ISA 계좌부터 시작하기</h3>
+          <p class="step-desc">예금·펀드·ETF를 한 계좌에 담아 손익통산을 받으며 비과세 한도(200만~400만원)를 미리 활용하기 좋은 시기예요.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="node"><i class="ti ti-umbrella"></i></div>
+        <div class="card">
+          <span class="age">50대</span>
+          <h3 class="step-title">즉시연금·저축성보험 검토</h3>
+          <p class="step-desc">비과세 조건이 '10년 이상 유지'라 일찍 가입할수록 유리해요. 퇴직 전 목돈 계획과 함께 점검해보세요.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="node"><i class="ti ti-shield-check"></i></div>
+        <div class="card">
+          <span class="age">55세 ~</span>
+          <h3 class="step-title">종신형 연금보험 비과세 조건 충족 시점</h3>
+          <p class="step-desc">계약자·피보험자·수익자가 동일하고 연금 형태로만 수령하는 등 조건을 갖추면 평생 비과세 수령이 가능해져요.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="node"><i class="ti ti-home-dollar"></i></div>
+        <div class="card">
+          <span class="age">60대 초반</span>
+          <h3 class="step-title">보유 주택 임대 시 등록 여부 점검</h3>
+          <p class="step-desc">연 임대수입 2,000만원 이하라면 분리과세(14%)를 선택할 수 있어요. 임대사업자 등록 시 경비율이 60%로 더 유리해요.</p>
+        </div>
+      </div>
+
+      <div class="step highlight">
+        <div class="node"><i class="ti ti-alert-triangle"></i></div>
+        <div class="card">
+          <span class="age">65세</span>
+          <h3 class="step-title">비과세종합저축, 자격부터 확인</h3>
+          <p class="step-desc">2026년부터 가입 대상이 '기초연금 수급자'로 좁아졌어요. 자격이 된다면 5,000만원 한도를 먼저 채워두는 게 유리해요.</p>
+          <span class="tag">2026년 변경사항</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="node"><i class="ti ti-clipboard-check"></i></div>
+        <div class="card">
+          <span class="age">매년 5월</span>
+          <h3 class="step-title">종합소득세 신고철, 분리과세 재점검</h3>
+          <p class="step-desc">주택임대소득은 매년 종합과세와 분리과세 중 유리한 쪽을 다시 선택할 수 있어요. 홈택스 모의계산으로 비교해보세요.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><i class="ti ti-info-circle"></i> 일반적인 준비 흐름을 정리한 것으로, 실제 가입은 개인 자산·건강·세무 상황에 따라 달라질 수 있습니다.</div>
+  </div>
+</body>
+</html>
