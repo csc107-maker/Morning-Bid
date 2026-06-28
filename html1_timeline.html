@@ -2,254 +2,133 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="레미콘 파업 타임라인 2026 | 삼성·SK하이닉스 반도체 공장 위협" />
-<meta property="og:description" content="2026년 6월 전국레미콘운송노동조합 집단 휴업 경과 및 삼성전자 평택, SK하이닉스 용인 반도체 건설 현장 영향 타임라인" />
-<meta property="og:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=630&fit=crop&q=80" />
-<meta property="og:url" content="https://blog.naver.com/your-blog/concrete-strike-2026" />
-<title>레미콘 파업 타임라인 2026 | 삼성·SK하이닉스</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<title>CPSP 추진 타임라인</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
-    background-color: #EFF6FF;
-    padding: 28px 16px;
-    color: #1e293b;
-    font-size: 14px;
+  .cpsp-tl-wrap{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Roboto,sans-serif;
+    background:#F6F9FC;
+    border:1px solid #E3E9F2;
+    border-radius:18px;
+    padding:32px 28px 28px;
+    max-width:760px;
+    margin:28px auto;
+    box-shadow:0 4px 18px rgba(20,40,70,0.06);
   }
-  .wrap { max-width: 700px; margin: 0 auto; }
-
-  /* Header */
-  .hdr {
-    background: linear-gradient(135deg, #1e3a8a 0%, #2563EB 100%);
-    color: #fff;
-    padding: 24px 28px;
-    border-radius: 14px;
-    margin-bottom: 32px;
+  .cpsp-tl-head{
+    display:flex; align-items:center; gap:10px; margin-bottom:6px;
   }
-  .hdr-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-  .hdr-icon { background: rgba(255,255,255,0.15); border-radius: 8px; padding: 7px; font-size: 1.4rem; }
-  .hdr h1 { font-size: 1.25rem; font-weight: 800; line-height: 1.3; }
-  .hdr p { font-size: 0.82rem; opacity: 0.82; margin-top: 4px; }
-  .hdr-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-  .hdr-tag { background: rgba(255,255,255,0.18); padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; }
-
-  /* Section label */
-  .sec-label {
-    font-size: 0.7rem; font-weight: 700; color: #6366F1; letter-spacing: 0.12em;
-    text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 6px;
+  .cpsp-tl-head i{ font-size:22px; color:#1E5FA8; }
+  .cpsp-tl-head span.tag{
+    font-size:12.5px; font-weight:700; color:#1E5FA8;
+    background:#E7F0FB; padding:4px 10px; border-radius:20px; letter-spacing:.3px;
   }
-  .sec-label::after { content: ''; flex: 1; height: 1px; background: #C7D2FE; }
-
-  /* Timeline */
-  .tl { position: relative; padding-left: 36px; }
-  .tl::before {
-    content: '';
-    position: absolute;
-    left: 14px; top: 8px; bottom: 8px;
-    width: 3px;
-    background: linear-gradient(to bottom, #2563EB, #93C5FD 60%, #E0E7FF);
-    border-radius: 3px;
+  .cpsp-tl-title{
+    font-size:21px; font-weight:800; color:#10243F; margin:10px 0 4px;
   }
-  .tl-item { position: relative; margin-bottom: 18px; }
-  .tl-dot {
-    position: absolute;
-    left: -29px; top: 14px;
-    width: 16px; height: 16px;
-    border-radius: 50%;
-    border: 3px solid #EFF6FF;
-    z-index: 1;
+  .cpsp-tl-sub{
+    font-size:13.5px; color:#5B7088; margin-bottom:22px; line-height:1.5;
   }
-  .tl-card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 14px 16px 14px 18px;
-    box-shadow: 0 2px 10px rgba(30,58,138,0.07);
-    border-left: 4px solid #2563EB;
-    transition: box-shadow 0.2s;
+  .cpsp-tl-list{ position:relative; padding-left:30px; }
+  .cpsp-tl-list::before{
+    content:""; position:absolute; left:9px; top:6px; bottom:6px; width:2px;
+    background:linear-gradient(180deg,#1E5FA8,#C8902E);
   }
-  .tl-card.warn { border-left-color: #F59E0B; }
-  .tl-card.danger { border-left-color: #EF4444; }
-  .tl-card.purple { border-left-color: #7C3AED; }
-  .tl-card:hover { box-shadow: 0 4px 16px rgba(30,58,138,0.13); }
-
-  .tl-date { font-size: 0.7rem; font-weight: 700; color: #94A3B8; margin-bottom: 4px; }
-  .tl-title { font-size: 0.92rem; font-weight: 800; color: #1e293b; margin-bottom: 5px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-  .tl-desc { font-size: 0.8rem; color: #475569; line-height: 1.65; }
-
-  /* Badges */
-  .bdg { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.68rem; font-weight: 700; }
-  .bdg-red { background: #FEE2E2; color: #DC2626; }
-  .bdg-yellow { background: #FEF3C7; color: #B45309; }
-  .bdg-blue { background: #DBEAFE; color: #1D4ED8; }
-  .bdg-purple { background: #EDE9FE; color: #6D28D9; }
-  .bdg-gray { background: #F1F5F9; color: #475569; }
-
-  /* Status chip */
-  .status-bar {
-    background: #FEF2F2;
-    border: 1px solid #FECACA;
-    border-radius: 8px;
-    padding: 10px 14px;
-    display: flex; align-items: center; gap: 8px;
-    margin-top: 24px;
-    font-size: 0.79rem; color: #B91C1C;
+  .cpsp-tl-item{ position:relative; padding-bottom:24px; }
+  .cpsp-tl-item:last-child{ padding-bottom:0; }
+  .cpsp-tl-dot{
+    position:absolute; left:-30px; top:2px; width:20px; height:20px; border-radius:50%;
+    background:#fff; border:3px solid #1E5FA8; display:flex; align-items:center; justify-content:center;
   }
-  .status-dot { width: 10px; height: 10px; background: #EF4444; border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
-
-  /* Footer */
-  .foot {
-    background: #EEF2FF;
-    border-radius: 8px;
-    padding: 11px 14px;
-    font-size: 0.74rem;
-    color: #3730A3;
-    margin-top: 16px;
-    display: flex; align-items: center; gap: 8px;
+  .cpsp-tl-item.now .cpsp-tl-dot{ border-color:#D64545; box-shadow:0 0 0 4px rgba(214,69,69,0.15); }
+  .cpsp-tl-item.future .cpsp-tl-dot{ border-color:#C8C8C8; }
+  .cpsp-tl-date{
+    font-size:12.5px; font-weight:700; color:#1E5FA8; margin-bottom:3px; letter-spacing:.2px;
   }
-  .foot i { font-size: 1rem; flex-shrink: 0; }
+  .cpsp-tl-item.now .cpsp-tl-date{ color:#D64545; }
+  .cpsp-tl-item.future .cpsp-tl-date{ color:#9AA6B2; }
+  .cpsp-tl-evt{
+    font-size:15.5px; font-weight:700; color:#16263B; margin-bottom:3px;
+  }
+  .cpsp-tl-desc{
+    font-size:13.5px; color:#5B7088; line-height:1.55;
+  }
+  .cpsp-tl-badge{
+    display:inline-block; font-size:11px; font-weight:700; padding:2px 8px;
+    border-radius:10px; margin-left:6px; vertical-align:middle;
+  }
+  .badge-now{ background:#FDEAEA; color:#D64545; }
+  .badge-future{ background:#F0F1F3; color:#7C8794; }
+  .cpsp-tl-foot{
+    margin-top:22px; padding-top:16px; border-top:1px dashed #DCE4EE;
+    font-size:11.5px; color:#9AA6B2; display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px;
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="cpsp-tl-wrap">
+  <div class="cpsp-tl-head">
+    <i class="ti ti-anchor"></i>
+    <span class="tag">TIMELINE · CPSP</span>
+  </div>
+  <div class="cpsp-tl-title">캐나다 잠수함 사업(CPSP) 추진 일정</div>
+  <div class="cpsp-tl-sub">2021년 사업 출범부터 2026년 우선협상대상자 발표까지, 한국-독일 수주전의 전체 흐름을 정리했습니다.</div>
 
-  <div class="hdr">
-    <div class="hdr-top">
-      <div class="hdr-icon"><i class="ti ti-calendar-event"></i></div>
-      <div>
-        <h1>레미콘 파업 타임라인 2026</h1>
-        <p>삼성전자 평택·SK하이닉스 용인 반도체 건설 현장 영향 경과</p>
-      </div>
+  <div class="cpsp-tl-list">
+    <div class="cpsp-tl-item">
+      <div class="cpsp-tl-dot"><i class="ti ti-flag" style="font-size:10px;color:#1E5FA8;"></i></div>
+      <div class="cpsp-tl-date">2021년</div>
+      <div class="cpsp-tl-evt">CPSP 공식 출범</div>
+      <div class="cpsp-tl-desc">노후한 빅토리아급 잠수함 4척(영국에서 1990년대 말 중고 도입) 대체를 위해 캐나다 정부가 차세대 잠수함 사업을 공식화.</div>
     </div>
-    <div class="hdr-tags">
-      <span class="hdr-tag">📅 2026년 6월 8~12일</span>
-      <span class="hdr-tag">📍 수도권 (평택·용인)</span>
-      <span class="hdr-tag">🌐 로이터 국제 보도</span>
+    <div class="cpsp-tl-item">
+      <div class="cpsp-tl-dot"></div>
+      <div class="cpsp-tl-date">2024.09 ~ 2025.02</div>
+      <div class="cpsp-tl-evt">정보요청서(RFI) 접수</div>
+      <div class="cpsp-tl-desc">전 세계 25개 업체가 관심을 표명. 최대 12척, 조달가만 약 24조원 규모의 사업으로 윤곽이 드러남.</div>
+    </div>
+    <div class="cpsp-tl-item">
+      <div class="cpsp-tl-dot"><i class="ti ti-trophy" style="font-size:10px;color:#1E5FA8;"></i></div>
+      <div class="cpsp-tl-date">2025.08</div>
+      <div class="cpsp-tl-evt">최종 2개사로 압축</div>
+      <div class="cpsp-tl-desc">한국 한화오션(HD현대중공업 컨소시엄)과 독일 TKMS(노르웨이 콩스버그 공동)가 적격공급사로 선정.</div>
+    </div>
+    <div class="cpsp-tl-item">
+      <div class="cpsp-tl-dot"><i class="ti ti-file-text" style="font-size:10px;color:#1E5FA8;"></i></div>
+      <div class="cpsp-tl-date">2026.03.02</div>
+      <div class="cpsp-tl-evt">최종 제안서 제출 마감</div>
+      <div class="cpsp-tl-desc">양사 모두 가격·기술·산업협력 패키지를 포함한 최종안 제출.</div>
+    </div>
+    <div class="cpsp-tl-item">
+      <div class="cpsp-tl-dot"><i class="ti ti-refresh" style="font-size:10px;color:#1E5FA8;"></i></div>
+      <div class="cpsp-tl-date">2026.03 ~ 04.29</div>
+      <div class="cpsp-tl-evt">제안서 보완 기간(amendment period)</div>
+      <div class="cpsp-tl-desc">캐나다 정부가 양측에 "경제적 이익을 더 끌어올리라"며 약 20일의 보완 기회 부여 — 협상력을 높이려는 의도로 해석됨.</div>
+    </div>
+    <div class="cpsp-tl-item now">
+      <div class="cpsp-tl-dot"><i class="ti ti-clock-bolt" style="font-size:10px;color:#D64545;"></i></div>
+      <div class="cpsp-tl-date">2026.06 말 ~ 07초 <span class="cpsp-tl-badge badge-now">진행중</span></div>
+      <div class="cpsp-tl-evt">우선협상대상자(Preferred Bidder) 발표</div>
+      <div class="cpsp-tl-desc">캐나다 연방의회 여름 휴회(6월 말~9월 중) 전 발표를 목표로 평가 마무리 단계. 7월로 지연 가능성도 거론됨.</div>
+    </div>
+    <div class="cpsp-tl-item future">
+      <div class="cpsp-tl-dot"></div>
+      <div class="cpsp-tl-date">2028년 초(예상) <span class="cpsp-tl-badge badge-future">예정</span></div>
+      <div class="cpsp-tl-evt">가격 포함 본계약 체결</div>
+      <div class="cpsp-tl-desc">우선협상대상자 선정은 '계약의 시작'일 뿐, 가격이 포함된 구속력 있는 본계약은 약 2년 뒤 체결될 전망.</div>
+    </div>
+    <div class="cpsp-tl-item future">
+      <div class="cpsp-tl-dot"></div>
+      <div class="cpsp-tl-date">2032~2035년(예상) <span class="cpsp-tl-badge badge-future">예정</span></div>
+      <div class="cpsp-tl-evt">1번함 인도 및 초기 전력화</div>
+      <div class="cpsp-tl-desc">한화오션 제안: 2032년 1번함, 2035년까지 4척 인도. TKMS 제안: 2036년까지 4척 인도(독일·노르웨이 생산슬롯 일부 양보 조건).</div>
     </div>
   </div>
 
-  <div class="sec-label"><i class="ti ti-timeline"></i> 사건 경과 (5일)</div>
-
-  <div class="tl">
-
-    <!-- Day 1 -->
-    <div class="tl-item">
-      <div class="tl-dot" style="background:#2563EB;"></div>
-      <div class="tl-card">
-        <div class="tl-date">2026년 6월 8일 (월) — D+0</div>
-        <div class="tl-title">
-          전운련 집단 운송 중단 개시
-          <span class="bdg bdg-red">🔴 파업 시작</span>
-        </div>
-        <div class="tl-desc">
-          전국레미콘운송노동조합(전운련) 수도권 소속 <strong>약 8,000명</strong>이 집단 휴업 돌입.
-          수도권 레미콘 운전기사 총 1만 1,000명 중 72.7% 참여.
-          요구사항: 운반비 <strong>8,000원/회 인상</strong> 및 노조 법적 지위 인정.
-        </div>
-      </div>
-    </div>
-
-    <!-- Day 2 -->
-    <div class="tl-item">
-      <div class="tl-dot" style="background:#F59E0B;"></div>
-      <div class="tl-card warn">
-        <div class="tl-date">2026년 6월 9일 (화) — D+1</div>
-        <div class="tl-title">
-          노사 실무교섭 — 잠정합의 도출
-          <span class="bdg bdg-yellow">⚡ 협상 진전</span>
-        </div>
-        <div class="tl-desc">
-          레미콘 제조사 측 초기 2,500원 제안 → 실무협상 끝에 <strong>4,200원 인상(5.3%)</strong>으로 잠정합의.
-          운반비 통합교섭(수도권 14개 지부) 방식 수용.
-        </div>
-      </div>
-    </div>
-
-    <!-- Day 3 -->
-    <div class="tl-item">
-      <div class="tl-dot" style="background:#EF4444;"></div>
-      <div class="tl-card danger">
-        <div class="tl-date">2026년 6월 10일 (수) — D+2</div>
-        <div class="tl-title">
-          조합원 투표: 잠정합의안 부결
-          <span class="bdg bdg-red">❌ 68.3% 반대</span>
-        </div>
-        <div class="tl-desc">
-          찬반 투표 결과 조합원 <strong>68.3%가 반대</strong>표 행사 → 합의안 부결.
-          제조사 측, 깊은 유감 표명. 사태 장기화 국면 돌입.
-          수도권 반도체 공장 건설현장 레미콘 수급 차질 우려 고조.
-        </div>
-      </div>
-    </div>
-
-    <!-- Day 4 -->
-    <div class="tl-item">
-      <div class="tl-dot" style="background:#EF4444;"></div>
-      <div class="tl-card danger">
-        <div class="tl-date">2026년 6월 11일 (목) — D+3</div>
-        <div class="tl-title">
-          SK하이닉스 용인 타설 전면 중단
-          <span class="bdg bdg-red">🔴 현장 확인</span>
-        </div>
-        <div class="tl-desc">
-          전운련, 용인 레미콘 공장 출하 일정 전량 취소.
-          SK하이닉스 용인 반도체 클러스터 <strong>콘크리트 타설 전면 중단</strong> 확인(아시아경제 단독).
-          용인·평택 지역 레미콘 운송기사 90% 이상이 전운련 소속으로 대체 운송 극히 제한적.
-        </div>
-      </div>
-    </div>
-
-    <!-- Day 5 -->
-    <div class="tl-item">
-      <div class="tl-dot" style="background:#DC2626;"></div>
-      <div class="tl-card danger">
-        <div class="tl-date">2026년 6월 12일 (금) — D+4</div>
-        <div class="tl-title">
-          삼성 평택 차질 확인 + 로이터 국제 보도
-          <span class="bdg bdg-blue">🌐 국제화</span>
-        </div>
-        <div class="tl-desc">
-          전운련, 평택 레미콘 공장 <strong>2곳 봉쇄</strong>.
-          삼성전자 평택 P5 캠퍼스 콘크리트 타설 차질 발생(조선일보).
-          <strong>로이터통신</strong> 국제 보도로 글로벌 주목. 삼성전자 공식 코멘트 거부.
-          레미콘 제조사 측, "운송 거부 철회 없이 협상 불가 · 권역별 협상 전환" 공문 발송.
-        </div>
-      </div>
-    </div>
-
-    <!-- Current -->
-    <div class="tl-item">
-      <div class="tl-dot" style="background:#7C3AED;"></div>
-      <div class="tl-card purple">
-        <div class="tl-date">현재 진행 중</div>
-        <div class="tl-title">
-          협상 교착 상태 지속
-          <span class="bdg bdg-purple">⚠️ 경과 주시</span>
-        </div>
-        <div class="tl-desc">
-          전운련-제조사 간 협상 사실상 단절. 전운련, 수도권 반도체 공장 납품 저지 유지.
-          정부 적극 중재 역할 미확인. 향후 추가 협상 재개 여부 미정.
-          운반비 외 <strong>노조 법적 지위 인정</strong> 문제가 갈등 복잡화 요인.
-        </div>
-      </div>
-    </div>
-
+  <div class="cpsp-tl-foot">
+    <span>자료: Canada.ca(PSPC), The Globe and Mail, CBC News, Army Recognition, Stimson Center</span>
+    <span>2026.06.28 기준</span>
   </div>
-
-  <!-- Status -->
-  <div class="status-bar">
-    <div class="status-dot"></div>
-    <span><strong>현재 파업 진행 중</strong> — 삼성전자·SK하이닉스 공식 현황 실시간 모니터링 필요</span>
-  </div>
-
-  <!-- Footer -->
-  <div class="foot">
-    <i class="ti ti-database"></i>
-    <span><strong>데이터 출처:</strong> Reuters(2026.06.12), 조선일보, 아시아경제, 뉴데일리, 헤럴드경제, 뉴시스, 서울경제 (2026.06.08~12)</span>
-  </div>
-
 </div>
 </body>
 </html>
