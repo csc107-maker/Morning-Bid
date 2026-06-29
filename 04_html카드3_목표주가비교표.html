@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>삼성전자 SK하이닉스 증권사 목표주가 비교</title>
+
+<meta property="og:title" content="삼성전자·SK하이닉스 증권사 목표주가 한눈에 비교" />
+<meta property="og:description" content="SK증권, 한국투자증권, 미래에셋, 노무라까지 — 증권사별 목표주가와 컨센서스를 표로 정리했습니다" />
+<meta property="og:image" content="썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="페이지 URL을 입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: #F7FAFF;
+    color: #1A2332;
+    line-height: 1.6;
+    padding: 28px 16px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  .header { margin-bottom: 20px; }
+  .header .tag {
+    display:inline-flex; align-items:center; gap:6px;
+    background: #E6FBF1; color:#0EA968;
+    padding: 5px 12px; border-radius: 999px;
+    font-size: 12px; font-weight: 700; margin-bottom: 10px;
+  }
+  .header h1 { font-size: 20px; font-weight: 800; color:#101828; }
+  .header p { font-size: 13px; color:#5B6573; margin-top:6px; }
+
+  .price-now { display:flex; gap:12px; margin-bottom:18px; }
+  .price-now .box {
+    flex:1; background:#fff; border-radius:14px; padding:16px;
+    border:1px solid #EEF1F6; box-shadow: 0 2px 8px rgba(20,30,60,0.05);
+  }
+  .price-now .box .name { font-size:12.5px; color:#5B6573; font-weight:700; margin-bottom:4px;}
+  .price-now .box .price { font-size:19px; font-weight:900; color:#101828; }
+  .price-now .box .chg { font-size:12px; font-weight:700; margin-top:2px; }
+  .chg.up { color:#0EA968; } .chg.down { color:#E03131; }
+
+  table { width:100%; border-collapse: collapse; background:#fff; border-radius:14px; overflow:hidden; box-shadow: 0 2px 10px rgba(20,30,60,0.06); margin-bottom:16px;}
+  thead th { background:#1E5BFA; color:#fff; font-size:12.5px; font-weight:700; padding:10px 8px; text-align:center; }
+  tbody td { font-size:12.5px; padding:10px 8px; text-align:center; border-bottom:1px solid #F1F3F8; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:nth-child(even) { background:#FAFBFE; }
+  td.firm { text-align:left; font-weight:700; color:#101828; }
+  td.num { font-weight:800; color:#1E5BFA; }
+  .small-cap { font-size:11px; color:#94A0AF; }
+
+  .consensus {
+    background:#fff; border-radius:14px; padding:16px 18px; border:1px solid #EEF1F6;
+    margin-bottom:18px; box-shadow: 0 2px 8px rgba(20,30,60,0.05);
+  }
+  .consensus h3 { font-size:13.5px; font-weight:800; margin-bottom:10px; color:#101828; }
+  .bar-row { margin-bottom:10px; }
+  .bar-row .label { display:flex; justify-content:space-between; font-size:11.5px; color:#5B6573; margin-bottom:4px;}
+  .bar-track { background:#EEF1F6; height:8px; border-radius:6px; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:6px; background: linear-gradient(90deg,#1E5BFA,#4A8CFF); }
+
+  .footer-note {
+    background:#FFF1E2; border-radius: 12px; padding: 14px 16px;
+    font-size: 11.5px; color:#7A4A0C; line-height:1.7; border-left:4px solid #E8780C;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="tag"><i class="ti ti-chart-candle"></i> STOCK OUTLOOK</div>
+    <h1>삼성전자·SK하이닉스, 증권사 목표주가 비교</h1>
+    <p>2026.6.29 기준 — 최근 한 달간 발표된 주요 증권사 리포트 정리</p>
+  </div>
+
+  <div class="price-now">
+    <div class="box">
+      <div class="name"><i class="ti ti-building-factory-2"></i> 삼성전자 (005930)</div>
+      <div class="price">330,000원</div>
+      <div class="chg down">▼ 2.8% (6.29 기준, 장중 -6.9%서 반등)</div>
+    </div>
+    <div class="box">
+      <div class="name"><i class="ti ti-building-factory"></i> SK하이닉스 (000660)</div>
+      <div class="price">2,677,000원</div>
+      <div class="chg up">▲ 0.15% (6.29 기준, 장중 -5.8%서 반등)</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>증권사</th><th>삼성전자 목표가</th><th>SK하이닉스 목표가</th><th>발표일</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="firm">SK증권</td><td class="num">50만원</td><td class="num">300만원</td><td class="small-cap">2026.05.07</td></tr>
+      <tr><td class="firm">한국투자증권</td><td class="num">57만원</td><td class="num">380만원</td><td class="small-cap">2026.05.20</td></tr>
+      <tr><td class="firm">미래에셋증권</td><td class="num">48만원</td><td class="small-cap">미공개</td><td class="small-cap">2026.05.21</td></tr>
+      <tr><td class="firm">노무라증권</td><td class="num">59만원</td><td class="num">400만원</td><td class="small-cap">2026.05.20</td></tr>
+    </tbody>
+  </table>
+
+  <div class="consensus">
+    <h3><i class="ti ti-users"></i> SK하이닉스 애널리스트 컨센서스 (Investing.com, 37명)</h3>
+    <div class="bar-row">
+      <div class="label"><span>평균 목표가</span><span><b>3,048,502원</b></span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="label"><span>최고 목표가</span><span><b>4,700,000원</b></span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:100%; background:linear-gradient(90deg,#0EA968,#4ADE80)"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="label"><span>최저 목표가</span><span><b>1,030,000원</b></span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:22%; background:linear-gradient(90deg,#E03131,#FF8787)"></div></div>
+    </div>
+    <p style="font-size:11px; color:#94A0AF; margin-top:6px;">매수 35명 · 보유 1명 · 매도 1명 — 컨센서스 등급 "적극 매수"</p>
+  </div>
+
+  <div class="footer-note">
+    <i class="ti ti-alert-triangle"></i> <b>투자 유의사항:</b> 목표가 최고-최저 격차가 4배 이상 벌어져 있어, 메모리 업황에 대한 시각차가 여전히 큽니다. 위 수치는 오늘(6.29) 발표 이전에 산정된 리포트로, 호남 클러스터 효과가 본격 반영되지 않았을 수 있습니다. 본 표는 정보 제공 목적이며 매수·매도 권유가 아닙니다. 투자 판단과 책임은 본인에게 있습니다.<br>
+    출처: 비즈워치, 민들레, Investing.com (2026.5~6월)
+  </div>
+
+</div>
+</body>
+</html>
