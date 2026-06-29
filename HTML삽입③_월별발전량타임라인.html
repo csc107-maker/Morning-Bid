@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>6kW 태양광 월별 발전량 타임라인</title>
+
+<meta property="og:title" content="6kW 태양광 월별 발전량 타임라인 - 7월부터 12월까지" />
+<meta property="og:description" content="가정용 6kW 태양광 설비를 7월에 설치한 뒤 12월까지 실제로 발전한 일평균 발전량을 월별로 정리한 타임라인입니다." />
+<meta property="og:image" content="여기에 썸네일 이미지의 실제 업로드 URL을 입력하세요 (예: https://blog.example.com/images/solar-6kw-thumbnail.png)" />
+<meta property="og:url" content="여기에 게시될 블로그 글의 실제 URL을 입력하세요 (예: https://blog.naver.com/내블로그ID/게시글번호)" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<style>
+  body { margin:0; background:#F7FAFC; font-family:'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; }
+  .wrap { max-width:680px; margin:0 auto; padding:28px 24px; }
+  .card { background:#FFFFFF; border:1px solid #E2E8F0; border-radius:16px; padding:26px 26px 22px; box-shadow:0 2px 14px rgba(15,32,56,0.05); }
+  .eyebrow { display:inline-flex; align-items:center; gap:6px; background:#E6F1FB; color:#0C447C; font-size:13px; font-weight:700; padding:5px 12px; border-radius:20px; }
+  h2 { font-size:20px; font-weight:700; color:#0F2038; margin:14px 0 18px; }
+  .tl { position:relative; margin-left:10px; padding-left:26px; border-left:2px solid #E2E8F0; }
+  .item { position:relative; padding-bottom:22px; }
+  .item:last-child { padding-bottom:0; }
+  .dot { position:absolute; left:-34px; top:2px; width:16px; height:16px; border-radius:50%; background:#2A78D6; border:3px solid #FFFFFF; box-shadow:0 0 0 2px #2A78D6; }
+  .item.peak .dot { background:#2A78D6; box-shadow:0 0 0 2px #2A78D6; }
+  .item.low .dot { background:#EB6834; box-shadow:0 0 0 2px #EB6834; }
+  .row { display:flex; justify-content:space-between; align-items:baseline; }
+  .month { font-size:15px; font-weight:700; color:#0F2038; }
+  .kwh { font-size:18px; font-weight:700; }
+  .item.peak .kwh { color:#0C447C; }
+  .item.low .kwh { color:#C2410C; }
+  .desc { font-size:13px; color:#5A626E; margin-top:3px; }
+  .bar-bg { background:#EDF1F5; border-radius:6px; height:8px; margin-top:8px; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <span class="eyebrow"><i class="ti ti-timeline"></i>월별 추이</span>
+    <h2>6kW 태양광, 7월부터 12월까지 발전량 흐름</h2>
+
+    <div class="tl">
+
+      <div class="item peak">
+        <span class="dot"></span>
+        <div class="row"><span class="month">7월</span><span class="kwh">19.7kWh</span></div>
+        <div class="desc">설치 직후, 한여름 진입 구간</div>
+        <div class="bar-bg"><div class="bar-fill" style="width:84%; background:#2A78D6;"></div></div>
+      </div>
+
+      <div class="item peak">
+        <span class="dot"></span>
+        <div class="row"><span class="month">8월</span><span class="kwh">23.5kWh</span></div>
+        <div class="desc">연중 발전량 최고치 기록</div>
+        <div class="bar-bg"><div class="bar-fill" style="width:100%; background:#2A78D6;"></div></div>
+      </div>
+
+      <div class="item">
+        <span class="dot"></span>
+        <div class="row"><span class="month">9월</span><span class="kwh">18.0kWh</span></div>
+        <div class="desc">더위 한풀 꺾이며 완만히 하락</div>
+        <div class="bar-bg"><div class="bar-fill" style="width:77%; background:#5DCAA5;"></div></div>
+      </div>
+
+      <div class="item">
+        <span class="dot"></span>
+        <div class="row"><span class="month">10월</span><span class="kwh">18.8kWh</span></div>
+        <div class="desc">맑은 가을 날씨로 일시 반등</div>
+        <div class="bar-bg"><div class="bar-fill" style="width:80%; background:#5DCAA5;"></div></div>
+      </div>
+
+      <div class="item low">
+        <span class="dot"></span>
+        <div class="row"><span class="month">11월</span><span class="kwh">13.4kWh</span></div>
+        <div class="desc">일조시간 감소로 본격 하락</div>
+        <div class="bar-bg"><div class="bar-fill" style="width:57%; background:#EB6834;"></div></div>
+      </div>
+
+      <div class="item low">
+        <span class="dot"></span>
+        <div class="row"><span class="month">12월</span><span class="kwh">10.8kWh</span></div>
+        <div class="desc">연중 최저권, 여름철의 절반 이하</div>
+        <div class="bar-bg"><div class="bar-fill" style="width:46%; background:#EB6834;"></div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
