@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>대한민국 대도약 3대 메가프로젝트 한눈에 보기</title>
+
+<meta property="og:title" content="대한민국 대도약 3대 메가프로젝트 한눈에 보기" />
+<meta property="og:description" content="호남 반도체, AI 데이터센터, 피지컬 AI·로봇까지. 1000조 투자가 그리는 산업 지도를 한 장으로 정리했습니다." />
+<meta property="og:image" content="여기에 썸네일 이미지 URL을 입력하세요 (예: https://yourblog.com/images/thumbnail.png)" />
+<meta property="og:url" content="여기에 이 글이 게시될 페이지 URL을 입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background: #FAF7F0;
+    padding: 28px 16px;
+    color: #1B2430;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12.5px; font-weight: 700; color: #0E2A47;
+    background: #FFFFFF; border: 1px solid #E4DFD3;
+    padding: 5px 12px; border-radius: 999px; letter-spacing: 0.3px;
+  }
+  .eyebrow i { color: #F5A623; }
+
+  h1.title {
+    margin-top: 14px;
+    font-size: 26px; font-weight: 800; line-height: 1.35; color: #0E2A47;
+  }
+  .title .accent { color: #E08E0B; }
+
+  .meta-strip {
+    margin-top: 16px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  }
+  .meta-box {
+    background: #FFFFFF; border: 1px solid #ECE6D8; border-radius: 12px;
+    padding: 12px 14px;
+  }
+  .meta-box .label { font-size: 11.5px; color: #8A93A0; font-weight: 600; }
+  .meta-box .value { font-size: 14.5px; font-weight: 700; color: #16314F; margin-top: 3px; }
+
+  .grid {
+    margin-top: 22px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  @media (max-width: 680px) { .grid { grid-template-columns: 1fr; } .meta-strip{grid-template-columns:1fr;} }
+
+  .card {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #ECE6D8;
+    padding: 22px 18px 20px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 rgba(20,30,45,0.02);
+  }
+  /* chip-pin signature: small pins along the top edge, like a semiconductor package */
+  .card::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; height: 6px;
+    background-image: repeating-linear-gradient(90deg, var(--pin-color, #0E2A47) 0 10px, transparent 10px 18px);
+    opacity: 0.85;
+  }
+  .card.c1::before { --pin-color: #1F6FEB; }
+  .card.c2::before { --pin-color: #F5A623; }
+  .card.c3::before { --pin-color: #2E9E5B; }
+
+  .icon-badge {
+    width: 46px; height: 46px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: #fff; margin-bottom: 14px;
+  }
+  .c1 .icon-badge { background: linear-gradient(135deg, #1F6FEB, #0E2A47); }
+  .c2 .icon-badge { background: linear-gradient(135deg, #F5A623, #E08E0B); }
+  .c3 .icon-badge { background: linear-gradient(135deg, #2E9E5B, #16633A); }
+
+  .card .tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 3px 9px; border-radius: 999px; margin-bottom: 8px;
+  }
+  .c1 .tag { background: #E8F0FE; color: #1457B8; }
+  .c2 .tag { background: #FDF0DA; color: #B6740B; }
+  .c3 .tag { background: #E5F4EB; color: #1F7A47; }
+
+  .card h3 { font-size: 17.5px; font-weight: 800; color: #16314F; line-height: 1.4; }
+  .card p.desc { font-size: 13.3px; color: #5C6B7A; margin-top: 8px; line-height: 1.6; }
+
+  .card .stat-row {
+    margin-top: 14px; padding-top: 12px; border-top: 1px dashed #E9E3D6;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .card .stat-row .num { font-size: 19px; font-weight: 800; color: #16314F; }
+  .card .stat-row .unit { font-size: 11.5px; color: #8A93A0; font-weight: 600; }
+
+  .foot-note {
+    margin-top: 20px; font-size: 12px; color: #9BA3AE; line-height: 1.7;
+    border-top: 1px solid #ECE6D8; padding-top: 12px;
+  }
+  .foot-note b { color: #6B7480; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="eyebrow"><i class="ti ti-building-bank"></i> 2026.06.29 청와대 영빈관 발표</span>
+    <h1 class="title">대한민국 대도약 <span class="accent">3대 메가프로젝트</span> 한눈에 보기</h1>
+
+    <div class="meta-strip">
+      <div class="meta-box"><div class="label">행사명</div><div class="value">3대 메가프로젝트 국민보고회</div></div>
+      <div class="meta-box"><div class="label">참석</div><div class="value">이재명 대통령·이재용·최태원</div></div>
+      <div class="meta-box"><div class="label">발표 부처</div><div class="value">산업·과기·기후에너지·국토부</div></div>
+    </div>
+
+    <div class="grid">
+      <div class="card c1">
+        <div class="icon-badge"><i class="ti ti-cpu"></i></div>
+        <span class="tag">반도체 / 호남</span>
+        <h3>제2 반도체 클러스터</h3>
+        <p class="desc">광주·전남 권역에 전공정(웨이퍼 가공)·후공정(패키징) 팹을 포함한 메가 클러스터 조성이 핵심 축입니다.</p>
+        <div class="stat-row"><span class="num">최대 5기</span><span class="unit">팹 신설 가능성(보도 기준)</span></div>
+      </div>
+
+      <div class="card c2">
+        <div class="icon-badge"><i class="ti ti-server-2"></i></div>
+        <span class="tag">AI 데이터센터 / 강원·충청</span>
+        <h3>GW급 통합 AI 데이터센터</h3>
+        <p class="desc">강원 동해, 충청 당진 등을 거점으로 기가와트(GW) 단위의 초대형 AI 연산 인프라를 구축하는 구상입니다.</p>
+        <div class="stat-row"><span class="num">GW급</span><span class="unit">전력 수요 단위</span></div>
+      </div>
+
+      <div class="card c3">
+        <div class="icon-badge"><i class="ti ti-robot"></i></div>
+        <span class="tag">피지컬 AI·로봇 / 영남</span>
+        <h3>피지컬 AI 종합벨트</h3>
+        <p class="desc">경남 창원·사천 등을 중심으로 우주항공·로봇을 아우르는 피지컬 AI 산업 생태계를 조성합니다.</p>
+        <div class="stat-row"><span class="num">3각축</span><span class="unit">새만금·대구경북·수도권 연계</span></div>
+      </div>
+    </div>
+
+    <div class="foot-note">
+      <b>참고:</b> 위 구성은 6월 29일 발표 시점까지의 언론 보도를 종합한 것으로, 세부 권역·기업·일정은 공식 발표 및 후속 보도에 따라 달라질 수 있습니다. (자료: 머니투데이, 한국일보, 서울경제, 문화일보, 전자신문 등 종합)
+    </div>
+  </div>
+</body>
+</html>
