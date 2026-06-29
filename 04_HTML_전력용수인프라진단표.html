@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>호남 전력·용수 인프라, 정말 충분할까?</title>
+
+<meta property="og:title" content="호남 전력·용수 인프라, 정말 충분할까?" />
+<meta property="og:description" content="태양광 55GW vs 간헐성 47%, 수자원 114억㎥ vs 공업용수 부족. 호남 반도체 클러스터 인프라 논쟁을 표로 정리했습니다." />
+<meta property="og:image" content="여기에 썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="여기에 이 글이 게시될 페이지 URL을 입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Pretendard', -apple-system, sans-serif; background: #FAF7F0; padding: 28px 16px; color: #1B2430; }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: #0E2A47; background: #fff; border: 1px solid #E4DFD3; padding: 5px 12px; border-radius: 999px; }
+  .eyebrow i { color: #2E9E5B; }
+  h1.title { margin-top: 14px; font-size: 24px; font-weight: 800; color: #0E2A47; line-height: 1.4; }
+
+  .stat-cards { margin-top: 18px; display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  @media (max-width: 700px) { .stat-cards { grid-template-columns: repeat(2,1fr); } }
+  .stat { background:#fff; border:1px solid #ECE6D8; border-radius:14px; padding:14px; text-align:center; }
+  .stat .v { font-size:19px; font-weight:800; color:#16314F; }
+  .stat .l { font-size:11px; color:#8A93A0; font-weight:600; margin-top:3px; }
+
+  table.infra { margin-top:22px; width:100%; border-collapse: collapse; background:#fff; border-radius:14px; overflow:hidden; border:1px solid #ECE6D8; }
+  table.infra th { background:#0E2A47; color:#fff; font-size:12.5px; font-weight:700; padding:12px 14px; text-align:left; }
+  table.infra td { padding:12px 14px; font-size:13px; border-bottom:1px solid #F0EBDD; color:#33404D; vertical-align: top; }
+  table.infra tr:last-child td { border-bottom:none; }
+  table.infra td.energy { font-weight:800; color:#16314F; white-space:nowrap; }
+  .badge { display:inline-block; font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px; margin-top:4px; }
+  .b-good { background:#E5F4EB; color:#1F7A47; }
+  .b-warn { background:#FDF0DA; color:#B6740B; }
+  .b-bad { background:#FBE7E5; color:#B73A30; }
+
+  .debate { margin-top:26px; }
+  .debate h2 { font-size: 16.5px; font-weight:800; color:#16314F; margin-bottom:12px; display:flex; align-items:center; gap:8px;}
+  .debate h2 i { color:#F5A623; }
+  .vs-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 680px){ .vs-grid{grid-template-columns:1fr;} }
+  .vs-card { background:#fff; border-radius:14px; padding:18px; position:relative; border:1px solid #ECE6D8; }
+  .vs-card.gov { border-top:4px solid #1F6FEB; }
+  .vs-card.opp { border-top:4px solid #D64545; }
+  .vs-card .who { font-size:12px; font-weight:800; letter-spacing:.2px; }
+  .vs-card.gov .who { color:#1457B8; }
+  .vs-card.opp .who { color:#B73A30; }
+  .vs-card p { font-size:13px; color:#445163; line-height:1.7; margin-top:10px; }
+  .vs-card .quote-mark { font-size:28px; color:#E4DFD3; line-height: 0.5; }
+
+  .foot-note { margin-top:20px; font-size:12px; color:#9BA3AE; line-height:1.7; border-top:1px solid #ECE6D8; padding-top:12px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="eyebrow"><i class="ti ti-bolt"></i> 인프라 현실 점검</span>
+    <h1 class="title">전력과 물, 정말 충분할까? — 숫자로 보는 호남 인프라</h1>
+
+    <div class="stat-cards">
+      <div class="stat"><div class="v">55GW+</div><div class="l">전남 재생에너지 잠재량</div></div>
+      <div class="stat"><div class="v">215%</div><div class="l">전남 전력자립도(2025)</div></div>
+      <div class="stat"><div class="v">47%</div><div class="l">호남 발전량 중 재생E 비중</div></div>
+      <div class="stat"><div class="v">49.3%</div><div class="l">영산·섬진강 수자원÷한강권역</div></div>
+    </div>
+
+    <table class="infra">
+      <tr><th>발전원</th><th>특징</th><th>장점</th><th>한계 / 리스크</th></tr>
+      <tr>
+        <td class="energy">☀️ 태양광</td>
+        <td>전남 잠재량 약 34GW. 해남 솔라시도 등 대규모 단지 추진 중</td>
+        <td>RE100 충족에 유리, 부지·자원 풍부, 친환경</td>
+        <td><span class="badge b-warn">간헐성</span><br>일조량 의존, 야간·기상 영향으로 24시간 안정 공급 한계</td>
+      </tr>
+      <tr>
+        <td class="energy">💨 풍력(해상)</td>
+        <td>신안·영암 등 해상풍력 다수 추진(SK E&S, 한화 등)</td>
+        <td>대규모 단지화 가능, 야간에도 발전 가능</td>
+        <td><span class="badge b-warn">간헐성</span><br>기상 변화에 따른 출력 변동, 건설 기간 장기화</td>
+      </tr>
+      <tr>
+        <td class="energy">⚛️ 원전(한빛)</td>
+        <td>호남 유일 원전, 일부 호기 노후화로 순차 가동 중단 중</td>
+        <td>24시간 안정적인 기저전력 공급</td>
+        <td><span class="badge b-bad">노후화</span><br>신규 증설 없이는 안정적 기저 전원 추가 확보 어려움</td>
+      </tr>
+      <tr>
+        <td class="energy">🔥 LNG(가스)</td>
+        <td>재생에너지 보완용 발전원으로 전문가들이 다수 제안</td>
+        <td>재생에너지 간헐성 보완, 비교적 빠른 건설</td>
+        <td><span class="badge b-warn">비용·탄소</span><br>국제 가스가 변동 및 탄소중립 정책과의 정합성 과제</td>
+      </tr>
+    </table>
+
+    <div class="debate">
+      <h2><i class="ti ti-message-2"></i> 정치권 찬반 주장, 양쪕 그대로 정리하면</h2>
+      <div class="vs-grid">
+        <div class="vs-card gov">
+          <div class="who">정부·여당 측 핵심 논리</div>
+          <p>서남해안이 국내에서 재생에너지가 가장 풍부한 지역이며, 수자원 관리체계를 갖추면 하루 100만 톤 규모의 산업용수 공급도 가능하다는 입장입니다. 정부가 인프라를 조성하고 기업이 자체 이익 판단에 따라 투자를 결정했다는 점도 강조합니다.</p>
+        </div>
+        <div class="vs-card opp">
+          <div class="who">야권 측 핵심 논리</div>
+          <p>태양광·풍력은 날씨에 따라 발전량이 들쑥날쑥해 나노 단위 정밀 공정에는 위험 요인이 될 수 있다고 봅니다. 영산강 유역은 이미 생활·공업용수가 부족한 상태라 광주·전남 클러스터 가동 시 추가 수자원 확보가 시급하다는 점도 지적합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-note">
+      <b>출처:</b> 한국전력, 기후에너지환경부 영산강·섬진강 수자원 관리계획, 한국일보·아주경제·문화일보·뉴데일리·사이드뷰 보도 종합(2026.6 기준). 위 인용문은 보도된 발언을 요지 중심으로 재구성한 것으로 실제 발언 전문과 다를 수 있습니다.
+    </div>
+  </div>
+</body>
+</html>
