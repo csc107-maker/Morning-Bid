@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>삼성전자 SK그룹 투자 규모, 출처별로 비교해보면</title>
+
+<meta property="og:title" content="삼성전자·SK그룹 투자 규모, 출처별로 비교해보면" />
+<meta property="og:description" content="1000조? 2000조? 언론마다 다른 호남 반도체 투자 추정치를 한 장으로 비교 정리했습니다." />
+<meta property="og:image" content="여기에 썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="여기에 이 글이 게시될 페이지 URL을 입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Pretendard', -apple-system, sans-serif; background: #FAF7F0; padding: 28px 16px; color: #1B2430; }
+  .wrap { max-width: 880px; margin: 0 auto; }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: #0E2A47; background: #fff; border: 1px solid #E4DFD3; padding: 5px 12px; border-radius: 999px; }
+  .eyebrow i { color: #1F6FEB; }
+  h1.title { margin-top: 14px; font-size: 24px; font-weight: 800; color: #0E2A47; line-height: 1.4; }
+  .sub { margin-top: 6px; font-size: 13.5px; color: #6B7480; }
+
+  .panel { margin-top: 22px; background: #fff; border: 1px solid #ECE6D8; border-radius: 18px; padding: 24px 22px; position: relative; overflow: hidden; }
+  .panel::before { content:""; position:absolute; top:0; left:0; right:0; height:6px; background-image: repeating-linear-gradient(90deg, #0E2A47 0 10px, transparent 10px 18px); opacity:.85; }
+
+  .company-block { margin-bottom: 24px; }
+  .company-block:last-child { margin-bottom: 0; }
+  .co-head { display:flex; align-items:center; justify-content:space-between; margin-bottom: 10px; }
+  .co-head .name { font-size: 16px; font-weight: 800; color:#16314F; display:flex; gap:8px; align-items:center; }
+  .co-head .name .dot { width:10px; height:10px; border-radius:3px; }
+  .co-head .range { font-size: 12.5px; color:#8A93A0; font-weight:600; }
+
+  .bar-track { height: 34px; background:#F3EFE3; border-radius: 10px; overflow:hidden; position:relative; }
+  .bar-fill { height:100%; border-radius:10px 0 0 10px; display:flex; align-items:center; padding-left:12px; color:#fff; font-weight:800; font-size:13px; white-space:nowrap; }
+
+  .samsung .dot { background:#1F6FEB; }
+  .sk .dot { background:#F5A623; }
+  .samsung .bar-fill { background: linear-gradient(90deg, #1F6FEB, #0E2A47); width: 50%; }
+  .sk .bar-fill { background: linear-gradient(90deg, #F5A623, #B6740B); width: 55%; }
+
+  .breakdown { display:flex; gap:10px; margin-top:10px; flex-wrap: wrap; }
+  .chip { font-size:12px; background:#F8F5EC; border:1px solid #ECE6D8; color:#5C6B7A; padding:6px 11px; border-radius:999px; font-weight:600; }
+  .chip b { color:#16314F; }
+
+  .source-table { margin-top: 22px; width:100%; border-collapse: collapse; font-size: 13px; }
+  .source-table th { text-align:left; background:#F3EFE3; color:#5C6B7A; font-weight:700; padding:10px 12px; font-size:12px; }
+  .source-table td { padding:11px 12px; border-bottom:1px solid #F0EBDD; color:#33404D; }
+  .source-table tr:last-child td { border-bottom: none; }
+  .source-table .src { color:#8A93A0; font-size:11.5px; }
+
+  .scale-note { margin-top:18px; background:#FFF7E8; border:1px solid #F2DDA8; border-radius:12px; padding:14px 16px; font-size:12.8px; color:#7A5A0E; display:flex; gap:10px; line-height:1.6; }
+  .scale-note i { font-size:18px; margin-top:1px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="eyebrow"><i class="ti ti-chart-bar"></i> 투자 규모 비교</span>
+    <h1 class="title">"1000조? 2000조?" 보도마다 다른 숫자, 정리해보면</h1>
+    <div class="sub">같은 발표를 두고 매체마다 추정치가 다른 이유 — 포함 범위(반도체만 vs 전체 그룹)가 다르기 때문입니다.</div>
+
+    <div class="panel">
+      <div class="company-block samsung">
+        <div class="co-head">
+          <span class="name"><span class="dot"></span>삼성전자(그룹)</span>
+          <span class="range">10년 누적 약 1,000조원대 (블룸버그·머니투데이)</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill">호남 반도체 약 300조원</div></div>
+        <div class="breakdown">
+          <span class="chip">호남 전공정 팹 <b>약 300조원</b></span>
+          <span class="chip">삼성디스플레이(아산·천안) <b>약 100조원/10년</b></span>
+          <span class="chip">충청·영남·인천 등 <b>전국 확장</b></span>
+        </div>
+      </div>
+
+      <div class="company-block sk">
+        <div class="co-head">
+          <span class="name"><span class="dot"></span>SK그룹</span>
+          <span class="range">반도체+AI데이터센터 약 1,100조원 안팎 (이투데이)</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill">호남 반도체 700~800조원</div></div>
+        <div class="breakdown">
+          <span class="chip">호남 반도체 팹 <b>700~800조원</b></span>
+          <span class="chip">전국 5곳 AI데이터센터 <b>(울산 등 포함)</b></span>
+          <span class="chip">SK하이닉스 나스닥 상장 <b>추진(보도)</b></span>
+        </div>
+      </div>
+    </div>
+
+    <table class="source-table">
+      <tr><th>출처</th><th>추정 총액</th><th>핵심 내용</th></tr>
+      <tr><td>머니투데이 (6/28)</td><td>1,000조~2,000조원</td><td>호남권 700조원 안팎 + GW급 데이터센터 비용 합산 시 1,000조 초과 전망</td></tr>
+      <tr><td>이투데이 (6/29)</td><td>삼성 1,000조 / SK 1,100조</td><td>삼성 호남 약 300조 + 전국망, SK 호남 반도체 700~800조 + 데이터센터</td></tr>
+      <tr><td>블룸버그 (6/26)</td><td>약 6,460억 달러(약 1,000조원)</td><td>삼성그룹 단독 10년 지출 패키지로 매일경제 보도 인용 전달</td></tr>
+      <tr><td>여권 관계자 (파이낸셜뉴스 6/28)</td><td>최대 2,000조원 관측</td><td>호남+충청+영남 및 투자 기간 전체를 합산할 경우의 상한 추정</td></tr>
+    </table>
+
+    <div class="scale-note">
+      <i class="ti ti-info-circle"></i>
+      <span>위 수치는 모두 <b>공식 발표 이전 보도 시점의 추정·전망치</b>이며, 실제 6월 29일 공식 발표 내용 및 이후 정정 보도와 다를 수 있습니다. 투자 판단의 근거로 활용하시려면 전자공시(DART)와 기업의 공식 IR 자료를 함께 확인하시길 권해드립니다.</span>
+    </div>
+  </div>
+</body>
+</html>
