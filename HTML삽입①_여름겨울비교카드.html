@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>6kW 태양광 여름 vs 겨울 발전량·소비량 비교</title>
+
+<meta property="og:title" content="6kW 태양광으로 에어컨·히터 풀가동 가능할까? 여름·겨울 발전량 비교" />
+<meta property="og:description" content="가정용 6kW 태양광 설비의 실제 월별 발전량과 에어컨·전기히터 소비전력을 비교해 여름철 냉방, 겨울철 난방을 얼마나 충당할 수 있는지 분석한 자료입니다." />
+<meta property="og:image" content="여기에 썸네일 이미지의 실제 업로드 URL을 입력하세요 (예: https://blog.example.com/images/solar-6kw-thumbnail.png)" />
+<meta property="og:url" content="여기에 게시될 블로그 글의 실제 URL을 입력하세요 (예: https://blog.naver.com/내블로그ID/게시글번호)" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<style>
+  body { margin:0; background:#F7FAFC; font-family:'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; }
+  .wrap { max-width:680px; margin:0 auto; padding:28px 24px; }
+  .card { background:#FFFFFF; border:1px solid #E2E8F0; border-radius:16px; padding:28px 26px 24px; box-shadow:0 2px 14px rgba(15,32,56,0.05); }
+  .eyebrow { display:inline-flex; align-items:center; gap:6px; background:#E6F1FB; color:#0C447C; font-size:13px; font-weight:700; padding:5px 12px; border-radius:20px; }
+  h2 { font-size:21px; font-weight:700; color:#0F2038; margin:14px 0 4px; }
+  p.sub { font-size:14px; color:#5A626E; margin:0 0 18px; }
+  .legend { display:flex; gap:18px; margin:4px 0 6px; font-size:13px; color:#5A626E; }
+  .dot { width:10px; height:10px; border-radius:2px; display:inline-block; margin-right:5px; }
+  .stats { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px; }
+  .stat { background:#F7FAFC; border-radius:12px; padding:14px 16px; }
+  .stat .lab { font-size:12.5px; color:#5A626E; margin-bottom:6px; display:flex; align-items:center; gap:5px; }
+  .stat .num { font-size:24px; font-weight:700; color:#0F2038; }
+  .stat.warn .num { color:#C2410C; }
+  .note { margin-top:16px; font-size:13px; color:#5A626E; line-height:1.6; background:#FFF7ED; border:1px solid #FCD9B8; border-radius:10px; padding:12px 14px; }
+  .note i { color:#C2410C; margin-right:4px; }
+  .src { margin-top:14px; font-size:11.5px; color:#9AA3AE; text-align:right; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <span class="eyebrow"><i class="ti ti-bolt"></i>발전량 vs 소비량</span>
+    <h2>여름철 vs 겨울철, 6kW 태양광 수지표</h2>
+    <p class="sub">일평균 발전량(실측 기반) ↔ 추정 소비량(기본 생활전력 + 냉방/난방 1대, 8시간 가동 기준)</p>
+
+    <div class="legend">
+      <span><span class="dot" style="background:#2A78D6"></span>일평균 발전량(kWh)</span>
+      <span><span class="dot" style="background:#EB6834"></span>일평균 예상 소비량(kWh)</span>
+    </div>
+
+    <div style="position:relative; width:100%; height:260px;">
+      <canvas id="chart" role="img" aria-label="6kW 태양광 일평균 발전량과 예상 소비량 비교, 여름철과 겨울철">여름철: 발전량 22kWh, 소비량 16kWh. 겨울철: 발전량 12kWh, 소비량 25kWh.</canvas>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="lab"><i class="ti ti-sun" style="color:#2A78D6"></i>여름철(7~8월)</div>
+        <div class="num">발전 22 &nbsp;>&nbsp; 소비 16</div>
+      </div>
+      <div class="stat warn">
+        <div class="lab"><i class="ti ti-snowflake" style="color:#C2410C"></i>겨울철(11~12월)</div>
+        <div class="num">발전 12 &nbsp;&lt;&nbsp; 소비 25</div>
+      </div>
+    </div>
+
+    <div class="note"><i class="ti ti-alert-triangle"></i>겨울철은 발전량이 소비량의 절반 수준으로, 전기히터 풀가동 시 부족분을 한전 전력으로 충당해야 합니다.</div>
+
+    <div class="src">단위: kWh/일 · 가정용 6kW 실측 사례 및 가전 소비전력 공개자료 기준 추정</div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+new Chart(document.getElementById('chart'), {
+  type: 'bar',
+  data: {
+    labels: ['여름철 (에어컨)', '겨울철 (전기히터)'],
+    datasets: [
+      { label: '일평균 발전량(kWh)', data: [22, 12], backgroundColor: '#2A78D6', borderRadius: 4, maxBarThickness: 56 },
+      { label: '일평균 예상 소비량(kWh)', data: [16, 25], backgroundColor: '#EB6834', borderRadius: 4, maxBarThickness: 56 }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display:false } },
+    scales: {
+      y: { beginAtZero:true, ticks:{color:'#5A626E'}, grid:{color:'#EDF1F5'}, title:{display:true,text:'kWh / 일',color:'#5A626E'} },
+      x: { ticks:{color:'#0F2038', font:{weight:'600'}}, grid:{display:false} }
+    }
+  }
+});
+</script>
+</body>
+</html>
