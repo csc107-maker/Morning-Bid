@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="태양광 발전사업 계약 전 10대 체크리스트 — 놓치면 안 되는 필수 항목" />
+  <meta property="og:description" content="건물 옥상 태양광 발전사업 계약 체결 시 반드시 확인해야 할 10가지 핵심 체크리스트. 위험도별 색상 구분으로 한눈에 확인하세요." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/FFF7ED/D97706?text=태양광+계약+체크리스트" />
+  <meta property="og:url" content="https://yourblog.com/solar-contract-checklist" />
+  <title>태양광 계약 10대 체크리스트 | 건물주 필독</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', -apple-system, sans-serif;
+      background: #FFFBF5;
+      padding: 28px 20px;
+    }
+    .wrap { max-width: 820px; margin: 0 auto; }
+    .header {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+    .badge {
+      display: inline-block;
+      background: #D97706;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .title { font-size: 22px; font-weight: 700; color: #1C1917; margin-bottom: 6px; }
+    .sub { font-size: 13px; color: #78716C; }
+
+    .legend {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #57534E;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .dot-critical { background: #EF4444; }
+    .dot-high { background: #F59E0B; }
+    .dot-normal { background: #22C55E; }
+
+    .checklist { display: flex; flex-direction: column; gap: 10px; }
+
+    .check-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+      border-left: 4px solid transparent;
+      transition: box-shadow 0.2s;
+    }
+    .check-item:hover { box-shadow: 0 3px 14px rgba(0,0,0,0.10); }
+    .check-item.critical { border-left-color: #EF4444; }
+    .check-item.high { border-left-color: #F59E0B; }
+    .check-item.normal { border-left-color: #22C55E; }
+
+    .check-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .critical .check-num { background: #FEF2F2; color: #EF4444; }
+    .high .check-num { background: #FFFBEB; color: #D97706; }
+    .normal .check-num { background: #F0FDF4; color: #16A34A; }
+
+    .check-content { flex: 1; }
+    .check-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1C1917;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .risk-tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.3px;
+    }
+    .tag-critical { background: #FEE2E2; color: #DC2626; }
+    .tag-high { background: #FEF3C7; color: #B45309; }
+    .tag-normal { background: #DCFCE7; color: #15803D; }
+
+    .check-desc {
+      font-size: 12.5px;
+      color: #78716C;
+      line-height: 1.65;
+    }
+    .check-tip {
+      font-size: 11.5px;
+      color: #A8A29E;
+      margin-top: 4px;
+      padding: 5px 8px;
+      background: #FAFAF9;
+      border-radius: 6px;
+    }
+    .check-tip strong { color: #57534E; }
+
+    .summary-box {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      border: 1.5px solid #FDE68A;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .summary-icon { font-size: 22px; color: #D97706; flex-shrink: 0; margin-top: 2px; }
+    .summary-text { font-size: 12.5px; color: #57534E; line-height: 1.7; }
+    .summary-text strong { color: #1C1917; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="badge">📋 계약 전 필수 확인</div>
+    <div class="title">태양광 발전사업 계약 10대 체크리스트</div>
+    <div class="sub">위험도가 높은 항목부터 우선 확인하세요 — 계약 후 분쟁의 70%는 사전 확인 부족에서 발생합니다</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot dot-critical"></div> 매우 중요 (분쟁·손실 직결)</div>
+    <div class="legend-item"><div class="legend-dot dot-high"></div> 중요 (수익성에 영향)</div>
+    <div class="legend-item"><div class="legend-dot dot-normal"></div> 확인 필요 (행정·운영)</div>
+  </div>
+
+  <div class="checklist">
+    <div class="check-item critical">
+      <div class="check-num">01</div>
+      <div class="check-content">
+        <div class="check-title">
+          건물 구조 안전 진단 및 하중 검토
+          <span class="risk-tag tag-critical">매우 중요</span>
+        </div>
+        <div class="check-desc">100kW 설치 시 약 1~1.5톤의 추가 하중이 발생합니다. 반드시 구조 전문가 진단을 거쳐 하중 검토서를 서면으로 받아두세요.</div>
+        <div class="check-tip"><strong>실행:</strong> 시공 전 구조안전확인서 발급 → 계약서에 '하중 초과 시 시공사 책임' 조항 삽입</div>
+      </div>
+    </div>
+
+    <div class="check-item critical">
+      <div class="check-num">02</div>
+      <div class="check-content">
+        <div class="check-title">
+          방수·누수 보증 조항 계약서 명기
+          <span class="risk-tag tag-critical">매우 중요</span>
+        </div>
+        <div class="check-desc">옥상 타공 설치는 방수층 손상으로 누수가 발생할 수 있습니다. 계약서에 누수 보증(최소 5년 이상)과 원상복구 의무 조항을 반드시 명시하세요.</div>
+        <div class="check-tip"><strong>권장:</strong> 무타공 압착 방식 우선 검토 → 타공 시 우레탄 실링 방수 처리 의무화 조항</div>
+      </div>
+    </div>
+
+    <div class="check-item critical">
+      <div class="check-num">03</div>
+      <div class="check-content">
+        <div class="check-title">
+          한전 계통연계 가능 여부 사전 조회
+          <span class="risk-tag tag-critical">매우 중요</span>
+        </div>
+        <div class="check-desc">선로용량 부족으로 계통연계가 불가하면 사업 자체가 좌초됩니다. 한전 지역 지사에 사전 조회는 필수이며, 계통연계 승인 전까지 공사비 지출을 최소화하세요.</div>
+        <div class="check-tip"><strong>확인처:</strong> 한국전력공사 지역지사 → 전력계통 분산전원 접속 신청 담당자 문의</div>
+      </div>
+    </div>
+
+    <div class="check-item high">
+      <div class="check-num">04</div>
+      <div class="check-content">
+        <div class="check-title">
+          모듈·인버터 브랜드·모델 계약서 구체 명기
+          <span class="risk-tag tag-high">중요</span>
+        </div>
+        <div class="check-desc">계약서에 Tier 1급 모듈(한화큐셀·LONGi·JA Solar 등)과 인버터 브랜드·모델을 구체적으로 명기하세요. '동급 제품으로 대체'처럼 모호한 표현은 반드시 수정 요구해야 합니다.</div>
+        <div class="check-tip"><strong>기준:</strong> 모듈 출력 보증 25년 이상, 인버터 보증 10년 이상, 인버터 효율 97%+ 확인</div>
+      </div>
+    </div>
+
+    <div class="check-item high">
+      <div class="check-num">05</div>
+      <div class="check-content">
+        <div class="check-title">
+          시공업체 인증 자격 및 실적 검증
+          <span class="risk-tag tag-high">중요</span>
+        </div>
+        <div class="check-desc">한국에너지공단 참여기업 등록 여부를 확인하고, 최근 3년간 유사 규모 시공 실적을 서류로 요청하세요. 반드시 2~3개 업체 비교 견적을 받으세요.</div>
+        <div class="check-tip"><strong>확인처:</strong> 한국에너지공단 그린홈 참여기업 조회 (nr.energy.or.kr)</div>
+      </div>
+    </div>
+
+    <div class="check-item high">
+      <div class="check-num">06</div>
+      <div class="check-content">
+        <div class="check-title">
+          저탄소 모듈 의무 사용 요건 확인
+          <span class="risk-tag tag-high">중요</span>
+        </div>
+        <div class="check-desc">2025년부터 정부 보조금 신청 시 탄소배출량 670kg·CO₂-eq/kW 이하의 저탄소 모듈 사용이 의무화되었습니다. 모듈 인정서 제출 여부도 확인하세요.</div>
+        <div class="check-tip"><strong>주의:</strong> 비저탄소 모듈 사용 시 보조금 지원 단가 적용 제외됩니다.</div>
+      </div>
+    </div>
+
+    <div class="check-item high">
+      <div class="check-num">07</div>
+      <div class="check-content">
+        <div class="check-title">
+          전력 판매 방식 사전 결정 (고정 vs PPA vs 현물)
+          <span class="risk-tag tag-high">중요</span>
+        </div>
+        <div class="check-desc">2026년 내 준공 시 고정가격계약·전환시장·직접 PPA 중 선택 가능합니다. 2027년 이후 준공 예정이면 재생에너지 계약시장 또는 직접 PPA만 가능합니다.</div>
+        <div class="check-tip"><strong>팁:</strong> 가중치 1.0 이상 → 고정가격계약 추천 / 가중치 1.0 미만 → 직접 PPA 추천</div>
+      </div>
+    </div>
+
+    <div class="check-item high">
+      <div class="check-num">08</div>
+      <div class="check-content">
+        <div class="check-title">
+          임대 방식 계약 시 핵심 조항 확인
+          <span class="risk-tag tag-high">중요</span>
+        </div>
+        <div class="check-desc">초기 투자 없는 임대 방식이라면 임대 기간(20년), 임대료 지급 방식, 건물 매각·재개발 시 조기 해지 조항과 원상복구 의무가 계약서에 포함되어 있는지 반드시 확인하세요.</div>
+        <div class="check-tip"><strong>주의:</strong> 임대 방식은 건물 소유자 기준 정부 금융 융자 지원 대상에서 제외될 수 있습니다.</div>
+      </div>
+    </div>
+
+    <div class="check-item normal">
+      <div class="check-num">09</div>
+      <div class="check-content">
+        <div class="check-title">
+          O&M(유지보수) 계약 조건 및 비용 별도 확인
+          <span class="risk-tag tag-normal">확인 필요</span>
+        </div>
+        <div class="check-desc">설치 후 장기 수익을 위해 연간 유지보수 계약이 필수입니다. 인버터 교체, 모듈 세척, 발전량 모니터링 등이 포함되는지 확인하고, 예산은 연 매출의 약 5~10%로 잡으세요.</div>
+        <div class="check-tip"><strong>권장:</strong> O&M 계약 기간 최소 5년 이상, 야간·주말 A/S 대응 가능 업체 선택</div>
+      </div>
+    </div>
+
+    <div class="check-item normal">
+      <div class="check-num">10</div>
+      <div class="check-content">
+        <div class="check-title">
+          세금·소득 신고 의무 및 세액 혜택 파악
+          <span class="risk-tag tag-normal">확인 필요</span>
+        </div>
+        <div class="check-desc">사업용 발전 수입은 사업소득(종합소득세 6~45%)으로 신고 의무가 있습니다. 반면 에너지절약시설 투자 시 투자금의 3~10% 투자세액공제 혜택을 받을 수 있으니 세무사와 상담하세요.</div>
+        <div class="check-tip"><strong>참고:</strong> 가정용 10kW 이하, 잉여전력 판매 수입 연 600만 원 이하 → 기타소득 비과세</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <div class="summary-icon"><i class="ti ti-alert-triangle"></i></div>
+    <div class="summary-text">
+      <strong>전문가 조언:</strong> 태양광 계약은 20~25년의 장기 사업입니다. 시공업체가 제시하는 계약서를 그대로 서명하기 전, 반드시 에너지 전문 법무사나 회계사의 검토를 받는 것을 권장합니다. 특히 임대 방식은 건물 소유권 이전 시 계약 인수 여부가 불분명한 경우가 많아 법적 검토가 필수입니다. 출처: 한국에너지공단 신재생에너지센터 사업 지침, 산업통상자원부 발전사업 관련 규정
+    </div>
+  </div>
+</div>
+</body>
+</html>
