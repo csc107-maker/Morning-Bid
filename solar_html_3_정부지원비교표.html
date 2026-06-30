@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="2026 태양광 정부 지원 제도 총정리 — 보조금·융자·보증 한눈에 비교" />
+  <meta property="og:description" content="2026년 신재생에너지 금융지원사업 확정 공고 기준 — 중소기업 최대 85%, 6,480억 원 예산, 7월 3차 접수 일정까지 한눈에 비교합니다." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/F0FDF4/15803D?text=태양광+정부+지원+비교표" />
+  <meta property="og:url" content="https://yourblog.com/solar-government-support-2026" />
+  <title>2026 태양광 정부 지원 제도 비교표</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans KR', -apple-system, sans-serif;
+      background: #F0FDF4;
+      padding: 28px 20px;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .header { text-align: center; margin-bottom: 26px; }
+    .badge {
+      display: inline-block;
+      background: #16A34A;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .title { font-size: 22px; font-weight: 700; color: #14532D; margin-bottom: 6px; }
+    .sub { font-size: 13px; color: #4B7C60; }
+
+    /* Top Summary Cards */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 660px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+    .sum-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px 14px;
+      text-align: center;
+      box-shadow: 0 1px 8px rgba(22,163,74,0.08);
+      border: 1.5px solid #D1FAE5;
+    }
+    .sum-icon { font-size: 24px; color: #16A34A; margin-bottom: 6px; }
+    .sum-num { font-size: 22px; font-weight: 700; color: #14532D; line-height: 1.1; }
+    .sum-unit { font-size: 11px; color: #16A34A; font-weight: 600; }
+    .sum-label { font-size: 11px; color: #6B7280; margin-top: 4px; }
+
+    /* Table */
+    .table-wrap { overflow-x: auto; }
+    .support-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(22,163,74,0.08);
+    }
+    thead tr { background: #14532D; color: #fff; }
+    thead th {
+      padding: 13px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: left;
+      letter-spacing: 0.3px;
+    }
+    tbody tr {
+      border-bottom: 1px solid #ECFDF5;
+      transition: background 0.15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #F0FDF4; }
+    tbody td {
+      padding: 13px 14px;
+      font-size: 12.5px;
+      color: #1C1917;
+      vertical-align: top;
+    }
+    .td-name { font-weight: 600; color: #14532D; }
+    .td-type {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .type-loan { background: #DBEAFE; color: #1D4ED8; }
+    .type-grant { background: #FEF3C7; color: #B45309; }
+    .type-guarantee { background: #EDE9FE; color: #7C3AED; }
+    .type-bank { background: #FCE7F3; color: #9D174D; }
+    .type-local { background: #D1FAE5; color: #065F46; }
+
+    .amount-val { font-weight: 700; color: #14532D; font-size: 13px; }
+    .amount-sub { font-size: 11px; color: #6B7280; margin-top: 2px; }
+
+    .note-text { font-size: 11.5px; color: #57534E; line-height: 1.6; }
+    .note-text .warn { color: #B45309; font-size: 11px; }
+
+    .best-tag {
+      display: inline-block;
+      background: #FEF3C7;
+      color: #92400E;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 8px;
+      margin-left: 5px;
+    }
+
+    /* Bottom note */
+    .bottom-note {
+      margin-top: 16px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px 18px;
+      border: 1.5px solid #D1FAE5;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 500px) { .bottom-note { grid-template-columns: 1fr; } }
+    .note-item { display: flex; gap: 8px; align-items: flex-start; }
+    .note-num {
+      width: 20px;
+      height: 20px;
+      background: #16A34A;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .note-item p { font-size: 11.5px; color: #57534E; line-height: 1.65; }
+    .note-item strong { color: #14532D; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="badge">🏛️ 2026년 기준 정책 정보</div>
+    <div class="title">태양광 발전사업 정부 지원 제도 완전 비교</div>
+    <div class="sub">한국에너지공단 · 산업통상자원부 공식 공고 기준 정리</div>
+  </div>
+
+  <div class="summary-grid">
+    <div class="sum-card">
+      <div class="sum-icon"><i class="ti ti-building-bank"></i></div>
+      <div class="sum-num">최대 85<span class="sum-unit">%</span></div>
+      <div class="sum-label">중소기업 융자 한도<br>(기본 80%+우선지원 5%p)</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-icon"><i class="ti ti-shield-check"></i></div>
+      <div class="sum-num">최대 95<span class="sum-unit">%</span></div>
+      <div class="sum-label">정부 신용보증 비율<br>(녹색보증)</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-icon"><i class="ti ti-coins"></i></div>
+      <div class="sum-num">6,480<span class="sum-unit">억</span></div>
+      <div class="sum-label">2026년 금융지원<br>총 예산(전년比 2배)</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-icon"><i class="ti ti-calendar-event"></i></div>
+      <div class="sum-num">7/6<span class="sum-unit">~</span></div>
+      <div class="sum-label">3차 접수 시작일<br>(1·2차는 마감)</div>
+    </div>
+  </div>
+
+  <!-- 접수 일정 진행 상태 바 -->
+  <div style="background:#fff;border-radius:12px;padding:16px 18px;margin-bottom:22px;box-shadow:0 1px 8px rgba(22,163,74,0.08);border:1.5px solid #D1FAE5;">
+    <div style="font-size:12.5px;font-weight:700;color:#14532D;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+      <i class="ti ti-progress" style="color:#16A34A;"></i> 2026년 신재생에너지 금융지원사업 접수 진행 상황 <span style="font-size:10.5px;font-weight:600;color:#16A34A;background:#DCFCE7;padding:2px 8px;border-radius:8px;margin-left:4px;">실시간 기준 업데이트</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+      <div style="background:#F0FDF4;border-radius:8px;padding:10px 12px;border-left:3px solid #16A34A;">
+        <div style="font-size:10.5px;color:#16A34A;font-weight:700;">✅ 1차 접수 — 마감</div>
+        <div style="font-size:11px;color:#4B5563;margin-top:3px;">우선 4/13~4/17 · 일반 4/20~4/27<br>(예산 90% 배정)</div>
+      </div>
+      <div style="background:#F0FDF4;border-radius:8px;padding:10px 12px;border-left:3px solid #16A34A;">
+        <div style="font-size:10.5px;color:#16A34A;font-weight:700;">✅ 2차 접수 — 마감</div>
+        <div style="font-size:11px;color:#4B5563;margin-top:3px;">우선 5/25~5/29 · 일반 6/1~6/5<br>(예산 10%+잔여 배정)</div>
+      </div>
+      <div style="background:#FFFBEB;border-radius:8px;padding:10px 12px;border-left:3px solid #D97706;">
+        <div style="font-size:10.5px;color:#D97706;font-weight:700;">🔜 3차 접수 — 시작 전</div>
+        <div style="font-size:11px;color:#4B5563;margin-top:3px;"><strong>7/6(월) 시작</strong>~예산 마감 시까지<br>(잔여예산, 선착순 마감)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="support-table">
+      <thead>
+        <tr>
+          <th style="width:20%">지원 제도</th>
+          <th style="width:10%">유형</th>
+          <th style="width:18%">지원 대상</th>
+          <th style="width:20%">지원 금액</th>
+          <th style="width:32%">주요 조건 및 유의사항</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-name">
+            신재생에너지 금융지원사업<span class="best-tag">⭐핵심</span><br>
+            <span style="font-size:10px;color:#6B7280;font-weight:400">한국에너지공단 주관 · 2026년 확정 공고</span>
+          </td>
+          <td><span class="td-type type-loan">장기융자</span></td>
+          <td class="note-text">발전사업허가 취득 개인·기업<br>(중소·중견·대기업)</td>
+          <td>
+            <div class="amount-val">최대 80%</div>
+            <div class="amount-sub">중견 75% · 대기업 45%<br>우선지원 +5%p (최대 85%)</div>
+          </td>
+          <td class="note-text">
+            예산 6,480억 원(전년 대비 2배)<br>
+            <span class="warn">⚠ 임차 부지 발전사업자 제외</span><br>
+            1·2차 접수 마감, <strong>3차 7/6~ 예산마감시</strong><br>
+            최소 신청액 3,000만 원, 한도 300억 원
+          </td>
+        </tr>
+        <tr>
+          <td class="td-name">
+            신재생에너지 보급지원사업<br>
+            <span style="font-size:10px;color:#6B7280;font-weight:400">주택·건물용 보조금</span>
+          </td>
+          <td><span class="td-type type-grant">보조금</span></td>
+          <td class="note-text">주택·건물용 자가소비<br>태양광 설치자</td>
+          <td>
+            <div class="amount-val">kW당 단가 지원</div>
+            <div class="amount-sub">매년 공고로 단가 변동</div>
+          </td>
+          <td class="note-text">
+            저탄소 모듈 의무 사용<br>
+            (탄소배출량 기준 충족 필요)<br>
+            <span class="warn">⚠ 태양광 대여사업 중복 불가</span><br>
+            자가소비용에 한해 지원
+          </td>
+        </tr>
+        <tr>
+          <td class="td-name">
+            정부 신용보증 (녹색보증)<br>
+            <span style="font-size:10px;color:#6B7280;font-weight:400">신용보증기금·기보</span>
+          </td>
+          <td><span class="td-type type-guarantee">신용보증</span></td>
+          <td class="note-text">신용 부족 발전사업자<br>(중소기업 우선)</td>
+          <td>
+            <div class="amount-val">최대 95% 보증</div>
+            <div class="amount-sub">한도 최대 100억 원<br>(중소기업 1사 기준)</div>
+          </td>
+          <td class="note-text">
+            환경 기여도 평가로<br>대출 한도 추가 확대 가능<br>
+            대출 원활화 목적의 보증
+          </td>
+        </tr>
+        <tr>
+          <td class="td-name">
+            시중은행 태양광 전용 대출<br>
+            <span style="font-size:10px;color:#6B7280;font-weight:400">하나은행 등 주요 은행</span>
+          </td>
+          <td><span class="td-type type-bank">시설자금대출</span></td>
+          <td class="note-text">태양광 발전소 건설<br>발전사업자</td>
+          <td>
+            <div class="amount-val">금리 우대 가능</div>
+            <div class="amount-sub">장기고정계약 체결 시<br>추가 우대 적용</div>
+          </td>
+          <td class="note-text">
+            장기고정계약(한전·공급의무자)<br>체결 시 담보력 인정<br>
+            사업자등록증·발전사업허가증<br>행정인허가 서류 필요
+          </td>
+        </tr>
+        <tr>
+          <td class="td-name">
+            지자체 추가 지원<br>
+            <span style="font-size:10px;color:#6B7280;font-weight:400">경기도·서울시 등</span>
+          </td>
+          <td><span class="td-type type-local">지자체 지원</span></td>
+          <td class="note-text">각 지자체 소재<br>태양광 설치 사업자</td>
+          <td>
+            <div class="amount-val">지자체별 상이</div>
+            <div class="amount-sub">이자 보전·추가 보조금<br>별도 공고</div>
+          </td>
+          <td class="note-text">
+            경기도: 이자 지원 제도 운영<br>
+            서울시: BIPV 보조금 연 2회 모집<br>
+            지자체 홈페이지 개별 확인 필요
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bottom-note">
+    <div class="note-item">
+      <div class="note-num">1</div>
+      <p><strong>중복 활용 가능:</strong> 한국에너지공단 금융융자 + 시중은행 대출 + 정부 보증을 조합하면 초기 자기자본을 최소화하면서 사업을 시작할 수 있습니다.</p>
+    </div>
+    <div class="note-item">
+      <div class="note-num">2</div>
+      <p><strong>임차 부지 주의:</strong> 임차한 토지·건물에서 발전하는 경우 한국에너지공단 금융지원사업 신청이 제한됩니다. 건물 소유자로서 직접 사업을 진행해야 최대 혜택을 받을 수 있습니다.</p>
+    </div>
+    <div class="note-item">
+      <div class="note-num">3</div>
+      <p><strong>지금 신청 시:</strong> 1·2차 접수는 이미 마감되었습니다. 신규 신청은 <strong>7월 6일 시작되는 3차 접수</strong>(잔여예산, 선착순 마감)를 노려야 하며, 사전 작성을 미리 해두는 것이 유리합니다.</p>
+    </div>
+    <div class="note-item">
+      <div class="note-num">4</div>
+      <p><strong>출처:</strong> 2026년도 신재생에너지 금융지원사업 지원공고(수정) 2026.03.30, 산업통상자원부 공고 2025-189호·2025-191호, 한국에너지공단 신재생에너지센터(knrec.or.kr)</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
