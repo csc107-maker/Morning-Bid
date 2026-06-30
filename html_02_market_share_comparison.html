@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>비교표｜메모리 3사 vs 중국 반도체 점유율</title>
+<meta property="og:title" content="메모리 3사 vs 중국 반도체 점유율 비교 - 삼성전자·SK하이닉스·마이크론·CXMT·YMTC" />
+<meta property="og:description" content="D램, 낸드, HBM 영역별로 한국·미국·중국 메모리 기업의 점유율과 캐파 증설 계획을 한눈에 비교했습니다." />
+<meta property="og:image" content="[발행 후 썸네일 이미지 URL을 입력하세요]" />
+<meta property="og:url" content="[발행 후 블로그 포스트 URL을 입력하세요]" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  .cmp-wrap {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #F4F7FB;
+    padding: 32px 18px 36px;
+    border-radius: 18px;
+    border: 1px solid #E1E8EF;
+  }
+  .cmp-header { text-align:center; margin-bottom: 22px; }
+  .cmp-eyebrow {
+    display:inline-flex; align-items:center; gap:6px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+    color: #0E3A5F; background: #E8EEF5;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
+  }
+  .cmp-title { font-size: 21px; font-weight: 800; color: #1A2B3C; }
+  .cmp-sub { font-size: 13px; color:#5B6B7C; margin-top:6px; }
+
+  .cmp-scroll { overflow-x:auto; border-radius:14px; }
+  table.cmp-table {
+    width:100%; min-width: 640px; border-collapse:separate; border-spacing:0;
+    background:#fff; border-radius:14px; overflow:hidden;
+    box-shadow: 0 1px 3px rgba(20,40,60,0.06);
+  }
+  .cmp-table th {
+    background:#0E3A5F; color:#fff; font-size:12.5px; font-weight:700;
+    padding: 12px 10px; text-align:left; white-space:nowrap;
+  }
+  .cmp-table th:first-child { border-radius: 14px 0 0 0; }
+  .cmp-table th:last-child { border-radius: 0 14px 0 0; }
+  .cmp-table td {
+    padding: 13px 10px; font-size:13px; color:#33414F;
+    border-bottom: 1px solid #EEF2F6; vertical-align:middle;
+  }
+  .cmp-table tr:last-child td { border-bottom:none; }
+
+  .co-name { font-weight:800; color:#1A2B3C; font-size:13.5px; display:flex; align-items:center; gap:7px;}
+  .flag { font-size:10px; font-weight:800; padding:2px 6px; border-radius:5px; color:#fff; }
+  .flag-kr { background:#0E3A5F; }
+  .flag-us { background:#3A5A78; }
+  .flag-cn { background:#B5483D; }
+
+  .bar-wrap { display:flex; align-items:center; gap:8px; min-width:120px; }
+  .bar-bg { flex:1; height:7px; background:#EAEFF4; border-radius:99px; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:99px; }
+  .bar-num { font-family:'JetBrains Mono', monospace; font-size:12px; font-weight:700; color:#1A2B3C; min-width:40px; text-align:right; }
+
+  .hbm-badge { display:inline-block; font-size:11.5px; font-weight:700; padding:3px 9px; border-radius:6px; }
+  .hbm-strong { background:#E6F4ED; color:#1E8059; }
+  .hbm-mid { background:#FDF1E2; color:#B5722B; }
+  .hbm-weak { background:#FCEAEA; color:#C23B3B; }
+
+  .note-cell { font-size:12px; color:#5B6B7C; max-width:170px; line-height:1.5; }
+
+  .cmp-footer-row { background:#F8FAFC; }
+  .cmp-source { text-align:center; margin-top:16px; font-size:11.5px; color:#90A0AF; }
+</style>
+</head>
+<body>
+<div class="cmp-wrap">
+  <div class="cmp-header">
+    <span class="cmp-eyebrow"><i class="ti ti-chart-pie"></i>MARKET SHARE COMPARISON</span>
+    <div class="cmp-title">메모리 3사 vs 중국 반도체, 진짜 격차는?</div>
+    <div class="cmp-sub">D램 · 낸드 · HBM 영역별 점유율 비교 (2026년 1분기 기준)</div>
+  </div>
+
+  <div class="cmp-scroll">
+  <table class="cmp-table">
+    <thead>
+      <tr>
+        <th>기업</th>
+        <th>D램 점유율</th>
+        <th>낸드 점유율</th>
+        <th>HBM 포지션</th>
+        <th>핵심 비고</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="co-name"><span class="flag flag-kr">KR</span>삼성전자</div></td>
+        <td>
+          <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:29.4%; background:#0E3A5F;"></div></div><span class="bar-num">29.4%</span></div>
+        </td>
+        <td>
+          <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:29%; background:#0E3A5F;"></div></div><span class="bar-num">29%</span></div>
+        </td>
+        <td><span class="hbm-badge hbm-strong">2위·약 18~30%</span></td>
+        <td class="note-cell">HBM4 업계 최초 양산. AMD 신규 채택, 점유율 확대 중</td>
+      </tr>
+      <tr>
+        <td><div class="co-name"><span class="flag flag-kr">KR</span>SK하이닉스</div></td>
+        <td>
+          <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:18%; background:#0E7C7B;"></div></div><span class="bar-num">18.0%</span></div>
+        </td>
+        <td>
+          <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:18%; background:#0E7C7B;"></div></div><span class="bar-num">18%</span></div>
+        </td>
+        <td><span class="hbm-badge hbm-strong">1위·약 54~61%</span></td>
+        <td class="note-cell">엔비디아 HBM4 물량 최대 70%(UBS 추정) 독점적 지위</td>
+      </tr>
+      <tr>
+        <td><div class="co-name"><span class="flag flag-us">US</span>마이크론</div></td>
+        <td>
+          <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:13.8%; background:#5B7290;"></div></div><span class="bar-num">13.8%</span></div>
+        </td>
+        <td>
+          <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:13%; background:#5B7290;"></div></div><span class="bar-num">13%</span></div>
+        </td>
+        <td><span class="hbm-badge hbm-mid">3위·약 17~22%</span></td>
+        <td class="note-cell">3분기 매출 +346%, AI 수요 직접 수혜 지속</td>
+      </tr>
+      <tr>
+        <td><div class="co-name"><span class="flag flag-cn">CN</span>CXMT</div></td>
+        <td>
+          <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:7.67%; background:#B5483D;"></div></div><span class="bar-num">7.67%</span></div>
+        </td>
+        <td><span style="font-size:12px; color:#90A0AF;">미생산</span></td>
+        <td><span class="hbm-badge hbm-weak">HBM3 양산 시도·지연</span></td>
+        <td class="note-cell">반년 만에 D램 점유율 2배 성장(3.97%→7.67%). HBM은 2~3세대 격차</td>
+      </tr>
+      <tr>
+        <td><div class="co-name"><span class="flag flag-cn">CN</span>YMTC</div></td>
+        <td><span style="font-size:12px; color:#90A0AF;">미생산</span></td>
+        <td>
+          <div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:13%; background:#B5483D;"></div></div><span class="bar-num">13%</span></div>
+        </td>
+        <td><span class="hbm-badge hbm-weak">미진입</span></td>
+        <td class="note-cell">낸드 점유율 1년 만에 8%→13%, 마이크론·샌디스크와 동률</td>
+      </tr>
+      <tr class="cmp-footer-row">
+        <td colspan="5" style="font-size:11.5px; color:#5B6B7C; padding:10px 10px;">
+          <i class="ti ti-info-circle" style="color:#0E7C7B;"></i>&nbsp; HBM(고대역폭메모리) 합산 점유율은 삼성전자·SK하이닉스·마이크론 3사가 95% 이상 차지 — 중국 기업의 실질 진입은 아직 미미한 수준
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="cmp-source">자료: Omdia(2026년 capex 비중·D램 매출 점유율), Counterpoint Research(낸드 점유율, 2026년 1분기), SemiAnalysis, Yole Group 종합</div>
+</div>
+</body>
+</html>
