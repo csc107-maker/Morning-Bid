@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     SEO 메타태그: 이 블록을 블로그 게시글 페이지의 <head> 영역
+     (티스토리 관리자 설정 / 네이버 블로그 서비스형 스킨 등)에
+     별도로 붙여넣어 주세요. 본문에 그대로 붙이면 화면에 보이지
+     않는 코드이므로 SEO 목적상 head 삽입을 권장합니다.
+     ============================================================ -->
+<meta property="og:title" content="반도체 장비주 급등 이유, 원달러 환율도 잡힐까? 삼성전자·SK하이닉스 투자 총정리" />
+<meta property="og:description" content="삼성전자·SK하이닉스 2,450조 원 투자 공시로 반도체 장비주가 급등했습니다. 원달러 환율 17년 만의 고점 원인과 안정화 해법을 데이터로 정밀 분석합니다." />
+<meta property="og:image" content="[여기에 썸네일 PNG 이미지 URL을 입력하세요]" />
+<meta property="og:url" content="[여기에 게시글 발행 URL을 입력하세요]" />
+
+<title>반도체 투자·환율 브리핑 대시보드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  .sf-wrap * { box-sizing: border-box; }
+  .sf-wrap {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    background: #F4F6FA;
+    padding: 28px 20px 32px;
+    border-radius: 20px;
+    color: #14202B;
+  }
+  .sf-topline {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.08em;
+    color: #C9971F; font-weight: 700; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .sf-topline .dot { width: 6px; height: 6px; border-radius: 50%; background: #C9971F; }
+  .sf-title {
+    font-size: 23px; font-weight: 800; line-height: 1.4;
+    color: #0F2942; margin: 0 0 6px;
+  }
+  .sf-sub {
+    font-size: 14px; color: #5B6B7C; margin: 0 0 20px; line-height: 1.6;
+  }
+  .sf-datebadge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #0F2942; color: #fff; font-size: 12px; font-weight: 600;
+    padding: 6px 12px; border-radius: 999px; margin-bottom: 22px;
+  }
+  .sf-datebadge i { font-size: 14px; }
+
+  .sf-statgrid {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin-bottom: 18px;
+  }
+  .sf-stat {
+    background: #FFFFFF; border: 1px solid #E3E8EF; border-radius: 14px;
+    padding: 16px 16px 14px; position: relative; overflow: hidden;
+    flex: 1 1 calc(50% - 6px); min-width: 210px;
+  }
+  .sf-stat::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  }
+  .sf-stat.c-red::before { background: #D64550; }
+  .sf-stat.c-blue::before { background: #2F6FED; }
+  .sf-stat.c-navy::before { background: #0F2942; }
+  .sf-stat.c-gold::before { background: #C9971F; }
+  .sf-stat-label {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12.5px; color: #5B6B7C; font-weight: 600; margin-bottom: 8px;
+  }
+  .sf-stat-label i { font-size: 15px; }
+  .sf-stat-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px; font-weight: 700; color: #0F2942; line-height: 1.15;
+  }
+  .sf-stat-value small { font-size: 13px; font-weight: 600; color: #5B6B7C; }
+  .sf-stat-delta {
+    display: inline-flex; align-items: center; gap: 3px;
+    font-size: 12px; font-weight: 700; margin-top: 6px;
+  }
+  .sf-stat-delta.up { color: #D64550; }
+  .sf-stat-delta.flat { color: #5B6B7C; }
+  .sf-stat-note { font-size: 11px; color: #8A97A6; margin-top: 4px; }
+
+  .sf-section-label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; color: #0F2942;
+    margin: 22px 0 12px;
+  }
+  .sf-section-label i { font-size: 16px; color: #C9971F; }
+  .sf-section-label::after {
+    content: ""; flex: 1; height: 1px; background: #DCE3EC;
+  }
+
+  .sf-investgrid {
+    display: flex; flex-wrap: wrap; gap: 12px;
+  }
+  .sf-invcard {
+    background: #FFFFFF; border: 1px solid #E3E8EF; border-radius: 14px;
+    padding: 16px;
+    flex: 1 1 calc(50% - 6px); min-width: 240px;
+  }
+  .sf-invcard .logo-row {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+  }
+  .sf-invcard .logo-dot {
+    width: 26px; height: 26px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 13px; font-weight: 800;
+  }
+  .samsung-dot { background: #0F2942; }
+  .hynix-dot { background: #C9971F; }
+  .sf-invcard .co-name { font-size: 13.5px; font-weight: 800; color: #0F2942; }
+  .sf-invcard .co-desc { font-size: 11.5px; color: #8A97A6; }
+  .sf-invcard .big-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 21px; font-weight: 700; color: #0F2942; margin: 8px 0 2px;
+  }
+  .sf-invcard .big-num-label { font-size: 11.5px; color: #5B6B7C; margin-bottom: 10px; }
+  .sf-invcard ul { list-style: none; padding: 0; margin: 0; }
+  .sf-invcard li {
+    display: flex; justify-content: space-between; gap: 6px;
+    font-size: 12px; padding: 6px 0; border-top: 1px dashed #E3E8EF;
+    color: #384856;
+  }
+  .sf-invcard li span:last-child { font-weight: 700; color: #0F2942; font-family: 'JetBrains Mono', monospace; }
+
+  .sf-footer {
+    margin-top: 22px; padding-top: 14px; border-top: 1px solid #DCE3EC;
+    font-size: 11px; color: #8A97A6; line-height: 1.7;
+  }
+  .sf-footer b { color: #5B6B7C; }
+
+  @media (max-width: 480px) {
+    .sf-stat, .sf-invcard { flex-basis: 100%; }
+    .sf-title { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sf-wrap">
+
+  <div class="sf-topline"><span class="dot"></span>SEMICONDUCTOR × FX BRIEFING</div>
+  <h2 class="sf-title">반도체 투자 랠리 &amp; 원달러 환율 브리핑</h2>
+  <p class="sf-sub">삼성전자·SK하이닉스 초대형 투자 공시가 시장에 던진 신호를 숫자로 한눈에 정리했습니다.</p>
+  <div class="sf-datebadge"><i class="ti ti-calendar-event"></i>2026.06.29 공시 기준</div>
+
+  <div class="sf-statgrid">
+    <div class="sf-stat c-red">
+      <div class="sf-stat-label"><i class="ti ti-currency-dollar"></i>원/달러 환율</div>
+      <div class="sf-stat-value">1,542.13<small> 원</small></div>
+      <div class="sf-stat-delta up"><i class="ti ti-arrow-up-right"></i>+0.45% (전일比)</div>
+      <div class="sf-stat-note">2009년 이후 17년 만의 고점권</div>
+    </div>
+    <div class="sf-stat c-blue">
+      <div class="sf-stat-label"><i class="ti ti-scale"></i>한·미 기준금리差</div>
+      <div class="sf-stat-value">1.00~1.25<small>%p</small></div>
+      <div class="sf-stat-delta flat"><i class="ti ti-minus"></i>한 2.50% · 미 3.50~3.75%</div>
+      <div class="sf-stat-note">Fed 4연속 동결(신임 워시 의장)</div>
+    </div>
+    <div class="sf-stat c-navy">
+      <div class="sf-stat-label"><i class="ti ti-building-factory-2"></i>삼성전자 총투자</div>
+      <div class="sf-stat-value">2,450<small> 조원</small></div>
+      <div class="sf-stat-delta flat"><i class="ti ti-clock"></i>2026~2040년, 15개년</div>
+      <div class="sf-stat-note">반도체 부문만 2,100조원</div>
+    </div>
+    <div class="sf-stat c-gold">
+      <div class="sf-stat-label"><i class="ti ti-map-pin"></i>SK하이닉스 서남권</div>
+      <div class="sf-stat-value">400<small> 조원</small></div>
+      <div class="sf-stat-delta flat"><i class="ti ti-minus"></i>용인+청주 약 700조원 별도</div>
+      <div class="sf-stat-note">양사 서남권 합산 800조원</div>
+    </div>
+  </div>
+
+  <div class="sf-section-label"><i class="ti ti-building-skyscraper"></i>투자 계획 상세 비교</div>
+  <div class="sf-investgrid">
+    <div class="sf-invcard">
+      <div class="logo-row">
+        <div class="logo-dot samsung-dot">S</div>
+        <div>
+          <div class="co-name">삼성전자</div>
+          <div class="co-desc">장래사업·경영계획 공시</div>
+        </div>
+      </div>
+      <div class="big-num">2,450조원</div>
+      <div class="big-num-label">2026~2040년 전사 총투자 규모</div>
+      <ul>
+        <li><span>반도체(DS) 부문</span><span>2,100조원</span></li>
+        <li><span>용인·기존단지</span><span>1,650조원</span></li>
+        <li><span>광주(호남) 클러스터</span><span>400조원</span></li>
+        <li><span>추진 종료 시점</span><span>2040.12</span></li>
+      </ul>
+    </div>
+    <div class="sf-invcard">
+      <div class="logo-row">
+        <div class="logo-dot hynix-dot">H</div>
+        <div>
+          <div class="co-name">SK하이닉스</div>
+          <div class="co-desc">장래사업·경영계획 공시</div>
+        </div>
+      </div>
+      <div class="big-num">약 1,100조원</div>
+      <div class="big-num-label">용인·청주+서남권 합산(6/29 공시)</div>
+      <ul>
+        <li><span>용인+청주 합산*</span><span>700조원</span></li>
+        <li><span>서남권 클러스터</span><span>400조원</span></li>
+        <li><span>양사 서남권 합산</span><span>800조원</span></li>
+        <li><span>2026년 CapEx</span><span>30조원대</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sf-footer">
+    <b>*</b> 용인 클러스터는 별도 보도(2026.01)에서 120조원→600조원으로 확대됐다고 전해진 바 있으며, 6월 29일 공시에서는 용인·청주 생산기지를 합산해 약 700조원으로 발표했습니다. 두 수치 간 시점·집계 기준 차이가 있어 최신 공시 기준(700조원)을 우선 반영했습니다.<br><b>자료:</b> 금융감독원 전자공시시스템(DART), 한국은행 국제금융·외환시장 동향, 신한투자증권 리서치(2026.05), Investing.com 시세.
+    본 대시보드는 공개된 공시·발표 자료를 기준으로 제작되었으며, 기업의 장기 투자 가이드라인은 향후 시장 상황에 따라 변경될 수 있습니다. 환율은 실시간으로 변동되므로 투자 판단 시 반드시 최신 시세를 재확인하시기 바랍니다.
+  </div>
+
+</div>
+
+</body>
+</html>
