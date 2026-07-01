@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한화오션 vs TKMS 정면비교 | 캐나다 잠수함 사업(CPSP)</title>
+
+<meta property="og:title" content="한화오션 vs TKMS 정면비교 | 캐나다 잠수함 사업(CPSP)" />
+<meta property="og:description" content="KSS-Ⅲ 배치-Ⅱ와 Type 212CD, 제원부터 인도일정, 경제효과, 캐나다 정부 평가기준(MRO 50%)까지 한눈에 비교했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/cpsp-compare-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/posts/canada-submarine-hanwha-vs-tkms" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<style>
+  :root{
+    --bg:#F7F9FC;
+    --surface:#FFFFFF;
+    --tint:#EEF3FA;
+    --ink:#14213D;
+    --ink-soft:#4C5B76;
+    --navy:#0F3460;
+    --navy-deep:#0A2540;
+    --korea:#F2661B;
+    --korea-soft:#FFF1E7;
+    --korea-line:#FAD3B4;
+    --germany:#4A6FA5;
+    --germany-soft:#EEF3FA;
+    --germany-line:#C7D6EA;
+    --border:#DCE4EE;
+    --green:#1B8A5A;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:36px 20px 44px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+    letter-spacing:.04em;color:var(--navy);background:var(--tint);border:1px solid var(--border);
+    padding:5px 12px;border-radius:999px;margin-bottom:14px;
+  }
+  h1{font-size:23px;line-height:1.4;margin:0 0 8px;color:var(--navy-deep);letter-spacing:-0.01em;}
+  .sub{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0 0 26px;}
+
+  /* VS header cards */
+  .vs-row{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:12px;
+    align-items:stretch;
+    margin-bottom:26px;
+  }
+  .side{
+    border-radius:16px;
+    padding:20px 18px;
+    border:1.5px solid var(--border);
+  }
+  .side.k{background:var(--korea-soft);border-color:var(--korea-line);}
+  .side.g{background:var(--germany-soft);border-color:var(--germany-line);}
+  .flagline{font-size:12px;font-weight:800;letter-spacing:.03em;margin-bottom:6px;}
+  .side.k .flagline{color:var(--korea);}
+  .side.g .flagline{color:var(--germany);}
+  .company{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:2px;}
+  .model{font-size:13px;color:var(--ink-soft);margin-bottom:10px;}
+  .side .team{font-size:11.5px;color:var(--ink-soft);background:rgba(255,255,255,.6);display:inline-block;padding:3px 9px;border-radius:999px;}
+  .vs-mid{
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:800;color:#fff;background:var(--navy);
+    width:38px;height:38px;border-radius:50%;align-self:center;
+  }
+
+  /* comparison table */
+  .table-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:16px;
+    overflow:hidden;margin-bottom:22px;
+  }
+  table{width:100%;border-collapse:collapse;font-size:13.2px;}
+  thead th{
+    background:var(--navy);color:#fff;font-size:12px;font-weight:700;padding:12px 10px;text-align:center;
+  }
+  thead th.row-label-head{background:var(--navy-deep);text-align:left;padding-left:16px;width:110px;}
+  thead th.k{background:var(--korea);}
+  thead th.g{background:var(--germany);}
+  tbody th{
+    text-align:left;padding:11px 14px;font-size:12px;color:var(--ink-soft);font-weight:700;
+    background:var(--tint);white-space:nowrap;
+  }
+  tbody td{
+    padding:11px 12px;font-size:12.6px;color:var(--ink);line-height:1.55;border-top:1px solid var(--border);
+    vertical-align:top;
+  }
+  tbody tr:first-child td{border-top:none;}
+  tbody td.k-cell{background:#FFFBF8;}
+  tbody td.g-cell{background:#FAFBFD;}
+  .plus{color:var(--green);font-weight:800;}
+  .check{color:var(--green);margin-right:4px;}
+  .dash{color:#B7C1D1;}
+
+  /* evaluation weight */
+  .eval-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:16px;
+    padding:20px 20px 18px;margin-bottom:22px;
+  }
+  .eval-title{font-size:14.5px;font-weight:800;color:var(--navy-deep);margin-bottom:3px;display:flex;align-items:center;gap:7px;}
+  .eval-title i{color:var(--navy);}
+  .eval-sub{font-size:12px;color:var(--ink-soft);margin-bottom:16px;}
+  .bar-row{margin-bottom:12px;}
+  .bar-row:last-child{margin-bottom:0;}
+  .bar-label{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px;}
+  .bar-label b{color:var(--ink);font-weight:700;}
+  .bar-label span{color:var(--navy);font-weight:800;}
+  .bar-track{height:12px;background:var(--tint);border-radius:999px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--navy),#1C5A96);}
+
+  .foot{
+    display:flex;gap:10px;background:var(--tint);border-radius:12px;padding:13px 15px;
+    font-size:11.8px;color:var(--ink-soft);line-height:1.7;
+  }
+  .foot i{color:var(--navy);font-size:15px;margin-top:1px;}
+
+  @media (max-width:520px){
+    .vs-row{grid-template-columns:1fr;}
+    .vs-mid{margin:0 auto;}
+    table{font-size:11.5px;}
+    thead th.row-label-head{width:78px;padding-left:10px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow"><i class="ti ti-scale"></i>&nbsp;HEAD TO HEAD</span>
+  <h1>한화오션 vs TKMS, 정면비교</h1>
+  <p class="sub">60조원 규모 캐나다 잠수함 사업(CPSP), 두 최종 후보의 제원부터 경제효과, 캐나다 정부 평가기준까지 정리했습니다.</p>
+
+  <div class="vs-row">
+    <div class="side k">
+      <div class="flagline">🇰🇷 KOREA</div>
+      <div class="company">한화오션</div>
+      <div class="model">장보고-Ⅲ 배치-Ⅱ (KSS-Ⅲ)</div>
+      <span class="team">HD현대중공업 '팀 코리아'</span>
+    </div>
+    <div class="vs-mid">VS</div>
+    <div class="side g">
+      <div class="flagline">🇩🇪 GERMANY · 🇳🇴 NORWAY</div>
+      <div class="company">TKMS</div>
+      <div class="model">Type 212CD</div>
+      <span class="team">티센크루프마린시스템즈 컨소시엄</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th class="row-label-head">구분</th>
+          <th class="k">한화오션</th>
+          <th class="g">TKMS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>배수량</th>
+          <td class="k-cell">약 2,800톤(수출형)<br><span class="dash">국내 배치-Ⅱ 기준 약 3,600톤</span></td>
+          <td class="g-cell">212A 계열 기반 신형 설계<br><span class="dash">다이아몬드형 저소음 선체</span></td>
+        </tr>
+        <tr>
+          <th>추진방식</th>
+          <td class="k-cell"><span class="check">✓</span>AIP + 리튬이온 배터리</td>
+          <td class="g-cell"><span class="check">✓</span>AIP(공기불요추진체계)</td>
+        </tr>
+        <tr>
+          <th>무장 특징</th>
+          <td class="k-cell"><span class="plus">수직발사관(VLS) 탑재</span><br>순항·탄도미사일 운용 가능</td>
+          <td class="g-cell">어뢰 위주 무장<br><span class="dash">VLS 미탑재</span></td>
+        </tr>
+        <tr>
+          <th>실전 이력</th>
+          <td class="k-cell"><span class="check">✓</span>한국 해군 실전 배치·운용 중<br>태평양 횡단(14,000km) 완료</td>
+          <td class="g-cell">212A 계열 실적 보유<br>212CD는 2024 CDR 완료, 생산단계</td>
+        </tr>
+        <tr>
+          <th>인도 일정(제안)</th>
+          <td class="k-cell">2032년 1번함 → 2035년 4척<br>→ 2043년 12척 완납</td>
+          <td class="g-cell">2036년까지 4척<br><span class="dash">(당초 2034년 목표에서 재조정)</span></td>
+        </tr>
+        <tr>
+          <th>MRO 네트워크</th>
+          <td class="k-cell">캐나다 동·서 해안 신규 거점 구축<br>(핼리팩스 · 빅토리아)</td>
+          <td class="g-cell">기존 유럽·인도·싱가포르망<br>캐나다까지 확장</td>
+        </tr>
+        <tr>
+          <th>경제효과(~2044)</th>
+          <td class="k-cell">약 700억 CAD, GDP 963억 CAD<br>일자리 약 43만 개</td>
+          <td class="g-cell">약 1,600억 CAD, GDP 86억 CAD<br>일자리 약 65만 개</td>
+        </tr>
+        <tr>
+          <th>현지 파트너십</th>
+          <td class="k-cell">캐나다 기업·기관 100개 이상</td>
+          <td class="g-cell">MOU 19건 공개</td>
+        </tr>
+        <tr>
+          <th>핵심 강점</th>
+          <td class="k-cell">빠른 납기 · 실전 검증 · VLS 무장</td>
+          <td class="g-cell">나토 표준 상호운용성 · 글로벌 MRO망</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="eval-card">
+    <div class="eval-title"><i class="ti ti-chart-bar"></i> 캐나다 국방투자청(DIA) 평가 비중</div>
+    <div class="eval-sub">잠수함 성능보다 '수십 년 후속 군수지원 역량'에 가장 큰 배점을 둔 것이 특징입니다.</div>
+
+    <div class="bar-row">
+      <div class="bar-label"><b>유지·보수(MRO)</b><span>50%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><b>잠수함 플랫폼(성능)</b><span>20%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><b>재무 조건(비용)</b><span>15%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><b>전략·경제적 파트너십</b><span>15%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <i class="ti ti-alert-triangle"></i>
+    <span>경제효과 수치는 각 입찰사(한화오션 측은 KPMG 의뢰)가 자체 산출한 분석으로, 독립적인 제3자 검증을 거치지 않았습니다. 산정 기간·전제 조건이 회사마다 달라 단순 비교에는 주의가 필요합니다. (2026년 6월 30일 보도 기준)</span>
+  </div>
+
+</div>
+</body>
+</html>
