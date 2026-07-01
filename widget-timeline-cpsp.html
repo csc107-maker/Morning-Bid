@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캐나다 잠수함 사업(CPSP) 타임라인 | 한화오션 vs TKMS</title>
+
+<meta property="og:title" content="캐나다 잠수함 사업(CPSP) 타임라인 | 한화오션 vs TKMS" />
+<meta property="og:description" content="2024년 RFI 발행부터 2026년 7월 우선협상대상자 발표까지, 60조원 규모 캐나다 잠수함 사업의 전체 타임라인을 한눈에 정리했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/cpsp-timeline-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/posts/canada-submarine-cpsp-timeline" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<style>
+  :root{
+    --bg:#F7F9FC;
+    --surface:#FFFFFF;
+    --tint:#EEF3FA;
+    --ink:#14213D;
+    --ink-soft:#4C5B76;
+    --navy:#0F3460;
+    --navy-deep:#0A2540;
+    --korea:#F2661B;
+    --korea-soft:#FFE8D9;
+    --germany:#4A6FA5;
+    --germany-soft:#E4ECF7;
+    --highlight:#D64545;
+    --highlight-soft:#FCE4E4;
+    --border:#DCE4EE;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:36px 22px 44px;
+    background:var(--bg);
+  }
+  .head{
+    margin-bottom:28px;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.04em;
+    color:var(--navy);
+    background:var(--tint);
+    border:1px solid var(--border);
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:14px;
+  }
+  h1{
+    font-size:24px;
+    line-height:1.4;
+    margin:0 0 8px;
+    color:var(--navy-deep);
+    letter-spacing:-0.01em;
+  }
+  .sub{
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    margin:0;
+  }
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin:18px 0 8px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  .legend span{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .dot{
+    width:9px;height:9px;border-radius:50%;display:inline-block;
+  }
+  .dot.k{background:var(--korea);}
+  .dot.g{background:var(--germany);}
+  .dot.n{background:var(--navy);}
+  .dot.h{background:var(--highlight);}
+
+  .timeline{
+    position:relative;
+    margin-top:24px;
+    padding-left:34px;
+    border-left:2px solid var(--border);
+  }
+  .item{
+    position:relative;
+    padding:0 0 26px 22px;
+  }
+  .item:last-child{padding-bottom:0;}
+  .item .node{
+    position:absolute;
+    left:-45px;
+    top:0;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--navy);
+    color:#fff;
+    font-size:13px;
+    border:3px solid var(--bg);
+    box-shadow:0 0 0 1px var(--border);
+  }
+  .item.korea .node{background:var(--korea);}
+  .item.germany .node{background:var(--germany);}
+  .item.hot .node{background:var(--highlight);}
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:14px 16px;
+  }
+  .item.hot .card{
+    border-color:var(--highlight);
+    background:var(--highlight-soft);
+  }
+  .date{
+    font-size:12px;
+    font-weight:800;
+    color:var(--navy);
+    letter-spacing:.02em;
+    margin-bottom:4px;
+  }
+  .item.korea .date{color:var(--korea);}
+  .item.germany .date{color:var(--germany);}
+  .item.hot .date{color:var(--highlight);}
+  .title{
+    font-size:14.5px;
+    font-weight:700;
+    color:var(--ink);
+    margin-bottom:3px;
+    line-height:1.5;
+  }
+  .desc{
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.6;
+  }
+  .tag{
+    display:inline-block;
+    margin-top:8px;
+    font-size:11px;
+    font-weight:700;
+    padding:2px 9px;
+    border-radius:999px;
+    background:var(--tint);
+    color:var(--navy);
+  }
+  .item.hot .tag{background:var(--highlight);color:#fff;}
+
+  .footer-note{
+    margin-top:26px;
+    padding:14px 16px;
+    background:var(--tint);
+    border-radius:12px;
+    font-size:12px;
+    color:var(--ink-soft);
+    line-height:1.7;
+    display:flex;
+    gap:10px;
+  }
+  .footer-note i{color:var(--navy);font-size:16px;margin-top:1px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <span class="eyebrow"><i class="ti ti-anchor"></i>&nbsp;CPSP TIMELINE</span>
+    <h1>캐나다 잠수함 사업(CPSP), 2년의 기록</h1>
+    <p class="sub">2024년 7월 도입 계획 발표부터 2026년 7월 우선협상대상자 발표까지 — 한화오션과 TKMS의 수주전 흐름을 시간순으로 정리했습니다.</p>
+    <div class="legend">
+      <span><i class="dot n"></i>공통 절차</span>
+      <span><i class="dot k"></i>한화오션 관련</span>
+      <span><i class="dot g"></i>TKMS 관련</span>
+      <span><i class="dot h"></i>발표 D-Day 후보</span>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="item">
+      <div class="node"><i class="ti ti-flag-3"></i></div>
+      <div class="card">
+        <div class="date">2024. 07</div>
+        <div class="title">캐나다 정부, 잠수함 최대 12척 도입 계획 발표</div>
+        <div class="desc">노후 빅토리아급 4척(1980년대 건조) 대체를 위한 재래식 추진 잠수함 도입 방침 공식화.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="node"><i class="ti ti-file-text"></i></div>
+      <div class="card">
+        <div class="date">2024. 09</div>
+        <div class="title">정보요청서(RFI) 발행</div>
+        <div class="desc">독일·노르웨이·한국·프랑스·스페인·스웨덴 등이 관심을 표명.</div>
+      </div>
+    </div>
+
+    <div class="item korea">
+      <div class="node"><i class="ti ti-list-check"></i></div>
+      <div class="card">
+        <div class="date">2025. 08. 26</div>
+        <div class="title">적격 공급자 2곳으로 압축</div>
+        <div class="desc">한화오션(한국)과 TKMS(독일)가 최종 후보로 선정되며 '2파전' 구도 확정.</div>
+        <span class="tag">숏리스트 확정</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="node"><i class="ti ti-building-bank"></i></div>
+      <div class="card">
+        <div class="date">2025. 10. 02</div>
+        <div class="title">캐나다 국방투자청(DIA) 신설</div>
+        <div class="desc">방위 조달 절차를 전담·가속화하기 위한 특별운영기관 출범, CPSP를 1순위 과제로 지정.</div>
+      </div>
+    </div>
+
+    <div class="item korea">
+      <div class="node"><i class="ti ti-ship"></i></div>
+      <div class="card">
+        <div class="date">2025. 10. 22</div>
+        <div class="title">한화오션, KSS-Ⅲ 배치-Ⅱ 1번함(장영실함) 진수</div>
+        <div class="desc">카니 총리가 이듬해 방한 중 진수식을 직접 참관.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="node"><i class="ti ti-send"></i></div>
+      <div class="card">
+        <div class="date">2025. 11. 14</div>
+        <div class="title">양사에 제안서 준비지침(PPI) 발송</div>
+        <div class="desc">정식 RFP 대신 PPI 방식 채택 — 절차 간소화로 일정 단축, 다만 일각에서는 협상 레버리지 약화 우려도 제기.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="node"><i class="ti ti-clipboard-check"></i></div>
+      <div class="card">
+        <div class="date">2026. 03. 02</div>
+        <div class="title">공식 제안서 제출 마감</div>
+        <div class="desc">한화오션·TKMS 양사, 최종 제안서 캐나다 정부에 제출.</div>
+      </div>
+    </div>
+
+    <div class="item korea">
+      <div class="node"><i class="ti ti-route"></i></div>
+      <div class="card">
+        <div class="date">2026. 05. 23~25</div>
+        <div class="title">도산안창호함, 태평양 횡단 후 캐나다 입항</div>
+        <div class="desc">부산~괌~하와이 경유 약 14,000km 항해로 한국 잠수함 사상 최장 항해 기록, 에스퀴몰트 기지 입항 및 캐나다 해군과 연합훈련.</div>
+        <span class="tag">실물 검증</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="node"><i class="ti ti-building-store"></i></div>
+      <div class="card">
+        <div class="date">2026. 05. 27~28</div>
+        <div class="title">CANSEC 2026 방산전시회(오타와)</div>
+        <div class="desc">양사 마지막 대규모 홍보 무대, TKMS는 4척 인도 목표 시점을 2036년으로 재조정해 발표.</div>
+      </div>
+    </div>
+
+    <div class="item korea">
+      <div class="node"><i class="ti ti-car"></i></div>
+      <div class="card">
+        <div class="date">2026. 06. 01</div>
+        <div class="title">한화, 'Project Beaver' 공개</div>
+        <div class="desc">현대차그룹의 캐나다 수소 모빌리티 생태계 투자 연계, 자동차 부품업계(APMA)와 방산 차량 합작법인 논의.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="node"><i class="ti ti-trending-up"></i></div>
+      <div class="card">
+        <div class="date">2026. 06. 24</div>
+        <div class="title">발표 임박 보도 확산</div>
+        <div class="desc">블룸버그·UPI 등 "6월 말~7월 초 발표" 일제히 보도, MRO 50% 비중 평가기준 공개.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="node"><i class="ti ti-clock-pause"></i></div>
+      <div class="card">
+        <div class="date">2026. 06. 30</div>
+        <div class="title">발표 수일 연기, "단일 공급자" 시사</div>
+        <div class="desc">캐나다 국방장관, 분할 발주 가능성에 거리 두며 단일 낙찰 방침 재확인.</div>
+      </div>
+    </div>
+
+    <div class="item hot">
+      <div class="node"><i class="ti ti-flag-2"></i></div>
+      <div class="card">
+        <div class="date">2026. 07. 01 — 오늘</div>
+        <div class="title">캐나다 건국기념일 / CUSMA 재검토 개시</div>
+        <div class="desc">업계가 꼽은 1차 발표 유력 시점. 이 글 작성 시점 기준 공식 발표는 아직 확인되지 않음.</div>
+        <span class="tag">D-DAY 후보 ①</span>
+      </div>
+    </div>
+
+    <div class="item hot">
+      <div class="node"><i class="ti ti-users"></i></div>
+      <div class="card">
+        <div class="date">2026. 07. 07</div>
+        <div class="title">나토(NATO) 정상회의 개막 (튀르키예 앙카라)</div>
+        <div class="desc">카니 총리 출국 전 발표될 가능성이 유력한 2차 시점.</div>
+        <span class="tag">D-DAY 후보 ②</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="node"><i class="ti ti-signature"></i></div>
+      <div class="card">
+        <div class="date">2028 (예상)</div>
+        <div class="title">가격 포함 본계약 체결 목표</div>
+        <div class="desc">우선협상대상자 선정 이후에도 절충교역·가격 협상 등 후속 절차 진행, 실제 매출 반영은 2029년 말 이후로 전망.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    <i class="ti ti-info-circle"></i>
+    <span>본 타임라인은 2026년 6월 23일~30일 사이 보도된 Bloomberg, UPI, Breaking Defense, 캐나다 국방투자청(DIA), 한국 경제·방산 전문매체 보도를 종합해 재구성했습니다. 발표 시점은 유동적일 수 있습니다.</span>
+  </div>
+
+</div>
+</body>
+</html>
