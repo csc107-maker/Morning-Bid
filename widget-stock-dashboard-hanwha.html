@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한화오션(042660) 주가 &amp; 캐나다 수주 임팩트 대시보드</title>
+
+<meta property="og:title" content="한화오션(042660) 주가 &amp; 캐나다 수주 임팩트 대시보드" />
+<meta property="og:description" content="캐나다 잠수함 사업(CPSP) 발표를 앞둔 한화오션 주가 스냅샷, 증권사 목표주가, 변동성 히스토리를 데이터로 정리했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/hanwha-ocean-stock-dashboard.png" />
+<meta property="og:url" content="https://your-blog-domain.com/posts/hanwha-ocean-042660-stock-cpsp" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<style>
+  :root{
+    --bg:#F7F9FC;
+    --surface:#FFFFFF;
+    --tint:#EEF3FA;
+    --ink:#14213D;
+    --ink-soft:#4C5B76;
+    --navy:#0F3460;
+    --navy-deep:#0A2540;
+    --korea:#F2661B;
+    --green:#1B8A5A;
+    --green-soft:#E7F5EE;
+    --red:#D64545;
+    --red-soft:#FCEAEA;
+    --border:#DCE4EE;
+    --amber:#B8860B;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:780px;margin:0 auto;padding:36px 20px 44px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+    letter-spacing:.04em;color:var(--navy);background:var(--tint);border:1px solid var(--border);
+    padding:5px 12px;border-radius:999px;margin-bottom:14px;
+  }
+  h1{font-size:22px;line-height:1.4;margin:0 0 6px;color:var(--navy-deep);letter-spacing:-0.01em;}
+  .sub{font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin:0 0 22px;}
+
+  /* price header card */
+  .price-card{
+    background:var(--navy-deep);
+    background:linear-gradient(135deg,var(--navy-deep),var(--navy));
+    border-radius:18px;padding:24px 24px 22px;color:#fff;margin-bottom:18px;
+    position:relative;overflow:hidden;
+  }
+  .price-card .ticker{font-size:12.5px;opacity:.75;font-weight:700;letter-spacing:.05em;margin-bottom:8px;}
+  .price-main{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .price-main .price{font-size:34px;font-weight:800;letter-spacing:-0.01em;}
+  .price-main .chg{font-size:15px;font-weight:700;padding:3px 10px;border-radius:8px;background:rgba(255,255,255,.14);}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px;}
+  .price-grid .pi{border-top:1px solid rgba(255,255,255,.18);padding-top:10px;}
+  .price-grid .pi .l{font-size:11px;opacity:.7;margin-bottom:3px;}
+  .price-grid .pi .v{font-size:14.5px;font-weight:700;}
+  .asof{font-size:11px;opacity:.65;margin-top:14px;}
+
+  /* target price section */
+  .section-title{font-size:14.5px;font-weight:800;color:var(--navy-deep);margin:22px 0 12px;display:flex;align-items:center;gap:7px;}
+  .section-title i{color:var(--navy);}
+
+  .target-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:14px;
+    padding:14px 16px;margin-bottom:10px;
+  }
+  .t-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;}
+  .t-name{font-size:13.5px;font-weight:800;color:var(--ink);}
+  .t-opinion{font-size:11px;font-weight:700;color:var(--green);background:var(--green-soft);padding:2px 9px;border-radius:999px;margin-left:6px;}
+  .t-price{font-size:16px;font-weight:800;color:var(--navy);}
+  .t-bar-track{height:9px;background:var(--tint);border-radius:999px;overflow:hidden;margin-bottom:6px;}
+  .t-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--korea),#FFA25E);}
+  .t-note{font-size:11.5px;color:var(--ink-soft);}
+
+  /* volatility callout */
+  .vol-card{
+    background:var(--red-soft);border:1px solid #F4C6C6;border-radius:14px;
+    padding:16px 18px;margin:20px 0;display:flex;gap:12px;
+  }
+  .vol-card i{color:var(--red);font-size:22px;margin-top:2px;}
+  .vol-title{font-size:13.5px;font-weight:800;color:#8A2A2A;margin-bottom:4px;}
+  .vol-desc{font-size:12.5px;color:#7A3030;line-height:1.65;}
+
+  .fund-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:6px;}
+  .fund-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px;}
+  .fund-card .l{font-size:11.5px;color:var(--ink-soft);margin-bottom:4px;}
+  .fund-card .v{font-size:16px;font-weight:800;color:var(--navy-deep);}
+
+  .foot{
+    display:flex;gap:10px;background:var(--tint);border-radius:12px;padding:13px 15px;margin-top:20px;
+    font-size:11.5px;color:var(--ink-soft);line-height:1.7;
+  }
+  .foot i{color:var(--navy);font-size:15px;margin-top:1px;}
+
+  @media (max-width:520px){
+    .price-grid{grid-template-columns:repeat(2,1fr);}
+    .fund-grid{grid-template-columns:1fr;}
+    .price-main .price{font-size:28px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow"><i class="ti ti-chart-candle"></i>&nbsp;STOCK DASHBOARD</span>
+  <h1>한화오션(042660) 주가 &amp; 캐나다 수주 임팩트</h1>
+  <p class="sub">캐나다 잠수함 사업(CPSP) 발표를 앞두고 출렁이는 한화오션 주가, 핵심 지표와 증권사 시각을 정리했습니다.</p>
+
+  <div class="price-card">
+    <div class="ticker">KOSPI · 042660 · 한화오션</div>
+    <div class="price-main">
+      <span class="price">113,400원</span>
+      <span class="chg">전일比 -2.7%</span>
+    </div>
+    <div class="price-grid">
+      <div class="pi"><div class="l">시가총액</div><div class="v">약 35.7조원</div></div>
+      <div class="pi"><div class="l">52주 최고</div><div class="v">154,800원</div></div>
+      <div class="pi"><div class="l">52주 최저</div><div class="v">71,500원</div></div>
+      <div class="pi"><div class="l">PER</div><div class="v">약 29.1배</div></div>
+      <div class="pi"><div class="l">PBR</div><div class="v">약 5.8배</div></div>
+      <div class="pi"><div class="l">외국인 비중</div><div class="v">약 10.7%</div></div>
+    </div>
+    <div class="asof">기준일: 2026년 6월 23일 종가 (Investing.com · Daum금융 교차 확인) · 이후 발표 임박에 따라 단기 변동성 확대</div>
+  </div>
+
+  <div class="section-title"><i class="ti ti-target-arrow"></i> 증권사 목표주가 비교</div>
+
+  <div class="target-card">
+    <div class="t-row">
+      <div class="t-name">NH투자증권 <span class="t-opinion">매수</span></div>
+      <div class="t-price">175,000원</div>
+    </div>
+    <div class="t-bar-track"><div class="t-bar-fill" style="width:86%"></div></div>
+    <div class="t-note">2026.06.23 보고서 · CPSP + 나미비아 베누스 FPSO 프로젝트 결과 발표 임박을 근거로 목표주가 유지</div>
+  </div>
+
+  <div class="target-card">
+    <div class="t-row">
+      <div class="t-name">iM증권 <span class="t-opinion">매수</span></div>
+      <div class="t-price">167,000원</div>
+    </div>
+    <div class="t-bar-track"><div class="t-bar-fill" style="width:80%"></div></div>
+    <div class="t-note">2026.06.11 '기다린다, 특수선' 보고서 · 발간일 종가 대비 약 51.5% 상승여력 제시</div>
+  </div>
+
+  <div class="target-card">
+    <div class="t-row">
+      <div class="t-name">Investing.com 애널리스트 컨센서스 <span class="t-opinion">매수 우세</span></div>
+      <div class="t-price">164,750원</div>
+    </div>
+    <div class="t-bar-track"><div class="t-bar-fill" style="width:78%"></div></div>
+    <div class="t-note">2026.06.23 기준 · 애널리스트 20명 중 매수 19명·매도 1명 · 상승여력 +45.28% 자체 제시</div>
+  </div>
+
+  <div class="vol-card">
+    <i class="ti ti-alert-triangle"></i>
+    <div>
+      <div class="vol-title">참고: 3월 '분할발주설' 당시 하루 -14.7% 급락 사례</div>
+      <div class="vol-desc">2026년 3월, 캐나다 매체가 "한화오션·TKMS에 6척씩 분할 발주 검토" 보도 → 한화오션 주가 하루 만에 14.7% 급락(115,500원). 이후 캐나다 정부가 단일 공급자 방침을 재확인하며 관련 우려는 완화됐지만, 발표 관련 뉴스에 주가가 민감하게 반응해온 만큼 향후 공식 발표 시에도 단기 변동성 확대 가능성에 유의할 필요가 있습니다.</div>
+    </div>
+  </div>
+
+  <div class="section-title"><i class="ti ti-building-factory-2"></i> 왜 '단기 실적'보다 '레퍼런스'인가</div>
+  <div class="fund-grid">
+    <div class="fund-card">
+      <div class="l">본계약(가격 포함) 체결 목표</div>
+      <div class="v">2028년 초 (예상)</div>
+    </div>
+    <div class="fund-card">
+      <div class="l">건조 매출 실적 반영 시점</div>
+      <div class="v">2029년 말 이후 (예상)</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <i class="ti ti-info-circle"></i>
+    <span>본 대시보드는 정보 제공 목적으로 작성되었으며 투자 권유가 아닙니다. 주가·목표주가는 시점에 따라 크게 변동될 수 있으므로, 실제 투자 판단 시에는 반드시 최신 시세와 증권사 공식 리포트, 전자공시(DART)를 직접 확인하시기 바랍니다. 최종 투자 판단과 책임은 투자자 본인에게 있습니다.</span>
+  </div>
+
+</div>
+</body>
+</html>
