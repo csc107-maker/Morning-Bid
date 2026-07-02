@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사건 흐름과 향후 일정 타임라인</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  .tlw{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+    background:#F8FAFD;border:1px solid #E2E7F1;border-radius:20px;
+    padding:28px 26px 26px;max-width:720px;margin:32px auto;
+    box-shadow:0 1px 2px rgba(16,25,46,.04),0 12px 32px -18px rgba(16,25,46,.25);
+    box-sizing:border-box;
+  }
+  .tlw *{box-sizing:border-box;}
+  .tl-eyebrow{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+    letter-spacing:.06em;color:#5A6785;text-transform:uppercase;margin-bottom:10px;}
+  .tl-eyebrow .dot{width:7px;height:16px;background:#E8983B;border-radius:1px;}
+  .tl-title{font-size:22px;font-weight:800;color:#0F1A2E;margin:0 0 4px;}
+  .tl-sub{font-size:13.5px;color:#66718C;margin:0 0 22px;line-height:1.6;}
+
+  .tl-list{position:relative;margin-left:6px;}
+  .tl-rail{position:absolute;left:15px;top:6px;bottom:6px;width:2px;
+    background:repeating-linear-gradient(180deg,#D9E0EC 0 6px,transparent 6px 11px);}
+  .tl-item{position:relative;padding:0 0 22px 42px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-node{position:absolute;left:0;top:1px;width:32px;height:32px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:15px;
+    background:#fff;border:2px solid #C9D1E3;color:#66718C;z-index:1;}
+  .tl-item.hot .tl-node{border-color:#D7372C;color:#D7372C;background:#FDEDEC;}
+  .tl-item.fall .tl-node{border-color:#2F5FDB;color:#2F5FDB;background:#EAF0FE;}
+  .tl-item.next .tl-node{border-color:#1F3A63;color:#1F3A63;background:#EAF0FA;}
+  .tl-meta{font-size:11.5px;font-weight:700;color:#8892AC;letter-spacing:.02em;margin-bottom:3px;}
+  .tl-body{font-size:14.5px;color:#1E2740;line-height:1.55;font-weight:500;}
+  .tl-body b{font-weight:800;color:#0F1A2E;}
+  .tl-body .fall-t{color:#2F5FDB;font-weight:700;}
+  .tl-body .rise-t{color:#D7372C;font-weight:700;}
+
+  .tl-now{
+    position:relative;margin:6px 0 22px 0;padding:9px 14px;border-radius:12px;
+    background:#101A2E;color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.06em;
+    text-align:center;
+  }
+  .tl-now::before,.tl-now::after{content:"";position:absolute;top:50%;width:26px;height:1px;background:#8FA0C4;}
+  .tl-now::before{left:-30px;} .tl-now::after{right:-30px;}
+
+  .tl-note{margin-top:20px;padding-top:14px;border-top:1px dashed #D9E0EC;
+    font-size:11.5px;color:#98A2BC;line-height:1.6;}
+</style>
+</head>
+<body>
+
+<div class="tlw">
+  <div class="tl-eyebrow"><span class="dot"></span>TIMELINE · 지금까지와 앞으로</div>
+  <p class="tl-title">하루 만에 벌어진 일, 그리고 다음 체크포인트</p>
+  <p class="tl-sub">미국 장중 보도부터 한국 증시 마감까지, 그리고 이후 실적·통화정책 일정입니다.</p>
+
+  <div class="tl-list">
+    <div class="tl-rail"></div>
+
+    <div class="tl-item hot">
+      <div class="tl-node"><i class="ti ti-news"></i></div>
+      <div class="tl-meta">7.1(수) 美 현지시간 · 블룸버그 단독보도</div>
+      <div class="tl-body">메타, 사내 <b>'메타 컴퓨트'</b> 계획 하에 클라우드 사업 진출 검토 사실 확인</div>
+    </div>
+
+    <div class="tl-item hot">
+      <div class="tl-node"><i class="ti ti-trending-up"></i></div>
+      <div class="tl-meta">7.1(수) 뉴욕증시 장중</div>
+      <div class="tl-body">메타 주가 <span class="rise-t">▲8.8%대 급등</span> · 코어위브 <span class="fall-t">▼13.9%</span> · 네비우스 <span class="fall-t">▼17.0%</span></div>
+    </div>
+
+    <div class="tl-item fall">
+      <div class="tl-node"><i class="ti ti-chart-line"></i></div>
+      <div class="tl-meta">7.1(수) 뉴욕증시 마감</div>
+      <div class="tl-body">필라델피아 반도체지수(SOX) <span class="fall-t">▼6.27%</span> · 마이크론 <span class="fall-t">▼10.6%</span> · 인텔 <span class="fall-t">▼9.0%</span></div>
+    </div>
+
+    <div class="tl-item fall">
+      <div class="tl-node"><i class="ti ti-alert-triangle"></i></div>
+      <div class="tl-meta">7.2(목) 오전 9:07 한국시간</div>
+      <div class="tl-body">코스피 <b>매도 사이드카</b> 발동 (코스피200선물 전일比 <span class="fall-t">▼6.05%</span>)</div>
+    </div>
+
+    <div class="tl-item fall">
+      <div class="tl-node"><i class="ti ti-building-bank"></i></div>
+      <div class="tl-meta">7.2(목) 한국증시 마감</div>
+      <div class="tl-body">코스피 <span class="fall-t">▼7.89%</span>(7,648.09) · 삼성전자 <span class="fall-t">▼9.06%</span> · SK하이닉스 <span class="fall-t">▼14.57%</span></div>
+    </div>
+  </div>
+
+  <div class="tl-now">지금 여기 · 2026.07.02</div>
+
+  <div class="tl-list">
+    <div class="tl-rail"></div>
+
+    <div class="tl-item next">
+      <div class="tl-node"><i class="ti ti-calendar-event"></i></div>
+      <div class="tl-meta">7.7(화) 예정</div>
+      <div class="tl-body">삼성전자 <b>2분기 잠정실적</b> 발표 — 분기 영업이익 100조원 돌파 여부 주목</div>
+    </div>
+
+    <div class="tl-item next">
+      <div class="tl-node"><i class="ti ti-building-skyscraper"></i></div>
+      <div class="tl-meta">7.10(금) 예정 · 변동 가능</div>
+      <div class="tl-body">SK하이닉스 <b>나스닥 ADR 상장</b> 목표 — 최대 약 45.5조원 규모 예탁증서 발행</div>
+    </div>
+
+    <div class="tl-item next">
+      <div class="tl-node"><i class="ti ti-percentage"></i></div>
+      <div class="tl-meta">7.16(목) 예정</div>
+      <div class="tl-body">한국은행 <b>금융통화위원회</b> — 기준금리 결정(현재 2.50%, 8회 연속 동결 중)</div>
+    </div>
+
+    <div class="tl-item next">
+      <div class="tl-node"><i class="ti ti-flag-3"></i></div>
+      <div class="tl-meta">7.28~29(화~수) 예정</div>
+      <div class="tl-body">美 연방공개시장위원회(<b>FOMC</b>) 정례회의</div>
+    </div>
+
+    <div class="tl-item next">
+      <div class="tl-node"><i class="ti ti-report-money"></i></div>
+      <div class="tl-meta">7월말 예정</div>
+      <div class="tl-body">SK하이닉스 <b>2분기 확정실적</b> + 美 빅테크(매그니피센트7) 실적 발표 랠리</div>
+    </div>
+  </div>
+
+  <div class="tl-note">
+    일정은 각 기업·기관 발표 기준이며 시장 상황에 따라 변경될 수 있습니다. ADR 상장일 등 &lsquo;예정&rsquo; 표기 일정은 확정 전 정보입니다.
+  </div>
+</div>
+
+</body>
+</html>
