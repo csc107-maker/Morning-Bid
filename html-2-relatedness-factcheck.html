@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>한화오션 관련주 팩트체크</title>
+
+<meta property="og:title" content="한화오션 관련주, 사업적으로 진짜 연결돼 있을까? 팩트체크" />
+<meta property="og:description" content="선진·EG·레이·지아이에스는 한화오션·KDDX와 실제 사업 관계가 확인되는지, HD현대·HD현대중공업과는 어떻게 다른지 카드로 정리했습니다." />
+<meta property="og:image" content="썸네일 이미지 URL을 입력하세요 (예: https://yourblog.com/images/factcheck-thumbnail.png)" />
+<meta property="og:url" content="이 페이지가 게시될 URL을 입력하세요 (예: https://yourblog.com/posts/hanwha-ocean-kddx)" />
+<meta property="og:type" content="article" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gothic+A1:wght@400;500;700;800;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+<style>
+  :root{
+    --navy:#0B2D4D;
+    --navy-deep:#071B30;
+    --steel:#1C6E8C;
+    --bg:#F4F8FC;
+    --card:#FFFFFF;
+    --panel:#EAF1F8;
+    --amber:#DE8A15;
+    --amber-soft:#FCE9CC;
+    --danger:#C0392B;
+    --success:#1F8A5F;
+    --success-soft:#E1F3EB;
+    --ink:#132135;
+    --ink-soft:#4C5D73;
+    --line:#D7E3EE;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);font-family:'Gothic A1', sans-serif;color:var(--ink);}
+  .wrap{max-width:920px;margin:0 auto;padding:36px 24px 44px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'Roboto Mono', monospace;font-size:12px;letter-spacing:0.14em;
+    color:var(--steel);background:var(--panel);border:1px solid var(--line);
+    padding:5px 12px;border-radius:100px;font-weight:700;
+  }
+  h1{
+    font-family:'Black Han Sans', sans-serif;font-weight:400;
+    font-size:clamp(24px,4vw,34px);line-height:1.32;color:var(--navy-deep);
+    margin:14px 0 8px;letter-spacing:-0.01em;
+  }
+  .sub{font-size:14.5px;color:var(--ink-soft);margin:0 0 26px;line-height:1.65;max-width:680px;}
+
+  .legend{
+    display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px;
+    font-family:'Roboto Mono', monospace;font-size:11.5px;color:var(--ink-soft);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .dot.ok{background:var(--success);}
+  .dot.no{background:var(--amber);}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:16px;
+  }
+  @media(max-width:640px){.grid{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px 20px 18px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 12px 26px -20px rgba(11,45,77,0.4);
+  }
+  .card::before{
+    content:"";
+    position:absolute;top:0;left:0;width:5px;height:100%;
+  }
+  .card.ok::before{background:var(--success);}
+  .card.no::before{background:var(--amber);}
+
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+  .co-name{font-size:17px;font-weight:800;color:var(--navy-deep);}
+  .co-ticker{font-family:'Roboto Mono', monospace;font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
+
+  .stamp{
+    font-family:'Roboto Mono', monospace;
+    font-size:10.5px;font-weight:800;letter-spacing:0.04em;
+    padding:6px 10px;border-radius:8px;
+    white-space:nowrap;
+    display:inline-flex;align-items:center;gap:5px;
+    transform:rotate(2deg);
+    border:1.5px solid;
+  }
+  .stamp.ok{color:var(--success);border-color:var(--success);background:var(--success-soft);}
+  .stamp.no{color:var(--amber);border-color:var(--amber);background:var(--amber-soft);}
+
+  .label{
+    font-family:'Roboto Mono', monospace;
+    font-size:10.5px;font-weight:700;color:var(--steel);
+    letter-spacing:0.08em;margin:12px 0 4px;
+  }
+  .biz{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verdict{
+    font-size:13px;line-height:1.6;color:var(--ink-soft);
+    margin-top:8px;padding-top:10px;border-top:1px dashed var(--line);
+  }
+  .verdict b{color:var(--ink);}
+
+  .foot{
+    margin-top:26px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--ink-soft);line-height:1.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow"><i class="ti ti-search"></i>RELATED-STOCK FACT CHECK</span>
+  <h1>한화오션 관련주, 사업적으로<br>진짜 연결돼 있을까?</h1>
+  <p class="sub">언론 보도·전자공시(DART)·증권사 리포트를 교차 확인한 결과입니다. HD현대·HD현대중공업은 KDDX 사업의 직접 당사자·경쟁사인 반면, 나머지 4개 종목은 사업 연관성이 확인되지 않았습니다.</p>
+
+  <div class="legend">
+    <span><i class="dot ok"></i>사업·경쟁 관계 직접 확인됨</span>
+    <span><i class="dot no"></i>한화오션과의 사업 연관성 확인 안 됨</span>
+  </div>
+
+  <div class="grid">
+
+    <div class="card ok">
+      <div class="card-top">
+        <div><div class="co-name">HD현대중공업</div><div class="co-ticker">KOSPI · 329180</div></div>
+        <span class="stamp ok"><i class="ti ti-check"></i>확인됨</span>
+      </div>
+      <div class="label">실제 사업</div>
+      <div class="biz">LNG선 등 고부가 가스선, 해군 함정, 해양플랜트 건조. 2025.12 HD현대미포 흡수합병.</div>
+      <div class="verdict"><b>이번 KDDX 입찰의 당사자.</b> 한화오션과 직접 경쟁했고, 이번 결과로 가장 직접적인 영향(수주 실패)을 받은 회사입니다.</div>
+    </div>
+
+    <div class="card ok">
+      <div class="card-top">
+        <div><div class="co-name">HD현대</div><div class="co-ticker">KOSPI · 267250</div></div>
+        <span class="stamp ok"><i class="ti ti-check"></i>확인됨</span>
+      </div>
+      <div class="label">실제 사업</div>
+      <div class="biz">HD현대중공업(옛 한국조선해양)을 자회사로 둔 지주회사. 조선해양·정유·전기전자·건설기계 사업 포트폴리오.</div>
+      <div class="verdict"><b>HD현대중공업의 모회사(지주사).</b> 자회사 실적·주가에 연동되나, 정유·전력기기 등 타 사업 비중이 커 영향은 상대적으로 분산됩니다.</div>
+    </div>
+
+    <div class="card no">
+      <div class="card-top">
+        <div><div class="co-name">선진</div><div class="co-ticker">KOSPI · 136490</div></div>
+        <span class="stamp no"><i class="ti ti-help"></i>확인 안 됨</span>
+      </div>
+      <div class="label">실제 사업</div>
+      <div class="biz">1979년 설립 축산식품기업. 배합사료·양돈·식육·육가공이 매출 100%.</div>
+      <div class="verdict">조선·방산 관련 매출, 지분, 납품 계약이 <b>어디에서도 확인되지 않음.</b> 업종 자체가 완전히 다른 회사입니다.</div>
+    </div>
+
+    <div class="card no">
+      <div class="card-top">
+        <div><div class="co-name">EG</div><div class="co-ticker">KOSDAQ · 037370</div></div>
+        <span class="stamp no"><i class="ti ti-help"></i>확인 안 됨</span>
+      </div>
+      <div class="label">실제 사업</div>
+      <div class="biz">산화철(자성재료)·페라이트코어 제조, 금속무역(자회사 EG메탈), 환경플랜트 엔지니어링.</div>
+      <div class="verdict">조선·방산과의 연관성 근거 없음. 오히려 유가금속 회수 사업 때문에 <b>희토류 테마주</b>로 분류되는 경우가 더 많습니다.</div>
+    </div>
+
+    <div class="card no">
+      <div class="card-top">
+        <div><div class="co-name">레이</div><div class="co-ticker">KOSDAQ · 228670</div></div>
+        <span class="stamp no"><i class="ti ti-help"></i>확인 안 됨</span>
+      </div>
+      <div class="label">실제 사업</div>
+      <div class="biz">치과용 디지털 X-ray 영상진단, 3D 스캔·CAD·3D프린팅 등 디지털 덴티스트리 전문기업.</div>
+      <div class="verdict">방산·조선과 무관한 <b>의료기기(치과) 업종.</b> 최근 52주 고점 대비 주가 낙폭이 커 별도 리스크 점검이 필요합니다.</div>
+    </div>
+
+    <div class="card no">
+      <div class="card-top">
+        <div><div class="co-name">지아이에스</div><div class="co-ticker">KOSDAQ · 306620</div></div>
+        <span class="stamp no"><i class="ti ti-help"></i>확인 안 됨</span>
+      </div>
+      <div class="label">실제 사업</div>
+      <div class="biz">반도체·LED·MLCC 절단장비(Dicing Saw), FA자동화설비, 디스플레이 공정자동화 장비. 舊 네온테크.</div>
+      <div class="verdict">한화오션과의 접점 없음. <b>AI서버·전장용 MLCC 수요</b>와 삼성전기向 장비 공급이 핵심 투자 포인트인 반도체장비주입니다.</div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    ※ "확인 안 됨"은 해당 종목이 나쁜 투자처라는 의미가 아니라, <b>한화오션·KDDX 이슈와의 직접적 사업 연관성을 뒷받침하는 공개 자료를 찾지 못했다</b>는 의미입니다. 각 사의 투자 포인트는 고유 업황을 기준으로 별도 판단하시길 권장합니다. 자료: DART, 각 사 IR자료, 언론보도 종합 (2026.07.02 기준).
+  </div>
+
+</div>
+</body>
+</html>
