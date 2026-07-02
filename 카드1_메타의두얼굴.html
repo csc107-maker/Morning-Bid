@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>메타의 두 얼굴 — 빌리는 동시에 빌려주는 회사</title>
+
+<meta property="og:title" content="메타의 두 얼굴 — 빌리는 동시에 빌려주는 회사" />
+<meta property="og:description" content="메타는 코어위브·구글클라우드에 임차료를 내면서도, 동시에 자사 데이터센터를 외부에 빌려주는 '메타 컴퓨트' 사업을 검토 중입니다. 숫자로 보는 메타의 이중 전략." />
+<meta property="og:image" content="썸네일 이미지 URL" />
+<meta property="og:url" content="페이지 URL" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #F5F7FB;
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    padding: 28px 16px;
+    color: #1A2333;
+  }
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #E4E9F0;
+    box-shadow: 0 18px 40px -22px rgba(11,31,61,0.35);
+  }
+  .head {
+    background: linear-gradient(135deg, #0B1F3D 0%, #17335F 100%);
+    padding: 30px 32px 26px;
+    position: relative;
+  }
+  .head::after {
+    content: "";
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,155,60,0.25) 0%, rgba(200,155,60,0) 70%);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(200,155,60,0.16);
+    border: 1px solid rgba(200,155,60,0.45);
+    color: #E4BE6E;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .head h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 1.4;
+    color: #FFFFFF;
+    max-width: 560px;
+  }
+  .head p {
+    margin-top: 8px;
+    font-size: 13.5px;
+    color: #AEC0DE;
+    font-weight: 400;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 620px) {
+    .split { grid-template-columns: 1fr; }
+  }
+  .col {
+    padding: 26px 26px 22px;
+  }
+  .col-borrow { background: #FBF6EC; border-right: 1px solid #E4E9F0; }
+  .col-lend { background: #F2F7FC; }
+  @media (max-width: 620px) {
+    .col-borrow { border-right: none; border-bottom: 1px solid #E4E9F0; }
+  }
+  .col-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 14.5px;
+    margin-bottom: 4px;
+  }
+  .col-borrow .col-tag { color: #9C6B12; }
+  .col-lend .col-tag { color: #1D4F91; }
+  .col-tag .ti { font-size: 19px; }
+  .col-sub { font-size: 12px; color: #6B7484; margin-bottom: 16px; font-weight: 500; }
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 11px 0;
+    border-bottom: 1px dashed #DCE2EC;
+  }
+  .col-borrow .stat-row { border-bottom-color: #E8DCC0; }
+  .stat-row:last-of-type { border-bottom: none; }
+  .stat-label { font-size: 13px; color: #4A5265; font-weight: 500; }
+  .stat-value { font-size: 15px; font-weight: 800; color: #1A2333; text-align: right; white-space: nowrap; margin-left: 12px; }
+  .stat-value small { font-weight: 600; font-size: 11px; color: #8891A0; display: block; }
+  .badge-total {
+    margin-top: 16px;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .col-borrow .badge-total { background: #0B1F3D; }
+  .col-lend .badge-total { background: #1D4F91; }
+  .badge-total .t { color: #CBD6E8; font-size: 12px; font-weight: 600; }
+  .badge-total .v { color: #FFFFFF; font-size: 19px; font-weight: 900; }
+
+  .vs-divider {
+    display: none;
+  }
+
+  .bottom {
+    padding: 22px 30px 28px;
+    border-top: 1px solid #E4E9F0;
+  }
+  .bottom-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #6B7484;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 620px) {
+    .timeline { grid-template-columns: repeat(2, 1fr); }
+  }
+  .t-item {
+    background: #F7F8FB;
+    border: 1px solid #E9EDF3;
+    border-radius: 12px;
+    padding: 12px 12px;
+  }
+  .t-date { font-size: 11px; font-weight: 800; color: #C89B3C; margin-bottom: 5px; }
+  .t-desc { font-size: 12px; color: #333B4A; line-height: 1.5; font-weight: 500; }
+
+  .foot {
+    padding: 14px 30px 22px;
+    font-size: 11px;
+    color: #9AA2B0;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow"><i class="ti ti-scale"></i>&nbsp;메타 인프라 전략 해부</span>
+      <h1>메타의 두 얼굴 — 빌리는 동시에 빌려주는 회사</h1>
+      <p>한 손으로는 코어위브·구글클라우드에 임차료를 지불하고, 다른 손으로는 자사 데이터센터를 외부에 빌려주려 한다. 2026년 7월 1일, 블룸버그가 보도한 '메타 컴퓨트' 구상.</p>
+    </div>
+
+    <div class="split">
+      <div class="col col-borrow">
+        <div class="col-tag"><i class="ti ti-credit-card-pay"></i> 메타가 빌리는 돈</div>
+        <div class="col-sub">외부 클라우드·네오클라우드 임차 비용</div>
+
+        <div class="stat-row">
+          <span class="stat-label">코어위브 확장 계약<small style="display:inline;">(2026.04 SEC 공시, ~2032.12)</small></span>
+          <span class="stat-value">210억$<small>약 29조원</small></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">구글 클라우드 계약<small style="display:inline;">(6년)</small></span>
+          <span class="stat-value">100억$+<small>약 14조원+</small></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">2026년 CAPEX 가이던스</span>
+          <span class="stat-value">1,250억~1,450억$<small>연간 설비투자</small></span>
+        </div>
+
+        <div class="badge-total">
+          <span class="t">향후 데이터센터 임대 약정 총액<br/>(2026년 1분기 말 기준)</span>
+          <span class="v">1,829억$<span style="font-size:12px;font-weight:700;"> (약 256조원)</span></span>
+        </div>
+      </div>
+
+      <div class="col col-lend">
+        <div class="col-tag"><i class="ti ti-cloud-share"></i> 메타가 빌려주려는 것</div>
+        <div class="col-sub">'메타 컴퓨트' 신사업 구상 (검토 단계)</div>
+
+        <div class="stat-row">
+          <span class="stat-label">사업 형태</span>
+          <span class="stat-value">IaaS + PaaS<small>여유 GPU 컴퓨팅 · AI모델 대여</small></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">경쟁 상대</span>
+          <span class="stat-value">AWS·애저·GCP<small>+ 코어위브·네비우스</small></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">발표 당일 메타 주가</span>
+          <span class="stat-value" style="color:#C63232;">+8~9%<small>反 반도체주는 급락</small></span>
+        </div>
+
+        <div class="badge-total">
+          <span class="t">담당 조직<br/>인프라 총괄 · 슈퍼인텔리전스랩 · 사장 공동 주도</span>
+          <span class="v" style="font-size:14px;">Meta Compute</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="bottom-title"><i class="ti ti-timeline-event"></i> 핵심 타임라인</div>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-date">2026.04.09</div>
+          <div class="t-desc">코어위브·메타 210억$ 확장 계약 공시(SEC 8-K)</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">2026.05.27</div>
+          <div class="t-desc">저커버그 "클라우드 진출 확실히 검토 대상" 발언</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">2026.06.24</div>
+          <div class="t-desc">업계 전체 데이터센터 임대 약정 총액 8,500억$(약 1,190조원) 돌파</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">2026.07.01</div>
+          <div class="t-desc">블룸버그, '메타 컴퓨트' 구상 단독 보도</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      자료: Bloomberg, Reuters, CoreWeave 8-K(SEC), Investing.com, Tom's Hardware 보도 종합 · 메타 컴퓨트는 아직 가격·출시일·고객사가 확정되지 않은 검토 단계 사업입니다 · 원화 환산은 1,400원/달러 기준 근사치입니다.
+    </div>
+  </div>
+</body>
+</html>
