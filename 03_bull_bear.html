@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전문가 진단 비교 - 위기론 vs 기회론</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  .bbw{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+    background:#F8FAFD;border:1px solid #E2E7F1;border-radius:20px;
+    padding:28px 24px 24px;max-width:760px;margin:32px auto;
+    box-shadow:0 1px 2px rgba(16,25,46,.04),0 12px 32px -18px rgba(16,25,46,.25);
+    box-sizing:border-box;
+  }
+  .bbw *{box-sizing:border-box;}
+  .bb-eyebrow{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+    letter-spacing:.06em;color:#5A6785;text-transform:uppercase;margin-bottom:10px;}
+  .bb-eyebrow .dot{width:7px;height:16px;background:#E8983B;border-radius:1px;}
+  .bb-title{font-size:22px;font-weight:800;color:#0F1A2E;margin:0 0 4px;}
+  .bb-sub{font-size:13.5px;color:#66718C;margin:0 0 20px;line-height:1.6;}
+
+  .bb-cols{display:grid;grid-template-columns:1fr;gap:14px;position:relative;}
+  @media (min-width:600px){ .bb-cols{grid-template-columns:1fr 1fr;} }
+
+  .bb-col{border-radius:16px;padding:18px 18px 16px;border:1px solid;}
+  .bb-col.bear{background:#EEF2FC;border-color:#D7E0F5;}
+  .bb-col.bull{background:#FDEEED;border-color:#F6D8D5;}
+
+  .bb-col-head{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+  .bb-col-head .ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff;flex-shrink:0;}
+  .bear .ic{background:#2F5FDB;}
+  .bull .ic{background:#D7372C;}
+  .bb-col-head .t1{font-size:11px;font-weight:700;letter-spacing:.03em;color:#5A6785;}
+  .bb-col-head .t2{font-size:16.5px;font-weight:800;color:#0F1A2E;}
+
+  .bb-quote{background:#fff;border-radius:12px;padding:12px 13px;margin-bottom:10px;}
+  .bb-quote:last-child{margin-bottom:0;}
+  .bb-quote .src{font-size:12px;font-weight:800;color:#1E2740;margin-bottom:4px;display:flex;align-items:center;gap:5px;}
+  .bb-quote .src i{font-size:13px;color:#98A2BC;}
+  .bb-quote p{margin:0;font-size:13px;line-height:1.55;color:#4A5674;}
+
+  .bb-vs{
+    position:absolute;left:50%;top:70px;transform:translate(-50%,-50%);
+    width:38px;height:38px;border-radius:50%;background:#101A2E;color:#fff;
+    display:none;align-items:center;justify-content:center;font-size:12px;font-weight:800;
+    box-shadow:0 0 0 5px #F8FAFD;z-index:2;
+  }
+  @media (min-width:600px){ .bb-vs{display:flex;} }
+
+  .bb-insight{
+    margin-top:16px;background:#101A2E;border-radius:14px;padding:15px 17px;
+    display:flex;gap:12px;align-items:flex-start;
+  }
+  .bb-insight i{color:#E8983B;font-size:19px;margin-top:1px;}
+  .bb-insight p{margin:0;font-size:13px;line-height:1.65;color:#D6DEEF;}
+  .bb-insight b{color:#fff;}
+</style>
+</head>
+<body>
+
+<div class="bbw">
+  <div class="bb-eyebrow"><span class="dot"></span>EXPERT VIEW · 엇갈리는 시장 해석</div>
+  <p class="bb-title">같은 뉴스, 정반대 해석 — 전문가들의 진단</p>
+  <p class="bb-sub">메타의 클라우드 진출을 두고 증권가 안에서도 시각이 갈립니다.</p>
+
+  <div class="bb-cols">
+    <div class="bb-vs">VS</div>
+
+    <div class="bb-col bear">
+      <div class="bb-col-head">
+        <div class="ic"><i class="ti ti-trending-down"></i></div>
+        <div><div class="t1">CAUTION</div><div class="t2">과잉투자 경계론</div></div>
+      </div>
+
+      <div class="bb-quote">
+        <div class="src"><i class="ti ti-building-bank"></i>미래에셋증권 · 서상영 연구원</div>
+        <p>메타의 잉여 컴퓨팅 자원 판매 계획이 <b>빅테크 과잉투자 논란</b>과 반도체 수요 피크아웃 가능성을 자극했다고 진단</p>
+      </div>
+      <div class="bb-quote">
+        <div class="src"><i class="ti ti-world"></i>유니온방케르프리베 · 베이-세른 링 전무</div>
+        <p>잉여 자원 판매 검토는 자원을 효율적으로 쓰지 못했거나 과잉 투자했을 가능성을 시사하며, 한국·일본 반도체 등 AI 공급망 전반에 부정적일 수 있다고 평가</p>
+      </div>
+      <div class="bb-quote">
+        <div class="src"><i class="ti ti-chart-bar"></i>번스타인(美) · CoreWeave 담당</div>
+        <p>하이퍼스케일러의 클라우드 경쟁 진입은 예견된 일이라며 &lsquo;문제적(problematic)&rsquo;이라 평가, 목표주가 67달러·Underperform 유지</p>
+      </div>
+    </div>
+
+    <div class="bb-col bull">
+      <div class="bb-col-head">
+        <div class="ic"><i class="ti ti-trending-up"></i></div>
+        <div><div class="t1">OPPORTUNITY</div><div class="t2">과매도·기회론</div></div>
+      </div>
+
+      <div class="bb-quote">
+        <div class="src"><i class="ti ti-building-bank"></i>삼성증권 · 문준호 연구원</div>
+        <p>높은 AI 수요를 고려하면 <b>유휴 캐파가 존재한다는 것은 오해</b>이며, 단기 임대로 추가 수익을 추구하는 것은 AI 자본지출의 ROI를 개선하는 합리적 전략이라고 분석</p>
+      </div>
+      <div class="bb-quote">
+        <div class="src"><i class="ti ti-building-bank"></i>키움증권 · 한지영 연구원</div>
+        <p>&ldquo;내러티브에만 흠집이 난 것이지 이익은 여전히 견조&rdquo;하다며, 급락 반영 시 선행 PER이 7배 극초반까지 낮아져 <b>매수 기회</b>로 접근할 만하다고 평가</p>
+      </div>
+      <div class="bb-quote">
+        <div class="src"><i class="ti ti-building-bank"></i>하나증권 · 강재구 연구원</div>
+        <p>메타의 AI 클라우드 사업은 수요 둔화가 아니라 대규모 인프라를 활용해 <b>새로운 독점적 수익</b>을 창출하려는 전략이라고 진단</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bb-insight">
+    <i class="ti ti-bulb"></i>
+    <p><b>정리하면</b> — 쟁점은 &lsquo;메타의 매출 다각화&rsquo; 자체가 아니라, 이 결정이 &lsquo;AI 컴퓨팅 자원이 절대적으로 부족하다&rsquo;는 그동안의 전제를 흔드는지 여부입니다. 실제 수요 둔화가 확인된 지표는 아직 없다는 게 다수 국내 증권가의 판단이지만, 다음 실적 시즌 전까지는 변동성 자체를 리스크로 볼 필요가 있습니다.</p>
+  </div>
+</div>
+
+</body>
+</html>
