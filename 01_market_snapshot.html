@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메타발 반도체 지각변동 - 오늘의 핵심 지표</title>
+
+<!-- ================= OG 태그 (블로그 글 <head>에 삽입) ================= -->
+<meta property="og:title" content="메타 클라우드 진출, 반도체 '지각변동' 완전분석 | 삼성전자·SK하이닉스 위기일까 기회일까" />
+<meta property="og:description" content="코스피 7.9% 급락의 진짜 이유, 메타 클라우드 사업 진출이 삼성전자·SK하이닉스에 미치는 영향, 반도체 수출 데이터, 금리·환율 변수까지 출처 기반으로 정리했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/meta-cloud-semiconductor-analysis" />
+<meta property="og:type" content="article" />
+<!-- ====================================================================== -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  .mcs-wrap{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+    background:linear-gradient(155deg,#F8FAFD 0%,#E9EEF7 100%);
+    border:1px solid #E2E7F1;
+    border-radius:20px;
+    padding:28px 26px 24px;
+    max-width:720px;
+    margin:32px auto;
+    box-shadow:0 1px 2px rgba(16,25,46,0.04), 0 12px 32px -18px rgba(16,25,46,0.25);
+    box-sizing:border-box;
+  }
+  .mcs-wrap *{box-sizing:border-box;}
+  .mcs-eyebrow{
+    display:flex;align-items:center;gap:8px;
+    font-size:12.5px;font-weight:700;letter-spacing:.06em;
+    color:#5A6785;text-transform:uppercase;margin-bottom:10px;
+  }
+  .mcs-eyebrow .dot{width:7px;height:16px;background:#E8983B;border-radius:1px;display:inline-block;}
+  .mcs-title{
+    font-size:22px;font-weight:800;color:#0F1A2E;line-height:1.4;margin:0 0 4px;
+  }
+  .mcs-sub{font-size:13.5px;color:#66718C;margin:0 0 18px;line-height:1.6;}
+  .mcs-seismic{width:100%;height:20px;margin-bottom:18px;display:block;}
+  .mcs-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+  }
+  @media (min-width:560px){ .mcs-grid{grid-template-columns:repeat(4,1fr);} }
+  .mcs-card{
+    background:#FFFFFF;border:1px solid #E7EBF3;border-radius:14px;
+    padding:14px 14px 12px;position:relative;overflow:hidden;
+  }
+  .mcs-card .lbl{
+    font-size:11.5px;font-weight:700;color:#8892AC;letter-spacing:.02em;
+    display:flex;align-items:center;gap:5px;margin-bottom:8px;
+  }
+  .mcs-card .lbl i{font-size:14px;color:#B7BFD6;}
+  .mcs-card .val{font-family:'Roboto Mono',monospace;font-size:19px;font-weight:700;color:#0F1A2E;letter-spacing:-.02em;}
+  .mcs-card .chg{
+    margin-top:5px;font-size:13px;font-weight:700;
+    display:flex;align-items:center;gap:3px;
+  }
+  .fall{color:#2F5FDB;}
+  .rise{color:#D7372C;}
+  .warn{color:#B9711C;}
+  .mcs-card.hero{
+    grid-column:1 / -1;
+    background:#101A2E;border:none;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+    padding:16px 18px;
+  }
+  .mcs-card.hero .lbl{color:#93A6CC;}
+  .mcs-card.hero .val{color:#fff;font-size:24px;}
+  .mcs-card.hero .chg{font-size:15px;}
+  .mcs-card.hero .lbl i{color:#5A7099;}
+  .mcs-foot{
+    margin-top:18px;padding-top:14px;border-top:1px dashed #D9E0EC;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+    font-size:11.5px;color:#98A2BC;
+  }
+  .mcs-foot b{color:#5A6785;}
+</style>
+</head>
+<body>
+
+<div class="mcs-wrap">
+  <div class="mcs-eyebrow"><span class="dot"></span>MARKET SNAPSHOT · 2026.07.02 장마감 기준</div>
+  <p class="mcs-title">오늘의 핵심 지표, 숫자로 먼저 보기</p>
+  <p class="mcs-sub">메타 클라우드 진출 소식 하루 만에 벌어진 일들을 지표로 정리했습니다.</p>
+
+  <svg class="mcs-seismic" viewBox="0 0 680 20" preserveAspectRatio="none">
+    <polyline points="0,10 40,10 60,3 80,16 100,10 160,10 190,6 210,14 230,10 300,10 320,2 335,17 350,8 365,12 380,10 460,10 480,5 500,15 520,10 680,10"
+      fill="none" stroke="#E8983B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+
+  <div class="mcs-grid">
+    <div class="mcs-card hero">
+      <div>
+        <div class="lbl"><i class="ti ti-chart-candle"></i>KOSPI 코스피</div>
+        <div class="val">7,648.09</div>
+      </div>
+      <div class="chg fall"><i class="ti ti-arrow-down-right"></i>&nbsp;655.32P · 7.89%</div>
+    </div>
+
+    <div class="mcs-card">
+      <div class="lbl"><i class="ti ti-building-factory-2"></i>삼성전자</div>
+      <div class="val">286,000원</div>
+      <div class="chg fall"><i class="ti ti-arrow-down-right"></i>9.06%</div>
+    </div>
+    <div class="mcs-card">
+      <div class="lbl"><i class="ti ti-cpu"></i>SK하이닉스</div>
+      <div class="val">2,187,000원</div>
+      <div class="chg fall"><i class="ti ti-arrow-down-right"></i>14.57%</div>
+    </div>
+    <div class="mcs-card">
+      <div class="lbl"><i class="ti ti-currency-dollar"></i>원/달러 환율</div>
+      <div class="val">1,550원대</div>
+      <div class="chg warn"><i class="ti ti-alert-triangle"></i>17년 3개월래 최고</div>
+    </div>
+    <div class="mcs-card">
+      <div class="lbl"><i class="ti ti-brand-meta"></i>필라델피아 반도체(SOX)</div>
+      <div class="val">13,353.28</div>
+      <div class="chg fall"><i class="ti ti-arrow-down-right"></i>6.27%(美 7/1)</div>
+    </div>
+  </div>
+
+  <div class="mcs-foot">
+    <span><b>자료</b> 한국거래소, 연합뉴스, 헤럴드경제, Bloomberg, Investing.com 종합</span>
+    <span>단위: 원, 지수포인트</span>
+  </div>
+</div>
+
+</body>
+</html>
