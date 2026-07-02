@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>삼성전자 vs SK하이닉스 2분기 실적 전망</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  .eow{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+    background:#F8FAFD;border:1px solid #E2E7F1;border-radius:20px;
+    padding:28px 24px 24px;max-width:760px;margin:32px auto;
+    box-shadow:0 1px 2px rgba(16,25,46,.04),0 12px 32px -18px rgba(16,25,46,.25);
+    box-sizing:border-box;
+  }
+  .eow *{box-sizing:border-box;}
+  .eo-eyebrow{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+    letter-spacing:.06em;color:#5A6785;text-transform:uppercase;margin-bottom:10px;}
+  .eo-eyebrow .dot{width:7px;height:16px;background:#E8983B;border-radius:1px;}
+  .eo-title{font-size:22px;font-weight:800;color:#0F1A2E;margin:0 0 4px;}
+  .eo-sub{font-size:13.5px;color:#66718C;margin:0 0 18px;line-height:1.6;}
+
+  /* export data banner */
+  .eo-banner{
+    background:#101A2E;border-radius:16px;padding:16px 18px;margin-bottom:18px;
+    display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
+  }
+  .eo-banner .l{display:flex;align-items:center;gap:10px;}
+  .eo-banner .l i{font-size:22px;color:#E8983B;}
+  .eo-banner .l .t1{font-size:11.5px;font-weight:700;color:#93A6CC;letter-spacing:.03em;}
+  .eo-banner .l .t2{font-size:15.5px;font-weight:800;color:#fff;}
+  .eo-banner .r{display:flex;gap:18px;}
+  .eo-banner .r .num{text-align:right;}
+  .eo-banner .r .num .v{font-family:'Roboto Mono',monospace;font-size:18px;font-weight:800;color:#fff;}
+  .eo-banner .r .num .k{font-size:10.5px;color:#8FA0C4;margin-top:2px;}
+
+  .eo-ddr{display:flex;align-items:flex-end;gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid #24314D;}
+  .eo-ddr .bar{flex:1;text-align:center;}
+  .eo-ddr .bar .b{background:#E8983B;border-radius:3px 3px 0 0;margin:0 auto 4px;width:60%;}
+  .eo-ddr .bar .p{font-size:10px;color:#93A6CC;font-family:'Roboto Mono',monospace;}
+  .eo-ddr .bar .m{font-size:9.5px;color:#5A7099;margin-top:2px;}
+
+  .eo-cols{display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:600px){ .eo-cols{grid-template-columns:1fr 1fr;} }
+
+  .eo-card{background:#fff;border:1px solid #E7EBF3;border-radius:16px;padding:18px;}
+  .eo-card .hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #EEF1F7;}
+  .eo-card .hd .logo{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;}
+  .eo-card.sec .logo{background:#1F3A63;}
+  .eo-card.hnx .logo{background:#D7372C;}
+  .eo-card .hd .name{font-size:16.5px;font-weight:800;color:#0F1A2E;}
+  .eo-card .hd .date{font-size:11.5px;color:#8892AC;font-weight:600;}
+
+  .eo-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed #EEF1F7;gap:10px;}
+  .eo-row:last-of-type{border-bottom:none;}
+  .eo-row .k{font-size:12.5px;color:#66718C;font-weight:600;flex-shrink:0;}
+  .eo-row .v{font-size:13px;color:#1E2740;font-weight:700;text-align:right;font-family:'Roboto Mono',monospace;}
+
+  .eo-tag{margin-top:12px;background:#F5F7FB;border-radius:10px;padding:10px 12px;}
+  .eo-tag .t{font-size:11px;font-weight:700;color:#8892AC;margin-bottom:5px;}
+  .eo-tag ul{margin:0;padding-left:16px;}
+  .eo-tag li{font-size:12px;color:#4A5674;line-height:1.6;}
+
+  .eo-note{margin-top:16px;padding-top:14px;border-top:1px dashed #D9E0EC;
+    font-size:11.3px;color:#98A2BC;line-height:1.65;}
+</style>
+</head>
+<body>
+
+<div class="eow">
+  <div class="eo-eyebrow"><span class="dot"></span>EARNINGS OUTLOOK · 실적으로 확인하기</div>
+  <p class="eo-title">주가는 급락했는데, 진짜 펀더멘털은 어떨까</p>
+  <p class="eo-sub">주가 변동과 별개로, 실물 수출 데이터와 2분기 실적 전망을 함께 봤습니다.</p>
+
+  <div class="eo-banner">
+    <div class="l">
+      <i class="ti ti-ship"></i>
+      <div><div class="t1">관세청 · 산업통상부 2026년 6월 수출입 잠정치</div><div class="t2">반도체 수출, 월 400억 달러 최초 돌파</div></div>
+    </div>
+    <div class="r">
+      <div class="num"><div class="v">448.2억$</div><div class="k">6월 반도체 수출(+199.5%)</div></div>
+      <div class="num"><div class="v">15개월</div><div class="k">연속 월간 최대 기록</div></div>
+    </div>
+    <div style="width:100%">
+      <div class="eo-ddr">
+        <div class="bar"><div class="b" style="height:24px;"></div><div class="p">$31.0</div><div class="m">3월</div></div>
+        <div class="bar"><div class="b" style="height:29px;"></div><div class="p">$35.3</div><div class="m">4월</div></div>
+        <div class="bar"><div class="b" style="height:33px;"></div><div class="p">$37.5</div><div class="m">5월</div></div>
+        <div class="bar"><div class="b" style="height:38px;"></div><div class="p">$40.0</div><div class="m">6월</div></div>
+      </div>
+      <div style="font-size:10px;color:#5A7099;margin-top:6px;text-align:center;">DDR5 16Gb 고정거래가격 추이(달러)</div>
+    </div>
+  </div>
+
+  <div class="eo-cols">
+    <div class="eo-card sec">
+      <div class="hd">
+        <div class="logo">SEC</div>
+        <div><div class="name">삼성전자</div><div class="date">2분기 잠정실적 7.7 발표 예정</div></div>
+      </div>
+      <div class="eo-row"><span class="k">2분기 영업이익 사전전망</span><span class="v">약 90조원대 거론</span></div>
+      <div class="eo-row"><span class="k">목표주가 상향 사례</span><span class="v">다올 58.5만·노무라 67만원</span></div>
+      <div class="eo-row"><span class="k">3분기 컨센서스(사전)</span><span class="v">영업이익 110조원대</span></div>
+      <div class="eo-tag">
+        <div class="t">체크포인트</div>
+        <ul>
+          <li>HBM4·eSSD 점유율 확대 속도</li>
+          <li>성과급 충당금 반영 시점·규모</li>
+          <li>중국 메모리 업체 추격 여부</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="eo-card hnx">
+      <div class="hd">
+        <div class="logo">SKH</div>
+        <div><div class="name">SK하이닉스</div><div class="date">2분기 확정실적 7월말 발표 예정</div></div>
+      </div>
+      <div class="eo-row"><span class="k">1분기 영업이익(확정)</span><span class="v">37.61조원(+405%)</span></div>
+      <div class="eo-row"><span class="k">1분기 영업이익률</span><span class="v">72%</span></div>
+      <div class="eo-row"><span class="k">2분기 컨센서스(사전)</span><span class="v">영업이익 62~68조원</span></div>
+      <div class="eo-row"><span class="k">애널리스트 평균 목표주가</span><span class="v">약 310만원(최고 470만원)</span></div>
+      <div class="eo-tag">
+        <div class="t">체크포인트</div>
+        <ul>
+          <li>7.10 나스닥 ADR 상장 여부·흥행</li>
+          <li>글로벌 HBM 시장점유율(약 58%) 방어</li>
+          <li>ADR 락업 해제(8월 이후) 수급 변수</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="eo-note">
+    ⚠️ 참고로 6.25 미국 캘리포니아 北지방법원에는 삼성전자·SK하이닉스·마이크론을 상대로 범용 D램 공급 제한·가격담합 의혹 집단소송이 제기됐습니다(Garciaguirre v. Samsung Electronics). 아직 법원 판단이 나오지 않은 주장 단계이며 마이크론 등은 혐의를 부인하고 있습니다.<br><br>
+    실적 전망치는 2026년 6월 기준 국내 증권사 리포트(하나증권·KB증권·다올투자증권·노무라 등)를 종합한 사전 컨센서스이며, 7월 실제 발표치와 다를 수 있습니다. 목표주가는 투자 권유가 아닌 참고용 정보이며, 투자 판단과 책임은 투자자 본인에게 있습니다.
+  </div>
+</div>
+
+</body>
+</html>
