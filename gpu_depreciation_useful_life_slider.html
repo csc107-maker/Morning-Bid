@@ -1,0 +1,115 @@
+<h2 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">감가상각 내용연수를 조절하며 장부상 비용과 마이클 버리가 주장하는 실제 비용의 차이를 확인하는 슬라이더</h2>
+
+<div style="display:flex;align-items:center;gap:12px;margin:0 0 1.25rem;">
+  <label for="years" style="font-size:14px;color:var(--text-secondary);white-space:nowrap;">메타가 정한 사용연수</label>
+  <input type="range" id="years" min="2" max="6" step="0.5" value="5.5" style="flex:1;" />
+  <span id="years-out" style="font-size:14px;font-weight:500;min-width:44px;text-align:right;">5.5년</span>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem;">
+  <div style="background:var(--surface-1);border-radius:var(--radius);padding:1rem;">
+    <p style="font-size:13px;color:var(--text-secondary);margin:0 0 4px;">장부에 찍히는 연간비용</p>
+    <p id="book-cost" style="font-size:24px;font-weight:500;margin:0;color:var(--text-accent);">18</p>
+  </div>
+  <div style="background:var(--surface-1);border-radius:var(--radius);padding:1rem;">
+    <p style="font-size:13px;color:var(--text-secondary);margin:0 0 4px;">버리가 보는 진짜비용</p>
+    <p style="font-size:24px;font-weight:500;margin:0;color:var(--text-warning);">40</p>
+  </div>
+</div>
+
+<div style="margin-bottom:8px;">
+  <p style="font-size:12px;color:var(--text-muted);margin:0 0 6px;">비용 막대 비교 · 장비 구매가를 100으로 뒀을 때</p>
+  <div style="position:relative;height:28px;background:var(--surface-1);border-radius:var(--radius);overflow:hidden;">
+    <div id="book-bar" style="position:absolute;left:0;top:0;bottom:0;width:36%;background:var(--fill-accent);transition:width 0.25s ease;"></div>
+    <div style="position:absolute;left:80%;top:0;bottom:0;width:2px;background:var(--fill-warning);"></div>
+  </div>
+  <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px;">
+    <span>0</span>
+    <span>버리 기준선(2.5년)</span>
+    <span>50</span>
+  </div>
+</div>
+
+<p id="gap-text" style="font-size:14px;color:var(--text-secondary);margin:1rem 0 1.5rem;line-height:1.7;">지금 가정대로면 버리 기준보다 <span id="gap-out" style="font-weight:500;color:var(--text-warning);">22</span> 만큼 비용을 적게 잡고 있어요.</p>
+
+<div style="margin-bottom:1.5rem;">
+  <p style="font-size:13px;color:var(--text-secondary);margin:0 0 8px;">엔비디아 GPU는 이 속도로 세대교체돼요</p>
+  <div style="display:flex;gap:8px;">
+    <div class="gpu-chip" style="flex:1;text-align:center;padding:10px 4px;border-radius:var(--radius);background:var(--surface-1);border:1px solid transparent;transition:background 0.3s ease,border-color 0.3s ease;">
+      <i class="ti ti-cpu" style="font-size:18px;" aria-hidden="true"></i>
+      <p style="font-size:12px;font-weight:500;margin:6px 0 0;">호퍼</p>
+      <p style="font-size:11px;color:var(--text-muted);margin:2px 0 0;">2023</p>
+    </div>
+    <div class="gpu-chip" style="flex:1;text-align:center;padding:10px 4px;border-radius:var(--radius);background:var(--surface-1);border:1px solid transparent;transition:background 0.3s ease,border-color 0.3s ease;">
+      <i class="ti ti-cpu" style="font-size:18px;" aria-hidden="true"></i>
+      <p style="font-size:12px;font-weight:500;margin:6px 0 0;">블랙웰</p>
+      <p style="font-size:11px;color:var(--text-muted);margin:2px 0 0;">2024</p>
+    </div>
+    <div class="gpu-chip" style="flex:1;text-align:center;padding:10px 4px;border-radius:var(--radius);background:var(--surface-1);border:1px solid transparent;transition:background 0.3s ease,border-color 0.3s ease;">
+      <i class="ti ti-cpu" style="font-size:18px;" aria-hidden="true"></i>
+      <p style="font-size:12px;font-weight:500;margin:6px 0 0;">루빈</p>
+      <p style="font-size:11px;color:var(--text-muted);margin:2px 0 0;">2025</p>
+    </div>
+    <div class="gpu-chip" style="flex:1;text-align:center;padding:10px 4px;border-radius:var(--radius);background:var(--surface-1);border:1px solid transparent;transition:background 0.3s ease,border-color 0.3s ease;">
+      <i class="ti ti-cpu" style="font-size:18px;" aria-hidden="true"></i>
+      <p style="font-size:12px;font-weight:500;margin:6px 0 0;">루빈 울트라</p>
+      <p style="font-size:11px;color:var(--text-muted);margin:2px 0 0;">2026</p>
+    </div>
+  </div>
+</div>
+
+<div>
+  <p style="font-size:13px;color:var(--text-secondary);margin:0 0 8px;">4개 빅테크의 실제 내용연수 가정</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <span style="font-size:12px;padding:6px 10px;border-radius:var(--radius);background:var(--bg-accent);color:var(--text-accent);">메타 5.5년</span>
+    <span style="font-size:12px;padding:6px 10px;border-radius:var(--radius);background:var(--surface-1);color:var(--text-secondary);">마이크로소프트 6년</span>
+    <span style="font-size:12px;padding:6px 10px;border-radius:var(--radius);background:var(--surface-1);color:var(--text-secondary);">알파벳 6년</span>
+    <span style="font-size:12px;padding:6px 10px;border-radius:var(--radius);background:var(--bg-warning);color:var(--text-warning);">아마존 5년 · 유일하게 단축</span>
+  </div>
+</div>
+
+<button onclick="sendPrompt('마이클 버리가 어떻게 1760억 달러라는 수치를 계산했는지, 그리고 엔비디아의 반박 논리를 더 자세히 설명해줘')" style="margin-top:1.25rem;">버리의 $176B 계산 근거 더 보기 ↗</button>
+
+<script>
+(function(){
+  var slider = document.getElementById('years');
+  var yearsOut = document.getElementById('years-out');
+  var bookCostOut = document.getElementById('book-cost');
+  var bookBar = document.getElementById('book-bar');
+  var gapText = document.getElementById('gap-text');
+  var BASE = 100, BURRY_YEARS = 2.5, MAXCOST = BASE / 2;
+  var burryCost = Math.round(BASE / BURRY_YEARS);
+
+  function update(){
+    var years = parseFloat(slider.value);
+    yearsOut.textContent = years.toFixed(1) + '년';
+    var bookCost = Math.round(BASE / years);
+    bookCostOut.textContent = bookCost;
+    var pct = Math.min(100, Math.round((bookCost / MAXCOST) * 100));
+    bookBar.style.width = pct + '%';
+    var gap = burryCost - bookCost;
+    if (gap > 0) {
+      gapText.innerHTML = '지금 가정대로면 버리 기준보다 <span style="font-weight:500;color:var(--text-warning);">' + gap + '</span> 만큼 비용을 적게 잡고 있어요.';
+    } else {
+      gapText.innerHTML = '이 구간에서는 버리가 우려하는 수준보다 오히려 보수적으로 비용을 잡고 있어요.';
+    }
+  }
+  slider.addEventListener('input', update);
+  update();
+
+  var chips = document.querySelectorAll('.gpu-chip');
+  var idx = 0;
+  function cycle(){
+    chips.forEach(function(c){
+      c.style.background = 'var(--surface-1)';
+      c.style.borderColor = 'transparent';
+    });
+    var active = chips[idx];
+    active.style.background = 'var(--bg-accent)';
+    active.style.borderColor = 'var(--border-accent)';
+    idx = (idx + 1) % chips.length;
+  }
+  cycle();
+  setInterval(cycle, 1400);
+})();
+</script>
