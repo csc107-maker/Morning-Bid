@@ -1,0 +1,150 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<style>
+  .cmp-wrap {
+    max-width: 680px;
+    margin: 32px auto;
+    background: #FBF7EE;
+    border: 1px solid #E4D9C4;
+    border-radius: 18px;
+    padding: 32px 28px 28px;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    color: #232B3A;
+    box-sizing: border-box;
+  }
+  .cmp-wrap * { box-sizing: border-box; }
+  .cmp-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #B9762A;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cmp-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 800;
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 0 0 20px;
+  }
+  .cmp-table-scroll { overflow-x: auto; border-radius: 12px; border: 1px solid #E4D9C4; }
+  table.cmp-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFDF8;
+    font-size: 13.5px;
+    min-width: 460px;
+  }
+  table.cmp-table th, table.cmp-table td {
+    padding: 13px 14px;
+    text-align: left;
+    border-bottom: 1px solid #EFE8D8;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  table.cmp-table th {
+    font-weight: 700;
+    font-family: 'Noto Serif KR', serif;
+  }
+  table.cmp-table thead th {
+    background: #232B3A;
+    color: #FBF7EE;
+    font-size: 13px;
+  }
+  table.cmp-table thead th:first-child { border-top-left-radius: 12px; }
+  table.cmp-table thead th:last-child { border-top-right-radius: 12px; }
+  table.cmp-table tbody th {
+    background: #F3ECDC;
+    color: #6B5B33;
+    width: 96px;
+    font-size: 12.5px;
+  }
+  table.cmp-table tbody tr:last-child td,
+  table.cmp-table tbody tr:last-child th { border-bottom: none; }
+  td.cmp-lease { color: #4B5160; }
+  td.cmp-superficies { color: #2F4A32; background: #F4F7F0; font-weight: 500; }
+  .cmp-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 4px;
+  }
+  .cmp-tag.weak { background: #F6E4D3; color: #B9762A; }
+  .cmp-tag.strong { background: #E1EBDF; color: #3F5D42; }
+  .cmp-callout {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: #F4F7F0;
+    border: 1px solid #DCE7D8;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #33472F;
+  }
+  .cmp-callout i { color: #4B6B4F; font-size: 17px; margin-top: 1px; flex-shrink: 0; }
+  @media (max-width: 480px) {
+    .cmp-wrap { padding: 24px 16px 20px; margin: 20px auto; border-radius: 14px; }
+    .cmp-title { font-size: 18px; }
+  }
+</style>
+
+<div class="cmp-wrap">
+  <p class="cmp-eyebrow"><i class="ti ti-scale"></i> Lease vs Superficies</p>
+  <h3 class="cmp-title">임대차 vs 지상권, 무엇이 다를까?</h3>
+
+  <div class="cmp-table-scroll">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>순수 임대차 (채권)</th>
+          <th>지상권 설정 (물권)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>법적 성격</th>
+          <td class="cmp-lease">계약 당사자 사이의 채권적 권리</td>
+          <td class="cmp-superficies">토지 자체에 붙는 물권적 권리</td>
+        </tr>
+        <tr>
+          <th>등기</th>
+          <td class="cmp-lease">등기 없이 계약서만으로도 성립</td>
+          <td class="cmp-superficies">등기가 되어야 효력 발생</td>
+        </tr>
+        <tr>
+          <th>매매 시 대항력</th>
+          <td class="cmp-lease"><span class="cmp-tag weak">보호 약함</span><br>등기가 없으면 새 매수인에게 주장하기 어려울 수 있음</td>
+          <td class="cmp-superficies"><span class="cmp-tag strong">보호 강함</span><br>토지가 팔려도 새 소유자에게 그대로 주장 가능</td>
+        </tr>
+        <tr>
+          <th>실무 활용</th>
+          <td class="cmp-lease">소규모 태양광 사업에서 주로 사용</td>
+          <td class="cmp-superficies">대형 사업 · 금융기관 대출 연계 시 표준적으로 요구</td>
+        </tr>
+        <tr>
+          <th>상속 승계</th>
+          <td class="cmp-lease">가능 (임대인 지위 그대로 승계)</td>
+          <td class="cmp-superficies">가능 (물권이라 더 확실히 보호)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cmp-callout">
+    <i class="ti ti-info-circle"></i>
+    <span><strong>임대인 사망으로 인한 상속</strong> 자체는 임대차든 지상권이든 계약 형태와 무관하게 이루어집니다. 등기 여부가 중요해지는 시점은 <strong>훗날 토지를 매매하거나 담보로 제공할 때</strong>입니다.</span>
+  </div>
+</div>
