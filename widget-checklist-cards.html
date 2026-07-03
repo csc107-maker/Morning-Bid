@@ -1,0 +1,154 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<style>
+  .chk-wrap {
+    max-width: 680px;
+    margin: 32px auto;
+    background: #FBF7EE;
+    border: 1px solid #E4D9C4;
+    border-radius: 18px;
+    padding: 34px 28px 28px;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    color: #232B3A;
+    box-sizing: border-box;
+  }
+  .chk-wrap * { box-sizing: border-box; }
+  .chk-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #B9762A;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+  }
+  .chk-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 800;
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 0 0 22px;
+  }
+  .chk-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .chk-card {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #FFFDF8;
+    border: 1px solid #EFE8D8;
+    border-radius: 14px;
+    padding: 16px 16px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .chk-card:hover {
+    border-color: #D68A2E;
+    transform: translateY(-1px);
+  }
+  .chk-num {
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #232B3A;
+    color: #F6E4D3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 800;
+    font-size: 14px;
+  }
+  .chk-icon {
+    flex: 0 0 22px;
+    color: #B9762A;
+    font-size: 19px;
+    margin-top: 6px;
+    text-align: center;
+  }
+  .chk-body { flex: 1; }
+  .chk-item-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    margin: 2px 0 4px;
+    color: #232B3A;
+  }
+  .chk-item-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #4B5160;
+    margin: 0;
+  }
+  .chk-footer {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    font-size: 12.5px;
+    color: #8B8378;
+  }
+  @media (max-width: 480px) {
+    .chk-wrap { padding: 24px 16px 22px; margin: 20px auto; border-radius: 14px; }
+    .chk-title { font-size: 18px; }
+    .chk-card { padding: 14px 12px; gap: 10px; }
+  }
+</style>
+
+<div class="chk-wrap">
+  <p class="chk-eyebrow">Pre-Sign Checklist</p>
+  <h3 class="chk-title">서명 전 확인할 5가지</h3>
+
+  <div class="chk-list">
+    <div class="chk-card">
+      <div class="chk-num">1</div>
+      <div class="chk-icon"><i class="ti ti-file-certificate"></i></div>
+      <div class="chk-body">
+        <p class="chk-item-title">계약 형태 · 등기 여부</p>
+        <p class="chk-item-desc">순수 임대차인지 지상권 설정인지, 등기가 되는지 확인하세요.</p>
+      </div>
+    </div>
+    <div class="chk-card">
+      <div class="chk-num">2</div>
+      <div class="chk-icon"><i class="ti ti-trending-up"></i></div>
+      <div class="chk-body">
+        <p class="chk-item-title">임대료 인상 조항</p>
+        <p class="chk-item-desc">고정 임대료라면 5~10년마다 재조정하는 조항이 있는지 확인하세요.</p>
+      </div>
+    </div>
+    <div class="chk-card">
+      <div class="chk-num">3</div>
+      <div class="chk-icon"><i class="ti ti-tool"></i></div>
+      <div class="chk-body">
+        <p class="chk-item-title">원상복구 의무 · 비용 주체</p>
+        <p class="chk-item-desc">계약 종료 후 철거 비용을 누가 부담하는지, 예치금이 있는지 확인하세요.</p>
+      </div>
+    </div>
+    <div class="chk-card">
+      <div class="chk-num">4</div>
+      <div class="chk-icon"><i class="ti ti-shield-check"></i></div>
+      <div class="chk-body">
+        <p class="chk-item-title">사망 시 승계 조항 명시</p>
+        <p class="chk-item-desc">"임대인 사망 시 상속인이 승계한다"는 문구를 넣어두면 분쟁을 줄일 수 있습니다.</p>
+      </div>
+    </div>
+    <div class="chk-card">
+      <div class="chk-num">5</div>
+      <div class="chk-icon"><i class="ti ti-receipt-2"></i></div>
+      <div class="chk-body">
+        <p class="chk-item-title">보유세(종합부동산세) 부담</p>
+        <p class="chk-item-desc">세제 혜택 대상에서 제외될 수 있어, 상속 후 보유세 부담도 가늠해보세요.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chk-footer">
+    <i class="ti ti-scale"></i>
+    <span>최종 서명 전에는 변호사 · 법무사 검토를 권합니다</span>
+  </div>
+</div>
