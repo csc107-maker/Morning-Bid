@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>글로벌 증시 마감 요약 - 2026년 7월 첫째주</title>
+
+<meta property="og:title" content="글로벌 증시 마감 요약 - 다우 신고가, 코스피 5.76% 반등" />
+<meta property="og:description" content="2026년 7월 첫째주 미국·한국 증시 마감 핵심 지표를 한눈에 정리했습니다." />
+<meta property="og:image" content="여기에 썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="여기에 블로그 게시글 URL을 입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#F5F7FB;
+    font-family:'Noto Sans KR', sans-serif;
+    color:#111827;
+    padding:28px 20px 32px;
+  }
+  .wrap{max-width:920px;margin:0 auto;}
+  .head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:18px;
+    padding-bottom:16px;
+    border-bottom:2px solid #111827;
+  }
+  .head h1{
+    font-size:21px;
+    font-weight:900;
+    margin:0 0 4px;
+    letter-spacing:-0.3px;
+  }
+  .head p{
+    margin:0;
+    font-size:13px;
+    color:#667085;
+    font-weight:500;
+  }
+  .badge-date{
+    background:#111827;
+    color:#fff;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    font-weight:600;
+    padding:6px 12px;
+    border-radius:100px;
+    white-space:nowrap;
+  }
+  .notice{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#FBF3DF;
+    border:1px solid #EBD9A8;
+    color:#8A6512;
+    font-size:12.5px;
+    font-weight:600;
+    padding:10px 14px;
+    border-radius:10px;
+    margin-bottom:22px;
+  }
+  .notice i{font-size:16px;flex-shrink:0;}
+  .section-label{
+    font-size:12.5px;
+    font-weight:700;
+    color:#667085;
+    text-transform:uppercase;
+    letter-spacing:0.6px;
+    margin:26px 0 10px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .section-label i{color:#B8860B;font-size:15px;}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:12px;
+  }
+  @media (max-width:720px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:480px){
+    .grid{grid-template-columns:1fr;}
+  }
+  .card{
+    background:#FFFFFF;
+    border:1px solid #E4E8EF;
+    border-radius:14px;
+    padding:16px 16px 14px;
+    position:relative;
+    overflow:hidden;
+  }
+  .card::before{
+    content:'';
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:4px;
+  }
+  .card.up::before{background:#E0294A;}
+  .card.down::before{background:#2461E0;}
+  .card.flat::before{background:#667085;}
+  .card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:10px;
+  }
+  .card-name{
+    font-size:13px;
+    font-weight:700;
+    color:#111827;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .card-name i{font-size:15px;color:#667085;}
+  .tag{
+    font-size:10.5px;
+    font-weight:700;
+    padding:2px 7px;
+    border-radius:5px;
+  }
+  .tag.up{background:#FDEBEE;color:#E0294A;}
+  .tag.down{background:#EAF0FD;color:#2461E0;}
+  .tag.flat{background:#F1F2F4;color:#667085;}
+  .card-price{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:23px;
+    font-weight:700;
+    letter-spacing:-0.5px;
+    margin-bottom:4px;
+  }
+  .card-change{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:4px;
+  }
+  .card-change.up{color:#E0294A;}
+  .card-change.down{color:#2461E0;}
+  .card-change.flat{color:#667085;}
+  .card-note{
+    margin-top:8px;
+    font-size:11.5px;
+    color:#667085;
+    line-height:1.4;
+    border-top:1px dashed #E4E8EF;
+    padding-top:8px;
+  }
+  .foot{
+    margin-top:24px;
+    padding-top:16px;
+    border-top:1px solid #E4E8EF;
+    font-size:11.5px;
+    color:#667085;
+    text-align:center;
+    line-height:1.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div>
+      <h1>🌐 글로벌 증시 마감 요약</h1>
+      <p>미국 마지막 거래일(목) &amp; 한국 최종 거래일(금) 핵심 지표</p>
+    </div>
+    <div class="badge-date">2026.07.02 (목) · 07.03 (금)</div>
+  </div>
+
+  <div class="notice">
+    <i class="ti ti-alert-triangle"></i>
+    미국 증시는 독립기념일 대체휴일로 7/3(금) 휴장 → 마지막 거래일은 7/2(목), 한국시간 7/6(월) 밤 재개장
+  </div>
+
+  <div class="section-label"><i class="ti ti-flag-usa"></i> 미국 (7월 2일 목요일 마감 · 사상 최고가 vs 반도체 약세)</div>
+  <div class="grid">
+
+    <div class="card up">
+      <div class="card-top">
+        <div class="card-name"><i class="ti ti-building-skyscraper"></i>다우존스</div>
+        <div class="tag up">사상최고</div>
+      </div>
+      <div class="card-price">52,900.07</div>
+      <div class="card-change up"><i class="ti ti-arrow-up-right"></i>+594.83 (+1.14%)</div>
+      <div class="card-note">6월 고용 서프라이즈 부진 → 금리 인상 우려 완화, 금융·전통주 강세</div>
+    </div>
+
+    <div class="card flat">
+      <div class="card-top">
+        <div class="card-name"><i class="ti ti-chart-line"></i>S&amp;P500</div>
+        <div class="tag flat">보합</div>
+      </div>
+      <div class="card-price">7,483.24</div>
+      <div class="card-change flat"><i class="ti ti-minus"></i>+0.9pt (~0.0%)</div>
+      <div class="card-note">전통 섹터 강세와 기술주 약세가 상쇄되며 거의 변동 없이 마감</div>
+    </div>
+
+    <div class="card down">
+      <div class="card-top">
+        <div class="card-name"><i class="ti ti-cpu"></i>나스닥종합</div>
+        <div class="tag down">반도체 약세</div>
+      </div>
+      <div class="card-price">25,832.67</div>
+      <div class="card-change down"><i class="ti ti-arrow-down-right"></i>-0.80%</div>
+      <div class="card-note">마이크론·AMAT·AMD·KLA 등 반도체 이틀 연속 5~14% 하락</div>
+    </div>
+
+  </div>
+
+  <div class="section-label"><i class="ti ti-flag"></i> 한국 (7월 3일 금요일 마감 · 급락 다음날 급반등)</div>
+  <div class="grid">
+
+    <div class="card up">
+      <div class="card-top">
+        <div class="card-name"><i class="ti ti-building-bank"></i>코스피</div>
+        <div class="tag up">매수 사이드카</div>
+      </div>
+      <div class="card-price">8,088.34</div>
+      <div class="card-change up"><i class="ti ti-arrow-up-right"></i>+440.25 (+5.76%)</div>
+      <div class="card-note">기관 4.46조원 순매수 주도, 삼성전자 +8.22% · SK하이닉스 +10.88%</div>
+    </div>
+
+    <div class="card up">
+      <div class="card-top">
+        <div class="card-name"><i class="ti ti-building-store"></i>코스닥</div>
+        <div class="tag up">강보합</div>
+      </div>
+      <div class="card-price">868.41</div>
+      <div class="card-change up"><i class="ti ti-arrow-up-right"></i>+1.69 (+0.19%)</div>
+      <div class="card-note">개인 순매수, 업종별 등락 혼조 속 소폭 강세로 마감</div>
+    </div>
+
+    <div class="card down">
+      <div class="card-top">
+        <div class="card-name"><i class="ti ti-currency-dollar"></i>원/달러 환율</div>
+        <div class="tag down">원화 강세</div>
+      </div>
+      <div class="card-price">1,525.60</div>
+      <div class="card-change down"><i class="ti ti-arrow-down-right"></i>-30.20원</div>
+      <div class="card-note">증시 급반등에 위험자산 선호 회복, 역외 달러 숏 커버링 유입</div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    자료: CNBC · Reuters · Investing.com · 한국거래소(KRX) 공시 종합 · 투자 참고용 정보이며 투자 권유가 아닙니다.
+  </div>
+
+</div>
+</body>
+</html>
