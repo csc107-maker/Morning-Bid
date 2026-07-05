@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>다음주 실적발표 & 주요 이벤트 캘린더 (7월 6일~10일)</title>
+
+<meta property="og:title" content="다음주 실적발표 캘린더 - 삼성전자, LG전자, SK하이닉스 나스닥 상장" />
+<meta property="og:description" content="2026년 7월 6일~10일, 코스피 방향성을 좌우할 삼성전자 잠정실적과 SK하이닉스 나스닥 상장 일정 정리." />
+<meta property="og:image" content="여기에 썸네일 이미지 URL을 입력하세요" />
+<meta property="og:url" content="여기에 블로그 게시글 URL을 입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#F5F7FB;
+    font-family:'Noto Sans KR', sans-serif;
+    color:#111827;
+    padding:28px 20px 32px;
+  }
+  .wrap{max-width:900px;margin:0 auto;}
+  .head h1{font-size:21px;font-weight:900;margin:0 0 4px;letter-spacing:-0.3px;}
+  .head p{margin:0 0 20px;font-size:13px;color:#667085;font-weight:500;}
+
+  .strip{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    margin-bottom:22px;
+  }
+  @media (max-width:760px){
+    .strip{grid-template-columns:1fr;}
+  }
+  .day{
+    background:#FFFFFF;
+    border:1px solid #E4E8EF;
+    border-radius:14px;
+    padding:14px 13px;
+    display:flex;
+    flex-direction:column;
+    min-height:190px;
+  }
+  .day.highlight{
+    background:#101B33;
+    border-color:#101B33;
+    color:#fff;
+  }
+  .d-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+  .d-dow{font-size:11.5px;font-weight:800;color:#667085;letter-spacing:0.4px;}
+  .day.highlight .d-dow{color:#B9C4DE;}
+  .d-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    background:#F1F2F4;
+    padding:2px 7px;
+    border-radius:100px;
+    color:#667085;
+  }
+  .day.highlight .d-date{background:rgba(255,255,255,0.14);color:#fff;}
+  .d-icon{
+    width:34px;height:34px;
+    border-radius:9px;
+    display:flex;align-items:center;justify-content:center;
+    background:#FBF3DF;
+    color:#B8860B;
+    font-size:18px;
+    margin-bottom:10px;
+  }
+  .day.highlight .d-icon{background:rgba(255,255,255,0.16);color:#F2C94C;}
+  .d-title{font-size:13.5px;font-weight:800;margin-bottom:6px;line-height:1.35;}
+  .d-desc{font-size:11.5px;color:#667085;line-height:1.5;flex-grow:1;}
+  .day.highlight .d-desc{color:#CBD5EA;}
+  .d-badge{
+    margin-top:8px;
+    font-size:10px;
+    font-weight:700;
+    display:inline-block;
+    padding:3px 8px;
+    border-radius:100px;
+    background:#FBF3DF;
+    color:#B8860B;
+    width:fit-content;
+  }
+  .day.highlight .d-badge{background:#F2C94C;color:#1A1500;}
+
+  .detail{
+    background:#FFFFFF;
+    border:1px solid #E4E8EF;
+    border-radius:14px;
+    padding:16px 18px;
+    margin-bottom:14px;
+  }
+  .detail-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .detail-head i{font-size:19px;color:#B8860B;}
+  .detail-head h3{font-size:14.5px;font-weight:800;margin:0;}
+  .detail p{font-size:12.5px;color:#667085;line-height:1.65;margin:0;}
+  .detail p b{color:#111827;}
+  .kpi-row{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+    flex-wrap:wrap;
+  }
+  .kpi{
+    background:#F8F9FB;
+    border:1px solid #E4E8EF;
+    border-radius:9px;
+    padding:8px 12px;
+    font-size:11px;
+    color:#667085;
+  }
+  .kpi b{display:block;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#111827;font-weight:700;margin-top:2px;}
+  .foot{
+    margin-top:20px;
+    padding-top:14px;
+    border-top:1px solid #E4E8EF;
+    font-size:11.5px;
+    color:#667085;
+    text-align:center;
+    line-height:1.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <h1>📅 다음주(7/6~7/10) 실적발표 &amp; 주요 이벤트</h1>
+    <p>코스피 방향성을 좌우할 5거래일 캘린더</p>
+  </div>
+
+  <div class="strip">
+
+    <div class="day">
+      <div class="d-top"><span class="d-dow">MON 월</span><span class="d-date">07.06</span></div>
+      <div class="d-icon"><i class="ti ti-building-factory-2"></i></div>
+      <div class="d-title">美 증시 재개장<br>LG전자 잠정실적</div>
+      <div class="d-desc">독립기념일 연휴 종료, 뉴욕증시 정상거래 재개. LG전자 2Q 잠정실적 발표 예상(초).</div>
+    </div>
+
+    <div class="day highlight">
+      <div class="d-top"><span class="d-dow">TUE 화</span><span class="d-date">07.07</span></div>
+      <div class="d-icon"><i class="ti ti-cpu"></i></div>
+      <div class="d-title">삼성전자<br>2Q 잠정실적</div>
+      <div class="d-desc">컨센서스 영업이익 약 85조원(YoY +1700%↑). DS부문 80조원↑, HBM4E 출하량 주목.</div>
+      <div class="d-badge">최대 관전포인트</div>
+    </div>
+
+    <div class="day">
+      <div class="d-top"><span class="d-dow">WED 수</span><span class="d-date">07.08</span></div>
+      <div class="d-icon"><i class="ti ti-file-text"></i></div>
+      <div class="d-title">美 FOMC<br>의사록 공개</div>
+      <div class="d-desc">케빈 워시 신임 의장 체제 첫 회의 세부 논의 내용. 금리 경로 힌트 확인.</div>
+    </div>
+
+    <div class="day">
+      <div class="d-top"><span class="d-dow">THU 목</span><span class="d-date">07.09</span></div>
+      <div class="d-icon"><i class="ti ti-chart-candle"></i></div>
+      <div class="d-title">개별 종목<br>실적 프리뷰 지속</div>
+      <div class="d-desc">대형 지표 이벤트는 적지만, 삼성전자 실적 여진과 개별 종목 뉴스에 변동성 지속 가능.</div>
+    </div>
+
+    <div class="day highlight">
+      <div class="d-top"><span class="d-dow">FRI 금</span><span class="d-date">07.10</span></div>
+      <div class="d-icon"><i class="ti ti-building-bank"></i></div>
+      <div class="d-title">SK하이닉스<br>나스닥 ADR 상장</div>
+      <div class="d-desc">최대 45조 4,534억원(294억달러) 조달. 사우디 아람코급 초대형 상장.</div>
+      <div class="d-badge">초대형 이벤트</div>
+    </div>
+
+  </div>
+
+  <div class="detail">
+    <div class="detail-head"><i class="ti ti-building-factory-2"></i><h3>삼성전자 2분기 잠정실적 (7/7 예상)</h3></div>
+    <p>에프앤가이드 컨센서스 기준 매출 <b>171~174조원</b>, 영업이익 <b>약 85조원</b> 안팎. 다만 특별성과급 충당금 10~20조원이 반영되며 상징적인 '분기 영업이익 100조원' 달성은 3분기로 넘어갈 가능성이 크다는 관측입니다.</p>
+    <div class="kpi-row">
+      <div class="kpi">전년 동기 대비 영업이익<b>+1,700%↑</b></div>
+      <div class="kpi">DS부문 단독<b>80조원↑</b></div>
+      <div class="kpi">1분기 대비<b>+47%↑</b></div>
+    </div>
+  </div>
+
+  <div class="detail">
+    <div class="detail-head"><i class="ti ti-rocket"></i><h3>SK하이닉스 나스닥 ADR 상장 (7/10 목표)</h3></div>
+    <p>6월 24일 이사회 결의로 신주 최대 1,779만주를 발행, 나스닥 글로벌셀렉트마켓에 상장. 뱅크오브아메리카·씨티그룹·골드만삭스·JP모건체이스가 공모 주도. 조달 자금은 용인 반도체 클러스터, 청주 첨단패키징(P&amp;T7) 공장, EUV 장비 확보에 전액 투입 예정입니다. <b>국내 투자자는 이번 공모에 참여할 수 없습니다.</b></p>
+    <div class="kpi-row">
+      <div class="kpi">최대 조달액<b>45.45조원</b></div>
+      <div class="kpi">달러 환산<b>약 294억$</b></div>
+      <div class="kpi">신주 발행<b>1,779만주</b></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    자료: 에프앤가이드 컨센서스 · 전자공시(DART) · 뉴시스 · 테크M · 중기이코노미 종합 · 투자 참고용 정보이며 투자 권유가 아닙니다.
+  </div>
+
+</div>
+</body>
+</html>
