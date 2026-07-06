@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>산업은행 한화오션 지분매각 현황 카드</title>
+
+<meta property="og:title" content="산업은행 한화오션 지분, 언제 다 팔릴까? 매각 현황 총정리" />
+<meta property="og:description" content="41.26%에서 15.25%까지, 산은 지분매각의 배경과 남은 시나리오를 정리했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/hanwha-ocean-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/hanwha-ocean-canada-submarine" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0B2545; --navy-soft:#3D5A80; --navy-dim:#7288a4;
+    --fog:#F7FAFD; --fog-alt:#EDF2F9; --line:#DCE5EF;
+    --amber:#C97A19; --amber-bg:#FCF0DD;
+    --rust:#B23A24; --rust-bg:#FBEAE6;
+    --teal:#12695E; --teal-bg:#E4F3F0;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:28px 14px; background:var(--fog);
+    font-family:'IBM Plex Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    color:var(--navy);
+  }
+  .card{
+    max-width:700px; margin:0 auto; background:var(--white);
+    border:1px solid var(--line); border-radius:20px;
+    box-shadow:0 1px 2px rgba(11,37,69,0.04), 0 12px 32px rgba(11,37,69,0.07);
+    padding:28px 26px 24px;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12.5px; font-weight:700; color:var(--navy-soft);
+    background:var(--fog-alt); border:1px solid var(--line);
+    padding:5px 11px; border-radius:999px;
+  }
+  h1{ font-size:21px; margin:12px 0 4px; font-weight:700; letter-spacing:-0.01em;}
+  .sub{ font-size:13.5px; color:var(--navy-soft); margin:0 0 20px; line-height:1.6; }
+
+  h3.section{ font-size:13.5px; margin:26px 0 12px; color:var(--navy); display:flex; align-items:center; gap:6px;}
+
+  /* 지분율 추이 바 */
+  .stake-row{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+  .stake-label{ width:150px; flex:none; font-size:12px; color:var(--navy-soft); line-height:1.4; }
+  .stake-track{ flex:1; height:16px; background:var(--fog-alt); border-radius:8px; overflow:hidden; }
+  .stake-fill{ height:100%; border-radius:8px; }
+  .stake-val{ width:56px; flex:none; text-align:right; font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px; }
+
+  /* 통계 그리드 */
+  .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:4px; }
+  .stat-box{ background:var(--fog-alt); border:1px solid var(--line); border-radius:12px; padding:14px 15px; }
+  .stat-box .k{ font-size:11.5px; color:var(--navy-dim); font-weight:600; }
+  .stat-box .v{ font-size:17px; font-weight:700; margin-top:3px; font-family:'IBM Plex Mono',monospace;}
+  .stat-box .d{ font-size:11px; color:var(--navy-dim); margin-top:3px; line-height:1.5;}
+
+  /* 이유 리스트 */
+  .reason{ display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); }
+  .reason:last-child{ border-bottom:none; }
+  .reason .ic{
+    width:34px; height:34px; border-radius:10px; background:var(--teal-bg); color:var(--teal);
+    display:flex; align-items:center; justify-content:center; flex:none; font-size:17px;
+  }
+  .reason h5{ margin:0 0 3px; font-size:13.5px; }
+  .reason p{ margin:0; font-size:12.5px; color:var(--navy-soft); line-height:1.6; }
+
+  .callout{
+    margin-top:20px; background:var(--amber-bg); border:1px solid #ecd2a8; border-radius:14px;
+    padding:16px 18px;
+  }
+  .callout h5{ margin:0 0 6px; font-size:13.5px; color:#8a5511; display:flex; align-items:center; gap:6px;}
+  .callout p{ margin:0; font-size:12.5px; color:#7a5024; line-height:1.65; }
+
+  .foot{
+    margin:20px -26px -24px; padding:14px 26px 18px; font-size:11.5px; color:var(--navy-dim);
+    line-height:1.7; border-top:1px solid var(--line); background:var(--fog-alt);
+    border-radius:0 0 20px 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="eyebrow"><i class="ti ti-building-bank"></i>&nbsp;산업은행 지분매각 트래커</span>
+    <h1>산업은행 한화오션 지분, 언제 다 팔릴까?</h1>
+    <p class="sub">25년 만에 시작된 공적자금 회수. 지금까지의 매각 내역과 남은 시나리오를 정리했습니다.</p>
+
+    <h3 class="section"><i class="ti ti-chart-arrows-vertical"></i>&nbsp;지분율 추이</h3>
+    <div class="stake-row">
+      <span class="stake-label">2000년 출자전환 직후</span>
+      <div class="stake-track"><div class="stake-fill" style="width:100%; background:var(--navy);"></div></div>
+      <span class="stake-val">41.26%</span>
+    </div>
+    <div class="stake-row">
+      <span class="stake-label">2023년 한화 경영권 인수 후</span>
+      <div class="stake-track"><div class="stake-fill" style="width:47%; background:var(--navy-soft);"></div></div>
+      <span class="stake-val">19.5%</span>
+    </div>
+    <div class="stake-row">
+      <span class="stake-label">2025.04 블록딜 이후 (현재)</span>
+      <div class="stake-track"><div class="stake-fill" style="width:37%; background:var(--amber);"></div></div>
+      <span class="stake-val">15.25%</span>
+    </div>
+    <div class="stake-row">
+      <span class="stake-label">최종 목표 (공식 방침)</span>
+      <div class="stake-track"><div class="stake-fill" style="width:2%; background:var(--rust);"></div></div>
+      <span class="stake-val">0%</span>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="k">1차 매각 규모</div>
+        <div class="v">1조 615억 원</div>
+        <div class="d">2025.04.28 블록딜 · 1,300만 주(4.3%) · 주당 81,650원</div>
+      </div>
+      <div class="stat-box">
+        <div class="k">현재 보유 주식수</div>
+        <div class="v">4,673만 8,211주</div>
+        <div class="d">지분율 15.25% · 단일 주주 기준 2대 주주 지위 유지</div>
+      </div>
+    </div>
+
+    <h3 class="section"><i class="ti ti-list-check"></i>&nbsp;왜 지금 파는가</h3>
+    <div class="reason">
+      <span class="ic"><i class="ti ti-gauge"></i></span>
+      <div><h5>BIS 자기자본비율 방어</h5><p>2025년 말 기준 13.9%로 금융당국 권고치(13%)를 근소하게 상회 — 지분 매각으로 비율 개선 여력 확보.</p></div>
+    </div>
+    <div class="reason">
+      <span class="ic"><i class="ti ti-trending-up"></i></span>
+      <div><h5>조선업 슈퍼사이클, 회수의 적기</h5><p>2024년 11월 2만 7,800원이던 주가가 2025년 4월 8만 9,300원까지 3배 이상 급등 — "더 오를 여지가 있을 때가 처분 적기"라는 내부 판단.</p></div>
+    </div>
+    <div class="reason">
+      <span class="ic"><i class="ti ti-stack-2"></i></span>
+      <div><h5>HMM 등 여타 지분 매각과 병행</h5><p>산업은행은 한화오션에 이어 HMM 지분 매각 카드도 함께 검토하며 정책금융기관 자산 슬림화를 추진 중입니다.</p></div>
+    </div>
+
+    <div class="callout">
+      <h5><i class="ti ti-alert-triangle"></i>&nbsp;남은 15.25%, 어떻게 풀릴까</h5>
+      <p>산업은행은 "3~5%씩 나눠 순차적으로 블록딜 매각"한다는 방침만 밝혔을 뿐, 구체적 시점은 공개하지 않았습니다. 오버행(잠재 매도물량) 부담은 단기 악재지만, 실질 유통물량을 늘려 거래를 활성화하는 긍정적 측면도 함께 거론됩니다. 캐나다 사업 고배로 주가가 단기 조정을 받는다면, 산업은행 입장에서는 오히려 매각 시점을 늦출 유인이 커질 수 있다는 점도 참고할 만합니다.</p>
+    </div>
+
+    <div class="foot">
+      <i class="ti ti-info-circle"></i>2025년 말~2026년 상반기 공개 보도 기준이며, 이후 추가 블록딜 여부는 금융감독원 전자공시(DART)에서 별도 확인이 필요합니다.
+    </div>
+  </div>
+</body>
+</html>
