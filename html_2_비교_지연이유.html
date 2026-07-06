@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한화오션 vs TKMS 정면비교 · 캐나다는 왜 아직 고민할까</title>
+
+<meta property="og:title" content="한화오션 vs TKMS 완전비교 | 캐나다는 왜 아직도 발표를 못할까" />
+<meta property="og:description" content="장보고-Ⅲ와 212CD, 두 잠수함의 스펙·납기·경제효과를 비교하고 캐나다 정부의 발표 지연 5가지 이유를 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/hanwha-tkms-compare-thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/hanwha-tkms-compare" />
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+<style>
+  .cmp-wrap * { box-sizing: border-box; }
+  .cmp-wrap {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+    max-width: 760px; margin: 0 auto; background: #F5F7FA; color: #16202A;
+    padding: 28px 20px 36px; border-radius: 20px; line-height: 1.55;
+  }
+  .cmp-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700;
+    letter-spacing: .06em; color: #FF6B1A; background: #FFF1E6; border: 1px solid #FFDCC0;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .cmp-title { font-size: 25px; font-weight: 800; color: #0B2942; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .cmp-sub { font-size: 14.5px; color: #5B6B7A; margin: 0 0 24px; font-weight: 500; }
+
+  .cmp-section-title {
+    display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 800; color: #0B2942;
+    margin: 30px 0 16px; padding-bottom: 10px; border-bottom: 2px solid #0B2942;
+  }
+  .cmp-section-title .ti { color: #FF6B1A; font-size: 19px; }
+
+  /* VS cards */
+  .cmp-vs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .cmp-card {
+    background: #fff; border-radius: 16px; padding: 16px 14px; border-top: 5px solid #ccc;
+    box-shadow: 0 1px 3px rgba(11,41,66,.06);
+  }
+  .cmp-card.kr { border-top-color: #FF6B1A; }
+  .cmp-card.de { border-top-color: #4A5568; }
+  .cmp-flag { font-size: 11px; font-weight: 800; letter-spacing: .04em; margin-bottom: 4px; }
+  .cmp-card.kr .cmp-flag { color: #C7570E; }
+  .cmp-card.de .cmp-flag { color: #4A5568; }
+  .cmp-company { font-size: 16.5px; font-weight: 800; color: #0B2942; margin-bottom: 2px; }
+  .cmp-sub-model { font-size: 12px; color: #5B6B7A; margin-bottom: 12px; font-weight: 600; }
+  .cmp-row { display: flex; justify-content: space-between; gap: 8px; padding: 7px 0; border-bottom: 1px solid #EEF1F5; font-size: 12.5px; }
+  .cmp-row:last-child { border-bottom: none; }
+  .cmp-row .k { color: #8593A1; font-weight: 600; flex-shrink: 0; }
+  .cmp-row .v { color: #16202A; font-weight: 700; text-align: right; }
+
+  .cmp-vscircle {
+    width: 34px; height: 34px; border-radius: 50%; background: #0B2942; color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800;
+    margin: -8px auto; position: relative; z-index: 2; box-shadow: 0 2px 6px rgba(11,41,66,.3);
+  }
+
+  .cmp-strength-box { background: #fff; border: 1px solid #E3E8EE; border-radius: 14px; padding: 14px; margin-top: 6px; }
+  .cmp-strength-box .h { font-size: 12.5px; font-weight: 800; margin-bottom: 8px; display:flex; align-items:center; gap:6px; }
+  .cmp-strength-box.plus .h { color: #0F9D6C; }
+  .cmp-strength-box.minus .h { color: #D64545; }
+  .cmp-strength-box ul { margin: 0; padding-left: 18px; font-size: 12.5px; color: #45525F; }
+  .cmp-strength-box li { margin-bottom: 4px; }
+
+  .cmp-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* Reasons */
+  .reason-list { display: flex; flex-direction: column; gap: 12px; }
+  .reason-card {
+    background: #fff; border: 1px solid #E3E8EE; border-radius: 14px; padding: 14px 16px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .reason-num {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px; background: #0B2942; color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px;
+  }
+  .reason-body .t { font-size: 14px; font-weight: 800; color: #16202A; margin-bottom: 3px; }
+  .reason-body .d { font-size: 12.5px; color: #5B6B7A; }
+
+  .cmp-footnote {
+    margin-top: 26px; padding-top: 14px; border-top: 1px dashed #D7DEE6;
+    font-size: 11.5px; color: #8593A1; line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    .cmp-vs-row, .cmp-two-col { grid-template-columns: 1fr; }
+    .cmp-vscircle { margin: 4px auto; }
+    .cmp-title { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+<div class="cmp-wrap">
+
+  <span class="cmp-eyebrow"><i class="ti ti-scale"></i> HEAD-TO-HEAD COMPARISON</span>
+  <h2 class="cmp-title">한화오션 vs TKMS, 무엇이 다른가</h2>
+  <p class="cmp-sub">장보고-Ⅲ Batch-Ⅱ(KSS-Ⅲ) vs Type 212CD — 50대 50 초박빙 승부의 실체</p>
+
+  <div class="cmp-vs-row">
+    <div class="cmp-card kr">
+      <div class="cmp-flag">🇰🇷 KOREA</div>
+      <div class="cmp-company">한화오션</div>
+      <div class="cmp-sub-model">장보고-Ⅲ Batch-Ⅱ (KSS-Ⅲ)</div>
+      <div class="cmp-row"><span class="k">실전 배치</span><span class="v">한국 해군 운용 중</span></div>
+      <div class="cmp-row"><span class="k">1번함 인도</span><span class="v">2032년</span></div>
+      <div class="cmp-row"><span class="k">4척 인도</span><span class="v">2035년까지</span></div>
+      <div class="cmp-row"><span class="k">12척 완납</span><span class="v">2043년까지</span></div>
+      <div class="cmp-row"><span class="k">경제효과</span><span class="v">700억CAD+</span></div>
+      <div class="cmp-row"><span class="k">고용효과</span><span class="v">약 50만 인년</span></div>
+      <div class="cmp-row"><span class="k">GDP 기여</span><span class="v">약 1,200억CAD</span></div>
+      <div class="cmp-row"><span class="k">캐나다 협력사</span><span class="v">80여 곳</span></div>
+    </div>
+    <div class="cmp-card de">
+      <div class="cmp-flag">🇩🇪 GERMANY · 🇳🇴 NORWAY</div>
+      <div class="cmp-company">TKMS</div>
+      <div class="cmp-sub-model">Type 212CD</div>
+      <div class="cmp-row"><span class="k">실전 배치</span><span class="v">생산라인 가동 전</span></div>
+      <div class="cmp-row"><span class="k">1번함 인도</span><span class="v">2034~36년경</span></div>
+      <div class="cmp-row"><span class="k">4척 인도</span><span class="v">2036년까지</span></div>
+      <div class="cmp-row"><span class="k">12척 완납</span><span class="v">추가 협상 필요</span></div>
+      <div class="cmp-row"><span class="k">경제효과</span><span class="v">1,600억CAD</span></div>
+      <div class="cmp-row"><span class="k">고용효과</span><span class="v">65만 인년+</span></div>
+      <div class="cmp-row"><span class="k">GDP 기여</span><span class="v">약 860억CAD</span></div>
+      <div class="cmp-row"><span class="k">캐나다 협력사</span><span class="v">19건 MOU</span></div>
+    </div>
+  </div>
+  <div class="cmp-vscircle">VS</div>
+
+  <div class="cmp-two-col" style="margin-top:14px;">
+    <div class="cmp-strength-box plus">
+      <div class="h"><i class="ti ti-circle-check"></i> 한화오션 강점</div>
+      <ul>
+        <li>실물 잠수함 태평양 횡단 시연 완료</li>
+        <li>가장 빠른 조기 납기·조기 전력화</li>
+        <li>美 필리조선소 보유로 북미 정비망 확보</li>
+        <li>KDDX 등 국내 특수선 트랙레코드 상승세</li>
+      </ul>
+    </div>
+    <div class="cmp-strength-box minus">
+      <div class="h"><i class="ti ti-alert-triangle"></i> 한화오션 리스크</div>
+      <ul>
+        <li>잠수함 수출 실적은 인도네시아가 유일</li>
+        <li>나토 회원국 표준 통합 경험은 상대적으로 적음</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cmp-two-col" style="margin-top:12px;">
+    <div class="cmp-strength-box plus">
+      <div class="h"><i class="ti ti-circle-check"></i> TKMS 강점</div>
+      <ul>
+        <li>나토 표준 상호운용성, 독·노르웨이 동시 운용</li>
+        <li>유럽·인도·싱가포르 글로벌 MRO 네트워크</li>
+        <li>오랜 잠수함 수출 레퍼런스 보유</li>
+      </ul>
+    </div>
+    <div class="cmp-strength-box minus">
+      <div class="h"><i class="ti ti-alert-triangle"></i> TKMS 리스크</div>
+      <ul>
+        <li>자회사 아틀라스 일렉트로닉 사이버 공격 이슈</li>
+        <li>독일 F126 취소·F128 예산 의회 보류 등 본사 변수</li>
+        <li>212CD는 아직 실전 배치 전(생산 초기 단계)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cmp-section-title"><i class="ti ti-clock"></i> 캐나다는 왜 아직도 고민할까 — 5가지 이유</div>
+  <div class="reason-list">
+
+    <div class="reason-card">
+      <div class="reason-num">1</div>
+      <div class="reason-body">
+        <div class="t">진짜 50대 50 초박빙 승부</div>
+        <div class="d">양사 모두 캐나다 해군의 기술 요구조건을 충족한 것으로 확인돼, 성능만으로는 우열을 가리기 어려운 상황입니다. 강훈식 대통령 비서실장도 "스코어로 물어보면 50대 50"이라 언급했습니다.</div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-num">2</div>
+      <div class="reason-body">
+        <div class="t">발표 타이밍 자체가 외교적 메시지</div>
+        <div class="d">나토 정상회의 직전 발표는 '나토 동맹 결속'이라는 신호로, 회의 이후나 임박한 시점 발표는 '객관적 사업성 평가'라는 신호로 읽힐 수 있어 시점 선택 자체가 정치적 판단입니다.</div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-num">3</div>
+      <div class="reason-body">
+        <div class="t">막판까지 이어진 '입찰 개선' 요구</div>
+        <div class="d">캐나다 국방투자청은 두 회사에 캐나다산 콘텐츠를 최대한 반영하라고 요구하며 여러 차례 제안서 보완을 요청, 협상 레버리지를 끝까지 활용했습니다.</div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-num">4</div>
+      <div class="reason-body">
+        <div class="t">정비시설 부지·인력난이라는 별도 변수</div>
+        <div class="d">핼리팩스·에스퀴몰트에 지을 잠수함 정비시설이 기존 구축함 건조 인력(어빙 조선)과 숙련공을 두고 충돌할 수 있다는 우려가 나오면서, 승자 선정과 별개로 후속 인프라 계획까지 함께 조율해야 하는 부담이 커졌습니다.</div>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-num">5</div>
+      <div class="reason-body">
+        <div class="t">막판 돌발 변수들</div>
+        <div class="d">TKMS 자회사의 사이버 공격 이슈, 독일 의회의 F128 호위함 예산 보류 등 TKMS 측 리스크가 부각된 반면, 한화오션은 KDDX 수주로 국내 모멘텀을 확보하는 등 양측에 상반된 뉴스가 동시에 쏟아지고 있습니다.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cmp-footnote">
+    <i class="ti ti-info-circle"></i> 자료: CTV News · The Globe and Mail · Global News · 캐나다 국방투자청(DIA) · KPMG 경제효과 분석 · 한국 방산업계 보도 종합. 경제효과·고용효과 수치는 산정 방식과 기간이 기관별로 달라 단순 비교 시 주의가 필요합니다. 본 자료는 정보 제공 목적이며 투자 판단의 근거로 사용할 수 없습니다.
+  </div>
+
+</div>
+</body>
+</html>
