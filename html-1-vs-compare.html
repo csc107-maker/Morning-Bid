@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>한화오션 vs TKMS — 캐나다 CPSP 정면대결 비교표</title>
+
+<meta property="og:title" content="한화오션 vs TKMS, 60조 캐나다 잠수함 사업 정면대결 비교표" />
+<meta property="og:description" content="KSS-Ⅲ와 212CD, 납기·평가배점·경제효과까지 한눈에 비교합니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/hanwha-ocean-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/hanwha-ocean-canada-submarine" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0B2545; --navy-soft:#3D5A80; --navy-dim:#6b83a3;
+    --fog:#F7FAFD; --fog-alt:#EDF2F9; --line:#DCE5EF;
+    --amber:#C97A19; --amber-bg:#FCF0DD;
+    --rust:#B23A24; --rust-bg:#FBEAE6;
+    --teal:#12695E; --teal-bg:#E4F3F0;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:28px 14px; background:var(--fog);
+    font-family:'IBM Plex Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    color:var(--navy); -webkit-font-smoothing:antialiased;
+  }
+  .card{
+    max-width:720px; margin:0 auto; background:var(--white);
+    border:1px solid var(--line); border-radius:20px; overflow:hidden;
+    box-shadow:0 1px 2px rgba(11,37,69,0.04), 0 12px 32px rgba(11,37,69,0.07);
+  }
+  .card-head{
+    padding:26px 28px 20px; border-bottom:1px dashed var(--line);
+    background:linear-gradient(180deg, var(--fog-alt), var(--white));
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12.5px; font-weight:700; letter-spacing:.02em;
+    color:var(--navy-soft); background:var(--fog-alt);
+    border:1px solid var(--line); padding:5px 11px; border-radius:999px;
+  }
+  h1{
+    font-size:22px; line-height:1.4; margin:12px 0 6px; font-weight:700; letter-spacing:-0.01em;
+  }
+  .sub{ font-size:14px; color:var(--navy-soft); margin:0; line-height:1.6;}
+  .result-strip{
+    display:flex; align-items:center; gap:10px; margin-top:16px;
+    background:var(--navy); color:#fff; padding:11px 16px; border-radius:12px;
+    font-size:13.5px; font-weight:600;
+  }
+  .dot{ width:9px; height:9px; border-radius:50%; background:var(--rust); flex:none;
+    box-shadow:0 0 0 4px rgba(178,58,36,0.18);}
+  .result-strip .date{ margin-left:auto; font-family:'IBM Plex Mono',monospace; font-weight:600; opacity:.85; font-size:12.5px;}
+
+  .versus{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    padding:22px 20px 6px;
+  }
+  .side{ flex:1; text-align:center; }
+  .side .flagchip{
+    display:inline-block; font-size:11.5px; font-weight:700; padding:4px 10px;
+    border-radius:999px; margin-bottom:8px; letter-spacing:.02em;
+  }
+  .side.kr .flagchip{ background:var(--teal-bg); color:var(--teal); }
+  .side.de .flagchip{ background:var(--fog-alt); color:var(--navy-dim); }
+  .side .name{ font-weight:700; font-size:16px; }
+  .side .model{ font-size:12.5px; color:var(--navy-soft); font-family:'IBM Plex Mono',monospace; margin-top:2px;}
+  .vs-badge{
+    width:42px; height:42px; border-radius:50%; border:2px solid var(--amber);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:13px; color:var(--amber); flex:none; background:#fff;
+  }
+
+  table{ width:100%; border-collapse:collapse; font-size:13px; margin-top:6px;}
+  thead th{
+    text-align:left; font-size:11.5px; color:var(--navy-dim); font-weight:600;
+    padding:10px 14px; border-bottom:1px solid var(--line); background:var(--fog-alt);
+  }
+  thead th:first-child{ border-top-left-radius:0; }
+  tbody td{ padding:13px 14px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.55;}
+  tbody tr:last-child td{ border-bottom:none; }
+  td.label{ width:26%; color:var(--navy-soft); font-weight:600; font-size:12.5px; }
+  td.kr{ width:37%; }
+  td.de{ width:37%; }
+  .tag{ display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:6px; margin-bottom:4px;}
+  .tag.good{ background:var(--teal-bg); color:var(--teal);}
+  .tag.warn{ background:var(--amber-bg); color:var(--amber);}
+  .tag.risk{ background:var(--rust-bg); color:var(--rust);}
+
+  .weight-box{ padding:22px 28px 6px; }
+  .weight-box h3{ font-size:13.5px; margin:0 0 12px; color:var(--navy); display:flex; gap:6px; align-items:center;}
+  .bar-row{ display:flex; align-items:center; gap:10px; margin-bottom:9px; }
+  .bar-label{ width:120px; font-size:12px; color:var(--navy-soft); flex:none; }
+  .bar-track{ flex:1; height:10px; background:var(--fog-alt); border-radius:6px; overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:6px; background:linear-gradient(90deg, var(--navy), var(--navy-dim)); }
+  .bar-pct{ width:38px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600; color:var(--navy); flex:none;}
+
+  .foot{
+    padding:16px 28px 24px; font-size:11.5px; color:var(--navy-dim); line-height:1.7;
+    border-top:1px solid var(--line); background:var(--fog-alt);
+  }
+  .foot i{ margin-right:5px; }
+  @media (max-width:480px){
+    td.label{ width:70px; font-size:11px;}
+    table{ font-size:12px; }
+    h1{ font-size:19px; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-head">
+      <span class="eyebrow"><i class="ti ti-anchor"></i>&nbsp;CPSP 우선협상대상자 비교</span>
+      <h1>한화오션 KSS-Ⅲ vs TKMS 212CD, 무엇이 갈랐나</h1>
+      <p class="sub">60조 원 규모 캐나다 차세대 잠수함 사업, 두 후보의 제안을 항목별로 정리했습니다.</p>
+      <div class="result-strip">
+        <span class="dot"></span>
+        <span>캐나다 정부, TKMS를 우선협상대상자로 선정</span>
+        <span class="date">2026.07.06 발표</span>
+      </div>
+    </div>
+
+    <div class="versus">
+      <div class="side kr">
+        <span class="flagchip">대한민국 · 팀코리아</span>
+        <div class="name">한화오션</div>
+        <div class="model">KSS-Ⅲ (장보고-Ⅲ Batch-Ⅱ)</div>
+      </div>
+      <div class="vs-badge">VS</div>
+      <div class="side de">
+        <span class="flagchip">독일 · 우선협상대상자</span>
+        <div class="name">TKMS</div>
+        <div class="model">Type 212CD</div>
+      </div>
+    </div>
+
+    <div style="padding:6px 28px 4px;">
+      <table>
+        <thead>
+          <tr><th>비교 항목</th><th>한화오션</th><th>TKMS</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">플랫폼 실적</td>
+            <td class="kr"><span class="tag good">실전 배치 중</span><br>한국 해군이 실제 운용 중인 검증 플랫폼</td>
+            <td class="de"><span class="tag warn">신규 설계</span><br>212CD는 캐나다向 맞춤형, 실물 건조 사례 없음</td>
+          </tr>
+          <tr>
+            <td class="label">첫 인도 시기</td>
+            <td class="kr"><b>2032년</b> (2035년까지 4척)</td>
+            <td class="de"><b>2035~2036년</b> 전후 추정</td>
+          </tr>
+          <tr>
+            <td class="label">핵심 소구점</td>
+            <td class="kr">검증된 성능 · 빠른 납기 · 태평양 횡단 시연</td>
+            <td class="de">NATO 상호운용성 · 獨·노르웨이 공동 운용망</td>
+          </tr>
+          <tr>
+            <td class="label">현지 경제효과</td>
+            <td class="kr">약 500,300개 일자리 · GDP 1,200억 달러 이상<br><span style="color:var(--navy-dim)">(KPMG 분석, 2026~2044)</span></td>
+            <td class="de">약 65만 개 일자리 · GDP 860억 캐나다달러 제시</td>
+          </tr>
+          <tr>
+            <td class="label">돌발 리스크</td>
+            <td class="kr"><span class="tag good">특이사항 없음</span></td>
+            <td class="de"><span class="tag risk">자회사 해킹 피해</span><br>폴란드 사업 수주 실패 이력도 부담 요인으로 거론</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="weight-box">
+      <h3><i class="ti ti-chart-donut-2"></i>&nbsp;캐나다 국방조달청 평가 배점 (알려진 기준)</h3>
+      <div class="bar-row"><span class="bar-label">유지·보수(MRO)</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">50%</span></div>
+      <div class="bar-row"><span class="bar-label">잠수함 플랫폼</span><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div><span class="bar-pct">20%</span></div>
+      <div class="bar-row"><span class="bar-label">금융 조건</span><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div><span class="bar-pct">15%</span></div>
+      <div class="bar-row"><span class="bar-label">전략·경제 파트너십</span><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div><span class="bar-pct">15%</span></div>
+    </div>
+
+    <div class="foot">
+      <i class="ti ti-info-circle"></i>공개된 국내외 언론 보도(로이터, 글로브앤드메일, 파이낸셜뉴스 등)를 종합해 정리한 요약 자료이며, 실제 계약 조건과 다를 수 있습니다. 투자 판단의 유일한 근거로 사용하지 마세요.
+    </div>
+  </div>
+</body>
+</html>
