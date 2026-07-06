@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캐나다 잠수함 사업(CPSP) 타임라인 · 나토 정상회담 D-1</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="캐나다 잠수함 60조 프로젝트 타임라인 | 나토 정상회담 D-1, 한화오션 발표 임박" />
+<meta property="og:description" content="2025년 8월 숏리스트부터 2026년 7월 발표까지, 캐나다 CPSP 잠수함 사업의 모든 일정을 한눈에 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/cpsp-timeline-thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/your-blog/cpsp-timeline" />
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+<style>
+  .cpsp-wrap * { box-sizing: border-box; }
+  .cpsp-wrap {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+    max-width: 760px;
+    margin: 0 auto;
+    background: #F5F7FA;
+    color: #16202A;
+    padding: 28px 20px 36px;
+    border-radius: 20px;
+    line-height: 1.55;
+  }
+  .cpsp-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .06em;
+    color: #FF6B1A; background: #FFF1E6; border: 1px solid #FFDCC0;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .cpsp-title {
+    font-size: 25px; font-weight: 800; color: #0B2942; margin: 0 0 8px; letter-spacing: -0.02em;
+  }
+  .cpsp-sub {
+    font-size: 14.5px; color: #5B6B7A; margin: 0 0 22px; font-weight: 500;
+  }
+
+  .cpsp-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 26px;
+  }
+  .cpsp-stat {
+    background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 14px;
+    padding: 14px 10px; text-align: center;
+  }
+  .cpsp-stat .ti { font-size: 18px; color: #FF6B1A; margin-bottom: 6px; display: block; }
+  .cpsp-stat .num { font-size: 16px; font-weight: 800; color: #0B2942; }
+  .cpsp-stat .lbl { font-size: 11px; color: #5B6B7A; margin-top: 3px; font-weight: 600; }
+
+  .cpsp-section-title {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 16px; font-weight: 800; color: #0B2942;
+    margin: 30px 0 16px; padding-bottom: 10px; border-bottom: 2px solid #0B2942;
+  }
+  .cpsp-section-title .ti { color: #FF6B1A; font-size: 19px; }
+
+  /* Timeline */
+  .cpsp-timeline { position: relative; padding-left: 26px; }
+  .cpsp-timeline::before {
+    content: ''; position: absolute; left: 7px; top: 4px; bottom: 4px; width: 2px;
+    background: linear-gradient(180deg, #FFD3AD, #0B2942 88%);
+  }
+  .cpsp-node { position: relative; padding-bottom: 22px; }
+  .cpsp-node:last-child { padding-bottom: 0; }
+  .cpsp-node::before {
+    content: ''; position: absolute; left: -26px; top: 3px; width: 14px; height: 14px;
+    border-radius: 50%; background: #fff; border: 3px solid #FF6B1A;
+  }
+  .cpsp-node.now::before { background: #FF6B1A; box-shadow: 0 0 0 5px #FFE1CB; }
+  .cpsp-node.future::before { border-color: #A9B7C4; }
+  .cpsp-node-date {
+    font-size: 12px; font-weight: 800; color: #FF6B1A; letter-spacing: .01em; margin-bottom: 3px;
+  }
+  .cpsp-node.future .cpsp-node-date { color: #8593A1; }
+  .cpsp-node-body {
+    background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 12px; padding: 12px 14px;
+  }
+  .cpsp-node-title { font-size: 14.5px; font-weight: 700; color: #16202A; margin-bottom: 3px; }
+  .cpsp-node-desc { font-size: 13px; color: #5B6B7A; }
+  .cpsp-tag {
+    display: inline-block; font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 6px;
+    margin-top: 6px;
+  }
+  .tag-d { background: #FFF1E6; color: #C7570E; }
+  .tag-now { background: #0B2942; color: #fff; }
+  .tag-nato { background: #EAF1FF; color: #2454A6; }
+
+  /* Evaluation bars */
+  .cpsp-eval { display: flex; flex-direction: column; gap: 10px; }
+  .cpsp-eval-row { display: flex; align-items: center; gap: 10px; }
+  .cpsp-eval-label { width: 108px; font-size: 12.5px; font-weight: 700; color: #16202A; flex-shrink: 0; }
+  .cpsp-eval-bar-bg { flex: 1; height: 14px; background: #E9EDF2; border-radius: 999px; overflow: hidden; }
+  .cpsp-eval-bar-fg { height: 100%; border-radius: 999px; background: linear-gradient(90deg,#FF6B1A,#FF9457); }
+  .cpsp-eval-pct { width: 40px; text-align: right; font-size: 13px; font-weight: 800; color: #0B2942; }
+
+  .cpsp-footnote {
+    margin-top: 26px; padding-top: 14px; border-top: 1px dashed #D7DEE6;
+    font-size: 11.5px; color: #8593A1; line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    .cpsp-stats { grid-template-columns: repeat(2, 1fr); }
+    .cpsp-title { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+<div class="cpsp-wrap">
+
+  <span class="cpsp-eyebrow"><i class="ti ti-anchor"></i> CPSP TIMELINE REPORT</span>
+  <h2 class="cpsp-title">캐나다 잠수함 사업, 나토 정상회담 D-1의 모든 타임라인</h2>
+  <p class="cpsp-sub">2025년 8월 숏리스트 확정부터 2026년 7월 발표까지 — 한화오션 · TKMS 수주전 전체 일지</p>
+
+  <div class="cpsp-stats">
+    <div class="cpsp-stat"><i class="ti ti-currency-dollar"></i><div class="num">최대 120조</div><div class="lbl">전체 사업 규모(원)</div></div>
+    <div class="cpsp-stat"><i class="ti ti-ship"></i><div class="num">최대 12척</div><div class="lbl">도입 잠수함 수</div></div>
+    <div class="cpsp-stat"><i class="ti ti-calendar-event"></i><div class="num">7월 6일</div><div class="lbl">발표 예정일(월)</div></div>
+    <div class="cpsp-stat"><i class="ti ti-world"></i><div class="num">7~8일</div><div class="lbl">나토 정상회의(앙카라)</div></div>
+  </div>
+
+  <div class="cpsp-section-title"><i class="ti ti-timeline-event"></i> 수주전 핵심 타임라인</div>
+  <div class="cpsp-timeline">
+
+    <div class="cpsp-node">
+      <div class="cpsp-node-date">2025.08.26</div>
+      <div class="cpsp-node-body">
+        <div class="cpsp-node-title">2배수 후보 확정</div>
+        <div class="cpsp-node-desc">캐나다 정부, 한화오션과 독일 TKMS를 CPSP 적격 공급자(Qualified Supplier) 2곳으로 공식 발표</div>
+      </div>
+    </div>
+
+    <div class="cpsp-node">
+      <div class="cpsp-node-date">2025.10.22</div>
+      <div class="cpsp-node-body">
+        <div class="cpsp-node-title">장보고-Ⅲ Batch-Ⅱ 1번함 진수</div>
+        <div class="cpsp-node-desc">한화오션이 건조 중인 KSS-Ⅲ 1번함이 진수, 카니 총리가 방한 중 직접 시찰</div>
+      </div>
+    </div>
+
+    <div class="cpsp-node">
+      <div class="cpsp-node-date">2026.03.02</div>
+      <div class="cpsp-node-body">
+        <div class="cpsp-node-title">최종 입찰서 제출 마감</div>
+        <div class="cpsp-node-desc">한화오션·TKMS 양사, 캐나다 정부에 최종 제안서 공식 제출</div>
+      </div>
+    </div>
+
+    <div class="cpsp-node">
+      <div class="cpsp-node-date">2026.05.25</div>
+      <div class="cpsp-node-body">
+        <div class="cpsp-node-title">도산안창호함, 캐나다 서부 입항</div>
+        <div class="cpsp-node-desc">KSS-Ⅲ 실물이 진해 – 괌 – 하와이를 거쳐 약 1만 4,000km 태평양 횡단, 에스퀴몰트 기지에 도착해 실전 운용 능력 시연</div>
+        <span class="cpsp-tag tag-d">실물 시연</span>
+      </div>
+    </div>
+
+    <div class="cpsp-node">
+      <div class="cpsp-node-date">2026.06.29~30</div>
+      <div class="cpsp-node-body">
+        <div class="cpsp-node-title">"분할 발주 가능성 낮다"</div>
+        <div class="cpsp-node-desc">데이비드 맥귄티 캐나다 국방장관, 단일 사업자 선정 가능성에 무게를 싣는 발언. CTV, 발표가 나토 정상회의 직전으로 소폭 순연될 것이라 보도</div>
+      </div>
+    </div>
+
+    <div class="cpsp-node">
+      <div class="cpsp-node-date">2026.07.01</div>
+      <div class="cpsp-node-body">
+        <div class="cpsp-node-title">한화오션, 국내 KDDX(8조원) 우선협상대상자 선정</div>
+        <div class="cpsp-node-desc">한국형 차기 구축함 사업까지 확보하며 캐나다 발표 직전 모멘텀 강화</div>
+        <span class="cpsp-tag tag-now">국내 낭보</span>
+      </div>
+    </div>
+
+    <div class="cpsp-node now">
+      <div class="cpsp-node-date">2026.07.06(월) — 오늘</div>
+      <div class="cpsp-node-body">
+        <div class="cpsp-node-title">CPSP 우선협상대상자 발표 (예정)</div>
+        <div class="cpsp-node-desc">복수 외신 및 캐나다 유력지 보도 기준 발표 예정일. 카니 총리가 핼리팩스에서 직접 발표할 것이라는 소식통 보도가 나왔으나, 이 글 작성 시점까지 캐나다 정부의 공식 발표는 확인되지 않았습니다.</div>
+        <span class="cpsp-tag tag-now">D-DAY (미확정)</span>
+      </div>
+    </div>
+
+    <div class="cpsp-node future">
+      <div class="cpsp-node-date">2026.07.07~08</div>
+      <div class="cpsp-node-body">
+        <div class="cpsp-node-title">나토 정상회의 (튀르키예 앙카라)</div>
+        <div class="cpsp-node-desc">베슈테페 대통령궁에서 개최. 카니 총리는 이 일정 출국 전 잠수함 발표를 마무리할 것으로 알려짐</div>
+        <span class="cpsp-tag tag-nato">NATO SUMMIT</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cpsp-section-title"><i class="ti ti-scale"></i> 캐나다 정부 평가 배점 구조</div>
+  <div class="cpsp-eval">
+    <div class="cpsp-eval-row">
+      <div class="cpsp-eval-label">유지·보수(MRO)</div>
+      <div class="cpsp-eval-bar-bg"><div class="cpsp-eval-bar-fg" style="width:100%"></div></div>
+      <div class="cpsp-eval-pct">50%</div>
+    </div>
+    <div class="cpsp-eval-row">
+      <div class="cpsp-eval-label">잠수함 성능</div>
+      <div class="cpsp-eval-bar-bg"><div class="cpsp-eval-bar-fg" style="width:40%"></div></div>
+      <div class="cpsp-eval-pct">20%</div>
+    </div>
+    <div class="cpsp-eval-row">
+      <div class="cpsp-eval-label">비용·재무조건</div>
+      <div class="cpsp-eval-bar-bg"><div class="cpsp-eval-bar-fg" style="width:30%"></div></div>
+      <div class="cpsp-eval-pct">15%</div>
+    </div>
+    <div class="cpsp-eval-row">
+      <div class="cpsp-eval-label">경제·전략적 가치</div>
+      <div class="cpsp-eval-bar-bg"><div class="cpsp-eval-bar-fg" style="width:30%"></div></div>
+      <div class="cpsp-eval-pct">15%</div>
+    </div>
+  </div>
+
+  <div class="cpsp-footnote">
+    <i class="ti ti-info-circle"></i> 자료: 캐나다 국방투자청(Defence Investment Agency), NATO 공식 행사 일정, The Globe and Mail · CBC News · Global News · CTV News · 연합뉴스 · 한국 방산업계 보도 종합. 발표 일정은 유동적이며 캐나다 정부의 공식 발표 전까지는 추정치입니다.
+  </div>
+
+</div>
+</body>
+</html>
