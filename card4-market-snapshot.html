@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 7월 7일 코스피 마감 스냅샷</title>
+
+<!-- ⚠️ 아래 OG 태그의 content 값(특히 og:url, og:image)은 실제 발행 후 본인 블로그 주소/썸네일 URL로 교체해주세요 -->
+<meta property="og:title" content="2026년 7월 7일, 코스피 마감 스냅샷" />
+<meta property="og:description" content="서킷브레이커까지 발동된 7월 7일 코스피·삼성전자·SK하이닉스 마감 데이터를 한 장으로 정리했습니다." />
+<meta property="og:image" content="https://example.com/thumbnail-og-image.png" />
+<meta property="og:url" content="https://blog.naver.com/여기에-실제-포스트-주소" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+  }
+
+  .ms-root * { box-sizing: border-box; }
+  .ms-root {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    background: linear-gradient(180deg, #FFFFFF 0%, #EEF4FF 100%);
+    border: 1px solid #E1E9FB;
+    border-radius: 20px;
+    max-width: 760px;
+    margin: 28px auto;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(16, 49, 91, 0.08);
+    color: #1F2937;
+  }
+  .ms-ticker {
+    background: #0B2A52; color: #EAF1FF;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 12px; letter-spacing: 0.06em;
+    padding: 8px 20px; display: flex; align-items: center; gap: 8px;
+  }
+  .ms-ticker .dot { width: 6px; height: 6px; border-radius: 50%; background: #FF5D5D; flex: none; }
+  .ms-ticker .ticker-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ms-header { padding: 24px 28px 6px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;}
+  .ms-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 700; color: #2054C6;
+    background: #E4EDFF; padding: 4px 10px; border-radius: 100px; margin-bottom: 12px;
+  }
+  .ms-title { font-size: 21px; font-weight: 700; color: #0B2A52; margin: 0 0 4px; line-height: 1.4; }
+  .ms-sub { font-size: 13.5px; color: #6B7686; margin: 0 0 14px; line-height: 1.6; }
+  .ms-date-badge { font-size: 12px; font-weight: 700; color: #6B7686; background: #F2F5FB; padding: 5px 12px; border-radius: 100px; }
+
+  .ms-index-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; padding: 0 24px 16px;
+  }
+  .ms-index-card {
+    background: #0B2A52; border-radius: 14px; padding: 16px 18px; color: #FFFFFF;
+  }
+  .ms-index-name { font-size: 12.5px; color: #AFC4EA; margin-bottom: 6px; }
+  .ms-index-value { font-size: 24px; font-weight: 700; }
+  .ms-index-change { font-size: 13px; font-weight: 700; color: #6FA8FF; margin-top: 4px; }
+
+  .ms-stock-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; padding: 0 24px 16px;
+  }
+  .ms-stock-card {
+    background: #FFFFFF; border: 1px solid #E7EEFB; border-radius: 14px; padding: 16px 18px;
+  }
+  .ms-stock-name { font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 8px; display:flex; align-items:center; justify-content:space-between;}
+  .ms-stock-code { font-size: 11px; color: #94A3BC; font-weight: 500; }
+  .ms-stock-price { font-size: 21px; font-weight: 700; color: #0B2A52; }
+  .ms-stock-change { font-size: 13px; font-weight: 700; color: #2054C6; margin-top: 4px; display: flex; align-items: center; gap: 4px;}
+  .ms-stock-change.down { color: #2054C6; }
+
+  .ms-flow {
+    margin: 0 24px 16px; background: #FFFFFF; border: 1px solid #E7EEFB; border-radius: 14px; padding: 16px 18px;
+  }
+  .ms-flow-title { font-size: 13px; font-weight: 700; color: #0B2A52; margin-bottom: 12px; display:flex; align-items:center; gap:6px;}
+  .ms-flow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
+  .ms-flow-item { }
+  .ms-flow-label { font-size: 11.5px; color: #94A3BC; margin-bottom: 4px; }
+  .ms-flow-value { font-size: 15px; font-weight: 700; }
+  .ms-flow-value.sell { color: #2054C6; }
+  .ms-flow-value.buy { color: #E11D2E; }
+
+  .ms-alert {
+    margin: 0 24px 22px; background: #FFF7E6; border: 1px solid #FCE3AE; border-radius: 12px;
+    padding: 13px 16px; font-size: 12.5px; color: #8A5B00; display: flex; gap: 8px; line-height: 1.6;
+  }
+  .ms-alert i { flex: none; margin-top: 1px; font-size: 16px; }
+
+  @media (max-width: 520px) {
+    .ms-index-row, .ms-stock-row { grid-template-columns: 1fr; }
+    .ms-flow-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:16px; background:transparent;">
+
+<div class="ms-root">
+  <div class="ms-ticker">
+    <span class="dot"></span>
+    <span class="ticker-text">KOSPI 7656.31 ▼4.91% · KOSDAQ 831.23 ▼1.87%</span>
+  </div>
+
+  <div class="ms-header">
+    <div>
+      <span class="ms-eyebrow"><i class="ti ti-device-desktop-analytics"></i>&nbsp;MARKET SNAPSHOT</span>
+      <p class="ms-title">오늘의 시장 스냅샷</p>
+      <p class="ms-sub">서킷브레이커까지 발동된 하루, 마감 데이터로 정리했습니다.</p>
+    </div>
+    <span class="ms-date-badge"><i class="ti ti-calendar"></i>&nbsp;2026.07.07 (화)</span>
+  </div>
+
+  <div class="ms-index-row">
+    <div class="ms-index-card">
+      <div class="ms-index-name">코스피 KOSPI</div>
+      <div class="ms-index-value">7,656.31</div>
+      <div class="ms-index-change">▼ 395.02 (-4.91%)</div>
+    </div>
+    <div class="ms-index-card">
+      <div class="ms-index-name">코스닥 KOSDAQ</div>
+      <div class="ms-index-value">831.23</div>
+      <div class="ms-index-change">▼ 1.87%</div>
+    </div>
+  </div>
+
+  <div class="ms-stock-row">
+    <div class="ms-stock-card">
+      <div class="ms-stock-name">삼성전자 <span class="ms-stock-code">005930</span></div>
+      <div class="ms-stock-price">296,000원</div>
+      <div class="ms-stock-change down"><i class="ti ti-arrow-down"></i> -22,000원 (-6.92%)</div>
+    </div>
+    <div class="ms-stock-card">
+      <div class="ms-stock-name">SK하이닉스 <span class="ms-stock-code">000660</span></div>
+      <div class="ms-stock-price">2,201,000원</div>
+      <div class="ms-stock-change down"><i class="ti ti-arrow-down"></i> -142,000원 (-6.06%)</div>
+    </div>
+  </div>
+
+  <div class="ms-flow">
+    <div class="ms-flow-title"><i class="ti ti-arrows-exchange"></i> 투자자별 수급 (코스피, 순매매)</div>
+    <div class="ms-flow-grid">
+      <div class="ms-flow-item">
+        <div class="ms-flow-label">외국인</div>
+        <div class="ms-flow-value sell">-2조 9,298억</div>
+      </div>
+      <div class="ms-flow-item">
+        <div class="ms-flow-label">기관</div>
+        <div class="ms-flow-value sell">-3,092억</div>
+      </div>
+      <div class="ms-flow-item">
+        <div class="ms-flow-label">개인</div>
+        <div class="ms-flow-value buy">+3조 1,343억</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ms-alert">
+    <i class="ti ti-alert-triangle"></i>
+    <span><b>매매정지 이력</b> — 오전 10:23 매도 사이드카 발동 → 오후 1:51경 코스피 8%대 하락으로 1단계 서킷브레이커 발동(20분간 거래정지). 올해 들어 6번째 서킷브레이커입니다. (장중 한때 삼성전자·SK하이닉스 모두 -9~10%대까지 낙폭 확대 후 개인 매수세로 낙폭 축소)</span>
+  </div>
+</div>
+
+</body>
+</html>
