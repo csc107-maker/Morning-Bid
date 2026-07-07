@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="삼성전자·SK하이닉스 하반기 주요 일정 타임라인 - 확정실적부터 100조 전망까지" />
+<meta property="og:description" content="삼성전자 확정실적 발표일, SK하이닉스 나스닥 상장일, 3분기 영업이익 100조 돌파 전망까지 반도체 업종 하반기 주요 일정을 타임라인으로 정리했습니다." />
+<meta property="og:image" content="https://example.com/samsung-q2-2026-thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/example/samsung-q2-2026-earnings" />
+<title>하반기 주요 일정 타임라인</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --sam-bg:#F6F8FB;
+    --sam-surface:#FFFFFF;
+    --sam-ink:#10192B;
+    --sam-ink-muted:#5B6B85;
+    --sam-blue:#155EEF;
+    --sam-blue-soft:#EAF1FF;
+    --sam-green:#0E9F6E;
+    --sam-green-soft:#E7F9F1;
+    --sam-amber:#C2760A;
+    --sam-amber-soft:#FDF3E3;
+    --sam-line:#E3E8F0;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;padding:20px;background:var(--sam-bg);font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;}
+  .card{
+    position:relative;max-width:720px;margin:0 auto;background:var(--sam-surface);
+    border:1px solid var(--sam-line);border-radius:20px;padding:32px 32px 28px;
+    box-shadow:0 1px 2px rgba(16,25,43,0.04), 0 12px 32px -16px rgba(16,25,43,0.12);
+    clip-path:polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+  }
+  .notch{position:absolute;top:0;right:0;width:28px;height:28px;background:var(--sam-blue);}
+  .eyebrow{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:0.03em;color:var(--sam-blue);text-transform:uppercase;}
+  .eyebrow i{font-size:16px;}
+  .headline{margin:10px 0 2px;font-size:22px;font-weight:800;color:var(--sam-ink);letter-spacing:-0.01em;}
+  .sub{margin:0 0 26px;font-size:13.5px;color:var(--sam-ink-muted);}
+
+  .timeline{position:relative;padding-left:30px;}
+  .timeline::before{
+    content:'';position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+    background:var(--sam-line);
+  }
+  .item{position:relative;padding-bottom:26px;}
+  .item:last-child{padding-bottom:0;}
+  .dot{
+    position:absolute;left:-30px;top:2px;width:20px;height:20px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:3px solid var(--sam-surface);
+    box-shadow:0 0 0 2px var(--sam-line);
+  }
+  .dot.done{background:var(--sam-green);box-shadow:0 0 0 2px var(--sam-green);}
+  .dot.next{background:var(--sam-blue);box-shadow:0 0 0 2px var(--sam-blue);}
+  .dot.future{background:var(--sam-surface);box-shadow:0 0 0 2px var(--sam-line);}
+  .dot i{font-size:11px;color:#fff;}
+  .dot.future i{color:var(--sam-ink-muted);}
+
+  .row-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .date{font-family:'Roboto Mono','JetBrains Mono',monospace;font-weight:700;font-size:14px;color:var(--sam-ink);}
+  .status{
+    font-size:11px;font-weight:700;padding:2px 8px;border-radius:100px;
+  }
+  .status.done{background:var(--sam-green-soft);color:var(--sam-green);}
+  .status.next{background:var(--sam-blue-soft);color:var(--sam-blue);}
+  .status.future{background:var(--sam-amber-soft);color:var(--sam-amber);}
+  .desc{font-size:14px;color:var(--sam-ink-muted);line-height:1.55;}
+  .desc b{color:var(--sam-ink);font-weight:700;}
+
+  .footer{margin-top:22px;padding-top:14px;border-top:1px dashed var(--sam-line);font-size:12px;color:var(--sam-ink-muted);display:flex;align-items:center;gap:6px;}
+  .footer i{font-size:14px;}
+
+  @media (max-width:480px){
+    .headline{font-size:19px;}
+    .card{padding:24px 18px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="notch"></div>
+  <div class="eyebrow"><i class="ti ti-calendar-time"></i>반도체 업종 하반기 캘린더</div>
+  <h2 class="headline">다음으로 확인해야 할 일정들</h2>
+  <p class="sub">2026년 7월 ~ 하반기 주요 이벤트</p>
+
+  <div class="timeline">
+    <div class="item">
+      <div class="dot done"><i class="ti ti-check"></i></div>
+      <div class="row-top"><span class="date">7.7(월)</span><span class="status done">발표 완료</span></div>
+      <div class="desc">삼성전자 <b>2분기 잠정실적</b> 발표 — 매출 171조원, 영업이익 89.4조원</div>
+    </div>
+    <div class="item">
+      <div class="dot next"><i class="ti ti-arrow-right"></i></div>
+      <div class="row-top"><span class="date">7.10(금)</span><span class="status next">예정</span></div>
+      <div class="desc">SK하이닉스 미국 <b>나스닥 ADR 상장</b> — 해외 투자자 접근성 확대</div>
+    </div>
+    <div class="item">
+      <div class="dot future"><i class="ti ti-dots"></i></div>
+      <div class="row-top"><span class="date">7월 하순</span><span class="status future">예상</span></div>
+      <div class="desc">삼성전자 2분기 <b>확정실적 + 컨퍼런스콜</b> — DS 부문 세부 수익성, HBM 매출 비중 공개</div>
+    </div>
+    <div class="item">
+      <div class="dot future"><i class="ti ti-flag-3"></i></div>
+      <div class="row-top"><span class="date">3분기 중</span><span class="status future">전망</span></div>
+      <div class="desc">증권가 다수 전망 — 분기 영업이익 <b>100조원 최초 돌파</b> 여부 (106조~116조원 추정)</div>
+    </div>
+  </div>
+
+  <div class="footer"><i class="ti ti-info-circle"></i>일정은 발표 전 보도·전망을 종합한 것으로 변경될 수 있습니다</div>
+</div>
+
+</body>
+</html>
