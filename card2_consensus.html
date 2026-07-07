@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="삼성전자 2분기 영업이익, 컨센서스보다 얼마나 높았나 - 어닝서프라이즈 비교" />
+<meta property="og:description" content="에프앤가이드·연합인포맥스 컨센서스와 삼성전자 실제 발표 영업이익 89.4조원을 비교했습니다. 서프라이즈 폭은 약 4.4조~5.2조원입니다." />
+<meta property="og:image" content="https://example.com/samsung-q2-2026-thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/example/samsung-q2-2026-earnings" />
+<title>컨센서스 vs 실제 비교</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --sam-bg:#F6F8FB;
+    --sam-surface:#FFFFFF;
+    --sam-ink:#10192B;
+    --sam-ink-muted:#5B6B85;
+    --sam-blue:#155EEF;
+    --sam-blue-soft:#EAF1FF;
+    --sam-green:#0E9F6E;
+    --sam-green-soft:#E7F9F1;
+    --sam-amber:#C2760A;
+    --sam-amber-soft:#FDF3E3;
+    --sam-line:#E3E8F0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding:20px;
+    background:var(--sam-bg);
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  .card{
+    position:relative;
+    max-width:720px;
+    margin:0 auto;
+    background:var(--sam-surface);
+    border:1px solid var(--sam-line);
+    border-radius:20px;
+    padding:32px 32px 28px;
+    box-shadow:0 1px 2px rgba(16,25,43,0.04), 0 12px 32px -16px rgba(16,25,43,0.12);
+    clip-path:polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+  }
+  .notch{position:absolute;top:0;right:0;width:28px;height:28px;background:var(--sam-amber);}
+  .eyebrow{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;letter-spacing:0.03em;
+    color:var(--sam-amber);text-transform:uppercase;
+  }
+  .eyebrow i{font-size:16px;}
+  .headline{margin:10px 0 2px;font-size:22px;font-weight:800;color:var(--sam-ink);letter-spacing:-0.01em;}
+  .sub{margin:0 0 26px;font-size:13.5px;color:var(--sam-ink-muted);}
+
+  .bars{display:flex;flex-direction:column;gap:18px;}
+  .bar-row .top{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-bottom:7px;
+  }
+  .bar-row .name{font-size:14px;font-weight:600;color:var(--sam-ink-muted);}
+  .bar-row.actual .name{color:var(--sam-ink);font-weight:700;}
+  .bar-row .val{font-family:'Roboto Mono','JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--sam-ink);}
+  .track{width:100%;height:16px;background:var(--sam-bg);border:1px solid var(--sam-line);border-radius:8px;overflow:hidden;}
+  .fill{height:100%;border-radius:8px 0 0 8px;}
+  .fill.est{background:#C7D3EA;}
+  .fill.actual{background:linear-gradient(90deg,var(--sam-blue),#3B82F6);}
+
+  .surprise{
+    margin-top:24px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--sam-amber-soft);
+    border:1px solid #F0DBAE;
+    border-radius:14px;
+    padding:16px 18px;
+  }
+  .surprise i{font-size:26px;color:var(--sam-amber);}
+  .surprise .txt{font-size:13.5px;color:var(--sam-ink);line-height:1.5;}
+  .surprise .txt b{font-family:'Roboto Mono','JetBrains Mono',monospace;color:var(--sam-amber);}
+
+  .footer{
+    margin-top:18px;padding-top:14px;border-top:1px dashed var(--sam-line);
+    font-size:12px;color:var(--sam-ink-muted);
+    display:flex;align-items:center;gap:6px;
+  }
+  .footer i{font-size:14px;}
+  @media (max-width:480px){
+    .headline{font-size:19px;}
+    .card{padding:24px 20px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="notch"></div>
+  <div class="eyebrow"><i class="ti ti-target-arrow"></i>컨센서스 대비 실적</div>
+  <h2 class="headline">예상보다 잘 나왔을까? 영업이익 비교</h2>
+  <p class="sub">2분기 영업이익 · 단위: 조원</p>
+
+  <div class="bars">
+    <div class="bar-row">
+      <div class="top"><span class="name">연합인포맥스 컨센서스</span><span class="val">84.2조원</span></div>
+      <div class="track"><div class="fill est" style="width:94.1%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="top"><span class="name">에프앤가이드 컨센서스</span><span class="val">85.0조원</span></div>
+      <div class="track"><div class="fill est" style="width:95.1%"></div></div>
+    </div>
+    <div class="bar-row actual">
+      <div class="top"><span class="name"><i class="ti ti-flag-3" style="color:var(--sam-blue);font-size:13px;margin-right:3px;"></i>실제 발표(잠정)</span><span class="val">89.4조원</span></div>
+      <div class="track"><div class="fill actual" style="width:100%"></div></div>
+    </div>
+  </div>
+
+  <div class="surprise">
+    <i class="ti ti-sparkles"></i>
+    <div class="txt">대표 컨센서스 대비 <b>+4.4조 ~ +5.2조원</b> 높은 수치 — 매출은 예상과 거의 일치, 영업이익에서 뚜렷한 '어닝서프라이즈'가 확인됩니다.</div>
+  </div>
+
+  <div class="footer"><i class="ti ti-database"></i>출처: 에프앤가이드, 연합인포맥스 컨센서스(발표 전 집계) · 삼성전자 뉴스룸(실제 발표치)</div>
+</div>
+
+</body>
+</html>
