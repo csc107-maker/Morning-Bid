@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="삼성전자 2026년 2분기 잠정실적 핵심 요약 - 매출 171조원, 영업이익 89.4조원" />
+<meta property="og:description" content="삼성전자가 7월 7일 발표한 2분기 잠정실적 핵심 수치를 한눈에 정리했습니다. 매출 171조원, 영업이익 89.4조원, 전분기·전년 동기 대비 증감률까지 확인하세요." />
+<meta property="og:image" content="https://example.com/samsung-q2-2026-thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/example/samsung-q2-2026-earnings" />
+<title>삼성전자 2분기 잠정실적 핵심 요약</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --sam-bg:#F6F8FB;
+    --sam-surface:#FFFFFF;
+    --sam-ink:#10192B;
+    --sam-ink-muted:#5B6B85;
+    --sam-blue:#155EEF;
+    --sam-blue-soft:#EAF1FF;
+    --sam-green:#0E9F6E;
+    --sam-green-soft:#E7F9F1;
+    --sam-line:#E3E8F0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding:20px;
+    background:var(--sam-bg);
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  .card{
+    position:relative;
+    max-width:720px;
+    margin:0 auto;
+    background:var(--sam-surface);
+    border:1px solid var(--sam-line);
+    border-radius:20px;
+    padding:32px 32px 28px;
+    box-shadow:0 1px 2px rgba(16,25,43,0.04), 0 12px 32px -16px rgba(16,25,43,0.12);
+    clip-path:polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+    overflow:hidden;
+  }
+  .notch{
+    position:absolute;
+    top:0; right:0;
+    width:28px; height:28px;
+    background:var(--sam-blue);
+  }
+  .eyebrow{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.03em;
+    color:var(--sam-blue);
+    text-transform:uppercase;
+  }
+  .eyebrow i{font-size:16px;}
+  .headline{
+    margin:10px 0 2px;
+    font-size:22px;
+    font-weight:800;
+    color:var(--sam-ink);
+    letter-spacing:-0.01em;
+  }
+  .sub{
+    margin:0 0 24px;
+    font-size:13.5px;
+    color:var(--sam-ink-muted);
+  }
+  .stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .stat{
+    background:var(--sam-bg);
+    border:1px solid var(--sam-line);
+    border-radius:14px;
+    padding:20px 18px;
+  }
+  .stat-label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--sam-ink-muted);
+    margin-bottom:10px;
+  }
+  .stat-label i{font-size:15px;color:var(--sam-blue);}
+  .stat-value{
+    font-family:'Roboto Mono','JetBrains Mono',monospace;
+    font-size:34px;
+    font-weight:700;
+    color:var(--sam-ink);
+    line-height:1.1;
+    letter-spacing:-0.02em;
+  }
+  .stat-unit{
+    font-family:'Pretendard',sans-serif;
+    font-size:17px;
+    font-weight:600;
+    color:var(--sam-ink-muted);
+    margin-left:2px;
+  }
+  .badges{
+    display:flex;
+    gap:6px;
+    margin-top:12px;
+    flex-wrap:wrap;
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    font-family:'Roboto Mono','JetBrains Mono',monospace;
+    font-size:12px;
+    font-weight:700;
+    padding:4px 8px;
+    border-radius:8px;
+    background:var(--sam-green-soft);
+    color:var(--sam-green);
+  }
+  .badge i{font-size:13px;}
+  .badge .tag{
+    font-family:'Pretendard',sans-serif;
+    font-weight:600;
+    color:var(--sam-ink-muted);
+    margin-left:2px;
+  }
+  .footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:22px;
+    padding-top:16px;
+    border-top:1px dashed var(--sam-line);
+    font-size:12px;
+    color:var(--sam-ink-muted);
+    flex-wrap:wrap;
+  }
+  .footer .src{display:flex;align-items:center;gap:5px;}
+  .footer i{font-size:14px;}
+  @media (max-width:480px){
+    .stats{grid-template-columns:1fr;}
+    .stat-value{font-size:30px;}
+    .headline{font-size:19px;}
+    .card{padding:24px 20px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="notch"></div>
+  <div class="eyebrow"><i class="ti ti-building-factory-2"></i>SAMSUNG ELECTRONICS · 2026 Q2 잠정실적</div>
+  <h2 class="headline">2분기 핵심 실적 요약</h2>
+  <p class="sub">2026년 7월 7일 발표 · 연결 기준 · 삼성전자 뉴스룸(국·영문판)</p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label"><i class="ti ti-coin"></i>매출액</div>
+      <div class="stat-value">171<span class="stat-unit">조원</span></div>
+      <div class="badges">
+        <span class="badge"><i class="ti ti-trending-up"></i>+27.7%<span class="tag">전분기</span></span>
+        <span class="badge"><i class="ti ti-trending-up"></i>+129.3%<span class="tag">전년</span></span>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-label"><i class="ti ti-chart-bar"></i>영업이익</div>
+      <div class="stat-value">89.4<span class="stat-unit">조원</span></div>
+      <div class="badges">
+        <span class="badge"><i class="ti ti-trending-up"></i>+56.2%<span class="tag">전분기</span></span>
+        <span class="badge"><i class="ti ti-trending-up"></i>+1,810.3%<span class="tag">전년</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="src"><i class="ti ti-calendar-event"></i>확정실적·컨퍼런스콜은 통상 2~3주 후</span>
+    <span class="src"><i class="ti ti-info-circle"></i>사업부문별 세부 실적 미포함(잠정치)</span>
+  </div>
+</div>
+
+</body>
+</html>
