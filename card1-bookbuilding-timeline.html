@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SK하이닉스 ADR 타임라인 — 북빌딩부터 나스닥 상장까지</title>
+
+<!-- ⚠️ 아래 OG 태그의 content 값(특히 og:url, og:image)은 실제 발행 후 본인 블로그 주소/썸네일 URL로 교체해주세요 -->
+<meta property="og:title" content="SK하이닉스 ADR 타임라인 — 북빌딩부터 나스닥 상장까지" />
+<meta property="og:description" content="SK하이닉스 미국예탁증권(ADR) 발행 결의부터 나스닥 데뷔까지, 핵심 일정을 한눈에 정리했습니다." />
+<meta property="og:image" content="https://example.com/thumbnail-og-image.png" />
+<meta property="og:url" content="https://blog.naver.com/여기에-실제-포스트-주소" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<style>
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+  }
+
+  .sh-card-root * { box-sizing: border-box; }
+  .sh-card-root {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    background: linear-gradient(180deg, #FFFFFF 0%, #EEF4FF 100%);
+    border: 1px solid #E1E9FB;
+    border-radius: 20px;
+    padding: 0;
+    max-width: 720px;
+    margin: 28px auto;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(16, 49, 91, 0.08);
+    color: #1F2937;
+  }
+  .sh-ticker {
+    background: #0B2A52;
+    color: #EAF1FF;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .sh-ticker .dot { width: 6px; height: 6px; border-radius: 50%; background: #FF5D5D; flex: none; }
+  .sh-ticker .ticker-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .sh-header { padding: 24px 28px 8px; }
+  .sh-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #2054C6;
+    background: #E4EDFF;
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+  .sh-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #0B2A52;
+    line-height: 1.4;
+    margin: 0 0 4px;
+  }
+  .sh-sub {
+    font-size: 13.5px;
+    color: #6B7686;
+    margin: 0 0 4px;
+    line-height: 1.6;
+  }
+  .sh-timeline {
+    padding: 8px 28px 28px;
+    position: relative;
+  }
+  .sh-item {
+    position: relative;
+    padding: 14px 0 14px 34px;
+    border-left: 2px solid #DCE6FA;
+    margin-left: 9px;
+  }
+  .sh-item:last-child { border-left: 2px solid transparent; }
+  .sh-item .node {
+    position: absolute;
+    left: -9px;
+    top: 16px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #A9C0F0;
+  }
+  .sh-item.done .node { border-color: #2054C6; background: #2054C6; }
+  .sh-item.now .node { border-color: #E11D2E; background: #E11D2E; box-shadow: 0 0 0 5px rgba(225,29,46,0.15); }
+  .sh-item.future .node { border-color: #C7D2E3; background: #FFFFFF; }
+  .sh-date {
+    font-size: 12px;
+    font-weight: 700;
+    color: #2054C6;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    margin-bottom: 3px;
+  }
+  .sh-item.now .sh-date { color: #E11D2E; }
+  .sh-item.future .sh-date { color: #94A3BC; }
+  .sh-desc {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #1F2937;
+    line-height: 1.5;
+  }
+  .sh-item.future .sh-desc { color: #6B7686; font-weight: 500; }
+  .sh-tag {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #E11D2E;
+    background: #FFE8EA;
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .sh-now-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: #E11D2E;
+    padding: 3px 9px;
+    border-radius: 6px;
+  }
+  .sh-footer {
+    padding: 14px 28px 22px;
+    border-top: 1px dashed #DCE6FA;
+    font-size: 12px;
+    color: #94A3BC;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+</style>
+</head>
+<body style="margin:0; padding:16px; background:transparent;">
+
+<div class="sh-card-root">
+  <div class="sh-ticker">
+    <span class="dot"></span>
+    <span class="ticker-text">SKHY · NASDAQ LISTING TRACKER · 000660.KS</span>
+  </div>
+
+  <div class="sh-header">
+    <span class="sh-eyebrow"><i class="ti ti-timeline"></i>&nbsp;TIMELINE</span>
+    <p class="sh-title">SK하이닉스 ADR, 지금 어디까지 왔을까?</p>
+    <p class="sh-sub">이사회 결의(6/24)부터 나스닥 데뷔(7/10)까지 — 오늘은 북빌딩(수요예측) 진행 중인 시점입니다.</p>
+  </div>
+
+  <div class="sh-timeline">
+
+    <div class="sh-item done">
+      <span class="node"></span>
+      <div class="sh-date">2026.03.25</div>
+      <div class="sh-desc">SEC에 F-1 등록신청서 비공개 제출</div>
+    </div>
+
+    <div class="sh-item done">
+      <span class="node"></span>
+      <div class="sh-date">2026.06.24</div>
+      <div class="sh-desc">이사회 결의 — ADR 발행 공식화 (최대 45.45조원 규모)</div>
+    </div>
+
+    <div class="sh-item done">
+      <span class="node"></span>
+      <div class="sh-date">2026.07.03</div>
+      <div class="sh-desc">국내 종가 기준 조정 → ADR 기준가 24만2,500원으로 하향</div>
+    </div>
+
+    <div class="sh-item now">
+      <span class="node"></span>
+      <div class="sh-date">2026.07.06 (월)</div>
+      <div class="sh-desc">북빌딩(수요예측) 개시, 로드쇼 시작</div>
+      <div><span class="sh-now-badge"><i class="ti ti-flame"></i> 첫날 물량 초과 수요 확인</span></div>
+    </div>
+
+    <div class="sh-item future">
+      <span class="node"></span>
+      <div class="sh-date">2026.07.09 (목)</div>
+      <div class="sh-desc">최종 공모가 확정 예정</div>
+    </div>
+
+    <div class="sh-item future">
+      <span class="node"></span>
+      <div class="sh-date">2026.07.10 (금)</div>
+      <div class="sh-desc">나스닥 데뷔 — 티커 <b>SKHY</b></div>
+      <span class="sh-tag">D-DAY</span>
+    </div>
+
+    <div class="sh-item future">
+      <span class="node"></span>
+      <div class="sh-date">2026.07.14</div>
+      <div class="sh-desc">청약 및 납입일</div>
+    </div>
+
+    <div class="sh-item future">
+      <span class="node"></span>
+      <div class="sh-date">2026.07.29</div>
+      <div class="sh-desc">국내 신주 상장 + SK하이닉스 2분기 실적 발표</div>
+    </div>
+
+  </div>
+
+  <div class="sh-footer">
+    <i class="ti ti-info-circle"></i>
+    <span>일정은 SEC 심사 및 시장 상황에 따라 변동될 수 있습니다. (자료: 전자공시·로이터·블룸버그 종합)</span>
+  </div>
+</div>
+
+</body>
+</html>
