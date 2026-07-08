@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>바스코 다가마 항해일지 1497-1499</title>
+
+<meta property="og:title" content="바스코 다가마 항해일지 – 리스본에서 캘리컷까지" />
+<meta property="og:description" content="1497년 7월 8일 리스본 출항부터 1499년 귀환까지, 바스코 다가마 1차 항해의 타임라인" />
+<meta property="og:image" content="여기에_썸네일_이미지_URL을_입력하세요.png" />
+<meta property="og:url" content="여기에_이_페이지의_URL을_입력하세요" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
+
+<style>
+  .vdg-wrap * { box-sizing: border-box; }
+  .vdg-wrap {
+    --bg-page:   #FBF7EF;
+    --bg-card:   #FFFFFF;
+    --ink:       #1C2B4A;
+    --ink-soft:  #5B5647;
+    --gold:      #B8892B;
+    --gold-light:#F1E4C3;
+    --red:       #B23A32;
+    --teal:      #1F6F72;
+    --border:    #E5DCC8;
+
+    background: var(--bg-page);
+    color: var(--ink);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 44px 20px 52px;
+    border-radius: 18px;
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .vdg-wrap::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 92% 8%, rgba(184,137,43,0.10), transparent 40%),
+      radial-gradient(circle at 4% 96%, rgba(31,111,114,0.08), transparent 45%);
+    pointer-events:none;
+  }
+  .vdg-eyebrow{
+    position:relative;
+    display:flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px; letter-spacing:.14em;
+    color: var(--gold);
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .vdg-eyebrow i{ font-size:15px; }
+  .vdg-title{
+    position:relative;
+    font-family:'Noto Serif KR', serif;
+    font-weight:900;
+    font-size: 27px;
+    line-height:1.35;
+    margin:0 0 8px;
+    color: var(--ink);
+  }
+  .vdg-sub{
+    position:relative;
+    font-size:14.5px;
+    color: var(--ink-soft);
+    line-height:1.6;
+    margin:0 0 34px;
+    padding-bottom: 26px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .vdg-route{
+    position:relative;
+    padding-left: 46px;
+  }
+  .vdg-route::before{
+    content:"";
+    position:absolute;
+    left: 17px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom, var(--gold) 0 6px, transparent 6px 12px);
+  }
+  .vdg-item{
+    position:relative;
+    padding-bottom: 30px;
+  }
+  .vdg-item:last-child{ padding-bottom:0; }
+  .vdg-dot{
+    position:absolute;
+    left: -46px; top: 0;
+    width: 36px; height:36px;
+    border-radius:50%;
+    background: var(--bg-card);
+    border: 2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 2px 6px rgba(28,43,74,0.10);
+    z-index:2;
+  }
+  .vdg-item.is-loss .vdg-dot{ border-color: var(--red); }
+  .vdg-item.is-peak .vdg-dot{ border-color: var(--teal); background: var(--teal); }
+  .vdg-dot i{ font-size:16px; color: var(--gold); }
+  .vdg-item.is-loss .vdg-dot i{ color: var(--red); }
+  .vdg-item.is-peak .vdg-dot i{ color: #fff; }
+
+  .vdg-card{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px 17px;
+  }
+  .vdg-date{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; font-weight:700;
+    color:#fff;
+    background: var(--ink);
+    padding: 3px 9px;
+    border-radius: 6px;
+    margin-bottom: 9px;
+    letter-spacing: .02em;
+  }
+  .vdg-item.is-loss .vdg-date{ background: var(--red); }
+  .vdg-item.is-peak .vdg-date{ background: var(--teal); }
+
+  .vdg-h{
+    font-family:'Noto Serif KR', serif;
+    font-weight:700;
+    font-size: 17px;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .vdg-p{
+    font-size: 14px;
+    line-height:1.65;
+    color: var(--ink-soft);
+    margin:0;
+  }
+  .vdg-foot{
+    position:relative;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    line-height:1.6;
+  }
+  .vdg-foot i{ color: var(--gold); font-size:15px; margin-top:1px; }
+
+  @media (max-width:480px){
+    .vdg-wrap{ padding: 32px 14px 40px; border-radius:0; }
+    .vdg-title{ font-size:22px; }
+    .vdg-route{ padding-left:40px; }
+    .vdg-dot{ left:-40px; width:32px; height:32px; }
+  }
+</style>
+</head>
+<body style="margin:0; background:#FBF7EF;">
+
+<div class="vdg-wrap">
+  <div class="vdg-eyebrow"><i class="ti ti-anchor"></i>VOYAGE LOG · 1497–1499</div>
+  <h2 class="vdg-title">바스코 다가마 항해일지<br>리스본에서 캘리컷까지</h2>
+  <p class="vdg-sub">유럽인 최초로 바닷길을 통해 인도에 도달한 항해. 4척으로 출항해 2척만 돌아온 2년 2개월의 기록이에요.</p>
+
+  <div class="vdg-route">
+
+    <div class="vdg-item">
+      <div class="vdg-dot"><i class="ti ti-anchor"></i></div>
+      <div class="vdg-card">
+        <span class="vdg-date">1497.07.08</span>
+        <h3 class="vdg-h">리스본 출항</h3>
+        <p class="vdg-p">산가브리엘호·산라파엘호·베리우호·보급선까지 배 4척, 선원 약 170명이 리스본 항구를 떠나요. 목적지는 그 누구도 바닷길로 가본 적 없는 인도였어요.</p>
+      </div>
+    </div>
+
+    <div class="vdg-item">
+      <div class="vdg-dot"><i class="ti ti-wind"></i></div>
+      <div class="vdg-card">
+        <span class="vdg-date">1497.11</span>
+        <h3 class="vdg-h">희망봉 통과</h3>
+        <p class="vdg-p">당시 유럽인들에게 '세상의 끝'으로 여겨지던 아프리카 최남단을 돌아요. 대서양의 거센 풍랑을 견뎌야 했던 구간이에요.</p>
+      </div>
+    </div>
+
+    <div class="vdg-item">
+      <div class="vdg-dot"><i class="ti ti-map-pin"></i></div>
+      <div class="vdg-card">
+        <span class="vdg-date">1498.04</span>
+        <h3 class="vdg-h">말린디에서 현지 안내인 합류</h3>
+        <p class="vdg-p">동아프리카 말린디(현 케냐)에서 현지 사정에 밝은 항해 안내인을 만나요. 계절풍(몬순)을 타고 인도양을 가로지르는 항로를 확보한 결정적 순간이었어요.</p>
+      </div>
+    </div>
+
+    <div class="vdg-item is-peak">
+      <div class="vdg-dot"><i class="ti ti-flag-3"></i></div>
+      <div class="vdg-card">
+        <span class="vdg-date">1498.05.20</span>
+        <h3 class="vdg-h">인도 캘리컷 도착</h3>
+        <p class="vdg-p">인도 서해안 캘리컷(현 코지코드)에 도착. 유럽인이 바닷길로 인도에 도달한 첫 사례로, 이후 포르투갈 해상 제국의 출발점이 돼요.</p>
+      </div>
+    </div>
+
+    <div class="vdg-item is-loss">
+      <div class="vdg-dot"><i class="ti ti-alert-triangle"></i></div>
+      <div class="vdg-card">
+        <span class="vdg-date">1499.09</span>
+        <h3 class="vdg-h">리스본 귀환, 2척만 생환</h3>
+        <p class="vdg-p">귀항 도중 보급선을 포기하고, 괴혈병 등으로 선원 다수를 잃으면서 출항 당시 4척이던 선단 중 단 2척만 리스본으로 돌아와요. 성공적인 항로 개척이었지만 대가는 결코 작지 않았어요.</p>
+      </div>
+    </div>
+
+    <div class="vdg-item">
+      <div class="vdg-dot"><i class="ti ti-building-castle"></i></div>
+      <div class="vdg-card">
+        <span class="vdg-date">1502–1503</span>
+        <h3 class="vdg-h">2차 항해 · 무역거점 강화</h3>
+        <p class="vdg-p">더 큰 함대를 이끌고 다시 인도로 향해요. 이번 항해로 포르투갈은 인도양 무역로에 대한 지배력을 한층 굳히게 돼요.</p>
+      </div>
+    </div>
+
+    <div class="vdg-item">
+      <div class="vdg-dot"><i class="ti ti-map-pin-off"></i></div>
+      <div class="vdg-card">
+        <span class="vdg-date">1524</span>
+        <h3 class="vdg-h">3차 항해 · 인도 코친에서 별세</h3>
+        <p class="vdg-p">포르투갈령 인도 총독으로 부임하기 위해 세 번째로 인도에 도착하지만, 같은 해 코친(코치)에서 병으로 생을 마감해요.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="vdg-foot">
+    <i class="ti ti-info-circle"></i>
+    <span>역사적 사실 관계는 통용되는 주요 서술을 기준으로 정리했으며, 세부 인원·날짜는 사료에 따라 다소 차이가 있을 수 있어요.</span>
+  </div>
+</div>
+
+</body>
+</html>
