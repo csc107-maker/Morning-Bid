@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>아파트 vs 단독주택, 히트펌프 설치 비교</title>
+
+<!-- ===== 블로그 게시 시 실제 값으로 교체해서 사용하세요 ===== -->
+<meta property="og:title" content="아파트 vs 단독주택, 히트펌프 설치 뭐가 다를까" />
+<meta property="og:description" content="열원 선택부터 실외기 설치, 정부지원금 신청 주체까지 — 주택 유형별로 정말 다른 5가지를 비교했습니다." />
+<meta property="og:image" content="썸네일 이미지 URL" />
+<meta property="og:url" content="페이지 URL" />
+<!-- ========================================================= -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+<style>
+  .cp-wrap * { box-sizing: border-box; }
+  .cp-wrap {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(155deg, #EAF2FF 0%, #F6FAFF 45%, #FFFFFF 100%);
+    color: #101828;
+    padding: 40px 28px 36px;
+    border-radius: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid #E4E9F2;
+  }
+  .cp-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1E4FD6;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .cp-wrap h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0 0 8px;
+    letter-spacing: -0.5px;
+  }
+  .cp-wrap .cp-sub {
+    font-size: 15px;
+    color: #5A6478;
+    margin: 0 0 28px;
+    line-height: 1.6;
+  }
+  .cp-header-row {
+    display: grid;
+    grid-template-columns: 190px 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .cp-header-row .cp-col-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+  .cp-col-apt { background: #EAF2FF; color: #1E4FD6; }
+  .cp-col-house { background: #FFF1E2; color: #DB7A17; }
+
+  .cp-row {
+    display: grid;
+    grid-template-columns: 190px 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: stretch;
+  }
+  .cp-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #344055;
+    background: #FFFFFF;
+    border: 1px solid #E4E9F2;
+    border-radius: 12px;
+    padding: 12px 12px;
+  }
+  .cp-label .ti { color: #97A2B8; font-size: 17px; }
+  .cp-cell {
+    background: #FFFFFF;
+    border: 1px solid #E4E9F2;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #46506A;
+    border-top: 3px solid #E4E9F2;
+  }
+  .cp-cell.apt { border-top-color: #2463EB; }
+  .cp-cell.house { border-top-color: #FF9F43; }
+  .cp-cell b { color: #16233D; }
+
+  @media (max-width: 680px) {
+    .cp-header-row, .cp-row { grid-template-columns: 1fr; }
+    .cp-label { border-radius: 12px 12px 0 0; }
+  }
+
+  .cp-verdict {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 680px) { .cp-verdict { grid-template-columns: 1fr; } }
+  .cp-verdict-card {
+    border-radius: 14px;
+    padding: 18px;
+    color: #fff;
+  }
+  .cp-verdict-card.apt { background: linear-gradient(135deg, #2463EB, #1E4FD6); }
+  .cp-verdict-card.house { background: linear-gradient(135deg, #FF9F43, #DB7A17); }
+  .cp-verdict-card .vc-title { font-size: 14px; font-weight: 800; margin-bottom: 6px; display:flex; align-items:center; gap:6px; }
+  .cp-verdict-card .vc-desc { font-size: 12.5px; line-height: 1.6; opacity: 0.95; }
+
+  .cp-foot {
+    margin-top: 22px;
+    font-size: 12px;
+    color: #9AA4B8;
+    line-height: 1.7;
+    border-top: 1px dashed #E4E9F2;
+    padding-top: 14px;
+  }
+</style>
+</head>
+<body style="margin:0; background:#F5F8FC; padding:24px 0;">
+
+<div class="cp-wrap">
+  <span class="cp-eyebrow"><i class="ti ti-scale"></i> 주택 유형별 비교</span>
+  <h2>아파트 vs 단독주택, 뭐가 다를까?</h2>
+  <p class="cp-sub">같은 히트펌프라도 사는 곳에 따라 선택지와 절차가 완전히 달라집니다. 5가지 핵심 기준으로 비교했습니다.</p>
+
+  <div class="cp-header-row">
+    <div></div>
+    <div class="cp-col-label cp-col-apt"><i class="ti ti-building-skyscraper"></i> 아파트(공동주택)</div>
+    <div class="cp-col-label cp-col-house"><i class="ti ti-home"></i> 단독주택</div>
+  </div>
+
+  <div class="cp-row">
+    <div class="cp-label"><i class="ti ti-flame"></i> 열원 선택</div>
+    <div class="cp-cell apt">사실상 <b>공기열</b>만 검토 가능</div>
+    <div class="cp-cell house"><b>공기열·지열·수열</b> 모두 검토 가능</div>
+  </div>
+
+  <div class="cp-row">
+    <div class="cp-label"><i class="ti ti-wind"></i> 실외기 설치</div>
+    <div class="cp-cell apt">세대 내 공간 부족 시 <b>관리주체 동의</b> 필수(주택법 시행령 제57조)</div>
+    <div class="cp-cell house">부지 내 <b>자유롭게</b> 위치 선정, 별도 동의 불필요</div>
+  </div>
+
+  <div class="cp-row">
+    <div class="cp-label"><i class="ti ti-file-certificate"></i> 그린홈 신청 주체</div>
+    <div class="cp-cell apt">입주자대표 + <b>입주자 전체 동의서</b> 필요</div>
+    <div class="cp-cell house">소유자 <b>본인 명의 단독</b> 신청 가능</div>
+  </div>
+
+  <div class="cp-row">
+    <div class="cp-label"><i class="ti ti-map-pin"></i> 지열 설치 조건</div>
+    <div class="cp-cell apt">개별 세대 단위 <b>부지 없음</b> (기존 중앙설비 교체만 가능)</div>
+    <div class="cp-cell house">지중열교환기 약 <b>50㎡</b> + 기계실 6.6㎡ 필요</div>
+  </div>
+
+  <div class="cp-row">
+    <div class="cp-label"><i class="ti ti-alert-triangle"></i> 무단설치 리스크</div>
+    <div class="cp-cell apt">과태료 <b>최대 1,000만원</b> 이하 부과 가능</div>
+    <div class="cp-cell house">해당 없음</div>
+  </div>
+
+  <div class="cp-verdict">
+    <div class="cp-verdict-card apt">
+      <div class="vc-title"><i class="ti ti-building-skyscraper"></i> 아파트라면</div>
+      <div class="vc-desc">관리사무소에 배기공간 규격부터 확인하고, 개별 신청보다 입주자대표회의를 통한 단지 단위 접근이 더 현실적일 수 있습니다.</div>
+    </div>
+    <div class="cp-verdict-card house">
+      <div class="vc-title"><i class="ti ti-home"></i> 단독주택이라면</div>
+      <div class="vc-desc">그린홈 홈페이지에서 바로 신청 가능. 부지가 넉넉하다면 초기비용이 높아도 장기 효율이 좋은 지열도 검토해볼 만합니다.</div>
+    </div>
+  </div>
+
+  <div class="cp-foot">
+    출처: 한국에너지공단 신·재생에너지센터 그린홈 FAQ, 찾기쉬운 생활법령정보(그린홈 지원기준), 서울시 에어컨 실외기 설치기준 안내, 투데이에너지 종합 정리 · 개별 단지·세대 상황에 따라 예외가 있을 수 있으니 관리사무소 및 시공업체와 반드시 사전 확인하시기 바랍니다.
+  </div>
+</div>
+
+</body>
+</html>
