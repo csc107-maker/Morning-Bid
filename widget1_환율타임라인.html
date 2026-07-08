@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>원달러 환율 하락 타임라인 | 2026년 7월</title>
+
+<meta property="og:title" content="원달러 환율 하락, 5일간의 타임라인" />
+<meta property="og:description" content="미국 고용쇼크부터 SK하이닉스 ADR 완판까지, 원달러 환율을 1,559원에서 1,510원대로 끌어내린 5가지 사건을 한눈에 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/won-krw-timeline-thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/won-krw-exchange-rate-drop" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css" defer></script>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg:#F0F4F8;
+    --surface:#FFFFFF;
+    --ink:#101826;
+    --ink-soft:#51607A;
+    --ink-faint:#8492A8;
+    --blue:#1D51C9;
+    --blue-deep:#0B2E75;
+    --blue-pale:#E4ECFB;
+    --red:#C6371F;
+    --red-pale:#FBEAE6;
+    --gold:#A8792B;
+    --gold-pale:#F5EBD8;
+    --line:#DCE3EC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    font-family:'Pretendard','Noto Sans KR',sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:44px 24px 56px;
+  }
+
+  /* ---------- Hero : 환전 전광판 ---------- */
+  .board{
+    background:var(--blue-deep);
+    border-radius:18px;
+    padding:30px 28px 26px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 18px 40px -20px rgba(11,46,117,.55);
+  }
+  .board::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.08), transparent 40%),
+      repeating-linear-gradient(180deg, rgba(255,255,255,.035) 0 1px, transparent 1px 3px);
+    pointer-events:none;
+  }
+  .board-label{
+    font-family:'Roboto Mono',monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    color:#9FB6EC;
+    text-transform:uppercase;
+    margin:0 0 14px;
+  }
+  .board-rates{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .rate-old{
+    font-family:'Roboto Mono',monospace;
+    font-size:26px;
+    color:#7C93C9;
+    text-decoration:line-through;
+    text-decoration-color:#5A76B8;
+  }
+  .rate-arrow{ color:#6FE0A8; font-size:22px; }
+  .rate-new{
+    font-family:'Roboto Mono',monospace;
+    font-weight:700;
+    font-size:44px;
+    color:#FFFFFF;
+    letter-spacing:.01em;
+  }
+  .rate-new span{ font-size:20px; color:#B9CBEE; margin-left:4px;}
+  .board-sub{
+    margin-top:10px;
+    font-size:13.5px;
+    color:#B9CBEE;
+    line-height:1.6;
+  }
+  .board-tag{
+    display:inline-flex; align-items:center; gap:6px;
+    margin-top:16px;
+    background:rgba(111,224,168,.14);
+    border:1px solid rgba(111,224,168,.4);
+    color:#6FE0A8;
+    font-size:12.5px;
+    font-weight:700;
+    padding:6px 12px;
+    border-radius:999px;
+  }
+
+  /* ---------- Header text ---------- */
+  .headline{
+    font-family:'Noto Serif KR', serif;
+    font-weight:800;
+    font-size:26px;
+    line-height:1.4;
+    margin:34px 0 8px;
+    color:var(--ink);
+  }
+  .sub{
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.7;
+    margin:0 0 30px;
+  }
+
+  /* ---------- Timeline ---------- */
+  .timeline{ position:relative; padding-left:2px; }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:23px; top:8px; bottom:8px;
+    width:2px;
+    background:linear-gradient(180deg, var(--blue), var(--gold));
+    opacity:.35;
+  }
+  .step{
+    position:relative;
+    display:flex;
+    gap:18px;
+    padding-bottom:30px;
+  }
+  .step:last-child{ padding-bottom:0; }
+  .num{
+    flex:0 0 auto;
+    width:46px; height:46px;
+    border-radius:50%;
+    background:var(--surface);
+    border:2px solid var(--blue);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Roboto Mono',monospace;
+    font-weight:700;
+    color:var(--blue-deep);
+    font-size:16px;
+    z-index:1;
+  }
+  .step:nth-child(4) .num, .step:nth-child(5) .num{
+    border-color:var(--gold);
+    color:var(--gold);
+  }
+  .card{
+    flex:1;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+  }
+  .card-eyebrow{
+    display:flex; align-items:center; gap:6px;
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--blue);
+    letter-spacing:.04em;
+    margin-bottom:6px;
+  }
+  .step:nth-child(4) .card-eyebrow, .step:nth-child(5) .card-eyebrow{ color:var(--gold); }
+  .card-eyebrow i{ font-size:15px; }
+  .card h3{
+    margin:0 0 6px;
+    font-size:16.5px;
+    font-weight:800;
+    color:var(--ink);
+  }
+  .card p{
+    margin:0;
+    font-size:13.8px;
+    line-height:1.68;
+    color:var(--ink-soft);
+  }
+  .card .data{
+    display:inline-block;
+    margin-top:10px;
+    font-family:'Roboto Mono',monospace;
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--blue-deep);
+    background:var(--blue-pale);
+    padding:3px 9px;
+    border-radius:6px;
+  }
+  .step:nth-child(4) .card .data, .step:nth-child(5) .card .data{
+    color:#7A5A1E; background:var(--gold-pale);
+  }
+
+  /* ---------- Footer note ---------- */
+  .foot{
+    margin-top:36px;
+    padding-top:18px;
+    border-top:1px dashed var(--line);
+    font-size:12px;
+    color:var(--ink-faint);
+    line-height:1.7;
+  }
+
+  @media (max-width:480px){
+    .rate-new{ font-size:34px; }
+    .rate-old{ font-size:20px; }
+    .headline{ font-size:22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="board">
+    <p class="board-label">USD / KRW · 매매기준율 흐름</p>
+    <div class="board-rates">
+      <span class="rate-old">1,559.47</span>
+      <span class="rate-arrow"><i class="ti ti-arrow-down"></i></span>
+      <span class="rate-new">1,510<span>원대</span></span>
+    </div>
+    <p class="board-sub">7월 1일 장중 고점 → 7월 7~9일 흐름 · 약 40원 이상 원화 강세 전환</p>
+    <span class="board-tag"><i class="ti ti-trending-down"></i> 28년 4개월 만의 고점에서 반전</span>
+  </div>
+
+  <h1 class="headline">환율을 끌어내린 5가지 사건, 순서대로</h1>
+  <p class="sub">같은 시기에 몰린 것처럼 보이지만, 사실은 뚜렷한 인과관계로 이어진 흐름입니다. 발생 순서대로 정리했습니다.</p>
+
+  <div class="timeline">
+
+    <div class="step">
+      <div class="num">01</div>
+      <div class="card">
+        <div class="card-eyebrow"><i class="ti ti-briefcase"></i> 7월 2일 · 미국</div>
+        <h3>美 6월 고용 쇼크, 달러 흔들리다</h3>
+        <p>비농업 고용이 예상치(약 11.4만 명)를 크게 밑도는 5.7만 명 증가에 그침. 실업률 4.2%. 연준의 추가 긴축 여력이 없다는 해석이 확산되며 달러인덱스 약세 촉발.</p>
+        <span class="data">고용 +57,000명 (예상 대비 절반 수준)</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">02</div>
+      <div class="card">
+        <div class="card-eyebrow"><i class="ti ti-building-bank"></i> 5월 28일 신호 · 7월 16일 확인 예정</div>
+        <h3>연준은 동결, 한은은 '인상' 시사</h3>
+        <p>한국은행 신현송 총재는 물가·환율·부동산 전반을 근거로 인상 전환을 강하게 시사. 점도표 21개 점 중 19개가 6개월 내 인상을 가리킴. 한미 금리차 축소 기대가 원화 강세 재료로 작용.</p>
+        <span class="data">전망 : 2.50% → 2.75% (+0.25%p)</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">03</div>
+      <div class="card">
+        <div class="card-eyebrow"><i class="ti ti-ship"></i> 7월 1일 발표 · 6월 실적</div>
+        <h3>수출, 사상 처음 월 1,000억 달러 돌파</h3>
+        <p>6월 수출이 전년 대비 70.9% 급증한 1,022억 5,000만 달러 기록. 반도체가 주도. 5월 경상수지는 386.1억 달러로 역대 최대 흑자.</p>
+        <span class="data">6월 수출 $102.25B · 반도체 +167.7%(5월 기준)</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">04</div>
+      <div class="card">
+        <div class="card-eyebrow"><i class="ti ti-building-skyscraper"></i> 6월 24일 확정 · 7월 10일 상장</div>
+        <h3>SK하이닉스, 45조 원 나스닥 ADR 완판 흥행</h3>
+        <p>티커 'SKHY'로 나스닥 글로벌셀렉트마켓 상장 확정. 최대 45조 4,534억 원 규모 신주 DR 발행, 해외 기관 수요예측에서 수 배 초과 청약 기록. 대형 해외 자금조달 이벤트로 시장 관심 집중.</p>
+        <span class="data">최대 $29~30B 규모 · 상장일 7/10</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">05</div>
+      <div class="card">
+        <div class="card-eyebrow"><i class="ti ti-clock-24"></i> 구조적 변화</div>
+        <h3>24시간 외환거래 · 원화 국제화 개혁</h3>
+        <p>외국인 투자자의 원화 접근성을 높이는 24시간 외환거래 공식 시행. 정부는 환율 방어용 외환보유액 보충을 위해 유로화 표시 채권 조기 발행까지 병행.</p>
+        <span class="data">원화 유동성·접근성 구조 개선</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    ※ 위 수치는 작성 시점 기준 공개 자료를 종합한 것으로, 실시간 환율·금리 결정은 변동될 수 있습니다. 투자 판단의 근거로 단독 사용하지 마시고 최신 공시 및 실시간 시세를 함께 확인하시기 바랍니다. 본 콘텐츠는 정보 제공 목적이며 투자 권유가 아닙니다.
+  </div>
+
+</div>
+</body>
+</html>
