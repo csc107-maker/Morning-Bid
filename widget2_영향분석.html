@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>원달러 환율 하락, 코스피·물가 영향 분석</title>
+
+<meta property="og:title" content="원달러 환율 하락, 코스피·물가에 미치는 영향 분석" />
+<meta property="og:description" content="환율 하락이 한국 증시, 소비자물가, 한국은행 금리 결정에 미치는 영향을 데이터 기반으로 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/won-krw-impact-thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/won-krw-exchange-rate-drop" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg:#F0F4F8;
+    --surface:#FFFFFF;
+    --ink:#101826;
+    --ink-soft:#51607A;
+    --ink-faint:#8492A8;
+    --blue:#1D51C9;
+    --blue-deep:#0B2E75;
+    --blue-pale:#E4ECFB;
+    --red:#C6371F;
+    --red-pale:#FBEAE6;
+    --green:#1E8A5F;
+    --green-pale:#E4F3EC;
+    --gold:#A8792B;
+    --gold-pale:#F5EBD8;
+    --line:#DCE3EC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    font-family:'Pretendard','Noto Sans KR',sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:800px; margin:0 auto; padding:44px 24px 56px; }
+
+  .kicker{
+    display:inline-flex; align-items:center; gap:7px;
+    font-family:'Roboto Mono',monospace;
+    font-size:12px; font-weight:700; letter-spacing:.1em;
+    color:var(--blue-deep);
+    background:var(--blue-pale);
+    padding:6px 12px; border-radius:999px;
+    text-transform:uppercase;
+  }
+  .headline{
+    font-family:'Noto Serif KR', serif;
+    font-weight:800; font-size:27px; line-height:1.42;
+    margin:16px 0 10px; color:var(--ink);
+  }
+  .sub{ color:var(--ink-soft); font-size:15px; line-height:1.7; margin:0 0 30px; max-width:60ch; }
+
+  /* ---------- Impact cards ---------- */
+  .grid{ display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:38px; }
+  .impact-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:22px 22px 20px;
+  }
+  .impact-head{ display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .impact-icon{
+    width:42px; height:42px; border-radius:11px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:21px; flex:0 0 auto;
+  }
+  .impact-icon.kospi{ background:var(--blue-pale); color:var(--blue-deep); }
+  .impact-icon.cpi{ background:var(--green-pale); color:var(--green); }
+  .impact-icon.econ{ background:var(--gold-pale); color:var(--gold); }
+  .impact-head h3{ margin:0; font-size:17.5px; font-weight:800; }
+  .impact-head .tag{
+    margin-left:auto; font-size:11.5px; font-weight:700;
+    padding:4px 10px; border-radius:999px; white-space:nowrap;
+  }
+  .tag.mixed{ background:var(--gold-pale); color:#7A5A1E; }
+  .tag.positive{ background:var(--green-pale); color:var(--green); }
+
+  .split{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:4px; }
+  .col-title{
+    display:flex; align-items:center; gap:6px;
+    font-size:12.5px; font-weight:700; margin-bottom:8px;
+  }
+  .col-title.pos{ color:var(--green); }
+  .col-title.cau{ color:var(--red); }
+  .col ul{ margin:0; padding-left:18px; }
+  .col li{ font-size:13.3px; line-height:1.62; color:var(--ink-soft); margin-bottom:6px; }
+  .impact-note{
+    margin-top:14px; padding-top:12px; border-top:1px dashed var(--line);
+    font-size:13.2px; line-height:1.65; color:var(--ink-soft);
+  }
+  .impact-note b{ color:var(--ink); }
+
+  @media (max-width:520px){
+    .split{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Comparison table ---------- */
+  .table-title{
+    font-size:15.5px; font-weight:800; margin:0 0 4px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .table-desc{ font-size:13px; color:var(--ink-faint); margin:0 0 14px; }
+  .rate-table{
+    width:100%; border-collapse:collapse;
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    overflow:hidden; font-size:13.6px;
+  }
+  .rate-table th{
+    background:var(--blue-deep); color:#fff;
+    text-align:left; font-weight:700; padding:12px 14px; font-size:12.8px;
+  }
+  .rate-table td{ padding:12px 14px; border-top:1px solid var(--line); color:var(--ink-soft); }
+  .rate-table tr:nth-child(odd) td{ background:#FAFBFD; }
+  .rate-table td.name{ color:var(--ink); font-weight:700; }
+  .rate-table td.num{ font-family:'Roboto Mono',monospace; font-weight:700; color:var(--blue-deep); }
+  .pill{
+    display:inline-block; font-size:11.5px; font-weight:700;
+    padding:3px 9px; border-radius:999px;
+  }
+  .pill.hold{ background:var(--blue-pale); color:var(--blue-deep); }
+  .pill.hike{ background:var(--red-pale); color:var(--red); }
+
+  .foot{
+    margin-top:32px; padding-top:16px; border-top:1px dashed var(--line);
+    font-size:12px; color:var(--ink-faint); line-height:1.7;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="kicker"><i class="ti ti-chart-dots-3"></i> IMPACT ANALYSIS</span>
+  <h1 class="headline">환율 하락, 코스피·물가·경제에 어떤 영향을 줄까</h1>
+  <p class="sub">원화 강세는 한 방향으로만 흐르지 않습니다. 영역별로 긍정 요인과 주의 요인을 함께 짚었습니다.</p>
+
+  <div class="grid">
+
+    <div class="impact-card">
+      <div class="impact-head">
+        <div class="impact-icon kospi"><i class="ti ti-chart-candle"></i></div>
+        <h3>코스피 · 증시</h3>
+        <span class="tag mixed">혼조적 우호</span>
+      </div>
+      <div class="split">
+        <div class="col">
+          <div class="col-title pos"><i class="ti ti-circle-plus"></i> 긍정 요인</div>
+          <ul>
+            <li>외국인 원화자산 달러 환산 수익률 개선</li>
+            <li>금리차 축소로 외국인 순매도 압력 완화</li>
+            <li>2분기 실적 모멘텀과 결합 시 상승 추세 지속 전망</li>
+          </ul>
+        </div>
+        <div class="col">
+          <div class="col-title cau"><i class="ti ti-alert-triangle"></i> 주의 요인</div>
+          <ul>
+            <li>수출 대형주 달러 매출의 원화 환산액 감소</li>
+            <li>한은 기준금리 인상 시 밸류에이션 부담</li>
+            <li>중동 리스크 재확대 시 변동성 확대 가능</li>
+          </ul>
+        </div>
+      </div>
+      <div class="impact-note"><b>정리:</b> 방향성은 우호적이나, HBM 실적 모멘텀 등 개별 기업 펀더멘털과 함께 봐야 정확합니다.</div>
+    </div>
+
+    <div class="impact-card">
+      <div class="impact-head">
+        <div class="impact-icon cpi"><i class="ti ti-receipt-2"></i></div>
+        <h3>소비자물가 · 인플레이션</h3>
+        <span class="tag positive">완화 방향</span>
+      </div>
+      <div class="split">
+        <div class="col">
+          <div class="col-title pos"><i class="ti ti-circle-plus"></i> 긍정 요인</div>
+          <ul>
+            <li>수입 에너지·원자재 가격 부담 완화</li>
+            <li>고환율이 밀어올렸던 수입물가 상승분 되돌림</li>
+            <li>가계 실질구매력 개선 기대</li>
+          </ul>
+        </div>
+        <div class="col">
+          <div class="col-title cau"><i class="ti ti-alert-triangle"></i> 주의 요인</div>
+          <ul>
+            <li>6월 CPI(3.2%)는 '고환율 시기' 흐름을 반영한 후행 지표</li>
+            <li>환율 효과는 시차를 두고 반영되어 즉각적 물가 하락은 아님</li>
+            <li>중동 발 유가 변수는 여전히 살아있음</li>
+          </ul>
+        </div>
+      </div>
+      <div class="impact-note"><b>정리:</b> 물가 상방 압력을 늦추는 방향이지만, 효과가 지표에 온전히 반영되려면 시간이 필요합니다.</div>
+    </div>
+
+    <div class="impact-card">
+      <div class="impact-head">
+        <div class="impact-icon econ"><i class="ti ti-building-bank"></i></div>
+        <h3>한국 경제 전반</h3>
+        <span class="tag positive">완만한 순풍</span>
+      </div>
+      <div class="split">
+        <div class="col">
+          <div class="col-title pos"><i class="ti ti-circle-plus"></i> 긍정 요인</div>
+          <ul>
+            <li>반도체 호황 + 견조한 성장 → 2026년 성장률 전망 2.0%→2.6% 상향</li>
+            <li>한은의 정책 조율 여력 확대 (물가 vs 성장)</li>
+            <li>기업 원가 부담 완화</li>
+          </ul>
+        </div>
+        <div class="col">
+          <div class="col-title cau"><i class="ti ti-alert-triangle"></i> 주의 요인</div>
+          <ul>
+            <li>가계부채·수도권 주택가격은 별개의 금융 불균형 리스크</li>
+            <li>금리 인상 시 이자 부담 증가 가능성</li>
+            <li>엔저 동조화로 강세 폭 제한 가능</li>
+          </ul>
+        </div>
+      </div>
+      <div class="impact-note"><b>정리:</b> 거시 지표는 개선 흐름이나, 가계부채는 환율과 별도로 계속 관리가 필요한 변수입니다.</div>
+    </div>
+
+  </div>
+
+  <p class="table-title"><i class="ti ti-scale"></i> 한·미 통화정책 경로 비교 (7월 기준)</p>
+  <p class="table-desc">두 중앙은행의 엇갈린 행보가 최근 금리차 축소 기대, 즉 원화 강세 재료의 핵심입니다.</p>
+  <table class="rate-table">
+    <thead>
+      <tr><th>구분</th><th>현재 기준금리</th><th>다음 결정일</th><th>시장 전망</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">미 연준(Fed)</td>
+        <td class="num">3.50~3.75%</td>
+        <td>7월 28~29일</td>
+        <td><span class="pill hold">동결 유력</span></td>
+      </tr>
+      <tr>
+        <td class="name">한국은행(BOK)</td>
+        <td class="num">2.50%</td>
+        <td>7월 16일</td>
+        <td><span class="pill hike">인상 가능성 ↑ (2.75% 전망)</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="foot">
+    ※ 연준 기준금리는 통상 상단 기준으로 표기했습니다. 위 표의 전망치는 우리금융경영연구소 등 국내 증권가 코멘트를 종합한 것으로, 실제 결정과 다를 수 있습니다. 본 콘텐츠는 정보 제공용이며 투자 권유가 아닙니다. 투자 판단 전 최신 공시와 실시간 데이터를 다시 확인하세요.
+  </div>
+
+</div>
+</body>
+</html>
