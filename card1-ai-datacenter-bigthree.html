@@ -1,0 +1,134 @@
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
+<style>
+  .aidc3-wrap{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+    background:#EEF2FA;
+    padding:36px 20px;
+    border-radius:20px;
+    box-sizing:border-box;
+    color:#0F172A;
+  }
+  .aidc3-wrap *{box-sizing:border-box;}
+  .aidc3-head{max-width:920px;margin:0 auto 24px;text-align:left;}
+  .aidc3-eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:700;letter-spacing:.04em;
+    color:#3949AB;background:#E1E6FB;
+    padding:5px 12px;border-radius:100px;margin-bottom:12px;
+  }
+  .aidc3-title{font-size:23px;font-weight:800;margin:0 0 6px;letter-spacing:-.02em;color:#0B1230;}
+  .aidc3-sub{font-size:14.5px;color:#5B6478;margin:0;line-height:1.55;}
+  .aidc3-grid{
+    max-width:920px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  @media (max-width:760px){ .aidc3-grid{grid-template-columns:1fr;} }
+  .aidc3-card{
+    background:#FFFFFF;border-radius:16px;padding:22px 20px 20px;
+    border:1px solid #E4E9F5;
+    box-shadow:0 1px 2px rgba(15,23,42,.03);
+    position:relative;overflow:hidden;
+  }
+  .aidc3-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  }
+  .aidc3-card.c-oracle::before{background:#C0223A;}
+  .aidc3-card.c-crw::before{background:#2C5CE0;}
+  .aidc3-card.c-crusoe::before{background:#0E8262;}
+  .aidc3-icon{
+    width:38px;height:38px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:19px;margin-bottom:12px;color:#fff;
+  }
+  .c-oracle .aidc3-icon{background:#C0223A;}
+  .c-crw .aidc3-icon{background:#2C5CE0;}
+  .c-crusoe .aidc3-icon{background:#0E8262;}
+  .aidc3-name{font-size:16px;font-weight:800;margin:0 0 2px;color:#0B1230;}
+  .aidc3-role{font-size:12px;color:#8791A6;margin:0 0 16px;font-weight:600;}
+  .aidc3-metric{margin-bottom:14px;}
+  .aidc3-metric .num{font-size:25px;font-weight:800;letter-spacing:-.02em;line-height:1.15;}
+  .c-oracle .num{color:#C0223A;}
+  .c-crw .num{color:#2C5CE0;}
+  .c-crusoe .num{color:#0E8262;}
+  .aidc3-metric .lbl{font-size:12.5px;color:#5B6478;margin-top:2px;font-weight:500;}
+  .aidc3-stats{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px dashed #E4E9F5;}
+  .aidc3-stats li{
+    display:flex;justify-content:space-between;gap:10px;
+    font-size:12.8px;color:#3A4256;padding:5px 0;line-height:1.45;
+  }
+  .aidc3-stats li b{color:#0B1230;font-weight:700;white-space:nowrap;margin-left:8px;}
+  .aidc3-foot{
+    max-width:920px;margin:20px auto 0;
+    background:#0B1230;border-radius:14px;padding:16px 18px;
+    display:flex;gap:12px;align-items:flex-start;
+  }
+  .aidc3-foot i{color:#8FA5FF;font-size:18px;margin-top:2px;}
+  .aidc3-foot p{margin:0;color:#DCE2F5;font-size:13px;line-height:1.6;}
+  .aidc3-foot b{color:#fff;}
+  .aidc3-src{max-width:920px;margin:12px auto 0;font-size:11px;color:#9AA3B8;text-align:right;}
+</style>
+
+<div class="aidc3-wrap">
+  <div class="aidc3-head">
+    <span class="aidc3-eyebrow"><i class="ti ti-building-broadcast-tower"></i>&nbsp;AI 데이터센터 투자 비교</span>
+    <h3 class="aidc3-title">AI 데이터센터 투자 3대장, 지금 어디까지 왔나</h3>
+    <p class="aidc3-sub">오라클·코어위브·Crusoe가 최근 발표한 캐펙스·용량 데이터를 한눈에 비교했습니다. 세 회사 모두 &ldquo;축소&rdquo;가 아니라 &ldquo;확대&rdquo; 방향으로 계획을 계속 갱신하고 있다는 공통점이 있습니다.</p>
+  </div>
+
+  <div class="aidc3-grid">
+    <div class="aidc3-card c-oracle">
+      <div class="aidc3-icon"><i class="ti ti-cloud-computing"></i></div>
+      <p class="aidc3-name">Oracle</p>
+      <p class="aidc3-role">OCI · 하이퍼스케일러 클라우드</p>
+      <div class="aidc3-metric">
+        <div class="num">+93%</div>
+        <div class="lbl">FY26 4분기 OCI 매출 YoY (58억 달러)</div>
+      </div>
+      <ul class="aidc3-stats">
+        <li>RPO(잔여계약잔고) <b>6,380억$ (+363%)</b></li>
+        <li>FY26 캐펙스 <b>약 500억$</b></li>
+        <li>FY27 매출 가이던스 <b>+34% (약 900억$)</b></li>
+        <li>FY27 신규 OCI 매출(피퍼샌들러) <b>약 230억$</b></li>
+      </ul>
+    </div>
+
+    <div class="aidc3-card c-crw">
+      <div class="aidc3-icon"><i class="ti ti-server-2"></i></div>
+      <p class="aidc3-name">CoreWeave</p>
+      <p class="aidc3-role">GPU 클라우드 · 네오클라우드</p>
+      <div class="aidc3-metric">
+        <div class="num">$31~35B</div>
+        <div class="lbl">2026년 캐펙스 가이던스 (25년 대비 2배+)</div>
+      </div>
+      <ul class="aidc3-stats">
+        <li>계약 백로그 <b>668억$ (25년말)</b></li>
+        <li>26년 매출 가이던스 <b>120억~130억$</b></li>
+        <li>30년까지 목표 용량 <b>+5GW 이상</b></li>
+        <li>주요 고객 <b>OpenAI·Meta·Anthropic</b></li>
+      </ul>
+    </div>
+
+    <div class="aidc3-card c-crusoe">
+      <div class="aidc3-icon"><i class="ti ti-bolt"></i></div>
+      <p class="aidc3-name">Crusoe</p>
+      <p class="aidc3-role">에너지 수직계열화 AI 팩토리</p>
+      <div class="aidc3-metric">
+        <div class="num">4.9GW</div>
+        <div class="lbl">계약 확정 AI 인프라 용량 (26.6.9 기준)</div>
+      </div>
+      <ul class="aidc3-stats">
+        <li>전체 개발 파이프라인 <b>40GW+</b></li>
+        <li>애빌린 캠퍼스 총 용량 <b>2.1GW</b></li>
+        <li>주요 파트너 <b>Microsoft·Oracle·OpenAI</b></li>
+        <li>맥킨지 전망 2030 수요 <b>156GW</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="aidc3-foot">
+    <i class="ti ti-bulb"></i>
+    <p><b>왜 이 세 회사를 같이 봐야 할까?</b> GPU 옆에는 반드시 HBM과 서버용 D램이 붙습니다. 세 회사가 동시에 용량을 늘린다는 건, 결국 그 서버를 채울 메모리 반도체 수요도 함께 커진다는 뜻입니다.</p>
+  </div>
+  <p class="aidc3-src">자료: Oracle FY26 4분기·FY27 가이던스(2026.6.10), Piper Sandler(2026.7.7), CoreWeave 실적발표·DCD·Reuters·WSJ 종합(2026), Crusoe 뉴스룸(2026.6.9), McKinsey 전망 / 각 사 공식 발표 및 외신 보도 종합, 수치는 발표 시점 기준</p>
+</div>
