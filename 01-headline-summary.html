@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>오늘의 3대 헤드라인 | SK하이닉스 나스닥 상장 총정리</title>
+
+<meta property="og:title" content="SK하이닉스 나스닥 상장 첫날, 코스피 2.5% 급등한 이유는?" />
+<meta property="og:description" content="SK하이닉스 나스닥 데뷔, 월가 선물 혼조, 다음주 CPI·어닝시즌까지 — 2026년 7월 10일 미국·한국 증시 3대 헤드라인 총정리" />
+<meta property="og:image" content="https://yourblog.com/images/sk-hynix-nasdaq-thumbnail.png" />
+<meta property="og:url" content="https://yourblog.com/sk-hynix-nasdaq-debut-0710" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background: #F7F9FC;
+    padding: 28px 16px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .eyebrow {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    color: #C89B3C; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #E0332F; }
+
+  h2.title {
+    font-size: 24px; font-weight: 800; color: #0B1730;
+    margin-bottom: 4px; letter-spacing: -0.02em;
+  }
+  .sub {
+    font-size: 14px; color: #5B6478; margin-bottom: 22px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: #FFFFFF;
+    border: 1px solid #E7EAF2;
+    border-radius: 14px;
+    padding: 20px 18px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: rise 0.55s ease forwards;
+    box-shadow: 0 1px 2px rgba(11,23,48,0.04);
+  }
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.18s; }
+  .card:nth-child(3) { animation-delay: 0.31s; }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  }
+  .card.red::before { background: #E0332F; }
+  .card.blue::before { background: #1E4FD6; }
+  .card.gold::before { background: #C89B3C; }
+
+  .icon-badge {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 14px;
+  }
+  .card.red .icon-badge { background: #FDECEC; color: #E0332F; }
+  .card.blue .icon-badge { background: #EAF0FE; color: #1E4FD6; }
+  .card.gold .icon-badge { background: #FBF3E2; color: #C89B3C; }
+
+  .card .tag {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px; font-weight: 700; color: #5B6478;
+    letter-spacing: 0.06em; margin-bottom: 6px;
+  }
+  .card h3 {
+    font-size: 16.5px; font-weight: 800; color: #0B1730;
+    line-height: 1.4; margin-bottom: 10px;
+    min-height: 46px;
+  }
+  .card p {
+    font-size: 13.5px; color: #45506B; line-height: 1.65;
+  }
+  .card .src {
+    margin-top: 14px; padding-top: 12px; border-top: 1px dashed #E7EAF2;
+    font-size: 11.5px; color: #8890A3; display: flex; justify-content: space-between; align-items: center;
+  }
+  .card .src b { color: #0B1730; font-weight: 700; }
+
+  .foot {
+    margin-top: 18px; text-align: center; font-size: 12px; color: #A2A9BB;
+    font-family: 'Roboto Mono', monospace;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>2026.07.10 FRI · MARKET BRIEF</div>
+    <h2 class="title">오늘의 3대 헤드라인</h2>
+    <div class="sub">SK하이닉스 나스닥 데뷔부터 중동 리스크, 다음 주 슈퍼위크 예고까지</div>
+
+    <div class="grid">
+      <div class="card red">
+        <div class="icon-badge"><i class="ti ti-cpu"></i></div>
+        <div class="tag">HEADLINE 01 · AI SEMICONDUCTOR</div>
+        <h3>SK하이닉스, 마퀴 美 데뷔로 AI 열기 시험대에</h3>
+        <p>265억 달러 규모 공모를 마친 SK하이닉스가 나스닥에서 거래를 시작합니다. 최근 조정을 겪은 반도체주 랠리의 지속 가능성을 가늠할 시험대로 꼽힙니다.</p>
+        <div class="src">Reuters<b>SK Hynix</b></div>
+      </div>
+
+      <div class="card blue">
+        <div class="icon-badge"><i class="ti ti-chart-candle"></i></div>
+        <div class="tag">HEADLINE 02 · WALL STREET</div>
+        <h3>월가 선물 혼조, 중동 정세 예의주시</h3>
+        <p>강한 랠리 이후 뉴욕 증시 선물은 SK하이닉스 상장을 기다리며 혼조세. 이란발 긴장 고조 속 국제유가 흐름도 함께 주시되고 있습니다.</p>
+        <div class="src">Reuters<b>S&amp;P·Nasdaq</b></div>
+      </div>
+
+      <div class="card gold">
+        <div class="icon-badge"><i class="ti ti-calendar-stats"></i></div>
+        <div class="tag">HEADLINE 03 · WEEK AHEAD</div>
+        <h3>다음 주는 실적·CPI·이란 변수 총집합</h3>
+        <p>2분기 어닝시즌 개막, 6월 CPI 발표, 지정학 헤드라인까지 겹치는 한 주. 여러 변수가 한꺼번에 몰리는 만큼 변동성 확대 가능성이 거론됩니다.</p>
+        <div class="src">Reuters<b>Week Ahead</b></div>
+      </div>
+    </div>
+
+    <div class="foot">SOURCE: REUTERS · COMPILED 2026.07.10</div>
+  </div>
+</body>
+</html>
