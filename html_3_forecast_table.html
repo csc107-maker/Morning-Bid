@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>원달러 환율, 기관별 하반기 전망 비교</title>
+
+<meta property="og:title" content="원달러 환율 하락 요인 분석 & 기관별 하반기 전망 비교" />
+<meta property="og:description" content="국내외 증권사·은행 7곳의 원달러 환율 전망치를 한 번에 비교합니다. 환율을 움직이는 6가지 요인 분석표 포함" />
+<meta property="og:image" content="https://your-blog-domain.com/images/thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/posts/won-dollar-sk-hynix-adr" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+<style>
+  #wdx-tbl * { box-sizing:border-box; margin:0; padding:0; }
+  #wdx-tbl{
+    --bg:#F2F5FA; --card:#FFFFFF; --ink:#14243A; --ink-soft:#55647A; --ink-faint:#8B98AB;
+    --gold:#B07C33; --gold-bg:#FBF1DF; --up:#C23B3B; --up-bg:#FBEBEB; --down:#2E5F94; --down-bg:#EAF1F9;
+    --border:#E4E9F0; --navy:#0E1E33;
+
+    background:var(--bg); font-family:'Pretendard','Noto Sans KR',-apple-system,sans-serif;
+    color:var(--ink); padding:40px 20px 32px; border-radius:20px; max-width:800px; margin:0 auto;
+  }
+  .wdx-t-head{ text-align:center; margin-bottom:28px; }
+  .wdx-t-eyebrow{
+    display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:700;
+    letter-spacing:.14em; color:var(--navy); background:#fff; border:1px solid var(--border);
+    padding:6px 14px; border-radius:100px; margin-bottom:16px; text-transform:uppercase;
+  }
+  .wdx-t-title{ font-family:'Noto Serif KR',serif; font-weight:900; font-size:24px; color:var(--navy); line-height:1.4; }
+  .wdx-t-sub{ margin-top:9px; font-size:14px; color:var(--ink-soft); }
+
+  .wdx-section-label{
+    display:flex; align-items:center; gap:8px; margin: 30px 0 14px; font-weight:800; font-size:15px; color:var(--navy);
+  }
+  .wdx-section-label i{ color:var(--gold); font-size:19px; }
+  .wdx-section-label .num{
+    width:22px; height:22px; border-radius:50%; background:var(--navy); color:#fff;
+    font-size:12px; display:flex; align-items:center; justify-content:center; font-family:'Noto Serif KR',serif;
+  }
+
+  .wdx-panel{ background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+
+  /* 요인 분석 표 */
+  .wdx-factor-row{ display:grid; grid-template-columns: 30px 1.3fr 0.9fr 1.6fr; gap:0; border-bottom:1px solid var(--border); }
+  .wdx-factor-row:last-child{ border-bottom:none; }
+  .wdx-factor-row.head{ background:var(--navy); }
+  .wdx-factor-row.head div{ color:#D9E1EC; font-size:11.5px; font-weight:700; padding:11px 10px; letter-spacing:.03em; }
+  .wdx-factor-row > div{ padding:13px 10px; font-size:12.8px; display:flex; align-items:center; }
+  .wdx-factor-row .ficon{ justify-content:center; font-size:16px; color:var(--ink-faint); }
+  .wdx-factor-row .fname{ font-weight:700; color:var(--ink); line-height:1.4; }
+  .wdx-factor-row .fdir{ }
+  .wdx-factor-row .fdesc{ color:var(--ink-soft); line-height:1.5; }
+  .fpill{ font-size:11px; font-weight:700; padding:4px 9px; border-radius:100px; white-space:nowrap; }
+  .fpill.up{ color:var(--up); background:var(--up-bg); }
+  .fpill.down{ color:var(--down); background:var(--down-bg); }
+  .fpill.mix{ color:var(--gold); background:var(--gold-bg); }
+
+  /* 전망 비교 표 */
+  .wdx-fc-row{ display:grid; grid-template-columns: 1.1fr 1fr 1.9fr; border-bottom:1px solid var(--border); }
+  .wdx-fc-row:last-child{ border-bottom:none; }
+  .wdx-fc-row.head{ background:var(--navy); }
+  .wdx-fc-row.head div{ color:#D9E1EC; font-size:11.5px; font-weight:700; padding:11px 10px; }
+  .wdx-fc-row > div{ padding:13px 10px; font-size:12.8px; display:flex; align-items:center; }
+  .wdx-fc-row.intl{ background:#FCFAF5; }
+  .fc-org{ font-weight:700; color:var(--ink); line-height:1.35; }
+  .fc-org small{ display:block; font-weight:500; color:var(--ink-faint); font-size:10.5px; margin-top:2px;}
+  .fc-num{ font-family:'Noto Serif KR',serif; font-weight:800; color:var(--navy); font-size:14px; }
+  .fc-reason{ color:var(--ink-soft); line-height:1.5; }
+
+  .wdx-legend{ display:flex; gap:16px; flex-wrap:wrap; margin-top:14px; padding:0 4px; }
+  .wdx-legend span{ font-size:11.5px; color:var(--ink-faint); display:flex; align-items:center; gap:5px; }
+  .wdx-legend i{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+
+  .wdx-t-foot{ margin-top:22px; font-size:11.5px; color:var(--ink-faint); text-align:center; line-height:1.7; }
+
+  @media (max-width:560px){
+    #wdx-tbl{ padding:28px 10px 24px; border-radius:14px; }
+    .wdx-t-title{ font-size:19px; }
+    .wdx-factor-row{ grid-template-columns: 22px 1fr 0.8fr; }
+    .wdx-factor-row .fdesc{ grid-column: 1 / -1; padding-top:0; }
+    .wdx-fc-row{ grid-template-columns: 1fr 0.9fr; }
+    .fc-reason{ grid-column: 1 / -1; padding-top:0; color:var(--ink-faint); }
+  }
+</style>
+</head>
+<body>
+
+<div id="wdx-tbl">
+  <div class="wdx-t-head">
+    <span class="wdx-t-eyebrow"><i class="ti ti-scale"></i>&nbsp;ANALYSIS</span>
+    <div class="wdx-t-title">환율 하락 요인 &amp; 기관별 하반기 전망</div>
+    <p class="wdx-t-sub">숫자 하나로 단정하기보다, 여러 관점을 나란히 놓고 비교해보세요</p>
+  </div>
+
+  <div class="wdx-section-label"><span class="num">1</span><i class="ti ti-list-details"></i>환율을 움직이는 6가지 요인</div>
+  <div class="wdx-panel">
+    <div class="wdx-factor-row head">
+      <div></div><div>요인</div><div>방향성</div><div>설명</div>
+    </div>
+    <div class="wdx-factor-row">
+      <div class="ficon"><i class="ti ti-cpu"></i></div>
+      <div class="fname">SK하이닉스 ADR 상장</div>
+      <div class="fdir"><span class="fpill down">원화 강세</span></div>
+      <div class="fdesc">기대감 선반영, 실제 자금 유입은 7/14 납입일 전후 본격화</div>
+    </div>
+    <div class="wdx-factor-row">
+      <div class="ficon"><i class="ti ti-ship"></i></div>
+      <div class="fname">역대급 수출·경상흑자</div>
+      <div class="fdir"><span class="fpill down">원화 강세</span></div>
+      <div class="fdesc">6월 수출 1,022억 달러, 5월 경상수지 386억 달러 흑자</div>
+    </div>
+    <div class="wdx-factor-row">
+      <div class="ficon"><i class="ti ti-world"></i></div>
+      <div class="fname">원화 국제화 로드맵</div>
+      <div class="fdir"><span class="fpill down">강세 기대</span></div>
+      <div class="fdesc">7월 중 정부 발표 예정, 규제통화→자유교환통화 전환 추진</div>
+    </div>
+    <div class="wdx-factor-row">
+      <div class="ficon"><i class="ti ti-bomb"></i></div>
+      <div class="fname">중동 지정학적 리스크</div>
+      <div class="fdir"><span class="fpill up">약세 압력</span></div>
+      <div class="fdesc">이란·이스라엘·미국 정세 유동적, 안전자산 선호 재부각 가능</div>
+    </div>
+    <div class="wdx-factor-row">
+      <div class="ficon"><i class="ti ti-trending-down"></i></div>
+      <div class="fname">외국인 국내주식 순매도</div>
+      <div class="fdir"><span class="fpill up">약세 압력</span></div>
+      <div class="fdesc">반도체 차익실현·포트폴리오 조정에 따른 자금유출 우려</div>
+    </div>
+    <div class="wdx-factor-row">
+      <div class="ficon"><i class="ti ti-building-bank"></i></div>
+      <div class="fname">미 연준(Fed) 통화정책</div>
+      <div class="fdir"><span class="fpill mix">방향 유동적</span></div>
+      <div class="fdesc">추가 인상 가능성 일부 반영, 한·미 금리차 향방이 변수</div>
+    </div>
+  </div>
+
+  <div class="wdx-section-label"><span class="num">2</span><i class="ti ti-building-estate"></i>기관별 하반기 환율 전망</div>
+  <div class="wdx-panel">
+    <div class="wdx-fc-row head">
+      <div>기관</div><div>전망치</div><div>근거</div>
+    </div>
+    <div class="wdx-fc-row">
+      <div class="fc-org">NH투자증권</div>
+      <div class="fc-num">4Q 1,440원</div>
+      <div class="fc-reason">반도체 펀더멘털 개선, 한·미 금리차 축소 가능성</div>
+    </div>
+    <div class="wdx-fc-row">
+      <div class="fc-org">한국투자증권</div>
+      <div class="fc-num">연평균 1,420원</div>
+      <div class="fc-reason">적정범위 1,350~1,500원, 상단 접근 시 당국 경계감 작용</div>
+    </div>
+    <div class="wdx-fc-row">
+      <div class="fc-org">씨티은행</div>
+      <div class="fc-num">6~12개월 1,450원</div>
+      <div class="fc-reason">ADR 자금유입·수출기업 네고·개인 및 연기금 자금 복귀</div>
+    </div>
+    <div class="wdx-fc-row">
+      <div class="fc-org">KB증권</div>
+      <div class="fc-num">연말~내년 1,400원대</div>
+      <div class="fc-reason">반도체 사이클 펀더멘털 개선 지속 (상단은 1,580원까지 열어둠)</div>
+    </div>
+    <div class="wdx-fc-row">
+      <div class="fc-org">우리은행</div>
+      <div class="fc-num">연내 1,500원대 가능성</div>
+      <div class="fc-reason">뚜렷한 하락 모멘텀 부재, 내년 낙관 시나리오도 1,400원대</div>
+    </div>
+    <div class="wdx-fc-row intl">
+      <div class="fc-org">골드만삭스<small>해외 IB</small></div>
+      <div class="fc-num">하반기 강한 절상</div>
+      <div class="fc-reason">원화, 실질실효환율(REER) 기준 근본적 저평가 판단</div>
+    </div>
+    <div class="wdx-fc-row intl">
+      <div class="fc-org">바클레이즈<small>해외 IB</small></div>
+      <div class="fc-num">내년 상반기 1,550원</div>
+      <div class="fc-reason">단기 반등 후 재상승 경고, 원화 저평가·수급 불안 지속 전망</div>
+    </div>
+  </div>
+
+  <div class="wdx-legend">
+    <span><i style="background:var(--down)"></i>원화 강세(환율 하락) 요인</span>
+    <span><i style="background:var(--up)"></i>원화 약세(환율 상승) 요인</span>
+    <span><i style="background:var(--gold)"></i>방향 유동적 / 기대 요인</span>
+  </div>
+
+  <div class="wdx-t-foot">자료: 각 사 리서치 보고서·세미나 발언 종합(2026.7 기준) · 전망치는 발표 시점 기준이며 변경될 수 있습니다</div>
+</div>
+
+</body>
+</html>
