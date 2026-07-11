@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>원화 강세를 뒷받침하는 핵심 데이터 4가지</title>
+
+<meta property="og:title" content="원화 강세를 뒷받침하는 핵심 데이터 4가지" />
+<meta property="og:description" content="6월 수출 1,022억 달러, 5월 경상수지 386억 달러 흑자까지 - 원달러 환율에 영향을 준 국내 경제지표 한눈에 보기" />
+<meta property="og:image" content="https://your-blog-domain.com/images/thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/posts/won-dollar-sk-hynix-adr" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+<style>
+  #wdx-board * { box-sizing:border-box; margin:0; padding:0; }
+  #wdx-board{
+    --bg:#F2F5FA; --card:#FFFFFF; --ink:#14243A; --ink-soft:#55647A; --ink-faint:#8B98AB;
+    --gold:#B07C33; --gold-bg:#FBF1DF; --up:#C23B3B; --down:#2E5F94; --border:#E4E9F0; --navy:#0E1E33;
+
+    background: var(--bg);
+    font-family:'Pretendard','Noto Sans KR',-apple-system,sans-serif;
+    color: var(--ink);
+    padding: 40px 20px 30px;
+    border-radius: 20px;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .wdx-b-head{ text-align:center; margin-bottom:30px; }
+  .wdx-b-eyebrow{
+    display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:700;
+    letter-spacing:.14em; color: var(--navy); background:#fff; border:1px solid var(--border);
+    padding:6px 14px; border-radius:100px; margin-bottom:16px; text-transform:uppercase;
+  }
+  .wdx-b-title{ font-family:'Noto Serif KR',serif; font-weight:900; font-size:25px; color:var(--navy); line-height:1.4;}
+  .wdx-b-sub{ margin-top:9px; font-size:14px; color:var(--ink-soft); }
+
+  .wdx-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .wdx-cell{
+    background:var(--card); border:1px solid var(--border); border-radius:16px;
+    padding:20px 18px; position:relative; overflow:hidden;
+  }
+  .wdx-cell::after{
+    content:""; position:absolute; right:-30px; top:-30px; width:90px; height:90px; border-radius:50%;
+    background: var(--gold-bg); opacity:.5; z-index:0;
+  }
+  .wdx-cell-inner{ position:relative; z-index:1; }
+  .wdx-cell-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  .wdx-icon{
+    width:36px; height:36px; border-radius:10px; background:var(--navy); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;
+  }
+  .wdx-tag{
+    font-size:11px; font-weight:700; padding:3px 9px; border-radius:100px;
+  }
+  .wdx-tag.record{ background:var(--gold-bg); color:var(--gold); }
+  .wdx-tag.watch{ background:#EEF0FB; color:#4A3F91; }
+
+  .wdx-label{ font-size:12.5px; color:var(--ink-faint); font-weight:600; margin-bottom:5px; }
+  .wdx-num{ font-family:'Noto Serif KR',serif; font-weight:900; font-size:30px; color:var(--navy); letter-spacing:-0.02em; line-height:1.15;}
+  .wdx-num small{ font-size:15px; font-weight:700; }
+  .wdx-delta{ display:inline-flex; align-items:center; gap:3px; font-size:12.5px; font-weight:700; margin-top:6px; }
+  .wdx-delta.up{ color:var(--up); }
+  .wdx-delta.down{ color:var(--down); }
+  .wdx-delta.flat{ color:var(--ink-faint); }
+  .wdx-note{ margin-top:10px; font-size:12.3px; color:var(--ink-soft); line-height:1.55; border-top:1px dashed var(--border); padding-top:10px; }
+
+  .wdx-strip{
+    margin-top:16px; background:var(--navy); border-radius:16px; padding:18px 20px;
+    display:flex; align-items:center; gap:16px; color:#fff;
+  }
+  .wdx-strip i{ font-size:26px; color:var(--gold); flex-shrink:0; }
+  .wdx-strip-title{ font-size:13.5px; font-weight:700; color:#D9E1EC; margin-bottom:3px; }
+  .wdx-strip-desc{ font-size:12.8px; color:#AEBBCC; line-height:1.6; }
+  .wdx-strip b{ color:#F3D9A6; }
+
+  .wdx-b-foot{ margin-top:20px; font-size:11.5px; color:var(--ink-faint); text-align:center; line-height:1.7; }
+
+  @media (max-width:520px){
+    #wdx-board{ padding:30px 14px 24px; border-radius:14px; }
+    .wdx-b-title{ font-size:20px; }
+    .wdx-grid{ grid-template-columns:1fr; }
+    .wdx-num{ font-size:26px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="wdx-board">
+  <div class="wdx-b-head">
+    <span class="wdx-b-eyebrow"><i class="ti ti-chart-histogram"></i>&nbsp;KEY DATA</span>
+    <div class="wdx-b-title">원화 강세를 뒷받침하는<br/>핵심 데이터 4가지</div>
+    <p class="wdx-b-sub">SK하이닉스 ADR 말고도, 환율에 영향을 준 진짜 원인들</p>
+  </div>
+
+  <div class="wdx-grid">
+
+    <div class="wdx-cell">
+      <div class="wdx-cell-inner">
+        <div class="wdx-cell-top">
+          <div class="wdx-icon"><i class="ti ti-ship"></i></div>
+          <span class="wdx-tag record">역대 최초</span>
+        </div>
+        <div class="wdx-label">6월 수출액</div>
+        <div class="wdx-num">1,022.5<small>억 달러</small></div>
+        <div class="wdx-delta up"><i class="ti ti-trending-up"></i> 전년比 +70.9%</div>
+        <div class="wdx-note">월간 수출 사상 첫 1,000억 달러 돌파. 반도체만 448억 달러(첫 400억 돌파)</div>
+      </div>
+    </div>
+
+    <div class="wdx-cell">
+      <div class="wdx-cell-inner">
+        <div class="wdx-cell-top">
+          <div class="wdx-icon"><i class="ti ti-coins"></i></div>
+          <span class="wdx-tag record">역대 최대</span>
+        </div>
+        <div class="wdx-label">5월 경상수지</div>
+        <div class="wdx-num">386.1<small>억 달러</small></div>
+        <div class="wdx-delta up"><i class="ti ti-trending-up"></i> 37개월 연속 흑자</div>
+        <div class="wdx-note">2000년대 들어 최장 흑자 흐름. 6월은 400억 달러 돌파 가능성</div>
+      </div>
+    </div>
+
+    <div class="wdx-cell">
+      <div class="wdx-cell-inner">
+        <div class="wdx-cell-top">
+          <div class="wdx-icon"><i class="ti ti-flame"></i></div>
+          <span class="wdx-tag watch">30개월 최고</span>
+        </div>
+        <div class="wdx-label">6월 소비자물가</div>
+        <div class="wdx-num">3.2<small>%</small></div>
+        <div class="wdx-delta up"><i class="ti ti-trending-up"></i> 목표(2%) 상회 지속</div>
+        <div class="wdx-note">국제유가 급등(석유류 +24.7%)이 주도, 2023년 12월 이후 최고치</div>
+      </div>
+    </div>
+
+    <div class="wdx-cell">
+      <div class="wdx-cell-inner">
+        <div class="wdx-cell-top">
+          <div class="wdx-icon"><i class="ti ti-building-bank"></i></div>
+          <span class="wdx-tag watch">7/16 결정</span>
+        </div>
+        <div class="wdx-label">기준금리 (현재 → 전망)</div>
+        <div class="wdx-num">2.50<small>%</small> → 2.75<small>%</small></div>
+        <div class="wdx-delta up"><i class="ti ti-arrow-up"></i> 25bp 인상 컨센서스</div>
+        <div class="wdx-note">실현 시 2023년 1월 이후 3년 6개월 만의 기준금리 인상</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="wdx-strip">
+    <i class="ti ti-info-circle"></i>
+    <div>
+      <div class="wdx-strip-title">숫자로 보는 요약</div>
+      <div class="wdx-strip-desc">수출·경상수지가 <b>역대급 흑자</b>를 기록하는 동안, 물가는 <b>목표치를 웃도는 상승세</b>를 이어가는 이례적인 조합입니다. 한국은행이 7월 16일 금리 인상 카드를 고민하는 배경이기도 합니다.</div>
+    </div>
+  </div>
+
+  <div class="wdx-b-foot">자료: 산업통상부, 한국은행, 국가데이터처(2026.7 기준) · 수치는 발표 시점의 잠정치를 포함할 수 있습니다</div>
+</div>
+
+</body>
+</html>
