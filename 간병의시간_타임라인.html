@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>간병의 시간, 그리고 당신만이 아니라는 증거</title>
+
+<meta property="og:title" content="치매 아버지를 요양병원에 모신 후 밀려온 죄책감, 저만 이런 걸까요?" />
+<meta property="og:description" content="20년 같았던 어머니의 간병, 디스크 파열, 그리고 요양병원 입원 후 찾아온 죄책감까지 — 치매 가족이라면 누구나 겪는 이야기와 실질적인 정보를 함께 담았습니다." />
+<meta property="og:image" content="여기에_썸네일_이미지_URL을_입력하세요.png" />
+<meta property="og:url" content="여기에_블로그_게시글_URL을_입력하세요" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 28px 16px;
+    background: #FBF6EC;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #2E3B32;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 36px 28px;
+    box-shadow: 0 4px 24px rgba(76, 107, 84, 0.08);
+    border: 1px solid #EDE3D0;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #4C6B54;
+    background: #DCE6DE;
+    padding: 5px 12px;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+  }
+  h2.title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin: 14px 0 6px;
+    color: #2E3B32;
+  }
+  p.sub {
+    font-size: 14.5px;
+    color: #6B6357;
+    margin: 0 0 30px;
+    line-height: 1.6;
+  }
+
+  /* Timeline */
+  .timeline { position: relative; margin: 0 0 34px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 21px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom, #D7CBB0 0, #D7CBB0 4px, transparent 4px, transparent 9px);
+  }
+  .t-item { position: relative; display: flex; gap: 18px; padding-bottom: 26px; }
+  .t-item:last-child { padding-bottom: 0; }
+  .t-icon {
+    position: relative;
+    z-index: 1;
+    flex: none;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: #4C6B54;
+    color: #FBF6EC;
+    font-size: 20px;
+  }
+  .t-item.warn .t-icon { background: #B97A6D; }
+  .t-item.final .t-icon { background: #C08A45; }
+  .t-body { padding-top: 5px; }
+  .t-label {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #C08A45;
+    letter-spacing: 0.02em;
+    margin-bottom: 3px;
+  }
+  .t-item.warn .t-label { color: #B97A6D; }
+  .t-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16.5px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #2E3B32;
+  }
+  .t-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #5C564C;
+    margin: 0;
+  }
+
+  /* Stat cards */
+  .stat-heading {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    color: #2E3B32;
+    margin: 6px 0 16px;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .stat-card {
+    background: #FBF6EC;
+    border: 1px solid #EDE3D0;
+    border-radius: 14px;
+    padding: 16px 8px;
+    text-align: center;
+  }
+  .stat-card i { font-size: 20px; color: #4C6B54; margin-bottom: 6px; display: block; }
+  .stat-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #2E3B32;
+    line-height: 1.2;
+  }
+  .stat-cap { font-size: 12px; color: #6B6357; margin-top: 4px; line-height: 1.4; }
+
+  .closing {
+    margin-top: 24px;
+    padding: 16px 18px;
+    background: #DCE6DE;
+    border-radius: 14px;
+    font-size: 14.5px;
+    color: #2E3B32;
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  .source {
+    margin-top: 16px;
+    font-size: 11.5px;
+    color: #9B9384;
+    text-align: center;
+  }
+
+  @media (max-width: 420px) {
+    .stats { grid-template-columns: 1fr; }
+    h2.title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="eyebrow"><i class="ti ti-heart-handshake"></i>&nbsp;간병의 기록</span>
+    <h2 class="title">간병의 시간, 그리고<br>당신만이 아니라는 증거</h2>
+    <p class="sub">어머니와 아버지, 그리고 우리 가족이 지나온 시간의 흐름입니다.</p>
+
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-icon"><i class="ti ti-heart-handshake"></i></div>
+        <div class="t-body">
+          <div class="t-label">STEP 1</div>
+          <div class="t-title">헌신의 시작</div>
+          <p class="t-desc">치매 진단 이후, 어머니는 대소변을 다 받아내고 매일 아버지와 함께 걷고 운동하며 증상이 더뎌지길 바라셨습니다.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-icon"><i class="ti ti-message-circle-2"></i></div>
+        <div class="t-body">
+          <div class="t-label">STEP 2</div>
+          <div class="t-title">조금씩 옅어진 기억</div>
+          <p class="t-desc">같은 이야기를 하루에도 몇 번씩 반복하시고, 정신이 오락가락하는 날이 늘어갔습니다.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-icon"><i class="ti ti-activity"></i></div>
+        <div class="t-body">
+          <div class="t-label">STEP 3</div>
+          <div class="t-title">약해진 두 다리, 흐려진 시야</div>
+          <p class="t-desc">근력이 떨어지고 눈까지 잘 보이지 않게 되면서, 어머니의 부축 없이는 움직이기 어려워지셨습니다.</p>
+        </div>
+      </div>
+      <div class="t-item warn">
+        <div class="t-icon"><i class="ti ti-alert-triangle"></i></div>
+        <div class="t-body">
+          <div class="t-label">STEP 4 · 전환점</div>
+          <div class="t-title">어머니의 몸이 보낸 경고</div>
+          <p class="t-desc">간병을 홀로 감당하던 어머니의 허리 디스크가 결국 터지고 말았습니다.</p>
+        </div>
+      </div>
+      <div class="t-item final">
+        <div class="t-icon"><i class="ti ti-building-hospital"></i></div>
+        <div class="t-body">
+          <div class="t-label">STEP 5 · 지금</div>
+          <div class="t-title">요양병원, 또 다른 사랑의 방식</div>
+          <p class="t-desc">혼자 짊어지던 돌봄을, 이제는 전문 의료진과 함께 나누어 짊어지기로 했습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-heading">전국의 치매 가족도, 우리와 같았습니다</div>
+    <div class="stats">
+      <div class="stat-card">
+        <i class="ti ti-users"></i>
+        <div class="stat-num">45.8%</div>
+        <div class="stat-cap">가족이 돌봄 부담을<br>느낀다고 응답</div>
+      </div>
+      <div class="stat-card">
+        <i class="ti ti-calendar-time"></i>
+        <div class="stat-num">27.3<span style="font-size:13px;">개월</span></div>
+        <div class="stat-cap">시설 입원 전<br>평균 직접 돌봄 기간</div>
+      </div>
+      <div class="stat-card">
+        <i class="ti ti-clock-24"></i>
+        <div class="stat-num">27.2%</div>
+        <div class="stat-cap">돌봄 중단 1순위 이유<br>“24시간 돌봄의 어려움”</div>
+      </div>
+    </div>
+
+    <div class="closing">지금 이 글을 읽고 계신 당신도, 결코 혼자가 아닙니다.</div>
+    <div class="source">자료: 보건복지부·중앙치매센터, 「2023년 치매역학조사 및 실태조사」(2025년 발표)</div>
+  </div>
+</body>
+</html>
