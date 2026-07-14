@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>7월 14일 코스피 핵심 지표 대시보드</title>
+
+<meta property="og:title" content="7월 14일 코스피 핵심 지표 한눈에 보기 | 코스피·환율·유가·삼성전자·SK하이닉스" />
+<meta property="og:description" content="미국-이란 전쟁 재확전 속 오늘의 코스피, 원달러 환율, 국제유가, 삼성전자·SK하이닉스 주가를 카드 한 장으로 정리했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/your-blog-id/your-post-id" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+<style>
+  .dash-wrap {
+    --bg: #F4F6F9;
+    --card: #FFFFFF;
+    --ink: #172033;
+    --ink-soft: #5B6472;
+    --war: #C0472B;
+    --war-soft: #FBEAE2;
+    --etf: #0E5C73;
+    --etf-soft: #E3F0F1;
+    --up: #B4282A;
+    --down: #1B5FA8;
+    --gold: #A9791F;
+    --line: #E2E5EA;
+
+    box-sizing: border-box;
+    background: var(--bg);
+    padding: 36px 20px 30px;
+    border-radius: 20px;
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    color: var(--ink);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .dash-wrap * { box-sizing: border-box; }
+
+  .dash-head { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px; margin-bottom:22px; }
+  .dash-eyebrow {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 8px;
+  }
+  .dash-eyebrow .line { width: 28px; height: 2px; background: var(--gold); display: inline-block; }
+  .dash-title { font-family:'Noto Serif KR', serif; font-weight:900; font-size:24px; margin:0; letter-spacing:-0.01em; }
+  .dash-date { font-size:12.5px; color: var(--ink-soft); font-weight:700; background:#fff; border:1px solid var(--line); padding:6px 12px; border-radius:100px; white-space:nowrap; }
+
+  .dash-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .dash-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 17px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .dash-card.big { grid-column: span 3; padding: 20px 22px; }
+  .dash-card .ico {
+    width: 30px; height: 30px; border-radius: 9px;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--etf-soft); color: var(--etf); font-size: 15px; margin-bottom: 10px;
+  }
+  .dash-card.tone-war .ico { background: var(--war-soft); color: var(--war); }
+  .dash-card.tone-gold .ico { background: #FBF3E1; color: var(--gold); }
+
+  .dash-label { font-size: 12px; font-weight:700; color: var(--ink-soft); margin-bottom: 6px; }
+  .dash-value { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 900; line-height:1.2; letter-spacing:-0.01em; }
+  .dash-card.big .dash-value { font-size: 34px; }
+  .dash-delta { display:inline-flex; align-items:center; gap:3px; font-size:12.5px; font-weight:800; margin-top:8px; }
+  .dash-delta.up { color: var(--up); }
+  .dash-delta.down { color: var(--down); }
+  .dash-sub { font-size: 11.5px; color: var(--ink-soft); margin-top:4px; line-height:1.5; }
+
+  .dash-big-row { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+  .dash-range-bar {
+    margin-top: 14px; height: 8px; border-radius: 100px; background: #EFF1F4; position: relative; overflow:hidden;
+  }
+  .dash-range-fill {
+    position:absolute; top:0; bottom:0; left:0; border-radius:100px;
+    background: linear-gradient(90deg, var(--down), var(--up));
+  }
+  .dash-range-label { display:flex; justify-content:space-between; font-size:11px; color:var(--ink-soft); margin-top:6px; font-weight:700;}
+
+  .dash-foot {
+    margin-top: 22px; padding-top: 16px; border-top: 1px dashed var(--line);
+    font-size: 11.5px; color: var(--ink-soft); line-height:1.7;
+  }
+
+  @media (max-width: 560px) {
+    .dash-grid { grid-template-columns: repeat(2, 1fr); }
+    .dash-card.big { grid-column: span 2; }
+    .dash-title { font-size: 20px; }
+  }
+</style>
+</head>
+<body style="margin:0; background:transparent;">
+
+<div class="dash-wrap">
+  <div class="dash-head">
+    <div>
+      <div class="dash-eyebrow"><span class="line"></span>MARKET SNAPSHOT</div>
+      <h2 class="dash-title">오늘의 핵심 지표 한눈에 보기</h2>
+    </div>
+    <div class="dash-date"><i class="ti ti-calendar-event"></i>&nbsp; 2026.07.14 장마감 기준</div>
+  </div>
+
+  <div class="dash-grid">
+
+    <div class="dash-card big tone-gold">
+      <div class="dash-big-row">
+        <div>
+          <div class="dash-label"><i class="ti ti-chart-candle"></i>&nbsp; 코스피 (KOSPI)</div>
+          <div class="dash-value">6,856.83</div>
+          <div class="dash-delta up"><i class="ti ti-arrow-up-right"></i> +49.90pt (+0.73%)</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="dash-sub">일중 변동폭</div>
+          <div class="dash-value" style="font-size:22px;">531P</div>
+        </div>
+      </div>
+      <div class="dash-range-bar"><div class="dash-range-fill" style="left:8%; width:58%;"></div></div>
+      <div class="dash-range-label"><span>장중 저점 6,600선 붕괴</span><span>고점 회복 후 반등 마감</span></div>
+    </div>
+
+    <div class="dash-card tone-war">
+      <div class="ico"><i class="ti ti-currency-dollar"></i></div>
+      <div class="dash-label">원/달러 환율</div>
+      <div class="dash-value">1,493.0원</div>
+      <div class="dash-delta down"><i class="ti ti-arrow-down-right"></i> -10.4원</div>
+      <div class="dash-sub">장중 1,480원대(2개월래 최저) 터치</div>
+    </div>
+
+    <div class="dash-card tone-war">
+      <div class="ico"><i class="ti ti-droplet"></i></div>
+      <div class="dash-label">WTI 국제유가</div>
+      <div class="dash-value">$80.55</div>
+      <div class="dash-delta up"><i class="ti ti-arrow-up-right"></i> +3.0%</div>
+      <div class="dash-sub">브렌트유 $86.85 (+4.3%)</div>
+    </div>
+
+    <div class="dash-card">
+      <div class="ico"><i class="ti ti-building-factory-2"></i></div>
+      <div class="dash-label">삼성전자</div>
+      <div class="dash-value">263,000원</div>
+      <div class="dash-delta up"><i class="ti ti-arrow-up-right"></i> +3.34%</div>
+      <div class="dash-sub">이달 시총 낙폭 여전히 큰 폭</div>
+    </div>
+
+    <div class="dash-card">
+      <div class="ico"><i class="ti ti-cpu"></i></div>
+      <div class="dash-label">SK하이닉스</div>
+      <div class="dash-value">1,913,000원</div>
+      <div class="dash-delta up"><i class="ti ti-arrow-up-right"></i> +3.69%</div>
+      <div class="dash-sub">전일 장중 -15%대 급락 후 반등</div>
+    </div>
+
+    <div class="dash-card">
+      <div class="ico"><i class="ti ti-scale"></i></div>
+      <div class="dash-label">이달 시총 증발분</div>
+      <div class="dash-value" style="font-size:19px;">940조원+</div>
+      <div class="dash-sub" style="margin-top:8px;">삼성전자·SK하이닉스 합산, 7월 들어</div>
+    </div>
+
+  </div>
+
+  <div class="dash-foot">
+    <i class="ti ti-info-circle"></i> 자료: 한국거래소(KRX), 서울외환시장, CNBC·Investing.com 유가 데이터, 국내 경제지 보도 종합. 장중 수치는 실시간으로 변동되므로 투자 판단 시 반드시 증권사 HTS·MTS의 실시간 시세를 확인하세요.
+  </div>
+</div>
+
+</body>
+</html>
