@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>미국-이란 전쟁 &amp; 코스피 변동성 타임라인</title>
+
+<meta property="og:title" content="미국-이란 전쟁 &amp; 코스피 변동성 타임라인 | 2026년 2월~7월 총정리" />
+<meta property="og:description" content="하메네이 제거부터 호르무즈 봉쇄, 코스피 사상 최고치와 7번의 서킷브레이커까지 — 2026년 미국-이란 전쟁이 한국 증시를 흔들어온 궤적을 한눈에 정리했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/your-blog-id/your-post-id" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+<style>
+  .kospi-tl-wrap {
+    --bg: #F4F6F9;
+    --card: #FFFFFF;
+    --ink: #172033;
+    --ink-soft: #5B6472;
+    --war: #C0472B;
+    --war-soft: #FBEAE2;
+    --etf: #0E5C73;
+    --etf-soft: #E3F0F1;
+    --gold: #A9791F;
+    --line: #DEE2E8;
+
+    box-sizing: border-box;
+    background: var(--bg);
+    padding: 40px 20px 44px;
+    border-radius: 20px;
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    color: var(--ink);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .kospi-tl-wrap * { box-sizing: border-box; }
+
+  .kospi-tl-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .kospi-tl-eyebrow .line { width: 28px; height: 2px; background: var(--gold); display: inline-block; }
+
+  .kospi-tl-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 1.35;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .kospi-tl-sub {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0 0 30px;
+  }
+
+  .kospi-tl-legend {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .kospi-tl-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .dot-sw { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+  .kospi-tl-list {
+    position: relative;
+    padding-left: 30px;
+  }
+  .kospi-tl-list::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--war), var(--etf) 55%, var(--gold));
+    opacity: 0.35;
+  }
+
+  .kospi-tl-item {
+    position: relative;
+    padding-bottom: 26px;
+  }
+  .kospi-tl-item:last-child { padding-bottom: 0; }
+
+  .kospi-tl-node {
+    position: absolute;
+    left: -30px;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 3px solid var(--war);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .kospi-tl-item.etf .kospi-tl-node { border-color: var(--etf); }
+  .kospi-tl-item.market .kospi-tl-node { border-color: var(--gold); }
+  .kospi-tl-node i { font-size: 10px; color: var(--ink); }
+
+  .kospi-tl-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 2px rgba(23,32,51,0.04);
+  }
+  .kospi-tl-date {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--war);
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+  }
+  .kospi-tl-item.etf .kospi-tl-date { color: var(--etf); }
+  .kospi-tl-item.market .kospi-tl-date { color: var(--gold); }
+
+  .kospi-tl-headline {
+    font-weight: 700;
+    font-size: 15.5px;
+    margin: 0 0 6px;
+    line-height: 1.45;
+  }
+  .kospi-tl-desc {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .kospi-tl-tag {
+    display: inline-block;
+    margin-top: 9px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 100px;
+    background: var(--war-soft);
+    color: var(--war);
+  }
+  .kospi-tl-item.etf .kospi-tl-tag { background: var(--etf-soft); color: var(--etf); }
+  .kospi-tl-item.market .kospi-tl-tag { background: #FBF3E1; color: var(--gold); }
+
+  .kospi-tl-foot {
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--line);
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 480px) {
+    .kospi-tl-title { font-size: 21px; }
+    .kospi-tl-wrap { padding: 28px 14px 32px; }
+  }
+</style>
+</head>
+<body style="margin:0; background:transparent;">
+
+<div class="kospi-tl-wrap">
+  <div class="kospi-tl-eyebrow"><span class="line"></span>TIMELINE · 2026.02 – 2026.07</div>
+  <h2 class="kospi-tl-title">미국-이란 전쟁, 그리고 코스피가<br/>흔들려온 22주의 기록</h2>
+  <p class="kospi-tl-sub">2월 말 개전부터 오늘까지, 전쟁·휴전·재확전과 코스피 서킷브레이커가 어떻게 맞물렸는지 시간순으로 정리했습니다.</p>
+
+  <div class="kospi-tl-legend">
+    <span><i class="dot-sw" style="background:#C0472B"></i>지정학 리스크(전쟁)</span>
+    <span><i class="dot-sw" style="background:#0E5C73"></i>레버리지 ETF·수급</span>
+    <span><i class="dot-sw" style="background:#A9791F"></i>코스피 지수 이벤트</span>
+  </div>
+
+  <div class="kospi-tl-list">
+
+    <div class="kospi-tl-item">
+      <div class="kospi-tl-node"><i class="ti ti-bolt"></i></div>
+      <div class="kospi-tl-card">
+        <div class="kospi-tl-date">2026.02.28</div>
+        <p class="kospi-tl-headline">이란 최고지도자 제거, 미·이스라엘 공중전 개시</p>
+        <p class="kospi-tl-desc">이스라엘이 미국의 정보 지원 아래 하메네이 최고지도자 제거 작전을 감행하며 이란과의 전면적 공중전이 시작됐습니다.</p>
+        <span class="kospi-tl-tag">전쟁 발발</span>
+      </div>
+    </div>
+
+    <div class="kospi-tl-item">
+      <div class="kospi-tl-node"><i class="ti ti-alert-triangle"></i></div>
+      <div class="kospi-tl-card">
+        <div class="kospi-tl-date">2026.03.04 ~ 03.09</div>
+        <p class="kospi-tl-headline">코스피 첫 서킷브레이커, 5,400선 붕괴</p>
+        <p class="kospi-tl-desc">호르무즈 해협 봉쇄 리스크가 부각되며 코스피·코스닥이 8%대 급락, 사흘 새 서킷브레이커가 두 차례 발동됐습니다.</p>
+        <span class="kospi-tl-tag">서킷브레이커 ①②</span>
+      </div>
+    </div>
+
+    <div class="kospi-tl-item">
+      <div class="kospi-tl-node"><i class="ti ti-peace"></i></div>
+      <div class="kospi-tl-card">
+        <div class="kospi-tl-date">2026.04.08 ~ 04.21</div>
+        <p class="kospi-tl-headline">파키스탄 중재로 2주 휴전, 이후 무기한 연장</p>
+        <p class="kospi-tl-desc">파키스탄 중재로 임시 휴전에 합의했고, 4월 21일 트럼프 대통령이 이를 무기한 연장하면서 시장은 안도 랠리를 시작합니다.</p>
+        <span class="kospi-tl-tag">휴전 국면</span>
+      </div>
+    </div>
+
+    <div class="kospi-tl-item etf">
+      <div class="kospi-tl-node"><i class="ti ti-chart-arrows"></i></div>
+      <div class="kospi-tl-card">
+        <div class="kospi-tl-date">2026.05.27</div>
+        <p class="kospi-tl-headline">삼성전자·SK하이닉스 단일종목 레버리지 ETF 18종 동시 상장</p>
+        <p class="kospi-tl-desc">국내 최초 개별 종목 2배 레버리지·인버스 ETF·ETN 18종이 상장(합산 4조 3,227억 원). 이후 코스피 변동성 패턴이 바뀌기 시작합니다.</p>
+        <span class="kospi-tl-tag">시장 구조 변화</span>
+      </div>
+    </div>
+
+    <div class="kospi-tl-item market">
+      <div class="kospi-tl-node"><i class="ti ti-trophy"></i></div>
+      <div class="kospi-tl-card">
+        <div class="kospi-tl-date">2026.06.17 ~ 06.19</div>
+        <p class="kospi-tl-headline">미-이란 MOU 서명 &amp; 코스피 사상 최고치</p>
+        <p class="kospi-tl-desc">14개 조항 양해각서 서명으로 호르무즈가 재개방되고, 코스피는 종가 9,063.84 · 장중 9,385.59(연초 대비 +122.7%)로 사상 최고치를 경신했습니다.</p>
+        <span class="kospi-tl-tag">코스피 ATH</span>
+      </div>
+    </div>
+
+    <div class="kospi-tl-item etf">
+      <div class="kospi-tl-node"><i class="ti ti-repeat"></i></div>
+      <div class="kospi-tl-card">
+        <div class="kospi-tl-date">2026.06.08 / 06.23 / 06.26 / 07.07</div>
+        <p class="kospi-tl-headline">휴전 기간에도 서킷브레이커 4회 추가 발동</p>
+        <p class="kospi-tl-desc">명목상 휴전 국면이었음에도 코스피 서킷브레이커가 네 차례 더 발동됐습니다. 레버리지 ETF 상장 이후 나타난 변화라는 점에서 주목할 대목입니다.</p>
+        <span class="kospi-tl-tag">서킷브레이커 ③~⑥</span>
+      </div>
+    </div>
+
+    <div class="kospi-tl-item">
+      <div class="kospi-tl-node"><i class="ti ti-flame"></i></div>
+      <div class="kospi-tl-card">
+        <div class="kospi-tl-date">2026.07.08</div>
+        <p class="kospi-tl-headline">"휴전은 끝났다" — 나토 정상회의서 재확전 선언</p>
+        <p class="kospi-tl-desc">트럼프 대통령이 휴전 종료를 선언하며 미군이 이란 90개 표적에 공습을 재개, 시장은 다시 지정학 리스크 모드로 전환됩니다.</p>
+        <span class="kospi-tl-tag">휴전 붕괴</span>
+      </div>
+    </div>
+
+    <div class="kospi-tl-item">
+      <div class="kospi-tl-node"><i class="ti ti-anchor"></i></div>
+      <div class="kospi-tl-card">
+        <div class="kospi-tl-date">2026.07.13</div>
+        <p class="kospi-tl-headline">유조선 피격 · 코스피 -9%, 올해 7번째 서킷브레이커</p>
+        <p class="kospi-tl-desc">이란의 UAE 유조선 공격과 미 해군의 봉쇄 재개 속 코스피가 6,800선까지 폭락(삼성전자 -10%, SK하이닉스 -15%). 레버리지 ETF 기계적 매도가 낙폭을 키웠다는 분석이 나왔습니다.</p>
+        <span class="kospi-tl-tag">서킷브레이커 ⑦ · 전쟁+ETF 복합</span>
+      </div>
+    </div>
+
+    <div class="kospi-tl-item market">
+      <div class="kospi-tl-node"><i class="ti ti-refresh"></i></div>
+      <div class="kospi-tl-card">
+        <div class="kospi-tl-date">2026.07.14 (오늘)</div>
+        <p class="kospi-tl-headline">장중 6,600선 붕괴 후 반등, 6,856.83 마감</p>
+        <p class="kospi-tl-desc">호티 반군-사우디 교전 재개, 트럼프의 '호르무즈 통행료 20%' 발언 속에서도 저가 매수세가 유입되며 +0.73%로 장을 마쳤습니다.</p>
+        <span class="kospi-tl-tag">현재 진행형</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="kospi-tl-foot">
+    <i class="ti ti-info-circle"></i> 자료: 한국거래소(KRX), CNN, CNBC, ABC News, EIA, 한국경제·헤럴드경제·YTN·SBS 등 보도 종합 (2026.07.14 기준). 이후 상황 전개에 따라 수치가 달라질 수 있어 최신 공시·기사 확인을 권장합니다.
+  </div>
+</div>
+
+</body>
+</html>
