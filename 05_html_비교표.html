@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>미국-이란 전쟁 vs 레버리지 ETF 리스크 비교</title>
+
+<meta property="og:title" content="미국-이란 전쟁 vs 레버리지 ETF, 코스피 리스크 비교표" />
+<meta property="og:description" content="지정학적 리스크와 레버리지 ETF발 수급 리스크를 영향 범위·전달 경로·지속성·대응 가능성 기준으로 나란히 비교했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/your-blog-id/your-post-id" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+<style>
+  .cmp-wrap {
+    --bg: #F4F6F9;
+    --card: #FFFFFF;
+    --ink: #172033;
+    --ink-soft: #5B6472;
+    --war: #C0472B;
+    --war-soft: #FBEAE2;
+    --etf: #0E5C73;
+    --etf-soft: #E3F0F1;
+    --gold: #A9791F;
+    --line: #E2E5EA;
+
+    box-sizing: border-box;
+    background: var(--bg);
+    padding: 38px 20px 32px;
+    border-radius: 20px;
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    color: var(--ink);
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .cmp-wrap * { box-sizing: border-box; }
+
+  .cmp-eyebrow { display:flex; align-items:center; gap:8px; font-size:12px; font-weight:700; letter-spacing:0.14em; color: var(--gold); margin-bottom:10px; }
+  .cmp-eyebrow .line { width:28px; height:2px; background: var(--gold); display:inline-block; }
+  .cmp-title { font-family:'Noto Serif KR', serif; font-weight:900; font-size:25px; line-height:1.35; margin:0 0 10px; letter-spacing:-0.01em; }
+  .cmp-sub { font-size:14px; color:var(--ink-soft); line-height:1.65; margin:0 0 26px; }
+
+  .cmp-head-row { display:grid; grid-template-columns: 132px 1fr 1fr; gap:10px; margin-bottom:10px; }
+  .cmp-head-cell { border-radius: 14px; padding: 14px 12px; text-align:center; }
+  .cmp-head-cell.war { background: var(--war); color:#fff; }
+  .cmp-head-cell.etf { background: var(--etf); color:#fff; }
+  .cmp-head-cell .ico { font-size:20px; margin-bottom:6px; display:block; }
+  .cmp-head-cell .t1 { font-size: 11px; opacity:0.85; font-weight:700; }
+  .cmp-head-cell .t2 { font-size: 14.5px; font-weight:900; font-family:'Noto Serif KR', serif; margin-top:2px;}
+
+  .cmp-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .cmp-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; min-width: 560px; }
+  .cmp-table td { vertical-align: top; padding: 14px 12px; font-size: 13px; line-height: 1.6; background: var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .cmp-table tr td:first-child { border-left:1px solid var(--line); border-radius: 12px 0 0 12px; font-weight: 800; color: var(--ink); background: #EEF1F5; width: 132px; font-size: 12.5px; }
+  .cmp-table tr td:last-child { border-right:1px solid var(--line); border-radius: 0 12px 12px 0; }
+  .cmp-table tr td.c-war { color: var(--ink); }
+  .cmp-table tr td.c-etf { color: var(--ink); }
+
+  .cmp-foot { margin-top: 22px; padding-top: 16px; border-top: 1px dashed var(--line); font-size: 11.5px; color: var(--ink-soft); line-height:1.7; }
+  .cmp-verdict {
+    margin-top: 18px;
+    background: linear-gradient(135deg, #2B1E17, #C0472B 45%, #0E5C73 130%);
+    border-radius: 16px;
+    padding: 20px 22px;
+    color: #fff;
+  }
+  .cmp-verdict .tag { font-size:11px; font-weight:800; letter-spacing:0.08em; color:#FFE3D8; margin-bottom:8px; display:flex; align-items:center; gap:6px;}
+  .cmp-verdict p { font-size: 14px; line-height:1.75; margin:0; font-weight: 500;}
+  .cmp-verdict b { font-weight: 900; }
+
+  @media (max-width: 620px) {
+    .cmp-title { font-size: 21px; }
+    .cmp-head-row { grid-template-columns: 90px 1fr 1fr; }
+    .cmp-head-cell .t2 { font-size: 12.5px; }
+  }
+</style>
+</head>
+<body style="margin:0; background:transparent;">
+
+<div class="cmp-wrap">
+  <div class="cmp-eyebrow"><span class="line"></span>COMPARISON</div>
+  <h2 class="cmp-title">두 리스크, 항목별로 나란히 비교하면</h2>
+  <p class="cmp-sub">"방아쇠"와 "증폭기" — 성격이 다른 두 리스크를 6가지 기준으로 뜯어봤습니다.</p>
+
+  <div class="cmp-head-row">
+    <div></div>
+    <div class="cmp-head-cell war"><i class="ti ti-anchor ico"></i><div class="t1">GEOPOLITICAL RISK</div><div class="t2">미국-이란 전쟁</div></div>
+    <div class="cmp-head-cell etf"><i class="ti ti-chart-arrows ico"></i><div class="t1">STRUCTURAL RISK</div><div class="t2">레버리지 ETF</div></div>
+  </div>
+
+  <div class="cmp-scroll">
+    <table class="cmp-table">
+      <tr>
+        <td><i class="ti ti-focus-2"></i> 영향 범위</td>
+        <td class="c-war">유가·환율·전 세계 증시까지, 코스피 전 종목에 광범위하게 영향</td>
+        <td class="c-etf">삼성전자·SK하이닉스 2개 종목 및 이를 추종하는 상품군에 집중</td>
+      </tr>
+      <tr>
+        <td><i class="ti ti-route"></i> 전달 경로</td>
+        <td class="c-war">호르무즈 해협 → 국제유가 → 수입물가·환율 → 투자심리 위축</td>
+        <td class="c-etf">기초자산 급락 → 2배 배율 재조정 매도 → 추가 하락 → 반대매매</td>
+      </tr>
+      <tr>
+        <td><i class="ti ti-calendar-time"></i> 최근 코스피 사례</td>
+        <td class="c-war">3월 개전 초기 서킷브레이커 2회(3/4, 3/9)</td>
+        <td class="c-etf">5/27 상장 이후 서킷브레이커 5회 추가(6/8~7/13)</td>
+      </tr>
+      <tr>
+        <td><i class="ti ti-hourglass"></i> 지속성</td>
+        <td class="c-war">외교 협상 진행 상황에 따라 장기화 가능성 있는 구조적 변수</td>
+        <td class="c-etf">규제 여부·투자자 학습에 따라 상대적으로 빠르게 변화 가능</td>
+      </tr>
+      <tr>
+        <td><i class="ti ti-gavel"></i> 정책 대응</td>
+        <td class="c-war">외교·에너지 정책 영역, 한국 정부 단독 통제 어려움</td>
+        <td class="c-etf">국내 금융당국 규제 대상 — 7/16 F4 회의서 논의 예정</td>
+      </tr>
+      <tr>
+        <td><i class="ti ti-user-check"></i> 투자자 대응</td>
+        <td class="c-war">유가·환율 등 매크로 지표 모니터링, 분산 투자로 대응</td>
+        <td class="c-etf">레버리지 상품 비중 조절, 반대매매 위험 사전 인지 필요</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="cmp-verdict">
+    <div class="tag"><i class="ti ti-bulb"></i> 종합 진단</div>
+    <p>범위로 보면 <b>전쟁이 더 근본적인 변수</b>지만, 최근 코스피의 급격한 일별 변동성만 놓고 보면 <b>레버리지 ETF의 리밸런싱 매도가 더 강력한 증폭 효과</b>를 내고 있다는 게 골드만삭스를 비롯한 다수 전문가의 공통된 진단입니다. 두 요인은 경쟁 관계가 아니라, 전쟁이 방아쇠를 당기면 ETF가 그 충격을 몇 배로 키우는 <b>상호 증폭 관계</b>에 가깝습니다.</p>
+  </div>
+
+  <div class="cmp-foot">
+    <i class="ti ti-info-circle"></i> 자료: 골드만삭스 코멘트, 한국거래소, 국내 경제지 보도 종합 (2026.07.14 기준). 시장 상황 변화에 따라 평가가 달라질 수 있습니다.
+  </div>
+</div>
+
+</body>
+</html>
