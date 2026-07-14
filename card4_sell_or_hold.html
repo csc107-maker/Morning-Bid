@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>매도 vs 보유, 증권가 시각 비교</title>
+
+<meta property="og:title" content="삼성전자 SK하이닉스 주가 전망 총정리ㅣ하이닉스 40조 환전이 환율·금리에 미치는 영향은?" />
+<meta property="og:description" content="SK하이닉스 나스닥 ADR 상장으로 유입되는 40조원 달러 자금, 은행은 어떻게 관리할까? 원달러 환율·기준금리·인플레이션 전망과 매도·보유 판단 기준까지 정리했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/samsung-hynix-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/samsung-hynix-outlook" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;600;700&display=swap" />
+
+<style>
+  .c4-wrap{font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Malgun Gothic",sans-serif;background:#F5F7FB;padding:32px 16px;box-sizing:border-box;}
+  .c4-wrap *{box-sizing:border-box;}
+  .c4-card{max-width:720px;margin:0 auto;background:#FFFFFF;border:1px solid #E2E6F0;border-radius:20px;box-shadow:0 20px 40px -24px rgba(19,27,46,0.18);overflow:hidden;}
+
+  .c4-head{padding:28px 28px 20px;border-bottom:1px solid #EEF1F7;}
+  .c4-eyebrow{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:0.06em;color:#0F7C6C;text-transform:uppercase;margin:0 0 10px;}
+  .c4-title{font-size:22px;font-weight:800;color:#131B2E;margin:0 0 8px;line-height:1.35;}
+  .c4-sub{font-size:14px;color:#5B6478;margin:0;line-height:1.6;}
+
+  .c4-disclaimer{display:flex;gap:10px;align-items:flex-start;margin:20px 24px 4px;background:#FAFBFD;border:1px solid #EEF1F7;border-radius:12px;padding:14px 16px;}
+  .c4-disclaimer .ti{color:#8A93A6;font-size:16px;margin-top:1px;}
+  .c4-disclaimer p{font-size:12px;color:#8A93A6;line-height:1.65;margin:0;}
+
+  .c4-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 24px;}
+  .c4-col{border-radius:14px;overflow:hidden;border:1px solid #EEF1F7;}
+  .c4-col-head{padding:12px 14px;font-size:13px;font-weight:800;display:flex;align-items:center;gap:6px;}
+  .c4-col.bull .c4-col-head{background:#FCEDED;color:#B23A3A;}
+  .c4-col.bear .c4-col-head{background:#EAF0F8;color:#2E5FA3;}
+  .c4-row{padding:12px 14px;border-top:1px solid #F3F4F8;}
+  .c4-firm{font-size:12.5px;font-weight:800;color:#131B2E;margin:0 0 2px;}
+  .c4-target{font-family:"Roboto Mono",monospace;font-size:13.5px;font-weight:700;margin:0 0 4px;}
+  .c4-col.bull .c4-target{color:#B23A3A;}
+  .c4-col.bear .c4-target{color:#2E5FA3;}
+  .c4-reason{font-size:11.5px;color:#8A93A6;line-height:1.6;margin:0;}
+  .c4-date{font-size:10px;color:#B5BCC9;margin-top:4px;}
+
+  .c4-flow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:22px 24px;}
+  .c4-flow-box{background:#FAFBFD;border:1px solid #EEF1F7;border-radius:12px;padding:12px 10px;text-align:center;}
+  .c4-flow-num{font-family:"Roboto Mono",monospace;font-size:16px;font-weight:700;color:#131B2E;}
+  .c4-flow-label{font-size:10.5px;color:#8A93A6;margin-top:3px;line-height:1.4;}
+
+  .c4-checklist{margin:8px 24px 22px;background:#FDF2E1;border:1px solid #F3DDAD;border-radius:14px;padding:18px 20px;}
+  .c4-checklist-title{font-size:14px;font-weight:800;color:#8A5B10;margin:0 0 12px;display:flex;align-items:center;gap:6px;}
+  .c4-check-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;}
+  .c4-check-item:last-child{margin-bottom:0;}
+  .c4-check-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#E8A33D;color:#FFFFFF;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .c4-check-text{font-size:13px;color:#6B5017;line-height:1.6;}
+
+  .c4-foot{padding:16px 28px 26px;background:#FAFBFD;border-top:1px solid #EEF1F7;}
+  .c4-foot-text{font-size:12.5px;color:#8A93A6;line-height:1.7;margin:0;}
+
+  @media (max-width:480px){
+    .c4-title{font-size:19px;}
+    .c4-cols{grid-template-columns:1fr;}
+    .c4-flow{grid-template-columns:1fr;}
+    .c4-head,.c4-foot{padding-left:18px;padding-right:18px;}
+    .c4-disclaimer,.c4-cols,.c4-flow,.c4-checklist{margin-left:14px;margin-right:14px;}
+  }
+</style>
+</head>
+<body>
+<div class="c4-wrap">
+  <div class="c4-card">
+
+    <div class="c4-head">
+      <p class="c4-eyebrow"><i class="ti ti-scale"></i>BULL vs BEAR · 4 / 4</p>
+      <h2 class="c4-title">매도 vs 보유, 증권가 시각 비교</h2>
+      <p class="c4-sub">엇갈리는 증권사 리포트를 한눈에 비교하고, 스스로 점검할 체크리스트를 확인하세요.</p>
+    </div>
+
+    <div class="c4-disclaimer">
+      <i class="ti ti-info-circle"></i>
+      <p>이 카드는 특정 종목의 매수·매도를 권유하는 투자 자문이 아닙니다. 공개된 증권사 리서치 자료를 균형 있게 정리한 참고 자료이며, 최종 투자 판단과 책임은 투자자 본인에게 있습니다.</p>
+    </div>
+
+    <div class="c4-cols">
+      <div class="c4-col bull">
+        <div class="c4-col-head"><i class="ti ti-trending-up"></i>긍정적으로 보는 시각</div>
+
+        <div class="c4-row">
+          <p class="c4-firm">SK증권 · 한동희 연구원</p>
+          <p class="c4-target">삼성 50만원 · 하이닉스 300만원</p>
+          <p class="c4-reason">"12개월 선행 PER 6배·5.2배 — 글로벌 AI 기업 대비 부담 크지 않다"</p>
+          <p class="c4-date">2026.05.07</p>
+        </div>
+        <div class="c4-row">
+          <p class="c4-firm">노무라(해외)</p>
+          <p class="c4-target">하이닉스 500만원</p>
+          <p class="c4-reason">"장기공급계약 확대로 실적 가시성↑, 2026-27 ROE 약 60% 전망"</p>
+        </div>
+        <div class="c4-row">
+          <p class="c4-firm">다올투자증권 · 고영민 연구원</p>
+          <p class="c4-target">삼성 58.5만원</p>
+          <p class="c4-reason">"범용 D램 가격 상승 + HBM4 효과로 이상적 이익 흐름"</p>
+        </div>
+      </div>
+
+      <div class="c4-col bear">
+        <div class="c4-col-head"><i class="ti ti-trending-down"></i>신중하게 보는 시각</div>
+
+        <div class="c4-row">
+          <p class="c4-firm">키움증권</p>
+          <p class="c4-target">삼성 43만→39만원 하향</p>
+          <p class="c4-reason">"하반기 메모리 가격 상승세·이익증가율 둔화 가능성 반영"</p>
+          <p class="c4-date">2026.07.08</p>
+        </div>
+        <div class="c4-row">
+          <p class="c4-firm">BNK투자증권 · 이민희 연구원</p>
+          <p class="c4-target">하이닉스 185만원</p>
+          <p class="c4-reason">"당시 주가보다 낮은 수준 — 하이퍼스케일러 인프라 투자 경쟁 둔화 우려"</p>
+          <p class="c4-date">2026.07.10</p>
+        </div>
+        <div class="c4-row">
+          <p class="c4-firm">하나증권</p>
+          <p class="c4-target">사전 경고 리포트</p>
+          <p class="c4-reason">"하이닉스 시총이 삼성전자를 추월하는 순간이 증시 정점 신호일 수 있다"</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="c4-flow">
+      <div class="c4-flow-box">
+        <div class="c4-flow-num" style="color:#D64545;">+3.88조</div>
+        <div class="c4-flow-label">7/13 개인 순매수</div>
+      </div>
+      <div class="c4-flow-box">
+        <div class="c4-flow-num" style="color:#2E5FA3;">-1.73조</div>
+        <div class="c4-flow-label">7/13 외국인 순매도</div>
+      </div>
+      <div class="c4-flow-box">
+        <div class="c4-flow-num" style="color:#2E5FA3;">-2.20조</div>
+        <div class="c4-flow-label">7/13 기관 순매도</div>
+      </div>
+    </div>
+
+    <div class="c4-checklist">
+      <p class="c4-checklist-title"><i class="ti ti-checklist"></i>매도·보유를 고민 중이라면, 이 3가지부터</p>
+      <div class="c4-check-item">
+        <span class="c4-check-num">1</span>
+        <span class="c4-check-text">내 투자 기간은 몇 개월 단위인가요, 아니면 몇 년 단위인가요?</span>
+      </div>
+      <div class="c4-check-item">
+        <span class="c4-check-num">2</span>
+        <span class="c4-check-text">현재 내 평균 매수 단가는 지금 주가 대비 어느 구간에 있나요?</span>
+      </div>
+      <div class="c4-check-item">
+        <span class="c4-check-num">3</span>
+        <span class="c4-check-text">반도체·특정 종목 비중이 전체 자산에서 과도하게 크지는 않나요?</span>
+      </div>
+    </div>
+
+    <div class="c4-foot">
+      <p class="c4-foot-text">DATA SOURCE — 비즈워치, 다음뉴스, 파이낸셜뉴스, 공감신문, Investing.com 종합 (2026.07.14 기준). 목표주가는 각 리포트 발간 시점 기준이며 이후 상황 변화에 따라 조정될 수 있습니다.</p>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
