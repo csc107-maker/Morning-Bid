@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>원달러 환율·통화정책 캘린더</title>
+
+<meta property="og:title" content="삼성전자 SK하이닉스 주가 전망 총정리ㅣ하이닉스 40조 환전이 환율·금리에 미치는 영향은?" />
+<meta property="og:description" content="SK하이닉스 나스닥 ADR 상장으로 유입되는 40조원 달러 자금, 은행은 어떻게 관리할까? 원달러 환율·기준금리·인플레이션 전망과 매도·보유 판단 기준까지 정리했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/samsung-hynix-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/samsung-hynix-outlook" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;600;700&display=swap" />
+
+<style>
+  .c3-wrap{font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Malgun Gothic",sans-serif;background:#F5F7FB;padding:32px 16px;box-sizing:border-box;}
+  .c3-wrap *{box-sizing:border-box;}
+  .c3-card{max-width:720px;margin:0 auto;background:#FFFFFF;border:1px solid #E2E6F0;border-radius:20px;box-shadow:0 20px 40px -24px rgba(19,27,46,0.18);overflow:hidden;}
+
+  .c3-head{padding:28px 28px 20px;border-bottom:1px solid #EEF1F7;}
+  .c3-eyebrow{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:0.06em;color:#0F7C6C;text-transform:uppercase;margin:0 0 10px;}
+  .c3-title{font-size:22px;font-weight:800;color:#131B2E;margin:0 0 8px;line-height:1.35;}
+  .c3-sub{font-size:14px;color:#5B6478;margin:0;line-height:1.6;}
+
+  .c3-rate-strip{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 24px 6px;padding:16px 20px;background:#131B2E;border-radius:14px;flex-wrap:wrap;}
+  .c3-rate-label{font-size:11.5px;color:#9AA3B8;font-weight:700;letter-spacing:0.04em;}
+  .c3-rate-num{font-family:"Roboto Mono",monospace;font-size:24px;font-weight:700;color:#FFFFFF;margin-top:2px;}
+  .c3-rate-delta{font-family:"Roboto Mono",monospace;font-size:13px;font-weight:700;color:#F5A3A3;}
+
+  .c3-forces{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 24px;}
+  .c3-force{border-radius:14px;padding:16px 16px;}
+  .c3-force.up{background:#FCEDED;border:1px solid #F3D2D2;}
+  .c3-force.down{background:#EAF0F8;border:1px solid #D3DFF0;}
+  .c3-force-title{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:800;margin:0 0 10px;}
+  .c3-force.up .c3-force-title{color:#B23A3A;}
+  .c3-force.down .c3-force-title{color:#2E5FA3;}
+  .c3-force ul{margin:0;padding-left:16px;}
+  .c3-force li{font-size:12.5px;line-height:1.7;margin-bottom:6px;}
+  .c3-force.up li{color:#8A3E3E;}
+  .c3-force.down li{color:#3C557D;}
+
+  .c3-cal{padding:8px 24px 6px;}
+  .c3-cal-title{font-size:13px;font-weight:800;color:#131B2E;margin:14px 0 14px;display:flex;align-items:center;gap:6px;}
+  .c3-cal-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed #EEF1F7;align-items:flex-start;}
+  .c3-cal-item:last-child{border-bottom:none;}
+  .c3-cal-date{flex-shrink:0;width:64px;text-align:center;background:#FAFBFD;border:1px solid #EEF1F7;border-radius:10px;padding:6px 4px;}
+  .c3-cal-date.today{background:#131B2E;border-color:#131B2E;}
+  .c3-cal-day{font-size:10px;color:#8A93A6;font-weight:700;}
+  .c3-cal-date.today .c3-cal-day{color:#9AA3B8;}
+  .c3-cal-num{font-family:"Roboto Mono",monospace;font-size:17px;font-weight:700;color:#131B2E;}
+  .c3-cal-date.today .c3-cal-num{color:#E8A33D;}
+  .c3-cal-body{flex:1;}
+  .c3-cal-event{font-size:14px;font-weight:700;color:#131B2E;margin:0 0 3px;}
+  .c3-cal-desc{font-size:12.5px;color:#8A93A6;margin:0;line-height:1.6;}
+
+  .c3-foot{padding:16px 28px 26px;background:#FAFBFD;border-top:1px solid #EEF1F7;margin-top:8px;}
+  .c3-foot-text{font-size:12.5px;color:#8A93A6;line-height:1.7;margin:0;}
+
+  @media (max-width:480px){
+    .c3-title{font-size:19px;}
+    .c3-forces{grid-template-columns:1fr;}
+    .c3-head,.c3-cal,.c3-foot{padding-left:18px;padding-right:18px;}
+    .c3-rate-strip,.c3-forces{margin-left:14px;margin-right:14px;}
+  }
+</style>
+</head>
+<body>
+<div class="c3-wrap">
+  <div class="c3-card">
+
+    <div class="c3-head">
+      <p class="c3-eyebrow"><i class="ti ti-calendar-stats"></i>FX & POLICY CALENDAR · 3 / 4</p>
+      <h2 class="c3-title">원달러 환율, 앞으로 어디로 갈까?</h2>
+      <p class="c3-sub">원화 강세·약세 요인이 동시에 작용 중입니다. 두 힘의 줄다리기와 주요 일정을 함께 확인하세요.</p>
+    </div>
+
+    <div class="c3-rate-strip">
+      <div>
+        <div class="c3-rate-label">USD/KRW · 7월 13일 종가</div>
+        <div class="c3-rate-num">1,503.4원</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="c3-rate-label">전 거래일 대비</div>
+        <div class="c3-rate-delta"><i class="ti ti-arrow-up"></i> +2.0원</div>
+      </div>
+    </div>
+
+    <div class="c3-forces">
+      <div class="c3-force up">
+        <p class="c3-force-title"><i class="ti ti-trending-down"></i>원화 강세 요인 (환율↓)</p>
+        <ul>
+          <li>SK하이닉스 약 40조원 달러 환전</li>
+          <li>6월 반도체 수출 호조, 월 수출 첫 1,000억달러 돌파</li>
+          <li>7/1~10 수출 298억달러(전년比 +53.9%)</li>
+        </ul>
+      </div>
+      <div class="c3-force down">
+        <p class="c3-force-title"><i class="ti ti-trending-up"></i>원화 약세 요인 (환율↑)</p>
+        <ul>
+          <li>호르무즈 해협 재봉쇄·중동 지정학 리스크</li>
+          <li>안전자산 선호에 따른 글로벌 달러 강세</li>
+          <li>Fed 매파적 기조(인하→인상 가능성 부각)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="c3-cal">
+      <p class="c3-cal-title"><i class="ti ti-calendar-event" style="color:#0F7C6C;"></i>앞으로 체크해야 할 일정</p>
+
+      <div class="c3-cal-item">
+        <div class="c3-cal-date today">
+          <div class="c3-cal-day">TODAY</div>
+          <div class="c3-cal-num">7.14</div>
+        </div>
+        <div class="c3-cal-body">
+          <p class="c3-cal-event">SK하이닉스 ADR 공모대금 납입</p>
+          <p class="c3-cal-desc">약 40조원 실제 자금이 회사로 들어오는 날</p>
+        </div>
+      </div>
+
+      <div class="c3-cal-item">
+        <div class="c3-cal-date">
+          <div class="c3-cal-day">MON</div>
+          <div class="c3-cal-num">7.15</div>
+        </div>
+        <div class="c3-cal-body">
+          <p class="c3-cal-event">현물환 매도(실환전) 본격화 예상</p>
+          <p class="c3-cal-desc">여기서부터 8~9월까지 분할 환전 전망</p>
+        </div>
+      </div>
+
+      <div class="c3-cal-item">
+        <div class="c3-cal-date">
+          <div class="c3-cal-day">-</div>
+          <div class="c3-cal-num">美CPI</div>
+        </div>
+        <div class="c3-cal-body">
+          <p class="c3-cal-event">미국 6월 소비자물가지수 발표</p>
+          <p class="c3-cal-desc">Fed 인상 가능성 재료 확인 포인트</p>
+        </div>
+      </div>
+
+      <div class="c3-cal-item">
+        <div class="c3-cal-date">
+          <div class="c3-cal-day">THU</div>
+          <div class="c3-cal-num">7.16</div>
+        </div>
+        <div class="c3-cal-body">
+          <p class="c3-cal-event">한국은행 금융통화위원회</p>
+          <p class="c3-cal-desc">기준금리 결정 — 8연속 동결 이후 인상 시그널 주목</p>
+        </div>
+      </div>
+
+      <div class="c3-cal-item">
+        <div class="c3-cal-date">
+          <div class="c3-cal-day">WED</div>
+          <div class="c3-cal-num">7.29</div>
+        </div>
+        <div class="c3-cal-body">
+          <p class="c3-cal-event">SK하이닉스 신주 ADR 상장일 · FOMC</p>
+          <p class="c3-cal-desc">미국 연준 회의 결과와 겹치는 날</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="c3-foot">
+      <p class="c3-foot-text">DATA SOURCE — 서울경제, 이투데이, KB의 생각, 한국은행, 관세청, 대신증권·iM증권 리서치 종합 (2026.07.14 기준). 환율은 실시간으로 변동되므로 반드시 최신 시세를 다시 확인하세요.</p>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
