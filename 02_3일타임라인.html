@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>코스피 사흘간의 롤러코스터 | 블랙먼데이에서 6.24% 반등까지</title>
+
+<meta property="og:title" content="코스피 사흘간의 롤러코스터 타임라인 (7/13~7/15)" />
+<meta property="og:description" content="8.95% 폭락한 블랙먼데이부터 6.24% 급반등까지, 코스피 3거래일의 기록을 타임라인으로 정리" />
+<meta property="og:image" content="여기에_썸네일_이미지_URL을_입력하세요.png" />
+<meta property="og:url" content="여기에_이_포스트의_URL을_입력하세요" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:#F3F6FC; padding:28px 16px; color:#12172B;
+  }
+  .wrap{ max-width:700px; margin:0 auto; }
+  .eyebrow{
+    display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700;
+    color:#1D3461; background:#EDF1F9; border:1px solid #DCE4F4;
+    width:fit-content; padding:6px 14px 6px 10px; border-radius:99px; margin-bottom:14px;
+  }
+  h1{ font-size:22px; font-weight:800; line-height:1.4; margin-bottom:6px;}
+  .sub{ font-size:14px; color:#8A93A8; font-weight:500; margin-bottom:26px;}
+
+  .timeline{ position:relative; padding-left:34px; }
+  .timeline::before{
+    content:''; position:absolute; left:11px; top:6px; bottom:6px; width:3px;
+    background:linear-gradient(180deg,#3568D4 0%, #C9CFDD 45%, #E5304D 100%);
+    border-radius:3px;
+  }
+  .node{ position:relative; margin-bottom:26px; }
+  .node:last-child{ margin-bottom:0; }
+  .dot{
+    position:absolute; left:-34px; top:2px; width:24px; height:24px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:13px; color:#fff;
+    box-shadow:0 0 0 5px #F3F6FC;
+  }
+  .dot.crash{ background:#3568D4; }
+  .dot.pause{ background:#8A93A8; }
+  .dot.surge{ background:#E5304D; }
+
+  .day-card{ background:#fff; border:1px solid #E7EBF3; border-radius:14px; padding:16px 18px; }
+  .day-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:6px;}
+  .day-date{ font-size:12.5px; font-weight:700; color:#8A93A8; }
+  .day-tag{ font-size:11.5px; font-weight:800; padding:3px 10px; border-radius:99px; }
+  .tag-crash{ background:#EAF0FD; color:#3568D4; }
+  .tag-pause{ background:#F0F2F7; color:#6B7280; }
+  .tag-surge{ background:#FDEBEE; color:#E5304D; }
+
+  .day-title{ font-size:17px; font-weight:800; margin-bottom:8px; }
+  .day-num{ font-size:20px; font-weight:800; margin-bottom:2px;}
+  .day-num .chg{ font-size:14px; font-weight:700; margin-left:6px;}
+  .c-down{ color:#3568D4; }
+  .c-flat{ color:#6B7280; }
+  .c-up{ color:#E5304D; }
+
+  .day-detail{ font-size:13.5px; color:#454C5E; line-height:1.65; margin-top:8px; }
+  .day-detail b{ color:#12172B; }
+  .pill-row{ display:flex; gap:6px; margin-top:10px; flex-wrap:wrap; }
+  .pill{ font-size:11.5px; font-weight:700; background:#F6F7FA; border:1px solid #ECEEF3; color:#6B7280; padding:4px 10px; border-radius:99px;}
+
+  .final-badge{
+    margin-top:22px; text-align:center; background:#12172B; border-radius:14px; padding:18px;
+  }
+  .final-badge .lbl{ font-size:12.5px; color:#8FA0C4; font-weight:700; margin-bottom:6px;}
+  .final-badge .val{ font-size:24px; color:#fff; font-weight:800; }
+  .final-badge .val span{ color:#FF5D78; font-size:16px; margin-left:6px;}
+
+  .foot{ margin-top:16px; font-size:11.5px; color:#A8B0C0; text-align:right; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow"><i class="ti ti-timeline"></i>3거래일 흐름 정리</div>
+  <h1>블랙먼데이에서 6.24% 반등까지</h1>
+  <div class="sub">코스피가 사흘 만에 겪은 급락 → 숨고르기 → 급반등의 기록</div>
+
+  <div class="timeline">
+
+    <div class="node">
+      <div class="dot crash"><i class="ti ti-trending-down"></i></div>
+      <div class="day-card">
+        <div class="day-top">
+          <div class="day-date">7월 13일 (월)</div>
+          <div class="day-tag tag-crash">블랙먼데이 · 올해 7번째 서킷브레이커</div>
+        </div>
+        <div class="day-title">중동發 지정학 리스크 + 반도체 차익실현</div>
+        <div class="day-num">6,806.93 <span class="chg c-down">▼ 669.01P (-8.95%)</span></div>
+        <div class="day-detail">
+          미국·이란이 호르무즈 해협 통제권을 두고 재충돌하며 국제유가가 급등, 위험자산 회피 심리가 확산됐습니다.
+          여기에 <b>SK하이닉스 2분기 실적이 시장 기대치를 밑돌 수 있다</b>는 증권가 보고서가 나오며 반도체 투톱에 매물이 집중됐습니다.
+        </div>
+        <div class="pill-row">
+          <div class="pill">삼성전자 -10.70%</div>
+          <div class="pill">SK하이닉스 -15.37% (역대 최대 하락)</div>
+          <div class="pill">코스닥 -4.55%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="node">
+      <div class="dot pause"><i class="ti ti-minus"></i></div>
+      <div class="day-card">
+        <div class="day-top">
+          <div class="day-date">7월 14일 (화)</div>
+          <div class="day-tag tag-pause">숨고르기 · 온도 차 뚜렷</div>
+        </div>
+        <div class="day-title">코스피는 반등, 코스닥은 연중 최저</div>
+        <div class="day-num">6,856.83 <span class="chg c-flat">▲ 49.90P (+0.73%)</span></div>
+        <div class="day-detail">
+          기관·외국인의 저가 매수세가 유입되며 코스피는 소폭 반등했지만, 코스닥은 2차전지·바이오 대형주 매물에 장중 52주 최저치를 다시 썼습니다.
+          미·이란 갈등은 여전히 시장의 상단을 눌렀습니다.
+        </div>
+        <div class="pill-row">
+          <div class="pill">기관·외국인 순매수 전환</div>
+          <div class="pill">코스닥 장중 52주 최저</div>
+          <div class="pill">2차전지·바이오 약세</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="node">
+      <div class="dot surge"><i class="ti ti-trending-up"></i></div>
+      <div class="day-card">
+        <div class="day-top">
+          <div class="day-date">7월 15일 (수) · 오늘</div>
+          <div class="day-tag tag-surge">급반등 · 매수 사이드카</div>
+        </div>
+        <div class="day-title">美 CPI 서프라이즈 + SK하이닉스 ADR 27%↑</div>
+        <div class="day-num">7,284.41 <span class="chg c-up">▲ 427.58P (+6.24%)</span></div>
+        <div class="day-detail">
+          미국 6월 CPI가 시장 예상(3.8%)을 크게 밑돈 3.5%로 발표되며 연준 긴축 우려가 완화됐습니다.
+          간밤 SK하이닉스 ADR이 <b>27.29% 급등</b>했고, 바클레이스는 목표주가를 330달러로 제시했습니다. 여기에 한미반도체 어닝서프라이즈, HLB그룹 FDA 우려 완화까지 겹쳤습니다.
+        </div>
+        <div class="pill-row">
+          <div class="pill">삼성전자 +6.27%</div>
+          <div class="pill">SK하이닉스 +8.83%</div>
+          <div class="pill">외국인 +2.3조 순매수</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="final-badge">
+    <div class="lbl">3거래일 순변동</div>
+    <div class="val">6,806.93 → 7,284.41 <span>+477.48P (+7.0%)</span></div>
+  </div>
+
+  <div class="foot">자료: 한국거래소(KRX)·연합뉴스·이투데이·파이낸셜뉴스 종합 · 2026.07.15 기준</div>
+</div>
+</body>
+</html>
