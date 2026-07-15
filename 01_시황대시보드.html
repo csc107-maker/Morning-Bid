@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026.07.15 코스피·코스닥 마감 시황 대시보드</title>
+
+<meta property="og:title" content="2026.07.15 코스피 7,284 마감 | 코스피·코스닥 시황 대시보드" />
+<meta property="og:description" content="코스피 +6.24%, 코스닥 +5.80% 급등 마감. 외국인·기관 동반 순매수, 반도체·기계장비 업종 강세 한눈에 보기" />
+<meta property="og:image" content="여기에_썸네일_이미지_URL을_입력하세요.png" />
+<meta property="og:url" content="여기에_이_포스트의_URL을_입력하세요" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #F3F6FC;
+    padding: 28px 16px;
+    color:#12172B;
+  }
+  .wrap{ max-width:720px; margin:0 auto; }
+
+  .eyebrow{
+    display:flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:700; color:#1D3461;
+    background:#EDF1F9; border:1px solid #DCE4F4;
+    width:fit-content; padding:6px 14px 6px 10px; border-radius:99px;
+    margin-bottom:14px; letter-spacing:.2px;
+  }
+  .eyebrow i{ font-size:15px; }
+
+  h1{
+    font-size:23px; font-weight:800; line-height:1.4; color:#12172B;
+    margin-bottom:4px;
+  }
+  .sub{ font-size:14px; color:#8A93A8; font-weight:500; margin-bottom:20px; }
+
+  /* ticker strip signature element */
+  .ticker{
+    display:flex; background:#12172B; border-radius:12px; overflow:hidden;
+    margin-bottom:20px; box-shadow:0 8px 24px -12px rgba(18,23,43,.35);
+  }
+  .ticker-item{
+    flex:1; padding:14px 10px; text-align:center;
+    border-right:1px solid rgba(255,255,255,.08);
+  }
+  .ticker-item:last-child{ border-right:none; }
+  .ticker-name{ font-size:11px; color:#8FA0C4; font-weight:700; letter-spacing:.5px; margin-bottom:4px;}
+  .ticker-val{ font-size:16px; font-weight:800; color:#fff; }
+  .ticker-chg{ font-size:12px; font-weight:700; margin-top:2px; }
+  .up{ color:#FF5D78; }
+  .down{ color:#6E9BFF; }
+
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px; }
+  @media (max-width:560px){ .grid3{ grid-template-columns:1fr; } }
+
+  .card{
+    background:#fff; border:1px solid #E7EBF3; border-radius:14px;
+    padding:18px 18px 16px; position:relative; overflow:hidden;
+  }
+  .card.up{ border-top:3px solid #E5304D; }
+  .card.down{ border-top:3px solid #3568D4; }
+  .card-label{ font-size:13px; font-weight:700; color:#8A93A8; display:flex; align-items:center; gap:6px; margin-bottom:10px;}
+  .card-num{ font-size:26px; font-weight:800; color:#12172B; letter-spacing:-.3px;}
+  .card-delta{ font-size:13.5px; font-weight:700; margin-top:6px; display:flex; align-items:center; gap:4px;}
+  .card-delta.up{ color:#E5304D; border-top:none;}
+  .card-delta.down{ color:#3568D4; border-top:none;}
+  .spark{ position:absolute; right:10px; bottom:10px; opacity:.55; }
+
+  .section-title{
+    font-size:15px; font-weight:800; color:#12172B; margin:22px 0 10px;
+    display:flex; align-items:center; gap:6px;
+  }
+  .section-title i{ color:#1D3461; }
+
+  .flow-row{ display:flex; gap:10px; margin-bottom:18px; }
+  .flow-chip{
+    flex:1; background:#fff; border:1px solid #E7EBF3; border-radius:12px;
+    padding:12px 14px; text-align:center;
+  }
+  .flow-who{ font-size:12.5px; color:#8A93A8; font-weight:700; margin-bottom:6px;}
+  .flow-amt{ font-size:15.5px; font-weight:800; }
+
+  .heat{ display:flex; flex-direction:column; gap:8px; margin-bottom:6px;}
+  .heat-row{ display:flex; align-items:center; gap:10px; }
+  .heat-name{ width:78px; font-size:13px; font-weight:700; color:#454C5E; flex-shrink:0; }
+  .heat-bar-bg{ flex:1; background:#F0F2F7; border-radius:6px; height:20px; position:relative; overflow:hidden;}
+  .heat-bar{ height:100%; border-radius:6px; display:flex; align-items:center; }
+  .heat-bar.r{ background:linear-gradient(90deg,#F97E93,#E5304D); }
+  .heat-bar.b{ background:linear-gradient(90deg,#6E9BFF,#3568D4); }
+  .heat-pct{ font-size:12.5px; font-weight:800; color:#fff; padding-left:8px; }
+  .heat-pct.out{ color:#3568D4; padding-left:6px; }
+
+  .note{
+    margin-top:18px; background:#FBF3E2; border:1px solid #F0DFB6;
+    border-radius:12px; padding:14px 16px; font-size:13px; color:#6B5416; line-height:1.6;
+    display:flex; gap:10px;
+  }
+  .note i{ font-size:17px; margin-top:1px; color:#DC9F32; }
+  .foot{ margin-top:16px; font-size:11.5px; color:#A8B0C0; text-align:right; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow"><i class="ti ti-calendar-event"></i>2026년 7월 15일(수) 장 마감</div>
+  <h1>코스피·코스닥, 반도체 랠리에 나란히 급등 마감</h1>
+  <div class="sub">美 6월 CPI 서프라이즈 + SK하이닉스 ADR 급등 → 3거래일 만에 7,000선 회복</div>
+
+  <div class="ticker">
+    <div class="ticker-item">
+      <div class="ticker-name">KOSPI</div>
+      <div class="ticker-val">7,284.41</div>
+      <div class="ticker-chg up">▲ 6.24%</div>
+    </div>
+    <div class="ticker-item">
+      <div class="ticker-name">KOSDAQ</div>
+      <div class="ticker-val">829.43</div>
+      <div class="ticker-chg up">▲ 5.80%</div>
+    </div>
+    <div class="ticker-item">
+      <div class="ticker-name">USD/KRW</div>
+      <div class="ticker-val">1,484.7</div>
+      <div class="ticker-chg down">▼ 8.3원</div>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="card up">
+      <div class="card-label"><i class="ti ti-chart-candle"></i>코스피</div>
+      <div class="card-num">7,284.41</div>
+      <div class="card-delta up"><i class="ti ti-arrow-up-right"></i>+427.58P (+6.24%)</div>
+    </div>
+    <div class="card up">
+      <div class="card-label"><i class="ti ti-chart-candle"></i>코스닥</div>
+      <div class="card-num">829.43</div>
+      <div class="card-delta up"><i class="ti ti-arrow-up-right"></i>+45.45P (+5.80%)</div>
+    </div>
+    <div class="card down">
+      <div class="card-label"><i class="ti ti-currency-dollar"></i>원·달러</div>
+      <div class="card-num">1,484.7</div>
+      <div class="card-delta down"><i class="ti ti-arrow-down-right"></i>-8.3원 (원화 강세)</div>
+    </div>
+  </div>
+
+  <div class="section-title"><i class="ti ti-users"></i>투자자별 수급 (코스피, 결제 기준)</div>
+  <div class="flow-row">
+    <div class="flow-chip">
+      <div class="flow-who">외국인</div>
+      <div class="flow-amt" style="color:#E5304D;">+2조 3,227억</div>
+    </div>
+    <div class="flow-chip">
+      <div class="flow-who">기관</div>
+      <div class="flow-amt" style="color:#E5304D;">+1,827억</div>
+    </div>
+    <div class="flow-chip">
+      <div class="flow-who">개인</div>
+      <div class="flow-amt" style="color:#3568D4;">-2조 4,680억</div>
+    </div>
+  </div>
+
+  <div class="section-title"><i class="ti ti-flame"></i>업종별 등락률 (코스피, 상위·하위)</div>
+  <div class="heat">
+    <div class="heat-row">
+      <div class="heat-name">기계·장비</div>
+      <div class="heat-bar-bg"><div class="heat-bar r" style="width:95%;"><span class="heat-pct">+8.76%</span></div></div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">의료·정밀</div>
+      <div class="heat-bar-bg"><div class="heat-bar r" style="width:82%;"><span class="heat-pct">+7.45%</span></div></div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">전기·전자</div>
+      <div class="heat-bar-bg"><div class="heat-bar r" style="width:81%;"><span class="heat-pct">+7.42%</span></div></div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">오락·문화</div>
+      <div class="heat-bar-bg"><div class="heat-bar b" style="width:14%;"><span class="heat-pct out">-1.29%</span></div></div>
+    </div>
+    <div class="heat-row">
+      <div class="heat-name">비금속</div>
+      <div class="heat-bar-bg"><div class="heat-bar b" style="width:6%;"><span class="heat-pct out">-0.27%</span></div></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <i class="ti ti-info-circle"></i>
+    <div>장 초반 코스피·코스닥 양 시장에서 나란히 <b>매수 사이드카</b>가 발동됐습니다. 20개 안팎 업종 중 하락 업종은 오락·문화, 비금속 단 2개뿐일 만큼 상승 폭이 시장 전반에 고르게 퍼진 하루였습니다.</div>
+  </div>
+
+  <div class="foot">자료: 한국거래소(KRX) · 엠피닥터 · 2026.07.15 장 마감 기준</div>
+</div>
+</body>
+</html>
