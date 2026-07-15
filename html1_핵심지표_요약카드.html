@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASML·TSMC·삼성전자·SK하이닉스 핵심 지표 요약</title>
+
+<meta property="og:title" content="ASML·TSMC·삼성전자·SK하이닉스 핵심 지표 요약" />
+<meta property="og:description" content="2026년 7월 실적 시즌, 반도체 4사의 최신 확정 실적과 가이던스를 한눈에 비교합니다." />
+<meta property="og:image" content="여기에_썸네일_이미지_URL을_입력하세요.png" />
+<meta property="og:url" content="여기에_게시글_URL을_입력하세요" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<style>
+  :root{
+    --bg:#F5F8FC;
+    --surface:#FFFFFF;
+    --ink:#111729;
+    --ink-soft:#5B6478;
+    --line:#E3E9F3;
+    --blue:#2E5EFF;
+    --blue-bg:#EAF0FF;
+    --teal:#0AA3A3;
+    --teal-bg:#E4F7F6;
+    --amber:#F59E0B;
+    --amber-bg:#FEF3DF;
+    --up:#16A34A;
+    --up-bg:#E9F9EF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    font-family:'Noto Sans KR','Space Grotesk',sans-serif;
+    color:var(--ink);
+    padding:32px 16px 40px;
+  }
+  .num{font-family:'Space Grotesk','Noto Sans KR',sans-serif;}
+  .wrap{max-width:1080px;margin:0 auto;}
+
+  .head{margin-bottom:22px;}
+  .head .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:700;color:var(--blue);
+    background:var(--blue-bg);padding:5px 12px;border-radius:100px;
+    letter-spacing:.02em;
+  }
+  .head h1{
+    font-size:clamp(21px,3.4vw,28px);
+    line-height:1.35;margin:12px 0 6px;font-weight:900;letter-spacing:-.01em;
+  }
+  .head p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.6;}
+
+  .flowrow{
+    display:flex;align-items:center;gap:10px;margin:26px 0 14px;
+    color:var(--ink-soft);font-size:13px;font-weight:500;
+  }
+  .flowrow .chip{
+    background:var(--surface);border:1px solid var(--line);border-radius:8px;
+    padding:6px 10px;display:flex;align-items:center;gap:6px;color:var(--ink);font-weight:700;
+  }
+  .flowrow i{color:var(--blue);}
+  .flowline{flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 12px);}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.grid{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:20px 18px 18px;position:relative;overflow:hidden;
+    box-shadow:0 1px 2px rgba(17,23,41,.04);
+  }
+  .card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent,var(--blue));
+  }
+  .card.asml{--accent:#2E5EFF;}
+  .card.tsmc{--accent:#0AA3A3;}
+  .card.ssec{--accent:#F59E0B;}
+  .card.hynx{--accent:#8B5CF6;}
+
+  .card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+  .card .icon{
+    width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    color:var(--accent);font-size:19px;
+  }
+  .card.asml .icon{background:#EAF0FF;}
+  .card.tsmc .icon{background:#E4F7F6;}
+  .card.ssec .icon{background:#FEF3DF;}
+  .card.hynx .icon{background:#F1EBFE;}
+  .card .role{font-size:10.5px;font-weight:700;color:var(--ink-soft);text-align:right;line-height:1.3;}
+
+  .card h3{font-size:16px;font-weight:900;margin:0 0 2px;letter-spacing:-.01em;}
+  .card .sub{font-size:12px;color:var(--ink-soft);margin:0 0 14px;font-weight:500;}
+
+  .metric{padding:10px 0;border-top:1px dashed var(--line);}
+  .metric:first-of-type{border-top:none;padding-top:0;}
+  .metric .label{font-size:11.5px;color:var(--ink-soft);font-weight:500;margin-bottom:3px;}
+  .metric .value{font-size:19px;font-weight:700;letter-spacing:-.01em;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;}
+  .metric .yoy{font-size:12px;font-weight:700;color:var(--up);display:inline-flex;align-items:center;gap:1px;}
+  .metric .yoy.flat{color:var(--ink-soft);}
+
+  .badge{
+    margin-top:14px;display:inline-flex;align-items:center;gap:5px;
+    font-size:11px;font-weight:700;padding:5px 10px;border-radius:100px;
+    background:var(--amber-bg);color:#92650A;
+  }
+  .badge.blue{background:var(--blue-bg);color:#1E40C4;}
+  .badge.up{background:var(--up-bg);color:#0F7A38;}
+
+  .foot{
+    margin-top:20px;padding-top:14px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--ink-soft);line-height:1.7;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <span class="eyebrow"><i class="ti ti-chart-candle"></i>&nbsp;2026년 7월 실적 시즌 스냅샷</span>
+    <h1>ASML·TSMC·삼성전자·SK하이닉스, 지금 숫자로 보면 이렇습니다</h1>
+    <p>공식 발표 자료 기준 최신 확정 실적과 가이던스를 정리했습니다. (7월 15일 기준)</p>
+  </div>
+
+  <div class="flowrow">
+    <span class="chip"><i class="ti ti-building-factory-2"></i> ASML — 장비 공급</span>
+    <span class="flowline"></span>
+    <span class="chip"><i class="ti ti-cpu"></i> CAPEX 발주</span>
+    <span class="flowline"></span>
+    <span class="chip"><i class="ti ti-coin"></i> TSMC·삼성·SK하이닉스</span>
+  </div>
+
+  <div class="grid">
+
+    <div class="card asml">
+      <div class="top">
+        <div class="icon"><i class="ti ti-bulb"></i></div>
+        <div class="role">장비 공급사<br>세계 유일 EUV</div>
+      </div>
+      <h3>ASML</h3>
+      <p class="sub">네덜란드 · 반도체 노광장비</p>
+
+      <div class="metric">
+        <div class="label">1분기 매출(확정)</div>
+        <div class="value num">€87.7<span style="font-size:13px;font-weight:500;">억</span> <span class="yoy"><i class="ti ti-arrow-up-right" style="font-size:13px;"></i>13%</span></div>
+      </div>
+      <div class="metric">
+        <div class="label">연간 가이던스</div>
+        <div class="value num">€360~400<span style="font-size:13px;font-weight:500;">억</span></div>
+      </div>
+      <div class="metric">
+        <div class="label">2분기 컨센서스 EPS</div>
+        <div class="value num">$7.94~7.98 <span class="yoy"><i class="ti ti-arrow-up-right" style="font-size:13px;"></i>75%</span></div>
+      </div>
+
+      <div class="badge blue"><i class="ti ti-clock-hour-4"></i> 오늘(7/15) 실적 발표</div>
+    </div>
+
+    <div class="card tsmc">
+      <div class="top">
+        <div class="icon"><i class="ti ti-building-factory"></i></div>
+        <div class="role">고객사<br>파운드리 1위</div>
+      </div>
+      <h3>TSMC</h3>
+      <p class="sub">대만 · 세계 1위 파운드리</p>
+
+      <div class="metric">
+        <div class="label">1분기 매출(확정)</div>
+        <div class="value num">$359.0<span style="font-size:13px;font-weight:500;">억</span> <span class="yoy"><i class="ti ti-arrow-up-right" style="font-size:13px;"></i>40.6%</span></div>
+      </div>
+      <div class="metric">
+        <div class="label">2026 CAPEX 가이던스</div>
+        <div class="value num">$520~560<span style="font-size:13px;font-weight:500;">억</span></div>
+      </div>
+      <div class="metric">
+        <div class="label">연매출 성장 가이던스</div>
+        <div class="value num">+30%<span style="font-size:13px;font-weight:500;">초과</span></div>
+      </div>
+
+      <div class="badge"><i class="ti ti-clock-hour-4"></i> 내일(7/16) 실적 발표</div>
+    </div>
+
+    <div class="card ssec">
+      <div class="top">
+        <div class="icon"><i class="ti ti-building-skyscraper"></i></div>
+        <div class="role">고객사<br>메모리·파운드리</div>
+      </div>
+      <h3>삼성전자</h3>
+      <p class="sub">한국 · 메모리 1위 · 파운드리</p>
+
+      <div class="metric">
+        <div class="label">2분기 영업이익(잠정)</div>
+        <div class="value num">89.4<span style="font-size:13px;font-weight:500;">조원</span> <span class="yoy"><i class="ti ti-arrow-up-right" style="font-size:13px;"></i>사상최대</span></div>
+      </div>
+      <div class="metric">
+        <div class="label">1분기 CAPEX</div>
+        <div class="value num">11.2<span style="font-size:13px;font-weight:500;">조원</span></div>
+      </div>
+      <div class="metric">
+        <div class="label">2026 CAPEX 연간목표</div>
+        <div class="value num" style="color:var(--ink-soft);font-size:14px;">미확정 (대폭 증가 예고)</div>
+      </div>
+
+      <div class="badge up"><i class="ti ti-trophy"></i> 엔비디아 분기 영업이익 상회</div>
+    </div>
+
+    <div class="card hynx">
+      <div class="top">
+        <div class="icon"><i class="ti ti-server-2"></i></div>
+        <div class="role">고객사<br>HBM 1위</div>
+      </div>
+      <h3>SK하이닉스</h3>
+      <p class="sub">한국 · HBM(고대역폭메모리) 1위</p>
+
+      <div class="metric">
+        <div class="label">1분기 영업이익(확정)</div>
+        <div class="value num">37.6<span style="font-size:13px;font-weight:500;">조원</span> <span class="yoy"><i class="ti ti-arrow-up-right" style="font-size:13px;"></i>405%</span></div>
+      </div>
+      <div class="metric">
+        <div class="label">2025년 CAPEX</div>
+        <div class="value num">27.5<span style="font-size:13px;font-weight:500;">조원</span></div>
+      </div>
+      <div class="metric">
+        <div class="label">2026 CAPEX 연간목표</div>
+        <div class="value num" style="color:var(--ink-soft);font-size:14px;">미확정 (대폭 증가 예고)</div>
+      </div>
+
+      <div class="badge" style="background:#F1EBFE;color:#6D28D9;"><i class="ti ti-rocket"></i> 나스닥 ADR 상장(7/10)</div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    출처: ASML 2026년 1분기 실적자료(2026.4.15) · TSMC 2026년 1분기 실적자료·컨퍼런스콜(2026.4.16) · 삼성전자 뉴스룸(2026.4.30·2026.7.7) · SK하이닉스 뉴스룸(2026.4.23) · Reuters(2026.7.14) · Investing.com. "미확정" 표기 항목은 각 사가 연간 구체적 수치를 공식 발표하지 않은 항목입니다.
+  </div>
+
+</div>
+</body>
+</html>
