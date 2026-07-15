@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2025~2027 히트펌프 정책, 한눈에 보는 타임라인</title>
+<meta name="description" content="기후에너지환경부 출범부터 가정용 난방전기화사업, 누진제 개선, 전국 확대 계획까지 히트펌프 관련 정책 변화를 타임라인으로 정리했습니다.">
+<meta property="og:title" content="2025~2027 히트펌프 정책, 한눈에 보는 타임라인" />
+<meta property="og:description" content="기후에너지환경부 출범, 히트펌프 보급 활성화 방안, 누진제 대신 일반요금제 선택 추진, 지역별 확대까지 — 2026년 최신 정책 흐름 정리." />
+<meta property="og:image" content="여기에 썸네일 이미지 URL을 넣어주세요" />
+<meta property="og:url" content="여기에 이 카드가 삽입될 블로그 글 URL을 넣어주세요" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  .hptl-block, .hptl-block * { box-sizing: border-box; margin: 0; padding: 0; }
+  .hptl-block {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #1B2A2E;
+    background: #FFFFFF;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4px;
+  }
+  .hptl-card {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #D8E0DC;
+    border-radius: 4px;
+    padding: 34px 32px 28px;
+  }
+  .hptl-card::before, .hptl-card::after, .hptl-mark-bl, .hptl-mark-br {
+    content: ""; position: absolute; width: 18px; height: 18px; border: 2px solid #E2703A;
+  }
+  .hptl-card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .hptl-card::after { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+  .hptl-mark-bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+  .hptl-mark-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+  .hptl-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #2B5C8A;
+    text-transform: uppercase; background: #EAF0F5; padding: 5px 10px; border-radius: 20px; margin-bottom: 16px;
+  }
+  .hptl-eyebrow i { font-size: 13px; }
+
+  .hptl-h2 { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 22px; display: flex; align-items: center; gap: 8px; }
+  .hptl-h2 i { color: #E2703A; font-size: 20px; }
+
+  .hptl-timeline { position: relative; padding-left: 26px; margin-bottom: 22px; }
+  .hptl-timeline::before {
+    content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: #E4DED8;
+  }
+  .hptl-node { position: relative; padding-bottom: 20px; }
+  .hptl-node:last-child { padding-bottom: 0; }
+  .hptl-dot {
+    position: absolute; left: -26px; top: 3px; width: 14px; height: 14px; border-radius: 50%;
+    background: #FFFFFF; border: 3px solid #E2703A;
+  }
+  .hptl-node.hptl-future .hptl-dot { border-color: #B7C2BD; }
+  .hptl-date {
+    font-family: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace;
+    font-size: 12.5px; font-weight: 700; color: #E2703A; margin-bottom: 3px;
+  }
+  .hptl-node.hptl-future .hptl-date { color: #8B9A94; }
+  .hptl-node-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .hptl-node-desc { font-size: 13.5px; color: #4B5B56; }
+
+  .hptl-highlight {
+    background: #EAF4F1; border-radius: 10px; padding: 18px 20px; margin-bottom: 18px;
+  }
+  .hptl-highlight-title { display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 800; color: #0E6E5C; margin-bottom: 10px; }
+  .hptl-highlight-desc { font-size: 13.5px; color: #2E3F3A; margin-bottom: 14px; }
+  .hptl-compare3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .hptl-compare3-item { background: #FFFFFF; border-radius: 8px; padding: 12px 8px; text-align: center; }
+  .hptl-compare3-label { font-size: 11px; color: #6B7B76; margin-bottom: 5px; }
+  .hptl-compare3-val { font-family: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 17px; font-weight: 800; color: #0E6E5C; }
+  .hptl-compare3-item.low .hptl-compare3-val { color: #B4501F; }
+  .hptl-compare3-note { font-size: 11px; color: #9AA6A1; margin-top: 12px; text-align: center; }
+
+  .hptl-warn {
+    background: #FBEEE7; border-left: 3px solid #E2703A; border-radius: 0 6px 6px 0;
+    padding: 14px 16px; font-size: 13.5px; color: #4B3A32; display: flex; gap: 10px; align-items: flex-start;
+  }
+  .hptl-warn i { color: #E2703A; font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+  .hptl-warn strong { color: #B4501F; }
+
+  .hptl-source { margin-top: 16px; font-size: 11.5px; color: #9AA6A1; }
+
+  @media (max-width: 560px) {
+    .hptl-card { padding: 26px 18px 22px; }
+    .hptl-h2 { font-size: 18px; }
+    .hptl-compare3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hptl-block">
+  <div class="hptl-card">
+    <span class="hptl-mark-bl"></span><span class="hptl-mark-br"></span>
+
+    <div class="hptl-eyebrow"><i class="ti ti-calendar-event"></i>STEP 4 · 2026년 최신 정책 흐름</div>
+    <div class="hptl-h2"><i class="ti ti-route"></i>2025~2027 히트펌프 정책 타임라인</div>
+
+    <div class="hptl-timeline">
+      <div class="hptl-node">
+        <span class="hptl-dot"></span>
+        <div class="hptl-date">2025. 03 ~ 05</div>
+        <div class="hptl-node-title">공기열, 정식 '재생에너지'로 인정</div>
+        <div class="hptl-node-desc">관련 시행령 개정(3월)과 인정 기준 마련(5월)으로 공기열 히트펌프가 태양광·지열처럼 재생에너지 설비로 공식 인정됨.</div>
+      </div>
+      <div class="hptl-node">
+        <span class="hptl-dot"></span>
+        <div class="hptl-date">2025. 10. 01</div>
+        <div class="hptl-node-title">기후에너지환경부 출범</div>
+        <div class="hptl-node-desc">환경부가 산업통상자원부 에너지 정책 대부분을 흡수. 이후 히트펌프 관련 공고는 기후에너지환경부·한국에너지공단 신재생에너지센터(KNREC) 명의로 발표.</div>
+      </div>
+      <div class="hptl-node">
+        <span class="hptl-dot"></span>
+        <div class="hptl-date">2025. 12. 16</div>
+        <div class="hptl-node-title">'히트펌프 보급 활성화 방안' 발표</div>
+        <div class="hptl-node-desc">2035년까지 히트펌프 350만 대 보급, 온실가스 518만 톤 감축 목표. 누진제 대신 별도 요금제 선택 허용 방안도 함께 발표.</div>
+      </div>
+      <div class="hptl-node">
+        <span class="hptl-dot"></span>
+        <div class="hptl-date">2026. 03 ~ 04</div>
+        <div class="hptl-node-title">제주, 가정용 난방전기화사업 시행</div>
+        <div class="hptl-node-desc">가구당 최대 1,400만원(국비·도비 70%) 지원 시작. 양평·김해·남해·충주 등 실증사업도 동시 진행.</div>
+      </div>
+      <div class="hptl-node">
+        <span class="hptl-dot"></span>
+        <div class="hptl-date">2026. 06</div>
+        <div class="hptl-node-title">전남·경남 등 지자체 합류</div>
+        <div class="hptl-node-desc">지방정부 대상 설명회 이후 컨소시엄 선정을 마치고 지역별 사업 확산 중.</div>
+      </div>
+      <div class="hptl-node hptl-future">
+        <span class="hptl-dot"></span>
+        <div class="hptl-date">2027 (예정)</div>
+        <div class="hptl-node-title">전국 확대 목표</div>
+        <div class="hptl-node-desc">지역별 수요조사를 거쳐 가정용 난방전기화사업을 전국 단위로 확대할 계획.</div>
+      </div>
+    </div>
+
+    <div class="hptl-highlight">
+      <div class="hptl-highlight-title"><i class="ti ti-bolt"></i>가장 중요한 변화 — 누진제 탈출구</div>
+      <div class="hptl-highlight-desc">공기열 히트펌프도 지열처럼 '일반용' 등 별도 전기요금제를 선택할 수 있도록 추진 중입니다. 제주 필드테스트 결과, 같은 히트펌프라도 적용 요금제에 따라 절감액이 이렇게 달라졌습니다. (LPG 난방 대비 연간 절감액)</div>
+      <div class="hptl-compare3">
+        <div class="hptl-compare3-item"><div class="hptl-compare3-label">일반요금 적용</div><div class="hptl-compare3-val">120만원</div></div>
+        <div class="hptl-compare3-item"><div class="hptl-compare3-label">계시별요금 적용</div><div class="hptl-compare3-val">20만원</div></div>
+        <div class="hptl-compare3-item low"><div class="hptl-compare3-label">누진제 적용</div><div class="hptl-compare3-val">8만원</div></div>
+      </div>
+      <div class="hptl-compare3-note">동일 설비 기준, 적용 요금제에 따라 절감액이 최대 15배 차이</div>
+    </div>
+
+    <div class="hptl-warn">
+      <i class="ti ti-map-pin"></i>
+      <div><strong>아직 전국 상시 사업은 아닙니다 —</strong> 2026년 7월 현재 지자체별로 순차 확대되는 단계입니다. 거주지 시·도 홈페이지 공고로 우리 동네가 대상 지역인지 반드시 확인하세요.</div>
+    </div>
+
+    <div class="hptl-source">출처: 기후에너지환경부 보도자료(2025.12.16), 관련 지자체 공고, 업계 매체 보도 종합. 세부 지원 조건은 공고 시점에 따라 변경될 수 있습니다.</div>
+  </div>
+</div>
+
+</body>
+</html>
