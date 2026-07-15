@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 반도체 슈퍼사이클 타임라인</title>
+
+<meta property="og:title" content="2026년 반도체 슈퍼사이클 타임라인" />
+<meta property="og:description" content="ASML 가이던스 상향부터 800조원 투자 발표, SK하이닉스 나스닥 상장까지 - 2026년 상반기 반도체 산업 주요 사건을 시간순으로 정리했습니다." />
+<meta property="og:image" content="여기에_썸네일_이미지_URL을_입력하세요.png" />
+<meta property="og:url" content="여기에_게시글_URL을_입력하세요" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<style>
+  :root{
+    --bg:#F5F8FC;
+    --surface:#FFFFFF;
+    --ink:#111729;
+    --ink-soft:#5B6478;
+    --line:#E3E9F3;
+    --blue:#2E5EFF; --blue-bg:#EAF0FF;
+    --teal:#0AA3A3; --teal-bg:#E4F7F6;
+    --amber:#F59E0B; --amber-bg:#FEF3DF;
+    --violet:#7C3AED; --violet-bg:#F1EBFE;
+    --red:#DC2626; --red-bg:#FDECEC;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);font-family:'Noto Sans KR',sans-serif;color:var(--ink);padding:32px 16px 44px;}
+  .num{font-family:'Space Grotesk','Noto Sans KR',sans-serif;}
+  .wrap{max-width:760px;margin:0 auto;}
+
+  .head .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--violet);
+    background:var(--violet-bg);padding:5px 12px;border-radius:100px;
+  }
+  .head h1{font-size:clamp(20px,3.6vw,26px);line-height:1.35;margin:12px 0 6px;font-weight:900;letter-spacing:-.01em;}
+  .head p{margin:0 0 30px;color:var(--ink-soft);font-size:14px;line-height:1.6;}
+
+  .tl{position:relative;padding-left:34px;}
+  .tl::before{
+    content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(var(--line),var(--line));
+  }
+  .item{position:relative;padding-bottom:26px;}
+  .item:last-child{padding-bottom:0;}
+  .item .dot{
+    position:absolute;left:-34px;top:2px;width:24px;height:24px;border-radius:50%;
+    background:var(--surface);border:2px solid var(--accent,var(--blue));
+    display:flex;align-items:center;justify-content:center;color:var(--accent,var(--blue));font-size:12px;
+    z-index:2;
+  }
+  .item.today .dot{background:var(--accent,var(--blue));color:#fff;box-shadow:0 0 0 4px rgba(46,94,255,0.2);}
+
+  .item.asml{--accent:var(--blue);}
+  .item.tsmc{--accent:var(--teal);}
+  .item.ssec{--accent:var(--amber);}
+  .item.hynx{--accent:var(--violet);}
+  .item.mkt{--accent:var(--red);}
+
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:14px 16px;box-shadow:0 1px 2px rgba(17,23,41,.04);
+  }
+  .card .date{
+    font-size:11.5px;font-weight:700;color:var(--accent,var(--blue));font-family:'Space Grotesk',sans-serif;
+    display:flex;align-items:center;gap:6px;margin-bottom:5px;
+  }
+  .card .date .tagname{
+    padding:2px 8px;border-radius:100px;font-size:10.5px;
+  }
+  .item.asml .tagname{background:#EAF0FF;}
+  .item.tsmc .tagname{background:#E4F7F6;}
+  .item.ssec .tagname{background:#FEF3DF;}
+  .item.hynx .tagname{background:#F1EBFE;}
+  .item.mkt .tagname{background:#FDECEC;}
+  .card h4{margin:0 0 4px;font-size:14.5px;font-weight:700;letter-spacing:-.01em;}
+  .card p{margin:0;font-size:12.5px;color:var(--ink-soft);line-height:1.6;}
+  .card p b{color:var(--ink);font-weight:700;}
+
+  .todaybadge{
+    display:inline-flex;align-items:center;gap:4px;margin-left:6px;
+    background:var(--red-bg);color:var(--red);font-size:10.5px;font-weight:700;
+    padding:2px 8px;border-radius:100px;
+  }
+
+  .foot{margin-top:26px;font-size:11.5px;color:var(--ink-soft);line-height:1.7;padding-left:34px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <span class="eyebrow"><i class="ti ti-history"></i>&nbsp;타임라인</span>
+    <h1>2026년 반도체 슈퍼사이클, 상반기 주요 사건 정리</h1>
+    <p>ASML의 가이던스 상향부터 이번 주 실적 발표까지, 흐름을 시간순으로 따라가 보겠습니다.</p>
+  </div>
+
+  <div class="tl">
+
+    <div class="item asml">
+      <div class="dot"><i class="ti ti-report-money"></i></div>
+      <div class="card">
+        <div class="date">1.28<span class="tagname">ASML</span></div>
+        <h4>2025년 연간 실적 발표, 2026년 첫 가이던스 제시</h4>
+        <p>연매출 <b>327억 유로</b>, Q4 순수주 132억 유로. 2026년 가이던스 <b>340억~390억 유로</b>로 첫 제시.</p>
+      </div>
+    </div>
+
+    <div class="item tsmc">
+      <div class="dot"><i class="ti ti-building-factory"></i></div>
+      <div class="card">
+        <div class="date">1.15<span class="tagname">TSMC</span></div>
+        <h4>2026년 CAPEX 520억~560억 달러 첫 공개</h4>
+        <p>2025년 연매출 <b>1229억 달러</b>(+31.6%), 사상 최대 실적과 함께 역대 최대 CAPEX 계획 발표.</p>
+      </div>
+    </div>
+
+    <div class="item asml">
+      <div class="dot"><i class="ti ti-trending-up"></i></div>
+      <div class="card">
+        <div class="date">4.15<span class="tagname">ASML</span></div>
+        <h4>1분기 실적 발표, 가이던스 2번째 상향</h4>
+        <p>연매출 가이던스를 <b>360억~400억 유로</b>로 상향. "고객 주문이 매우 강하다"고 언급하며 분기별 순수주 공시는 중단.</p>
+      </div>
+    </div>
+
+    <div class="item hynx">
+      <div class="dot"><i class="ti ti-server-2"></i></div>
+      <div class="card">
+        <div class="date">4.23<span class="tagname">SK하이닉스</span></div>
+        <h4>분기 최초 매출 50조원 돌파</h4>
+        <p>1분기 영업이익 <b>37.6조원</b>(영업이익률 72%, 사상 최대). "2026년 CAPEX 대폭 증가" 예고.</p>
+      </div>
+    </div>
+
+    <div class="item ssec">
+      <div class="dot"><i class="ti ti-building-skyscraper"></i></div>
+      <div class="card">
+        <div class="date">4.30<span class="tagname">삼성전자</span></div>
+        <h4>분기 사상 최대 영업이익 경신</h4>
+        <p>1분기 영업이익 <b>57.2조원</b>(전분기 대비 +185%). HBM4·SOCAMM2 세계 최초 동시 양산 시작.</p>
+      </div>
+    </div>
+
+    <div class="item mkt">
+      <div class="dot"><i class="ti ti-crown"></i></div>
+      <div class="card">
+        <div class="date">6.22<span class="tagname">코스피</span></div>
+        <h4>SK하이닉스, 25년 7개월 만에 시총 1위 등극</h4>
+        <p>SK하이닉스가 삼성전자를 제치고 코스피 시가총액 1위로 올라섰습니다.</p>
+      </div>
+    </div>
+
+    <div class="item mkt">
+      <div class="dot"><i class="ti ti-alert-triangle"></i></div>
+      <div class="card">
+        <div class="date">6.23<span class="tagname">코스피</span></div>
+        <h4>코스피, 사상 최대 하루 낙폭 기록</h4>
+        <p>하루 만에 <b>-910.71포인트(-9.99%)</b> 급락. 반도체 '피크아웃' 우려가 본격 확산된 시점.</p>
+      </div>
+    </div>
+
+    <div class="item ssec">
+      <div class="dot"><i class="ti ti-building-factory-2"></i></div>
+      <div class="card">
+        <div class="date">7.1<span class="tagname">삼성·SK</span></div>
+        <h4>국내 팹 4개 신설, 800조원 투자 발표</h4>
+        <p>삼성전자·SK하이닉스가 각각 2개씩 신규 반도체 공장 건설에 <b>800조원(약 5160억 달러)</b> 투자 계획 발표. 같은 날 ASML 주가 <b>+6.8% 사상 최고치</b>.</p>
+      </div>
+    </div>
+
+    <div class="item ssec">
+      <div class="dot"><i class="ti ti-trophy"></i></div>
+      <div class="card">
+        <div class="date">7.7<span class="tagname">삼성전자</span></div>
+        <h4>2분기 잠정 영업이익, 엔비디아 넘어서</h4>
+        <p>2분기 잠정 영업이익 <b>89조 4000억원</b>. 엔비디아의 최근 분기 영업이익(약 81.9조원)을 상회.</p>
+      </div>
+    </div>
+
+    <div class="item hynx">
+      <div class="dot"><i class="ti ti-rocket"></i></div>
+      <div class="card">
+        <div class="date">7.10<span class="tagname">SK하이닉스</span></div>
+        <h4>나스닥 ADR 상장, 외국기업 사상 최대 IPO</h4>
+        <p><b>265억 달러</b> 조달, 상장 첫날 주가 +12.76%. 외국 기업 미국 증시 IPO 사상 최대 기록.</p>
+      </div>
+    </div>
+
+    <div class="item mkt">
+      <div class="dot"><i class="ti ti-news"></i></div>
+      <div class="card">
+        <div class="date">7.14<span class="tagname">Bloomberg</span></div>
+        <h4>"1조 7000억 달러 반도체주 폭락" 이후 실적시즌</h4>
+        <p>블룸버그, 최근 조정 국면 이후 ASML·TSMC 실적에 이례적으로 관심이 집중되고 있다고 보도.</p>
+      </div>
+    </div>
+
+    <div class="item asml today">
+      <div class="dot"><i class="ti ti-flag-3"></i></div>
+      <div class="card">
+        <div class="date">7.15<span class="tagname">ASML</span><span class="todaybadge"><i class="ti ti-point-filled" style="font-size:9px;"></i>오늘</span></div>
+        <h4>ASML 2분기 실적 발표</h4>
+        <p>연간 가이던스 3번째 상향 여부, 3분기 가이던스가 핵심 관전포인트.</p>
+      </div>
+    </div>
+
+    <div class="item tsmc">
+      <div class="dot"><i class="ti ti-calendar-event"></i></div>
+      <div class="card">
+        <div class="date">7.16<span class="tagname">TSMC</span><span class="todaybadge" style="background:var(--teal-bg);color:var(--teal);">내일</span></div>
+        <h4>TSMC 2분기 실적 발표 예정</h4>
+        <p>CAPEX 재상향 여부에 시장이 주목. 순이익은 전년比 약 57% 증가 전망(컨센서스).</p>
+      </div>
+    </div>
+
+    <div class="item hynx">
+      <div class="dot"><i class="ti ti-calendar-time"></i></div>
+      <div class="card">
+        <div class="date">7.22경<span class="tagname">SK하이닉스</span></div>
+        <h4>SK하이닉스 2분기 실적 발표 예정</h4>
+        <p>1분기에 이어 HBM 중심 실적 개선세가 이어질지 확인할 다음 이벤트입니다.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    출처: ASML·TSMC 공식 실적자료, 삼성전자·SK하이닉스 뉴스룸, Bloomberg(2026.7.14), 서울경제(2026.7.13), TradingKey(2026.7.10), 글로벌이코노믹(2026.6.24) 등. 날짜는 각 사·언론의 발표 및 보도 시점 기준입니다.
+  </div>
+
+</div>
+</body>
+</html>
