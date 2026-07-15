@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>히트펌프 설치비, 실제로 어디에 쓰이나 — 항목별 분해</title>
+<meta name="description" content="히트펌프 설치비 항목별 구성(본체·배관공사·전기공사·철거)과 회수기간 계산 예시를 정리했습니다.">
+<meta property="og:title" content="히트펌프 설치비, 실제로 어디에 쓰이나 — 항목별 분해" />
+<meta property="og:description" content="히트펌프 설치비가 왜 가스보일러 교체보다 훨씬 비싼지, 항목별 구성과 회수기간 계산법을 예시로 정리했습니다." />
+<meta property="og:image" content="여기에 썸네일 이미지 URL을 넣어주세요" />
+<meta property="og:url" content="여기에 이 카드가 삽입될 블로그 글 URL을 넣어주세요" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+  .hpcost-block, .hpcost-block * { box-sizing: border-box; margin: 0; padding: 0; }
+  .hpcost-block {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #1B2A2E;
+    background: #FFFFFF;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4px;
+  }
+  .hpcost-card {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid #D8E0DC;
+    border-radius: 4px;
+    padding: 34px 32px 28px;
+  }
+  .hpcost-card::before, .hpcost-card::after, .hpcost-mark-bl, .hpcost-mark-br {
+    content: ""; position: absolute; width: 18px; height: 18px; border: 2px solid #2B5C8A;
+  }
+  .hpcost-card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .hpcost-card::after { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+  .hpcost-mark-bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+  .hpcost-mark-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+  .hpcost-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #E2703A;
+    text-transform: uppercase; background: #FBEEE7; padding: 5px 10px; border-radius: 20px; margin-bottom: 16px;
+  }
+  .hpcost-eyebrow i { font-size: 13px; }
+
+  .hpcost-h2 { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .hpcost-h2 i { color: #E2703A; font-size: 20px; }
+  .hpcost-lede { font-size: 14px; color: #4B5B56; margin-bottom: 22px; }
+  .hpcost-lede strong { color: #1B2A2E; }
+
+  /* stacked proportion bar */
+  .hpcost-bar { display: flex; width: 100%; height: 14px; border-radius: 7px; overflow: hidden; margin-bottom: 14px; }
+  .hpcost-bar span { display: block; height: 100%; }
+  .hpcost-seg1 { background: #0E6E5C; width: 52%; }
+  .hpcost-seg2 { background: #2B5C8A; width: 20%; }
+  .hpcost-seg3 { background: #E2703A; width: 16%; }
+  .hpcost-seg4 { background: #C9CFCB; width: 12%; }
+
+  .hpcost-items { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-bottom: 20px; }
+  .hpcost-item { background: #F7F9F8; border-radius: 8px; padding: 13px 14px; }
+  .hpcost-item-label { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: #4B5B56; margin-bottom: 6px; }
+  .hpcost-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .hpcost-item-val { font-family: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 16px; font-weight: 700; color: #1B2A2E; }
+
+  .hpcost-compare {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #F1F5F3; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; gap: 10px; flex-wrap: wrap;
+  }
+  .hpcost-compare-side { text-align: center; flex: 1; min-width: 130px; }
+  .hpcost-compare-label { font-size: 12px; color: #6B7B76; margin-bottom: 4px; }
+  .hpcost-compare-val { font-family: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 18px; font-weight: 800; }
+  .hpcost-compare-val.b { color: #6B7B76; }
+  .hpcost-compare-val.hp { color: #0E6E5C; }
+  .hpcost-compare-arrow { color: #9AA6A1; font-size: 20px; }
+
+  .hpcost-formula {
+    background: #EAF4F1; border: 1px dashed #0E6E5C; border-radius: 8px; padding: 16px 18px; margin-bottom: 16px;
+  }
+  .hpcost-formula-title { display: flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 700; color: #0E6E5C; margin-bottom: 8px; }
+  .hpcost-formula-eq { font-family: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace; font-size: 14px; color: #1B2A2E; margin-bottom: 12px; }
+  .hpcost-example { font-size: 13px; color: #2E3F3A; border-top: 1px solid #CFE3DC; padding-top: 10px; }
+  .hpcost-example b { font-family: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace; color: #0E6E5C; }
+
+  .hpcost-warn {
+    background: #FBEEE7; border-left: 3px solid #E2703A; border-radius: 0 6px 6px 0;
+    padding: 14px 16px; font-size: 13.5px; color: #4B3A32; display: flex; gap: 10px; align-items: flex-start;
+  }
+  .hpcost-warn i { color: #E2703A; font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+  .hpcost-warn strong { color: #B4501F; }
+
+  .hpcost-source { margin-top: 16px; font-size: 11.5px; color: #9AA6A1; }
+
+  @media (max-width: 560px) {
+    .hpcost-card { padding: 26px 18px 22px; }
+    .hpcost-h2 { font-size: 18px; }
+    .hpcost-items { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hpcost-block">
+  <div class="hpcost-card">
+    <span class="hpcost-mark-bl"></span><span class="hpcost-mark-br"></span>
+
+    <div class="hpcost-eyebrow"><i class="ti ti-receipt"></i>STEP 3 · 비용 구조 이해하기</div>
+    <div class="hpcost-h2"><i class="ti ti-calculator"></i>설치비, 실제로 어디에 쓰이나</div>
+    <div class="hpcost-lede">히트펌프 설치비는 기기값 하나가 아니라 네 항목의 합입니다. 아래는 <strong>총액 약 1,000만 원대</strong> 설치를 가정한 예시 구성입니다.</div>
+
+    <div class="hpcost-bar">
+      <span class="hpcost-seg1"></span><span class="hpcost-seg2"></span><span class="hpcost-seg3"></span><span class="hpcost-seg4"></span>
+    </div>
+
+    <div class="hpcost-items">
+      <div class="hpcost-item">
+        <div class="hpcost-item-label"><span class="hpcost-dot" style="background:#0E6E5C"></span>본체(히트펌프 유닛)</div>
+        <div class="hpcost-item-val">500~800만원</div>
+      </div>
+      <div class="hpcost-item">
+        <div class="hpcost-item-label"><span class="hpcost-dot" style="background:#2B5C8A"></span>배관 공사(냉매·온수)</div>
+        <div class="hpcost-item-val">150~250만원</div>
+      </div>
+      <div class="hpcost-item">
+        <div class="hpcost-item-label"><span class="hpcost-dot" style="background:#E2703A"></span>전기 공사(전용회로 등)</div>
+        <div class="hpcost-item-val">100~200만원</div>
+      </div>
+      <div class="hpcost-item">
+        <div class="hpcost-item-label"><span class="hpcost-dot" style="background:#C9CFCB"></span>철거·급탕탱크 등 기타</div>
+        <div class="hpcost-item-val">80~150만원</div>
+      </div>
+    </div>
+
+    <div class="hpcost-compare">
+      <div class="hpcost-compare-side">
+        <div class="hpcost-compare-label"><i class="ti ti-flame"></i> 콘덴싱보일러 교체</div>
+        <div class="hpcost-compare-val b">~100만원</div>
+      </div>
+      <div class="hpcost-compare-arrow"><i class="ti ti-arrow-right"></i></div>
+      <div class="hpcost-compare-side">
+        <div class="hpcost-compare-label"><i class="ti ti-replace"></i> 히트펌프 전환</div>
+        <div class="hpcost-compare-val hp">1,000만원~</div>
+      </div>
+    </div>
+
+    <div class="hpcost-formula">
+      <div class="hpcost-formula-title"><i class="ti ti-clock-hour-4"></i>회수기간 계산법</div>
+      <div class="hpcost-formula-eq">회수기간(년) = (총 설치비 − 보조금) ÷ 연간 실제 절감액</div>
+      <div class="hpcost-example">예시 — 총 설치비 <b>1,200만원</b>, 보조금 <b>400만원</b> 수령 → 자부담 <b>800만원</b>. 연간 절감액(가스보일러 대비) <b>150만원</b>이라면 → 회수기간 ≈ <b>5.3년</b></div>
+    </div>
+
+    <div class="hpcost-warn">
+      <i class="ti ti-alert-triangle"></i>
+      <div><strong>가장 흔한 착각 —</strong> "월 요금이 30만→10만원 됐다"고 절감액을 10만원으로 계산하면 안 됩니다. 절감액은 <strong>남은 요금이 아니라 줄어든 금액(20만원)</strong>입니다. 이 계산을 헷갈리면 7년이면 회수될 설비를 30년 걸린다고 오해할 수 있습니다.</div>
+    </div>
+
+    <div class="hpcost-source">금액은 가정용 히트펌프 설치 사례를 바탕으로 한 예시 구성이며, 실제 비용은 주택 조건과 시공사에 따라 달라집니다. 정확한 금액은 반드시 현장 견적으로 확인하세요.</div>
+  </div>
+</div>
+
+</body>
+</html>
