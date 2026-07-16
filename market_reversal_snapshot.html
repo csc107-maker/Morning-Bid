@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>하루 만에 매수→매도 사이드카 — 오늘의 코스피 롤러코스터 (2026.7.16)</title>
+<meta name="description" content="어제 +6.24% 매수 사이드카에서 오늘 -6.37% 매도 사이드카로 급반전한 코스피. 반도체 대형주 급락과 수급 현황을 한눈에 정리했습니다.">
+
+<meta property="og:title" content="하루 만에 매수→매도 사이드카 — 오늘의 코스피 롤러코스터" />
+<meta property="og:description" content="어제 +6.24% 급등, 오늘 -6.37% 급락. CXMT 상장과 코어위브 헤지 검토가 촉발한 반도체주 급락을 카드로 정리했습니다." />
+<meta property="og:image" content="https://blog.naver.com/ecosolution1218/images/market-reversal-thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/ecosolution1218" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.x/dist/tabler-icons.min.css">
+<style>
+  .rev-snap * { box-sizing: border-box; margin: 0; padding: 0; }
+  .rev-snap {
+    font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+    background: #FCFBF7;
+    color: #262524;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 26px;
+    border-radius: 18px;
+    border: 1px solid #EAE4D6;
+  }
+  .rev-snap .eyebrow {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #B8862E; margin-bottom: 6px;
+  }
+  .rev-snap .eyebrow i { font-size: 13px; }
+  .rev-snap h2 { font-size: 21px; font-weight: 800; color: #0B2545; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .rev-snap .subline { font-size: 12.5px; color: #8A8578; margin-bottom: 20px; }
+
+  /* Two-day compare */
+  .rev-snap .compare-grid {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: stretch; gap: 10px; margin-bottom: 20px;
+  }
+  .rev-snap .day-card {
+    border-radius: 14px; padding: 16px;
+  }
+  .rev-snap .day-card.yesterday { background: #FBEAE7; border: 1px solid #F3D2CB; }
+  .rev-snap .day-card.today { background: #E9EEF7; border: 1px solid #D3DDF0; }
+  .rev-snap .day-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 8px; display: flex; align-items: center; gap: 5px;
+  }
+  .rev-snap .day-card.yesterday .day-label { color: #C0392B; }
+  .rev-snap .day-card.today .day-label { color: #2E5CA6; }
+  .rev-snap .day-idx { font-size: 22px; font-weight: 800; color: #1C1B1A; font-variant-numeric: tabular-nums; }
+  .rev-snap .day-delta { font-size: 13px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .rev-snap .day-card.yesterday .day-delta { color: #C0392B; }
+  .rev-snap .day-card.today .day-delta { color: #2E5CA6; }
+  .rev-snap .day-event {
+    font-size: 11px; color: #6B665A; margin-top: 10px; padding-top: 10px;
+    border-top: 1px dashed rgba(0,0,0,0.1); line-height: 1.6;
+  }
+  .rev-snap .vs-mark {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800; color: #B8862E;
+  }
+
+  /* Movers table */
+  .rev-snap .movers-title {
+    font-size: 12.5px; font-weight: 800; color: #0B2545; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .rev-snap .movers-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px;
+  }
+  .rev-snap .mover-row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #FFFFFF; border: 1px solid #EFEAE0; border-radius: 9px;
+    padding: 9px 12px; font-size: 12px;
+  }
+  .rev-snap .mover-name { font-weight: 700; color: #1C1B1A; }
+  .rev-snap .mover-val { font-weight: 800; font-variant-numeric: tabular-nums; }
+  .rev-snap .mover-val.down { color: #2E5CA6; }
+  .rev-snap .mover-val.up { color: #C0392B; }
+
+  /* Cause box */
+  .rev-snap .cause-box {
+    background: #0B2545; border-radius: 12px; padding: 16px 18px; margin-bottom: 14px;
+  }
+  .rev-snap .cause-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #E8C97A; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+  }
+  .rev-snap .cause-list { display: flex; flex-direction: column; gap: 8px; }
+  .rev-snap .cause-item { display: flex; gap: 10px; align-items: flex-start; }
+  .rev-snap .cause-num {
+    width: 18px; height: 18px; border-radius: 50%; background: #B8862E;
+    color: #0B2545; font-size: 10px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+  }
+  .rev-snap .cause-text { font-size: 12px; color: #D6DCE8; line-height: 1.6; }
+  .rev-snap .cause-text b { color: #FFFFFF; }
+  .rev-snap .not-cause {
+    font-size: 11px; color: #8896AD; margin-top: 10px; padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.12); line-height: 1.6;
+  }
+
+  .rev-snap .footnote { font-size: 10.5px; color: #A6A192; text-align: right; }
+
+  @media (max-width: 480px) {
+    .rev-snap .compare-grid { grid-template-columns: 1fr; }
+    .rev-snap .vs-mark { padding: 4px 0; }
+    .rev-snap .movers-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:20px; background:#FCFBF7;">
+
+<div class="rev-snap">
+  <div class="eyebrow"><i class="ti ti-roller-skating"></i>TODAY'S REVERSAL SNAPSHOT</div>
+  <h2>하루 만에 매수→매도 사이드카</h2>
+  <div class="subline">2026년 7월 15일 vs 7월 16일, 코스피 롤러코스터</div>
+
+  <div class="compare-grid">
+    <div class="day-card yesterday">
+      <div class="day-label"><i class="ti ti-trending-up"></i>7/15 (어제)</div>
+      <div class="day-idx">7,284.41</div>
+      <div class="day-delta">+427.58 (+6.24%)</div>
+      <div class="day-event">오전 9시6분 매수 사이드카 발동. SK하이닉스 ADR +27% 급등이 촉발.</div>
+    </div>
+    <div class="vs-mark">VS</div>
+    <div class="day-card today">
+      <div class="day-label"><i class="ti ti-trending-down"></i>7/16 (오늘)</div>
+      <div class="day-idx">6,820.60</div>
+      <div class="day-delta">-463.81 (-6.37%)</div>
+      <div class="day-event">오전 9시10분 매도 사이드카 발동. 미국 메모리 반도체주 급락이 촉발.</div>
+    </div>
+  </div>
+
+  <div class="movers-title"><i class="ti ti-arrows-diff"></i>오늘 코스피 주요 종목 등락</div>
+  <div class="movers-grid">
+    <div class="mover-row"><span class="mover-name">SK하이닉스</span><span class="mover-val down">-9%대</span></div>
+    <div class="mover-row"><span class="mover-name">삼성전자</span><span class="mover-val down">-7%대</span></div>
+    <div class="mover-row"><span class="mover-name">SK스퀘어</span><span class="mover-val down">-9%대</span></div>
+    <div class="mover-row"><span class="mover-name">삼성전기</span><span class="mover-val down">-8%대</span></div>
+    <div class="mover-row"><span class="mover-name">LG에너지솔루션</span><span class="mover-val up">+3.88%</span></div>
+    <div class="mover-row"><span class="mover-name">KB금융</span><span class="mover-val up">+1.54%</span></div>
+  </div>
+
+  <div class="cause-box">
+    <div class="cause-title"><i class="ti ti-search"></i>오늘 급락, 진짜 이유는</div>
+    <div class="cause-list">
+      <div class="cause-item">
+        <div class="cause-num">1</div>
+        <div class="cause-text"><b>中 CXMT 상장 확정</b> — 세계 4위 D램 업체가 최대 14조6,000억원 조달, 7월 27일 상하이 상장</div>
+      </div>
+      <div class="cause-item">
+        <div class="cause-num">2</div>
+        <div class="cause-text"><b>코어위브 메모리 헤지 검토</b> — AI 클라우드 기업의 장기공급계약(LTA) 기대 약화 우려</div>
+      </div>
+      <div class="cause-item">
+        <div class="cause-num">3</div>
+        <div class="cause-text"><b>전일 급등 차익실현</b> — 하루 만에 6%p 넘게 오른 데 따른 자연스러운 되돌림 매물</div>
+      </div>
+    </div>
+    <div class="not-cause"><i class="ti ti-alert-circle"></i> 같은 날 발표된 한은 기준금리 인상(2.75%)은 시장 예상과 일치해 직접적 낙폭 확대 요인은 아니었다는 게 증권가 중론입니다.</div>
+  </div>
+
+  <div class="footnote">자료: 한국거래소, 뉴스핌, 이투데이, EBN · K&amp;Kim Asset Management</div>
+</div>
+
+</body>
+</html>
