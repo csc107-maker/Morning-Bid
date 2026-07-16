@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TSMC 미국 265억 달러 투자의 의미 | 애리조나 확장과 공급망 재편</title>
+<meta name="description" content="TSMC의 미국 애리조나 추가 1,000억 달러 투자 발표가 엔비디아·애플·삼성전자·SK하이닉스에 갖는 의미를 데이터로 분석합니다.">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="TSMC 美 265억 달러 투자, 반도체 공급망에 던지는 신호" />
+<meta property="og:description" content="애리조나 누적 투자 2,650억 달러. 관세 협정부터 엔비디아·애플 공급망, 삼성 파운드리 경쟁 구도, 실적발표 당일 시장 반응까지 한 장으로 정리." />
+<meta property="og:image" content="https://csc107-maker.github.io/assets/thumb_tsmc_2026q2.png" />
+<meta property="og:url" content="https://csc107-maker.github.io/Morning-Bid/tsmc_2026_us_investment.html" />
+<meta property="og:site_name" content="반도체 · 글로벌 증시 인사이트" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.44.0/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  .tu-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+  .tu-wrap {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    background: #F7F8FB;
+    color: #131B2E;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 0 8px;
+    border: 1px solid #E3E7F0;
+    border-radius: 20px;
+    overflow: hidden;
+    line-height: 1.6;
+  }
+
+  .tu-head {
+    background: linear-gradient(135deg, #0E7C7B 0%, #0A5958 100%);
+    padding: 34px 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tu-head::after {
+    content: '';
+    position: absolute; top: -70px; right: -50px;
+    width: 240px; height: 240px; border-radius: 50%;
+    border: 1px solid rgba(228,185,79,0.35);
+  }
+  .tu-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em;
+    color: #E4B94F; text-transform: uppercase; margin-bottom: 14px;
+    position: relative; z-index:1;
+  }
+  .tu-head h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 900; font-size: 26px; color: #FFFFFF; line-height: 1.4;
+    max-width: 580px; position: relative; z-index:1;
+  }
+  .tu-head .tu-sub { margin-top: 10px; font-size: 14px; color: #C8E6E5; position: relative; z-index:1;}
+  .tu-head .tu-meta { margin-top:18px; display:flex; gap:14px; flex-wrap:wrap; font-size:12px; color:#9FD1D0; position:relative; z-index:1;}
+  .tu-head .tu-meta span { display:flex; align-items:center; gap:4px; }
+
+  .tu-section { padding: 30px 32px 6px; }
+  .tu-label { display:flex; align-items:center; gap:7px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#8891A3; margin-bottom:14px;}
+  .tu-label i { font-size:15px; color:#0E7C7B; }
+  .tu-h2 { font-family:'Noto Serif KR', serif; font-weight:700; font-size:19px; color:#131B2E; margin-bottom:4px;}
+  .tu-desc { font-size:13.5px; color:#5B6577; margin-bottom:18px; }
+
+  /* big number banner */
+  .tu-banner {
+    display:grid; grid-template-columns: repeat(3,1fr); gap:12px;
+  }
+  .tu-banner-item { background:#fff; border:1px solid #E3E7F0; border-radius:14px; padding:18px 16px; text-align:center; }
+  .tu-banner-num { font-family:'Roboto Mono',monospace; font-size:26px; font-weight:700; color:#0E7C7B; }
+  .tu-banner-label { font-size:12px; color:#6B7280; margin-top:6px; font-weight:500;}
+  .tu-banner-item.tu-accent { background:#16305C; }
+  .tu-banner-item.tu-accent .tu-banner-num { color:#E4B94F; }
+  .tu-banner-item.tu-accent .tu-banner-label { color:#B9C6E0; }
+
+  /* Timeline (vertical, fab roadmap) */
+  .tu-timeline { position:relative; padding-left:26px; }
+  .tu-timeline::before { content:''; position:absolute; left:7px; top:6px; bottom:6px; width:2px; background:#E3E7F0; }
+  .tu-tl-item { position:relative; padding-bottom:22px; }
+  .tu-tl-item:last-child { padding-bottom:0; }
+  .tu-tl-dot { position:absolute; left:-26px; top:3px; width:16px; height:16px; border-radius:50%; background:#fff; border:3px solid #0E7C7B; }
+  .tu-tl-item.tu-tl-future .tu-tl-dot { border-color:#C9962C; }
+  .tu-tl-date { font-family:'Roboto Mono',monospace; font-size:12px; font-weight:700; color:#0E7C7B; margin-bottom:4px;}
+  .tu-tl-item.tu-tl-future .tu-tl-date { color:#C9962C; }
+  .tu-tl-title { font-size:14.5px; font-weight:700; color:#131B2E; margin-bottom:5px;}
+  .tu-tl-body { font-size:13px; color:#5B6577; }
+  .tu-tl-body b { color:#131B2E; }
+
+  /* Supply chain cards */
+  .tu-client-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:12px; }
+  .tu-client-card { background:#fff; border:1px solid #E3E7F0; border-radius:14px; padding:16px; }
+  .tu-client-top { display:flex; align-items:center; gap:10px; margin-bottom:8px;}
+  .tu-client-ico { width:34px; height:34px; border-radius:10px; background:#E8F5F4; color:#0E7C7B; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;}
+  .tu-client-name { font-size:14.5px; font-weight:700; color:#131B2E; }
+  .tu-client-desc { font-size:12.5px; color:#5B6577; line-height:1.6;}
+
+  /* comparison table (Korea vs TSMC) */
+  .tu-table-wrap { overflow-x:auto; border:1px solid #E3E7F0; border-radius:14px; margin-bottom:6px;}
+  table.tu-table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:560px;}
+  table.tu-table th, table.tu-table td { padding:12px 14px; text-align:left; border-bottom:1px solid #EDEFF4; vertical-align:top;}
+  table.tu-table thead th { background:#0E7C7B; color:#fff; font-weight:700; font-size:12.5px;}
+  table.tu-table thead th:first-child { border-top-left-radius:13px; }
+  table.tu-table thead th:last-child { border-top-right-radius:13px; }
+  table.tu-table tbody tr:last-child td { border-bottom:none; }
+  table.tu-table tbody tr:nth-child(odd) { background:#FBFCFE; }
+  table.tu-table td b { color:#131B2E; }
+
+  /* market reaction cards */
+  .tu-reaction-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:12px; }
+  .tu-reaction-card { background:#fff; border:1px solid #E3E7F0; border-radius:14px; padding:16px; }
+  .tu-reaction-tag { display:inline-block; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; margin-bottom:8px;}
+  .tu-tag-down { background:#FBEAE8; color:#C0392B; }
+  .tu-tag-mixed { background:#FDF3E0; color:#966B10; }
+  .tu-reaction-num { font-family:'Roboto Mono',monospace; font-size:21px; font-weight:700; color:#131B2E; }
+  .tu-reaction-label { font-size:12px; color:#6B7280; margin-top:4px;}
+  .tu-reaction-note { font-size:12px; color:#5B6577; margin-top:8px; line-height:1.6; border-top:1px dashed #E3E7F0; padding-top:8px;}
+
+  /* risk checklist */
+  .tu-risk-list { display:flex; flex-direction:column; gap:10px; }
+  .tu-risk-item { display:flex; gap:12px; background:#fff; border:1px solid #E3E7F0; border-radius:14px; padding:14px 16px; }
+  .tu-risk-num { width:26px; height:26px; border-radius:8px; background:#FBEAE8; color:#C0392B; font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .tu-risk-title { font-size:13.5px; font-weight:700; color:#131B2E; margin-bottom:3px;}
+  .tu-risk-body { font-size:12.5px; color:#5B6577; line-height:1.6;}
+
+  .tu-quote { border-left:3px solid #0E7C7B; background:#fff; border-radius:0 12px 12px 0; padding:14px 18px; font-size:13.5px; color:#374151; margin-bottom:24px; }
+  .tu-quote b { color:#0E7C7B; }
+  .tu-quote-src { display:block; margin-top:8px; font-size:11.5px; color:#98A2B3; }
+
+  .tu-callout { background:#FDF3E0; border:1px solid #F1DFAF; border-radius:14px; padding:16px 18px; display:flex; gap:12px; margin:4px 0 24px;}
+  .tu-callout i { color:#C9962C; font-size:19px; margin-top:1px; flex-shrink:0;}
+  .tu-callout-text { font-size:13px; color:#5B4B1F; line-height:1.65;}
+  .tu-callout-text b { color:#8A6410; }
+
+  .tu-foot { padding:20px 32px 4px; font-size:11px; color:#98A2B3; line-height:1.7; border-top:1px solid #EDEFF4; margin-top:10px;}
+
+  @media (max-width: 620px) {
+    .tu-wrap { border-radius:0; }
+    .tu-head, .tu-section, .tu-foot { padding-left:18px; padding-right:18px; }
+    .tu-head h1 { font-size:20px; }
+    .tu-banner { grid-template-columns: repeat(1,1fr); }
+    .tu-client-grid { grid-template-columns: repeat(1,1fr); }
+    .tu-reaction-grid { grid-template-columns: repeat(1,1fr); }
+    table.tu-table { font-size:12.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tu-wrap">
+
+  <!-- MASTHEAD -->
+  <div class="tu-head">
+    <div class="tu-eyebrow"><i class="ti ti-map-pin-2"></i> ARIZONA · US INVESTMENT BRIEF</div>
+    <h1>애리조나에 또 1,000억 달러 — TSMC 美 누적 투자 2,650억 달러의 의미</h1>
+    <div class="tu-sub">2분기 실적발표와 함께 공개된 최대 규모 대미 투자 확대</div>
+    <div class="tu-meta">
+      <span><i class="ti ti-calendar"></i> 2026.07.16 발표</span>
+      <span><i class="ti ti-building-factory-2"></i> 애리조나 6→최대 12개 팹 검토</span>
+      <span><i class="ti ti-source-code"></i> 출처: Reuters · 헤럴드경제 · 글로벌이코노믹</span>
+    </div>
+  </div>
+
+  <!-- BIG NUMBERS -->
+  <div class="tu-section">
+    <div class="tu-label"><i class="ti ti-building-skyscraper"></i> 투자 규모</div>
+    <div class="tu-h2">기존 1,650억 → 2,650억 달러로</div>
+    <div class="tu-desc">트럼프 행정부의 '메이드 인 아메리카' 반도체 기조와 맞물린 결정</div>
+
+    <div class="tu-banner">
+      <div class="tu-banner-item">
+        <div class="tu-banner-num">$165B</div>
+        <div class="tu-banner-label">기존 애리조나 누적 투자</div>
+      </div>
+      <div class="tu-banner-item tu-accent">
+        <div class="tu-banner-num">+$100B</div>
+        <div class="tu-banner-label">2분기 실적발표 동시 추가 발표</div>
+      </div>
+      <div class="tu-banner-item">
+        <div class="tu-banner-num">$265B</div>
+        <div class="tu-banner-label">신규 누적 총 투자액</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="tu-section" style="padding-top:22px;">
+    <div class="tu-quote">
+      "AI 메가트렌드로 인한 수요는 앞으로 수년간 지속될 것이며, 미국 내 생산능력이 확충되더라도 <b>미국 고객사의 수요를 모두 충족시킬 만큼 캐파를 빠르게 늘리기는 어렵다.</b>"
+      <span class="tu-quote-src">— 웨이저자 TSMC 회장, 2분기 실적 컨퍼런스콜 발언 요지</span>
+    </div>
+  </div>
+
+  <!-- FAB TIMELINE -->
+  <div class="tu-section" style="padding-top:0;">
+    <div class="tu-label"><i class="ti ti-route"></i> 애리조나 팹 로드맵</div>
+    <div class="tu-h2">4나노 양산 중, 2나노는 2030년대 초</div>
+    <div class="tu-desc">공정이 미세화될수록 양산 시점은 뒤로, 투자 규모는 앞으로</div>
+
+    <div class="tu-timeline">
+      <div class="tu-tl-item">
+        <div class="tu-tl-dot"></div>
+        <div class="tu-tl-date">FAB 1 · 가동 중</div>
+        <div class="tu-tl-title">4나노(N4) 양산 중</div>
+        <div class="tu-tl-body">2024년 4분기부터 양산 개시. 애플·엔비디아·AMD向 초기 물량 대응.</div>
+      </div>
+      <div class="tu-tl-item">
+        <div class="tu-tl-dot"></div>
+        <div class="tu-tl-date">FAB 2 · 2026년 하반기~</div>
+        <div class="tu-tl-title">3나노(N3) 장비 반입 및 양산 준비</div>
+        <div class="tu-tl-body">당초 일정보다 앞당겨 장비 반입 진행 중. AMD가 컴퓨텍스에서 애리조나 2나노 활용 차세대 AI 서버 칩 계획을 공개하며 활용 의지를 밝힌 바 있음.</div>
+      </div>
+      <div class="tu-tl-item tu-tl-future">
+        <div class="tu-tl-dot"></div>
+        <div class="tu-tl-date">FAB 3 · 2030년대 초 목표</div>
+        <div class="tu-tl-title">2나노(N2) · A16(1.6나노) 최선단 공정</div>
+        <div class="tu-tl-body">TSMC 최선단 공정의 <b>최대 30%</b>를 미국 내에서 생산한다는 목표. 다만 병목 요인으로 대기오염 배출 통제, 전력·용수 확보, 숙련 건설인력 부족을 회장이 직접 거론.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPPLY CHAIN IMPACT -->
+  <div class="tu-section">
+    <div class="tu-label"><i class="ti ti-affiliate"></i> 공급망 임팩트</div>
+    <div class="tu-h2">누가 이 물량을 가장 먼저 가져갈까</div>
+    <div class="tu-desc">TSMC 최선단 공정의 핵심 고객사 4곳</div>
+
+    <div class="tu-client-grid">
+      <div class="tu-client-card">
+        <div class="tu-client-top"><div class="tu-client-ico"><i class="ti ti-server-bolt"></i></div><div class="tu-client-name">엔비디아</div></div>
+        <div class="tu-client-desc">AI GPU·가속기 핵심 생산 파트너. 3나노·2나노 및 CoWoS 첨단 패키징 수요의 최대 축.</div>
+      </div>
+      <div class="tu-client-card">
+        <div class="tu-client-top"><div class="tu-client-ico"><i class="ti ti-brand-apple"></i></div><div class="tu-client-name">애플</div></div>
+        <div class="tu-client-desc">스마트폰·PC용 최선단 AP의 최대 고객사 중 하나로 3나노·4나노 초기 캐파를 견인.</div>
+      </div>
+      <div class="tu-client-card">
+        <div class="tu-client-top"><div class="tu-client-ico"><i class="ti ti-brand-amd"></i></div><div class="tu-client-name">AMD</div></div>
+        <div class="tu-client-desc">서버 CPU·AI 가속기向. 애리조나 2나노 공정 활용 차세대 AI 서버 칩 계획을 공개적으로 예고.</div>
+      </div>
+      <div class="tu-client-card">
+        <div class="tu-client-top"><div class="tu-client-ico"><i class="ti ti-cpu-2"></i></div><div class="tu-client-name">브로드컴</div></div>
+        <div class="tu-client-desc">빅테크向 커스텀 AI 반도체(ASIC) 설계·생산 협업. HPC 매출 비중 확대의 또 다른 축.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KOREA COMPARISON -->
+  <div class="tu-section">
+    <div class="tu-label"><i class="ti ti-scale"></i> 한국 파운드리 구도</div>
+    <div class="tu-h2">삼성 파운드리, 추격의 발판은 마련됐다</div>
+    <div class="tu-desc">TSMC의 압도적 규모 대비 삼성의 턴어라운드 시그널이 공존하는 국면</div>
+
+    <div class="tu-table-wrap">
+      <table class="tu-table">
+        <thead><tr><th>구분</th><th>TSMC</th><th>삼성 파운드리</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>미국 투자 누적</td>
+            <td><b>$265B</b> (애리조나)</td>
+            <td>테일러 팹 중심 확장</td>
+          </tr>
+          <tr>
+            <td>2나노 수율</td>
+            <td>대만 기준 <b>고수율 양산 궤도</b> 진입</td>
+            <td>SF2 기준 <b>55~60%</b>대로 개선 보고</td>
+          </tr>
+          <tr>
+            <td>가동률·수익성</td>
+            <td>영업이익률 <b>60.3%</b></td>
+            <td>2026년 흑자전환 목표를 2027→2026년으로 앞당김, 1분기 가동률 80%대</td>
+          </tr>
+          <tr>
+            <td>최근 대형 수주</td>
+            <td>엔비디아·애플·AMD·브로드컴</td>
+            <td>테슬라 AI칩·애플·닌텐도 일부 물량 확보 보고</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tu-quote" style="margin-top:16px;">
+      "한국 경쟁자 중 한 곳은 엄청난 돈을 벌고 있으며 부럽기도 하다. 이 산업에는 지름길이 없다. 반도체 산업은 결국 기본으로 돌아가야 한다."
+      <span class="tu-quote-src">— 웨이저자 TSMC 회장, 2분기 실적 컨퍼런스콜(최근 테슬라·엔비디아 물량을 수주한 삼성전자 파운드리를 염두에 둔 발언으로 해석)</span>
+    </div>
+    <div class="tu-callout" style="margin-top:14px;">
+      <i class="ti ti-info-circle"></i>
+      <div class="tu-callout-text">웨이 회장은 같은 자리에서 <b>"메모리 기업의 매출총이익률 86%가 부럽다, 우리의 68%가 86%가 됐으면 좋겠다"</b>는 말도 남겼습니다. 다만 이는 삼성전자를 특정한 발언이라기보다, 미국 마이크론이 최근 발표한 2026회계연도 4분기 가이던스(86%대 마진)를 겨냥한 것이라는 해석이 유력합니다. 파운드리와 메모리 두 업종의 수익구조 차이를 자조적으로 짚은 것으로, 두 발언을 하나로 합쳐 '한국 경쟁자=86% 마진'으로 읽지 않도록 주의가 필요합니다.</div>
+    </div>
+  </div>
+
+  <!-- MARKET REACTION -->
+  <div class="tu-section">
+    <div class="tu-label"><i class="ti ti-activity"></i> 실적발표 당일 시장</div>
+    <div class="tu-h2">'어닝 서프라이즈'인데 왜 시장은 흔들렸나</div>
+    <div class="tu-desc">2026년 7월 16일, 반도체주 변동성이 실적 자체보다 컸던 하루</div>
+
+    <div class="tu-reaction-grid">
+      <div class="tu-reaction-card">
+        <div class="tu-reaction-tag tu-tag-down">코스피</div>
+        <div class="tu-reaction-num">6,820.60</div>
+        <div class="tu-reaction-label">전일比 -6.38% · 매도 사이드카 발동</div>
+        <div class="tu-reaction-note">간밤 SK하이닉스 ADR -9%, 마이크론 -8% 등 美 반도체주 급락 여파가 핵심 원인. TSMC 발표는 국내 장 마감 이후 이뤄져 당일 낙폭의 직접 원인은 아님.</div>
+      </div>
+      <div class="tu-reaction-card">
+        <div class="tu-reaction-tag tu-tag-mixed">나스닥 선물</div>
+        <div class="tu-reaction-num">"Sell the News"</div>
+        <div class="tu-reaction-label">실적 서프라이즈에도 하락 압력</div>
+        <div class="tu-reaction-note">CAPEX 대폭 상향을 '수요 확신'이 아닌 '마진 부담'으로 해석하는 시각과 호르무즈 해협발 지정학 리스크가 동시에 작용.</div>
+      </div>
+    </div>
+
+    <div class="tu-callout" style="margin-top:14px;">
+      <i class="ti ti-scale"></i>
+      <div class="tu-callout-text"><b>대만 상장주 vs 뉴욕 ADR 온도차.</b> 대만 증시에서 TSMC 본주는 실적발표 하루 전 <b>1.23% 상승(연초 대비 +58%)</b>했지만, 미국에 상장된 ADR은 실적 발표 이후 매도세를 맞았습니다. 같은 실적을 두고 '이미 오른 만큼 파는' 뉴욕과 '숫자 자체에 반응하는' 타이베이의 시각차가 드러난 장면입니다.</div>
+    </div>
+  </div>
+
+  <!-- RISK CHECKLIST -->
+  <div class="tu-section">
+    <div class="tu-label"><i class="ti ti-checklist"></i> 투자자 체크리스트</div>
+    <div class="tu-h2">낙관 속에서도 짚고 가야 할 리스크 4가지</div>
+    <div class="tu-desc">호실적이 모든 리스크를 상쇄하지는 않습니다</div>
+
+    <div class="tu-risk-list">
+      <div class="tu-risk-item">
+        <div class="tu-risk-num">1</div>
+        <div>
+          <div class="tu-risk-title">관세 유예의 '시한부' 구조</div>
+          <div class="tu-risk-body">美 공장 건설 중에는 계획 생산능력의 최대 2.5배까지 무관세 수입이 허용되지만 양산 개시 후엔 1.5배로 축소. 2032년 이후에는 무관세 물량을 전량 보장할 만큼 美 현지 생산능력이 충분하지 않을 수 있다는 지적이 있습니다.</div>
+        </div>
+      </div>
+      <div class="tu-risk-item">
+        <div class="tu-risk-num">2</div>
+        <div>
+          <div class="tu-risk-title">밸류에이션 부담</div>
+          <div class="tu-risk-body">연초 대비 50%대 급등 이후 골드만삭스가 '확신종목'에서 제외. 좋은 실적이 항상 주가 상승으로 직결되지는 않는 구간에 진입했다는 신호입니다.</div>
+        </div>
+      </div>
+      <div class="tu-risk-item">
+        <div class="tu-risk-num">3</div>
+        <div>
+          <div class="tu-risk-title">마진 희석 리스크</div>
+          <div class="tu-risk-body">2나노 램프업과 해외 팹(미국·일본) 가동 확대는 구조적으로 원가 부담 요인. 3분기 매출총이익률 가이던스가 2분기 실적보다 낮게 제시된 배경입니다.</div>
+        </div>
+      </div>
+      <div class="tu-risk-item">
+        <div class="tu-risk-num">4</div>
+        <div>
+          <div class="tu-risk-title">신흥국지수 쏠림 리스크</div>
+          <div class="tu-risk-body">TSMC·삼성전자·SK하이닉스 3사가 MSCI 신흥시장지수의 약 29~30%를 차지하면서, 피델리티·블랙록 등 글로벌 운용사가 비중 축소에 나섰다는 보도가 이어지고 있습니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="tu-foot">
+    <i class="ti ti-info-circle"></i> 본 자료는 정보 제공을 목적으로 하며 특정 종목의 매수·매도를 권유하지 않습니다. 투자 판단과 책임은 투자자 본인에게 있습니다.<br>
+    출처: Reuters · CNBC · Investing.com · 헤럴드경제 · 글로벌이코노믹 · 테크월드 · 이투데이 · 세계일보 (2026.07.16 기준)
+  </div>
+
+</div>
+
+</body>
+</html>
