@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한국 순대외금융자산 추이 — 흑자 축소이지 적자 전환 아니다 (2026년 1분기 기준)</title>
+<meta name="description" content="2024년 말 사상 첫 1조달러 돌파 이후 2025년 말 9,042억달러, 2026년 1분기 7,536억달러로 감소한 한국의 순대외금융자산 추이와 감소 원인을 정리했습니다.">
+
+<meta property="og:title" content="한국 순대외금융자산 추이 — 흑자 축소이지 적자 전환 아니다" />
+<meta property="og:description" content="2024년 말 첫 1조달러 돌파 후 2개 분기 연속 감소한 한국 순대외금융자산. 여전히 7,536억달러 흑자라는 사실과 감소 메커니즘을 시각화했습니다." />
+<meta property="og:image" content="https://blog.naver.com/ecosolution1218/images/net-external-assets-thumbnail.png" />
+<meta property="og:url" content="https://blog.naver.com/ecosolution1218" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.x/dist/tabler-icons.min.css">
+<style>
+  .nea * { box-sizing: border-box; margin: 0; padding: 0; }
+  .nea {
+    font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+    background: #FCFBF7;
+    color: #262524;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 26px;
+    border-radius: 18px;
+    border: 1px solid #EAE4D6;
+  }
+  .nea .eyebrow {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #B8862E; margin-bottom: 6px;
+  }
+  .nea .eyebrow i { font-size: 13px; }
+  .nea h2 { font-size: 20px; font-weight: 800; color: #0B2545; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .nea .subline { font-size: 12.5px; color: #8A8578; margin-bottom: 22px; }
+
+  /* Status banner */
+  .nea .status-banner {
+    display: flex; align-items: center; gap: 12px;
+    background: #EAF3EA; border: 1px solid #CFE3CF; border-radius: 12px;
+    padding: 14px 16px; margin-bottom: 24px;
+  }
+  .nea .status-banner .s-icon {
+    width: 34px; height: 34px; border-radius: 50%; background: #3D7A4C;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nea .status-banner .s-icon i { color: #fff; font-size: 17px; }
+  .nea .status-banner .s-text { font-size: 12.5px; color: #2E5237; line-height: 1.55; }
+  .nea .status-banner .s-text b { color: #1E3B26; }
+
+  /* Bar chart */
+  .nea .chart { margin-bottom: 22px; }
+  .nea .bar-row { margin-bottom: 16px; }
+  .nea .bar-label {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 12px; margin-bottom: 6px;
+  }
+  .nea .bar-period { font-weight: 700; color: #4A473F; }
+  .nea .bar-value { font-weight: 800; color: #0B2545; font-size: 14px; font-variant-numeric: tabular-nums; }
+  .nea .bar-track { background: #EFEAE0; border-radius: 8px; height: 30px; overflow: hidden; position: relative; }
+  .nea .bar-fill {
+    height: 100%; border-radius: 8px;
+    background: linear-gradient(90deg, #0B2545, #2E5CA6);
+    display: flex; align-items: center; justify-content: flex-end;
+    padding-right: 10px;
+  }
+  .nea .bar-fill.peak { background: linear-gradient(90deg, #8A6A1A, #B8862E); }
+  .nea .bar-tag { font-size: 9.5px; font-weight: 700; color: #fff; }
+  .nea .bar-note { font-size: 10.5px; color: #9B9585; margin-top: 4px; }
+
+  /* Mechanism breakdown */
+  .nea .mech-title {
+    font-size: 12.5px; font-weight: 800; color: #0B2545; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .nea .mech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+  .nea .mech-card { background: #FFFFFF; border: 1px solid #EFEAE0; border-radius: 12px; padding: 14px; }
+  .nea .mech-head { font-size: 11px; font-weight: 700; color: #9B9585; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .nea .mech-row { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; border-bottom: 1px dashed #EFEAE0; }
+  .nea .mech-row:last-child { border-bottom: none; }
+  .nea .mech-row .lbl { color: #6B665A; }
+  .nea .mech-row .val { font-weight: 800; font-variant-numeric: tabular-nums; }
+  .nea .mech-row .val.up { color: #C0392B; }
+  .nea .mech-row .val.down { color: #2E5CA6; }
+
+  .nea .footnote { font-size: 10.5px; color: #A6A192; line-height: 1.6; }
+
+  @media (max-width: 480px) {
+    .nea .mech-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:20px; background:#FCFBF7;">
+
+<div class="nea">
+  <div class="eyebrow"><i class="ti ti-world"></i>NET EXTERNAL FINANCIAL ASSETS</div>
+  <h2>한국 순대외금융자산, 흑자 축소이지 적자 전환 아님</h2>
+  <div class="subline">한국은행 국제투자대조표 기준 · 2024년 말 ~ 2026년 1분기</div>
+
+  <div class="status-banner">
+    <div class="s-icon"><i class="ti ti-check"></i></div>
+    <div class="s-text"><b>2026년 1분기 말 기준 순대외금융자산은 7,536억달러로 여전히 '큰 폭의 흑자'</b>입니다. 다만 2개 분기 연속 감소, 역대 두 번째로 큰 분기 감소폭이라는 점은 이례적입니다.</div>
+  </div>
+
+  <div class="chart">
+    <div class="bar-row">
+      <div class="bar-label"><span class="bar-period">2024년 말</span><span class="bar-value">1조 달러 이상</span></div>
+      <div class="bar-track"><div class="bar-fill peak" style="width:100%;"><span class="bar-tag">사상 최초 1조달러 돌파</span></div></div>
+      <div class="bar-note">역대 최고 수준 기록</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span class="bar-period">2025년 말</span><span class="bar-value">9,042억 달러</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:82%;"><span class="bar-tag">전년比 -1,978억달러</span></div></div>
+      <div class="bar-note">2020년 이후 첫 연간 감소 · 역대 최대 연간 감소폭</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span class="bar-period">2026년 1분기 말</span><span class="bar-value">7,536억 달러</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:68%;"><span class="bar-tag">전분기比 -1,321억달러</span></div></div>
+      <div class="bar-note">2개 분기 연속 감소 · 역대 두 번째 분기 감소폭 (-14.9%)</div>
+    </div>
+  </div>
+
+  <div class="mech-title"><i class="ti ti-git-compare"></i>2026년 1분기, 무엇이 줄었나 (거래요인 vs 평가요인)</div>
+  <div class="mech-grid">
+    <div class="mech-card">
+      <div class="mech-head">외국인 보유 한국 증권 (부채)</div>
+      <div class="mech-row"><span class="lbl">거래요인 (실제 순매매)</span><span class="val down">-413억달러</span></div>
+      <div class="mech-row"><span class="lbl">평가요인 (코스피 +19.9%)</span><span class="val up">+1,496억달러</span></div>
+    </div>
+    <div class="mech-card">
+      <div class="mech-head">한국인 보유 해외 증권 (자산)</div>
+      <div class="mech-row"><span class="lbl">거래요인 (실제 순투자)</span><span class="val up">+261억달러</span></div>
+      <div class="mech-row"><span class="lbl">평가요인 (해외증시 조정)</span><span class="val down">-412억달러</span></div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <i class="ti ti-info-circle"></i> 외국인은 실제로는 순매도했지만, 남은 보유 물량의 코스피 상승분만큼 부채 잔액이 커졌습니다. 한국은행은 이를 "가격 변수에 따른 변동이며 대외건전성 악화로 볼 필요는 없다"고 설명합니다. 외환보유액은 2026년 6월 말 4,273.6억달러(세계 13위)로 안정적입니다.<br>
+    자료: 한국은행 「국제투자대조표」(2025년·2026년 1분기, 잠정) · K&amp;Kim Asset Management
+  </div>
+</div>
+
+</body>
+</html>
