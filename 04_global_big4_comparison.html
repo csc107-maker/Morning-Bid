@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>글로벌 타이어 빅4 비교 - 굿이어·미쉐린·브리지스톤·콘티넨탈</title>
+
+<meta property="og:title" content="글로벌 타이어 빅4 완전비교 | 굿이어·미쉐린·브리지스톤·콘티넨탈" />
+<meta property="og:description" content="세계 타이어 시장을 이끄는 4개 기업의 매출·마진·전략을 표로 한눈에 비교했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/goodyear-surge-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/goodyear-tire-surge-analysis" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:#F5F7FA; color:#101828; padding:28px 16px;
+  }
+  .wrap{ max-width:920px; margin:0 auto; }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:#1B3A6B;
+    background:#EAF0FB; padding:5px 12px; border-radius:999px; margin-bottom:12px;
+  }
+  h1{ font-size:22px; font-weight:800; color:#0B1730; margin-bottom:8px; }
+  .sub{ font-size:14px; color:#667085; margin-bottom:22px; }
+
+  /* 순위 카드 스트립 */
+  .rank-strip{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:22px;}
+  @media (max-width:680px){ .rank-strip{ grid-template-columns:repeat(2,1fr);} }
+  .rank-card{
+    background:#fff; border:1px solid #E7EBF1; border-radius:14px; padding:14px;
+    text-align:center;
+  }
+  .rank-card .flag{ font-size:22px; margin-bottom:6px;}
+  .rank-card .co{ font-size:13.5px; font-weight:800; color:#101828;}
+  .rank-card .rev{ font-size:16.5px; font-weight:800; color:#D62828; margin-top:4px;}
+  .rank-card .lbl{ font-size:10.6px; color:#98A2B3; font-weight:700; margin-top:1px;}
+
+  /* 비교 테이블 */
+  .tbl-wrap{ background:#fff; border:1px solid #E7EBF1; border-radius:16px; overflow:hidden; margin-bottom:22px;}
+  table{ width:100%; border-collapse:collapse; font-size:13px; }
+  thead th{
+    background:#12234A; color:#fff; font-weight:700; text-align:left;
+    padding:12px 14px; font-size:12.3px; white-space:nowrap;
+  }
+  thead th:first-child{ border-top-left-radius:0; }
+  tbody td{ padding:13px 14px; border-bottom:1px solid #EEF1F5; color:#344054; vertical-align:top;}
+  tbody tr:last-child td{ border-bottom:none; }
+  tbody tr:nth-child(even){ background:#FAFBFD; }
+  td.co-name{ font-weight:800; color:#101828; }
+  td.co-name .flag{ margin-right:5px; }
+  .tk{ display:block; font-size:11px; color:#98A2B3; font-weight:600; margin-top:2px;}
+  .pos{ color:#1D7A3E; font-weight:700;}
+  .neg{ color:#B42318; font-weight:700;}
+
+  /* EU 관세 미니 표 */
+  .mini-title{ display:flex; align-items:center; gap:8px; font-size:15px; font-weight:800; color:#12234A; margin:24px 4px 12px;}
+  .mini-title i{ color:#D62828; }
+  .tariff-tbl{ background:#fff; border:1px solid #E7EBF1; border-radius:14px; padding:6px; }
+  .tariff-row{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; }
+  .tariff-row:not(:last-child){ border-bottom:1px dashed #EEF1F5; }
+  .tariff-row .who{ font-size:13.2px; font-weight:700; color:#101828; }
+  .tariff-row .rate{ font-size:13.5px; font-weight:800; padding:3px 10px; border-radius:7px;}
+
+  .src{ margin-top:18px; text-align:center; font-size:11.5px; color:#98A2B3; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow"><i class="ti ti-world"></i>&nbsp;글로벌 타이어 관련주</span>
+  <h1>세계 타이어 시장을 움직이는 '빅4'</h1>
+  <p class="sub">타이어 매출 기준 미쉐린·브리지스톤이 선두, 굿이어·콘티넨탈이 뒤를 잇습니다.</p>
+
+  <div class="rank-strip">
+    <div class="rank-card"><div class="flag">🇫🇷</div><div class="co">미쉐린</div><div class="rev">€26.0B</div><div class="lbl">FY2025 매출 · 세계 1위</div></div>
+    <div class="rank-card"><div class="flag">🇯🇵</div><div class="co">브리지스톤</div><div class="rev">~$25B</div><div class="lbl">매출총이익률 40%대</div></div>
+    <div class="rank-card"><div class="flag">🇺🇸</div><div class="co">굿이어</div><div class="rev">~$18.5B</div><div class="lbl">구조조정 완료 · 소형주 편입</div></div>
+    <div class="rank-card"><div class="flag">🇩🇪</div><div class="co">콘티넨탈</div><div class="rev">€13.8B</div><div class="lbl">조정EBIT마진 13.6%</div></div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>기업</th>
+          <th>2025 타이어 매출</th>
+          <th>핵심 포인트</th>
+          <th>2026 방향성</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="co-name"><span class="flag">🇺🇸</span>굿이어<span class="tk">NASDAQ · GT</span></td>
+          <td>약 $18.5B</td>
+          <td>'Goodyear Forward' 구조조정 완료(자산매각 22억달러), S&P600 소형주 편입(7/6)</td>
+          <td class="pos">USMCA 역내 생산 비중 88% · 관세 상대적 유리</td>
+        </tr>
+        <tr>
+          <td class="co-name"><span class="flag">🇫🇷</span>미쉐린<span class="tk">Euronext · ML</span></td>
+          <td>€26.0B</td>
+          <td>세계 최고 브랜드가치 유지, 산업용 물동량 구조적 둔화</td>
+          <td>EU 반덤핑 관세 대상 24.4% (中생산분 한정)</td>
+        </tr>
+        <tr>
+          <td class="co-name"><span class="flag">🇯🇵</span>브리지스톤<span class="tk">TYO · 5108</span></td>
+          <td>약 $25B</td>
+          <td>수직계열화(제조~소매) 모델, 높은 매출총이익률</td>
+          <td>7월부터 가격 3~5% 인상 발표</td>
+        </tr>
+        <tr>
+          <td class="co-name"><span class="flag">🇩🇪</span>콘티넨탈<span class="tk">ETR · CON</span></td>
+          <td>€13.8B</td>
+          <td>18인치 이상 고인치 타이어 비중 62%로 확대, 2025년 관세부담 1억유로+</td>
+          <td class="pos">2026년 원자재가 하락·산업수요 회복 기대</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mini-title"><i class="ti ti-gavel"></i>EU 중국산 타이어 반덤핑 관세 (2026.7.7 확정)</div>
+  <div class="tariff-tbl">
+    <div class="tariff-row"><span class="who">🇰🇷 한국타이어</span><span class="rate" style="background:#EAF7EE;color:#1D7A3E;">4.3%</span></div>
+    <div class="tariff-row"><span class="who">미쉐린 · 금호타이어 · 넥센타이어 등</span><span class="rate" style="background:#FFF3D6;color:#8A6116;">24.4%</span></div>
+    <div class="tariff-row"><span class="who">🇨🇳 산둥융성고무그룹</span><span class="rate" style="background:#FDEDED;color:#B42318;">45.3%</span></div>
+  </div>
+
+  <div class="src">자료: Continental AG 공식발표 · Tire Business · Market Research Reports · 헤럴드경제 (2026.07 기준, 매출은 FY2025 실적)</div>
+
+</div>
+</body>
+</html>
