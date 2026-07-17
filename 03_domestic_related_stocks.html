@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국내 타이어 관련주 비교 - 한국타이어·넥센타이어·금호타이어·HS효성첨단소재</title>
+
+<meta property="og:title" content="국내 타이어 관련주 완전비교 | 한국타이어·넥센·금호·효성첨단소재" />
+<meta property="og:description" content="EU 반덤핑 관세율부터 목표주가, 핵심 이슈까지 - 국내 타이어 3사와 소재주를 한 번에 비교했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/goodyear-surge-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/goodyear-tire-surge-analysis" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:#F5F7FA; color:#101828; padding:28px 16px;
+  }
+  .wrap{ max-width:900px; margin:0 auto; }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:700; color:#8C1D1D;
+    background:#FBEAEA; padding:5px 12px; border-radius:999px; margin-bottom:12px;
+  }
+  h1{ font-size:22px; font-weight:800; color:#0B1730; line-height:1.4; margin-bottom:8px;}
+  .sub{ font-size:14px; color:#667085; margin-bottom:22px; }
+
+  /* EU 관세 요약 바 */
+  .tariff-bar{
+    background:#fff; border:1px solid #E7EBF1; border-radius:14px;
+    padding:16px 18px; margin-bottom:22px;
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  .tariff-bar .ic{
+    width:38px; height:38px; border-radius:10px; background:#12234A;
+    display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; flex-shrink:0;
+  }
+  .tariff-bar .txt{ font-size:13.3px; color:#475467; line-height:1.55; flex:1; min-width:200px;}
+  .tariff-bar .txt b{ color:#101828; }
+  .tariff-chip-row{ display:flex; gap:8px; flex-wrap:wrap; }
+  .tchip{ font-size:12.5px; font-weight:800; padding:6px 11px; border-radius:8px; white-space:nowrap;}
+  .tc-low{ background:#EAF7EE; color:#1D7A3E; }
+  .tc-mid{ background:#FFF3D6; color:#8A6116; }
+  .tc-high{ background:#FDEDED; color:#B42318; }
+
+  /* 카드 그리드 */
+  .grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom: 8px;}
+  @media (max-width:680px){ .grid{ grid-template-columns:1fr; } }
+
+  .stock-card{
+    background:#fff; border:1px solid #E7EBF1; border-radius:16px; padding:18px;
+    box-shadow:0 1px 2px rgba(16,24,40,0.03);
+    display:flex; flex-direction:column;
+  }
+  .sc-top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;}
+  .sc-name{ font-size:15.5px; font-weight:800; color:#101828; }
+  .sc-code{ font-size:11.5px; color:#98A2B3; font-weight:600; margin-top:2px;}
+  .sc-badge{ font-size:11px; font-weight:800; padding:4px 9px; border-radius:7px; white-space:nowrap; }
+  .b-navy{ background:#EAF0FB; color:#1B3A6B; }
+  .b-red{ background:#FDEDED; color:#B42318; }
+
+  .sc-desc{ font-size:13.2px; color:#475467; line-height:1.6; margin-bottom:10px; flex:1;}
+  .sc-desc b{ color:#101828; }
+
+  .sc-meta{ display:flex; flex-direction:column; gap:6px; border-top:1px dashed #E7EBF1; padding-top:10px; margin-top:auto;}
+  .sc-meta-row{ display:flex; justify-content:space-between; font-size:12px; }
+  .sc-meta-row .k{ color:#98A2B3; font-weight:600; }
+  .sc-meta-row .v{ color:#101828; font-weight:700; }
+
+  .note{
+    margin-top:18px; background:#FFF8ED; border:1px solid #F3E3BE; border-radius:14px;
+    padding:15px 18px; display:flex; gap:10px;
+  }
+  .note i{ color:#B7791F; font-size:17px; margin-top:1px;}
+  .note p{ font-size:12.6px; color:#7A5A17; line-height:1.6;}
+
+  .src{ margin-top:16px; text-align:center; font-size:11.5px; color:#98A2B3; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow"><i class="ti ti-map-pin"></i>&nbsp;국내 타이어 관련주</span>
+  <h1>한국타이어 · 넥센타이어 · 금호타이어 · HS효성첨단소재</h1>
+  <p class="sub">2026년 7월 확정된 EU 반덤핑 관세가 국내 타이어 3사의 희비를 갈랐습니다.</p>
+
+  <div class="tariff-bar">
+    <div class="ic"><i class="ti ti-gavel"></i></div>
+    <div class="txt">EU, <b>중국산 승용·경트럭 타이어</b>에 최종 반덤핑 관세 확정(2026.7.7 발효) — 브랜드 국적과 무관하게 <b>중국 공장 생산분</b>에만 부과</div>
+  </div>
+  <div class="tariff-chip-row" style="margin-bottom:22px;">
+    <span class="tchip tc-low">한국타이어 4.3%</span>
+    <span class="tchip tc-mid">금호·넥센·미쉐린 등 24.4%</span>
+    <span class="tchip tc-high">中 산둥융성 45.3%</span>
+  </div>
+
+  <div class="grid">
+
+    <div class="stock-card">
+      <div class="sc-top">
+        <div><div class="sc-name">한국타이어앤테크놀로지</div><div class="sc-code">KRX 161390</div></div>
+        <span class="sc-badge b-navy">관세 최저 수혜</span>
+      </div>
+      <div class="sc-desc">EU 표본조사 대상으로 직접 조사받아 <b>4.3%</b>라는 최저 관세를 확정지었습니다. 헝가리 현지 생산기지를 이미 보유해 中생산 비중이 낮은 점이 결정적이었습니다. 1분기 영업이익은 환율 효과 등에 힘입어 전년 대비 43% 증가했습니다.</div>
+      <div class="sc-meta">
+        <div class="sc-meta-row"><span class="k">투자의견 · 목표주가</span><span class="v">Buy · 80,000원 (KB증권, 5/11)</span></div>
+        <div class="sc-meta-row"><span class="k">핵심 코멘트</span><span class="v">"전쟁 멈추면 타이어가 움직인다"</span></div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="sc-top">
+        <div><div class="sc-name">넥센타이어</div><div class="sc-code">KRX 002350</div></div>
+        <span class="sc-badge b-red">관세 24.4% · 선제 대응</span>
+      </div>
+      <div class="sc-desc">EU 판매 중 中생산 비중을 작년 15%에서 올해 <b>4%</b>까지 낮추며 관세 충격을 선제적으로 줄였습니다. 체코 공장을 활용한 현지화 전략이 핵심입니다. 6월 1일부터 유럽向 제품가를 평균 5%(3~7%) 인상했습니다.</div>
+      <div class="sc-meta">
+        <div class="sc-meta-row"><span class="k">대응 전략</span><span class="v">체코 생산 확대 · 가격 인상</span></div>
+        <div class="sc-meta-row"><span class="k">체크포인트</span><span class="v">2Q 원자재비 부담 완화 여부</span></div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="sc-top">
+        <div><div class="sc-name">금호타이어</div><div class="sc-code">KRX 073240</div></div>
+        <span class="sc-badge b-red">관세 24.4% · 中비중 부담</span>
+      </div>
+      <div class="sc-desc">전체 생산량의 30%가 中생산이고 유럽 매출의 절반이 中산이라 3사 중 단기 충격이 가장 큽니다. 다만 폭스바겐 스코다向 신차용 타이어 공급 계약과, 반도체 메가클러스터 인근 <b>광주공장 부지 재평가</b> 기대감이 반전 카드로 거론됩니다. PER 5배대로 업종 평균(11배대) 대비 낮습니다.</div>
+      <div class="sc-meta">
+        <div class="sc-meta-row"><span class="k">대응 전략</span><span class="v">폴란드 신공장(2028 가동 목표)</span></div>
+        <div class="sc-meta-row"><span class="k">체크포인트</span><span class="v">中생산 비중 축소 속도</span></div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="sc-top">
+        <div><div class="sc-name">HS효성첨단소재</div><div class="sc-code">KRX 298050</div></div>
+        <span class="sc-badge b-navy">타이어 '소재' 공급사</span>
+      </div>
+      <div class="sc-desc">완성 타이어가 아닌 보강재인 <b>타이어코드</b>를 미쉐린·굿이어·브리지스톤 등에 공급하는 글로벌 상위권 업체입니다. 2분기는 연간 계약 물량이 가장 많이 출하되는 성수기로, 판가 인상 효과가 겹칩니다. 탄소섬유 사업은 휴머노이드·eVTOL·드론 등 신산업向 수요 확대가 기대 포인트입니다.</div>
+      <div class="sc-meta">
+        <div class="sc-meta-row"><span class="k">투자의견 · 목표주가</span><span class="v">Buy · 270,000원 (KB증권, 5/27)</span></div>
+        <div class="sc-meta-row"><span class="k">핵심 코멘트</span><span class="v">"견조한 타이어코드, 탄소섬유 확대"</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <i class="ti ti-info-circle"></i>
+    <p>목표주가·투자의견은 특정 시점 리서치 자료 기준으로, 이후 실적·환율·원자재가 변동에 따라 언제든 바뀔 수 있습니다. 투자 판단과 책임은 투자자 본인에게 있습니다.</p>
+  </div>
+
+  <div class="src">자료: 헤럴드경제 · 이투데이 · 아시아투데이 · 서울파이낸스 · 네이트뉴스 · KB증권 리서치 · 하나증권 리서치 (2026.07 기준)</div>
+
+</div>
+</body>
+</html>
