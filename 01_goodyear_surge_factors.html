@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>굿이어(GT) 7월 16일 급등, 5가지 복합 요인 분석</title>
+
+<meta property="og:title" content="굿이어(Goodyear) 주가 급등 원인 분석 | 5가지 복합 요인" />
+<meta property="og:description" content="2026년 7월 16일 굿이어타이어(GT) +5.3% 급등, 반도체 순환매·콜옵션 매수세·신제품·유가·밸류갭까지 데이터로 분석했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/goodyear-surge-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/goodyear-tire-surge-analysis" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #F5F7FA;
+    color: #101828;
+    padding: 28px 16px;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  /* 헤더 */
+  .head {
+    background: linear-gradient(135deg, #12234A 0%, #1B3A6B 100%);
+    border-radius: 20px;
+    padding: 30px 32px;
+    color: #fff;
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .head::after{
+    content:"";
+    position:absolute; right:-40px; top:-40px; width:180px; height:180px;
+    background: radial-gradient(circle, rgba(214,40,40,0.35) 0%, rgba(214,40,40,0) 70%);
+  }
+  .eyebrow {
+    display:inline-flex; align-items:center; gap:6px;
+    font-size: 13px; font-weight: 700; letter-spacing:.02em;
+    background: rgba(255,255,255,0.14); color:#fff;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .head h1 { font-size: 24px; font-weight: 800; line-height:1.4; }
+  .head p.desc { margin-top:8px; font-size: 14px; color: #C9D6EA; font-weight:500; }
+
+  .stat-row {
+    display:flex; flex-wrap:wrap; gap:10px; margin-top:20px;
+    position:relative; z-index:1;
+  }
+  .stat-chip {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px; padding: 10px 14px; flex:1; min-width:130px;
+  }
+  .stat-chip .label { font-size: 11.5px; color:#9FB0CC; font-weight:600; }
+  .stat-chip .val { font-size: 17px; font-weight: 800; margin-top:3px; }
+  .up { color: #FF8A80; }
+
+  /* 섹션 타이틀 */
+  .section-title {
+    display:flex; align-items:center; gap:8px;
+    font-size: 15px; font-weight: 800; color:#12234A;
+    margin: 22px 4px 12px;
+  }
+  .section-title i { font-size: 18px; color:#D62828; }
+
+  /* 카드 그리드 */
+  .cards { display:flex; flex-direction:column; gap:12px; }
+  .card {
+    background:#fff; border:1px solid #E7EBF1; border-radius:16px;
+    padding: 18px 20px; display:flex; gap:14px;
+    box-shadow: 0 1px 2px rgba(16,24,40,0.03);
+  }
+  .card .num {
+    flex-shrink:0; width:38px; height:38px; border-radius:10px;
+    background:#EFF3FC; color:#1B3A6B; font-weight:800; font-size:15px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .card.highlight .num { background:#FDEDED; color:#D62828; }
+  .card .body h3 { font-size: 15.5px; font-weight:800; color:#101828; margin-bottom:5px; display:flex; align-items:center; gap:6px;}
+  .card .body h3 i { color:#5B7BAE; font-size:16px; }
+  .card .body p { font-size: 13.6px; color:#475467; }
+  .card .body .tag {
+    display:inline-block; margin-top:8px; font-size:11.5px; font-weight:700;
+    background:#F0F4FA; color:#3A557E; padding:3px 9px; border-radius:6px;
+  }
+
+  /* 하단 노트 */
+  .note {
+    margin-top: 18px; background:#FFF8ED; border:1px solid #F3E3BE;
+    border-radius: 14px; padding: 16px 18px; display:flex; gap:10px;
+  }
+  .note i { color:#B7791F; font-size:18px; margin-top:1px; }
+  .note p { font-size: 13px; color:#7A5A17; line-height:1.6; }
+  .note b { color:#5C3F0C; }
+
+  .src {
+    margin-top:14px; text-align:center; font-size:11.5px; color:#98A2B3;
+  }
+
+  @media (max-width:480px){
+    .head h1{font-size:20px;}
+    .card{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <span class="eyebrow"><i class="ti ti-chart-candle"></i>&nbsp;US STOCK · TIRE SECTOR</span>
+    <h1>굿이어타이어(GT), 7월 16일 하루 만에 +5%대 급등</h1>
+    <p class="desc">단일 호재가 아닌 5가지 요인이 겹친 결과로 해석됩니다. 데이터로 정리했습니다.</p>
+
+    <div class="stat-row">
+      <div class="stat-chip"><div class="label">종가</div><div class="val">$7.00~7.10</div></div>
+      <div class="stat-chip"><div class="label">등락률</div><div class="val up">▲ +5.3%~5.34%</div></div>
+      <div class="stat-chip"><div class="label">거래량</div><div class="val">16.62M</div></div>
+      <div class="stat-chip"><div class="label">52주 범위</div><div class="val">$5.43–$11.65</div></div>
+    </div>
+  </div>
+
+  <div class="section-title"><i class="ti ti-list-details"></i>급등을 이끈 5가지 복합 요인</div>
+
+  <div class="cards">
+    <div class="card highlight">
+      <div class="num">01</div>
+      <div class="body">
+        <h3><i class="ti ti-arrows-shuffle"></i>반도체發 순환매 (Sector Rotation)</h3>
+        <p>같은 날 TSMC의 공격적 설비투자 가이던스로 나스닥이 급락하며 자금이 반도체·AI주에서 밸류·스몰캡주로 이동했습니다. S&P500 11개 섹터 중 8개가 상승 마감한 가운데, 러셀2000(소형주)도 +0.38%로 선전했습니다.</p>
+        <span class="tag">S&P600 소형주 편입 효과(7/6 편입) 겹침</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="num">02</div>
+      <div class="body">
+        <h3><i class="ti ti-trending-up-2"></i>콜옵션 매수세 급증</h3>
+        <p>TipRanks 데이터 기준 이날 GT의 콜옵션 거래량이 평소 대비 크게 증가하며 "방향성 강세(bullish)"로 포착됐습니다. 저가·고변동성 종목 특성상 단기 수급이 주가를 크게 흔들 수 있는 구간입니다.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="num">03</div>
+      <div class="body">
+        <h3><i class="ti ti-tire"></i>신제품·OE 공급 확대 뉴스</h3>
+        <p>같은 날 굿이어는 UltraGrip Performance 3 윈터타이어 라인업을 344개 SKU로 확장하고 BMW·포르쉐·메르세데스벤츠向 신차용(OE) 공급을 넓혔다고 발표했습니다.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="num">04</div>
+      <div class="body">
+        <h3><i class="ti ti-droplet-down"></i>국제유가 소폭 하락</h3>
+        <p>WTI가 3거래일 급등 후 이날 -0.3% 조정(약 $79.36)되며 숨고르기에 들어갔습니다. 원재료비의 약 45%가 원유 연동인 타이어업 특성상, 유가 진정은 마진 개선 기대로 이어집니다.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="num">05</div>
+      <div class="body">
+        <h3><i class="ti ti-scale"></i>"밸류 갭" 저가 매수 내러티브</h3>
+        <p>시장 추정 적정가치 $8.94 대비 실제 주가는 $6.5~7.1선으로 저평가 구간이라는 분석이 있었고, JP모건은 7월 10일 매수의견을 재확인했습니다. Goodyear Forward 구조조정(자산매각 22억 달러, 부채 감축)이 마무리된 점도 반등 기대를 뒷받침합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <i class="ti ti-alert-triangle"></i>
+    <p><b>주의:</b> 위 5가지는 언론·리서치에서 확인 가능한 정황적 요인을 종합한 해석이며, "이것이 정답이다"라고 단정할 수 있는 단일 공시나 호재는 확인되지 않았습니다. 굿이어의 2분기 실적 발표(8월 예정)에서 방향성이 재확인될 필요가 있습니다.</p>
+  </div>
+
+  <div class="src">자료: CNN Markets · TradingView · Simply Wall St · TipRanks · CNBC · Investing.com (2026.07.16 기준)</div>
+
+</div>
+</body>
+</html>
