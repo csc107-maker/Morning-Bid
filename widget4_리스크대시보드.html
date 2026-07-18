@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>투자자 체크리스트 &amp; 리스크 대시보드</title>
+
+<meta property="og:title" content="마이크론·샌디스크·ADM 주가 급등 이유는? AI 메모리 슈퍼사이클과 바이오연료 랠리 심층분석 (2026)" />
+<meta property="og:description" content="완전히 다른 업종의 세 종목, 마이크론·샌디스크·ADM이 2026년 나란히 급등한 이유를 로이터·블룸버그·CNBC 등 교차 검증해 심층 분석합니다." />
+<meta property="og:image" content="여기에_썸네일_이미지_URL_입력" />
+<meta property="og:url" content="여기에_포스트_URL_입력" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  .rdw-wrap * { box-sizing: border-box; }
+  .rdw-wrap {
+    margin: 0;
+    padding: 28px 16px;
+    background: #EAF0FB;
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    color: #10182B;
+  }
+  .rdw-card {
+    max-width: 820px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid #E3E8F2;
+    box-shadow: 0 18px 40px -22px rgba(16, 24, 43, 0.25);
+    padding: 28px 26px 22px;
+  }
+  .rdw-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+    color: #B42318; background: #FEF3F2; padding: 5px 11px;
+    border-radius: 999px; margin-bottom: 10px;
+  }
+  .rdw-title {
+    font-family: 'Noto Serif KR', serif; font-weight: 900;
+    font-size: 21px; line-height: 1.4; margin: 0 0 6px; color: #0C1330;
+  }
+  .rdw-desc { font-size: 12.5px; color: #8891A3; margin: 0 0 22px; font-weight: 500; line-height: 1.6; }
+
+  /* Risk gauge */
+  .rdw-gauge-box {
+    background: #F7F9FD; border-radius: 14px; padding: 16px 18px 14px; margin-bottom: 22px;
+  }
+  .rdw-gauge-label { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .rdw-gauge-name { font-size: 12.5px; font-weight: 700; color: #3C4358; }
+  .rdw-gauge-value { font-size: 12px; font-weight: 800; }
+  .rdw-gauge-value.high { color: #DC2626; }
+  .rdw-bar-track { height: 8px; border-radius: 999px; background: linear-gradient(90deg,#16A34A 0%, #EAB308 50%, #DC2626 100%); position: relative; margin-bottom: 4px; }
+  .rdw-bar-marker { position:absolute; top:-4px; width: 3px; height: 16px; background:#0C1330; border-radius:2px; }
+  .rdw-gauge-row { margin-bottom: 14px; }
+  .rdw-gauge-row:last-child { margin-bottom: 0; }
+  .rdw-gauge-scale { display:flex; justify-content:space-between; font-size:10px; color:#AAB1C0; font-weight:600; }
+
+  .rdw-list { display: flex; flex-direction: column; gap: 10px; }
+  .rdw-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 13px 14px; border: 1px solid #EEF1F7; border-radius: 12px;
+  }
+  .rdw-item-icon {
+    width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; color: #fff; background: #2451D6;
+  }
+  .rdw-item:nth-child(2) .rdw-item-icon { background: #5B6478; }
+  .rdw-item:nth-child(3) .rdw-item-icon { background: #5B6478; }
+  .rdw-item:nth-child(4) .rdw-item-icon { background: #B7791F; }
+  .rdw-item:nth-child(5) .rdw-item-icon { background: #7C3AED; }
+  .rdw-item:nth-child(6) .rdw-item-icon { background: #0EA5B7; }
+  .rdw-item:nth-child(7) .rdw-item-icon { background: #2451D6; }
+
+  .rdw-item-body { flex: 1; min-width: 0; }
+  .rdw-item-top { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom: 3px; flex-wrap: wrap; }
+  .rdw-item-title { font-size: 13.5px; font-weight: 700; color: #10182B; }
+  .rdw-status {
+    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+  }
+  .rdw-status.watch { background: #FEF9E7; color: #92670C; }
+  .rdw-status.wait { background: #EAF0FE; color: #2451D6; }
+  .rdw-status.progress { background: #EAFBF1; color: #15803D; }
+  .rdw-item-desc { font-size: 12px; color: #6B7280; line-height: 1.55; margin: 0; }
+
+  .rdw-foot {
+    margin-top: 18px; padding-top: 14px; border-top: 1px dashed #EDF0F6;
+    font-size: 11px; color: #9AA2B3; line-height: 1.6;
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .rdw-foot i { font-size: 14px; margin-top: 1px; color: #B7BECF; }
+
+  @media (max-width: 480px) {
+    .rdw-card { padding: 20px 14px 16px; }
+    .rdw-title { font-size: 18px; }
+  }
+</style>
+</head>
+<body style="margin:0;">
+<div class="rdw-wrap">
+  <div class="rdw-card">
+    <div class="rdw-eyebrow"><i class="ti ti-alert-triangle"></i>RISK DASHBOARD</div>
+    <p class="rdw-title">투자자 체크리스트 &amp; 단기 변동성 게이지</p>
+    <p class="rdw-desc">세 종목 모두 최근 두 자릿수 %대 조정을 겪은 만큼, 다음 이벤트들을 미리 캘린더에 표시해두면 좋아요.</p>
+
+    <div class="rdw-gauge-box">
+      <div class="rdw-gauge-row">
+        <div class="rdw-gauge-label">
+          <span class="rdw-gauge-name"><i class="ti ti-cpu" style="margin-right:5px;color:#2451D6;"></i>마이크론 · 샌디스크 (반도체)</span>
+          <span class="rdw-gauge-value high">단기 변동성 높음</span>
+        </div>
+        <div class="rdw-bar-track"><span class="rdw-bar-marker" style="left:78%;"></span></div>
+        <div class="rdw-gauge-scale"><span>낮음</span><span>중간</span><span>높음</span></div>
+      </div>
+      <div class="rdw-gauge-row">
+        <div class="rdw-gauge-label">
+          <span class="rdw-gauge-name"><i class="ti ti-plant-2" style="margin-right:5px;color:#B7791F;"></i>ADM (농업·바이오연료)</span>
+          <span class="rdw-gauge-value" style="color:#B45309;">중간 수준</span>
+        </div>
+        <div class="rdw-bar-track"><span class="rdw-bar-marker" style="left:52%;"></span></div>
+        <div class="rdw-gauge-scale"><span>낮음</span><span>중간</span><span>높음</span></div>
+      </div>
+    </div>
+
+    <div class="rdw-list">
+      <div class="rdw-item">
+        <div class="rdw-item-icon"><i class="ti ti-chart-candle"></i></div>
+        <div class="rdw-item-body">
+          <div class="rdw-item-top"><span class="rdw-item-title">HBM·낸드 현물가격 추이</span><span class="rdw-status watch">주간 모니터링</span></div>
+          <p class="rdw-item-desc">트렌드포스·가트너 등 발표하는 주간·월간 메모리 가격 지표. 가격 상승 둔화 여부가 조정 국면의 핵심 변수.</p>
+        </div>
+      </div>
+
+      <div class="rdw-item">
+        <div class="rdw-item-icon"><i class="ti ti-building-bank"></i></div>
+        <div class="rdw-item-body">
+          <div class="rdw-item-top"><span class="rdw-item-title">연준 통화정책 (케빈 워시 체제)</span><span class="rdw-status wait">차기 FOMC 대기</span></div>
+          <p class="rdw-item-desc">'QT-포-컷' 기조의 실제 집행 속도가 고밸류에이션 성장주 전반의 할인율에 영향.</p>
+        </div>
+      </div>
+
+      <div class="rdw-item">
+        <div class="rdw-item-icon"><i class="ti ti-world"></i></div>
+        <div class="rdw-item-body">
+          <div class="rdw-item-top"><span class="rdw-item-title">이란-미국 60일 협상 시한</span><span class="rdw-status progress">협상 진행중</span></div>
+          <p class="rdw-item-desc">6월 17일 MOU 서명 기준 60일 시한 임박. 타결 여부에 따라 유가·곡물가·리스크선호도 재차 요동 가능.</p>
+        </div>
+      </div>
+
+      <div class="rdw-item">
+        <div class="rdw-item-icon"><i class="ti ti-calendar-event"></i></div>
+        <div class="rdw-item-body">
+          <div class="rdw-item-top"><span class="rdw-item-title">ADM 2분기 실적 발표</span><span class="rdw-status wait">2026.08.04 예정</span></div>
+          <p class="rdw-item-desc">컨센서스 EPS 1.28~1.29달러. Q1의 마이너스 타이밍 영향(-2.75억달러)이 실제로 되돌려지는지가 관전포인트.</p>
+        </div>
+      </div>
+
+      <div class="rdw-item">
+        <div class="rdw-item-icon"><i class="ti ti-server-2"></i></div>
+        <div class="rdw-item-body">
+          <div class="rdw-item-top"><span class="rdw-item-title">빅테크 AI 데이터센터 캐펙스</span><span class="rdw-status wait">8월 빅테크 실적시즌</span></div>
+          <p class="rdw-item-desc">메타·MS·구글·아마존의 설비투자 가이던스가 HBM·낸드 수요 지속성을 가늠하는 선행지표.</p>
+        </div>
+      </div>
+
+      <div class="rdw-item">
+        <div class="rdw-item-icon"><i class="ti ti-currency-won"></i></div>
+        <div class="rdw-item-body">
+          <div class="rdw-item-top"><span class="rdw-item-title">원/달러 환율</span><span class="rdw-status watch">17년만 고환율 근접</span></div>
+          <p class="rdw-item-desc">서학개미의 평가손익·신규 매수 부담에 직결. 외국인 코스피 순매도 흐름과 연동해 확인 필요.</p>
+        </div>
+      </div>
+
+      <div class="rdw-item">
+        <div class="rdw-item-icon"><i class="ti ti-building-skyscraper"></i></div>
+        <div class="rdw-item-body">
+          <div class="rdw-item-top"><span class="rdw-item-title">SK하이닉스 美 ADR 상장 추진</span><span class="rdw-status progress">2026년 내 추진중</span></div>
+          <p class="rdw-item-desc">상장 성사 시 마이크론 대비 밸류에이션 재평가(할인폭 축소) 트리거가 될 수 있다는 분석.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rdw-foot">
+      <i class="ti ti-info-circle"></i>
+      <span>변동성 게이지는 최근 조정폭·애널리스트 의견 분산도를 토대로 한 정성적 표시이며 공식 통계가 아닙니다. 투자 참고용 정보이며 투자 자문이 아닙니다.</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
