@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 상반기 급등주 스코어카드 | 마이크론·샌디스크·ADM</title>
+
+<meta property="og:title" content="마이크론·샌디스크·ADM 주가 급등 이유는? AI 메모리 슈퍼사이클과 바이오연료 랠리 심층분석 (2026)" />
+<meta property="og:description" content="완전히 다른 업종의 세 종목, 마이크론·샌디스크·ADM이 2026년 나란히 급등한 이유를 로이터·블룸버그·CNBC 등 교차 검증해 심층 분석합니다." />
+<meta property="og:image" content="여기에_썸네일_이미지_URL_입력" />
+<meta property="og:url" content="여기에_포스트_URL_입력" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  .mds-wrap * { box-sizing: border-box; }
+  .mds-wrap {
+    margin: 0;
+    padding: 28px 16px;
+    background: #EAF0FB;
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    color: #10182B;
+  }
+  .mds-card {
+    max-width: 980px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid #E3E8F2;
+    box-shadow: 0 18px 40px -22px rgba(16, 24, 43, 0.25);
+    overflow: hidden;
+  }
+  .mds-head {
+    padding: 26px 30px 20px;
+    border-bottom: 1px solid #EEF1F7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .mds-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #2451D6;
+    background: #EAF0FE;
+    padding: 5px 11px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  .mds-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 1.35;
+    margin: 0;
+    color: #0C1330;
+  }
+  .mds-asof {
+    font-size: 12px;
+    color: #8891A3;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .mds-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .mds-col {
+    padding: 24px 22px 22px;
+    border-right: 1px solid #EEF1F7;
+    position: relative;
+  }
+  .mds-col:last-child { border-right: none; }
+  .mds-col::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .mds-col.mu::before { background: #2451D6; }
+  .mds-col.sndk::before { background: #7C3AED; }
+  .mds-col.adm::before { background: #B7791F; }
+
+  .mds-ticker-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .mds-ticker {
+    font-weight: 800; font-size: 13px; letter-spacing: 0.03em;
+    padding: 4px 9px; border-radius: 7px; color: #fff;
+  }
+  .mu .mds-ticker { background: #2451D6; }
+  .sndk .mds-ticker { background: #7C3AED; }
+  .adm .mds-ticker { background: #B7791F; }
+
+  .mds-icon { font-size: 18px; color: #C7CCD9; }
+
+  .mds-name-kr { font-size: 14px; font-weight: 700; color: #10182B; margin: 0 0 1px; }
+  .mds-name-en { font-size: 11.5px; color: #98A0B2; margin: 0 0 14px; font-weight: 500; }
+
+  .mds-pct-label { font-size: 11px; color: #8891A3; font-weight: 600; margin-bottom: 2px; }
+  .mds-pct {
+    font-size: 34px; font-weight: 900; line-height: 1;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 4px;
+    display: flex; align-items: baseline; gap: 4px;
+  }
+  .mds-pct .arrow { font-size: 20px; }
+  .mds-pct.pos { color: #15803D; }
+  .mds-sub { font-size: 11.5px; color: #98A0B2; margin-bottom: 16px; font-weight: 500; }
+
+  .mds-driver {
+    font-size: 12.5px; line-height: 1.55; color: #3C4358;
+    background: #F7F9FD; border-radius: 10px; padding: 10px 12px;
+    margin-bottom: 14px; font-weight: 500;
+    min-height: 78px;
+  }
+  .adm .mds-driver { background: #FBF6EC; }
+  .sndk .mds-driver { background: #F6F1FE; }
+
+  .mds-metric-row { display: flex; justify-content: space-between; font-size: 11.5px; padding: 6px 0; border-top: 1px dashed #EDF0F6; }
+  .mds-metric-row span:first-child { color: #98A0B2; font-weight: 500; }
+  .mds-metric-row span:last-child { color: #10182B; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  .mds-foot {
+    padding: 14px 30px 20px;
+    font-size: 11px;
+    color: #9AA2B3;
+    line-height: 1.6;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .mds-foot i { font-size: 14px; margin-top: 1px; color: #B7BECF; }
+
+  @media (max-width: 720px) {
+    .mds-grid { grid-template-columns: 1fr; }
+    .mds-col { border-right: none; border-bottom: 1px solid #EEF1F7; }
+    .mds-col:last-child { border-bottom: none; }
+    .mds-title { font-size: 19px; }
+  }
+</style>
+</head>
+<body style="margin:0;">
+<div class="mds-wrap">
+  <div class="mds-card">
+    <div class="mds-head">
+      <div>
+        <div class="mds-eyebrow"><i class="ti ti-chart-candle"></i>2026년 상반기 급등주 스코어카드</div>
+        <p class="mds-title">마이크론 · 샌디스크 · ADM,<br>세 종목 핵심 수치 한눈에 보기</p>
+      </div>
+      <div class="mds-asof"><i class="ti ti-clock" style="margin-right:3px;"></i>2026.07.18 기준 근사치</div>
+    </div>
+
+    <div class="mds-grid">
+      <div class="mds-col mu">
+        <div class="mds-ticker-row">
+          <span class="mds-ticker">NASDAQ : MU</span>
+          <i class="ti ti-cpu mds-icon"></i>
+        </div>
+        <p class="mds-name-kr">마이크론 테크놀로지</p>
+        <p class="mds-name-en">Micron Technology</p>
+
+        <div class="mds-pct-label">최근 1년 상승률</div>
+        <div class="mds-pct pos"><i class="ti ti-arrow-up-right arrow"></i>700%+</div>
+        <div class="mds-sub">2026 상반기(1~6월)만 +304%</div>
+
+        <div class="mds-driver">HBM(고대역폭메모리) 완판 행진 + D램 공급난. 3분기 매출 414.6억달러로 시장 예상 상회, 시총 1조달러 첫 돌파.</div>
+
+        <div class="mds-metric-row"><span>52주 최고가</span><span>$1,255</span></div>
+        <div class="mds-metric-row"><span>최근 가격대(조정 후)</span><span>$800대</span></div>
+        <div class="mds-metric-row"><span>UBS 목표주가</span><span>$535→$1,625</span></div>
+      </div>
+
+      <div class="mds-col sndk">
+        <div class="mds-ticker-row">
+          <span class="mds-ticker">NASDAQ : SNDK</span>
+          <i class="ti ti-server-2 mds-icon"></i>
+        </div>
+        <p class="mds-name-kr">샌디스크</p>
+        <p class="mds-name-en">SanDisk Corp (WD 분사)</p>
+
+        <div class="mds-pct-label">2026 상반기 상승률</div>
+        <div class="mds-pct pos"><i class="ti ti-arrow-up-right arrow"></i>857.8%</div>
+        <div class="mds-sub">52주 저점 대비 한때 +3,700%대</div>
+
+        <div class="mds-driver">낸드플래시 순수기업. 메타 등과 공급계약 110억달러 확약, 3분기 흑자전환(EPS -0.30→+23.41달러).</div>
+
+        <div class="mds-metric-row"><span>52주 최고가</span><span>$2,354</span></div>
+        <div class="mds-metric-row"><span>최근 가격대(조정 후)</span><span>$1,400~1,600대</span></div>
+        <div class="mds-metric-row"><span>에버코어 목표주가</span><span>$1,400→$3,100</span></div>
+      </div>
+
+      <div class="mds-col adm">
+        <div class="mds-ticker-row">
+          <span class="mds-ticker">NYSE : ADM</span>
+          <i class="ti ti-plant-2 mds-icon"></i>
+        </div>
+        <p class="mds-name-kr">아처 대니얼스 미들랜드</p>
+        <p class="mds-name-en">Archer-Daniels-Midland</p>
+
+        <div class="mds-pct-label">2026 연초 대비 상승률</div>
+        <div class="mds-pct pos"><i class="ti ti-arrow-up-right arrow"></i>40%대</div>
+        <div class="mds-sub">최근 1년 기준 45~60%대</div>
+
+        <div class="mds-driver">바이오연료 RVO 확정 + 이란전쟁발 곡물가·유가 급등으로 크러시마진 개선. 연간 EPS 가이던스 상향(4.15~4.70달러).</div>
+
+        <div class="mds-metric-row"><span>52주 범위</span><span>$41~$82</span></div>
+        <div class="mds-metric-row"><span>최근 가격대</span><span>$77~82</span></div>
+        <div class="mds-metric-row"><span>목표주가 편차</span><span>$58(MS)~$95(UBS)</span></div>
+      </div>
+    </div>
+
+    <div class="mds-foot">
+      <i class="ti ti-info-circle"></i>
+      <span>수치는 CNBC, Motley Fool, Investing.com, Reuters, 각사 IR 자료를 교차 검증한 근사치이며 작성 시점 이후 실시간 시세와 다를 수 있습니다. 투자 참고용 정보이며 투자 자문이 아닙니다.</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
