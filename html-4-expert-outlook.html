@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>클래리티 법안 & XRP 전망 — 강세론 vs 신중론</title>
+
+<meta property="og:title" content="클래리티 법안 & XRP 전망 — 강세론 vs 신중론" />
+<meta property="og:description" content="예측시장 확률과 주요 기관·애널리스트 전망을 강세론과 신중론으로 나눠 비교 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/clarity-xrp-outlook-thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/clarity-act-xrp" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+
+<style>
+  :root{
+    --paper:#F5F6F8; --card:#FFFFFF; --line:#E3E6EB;
+    --ink:#131B3A; --ink-soft:#5B6472;
+    --amber:#B8862E; --amber-soft:#F3E7CF;
+    --teal:#0E7C7B; --teal-soft:#DCF0EF;
+    --brick:#B7472A; --brick-soft:#F7E3DD;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);padding:28px 14px 40px;}
+  .wrap{max-width:720px;margin:0 auto;}
+  .eyebrow{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brick);text-transform:uppercase;margin-bottom:10px;font-weight:600;}
+  h1{font-size:22px;line-height:1.35;margin:0 0 6px;font-weight:800;letter-spacing:-0.01em;}
+  .sub{color:var(--ink-soft);font-size:14px;margin:0 0 26px;line-height:1.6;}
+
+  /* gauge */
+  .gauge-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:14px;}
+  .gauge-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
+  .gauge-top .t{font-size:13.5px;font-weight:700;}
+  .gauge-top .n{font-family:var(--mono);font-size:26px;font-weight:800;color:var(--brick);}
+  .bar-bg{height:14px;background:#EFF1F4;border-radius:999px;position:relative;overflow:visible;margin:22px 0 8px;}
+  .bar-fill{
+    position:absolute;left:0;top:0;bottom:0;border-radius:999px;
+    background:linear-gradient(90deg, var(--amber), var(--brick));
+    width:46%;
+  }
+  .bar-marker{
+    position:absolute;top:-5px;width:2px;height:24px;background:var(--ink);
+    left:74%;
+  }
+  .bar-marker-label{
+    position:absolute;top:-20px;left:74%;transform:translateX(-50%);
+    font-size:10px;font-family:var(--mono);color:var(--ink-soft);white-space:nowrap;
+    max-width:110px;
+  }
+  .gauge-foot{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);font-family:var(--mono);margin-top:14px;}
+
+  .callout{
+    display:flex;gap:12px;background:var(--ink);color:#fff;border-radius:14px;padding:16px 18px;margin-bottom:28px;
+  }
+  .callout i{color:var(--amber);font-size:22px;margin-top:2px;}
+  .callout .t1{font-size:13px;color:#AEB6CC;margin-bottom:4px;}
+  .callout .t2{font-size:14.5px;line-height:1.6;}
+  .callout b{color:var(--amber);font-family:var(--mono);}
+
+  .section-label{font-family:var(--mono);font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin:0 0 12px;font-weight:700;display:flex;align-items:center;gap:6px;}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;}
+  @media (max-width:520px){.cols{grid-template-columns:1fr;}}
+  .col{border-radius:16px;padding:16px;border:1px solid var(--line);background:var(--card);}
+  .col.bull{border-top:4px solid var(--teal);}
+  .col.bear{border-top:4px solid var(--brick);}
+  .col .h{display:flex;align-items:center;gap:6px;font-weight:800;font-size:14.5px;margin-bottom:12px;}
+  .col.bull .h{color:var(--teal);}
+  .col.bear .h{color:var(--brick);}
+  .item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);}
+  .item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+  .item .who{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+  .item .what{font-size:12.5px;color:var(--ink-soft);line-height:1.6;}
+
+  .footnote{margin-top:22px;padding-top:14px;border-top:1px dashed var(--line);font-size:12px;color:var(--ink-soft);line-height:1.7;display:flex;gap:8px;}
+  .footnote i{margin-top:2px;color:var(--brick);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow"><i class="ti ti-scale"></i>BULL VS BEAR</div>
+  <h1>클래리티 법안, 낙관론과 신중론 사이</h1>
+  <p class="sub">"90% 통과" 발언과 "28%" 예측시장, 왜 이렇게 다를까요?</p>
+
+  <div class="gauge-card">
+    <div class="gauge-top">
+      <div class="t">2026년 내 클래리티 법안 통과 확률<br><span style="color:var(--ink-soft);font-weight:400;">(폴리마켓 예측시장, 2026.07.19 기준 · 24~34% 변동)</span></div>
+      <div class="n">~28%</div>
+    </div>
+    <div class="bar-bg">
+      <div class="bar-fill" style="width:28%;"></div>
+      <div class="bar-marker" style="left:min(82%, calc(100% - 6px));"></div>
+      <div class="bar-marker-label" style="left:min(82%, calc(100% - 60px));">2월 연중 고점 82%</div>
+    </div>
+    <div class="gauge-foot"><span>0%</span><span>100%</span></div>
+  </div>
+
+  <div class="callout">
+    <i class="ti ti-quote"></i>
+    <div>
+      <div class="t1">2026년 4월, 브래드 갈링하우스 리플 CEO 발언</div>
+      <div class="t2">"클래리티 법안 통과 확률 <b>90%</b>" — 그러나 석 달 뒤인 지금 예측시장은 <b>20%대 후반</b>까지 하락. 트럼프 대통령은 7/13 별세한 그레이엄 상원의원을 언급하며 상원에 표결을 직접 촉구했지만, 시장의 확률은 오히려 더 떨어졌습니다.</div>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="ti ti-arrows-diff"></i>기관·애널리스트 시각 비교</div>
+  <div class="cols">
+    <div class="col bull">
+      <div class="h"><i class="ti ti-trending-up"></i>강세 시나리오</div>
+      <div class="item"><div class="who">JP모간</div><div class="what">법안 통과를 2026년 하반기 긍정적 촉매로 평가</div></div>
+      <div class="item"><div class="who">씨티</div><div class="what">법안 통과를 전제로 2026년 12월 비트코인 14만 3천 달러 조건부 목표가 제시</div></div>
+      <div class="item"><div class="who">리플 CLO 스튜어트 알데로티</div><div class="what">"반대표는 규제 공백을 방치하겠다는 뜻" — 상원 통과 강력 촉구</div></div>
+      <div class="item"><div class="who">일부 리서치 전망치</div><div class="what">2026년 XRP 전망 2.5~8달러 제시 (현재가 대비 최대 7배, 공격적 가정)</div></div>
+    </div>
+    <div class="col bear">
+      <div class="h"><i class="ti ti-trending-down"></i>신중 시나리오</div>
+      <div class="item"><div class="who">비컨 정책자문</div><div class="what">8월 휴회 전 처리 실패 시 "2026년 입법 경로 사실상 종료" 가능성 경고</div></div>
+      <div class="item"><div class="who">스티펠 브라이언 가드너</div><div class="what">"7월 말까지 상원 통과 못하면 상황 급격히 악화" 진단</div></div>
+      <div class="item"><div class="who">민주당 3인(머피·밴 홀런·머클리)</div><div class="what">윤리 조항 누락 이유로 공개 반대 선언, 60표 확보 난항</div></div>
+      <div class="item"><div class="who">갤럭시 리서치(알렉스 손)</div><div class="what">그레이엄 의원 공석·홀리·폴 반대 예상 감안 시 필요 민주당 이탈표 최대 9표로 확대 추정</div></div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <i class="ti ti-info-circle"></i>
+    <span>위 전망은 각 기관·애널리스트의 시점 기준 의견이며 투자 조언이 아닙니다. 모든 가격·확률 전망은 실현되지 않을 수 있으며, 실제 투자 판단은 최신 정보와 개인 상황을 반영해 신중히 내리시기 바랍니다.</span>
+  </div>
+</div>
+</body>
+</html>
