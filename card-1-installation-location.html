@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>히트펌프 실외기 설치 위치 체크리스트</title>
+
+<meta property="og:title" content="히트펌프 실외기 설치 위치 체크리스트" />
+<meta property="og:description" content="공기열 히트펌프 실외기, 어디에 설치해야 효율과 소음 걱정 없이 오래 쓸 수 있을까? 5가지 핵심 체크포인트와 아파트·단독주택 비교 정리" />
+<meta property="og:image" content="여기에_썸네일_이미지_URL을_입력하세요.png" />
+<meta property="og:url" content="여기에_이_카드가_삽입될_블로그_게시글_URL을_입력하세요" />
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .hp-card1-wrap {
+    width: 100%;
+    max-width: 760px;
+    margin: 32px auto;
+    background: #F5F9FB;
+    padding: 4px;
+    border-radius: 28px;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  }
+
+  .hp-card1-inner {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 24px;
+    padding: 40px 36px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 시그니처 요소: 냉→온 전이를 표현하는 그라디언트 바 */
+  .hp-thermal-bar {
+    height: 6px;
+    width: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #2389A8 0%, #6FB8C4 35%, #F0A430 70%, #E8622C 100%);
+    margin-bottom: 22px;
+  }
+
+  .hp-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2389A8;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+  .hp-eyebrow .ti { font-size: 15px; }
+
+  .hp-card1-inner h2 {
+    font-size: 25px;
+    font-weight: 800;
+    color: #0B3C5D;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .hp-card1-inner .hp-sub {
+    font-size: 14.5px;
+    color: #5B6B7C;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .hp-checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+
+  .hp-check-item {
+    display: flex;
+    gap: 13px;
+    background: #F5F9FB;
+    border: 1px solid #E9F0F3;
+    border-radius: 16px;
+    padding: 16px 16px;
+  }
+
+  .hp-check-icon {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #EAF4F8;
+    color: #0B3C5D;
+    font-size: 19px;
+  }
+
+  .hp-check-item:nth-child(2) .hp-check-icon { background: #FEF3E2; color: #B8730E; }
+  .hp-check-item:nth-child(3) .hp-check-icon { background: #EAF4F8; color: #2389A8; }
+  .hp-check-item:nth-child(4) .hp-check-icon { background: #FDEEE7; color: #E8622C; }
+  .hp-check-item:nth-child(5) .hp-check-icon { background: #E8F7F1; color: #1C9C6E; }
+
+  .hp-check-text .hp-check-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #16232E;
+    margin-bottom: 3px;
+  }
+  .hp-check-text .hp-check-desc {
+    font-size: 12.5px;
+    color: #5B6B7C;
+    line-height: 1.5;
+  }
+
+  .hp-compare-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #0B3C5D;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .hp-compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .hp-compare-col {
+    border-radius: 16px;
+    padding: 18px 18px 16px;
+    border: 1px solid #E2E8F0;
+  }
+  .hp-compare-col.apt { background: #FDEEE7; border-color: #F6DACB; }
+  .hp-compare-col.house { background: #EAF4F8; border-color: #D3E9EE; }
+
+  .hp-compare-col .hp-col-head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .hp-compare-col.apt .hp-col-head { color: #C4501F; }
+  .hp-compare-col.house .hp-col-head { color: #146680; }
+
+  .hp-compare-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .hp-compare-col li {
+    font-size: 12.8px;
+    line-height: 1.55;
+    color: #33424F;
+    padding-left: 14px;
+    position: relative;
+  }
+  .hp-compare-col li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.55;
+  }
+
+  .hp-source {
+    font-size: 11.5px;
+    color: #8494A3;
+    line-height: 1.6;
+    border-top: 1px dashed #E2E8F0;
+    padding-top: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .hp-source .ti { font-size: 13px; margin-top: 1px; flex-shrink: 0; }
+
+  @media (max-width: 560px) {
+    .hp-checklist, .hp-compare-grid { grid-template-columns: 1fr; }
+    .hp-card1-inner { padding: 28px 20px 24px; }
+    .hp-card1-inner h2 { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hp-card1-wrap">
+  <div class="hp-card1-inner">
+    <div class="hp-thermal-bar"></div>
+
+    <div class="hp-eyebrow"><i class="ti ti-map-pin"></i>INSTALLATION LOCATION</div>
+    <h2>히트펌프 실외기, 어디에 두어야 할까?</h2>
+    <p class="hp-sub">성능·소음·유지관리를 동시에 잡는 5가지 체크포인트예요. 서울시 냉방설비 실외기 설치 개선 기준을 포함해 정리했어요.</p>
+
+    <div class="hp-checklist">
+      <div class="hp-check-item">
+        <div class="hp-check-icon"><i class="ti ti-wind"></i></div>
+        <div class="hp-check-text">
+          <div class="hp-check-title">통풍이 원활한 자리</div>
+          <div class="hp-check-desc">벽·구조물로 막히지 않고 공기 순환이 잘 되는 곳</div>
+        </div>
+      </div>
+      <div class="hp-check-item">
+        <div class="hp-check-icon"><i class="ti ti-arrows-maximize"></i></div>
+        <div class="hp-check-text">
+          <div class="hp-check-title">여유 공간 30% 이상</div>
+          <div class="hp-check-desc">증설·유지보수 대비 설치 개소 면적의 30%+ 확보 권고</div>
+        </div>
+      </div>
+      <div class="hp-check-item">
+        <div class="hp-check-icon"><i class="ti ti-droplet"></i></div>
+        <div class="hp-check-text">
+          <div class="hp-check-title">배관·배수 비노출</div>
+          <div class="hp-check-desc">냉매배관·응축수는 별도 샤프트로 외부 노출 금지</div>
+        </div>
+      </div>
+      <div class="hp-check-item">
+        <div class="hp-check-icon"><i class="ti ti-moon-stars"></i></div>
+        <div class="hp-check-text">
+          <div class="hp-check-title">침실과는 이격</div>
+          <div class="hp-check-desc">제상운전 소음 고려, 침실 창가·경계선과 거리 두기</div>
+        </div>
+      </div>
+      <div class="hp-check-item">
+        <div class="hp-check-icon"><i class="ti ti-tool"></i></div>
+        <div class="hp-check-text">
+          <div class="hp-check-title">점검 접근성</div>
+          <div class="hp-check-desc">정기 점검 시 기술자가 쉽게 접근 가능한 위치</div>
+        </div>
+      </div>
+      <div class="hp-check-item">
+        <div class="hp-check-icon"><i class="ti ti-eye-off"></i></div>
+        <div class="hp-check-text">
+          <div class="hp-check-title">옥상 설치 시 차폐</div>
+          <div class="hp-check-desc">도로변에서 안 보이는 위치 또는 차폐시설 권장</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hp-compare-title"><i class="ti ti-building-community"></i> 아파트 vs 단독주택, 뭐가 다를까?</div>
+    <div class="hp-compare-grid">
+      <div class="hp-compare-col apt">
+        <div class="hp-col-head"><i class="ti ti-building-skyscraper"></i> 아파트 · 공동주택</div>
+        <ul>
+          <li>발코니는 협소 + 인접 세대 실외기 밀집 → 통풍 저하 우려</li>
+          <li>관리사무소 · 입주자대표회의 사전 승인 필요</li>
+          <li>배관을 벽·천장으로 통과시켜야 해 시공 난도↑</li>
+          <li>소음 관련 이웃 민원 가능성 미리 검토</li>
+        </ul>
+      </div>
+      <div class="hp-compare-col house">
+        <div class="hp-col-head"><i class="ti ti-home"></i> 단독주택</div>
+        <ul>
+          <li>실외기 배치 자유도가 상대적으로 높음</li>
+          <li>지열 방식 고려 시 지중 매설용 부지 필요</li>
+          <li>부지가 좁다면 공기열 방식이 현실적 대안</li>
+          <li>별도 승인 절차 없이 진행 가능한 경우가 많음</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hp-source"><i class="ti ti-file-text"></i> 출처: 서울특별시 냉방설비 실외기 설치 방법 개선 기준, 업계 설치 가이드라인 종합. 정확한 설치 기준은 시공 전 지자체·관리사무소에 재확인하세요.</div>
+  </div>
+</div>
+
+</body>
+</html>
