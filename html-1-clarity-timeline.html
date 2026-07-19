@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>클래리티 법안 입법 타임라인 | CLARITY Act Timeline</title>
+
+<meta property="og:title" content="클래리티 법안 입법 타임라인 — 하원 통과부터 오늘까지" />
+<meta property="og:description" content="미국 디지털자산시장 명확화법(CLARITY Act)이 하원 통과 이후 상원에서 어디까지 왔는지 한눈에 정리한 타임라인입니다." />
+<meta property="og:image" content="https://example.com/images/clarity-act-timeline-thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/clarity-act-xrp" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+
+<style>
+  :root{
+    --paper:#F5F6F8;
+    --card:#FFFFFF;
+    --line:#E3E6EB;
+    --ink:#131B3A;
+    --ink-soft:#5B6472;
+    --amber:#B8862E;
+    --amber-soft:#F3E7CF;
+    --teal:#0E7C7B;
+    --teal-soft:#DCF0EF;
+    --brick:#B7472A;
+    --brick-soft:#F7E3DD;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    font-family:'Pretendard', -apple-system, sans-serif;
+    color:var(--ink);
+    padding:28px 14px 40px;
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+
+  .eyebrow{
+    display:flex;align-items:center;gap:8px;
+    font-family:var(--mono);
+    font-size:12px;letter-spacing:.08em;
+    color:var(--amber);
+    text-transform:uppercase;
+    margin-bottom:10px;
+    font-weight:600;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 1.8s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.25;}}
+
+  h1{
+    font-size:24px;line-height:1.35;margin:0 0 6px;
+    letter-spacing:-0.01em;
+    font-weight:800;
+  }
+  .sub{color:var(--ink-soft);font-size:14.5px;margin:0 0 26px;line-height:1.6;}
+
+  .status-bar{
+    display:flex;justify-content:space-between;align-items:center;
+    background:var(--ink);color:#fff;
+    border-radius:14px;
+    padding:14px 18px;
+    margin-bottom:30px;
+    gap:12px;
+  }
+  .status-bar .label{font-size:12px;color:#AEB6CC;font-family:var(--mono);}
+  .status-bar .value{font-size:15px;font-weight:700;margin-top:2px;}
+  .status-bar .pct{
+    font-family:var(--mono);font-size:22px;font-weight:700;color:var(--amber);
+    text-align:right;
+  }
+  .status-bar .pct span{display:block;font-size:11px;color:#AEB6CC;font-weight:400;font-family:'Pretendard';margin-top:2px;}
+
+  /* Transit line timeline */
+  .track{position:relative;padding-left:34px;}
+  .track::before{
+    content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;
+    background:linear-gradient(to bottom, var(--amber) 0%, var(--amber) 72%, var(--line) 72%, var(--line) 100%);
+    border-radius:3px;
+  }
+  .stop{position:relative;padding-bottom:26px;}
+  .stop:last-child{padding-bottom:0;}
+  .stop::before{
+    content:"";position:absolute;left:-34px;top:2px;
+    width:20px;height:20px;border-radius:50%;
+    background:var(--card);border:3px solid var(--amber);
+  }
+  .stop.pending::before{border-color:var(--line);background:var(--paper);}
+  .stop.now::before{
+    border-color:var(--brick);
+    box-shadow:0 0 0 5px var(--brick-soft);
+  }
+  .stop .date{
+    font-family:var(--mono);font-size:12px;color:var(--amber);font-weight:700;
+    margin-bottom:3px;
+  }
+  .stop.pending .date{color:var(--ink-soft);}
+  .stop.now .date{color:var(--brick);}
+  .stop h3{font-size:15.5px;margin:0 0 4px;font-weight:700;}
+  .stop p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
+  .tag{
+    display:inline-block;font-size:11px;font-family:var(--mono);
+    padding:2px 8px;border-radius:6px;margin-top:6px;font-weight:600;
+  }
+  .tag.pass{background:var(--teal-soft);color:var(--teal);}
+  .tag.watch{background:var(--brick-soft);color:var(--brick);}
+  .tag.wait{background:var(--amber-soft);color:var(--amber);}
+
+  .footnote{
+    margin-top:28px;padding-top:16px;border-top:1px dashed var(--line);
+    font-size:12px;color:var(--ink-soft);line-height:1.7;
+    display:flex;gap:8px;
+  }
+  .footnote i{margin-top:2px;color:var(--amber);}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>CLARITY ACT · LIVE STATUS</div>
+    <h1>클래리티 법안, 상원 문턱에서 무슨 일이?</h1>
+    <p class="sub">H.R. 3633 · 디지털자산시장 명확화법 입법 타임라인 (2026.07.19 기준)</p>
+
+    <div class="status-bar">
+      <div>
+        <div class="label">현재 단계</div>
+        <div class="value">상원 본회의 표결 대기 중</div>
+      </div>
+      <div class="pct">20%대 후반<span>2026년 내 통과 확률<br>(폴리마켓, 24~34% 변동)</span></div>
+    </div>
+
+    <div class="track">
+      <div class="stop">
+        <div class="date">2025.07.17</div>
+        <h3>하원 통과</h3>
+        <p>294 대 134, 민주당 70명 이상 이탈표로 초당적 통과</p>
+        <span class="tag pass">완료</span>
+      </div>
+      <div class="stop">
+        <div class="date">2025.07.18</div>
+        <h3>지니어스법(GENIUS Act) 서명</h3>
+        <p>스테이블코인 규제 법안, 클래리티법의 짝으로 먼저 발효</p>
+        <span class="tag pass">완료</span>
+      </div>
+      <div class="stop">
+        <div class="date">2026.05.14</div>
+        <h3>상원 은행위원회 통과</h3>
+        <p>15 대 9, 민주당 2명(갈레고·앨소브룩스) 찬성 이탈</p>
+        <span class="tag pass">완료</span>
+      </div>
+      <div class="stop">
+        <div class="date">2026.06.01</div>
+        <h3>본회의 캘린더 등재</h3>
+        <p>캘린더 넘버 423 — 추가 위원회 절차 없이 표결 가능 상태</p>
+        <span class="tag pass">완료</span>
+      </div>
+      <div class="stop">
+        <div class="date">2026.07.04</div>
+        <h3>서명식 목표일 불발</h3>
+        <p>백악관이 제시했던 목표 시점, 표결 자체가 열리지 않아 무산</p>
+        <span class="tag watch">지연</span>
+      </div>
+      <div class="stop">
+        <div class="date">2026.07.11~12</div>
+        <h3>린지 그레이엄 상원의원 급서 (71세)</h3>
+        <p>법안을 주도해 온 공화당 중진, 우크라이나 방문 직후 급성 대동맥박리로 별세 — 가뜩이나 빠듯한 공화당 과반 구도에 추가 변수</p>
+        <span class="tag watch">변수</span>
+      </div>
+      <div class="stop">
+        <div class="date">2026.07.13~14</div>
+        <h3>트럼프 압박 + 윤리 조항 누락 논란</h3>
+        <p>트럼프 대통령 "그레이엄을 기려서라도 통과시켜 달라" 촉구 / 같은 주 절충안에서 민주당 요구 윤리 조항 빠지며 머피·밴 홀런·머클리 공개 반대</p>
+        <span class="tag watch">급락</span>
+      </div>
+      <div class="stop now">
+        <div class="date">2026.07.19 · 오늘</div>
+        <h3>60표 확보 공방 진행 중</h3>
+        <p>예측시장 확률 20%대까지 급락한 가운데, 원내대표는 이번 주(7/20 전후) 표결 추진 시사</p>
+        <span class="tag watch">진행 중</span>
+      </div>
+      <div class="stop pending">
+        <div class="date">~2026.08.07</div>
+        <h3>상원 여름 휴회</h3>
+        <p>이 시점 전 처리 여부가 연내 통과의 마지막 분수령으로 꼽힘</p>
+        <span class="tag wait">예정</span>
+      </div>
+    </div>
+
+    <div class="footnote">
+      <i class="ti ti-info-circle"></i>
+      <span>확률·일정은 폴리마켓·갤럭시리서치 등 예측시장·리서치 집계 기준이며 유동적으로 변동합니다. 게시 전 최신 상황을 다시 확인하세요.</span>
+    </div>
+  </div>
+</body>
+</html>
