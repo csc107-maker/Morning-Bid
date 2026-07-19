@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>히트펌프 설치 공사 타임라인</title>
+
+<meta property="og:title" content="히트펌프 설치 공사, 절차와 기간 한눈에 보기" />
+<meta property="og:description" content="현장 실사부터 시운전까지, 히트펌프 설치 공사가 진행되는 5단계 흐름과 대략적인 소요 기간을 정리했어요." />
+<meta property="og:image" content="여기에_썸네일_이미지_URL을_입력하세요.png" />
+<meta property="og:url" content="여기에_이_카드가_삽입될_블로그_게시글_URL을_입력하세요" />
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .hp2-wrap {
+    width: 100%;
+    max-width: 760px;
+    margin: 32px auto;
+    background: #F5F9FB;
+    padding: 4px;
+    border-radius: 28px;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+  }
+
+  .hp2-inner {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 24px;
+    padding: 40px 36px 30px;
+  }
+
+  .hp2-thermal-bar {
+    height: 6px;
+    width: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #2389A8 0%, #6FB8C4 35%, #F0A430 70%, #E8622C 100%);
+    margin-bottom: 22px;
+  }
+
+  .hp2-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #E8622C;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+
+  .hp2-inner h2 {
+    font-size: 25px;
+    font-weight: 800;
+    color: #0B3C5D;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .hp2-inner .hp2-sub {
+    font-size: 14.5px;
+    color: #5B6B7C;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .hp2-total-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #FDEEE7;
+    color: #C4501F;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+
+  .hp2-timeline {
+    position: relative;
+    padding-left: 46px;
+    margin-bottom: 26px;
+  }
+
+  .hp2-timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(180deg, #2389A8 0%, #F0A430 55%, #E8622C 100%);
+    opacity: 0.35;
+  }
+
+  .hp2-step {
+    position: relative;
+    padding-bottom: 26px;
+  }
+  .hp2-step:last-child { padding-bottom: 0; }
+
+  .hp2-step-num {
+    position: absolute;
+    left: -46px;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 2px solid #E8622C;
+    color: #E8622C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ui-monospace, 'SF Mono', Consolas, monospace;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .hp2-step:nth-child(1) .hp2-step-num { border-color: #2389A8; color: #2389A8; }
+  .hp2-step:nth-child(2) .hp2-step-num { border-color: #4EA6B8; color: #4EA6B8; }
+  .hp2-step:nth-child(3) .hp2-step-num { border-color: #F0A430; color: #C4790B; }
+  .hp2-step:nth-child(4) .hp2-step-num { border-color: #E8622C; color: #E8622C; }
+  .hp2-step:nth-child(5) .hp2-step-num { border-color: #1C9C6E; color: #1C9C6E; }
+
+  .hp2-step-body {
+    background: #F5F9FB;
+    border: 1px solid #E9F0F3;
+    border-radius: 16px;
+    padding: 16px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .hp2-step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #16232E;
+    margin-bottom: 4px;
+  }
+  .hp2-step-desc {
+    font-size: 12.8px;
+    color: #5B6B7C;
+    line-height: 1.55;
+    max-width: 430px;
+  }
+
+  .hp2-step-dur {
+    flex-shrink: 0;
+    font-family: ui-monospace, 'SF Mono', Consolas, monospace;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: #0B3C5D;
+    padding: 6px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .hp2-note {
+    background: #FEF3E2;
+    border: 1px solid #F6E3BE;
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 12.5px;
+    color: #7A5312;
+    line-height: 1.6;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .hp2-note .ti { flex-shrink: 0; margin-top: 1px; font-size: 15px; }
+
+  .hp2-source {
+    font-size: 11.5px;
+    color: #8494A3;
+    line-height: 1.6;
+    border-top: 1px dashed #E2E8F0;
+    padding-top: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .hp2-source .ti { font-size: 13px; margin-top: 1px; flex-shrink: 0; }
+
+  @media (max-width: 560px) {
+    .hp2-inner { padding: 28px 18px 22px; }
+    .hp2-inner h2 { font-size: 20px; }
+    .hp2-step-body { flex-direction: column; }
+    .hp2-timeline { padding-left: 40px; }
+    .hp2-step-num { left: -40px; width: 32px; height: 32px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hp2-wrap">
+  <div class="hp2-inner">
+    <div class="hp2-thermal-bar"></div>
+
+    <div class="hp2-eyebrow"><i class="ti ti-clock-hour-4"></i>INSTALLATION TIMELINE</div>
+    <h2>히트펌프 설치, 이렇게 진행돼요</h2>
+    <p class="hp2-sub">한국에너지공단 공기열 히트펌프 시공기준(2026.6)을 참고한 일반적인 진행 흐름이에요.</p>
+    <div class="hp2-total-badge"><i class="ti ti-calendar-time"></i> 실제 시공 1~3일 · 보조금 신청 포함 시 전체 수 주 소요</div>
+
+    <div class="hp2-timeline">
+      <div class="hp2-step">
+        <div class="hp2-step-num">1</div>
+        <div class="hp2-step-body">
+          <div>
+            <div class="hp2-step-title">현장 실사 · 견적</div>
+            <div class="hp2-step-desc">난방 부하, 설치 공간, 배관 동선을 확인하고 용량을 산정해요</div>
+          </div>
+          <div class="hp2-step-dur">반나절~1일</div>
+        </div>
+      </div>
+      <div class="hp2-step">
+        <div class="hp2-step-num">2</div>
+        <div class="hp2-step-body">
+          <div>
+            <div class="hp2-step-title">보조금 신청 · 승인 대기</div>
+            <div class="hp2-step-desc">해당 시 지자체·에너지공단에 신청 후 승인 통지를 기다려요</div>
+          </div>
+          <div class="hp2-step-dur">수일~수주</div>
+        </div>
+      </div>
+      <div class="hp2-step">
+        <div class="hp2-step-num">3</div>
+        <div class="hp2-step-body">
+          <div>
+            <div class="hp2-step-title">기기 발주</div>
+            <div class="hp2-step-desc">확정된 모델과 용량으로 제품을 주문하고 입고를 기다려요</div>
+          </div>
+          <div class="hp2-step-dur">수일~2주</div>
+        </div>
+      </div>
+      <div class="hp2-step">
+        <div class="hp2-step-num">4</div>
+        <div class="hp2-step-body">
+          <div>
+            <div class="hp2-step-title">실외기·배관·전기공사</div>
+            <div class="hp2-step-desc">실외기 설치, 냉매배관, 보온공사, 전기 연결까지 진행해요</div>
+          </div>
+          <div class="hp2-step-dur">1~3일</div>
+        </div>
+      </div>
+      <div class="hp2-step">
+        <div class="hp2-step-num">5</div>
+        <div class="hp2-step-body">
+          <div>
+            <div class="hp2-step-title">시운전 · 운전 교육</div>
+            <div class="hp2-step-desc">가동 상태를 점검하고 모니터링·운전 방법을 안내받아요</div>
+          </div>
+          <div class="hp2-step-dur">반나절</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hp2-note"><i class="ti ti-alert-circle"></i> 보조금 승인 통지서를 받은 뒤에는 정해진 기한(사업별 상이, 통상 30일 이내) 안에 시공을 마쳐야 하는 경우가 많아요. 신청 전 공고문의 기한을 꼭 확인하세요.</div>
+
+    <div class="hp2-source"><i class="ti ti-file-text"></i> 출처: 한국에너지공단 공기열 히트펌프 시공기준(2026.6 지자체 설명회), 정부 지원사업 공고 종합. 현장 조건에 따라 기간은 달라질 수 있습니다.</div>
+  </div>
+</div>
+
+</body>
+</html>
