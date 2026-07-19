@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SWIFT vs XRP 기반 국경 간 결제 비교</title>
+
+<meta property="og:title" content="SWIFT vs XRP 기반 국경 간 결제(ODL) 비교" />
+<meta property="og:description" content="전통 SWIFT 송금과 리플의 XRP 기반 온디맨드 유동성(ODL) 결제 방식을 결제 속도, 비용구조, 가용시간 기준으로 비교했습니다." />
+<meta property="og:image" content="https://example.com/images/swift-vs-odl-thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/clarity-act-xrp" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+
+<style>
+  :root{
+    --paper:#F5F6F8; --card:#FFFFFF; --line:#E3E6EB;
+    --ink:#131B3A; --ink-soft:#5B6472;
+    --amber:#B8862E; --amber-soft:#F3E7CF;
+    --teal:#0E7C7B; --teal-soft:#DCF0EF;
+    --brick:#B7472A; --brick-soft:#F7E3DD;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);padding:28px 14px 40px;}
+  .wrap{max-width:720px;margin:0 auto;}
+  .eyebrow{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--amber);text-transform:uppercase;margin-bottom:10px;font-weight:600;}
+  h1{font-size:22px;line-height:1.35;margin:0 0 6px;font-weight:800;letter-spacing:-0.01em;}
+  .sub{color:var(--ink-soft);font-size:14px;margin:0 0 24px;line-height:1.6;}
+
+  /* stat strip */
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:28px;}
+  .strip .c{background:var(--ink);border-radius:12px;padding:12px 8px;text-align:center;color:#fff;}
+  .strip .c .v{font-family:var(--mono);font-weight:800;font-size:17px;color:var(--amber);}
+  .strip .c .l{font-size:10px;color:#AEB6CC;margin-top:3px;line-height:1.4;}
+
+  /* comparison table */
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-bottom:28px;}
+  thead th{
+    font-size:12.5px;padding:12px 10px;text-align:left;color:var(--ink-soft);
+    font-weight:700;border-bottom:2px solid var(--line);background:#FAFBFC;
+  }
+  thead th.hi{color:var(--teal);}
+  tbody td{padding:13px 10px;font-size:13px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55;}
+  tbody tr:last-child td{border-bottom:none;}
+  td.label{font-weight:700;color:var(--ink);font-size:12.5px;width:26%;}
+  td.hi{background:var(--teal-soft);color:#0A4F4E;font-weight:600;}
+  .ic{margin-right:4px;}
+
+  .section-label{font-family:var(--mono);font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin:0 0 12px;font-weight:700;display:flex;align-items:center;gap:6px;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+  .chip{
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:7px 13px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:6px;
+  }
+  .chip i{color:var(--amber);font-size:14px;}
+
+  .caveat{
+    display:flex;gap:10px;background:var(--amber-soft);border:1px solid #E4CFA0;
+    border-radius:12px;padding:13px 15px;font-size:12.5px;color:#6b5220;line-height:1.6;margin-top:18px;
+  }
+  .caveat i{color:var(--amber);margin-top:2px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow"><i class="ti ti-transfer"></i>SETTLEMENT INFRASTRUCTURE</div>
+  <h1>기존 SWIFT 송금 vs XRP 기반 결제</h1>
+  <p class="sub">노스트로 계좌 없이 몇 초 만에 — 정말 그렇게 다를까요?</p>
+
+  <div class="strip">
+    <div class="c"><div class="v">60+</div><div class="l">지원 시장</div></div>
+    <div class="c"><div class="v">51</div><div class="l">실시간 결제 레일</div></div>
+    <div class="c"><div class="v">300+</div><div class="l">연결 금융기관</div></div>
+    <div class="c"><div class="v">$15억+</div><div class="l">월간 XRP 회랑 처리액</div></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>비교 항목</th><th>전통 SWIFT 송금</th><th class="hi">XRP 기반 Ripple Payments</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label">결제 소요시간</td>
+        <td>평균 1~5영업일</td>
+        <td class="hi"><i class="ti ti-bolt ic"></i>약 3~5초</td>
+      </tr>
+      <tr>
+        <td class="label">사전 자금 예치</td>
+        <td>해외 노스트로 계좌에 외화 선(先)예치 필요</td>
+        <td class="hi"><i class="ti ti-check ic"></i>불필요 (XRP가 브리지 자산 역할)</td>
+      </tr>
+      <tr>
+        <td class="label">가용 시간</td>
+        <td>은행 영업일·영업시간 제한</td>
+        <td class="hi">24시간 · 365일</td>
+      </tr>
+      <tr>
+        <td class="label">비용 구조</td>
+        <td>중개은행 다단계 수수료 + 묶인 자본 기회비용</td>
+        <td class="hi">유동성 비용 최대 60%↓ (아지모 파트너십 기준·총수수료 아닌 유동성 비용 한정)</td>
+      </tr>
+      <tr>
+        <td class="label">대표 활용 구간</td>
+        <td>전 세계 은행 간 표준망 (범용)</td>
+        <td class="hi">동남아·중남미·중동 등 특정 회랑 중심</td>
+      </tr>
+      <tr>
+        <td class="label">전체 시장 대비 비중</td>
+        <td>연 150조 달러 시장의 사실상 표준</td>
+        <td class="hi">특정 회랑에 국한, 아직 초기 단계</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-label"><i class="ti ti-building-bridge-2"></i>실사용 파트너 네트워크</div>
+  <div class="chips">
+    <div class="chip"><i class="ti ti-map-pin"></i>트랑글로 (동남아)</div>
+    <div class="chip"><i class="ti ti-map-pin"></i>SBI레밋 (일본)</div>
+    <div class="chip"><i class="ti ti-map-pin"></i>아지모 (유럽)</div>
+    <div class="chip"><i class="ti ti-map-pin"></i>비트소 (멕시코)</div>
+    <div class="chip"><i class="ti ti-map-pin"></i>코인스닷피에이치 (필리핀)</div>
+    <div class="chip"><i class="ti ti-map-pin"></i>니움 (싱가포르)</div>
+    <div class="chip"><i class="ti ti-building"></i>산탄데르 · PNC 등 300+</div>
+  </div>
+
+  <div class="caveat">
+    <i class="ti ti-scale"></i>
+    <span>전 세계 국경 간 결제 시장은 연간 150조 달러 규모로, XRP 기반 결제가 처리하는 금액은 아직 그 일부에 불과합니다. "유동성 비용 60% 절감"은 총 수수료가 아니라 은행이 묶어둬야 하는 운전자본 비용에 한정된 수치라는 점도 함께 참고하세요.</span>
+  </div>
+</div>
+</body>
+</html>
