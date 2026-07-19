@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리플-SEC 소송 팩트체크 & XRP 시세 스냅샷</title>
+
+<meta property="og:title" content="리플-SEC 소송 팩트체크 & XRP 시세 스냅샷" />
+<meta property="og:description" content="리플과 SEC 소송의 최종 벌금은 얼마였을까? 정확한 타임라인과 2026년 7월 기준 XRP 실시간 시세 데이터를 함께 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/xrp-lawsuit-price-thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/clarity-act-xrp" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+
+<style>
+  :root{
+    --paper:#F5F6F8;
+    --card:#FFFFFF;
+    --line:#E3E6EB;
+    --ink:#131B3A;
+    --ink-soft:#5B6472;
+    --amber:#B8862E;
+    --amber-soft:#F3E7CF;
+    --teal:#0E7C7B;
+    --teal-soft:#DCF0EF;
+    --brick:#B7472A;
+    --brick-soft:#F7E3DD;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);font-family:'Pretendard',-apple-system,sans-serif;color:var(--ink);padding:28px 14px 40px;}
+  .wrap{max-width:720px;margin:0 auto;}
+  .eyebrow{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--teal);text-transform:uppercase;margin-bottom:10px;font-weight:600;}
+  h1{font-size:22px;line-height:1.35;margin:0 0 6px;font-weight:800;letter-spacing:-0.01em;}
+  .sub{color:var(--ink-soft);font-size:14px;margin:0 0 22px;line-height:1.6;}
+
+  .myth-card{
+    background:var(--brick-soft);border:1px solid #EFC9BC;border-radius:14px;
+    padding:16px 18px;margin-bottom:26px;display:flex;gap:12px;
+  }
+  .myth-card i{color:var(--brick);font-size:20px;margin-top:2px;}
+  .myth-card .t{font-weight:700;font-size:14.5px;margin-bottom:4px;}
+  .myth-card .x{color:var(--brick);text-decoration:line-through;font-family:var(--mono);}
+  .myth-card .o{color:var(--teal);font-family:var(--mono);font-weight:700;}
+  .myth-card p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.6;}
+
+  .section-label{
+    font-family:var(--mono);font-size:12px;color:var(--ink-soft);
+    text-transform:uppercase;letter-spacing:.06em;margin:0 0 12px;font-weight:700;
+    display:flex;align-items:center;gap:6px;
+  }
+
+  .steps{display:flex;flex-direction:column;gap:0;margin-bottom:32px;}
+  .step{display:grid;grid-template-columns:70px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);}
+  .step:last-child{border-bottom:none;}
+  .step .yr{font-family:var(--mono);font-weight:700;color:var(--ink);font-size:14px;}
+  .step .yr small{display:block;font-weight:400;color:var(--ink-soft);font-size:11px;}
+  .step h4{margin:0 0 3px;font-size:14.5px;font-weight:700;}
+  .step p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.6;}
+  .step.final{background:var(--teal-soft);margin:0 -14px;padding:14px;border-radius:10px;border-bottom:none;}
+  .step.final .yr{color:var(--teal);}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px;}
+  .stat{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;
+  }
+  .stat .k{font-size:11.5px;color:var(--ink-soft);margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+  .stat .v{font-family:var(--mono);font-size:19px;font-weight:700;color:var(--ink);}
+  .stat .v.down{color:var(--brick);}
+  .stat .v.up{color:var(--teal);}
+  .stat .d{font-size:11px;color:var(--ink-soft);margin-top:3px;}
+
+  .hero-price{
+    background:var(--ink);color:#fff;border-radius:16px;padding:20px;margin-bottom:14px;
+    display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;
+  }
+  .hero-price .left .l1{font-size:12px;color:#AEB6CC;font-family:var(--mono);margin-bottom:4px;}
+  .hero-price .left .l2{font-size:34px;font-weight:800;font-family:var(--mono);}
+  .hero-price .right{text-align:right;}
+  .hero-price .right .chg{font-family:var(--mono);font-size:14px;color:#F0A98E;font-weight:700;}
+  .hero-price .right .lbl{font-size:11px;color:#AEB6CC;margin-top:2px;}
+
+  .footnote{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:12px;color:var(--ink-soft);line-height:1.7;display:flex;gap:8px;}
+  .footnote i{margin-top:2px;color:var(--teal);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow"><i class="ti ti-gavel"></i>FACT CHECK</div>
+  <h1>리플-SEC 소송, 벌금 정확히 얼마였을까?</h1>
+  <p class="sub">"5,000만 달러 합의"는 반은 맞고 반은 틀린 이야기입니다</p>
+
+  <div class="myth-card">
+    <i class="ti ti-alert-triangle"></i>
+    <div>
+      <div class="t">흔한 오해 <span class="x">$50,000,000</span> → 정확한 결론 <span class="o">$125,000,000</span></div>
+      <p>2025년 5월 벌금을 5,000만 달러로 낮추는 합의안이 나왔지만, 법원이 이를 기각했습니다. 최종적으로는 2024년 8월에 확정된 1억 2,500만 달러 벌금이 그대로 유지된 채 소송이 종결됐습니다.</p>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="ti ti-timeline-event"></i>소송 핵심 타임라인</div>
+  <div class="steps">
+    <div class="step">
+      <div class="yr">2020<small>12월</small></div>
+      <div><h4>SEC, 리플 제소</h4><p>미등록 증권 판매 혐의, 약 13억 달러 규모 주장</p></div>
+    </div>
+    <div class="step">
+      <div class="yr">2023<small>7월</small></div>
+      <div><h4>토레스 판사 1차 판결</h4><p>거래소 판매는 증권 아님 / 기관 직접판매는 증권법 위반</p></div>
+    </div>
+    <div class="step">
+      <div class="yr">2024<small>8월</small></div>
+      <div><h4>벌금 1.25억 달러 확정</h4><p>기관 판매 영구 금지 명령 함께 부과, 양측 항소 제기</p></div>
+    </div>
+    <div class="step">
+      <div class="yr">2025<small>5월</small></div>
+      <div><h4>5천만 달러 감액 합의(제출)</h4><p>양측 합의로 법원에 제출, 아직 승인 전 단계</p></div>
+    </div>
+    <div class="step">
+      <div class="yr">2025<small>6월</small></div>
+      <div><h4>법원, 합의안 기각</h4><p>당사자 합의로 최종판결을 뒤집을 수 없다고 판단</p></div>
+    </div>
+    <div class="step final">
+      <div class="yr">2025<small>8월</small></div>
+      <div><h4>양측 항소 취하 → 소송 종결</h4><p>1.25억 달러 벌금 원안 그대로 최종 확정, 사건 공식 종결</p></div>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="ti ti-chart-candle"></i>XRP 실시간 시세 스냅샷 (2026.07.19 기준)</div>
+
+  <div class="hero-price">
+    <div class="left">
+      <div class="l1">XRP / USD</div>
+      <div class="l2">$1.09</div>
+    </div>
+    <div class="right">
+      <div class="chg">▼ 7일 -2.0%</div>
+      <div class="lbl">주요 거래소·데이터 플랫폼 평균</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="stat">
+      <div class="k"><i class="ti ti-trophy"></i>역대 최고가(ATH)</div>
+      <div class="v">$3.84</div>
+      <div class="d">2018년 1월 기록</div>
+    </div>
+    <div class="stat">
+      <div class="k"><i class="ti ti-arrow-up-right"></i>2025 사이클 고점</div>
+      <div class="v">$3.66</div>
+      <div class="d">소송 종결 직후 2025.07</div>
+    </div>
+    <div class="stat">
+      <div class="k"><i class="ti ti-calendar-stats"></i>최근 12개월 변동률</div>
+      <div class="v down">-68%</div>
+      <div class="d">고점 대비 큰 폭 조정</div>
+    </div>
+    <div class="stat">
+      <div class="k"><i class="ti ti-building-bank"></i>시가총액</div>
+      <div class="v">$680억</div>
+      <div class="d">유통량 약 624.7억 개 기준</div>
+    </div>
+    <div class="stat">
+      <div class="k"><i class="ti ti-coin"></i>현물 ETF 누적 순유입</div>
+      <div class="v up">$10억+</div>
+      <div class="d">2025.11 상장 이후 누적</div>
+    </div>
+    <div class="stat">
+      <div class="k"><i class="ti ti-world"></i>유통량 비중</div>
+      <div class="v">62%</div>
+      <div class="d">최대발행량 1,000억 개 중</div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <i class="ti ti-info-circle"></i>
+    <span>시세는 코인마켓캡·코인베이스·인베스팅닷컴·코인게코 등 복수 소스 교차 확인 기준이며, 실시간으로 변동합니다. 투자 판단 근거로 활용 시 반드시 실시간 시세를 별도 확인하세요.</span>
+  </div>
+</div>
+</body>
+</html>
