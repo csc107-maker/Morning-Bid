@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026.07.21 미국·한국 증시 마감 대시보드</title>
+
+<meta property="og:title" content="미국 증시 흔들릴 때, 한국 반도체는 웃었다 - 2026.07.21 마켓 대시보드" />
+<meta property="og:description" content="다우 -307p·나스닥 보합 마감 후, 코스피는 사이드카 다음날 반도체 반등으로 응답했다. 원달러 환율과 한국은행 금리까지 한눈에 정리." />
+<meta property="og:image" content="여기에_썸네일_이미지_URL을_입력하세요.png" />
+<meta property="og:url" content="여기에_이_포스트의_실제_URL을_입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+
+<style>
+  .mkd-wrap * { box-sizing: border-box; }
+  .mkd-wrap {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    max-width: 720px;
+    margin: 28px auto;
+    background: #FFFFFF;
+    border: 1px solid #E7EAF3;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(20, 30, 70, 0.06);
+    color: #1A2340;
+  }
+  .mkd-head {
+    background: linear-gradient(120deg, #12193A 0%, #1B2F63 100%);
+    padding: 22px 24px;
+    color: #FFFFFF;
+  }
+  .mkd-head-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(232,183,91,0.55);
+    color: #F0C776;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .mkd-head h1 {
+    margin: 0;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+  .mkd-head p {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: #B7C0DE;
+  }
+  .mkd-section-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #6B7488;
+    padding: 18px 24px 8px;
+  }
+  .mkd-section-label i { color: #16224B; font-size: 16px; }
+  .mkd-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 0 24px;
+  }
+  .mkd-grid.two { grid-template-columns: repeat(2, 1fr); }
+  .mkd-card {
+    background: #F7F8FC;
+    border: 1px solid #ECEEF6;
+    border-radius: 12px;
+    padding: 13px 12px;
+  }
+  .mkd-card .idx-name { font-size: 12px; color: #6B7488; font-weight: 600; margin-bottom: 4px; }
+  .mkd-card .idx-val { font-size: 20px; font-weight: 800; color: #131C33; letter-spacing: -0.3px; }
+  .mkd-card .idx-chg { font-size: 13px; font-weight: 700; margin-top: 3px; display: flex; align-items: center; gap: 3px; }
+  .up { color: #D6293F; }
+  .down { color: #2563EB; }
+  .mkd-divider { height: 1px; background: #EEF0F7; margin: 18px 24px 0; }
+
+  .driver-row { padding: 10px 24px 6px; display: flex; flex-direction: column; gap: 8px; }
+  .driver-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: #FBFAF6; border: 1px solid #F0E8D2; border-radius: 10px; padding: 10px 12px;
+  }
+  .driver-item i { color: #C99A3D; font-size: 17px; margin-top: 1px; }
+  .driver-item span { font-size: 13px; line-height: 1.5; color: #3A4260; }
+  .driver-item b { color: #16224B; }
+
+  .fx-box {
+    margin: 14px 24px 0;
+    background: #F0F4FF;
+    border: 1px solid #DCE5FF;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .fx-box .fx-item { }
+  .fx-box .fx-label { font-size: 11.5px; color: #4C5A8C; font-weight: 700; margin-bottom: 2px; }
+  .fx-box .fx-val { font-size: 17px; font-weight: 800; color: #16224B; }
+
+  .mkd-foot {
+    padding: 16px 24px 20px;
+    font-size: 11.5px;
+    color: #97A0B5;
+    line-height: 1.6;
+    border-top: 1px solid #F0F1F7;
+    margin-top: 18px;
+  }
+  .mkd-foot b { color: #6B7488; }
+
+  @media (max-width: 480px) {
+    .mkd-grid { grid-template-columns: repeat(2, 1fr); }
+    .mkd-head h1 { font-size: 18px; }
+    .mkd-card .idx-val { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mkd-wrap">
+  <div class="mkd-head">
+    <span class="mkd-head-eyebrow"><i class="ti ti-chart-candle"></i>MARKET SNAPSHOT</span>
+    <h1>미국 증시(7/20 마감) → 한국 증시(7/21 오전) 흐름</h1>
+    <p>이란발 지정학 리스크 속 미국 3대 지수 소폭 조정, 코스피는 전일 급락 이후 반도체 중심 반등 시도</p>
+  </div>
+
+  <div class="mkd-section-label"><i class="ti ti-flag-usa"></i>미국 3대 지수 (7/20 종가)</div>
+  <div class="mkd-grid">
+    <div class="mkd-card">
+      <div class="idx-name">다우존스</div>
+      <div class="idx-val">51,839.26</div>
+      <div class="idx-chg down"><i class="ti ti-arrow-down-right"></i>-307.16 (-0.59%)</div>
+    </div>
+    <div class="mkd-card">
+      <div class="idx-name">S&amp;P 500</div>
+      <div class="idx-val">7,443.28</div>
+      <div class="idx-chg down"><i class="ti ti-arrow-down-right"></i>-0.19%</div>
+    </div>
+    <div class="mkd-card">
+      <div class="idx-name">나스닥종합</div>
+      <div class="idx-val">25,508.07</div>
+      <div class="idx-chg down"><i class="ti ti-arrow-down-right"></i>-0.05%</div>
+    </div>
+  </div>
+
+  <div class="mkd-section-label" style="margin-top:6px;"><i class="ti ti-flag-korea"></i>한국 2대 지수 (7/21 오전 흐름)</div>
+  <div class="mkd-grid two">
+    <div class="mkd-card">
+      <div class="idx-name">코스피 (전일 6,516.27 / -4.46%)</div>
+      <div class="idx-val">6,500대 등락</div>
+      <div class="idx-chg up"><i class="ti ti-arrow-up-right"></i>개장 후 반도체 주도 반등 시도</div>
+    </div>
+    <div class="mkd-card">
+      <div class="idx-name">코스닥 (전일 749.64 / -5.33%)</div>
+      <div class="idx-val">730~740대</div>
+      <div class="idx-chg down"><i class="ti ti-arrow-down-right"></i>52주 신저가 재경신</div>
+    </div>
+  </div>
+
+  <div class="mkd-divider"></div>
+
+  <div class="mkd-section-label"><i class="ti ti-bolt"></i>오늘의 핵심 변수</div>
+  <div class="driver-row">
+    <div class="driver-item">
+      <i class="ti ti-flame"></i>
+      <span><b>미국-이란 공습 지속</b> — 미군, 이란 대상 열흘 연속 공습. 국제유가는 WTI 82달러·브렌트 88달러대에서 등락</span>
+    </div>
+    <div class="driver-item">
+      <i class="ti ti-cpu"></i>
+      <span><b>AI 반도체 과열 우려 진정 국면</b> — 전일 코스피·코스닥 동반 사이드카 발동 후, 간밤 미국 반도체주 반등이 국내 저가매수 심리 자극</span>
+    </div>
+    <div class="driver-item">
+      <i class="ti ti-ship"></i>
+      <span><b>후티 반군, 사우디 해상봉쇄 선언</b> — 호르무즈·바브엘만데브 해협 리스크로 유가 변동성 확대 우려</span>
+    </div>
+  </div>
+
+  <div class="fx-box">
+    <div class="fx-item">
+      <div class="fx-label">원/달러 환율 (7/21 개장)</div>
+      <div class="fx-val">1,477.6원</div>
+    </div>
+    <div class="fx-item">
+      <div class="fx-label">한국은행 기준금리</div>
+      <div class="fx-val">7/15 금통위 25bp 인상</div>
+    </div>
+    <div class="fx-item">
+      <div class="fx-label">VKOSPI (변동성지수)</div>
+      <div class="fx-val">80pt 상회 · 고변동성 지속</div>
+    </div>
+  </div>
+
+  <div class="mkd-foot">
+    <b>자료 출처</b> · CNBC, Washington Post, TheStreet(2026.07.20 마감시황) / 아시아경제·뉴스핌·국제뉴스·이데일리(2026.07.21 개장시황) / 한국거래소, 뉴스1(한국은행 금통위) · 코스피·코스닥 수치는 7/21 오전 특정 시점 스냅샷으로 장중 변동 가능성이 있습니다. 본 콘텐츠는 정보 제공 목적이며 투자 판단의 책임은 투자자 본인에게 있습니다.
+  </div>
+</div>
+
+</body>
+</html>
