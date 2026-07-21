@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>업종별 추천 4종목 비교 - PER·PBR·영업이익·ROE</title>
+
+<meta property="og:title" content="반도체·방산·조선·2차전지 대표주 재무비교 - PER PBR ROE 한눈에" />
+<meta property="og:description" content="SK하이닉스·한화에어로스페이스·HD한국조선해양·LG에너지솔루션, 4개 업종 대표주의 밸류에이션과 수익성 지표를 표로 정리했습니다." />
+<meta property="og:image" content="여기에_썸네일_이미지_URL을_입력하세요.png" />
+<meta property="og:url" content="여기에_이_포스트의_실제_URL을_입력하세요" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+
+<style>
+  .cmp-wrap * { box-sizing: border-box; }
+  .cmp-wrap {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    max-width: 760px;
+    margin: 28px auto;
+    background: #FFFFFF;
+    border: 1px solid #E7EAF3;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(20, 30, 70, 0.06);
+    color: #1A2340;
+  }
+  .cmp-head { padding: 22px 24px 6px; }
+  .cmp-head .tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #16224B; color: #F0C776;
+    font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .cmp-head h1 { margin: 0; font-size: 20px; font-weight: 800; color: #131C33; line-height: 1.4; }
+  .cmp-head p { margin: 6px 0 16px; font-size: 13px; color: #6B7488; }
+
+  .cmp-scroll { overflow-x: auto; padding: 0 24px 6px; -webkit-overflow-scrolling: touch; }
+  table.cmp-table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 13px; }
+  table.cmp-table thead th {
+    background: #F7F8FC; color: #6B7488; font-weight: 700; text-align: left;
+    padding: 10px 10px; border-bottom: 2px solid #E7EAF3; white-space: nowrap;
+  }
+  table.cmp-table tbody td {
+    padding: 12px 10px; border-bottom: 1px solid #F0F1F7; vertical-align: top;
+  }
+  table.cmp-table tbody tr:hover { background: #FAFBFE; }
+
+  .sector-chip {
+    display: inline-block; font-size: 11.5px; font-weight: 800; padding: 3px 9px; border-radius: 7px; color: #fff;
+    margin-bottom: 4px; white-space: nowrap;
+  }
+  .c-semi { background: #2563EB; }
+  .c-def  { background: #16224B; }
+  .c-ship { background: #0E8A6D; }
+  .c-batt { background: #C99A3D; }
+
+  .stock-name { font-weight: 800; color: #131C33; font-size: 13.5px; }
+  .stock-code { color: #97A0B5; font-size: 11.5px; }
+
+  .metric-strong { font-weight: 800; color: #131C33; }
+  .metric-up { color: #D6293F; font-weight: 800; }
+  .metric-flat { color: #97A0B5; font-weight: 700; }
+  .point-txt { font-size: 12px; color: #4C5A8C; line-height: 1.5; max-width: 190px; }
+
+  .cmp-legend {
+    margin: 14px 24px 0; padding: 12px 14px; background: #FBFAF6; border: 1px solid #F0E8D2;
+    border-radius: 10px; font-size: 11.5px; color: #7A6A3E; line-height: 1.7;
+  }
+  .cmp-foot {
+    padding: 14px 24px 20px; font-size: 11.5px; color: #97A0B5; line-height: 1.6;
+    border-top: 1px solid #F0F1F7; margin-top: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="cmp-wrap">
+  <div class="cmp-head">
+    <span class="tag"><i class="ti ti-table"></i>SECTOR PICKS</span>
+    <h1>업종별 대표주 4종목, 숫자로 비교하기</h1>
+    <p>같은 "매수 추천"도 근거는 다릅니다 — 성장株, 실적개선株, 저평가 가치株, 턴어라운드株를 한 표에 담았습니다.</p>
+  </div>
+
+  <div class="cmp-scroll">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>업종 / 종목</th>
+          <th>현재가(기준일)</th>
+          <th>PER</th>
+          <th>PBR</th>
+          <th>최근 영업이익</th>
+          <th>ROE</th>
+          <th>핵심 포인트</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="sector-chip c-semi">반도체</span><br>
+            <span class="stock-name">SK하이닉스</span><br>
+            <span class="stock-code">000660 · KOSPI</span>
+          </td>
+          <td class="metric-strong">1,764,000원<br><span class="stock-code">(7/20 종가)</span></td>
+          <td class="metric-strong">17.75배</td>
+          <td class="metric-flat">약 10배대<br><span class="stock-code">(추정)</span></td>
+          <td class="metric-up">1Q26 37.6조<br><span class="stock-code">YoY +405%</span></td>
+          <td class="metric-up">44.1%<br><span class="stock-code">(2026E)</span></td>
+          <td class="point-txt">HBM 슈퍼사이클, 2026년 영업이익 컨센서스 전년比 약 5배. 7/22 2분기 실적 발표 예정</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="sector-chip c-def">방산</span><br>
+            <span class="stock-name">한화에어로스페이스</span><br>
+            <span class="stock-code">012450 · KOSPI</span>
+          </td>
+          <td class="metric-strong">약 92만원대<br><span class="stock-code">(7/13 EPS 기준 역산)</span></td>
+          <td class="metric-strong">21.85배</td>
+          <td class="metric-strong">4.76배</td>
+          <td class="metric-up">2025년 약 3.4조<br><span class="stock-code">YoY +78.4%</span></td>
+          <td class="metric-flat">약 22%대<br><span class="stock-code">(2026E 추정)</span></td>
+          <td class="point-txt">K9·천무 수출 확대, 폴란드·스페인·미국·사우디 수주 파이프라인. 5개 증권사 전원 매수</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="sector-chip c-ship">조선</span><br>
+            <span class="stock-name">HD한국조선해양</span><br>
+            <span class="stock-code">009540 · KOSPI</span>
+          </td>
+          <td class="metric-strong">340,000원<br><span class="stock-code">(7/20 종가)</span></td>
+          <td class="metric-flat">비교적 저평가<br><span class="stock-code">(업황 저점 대비)</span></td>
+          <td class="metric-strong">1.79배<br><span class="stock-code">(2026E)</span></td>
+          <td class="metric-up">1Q26 1.36조<br><span class="stock-code">YoY +57.8%</span></td>
+          <td class="metric-up">22.5%<br><span class="stock-code">(2026E)</span></td>
+          <td class="point-txt">순현금 재무구조 + 수주잔고 슈퍼사이클. 13개 증권사 전원 매수, 목표가 평균 약 75% 상승여력</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="sector-chip c-batt">2차전지</span><br>
+            <span class="stock-name">LG에너지솔루션</span><br>
+            <span class="stock-code">373220 · KOSPI</span>
+          </td>
+          <td class="metric-strong">332,000원<br><span class="stock-code">(7/7 기준)</span></td>
+          <td class="metric-flat">해당없음<br><span class="stock-code">(2026년 순손실 전망)</span></td>
+          <td class="metric-flat">비공개*</td>
+          <td class="metric-strong">2Q26 1,133억<br><span class="stock-code">3개분기만에 흑자전환</span></td>
+          <td class="metric-flat">2026E 적자<br><span class="stock-code">2027 정상화 전망</span></td>
+          <td class="point-txt">아직 이익 정상화 전(턴어라운드 구간). ESS 수주잔고·46시리즈 파이프라인에 베팅하는 저점매수 성격</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cmp-legend">
+    <i class="ti ti-info-circle"></i> PER·PBR은 실적 발표·주가 변동에 따라 하루 단위로도 크게 바뀔 수 있는 지표입니다(특히 SK하이닉스처럼 분기 실적이 급변하는 종목). 표의 수치는 확인 가능한 가장 최근 공시·증권사 리포트 기준이며, 정확한 최신 수치는 매매 전 반드시 HTS·MTS 또는 DART에서 재확인하시기 바랍니다. *LG에너지솔루션 PBR은 확인된 최신 자료가 없어 "모른다"고 명시합니다.
+  </div>
+
+  <div class="cmp-foot">
+    <b>자료 출처</b> · FnGuide, WISEfn(기업모니터), 키움증권·KB증권·하나증권·삼성증권 리서치센터, Investing.com, 각 사 공시(DART) 종합, 2026.07.07~07.20 사이 확인된 최신 자료 기준
+  </div>
+</div>
+
+</body>
+</html>
