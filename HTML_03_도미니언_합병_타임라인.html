@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>넥스트에라 × 도미니언 합병 타임라인과 거래 조건</title>
+
+<meta property="og:title" content="넥스트에라 × 도미니언 합병 : 타임라인과 거래 조건 총정리" />
+<meta property="og:description" content="교환비율 0.8138주, 현금 3.6억 달러, 요금 크레딧 22.5억 달러. 세계 최대 규제 유틸리티를 만드는 합병의 일정과 조건을 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/nextera_dominion_merger.png" />
+<meta property="og:url" content="https://example.com/nextera-dominion-merger" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&display=swap" />
+
+<style>
+.nee-mg *{box-sizing:border-box;margin:0;padding:0;}
+.nee-mg{
+  font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  background:#FFFDF7;color:#0F2B46;max-width:840px;margin:32px auto;
+  border:1px solid #E6DFCC;border-radius:18px;overflow:hidden;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.nee-mg .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+
+.nee-mg .hd{padding:24px 30px 20px;background:#FFFFFF;border-bottom:1px solid #E6DFCC;}
+.nee-mg .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;
+  color:#9A6B04;font-weight:600;display:flex;align-items:center;gap:7px;margin-bottom:9px;}
+.nee-mg .hd h2{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.35;}
+.nee-mg .hd p{font-size:13.8px;color:#5A7085;margin-top:8px;}
+
+.nee-mg .wrap{padding:26px 30px 28px;}
+.nee-mg .sect{font-size:12px;font-family:'IBM Plex Mono',monospace;letter-spacing:.14em;
+  color:#9A6B04;font-weight:600;margin:0 0 16px;display:flex;align-items:center;gap:7px;}
+
+/* timeline */
+.nee-mg .tl{position:relative;padding-left:26px;}
+.nee-mg .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:#E6DFCC;}
+.nee-mg .ev{position:relative;padding-bottom:20px;}
+.nee-mg .ev:last-child{padding-bottom:0;}
+.nee-mg .ev::before{content:"";position:absolute;left:-24px;top:5px;width:12px;height:12px;border-radius:50%;
+  background:#FFFDF7;border:3px solid #C9A227;}
+.nee-mg .ev.done::before{background:#C9A227;}
+.nee-mg .ev.future::before{border-color:#9BB4CB;background:#FFFDF7;}
+.nee-mg .date{font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:700;color:#9A6B04;letter-spacing:.02em;}
+.nee-mg .ev.future .date{color:#4A6E92;}
+.nee-mg .ttl{font-size:14.8px;font-weight:700;margin-top:2px;letter-spacing:-.01em;}
+.nee-mg .desc{font-size:13.2px;color:#4E6A85;margin-top:3px;}
+
+/* terms table */
+.nee-mg table{width:100%;border-collapse:collapse;background:#FFFFFF;border:1px solid #E6DFCC;
+  border-radius:12px;overflow:hidden;font-size:13.6px;margin-top:6px;}
+.nee-mg thead th{background:#FAF4E2;color:#0F2B46;font-weight:700;font-size:12.5px;padding:11px 14px;text-align:left;border-bottom:1px solid #E6DFCC;}
+.nee-mg tbody td{padding:11px 14px;border-bottom:1px solid #F2EEE2;color:#24445F;vertical-align:top;}
+.nee-mg tbody td:first-child{font-weight:700;color:#0F2B46;width:34%;}
+.nee-mg tbody tr:last-child td{border-bottom:none;}
+.nee-mg tbody tr:nth-child(even) td{background:#FFFCF4;}
+
+.nee-mg .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px;}
+.nee-mg .box{background:#FFFFFF;border:1px solid #E6DFCC;border-left:4px solid #1B6EC2;border-radius:10px;padding:14px 15px;}
+.nee-mg .box b{display:block;font-family:'IBM Plex Mono',monospace;font-size:21px;color:#0F2B46;}
+.nee-mg .box span{display:block;font-size:12.2px;color:#5A7085;margin-top:4px;line-height:1.5;}
+
+.nee-mg .warn{margin-top:20px;background:#FFFFFF;border:1px solid #E6DFCC;border-left:4px solid #B3382C;
+  border-radius:10px;padding:14px 16px;font-size:13.2px;color:#3C5B77;}
+.nee-mg .warn b{color:#B3382C;}
+.nee-mg .src{margin-top:16px;font-size:11.8px;color:#7A7059;line-height:1.7;}
+.nee-mg .divider{height:1px;background:#E6DFCC;margin:26px 0 22px;}
+
+@media (max-width:640px){
+  .nee-mg .wrap{padding:20px 16px 24px;} .nee-mg .hd{padding:20px 18px 18px;}
+  .nee-mg .hd h2{font-size:19px;}
+  .nee-mg .grid3{grid-template-columns:1fr;}
+  .nee-mg table{font-size:12.5px;}
+  .nee-mg tbody td:first-child{width:38%;}
+}
+</style>
+</head>
+<body>
+
+<div class="nee-mg">
+
+  <div class="hd">
+    <div class="eyebrow"><i class="ti ti-git-merge"></i> NEE × DOMINION ENERGY</div>
+    <h2>세계 최대 규제 유틸리티를 만드는 합병, 지금 어디까지 왔나</h2>
+    <p>2분기 실적보다 주가를 더 크게 흔들 변수는 도미니언 합병입니다. 일정과 조건을 시간순으로 정리했습니다.</p>
+  </div>
+
+  <div class="wrap">
+
+    <div class="sect"><i class="ti ti-timeline-event"></i> 진행 타임라인</div>
+    <div class="tl">
+      <div class="ev done">
+        <div class="date">2026.05.15</div>
+        <div class="ttl">합병계약(Merger Agreement) 체결</div>
+        <div class="desc">2단계 합병 구조. 교환비율은 고정으로, 계약 시점부터 종결까지 주가 변동에 따라 조정되지 않습니다.</div>
+      </div>
+      <div class="ev done">
+        <div class="date">2026.05.18</div>
+        <div class="ttl">양사 공식 발표</div>
+        <div class="desc">발표 당일 도미니언 주가는 2022년 이후 최고 수준까지 급등한 반면, 넥스트에라 주가는 약세를 보였습니다.</div>
+      </div>
+      <div class="ev done">
+        <div class="date">2026.06</div>
+        <div class="ttl">예비 프로포마 재무제표 공시(8-K)</div>
+        <div class="desc">2026년 3월 31일 기준 합산 총자산 $3,732억, 예비 영업권 $379억이 제시됐습니다.</div>
+      </div>
+      <div class="ev done">
+        <div class="date">2026.07.09</div>
+        <div class="ttl">S-4 (합동 위임장 / 증권신고서) 제출</div>
+        <div class="desc">수권주식 수를 32억 주에서 50억 주로 확대하는 정관 개정안도 함께 상정됐습니다.</div>
+      </div>
+      <div class="ev done">
+        <div class="date">2026.07 중순</div>
+        <div class="ttl">규제 승인 신청 접수</div>
+        <div class="desc">버지니아·노스캐롤라이나·사우스캐롤라이나 주 규제당국과 연방에너지규제위원회(FERC), 원자력규제위원회(NRC)에 신청.</div>
+      </div>
+      <div class="ev future">
+        <div class="date">2026.09 초 (예정)</div>
+        <div class="ttl">양사 주주총회</div>
+        <div class="desc">넥스트에라는 신주 발행·정관 개정 승인, 도미니언은 합병 승인 안건을 표결합니다.</div>
+      </div>
+      <div class="ev future">
+        <div class="date">2027 하반기 (목표)</div>
+        <div class="ttl">거래 종결</div>
+        <div class="desc">회사 측이 제시한 목표 시점입니다. 규제 심사 일정에 따라 지연 가능성이 남아 있습니다.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="sect"><i class="ti ti-file-description"></i> 핵심 거래 조건</div>
+    <table>
+      <thead>
+        <tr><th>항목</th><th>내용</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>대가 지급 방식</td><td>주식 교환 중심 + 소액 현금</td></tr>
+        <tr><td>교환비율</td><td class="num">도미니언 1주 → 넥스트에라 0.8138주 (고정)</td></tr>
+        <tr><td>현금 지급</td><td class="num">총 $3.6억 (전체 주식에 균등 배분, 과세 대상)</td></tr>
+        <tr><td>합병 후 지분율</td><td class="num">넥스트에라 주주 74.5% / 도미니언 주주 25.5%</td></tr>
+        <tr><td>발행 예정 신주</td><td class="num">약 7.31억 주 (추정)</td></tr>
+        <tr><td>고객 요금 크레딧</td><td class="num">총 $22.5억 · 종결 후 24개월 분할<br>버지니아 79% / 사우스캐롤라이나 17% / 노스캐롤라이나 3%</td></tr>
+        <tr><td>고용 보호</td><td>종결 후 최소 18개월간 비자발적 감원 없음, 24개월간 기본급·상여 목표 유지</td></tr>
+        <tr><td>본사 구조</td><td>리치먼드(버지니아)와 주노비치(플로리다) 이중 본사 + 케이시(사우스캐롤라이나) 운영 본부</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid3">
+      <div class="box"><b>약 1,000만</b><span>합병 후 유틸리티 고객 계정 (FL·VA·NC·SC)</span></div>
+      <div class="box"><b>110GW</b><span>합병 후 보유 발전 설비 용량</span></div>
+      <div class="box"><b>80%+</b><span>합병 후 규제 사업 비중 (단독 기준 70%대)</span></div>
+    </div>
+
+    <div class="warn">
+      <b>투자자가 확인해야 할 지점</b> — 회사는 합병 후 조정 EPS 성장률을 연 9% 이상(단독 8% 이상), 요금기저 성장률을 연 11%(단독 10%)로
+      제시했습니다. 다만 이 수치는 <u>모든 규제 승인이 계획대로 나온다는 전제</u> 위에 있습니다. 4개 주 + FERC + NRC라는 다층 심사 구조상
+      조건부 승인이나 일정 지연이 발생하면 성장률 전제 자체가 흔들릴 수 있습니다.
+    </div>
+
+    <div class="src">
+      자료 : NextEra Energy·Dominion Energy 공동 보도자료(2026.05.18) · 미국 SEC 제출 S-4 및 8-K 공시 ·
+      NextEra Energy 2Q26 투자자 프레젠테이션(2026.07.24) · Investing.com.
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
