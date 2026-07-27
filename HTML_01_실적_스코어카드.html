@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>넥스트에라 에너지 2026년 2분기 실적 스코어카드</title>
+
+<meta property="og:title" content="넥스트에라 에너지(NEE) 2026년 2분기 실적 스코어카드" />
+<meta property="og:description" content="조정 EPS $1.15로 컨센서스 상회, 매출 $75.3억으로 하회. 넥스트에라 에너지 2Q26 핵심 지표를 한 장에 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/nextera_q2_2026_thumbnail.png" />
+<meta property="og:url" content="https://example.com/nextera-energy-2q26-review" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&display=swap" />
+
+<style>
+.nee-blk *{box-sizing:border-box;margin:0;padding:0;}
+.nee-blk{
+  font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  background:#F7F9FB;
+  color:#0F2B46;
+  max-width:840px;
+  margin:32px auto;
+  padding:0;
+  border:1px solid #DDE5EC;
+  border-radius:18px;
+  overflow:hidden;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.nee-blk .nee-num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+
+/* header */
+.nee-blk .nee-hd{background:#0F2B46;color:#FFFFFF;padding:26px 30px 24px;position:relative;}
+.nee-blk .nee-hd::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:4px;
+  background:linear-gradient(90deg,#1B6EC2 0%,#1B6EC2 62%,#E8B21F 62%,#E8B21F 100%);}
+.nee-blk .nee-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.14em;
+  color:#8FB6DD;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.nee-blk .nee-hd h2{font-size:25px;font-weight:800;letter-spacing:-.02em;line-height:1.35;}
+.nee-blk .nee-hd p{font-size:14px;color:#B9CFE4;margin-top:8px;}
+
+/* stat grid */
+.nee-blk .nee-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#DDE5EC;}
+.nee-blk .nee-cell{background:#FFFFFF;padding:20px 18px 18px;position:relative;}
+.nee-blk .nee-cell::before{content:"";position:absolute;left:18px;top:0;width:26px;height:3px;background:#1B6EC2;}
+.nee-blk .nee-cell.beat::before{background:#16794F;}
+.nee-blk .nee-cell.miss::before{background:#C98A06;}
+.nee-blk .nee-lb{font-size:12.5px;color:#5A7085;font-weight:600;letter-spacing:-.01em;}
+.nee-blk .nee-vl{font-size:31px;font-weight:700;margin-top:7px;letter-spacing:-.02em;}
+.nee-blk .nee-sb{font-size:12.5px;margin-top:6px;font-weight:600;color:#5A7085;}
+.nee-blk .up{color:#16794F;}
+.nee-blk .dn{color:#C98A06;}
+
+/* table */
+.nee-blk .nee-body{padding:26px 30px 30px;background:#F7F9FB;}
+.nee-blk .nee-sect{font-size:12px;font-family:'IBM Plex Mono',monospace;letter-spacing:.14em;
+  color:#1B6EC2;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:7px;}
+.nee-blk table{width:100%;border-collapse:collapse;background:#FFFFFF;border:1px solid #DDE5EC;border-radius:12px;overflow:hidden;font-size:14px;}
+.nee-blk thead th{background:#EDF3F9;color:#0F2B46;font-weight:700;font-size:12.5px;padding:11px 14px;text-align:right;border-bottom:1px solid #DDE5EC;}
+.nee-blk thead th:first-child{text-align:left;}
+.nee-blk tbody td{padding:12px 14px;text-align:right;border-bottom:1px solid #EDF2F6;color:#24445F;}
+.nee-blk tbody td:first-child{text-align:left;font-weight:600;color:#0F2B46;}
+.nee-blk tbody tr:last-child td{border-bottom:none;}
+.nee-blk tbody tr:nth-child(even) td{background:#FBFDFE;}
+.nee-blk .tag{display:inline-block;font-size:11.5px;font-weight:700;padding:2.5px 8px;border-radius:999px;}
+.nee-blk .tag-beat{background:#E4F3EC;color:#16794F;}
+.nee-blk .tag-miss{background:#FDF4DC;color:#9A6B04;}
+
+/* note */
+.nee-blk .nee-note{margin-top:16px;background:#FFFFFF;border:1px solid #DDE5EC;border-left:4px solid #E8B21F;
+  border-radius:10px;padding:14px 16px;font-size:13.2px;color:#3C5B77;}
+.nee-blk .nee-note b{color:#0F2B46;}
+.nee-blk .nee-src{margin-top:14px;font-size:11.8px;color:#6E8298;line-height:1.7;}
+
+@media (max-width:640px){
+  .nee-blk .nee-grid{grid-template-columns:repeat(2,1fr);}
+  .nee-blk .nee-hd h2{font-size:20px;}
+  .nee-blk .nee-vl{font-size:26px;}
+  .nee-blk .nee-body{padding:20px 16px 24px;}
+  .nee-blk .nee-hd{padding:20px 18px;}
+  .nee-blk table{font-size:12.8px;}
+  .nee-blk thead th,.nee-blk tbody td{padding:9px 8px;}
+}
+</style>
+</head>
+<body>
+
+<div class="nee-blk">
+
+  <div class="nee-hd">
+    <div class="nee-eyebrow"><i class="ti ti-bolt"></i> NYSE : NEE &nbsp;/&nbsp; 2026.07.24 발표</div>
+    <h2>넥스트에라 에너지 2026년 2분기 실적 스코어카드</h2>
+    <p>이익은 컨센서스를 넘고, 매출은 컨센서스를 밑돌았습니다. 숫자의 방향이 서로 엇갈린 분기입니다.</p>
+  </div>
+
+  <div class="nee-grid">
+    <div class="nee-cell beat">
+      <div class="nee-lb">조정 EPS</div>
+      <div class="nee-vl nee-num">$1.15</div>
+      <div class="nee-sb up"><i class="ti ti-arrow-up-right"></i> 전년비 +9.5%</div>
+    </div>
+    <div class="nee-cell miss">
+      <div class="nee-lb">매출액</div>
+      <div class="nee-vl nee-num">$75.3억</div>
+      <div class="nee-sb dn"><i class="ti ti-arrow-down-right"></i> 컨센서스 하회</div>
+    </div>
+    <div class="nee-cell beat">
+      <div class="nee-lb">GAAP EPS</div>
+      <div class="nee-vl nee-num">$1.50</div>
+      <div class="nee-sb up"><i class="ti ti-arrow-up-right"></i> 전년비 +53%</div>
+    </div>
+    <div class="nee-cell beat">
+      <div class="nee-lb">영업활동 현금흐름</div>
+      <div class="nee-vl nee-num">$46.6억</div>
+      <div class="nee-sb up"><i class="ti ti-arrow-up-right"></i> 추정치의 2배 이상</div>
+    </div>
+  </div>
+
+  <div class="nee-body">
+    <div class="nee-sect"><i class="ti ti-table"></i> 컨센서스 대비 실제 실적</div>
+    <table>
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>2Q26 실적</th>
+          <th>2Q25</th>
+          <th>전년비</th>
+          <th>판정</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>조정 EPS</td>
+          <td class="nee-num">$1.15</td>
+          <td class="nee-num">$1.05</td>
+          <td class="nee-num up">+9.5%</td>
+          <td><span class="tag tag-beat">상회</span></td>
+        </tr>
+        <tr>
+          <td>조정 순이익</td>
+          <td class="nee-num">$24.07억</td>
+          <td class="nee-num">$21.64억</td>
+          <td class="nee-num up">+11.2%</td>
+          <td><span class="tag tag-beat">상회</span></td>
+        </tr>
+        <tr>
+          <td>GAAP EPS</td>
+          <td class="nee-num">$1.50</td>
+          <td class="nee-num">$0.98</td>
+          <td class="nee-num up">+53.1%</td>
+          <td><span class="tag tag-beat">상회</span></td>
+        </tr>
+        <tr>
+          <td>매출액</td>
+          <td class="nee-num">$75.34억</td>
+          <td class="nee-num">$67.00억</td>
+          <td class="nee-num up">+12.4%</td>
+          <td><span class="tag tag-miss">하회</span></td>
+        </tr>
+        <tr>
+          <td>2026년 조정 EPS 가이던스</td>
+          <td class="nee-num" colspan="3">$3.92 ~ $4.02 (상단 목표)</td>
+          <td><span class="tag tag-beat">유지</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="nee-note">
+      <b>수치 확인 시 주의</b> — 매출 컨센서스는 집계 기관마다 다릅니다. Investing.com은 $81.9억, Zacks는 $79.9억을 제시했고,
+      이에 따라 "몇 % 하회"라는 표현도 5.8%~8.1%로 갈립니다. 어느 쪽을 인용하는지에 따라 체감 강도가 달라지므로
+      기사 인용 시 기준 컨센서스를 함께 표기하는 편이 안전합니다.
+    </div>
+
+    <div class="nee-src">
+      자료 : NextEra Energy 2Q26 투자자 프레젠테이션(2026.07.24) · Investing.com 실적 브리핑/콜 트랜스크립트 ·
+      Zacks Investment Research · 미국 SEC 8-K 공시 기준 정리.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
