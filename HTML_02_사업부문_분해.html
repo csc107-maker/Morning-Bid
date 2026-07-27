@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>넥스트에라 사업부문 분해 : FPL vs 에너지 리소스</title>
+
+<meta property="og:title" content="넥스트에라 에너지 사업부문 분해 : FPL과 에너지 리소스, 누가 이익을 만들었나" />
+<meta property="og:description" content="조정 EPS $1.05에서 $1.15로. FPL +$0.05, 에너지 리소스 +$0.09. 넥스트에라 2Q26 이익 증가분을 부문별로 분해했습니다." />
+<meta property="og:image" content="https://example.com/images/nextera_q2_2026_segment.png" />
+<meta property="og:url" content="https://example.com/nextera-energy-2q26-segments" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&display=swap" />
+
+<style>
+.nee-seg *{box-sizing:border-box;margin:0;padding:0;}
+.nee-seg{
+  font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  background:#F7F9FB;color:#0F2B46;max-width:840px;margin:32px auto;
+  border:1px solid #DDE5EC;border-radius:18px;overflow:hidden;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.nee-seg .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+
+.nee-seg .hd{padding:24px 30px 20px;background:#FFFFFF;border-bottom:1px solid #DDE5EC;}
+.nee-seg .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;
+  color:#1B6EC2;font-weight:600;display:flex;align-items:center;gap:7px;margin-bottom:9px;}
+.nee-seg .hd h2{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.35;}
+.nee-seg .hd p{font-size:13.8px;color:#5A7085;margin-top:8px;}
+
+/* bridge */
+.nee-seg .wrap{padding:24px 30px 28px;}
+.nee-seg .sect{font-size:12px;font-family:'IBM Plex Mono',monospace;letter-spacing:.14em;
+  color:#1B6EC2;font-weight:600;margin:0 0 14px;display:flex;align-items:center;gap:7px;}
+.nee-seg .bridge{background:#FFFFFF;border:1px solid #DDE5EC;border-radius:12px;padding:20px 20px 16px;}
+.nee-seg .brow{display:grid;grid-template-columns:132px 1fr 74px;align-items:center;gap:12px;margin-bottom:11px;}
+.nee-seg .blab{font-size:13px;font-weight:600;color:#24445F;}
+.nee-seg .btrack{height:22px;background:#EDF3F9;border-radius:5px;position:relative;overflow:hidden;}
+.nee-seg .bfill{position:absolute;top:0;bottom:0;border-radius:5px;}
+.nee-seg .bval{font-size:13.5px;font-weight:700;text-align:right;}
+.nee-seg .base{background:#0F2B46;}
+.nee-seg .plus{background:#1B6EC2;}
+.nee-seg .plus2{background:#3D9AE0;}
+.nee-seg .minus{background:#D9A33A;}
+.nee-seg .fin{background:#16794F;}
+.nee-seg .c-up{color:#16794F;} .nee-seg .c-dn{color:#9A6B04;} .nee-seg .c-ink{color:#0F2B46;}
+.nee-seg .bnote{font-size:12px;color:#6E8298;margin-top:10px;padding-top:11px;border-top:1px dashed #DDE5EC;}
+
+/* two cards */
+.nee-seg .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+.nee-seg .card{background:#FFFFFF;border:1px solid #DDE5EC;border-radius:12px;padding:18px 18px 16px;}
+.nee-seg .card.fpl{border-top:4px solid #1B6EC2;}
+.nee-seg .card.er{border-top:4px solid #16794F;}
+.nee-seg .ctitle{display:flex;align-items:center;gap:8px;font-size:15.5px;font-weight:800;letter-spacing:-.01em;}
+.nee-seg .csub{font-size:12px;color:#5A7085;margin-top:3px;margin-bottom:13px;}
+.nee-seg .kv{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid #F0F4F8;font-size:13.2px;}
+.nee-seg .kv:last-child{border-bottom:none;}
+.nee-seg .kv span:first-child{color:#5A7085;}
+.nee-seg .kv span:last-child{font-weight:700;color:#0F2B46;}
+
+/* pipeline strip */
+.nee-seg .strip{margin-top:24px;background:#0F2B46;border-radius:12px;padding:20px 22px;color:#FFFFFF;}
+.nee-seg .strip h3{font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:14px;color:#FFFFFF;}
+.nee-seg .plist{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.nee-seg .pitem{border-left:2px solid #E8B21F;padding-left:11px;}
+.nee-seg .pitem b{display:block;font-size:19px;font-family:'IBM Plex Mono',monospace;color:#FFFFFF;}
+.nee-seg .pitem span{font-size:12px;color:#A8C4DC;line-height:1.5;display:block;margin-top:3px;}
+
+.nee-seg .src{margin-top:16px;font-size:11.8px;color:#6E8298;line-height:1.7;}
+
+@media (max-width:640px){
+  .nee-seg .wrap{padding:20px 16px 24px;} .nee-seg .hd{padding:20px 18px 18px;}
+  .nee-seg .hd h2{font-size:19px;}
+  .nee-seg .duo{grid-template-columns:1fr;}
+  .nee-seg .plist{grid-template-columns:1fr;}
+  .nee-seg .brow{grid-template-columns:98px 1fr 62px;gap:8px;}
+  .nee-seg .blab{font-size:11.8px;} .nee-seg .bval{font-size:12.5px;}
+}
+</style>
+</head>
+<body>
+
+<div class="nee-seg">
+
+  <div class="hd">
+    <div class="eyebrow"><i class="ti ti-chart-arrows-vertical"></i> SEGMENT BREAKDOWN</div>
+    <h2>이익 증가분 $0.10은 어디서 나왔나</h2>
+    <p>전년 동기 조정 EPS $1.05에서 $1.15까지, 10센트가 만들어진 경로를 부문별로 쪼개 봤습니다.</p>
+  </div>
+
+  <div class="wrap">
+
+    <div class="sect"><i class="ti ti-arrow-bar-to-right"></i> 조정 EPS 브리지 (2Q25 → 2Q26)</div>
+    <div class="bridge">
+      <div class="brow">
+        <div class="blab">2Q25 조정 EPS</div>
+        <div class="btrack"><div class="bfill base" style="left:0;width:88.2%;"></div></div>
+        <div class="bval num c-ink">$1.05</div>
+      </div>
+      <div class="brow">
+        <div class="blab">FPL (규제 유틸리티)</div>
+        <div class="btrack"><div class="bfill plus" style="left:88.2%;width:4.2%;"></div></div>
+        <div class="bval num c-up">+$0.05</div>
+      </div>
+      <div class="brow">
+        <div class="blab">에너지 리소스</div>
+        <div class="btrack"><div class="bfill plus2" style="left:92.4%;width:7.6%;"></div></div>
+        <div class="bval num c-up">+$0.09</div>
+      </div>
+      <div class="brow">
+        <div class="blab">기타(지주·이자 등)</div>
+        <div class="btrack"><div class="bfill minus" style="left:96.6%;width:3.4%;"></div></div>
+        <div class="bval num c-dn">-$0.04</div>
+      </div>
+      <div class="brow">
+        <div class="blab">2Q26 조정 EPS</div>
+        <div class="btrack"><div class="bfill fin" style="left:0;width:96.6%;"></div></div>
+        <div class="bval num c-up">$1.15</div>
+      </div>
+      <div class="bnote">
+        FPL과 에너지 리소스의 기여도(+$0.05, +$0.09)는 회사가 공시한 수치입니다.
+        기타(-$0.04)는 부문 합계 $1.29와 전사 조정 EPS $1.15의 차이에서 역산한 값으로, 회사가 별도 항목으로 제시한 숫자가 아닙니다.
+      </div>
+    </div>
+
+    <div class="duo">
+      <div class="card fpl">
+        <div class="ctitle"><i class="ti ti-building-community" style="color:#1B6EC2;"></i> 플로리다 파워 &amp; 라이트</div>
+        <div class="csub">규제 유틸리티 · 안정적 성장 엔진</div>
+        <div class="kv"><span>조정 EPS 기여</span><span class="num">$0.67 (+$0.05)</span></div>
+        <div class="kv"><span>순이익</span><span class="num">$14.12억</span></div>
+        <div class="kv"><span>규제자본(rate base)</span><span class="num">$797억 (+9.3%)</span></div>
+        <div class="kv"><span>2분기 설비투자</span><span class="num">약 $28억</span></div>
+        <div class="kv"><span>연간 투자 가이던스</span><span class="num">$120~130억</span></div>
+        <div class="kv"><span>12개월 ROE</span><span class="num">11.7%</span></div>
+        <div class="kv"><span>신규 고객</span><span class="num">+9만 명</span></div>
+        <div class="kv"><span>소매 판매량</span><span class="num">+0.4% (기후조정 +0.6%)</span></div>
+      </div>
+
+      <div class="card er">
+        <div class="ctitle"><i class="ti ti-solar-panel" style="color:#16794F;"></i> 넥스트에라 에너지 리소스</div>
+        <div class="csub">재생에너지·저장장치 개발 · 성장 엔진</div>
+        <div class="kv"><span>조정 EPS 기여</span><span class="num">$0.62 (+$0.09)</span></div>
+        <div class="kv"><span>전년비 증가율</span><span class="num">약 +18%</span></div>
+        <div class="kv"><span>총 수주잔고</span><span class="num">35.1GW</span></div>
+        <div class="kv"><span>분기 신규 수주</span><span class="num">3.6GW</span></div>
+        <div class="kv"><span>└ 배터리 저장</span><span class="num">2.0GW</span></div>
+        <div class="kv"><span>└ 태양광</span><span class="num">0.9GW</span></div>
+        <div class="kv"><span>└ 풍력</span><span class="num">0.7GW</span></div>
+        <div class="kv"><span>재계약 단가 프리미엄</span><span class="num">+$20/MWh</span></div>
+      </div>
+    </div>
+
+    <div class="strip">
+      <h3><i class="ti ti-plug-connected"></i> 실적 뒤에 숨은 진짜 변수 : 대형 전력 수요</h3>
+      <div class="plist">
+        <div class="pitem">
+          <b>6GW → 8GW</b>
+          <span>FPL이 2032년까지 예상하는 대형 부하(데이터센터 등) 규모 상향</span>
+        </div>
+        <div class="pitem">
+          <b>21GW / 12GW</b>
+          <span>접수된 대형 부하 관심 물량 / 그중 심층 협의 단계</span>
+        </div>
+        <div class="pitem">
+          <b>110GW+</b>
+          <span>에너지 리소스가 보유한 배터리 저장 개발 파이프라인</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="src">
+      자료 : NextEra Energy 2Q26 투자자 프레젠테이션 및 실적 컨퍼런스콜(2026.07.24) · Investing.com 슬라이드 요약 및 콜 트랜스크립트 ·
+      Zacks Investment Research. 원화 환산 없이 달러 기준 그대로 표기했습니다.
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
