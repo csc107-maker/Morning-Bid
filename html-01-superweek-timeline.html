@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026년 7월 미국 슈퍼위크 일정표 (한국시간 기준)</title>
+
+<meta property="og:title" content="2026년 7월 미국 슈퍼위크 일정표 – FOMC·빅테크·PCE 한국시간 총정리" />
+<meta property="og:description" content="7월 28일 FOMC 개시부터 31일 BOJ까지, 미국 슈퍼위크 핵심 일정을 한국시간(KST)으로 정렬한 타임라인. 이벤트별 시장 충격도까지 한눈에 확인하세요." />
+<meta property="og:image" content="https://example.com/images/superweek-thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/2026-07-us-super-week" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  .swk-root *{box-sizing:border-box;margin:0;padding:0}
+  .swk-root{
+    font-family:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+    background:#EEF2F5;
+    color:#10202F;
+    padding:26px 16px 30px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .swk-wrap{max-width:880px;margin:0 auto}
+
+  /* ---------- header band ---------- */
+  .swk-band{
+    background:#0F2436;
+    border-radius:14px 14px 0 0;
+    padding:22px 24px 20px;
+    color:#EAF1F6;
+    position:relative;
+    overflow:hidden;
+  }
+  .swk-band::after{
+    content:"";position:absolute;right:-40px;top:-40px;
+    width:180px;height:180px;border-radius:50%;
+    border:1px solid rgba(234,241,246,.14);
+  }
+  .swk-eyebrow{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:#7FA8C4;margin-bottom:9px;display:flex;align-items:center;gap:7px;
+  }
+  .swk-band h2{
+    font-size:23px;font-weight:800;letter-spacing:-.02em;line-height:1.32;
+  }
+  .swk-band h2 em{font-style:normal;color:#F2A93B}
+  .swk-sub{
+    margin-top:9px;font-size:13px;color:#A9C1D2;font-weight:400;
+  }
+  .swk-tzchip{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:14px;padding:5px 11px;border-radius:999px;
+    background:rgba(242,169,59,.14);border:1px solid rgba(242,169,59,.42);
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:#F2A93B;letter-spacing:.04em;
+  }
+
+  /* ---------- body ---------- */
+  .swk-body{
+    background:#FFFFFF;
+    border:1px solid #D6DEE5;border-top:none;
+    border-radius:0 0 14px 14px;
+    padding:8px 22px 22px;
+  }
+
+  /* ---------- day group ---------- */
+  .swk-day{border-top:1px solid #E6ECF1;padding-top:16px;margin-top:16px}
+  .swk-day:first-child{border-top:none;margin-top:6px}
+  .swk-dayhead{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+  .swk-daynum{
+    font-family:"IBM Plex Mono",monospace;font-size:19px;font-weight:600;
+    color:#10202F;letter-spacing:-.01em;
+  }
+  .swk-dayname{font-size:13px;font-weight:700;color:#5A6B7C}
+  .swk-daytag{
+    margin-left:auto;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:5px;
+    background:#EEF2F5;color:#5A6B7C;letter-spacing:-.01em;
+  }
+  .swk-daytag.peak{background:#FBEAE7;color:#B23A2E}
+
+  /* ---------- event row ---------- */
+  .swk-ev{
+    display:grid;grid-template-columns:74px 1fr;gap:14px;
+    padding:11px 0;border-top:1px dashed #E6ECF1;
+  }
+  .swk-ev:first-of-type{border-top:none}
+  .swk-clock{
+    font-family:"IBM Plex Mono",monospace;font-size:13.5px;font-weight:600;
+    color:#14608F;padding-top:1px;font-variant-numeric:tabular-nums;
+  }
+  .swk-clock small{display:block;font-size:10px;color:#93A3B2;font-weight:400;letter-spacing:.02em}
+  .swk-title{font-size:14.5px;font-weight:700;color:#10202F;letter-spacing:-.01em}
+  .swk-title i{margin-right:6px;color:#8C9BA9;font-size:15px;vertical-align:-1px}
+  .swk-desc{font-size:12.8px;color:#5A6B7C;margin-top:3px;letter-spacing:-.005em}
+  .swk-desc b{color:#B23A2E;font-weight:700}
+  .swk-desc u{text-decoration:none;color:#14608F;font-weight:700}
+
+  /* ---------- impact meter (signature) ---------- */
+  .swk-meter{display:flex;align-items:center;gap:8px;margin-top:7px}
+  .swk-segs{display:flex;gap:3px}
+  .swk-seg{width:15px;height:5px;border-radius:1px;background:#DEE5EB}
+  .swk-seg.on{background:#B23A2E}
+  .swk-seg.on.cool{background:#14608F}
+  .swk-seg.on.gold{background:#A8761A}
+  .swk-mlabel{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:#8C9BA9;letter-spacing:.05em;
+  }
+
+  /* ---------- footnote ---------- */
+  .swk-foot{
+    margin-top:18px;padding-top:13px;border-top:1px solid #E6ECF1;
+    font-size:11.5px;color:#8C9BA9;line-height:1.62;letter-spacing:-.005em;
+  }
+  .swk-foot b{color:#5A6B7C;font-weight:700}
+
+  @media (max-width:520px){
+    .swk-band h2{font-size:19px}
+    .swk-ev{grid-template-columns:62px 1fr;gap:10px}
+    .swk-clock{font-size:12.5px}
+    .swk-body{padding:6px 15px 18px}
+  }
+</style>
+</head>
+<body>
+<div class="swk-root">
+ <div class="swk-wrap">
+
+  <div class="swk-band">
+    <div class="swk-eyebrow"><i class="ti ti-calendar-bolt"></i> 2026 · 07 · 27 → 07 · 31 SUPER WEEK</div>
+    <h2>한 주에 몰린 <em>FOMC · 빅테크 4곳 · 2분기 GDP · PCE</em><br />미국 슈퍼위크 일정표</h2>
+    <div class="swk-sub">한국 투자자가 실제로 잠을 설치는 시간에 맞춰, 모든 일정을 한국시간(KST)으로 다시 정렬했습니다.</div>
+    <div class="swk-tzchip"><i class="ti ti-clock-hour-4"></i> 표기 기준 : KST (미 동부시간 +13시간, 서머타임 적용)</div>
+  </div>
+
+  <div class="swk-body">
+
+    <!-- MON -->
+    <div class="swk-day">
+      <div class="swk-dayhead">
+        <span class="swk-daynum">07/27</span><span class="swk-dayname">월요일</span>
+        <span class="swk-daytag">워밍업</span>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">21:30<small>MON</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-tools"></i>미국 6월 내구재 주문</div>
+          <div class="swk-desc">설비투자 선행 지표. AI 데이터센터 투자가 실물 주문으로 잡히는지 확인하는 자리.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on cool"></span><span class="swk-seg on cool"></span><span class="swk-seg"></span><span class="swk-seg"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 2/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">02:00<small>TUE</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-report-money"></i>미 재무부 2년물 690억달러 · 5년물 700억달러 입찰</div>
+          <div class="swk-desc">2년물 금리는 이미 현 정책금리 상단(3.75%)을 넘어선 <u>4%대</u>. 응찰 부진 시 FOMC 전 금리 불안이 커집니다.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on cool"></span><span class="swk-seg on cool"></span><span class="swk-seg on cool"></span><span class="swk-seg"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 3/5</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TUE -->
+    <div class="swk-day">
+      <div class="swk-dayhead">
+        <span class="swk-daynum">07/28</span><span class="swk-dayname">화요일</span>
+        <span class="swk-daytag">회의 개시</span>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">13:01<small>TUE</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-ship"></i>301조 관세 '운송 중 화물' 면제 종료</div>
+          <div class="swk-desc">7월 24일 발효된 강제노동 관세의 유예가 이 시점에 끝납니다. 한국산은 <b>합산 12.5%</b> 적용.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on gold"></span><span class="swk-seg on gold"></span><span class="swk-seg on gold"></span><span class="swk-seg"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 3/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">23:00<small>TUE</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-mood-search"></i>미국 7월 소비자신뢰지수(컨퍼런스보드)</div>
+          <div class="swk-desc">유가 급등이 가계 심리와 기대 인플레를 얼마나 밀어올렸는지 보는 첫 실물 확인.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on cool"></span><span class="swk-seg on cool"></span><span class="swk-seg on cool"></span><span class="swk-seg"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 3/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">장마감후<small>TUE(현지)</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-cpu"></i>반도체 장비·부품 실적 : KLA · 테라다인 · 시게이트 · 스카이웍스 · 코보 · NXP</div>
+          <div class="swk-desc">삼성전자·SK하이닉스보다 하루 먼저 나오는 <u>메모리 사이클 선행 신호</u>. 장비 수주 잔고가 관전 포인트.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on gold"></span><span class="swk-seg on gold"></span><span class="swk-seg on gold"></span><span class="swk-seg on gold"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 4/5</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WED -->
+    <div class="swk-day">
+      <div class="swk-dayhead">
+        <span class="swk-daynum">07/29</span><span class="swk-dayname">수요일</span>
+        <span class="swk-daytag peak">1차 분수령</span>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">09:00<small>WED</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-building-factory-2"></i>SK하이닉스 2분기 실적 발표 · 컨퍼런스콜</div>
+          <div class="swk-desc">에프앤가이드 컨센서스 매출 약 <u>82.9조원</u>, 영업이익 약 <u>63.5조원</u>. 숫자보다 <b>하반기 HBM 가이던스와 주주환원</b>이 주가를 가릅니다.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span></div><span class="swk-mlabel">IMPACT 5/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">장마감후<small>WED(현지)</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-brand-windows"></i>마이크로소프트 · 메타 · 퀄컴 · Arm · 램리서치 실적</div>
+          <div class="swk-desc">MS는 Azure 성장률(가이던스 고정환율 39~40%), 메타는 <b>2026년 캐펙스 가이던스 1,250~1,450억달러</b>의 상향 여부가 핵심.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span></div><span class="swk-mlabel">IMPACT 5/5</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THU -->
+    <div class="swk-day">
+      <div class="swk-dayhead">
+        <span class="swk-daynum">07/30</span><span class="swk-dayname">목요일</span>
+        <span class="swk-daytag peak">최대 변곡점</span>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">03:00<small>THU</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-gavel"></i>FOMC 금리 결정 발표</div>
+          <div class="swk-desc">현 목표범위 <u>3.50~3.75%</u>. 이번 회의는 <b>점도표(SEP)가 없는 회의</b>라 성명서 문구와 표결 구성이 전부입니다.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span></div><span class="swk-mlabel">IMPACT 5/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">03:30<small>THU</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-microphone-2"></i>케빈 워시 의장 기자회견</div>
+          <div class="swk-desc">워시 의장은 취임 후 <b>포워드 가이던스를 사실상 폐기</b>했습니다. 사전 예고가 없다는 것 자체가 변동성 요인.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span></div><span class="swk-mlabel">IMPACT 5/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">10:00<small>THU</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-device-mobile"></i>삼성전자 2분기 확정실적 컨퍼런스콜</div>
+          <div class="swk-desc">7월 7일 잠정치는 매출 171조·영업이익 89.4조원. 이번엔 <b>DS/MX 부문별 분해와 하반기 설비투자</b>가 공개됩니다.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span></div><span class="swk-mlabel">IMPACT 5/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">20:00<small>THU</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-flag"></i>영란은행(BOE) 금리 결정</div>
+          <div class="swk-desc">현 정책금리 3.75%. 2026년 들어 네 차례 연속 동결 흐름을 이어갈지 확인.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on cool"></span><span class="swk-seg on cool"></span><span class="swk-seg"></span><span class="swk-seg"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 2/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">21:30<small>THU</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-chart-histogram"></i>미국 2분기 GDP 속보치 + 6월 PCE 물가 <span style="color:#B23A2E">(동시 발표)</span></div>
+          <div class="swk-desc">애틀랜타 연은 GDPNow는 7월 17일 기준 <u>1.7%</u>. 5월 PCE는 헤드라인 <b>4.1%</b>·근원 <b>3.4%</b>였습니다. 성장 둔화와 물가 재점화가 같은 시각에 나옵니다.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span></div><span class="swk-mlabel">IMPACT 5/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">장마감후<small>THU(현지)</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-brand-apple"></i>애플 · 아마존 실적</div>
+          <div class="swk-desc">아마존은 AWS 성장률(1분기 +28%)과 <b>연 2,000억달러 규모 캐펙스</b> 유지 여부. 애플은 서비스 마진과 관세 비용 코멘트.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg on"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 4/5</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRI -->
+    <div class="swk-day">
+      <div class="swk-dayhead">
+        <span class="swk-daynum">07/31</span><span class="swk-dayname">금요일</span>
+        <span class="swk-daytag">마무리 + 국내 지표</span>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">08:00<small>FRI</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-chart-bar"></i>한국 6월 산업활동동향</div>
+          <div class="swk-desc">5월엔 반도체 생산이 전월비 <b>-10%</b>, 전산업생산 -0.3%로 두 달 연속 감소했습니다. 6월 반등 여부가 관건.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on gold"></span><span class="swk-seg on gold"></span><span class="swk-seg on gold"></span><span class="swk-seg on gold"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 4/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">낮<small>FRI</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-building-bank"></i>일본은행(BOJ) 금리 결정 + 분기 전망보고서</div>
+          <div class="swk-desc">6월 인상으로 정책금리 1.00%. 엔 초약세 국면에서 추가 인상 신호가 나오면 원화에도 파급됩니다.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on cool"></span><span class="swk-seg on cool"></span><span class="swk-seg on cool"></span><span class="swk-seg"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 3/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">10:30<small>FRI</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-building-factory"></i>중국 7월 국가통계국 제조업·비제조업 PMI</div>
+          <div class="swk-desc">관세 25% 수준을 맞게 된 중국의 체감 경기. 한국 수출 수요와 직결됩니다.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on gold"></span><span class="swk-seg on gold"></span><span class="swk-seg on gold"></span><span class="swk-seg"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 3/5</span></div>
+        </div>
+      </div>
+      <div class="swk-ev">
+        <div class="swk-clock">21:30<small>FRI</small></div>
+        <div>
+          <div class="swk-title"><i class="ti ti-coin"></i>미국 2분기 고용비용지수(ECI) · 유로존 7월 소비자물가</div>
+          <div class="swk-desc">ECI는 연준이 서비스물가의 뿌리로 보는 임금 지표. 9월 인상 논쟁의 마지막 퍼즐입니다.</div>
+          <div class="swk-meter"><div class="swk-segs"><span class="swk-seg on cool"></span><span class="swk-seg on cool"></span><span class="swk-seg on cool"></span><span class="swk-seg"></span><span class="swk-seg"></span></div><span class="swk-mlabel">IMPACT 3/5</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swk-foot">
+      <b>자료 :</b> 미 연방준비제도(FOMC 일정·6월 의사록), 미 재무부·Investrade 주간 이벤트 캘린더, 애틀랜타 연은 GDPNow(7월 17일), 미 경제분석국(BEA) 5월 개인소득·지출, 삼성전자 IR 공고, 에프앤가이드 컨센서스, 국가데이터처, IG·LiteFinance 주간 캘린더.<br />
+      <b>유의 :</b> 미국 기업의 '장마감 후' 발표는 한국시간으로 다음 날 새벽에 해당합니다. 일정과 시각은 사정에 따라 변경될 수 있으며, 본 자료는 투자 권유가 아닌 정보 제공용입니다.
+    </div>
+
+  </div>
+ </div>
+</div>
+</body>
+</html>
