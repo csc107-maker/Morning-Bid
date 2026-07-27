@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026년 7월 FOMC 시나리오 분기표 – 동결·매파동결·인상별 자산 반응</title>
+
+<meta property="og:title" content="7월 FOMC 시나리오 분기표 – 동결 / 매파적 동결 / 깜짝 인상" />
+<meta property="og:description" content="목표범위 3.50~3.75%, 점도표 없는 회의. 세 갈래 시나리오별로 미 국채·달러·나스닥·코스피·원화가 어떻게 움직일지 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/superweek-thumbnail.png" />
+<meta property="og:url" content="https://example.com/blog/2026-07-us-super-week" />
+<meta property="og:type" content="article" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  .fmc-root *{box-sizing:border-box;margin:0;padding:0}
+  .fmc-root{
+    font-family:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+    background:#EEF2F5;color:#10202F;padding:26px 16px 30px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .fmc-wrap{max-width:880px;margin:0 auto}
+
+  .fmc-head{margin-bottom:16px}
+  .fmc-eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+    color:#B23A2E;text-transform:uppercase;display:flex;align-items:center;gap:7px;margin-bottom:8px;
+  }
+  .fmc-head h2{font-size:23px;font-weight:800;letter-spacing:-.025em;line-height:1.34}
+  .fmc-head p{font-size:13.5px;color:#5A6B7C;margin-top:8px;letter-spacing:-.01em}
+
+  /* current state strip */
+  .fmc-strip{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:#D6DEE5;border:1px solid #D6DEE5;border-radius:10px;overflow:hidden;margin-bottom:18px;
+  }
+  .fmc-cell{background:#FFFFFF;padding:12px 13px}
+  .fmc-clabel{font-size:11px;color:#8C9BA9;letter-spacing:-.01em;margin-bottom:4px}
+  .fmc-cval{font-family:"IBM Plex Mono",monospace;font-size:16px;font-weight:600;color:#10202F;font-variant-numeric:tabular-nums}
+  .fmc-cval span{font-size:11px;color:#8C9BA9;font-weight:400;margin-left:3px}
+
+  /* scenario cards */
+  .fmc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .fmc-card{
+    background:#FFFFFF;border:1px solid #D6DEE5;border-radius:12px;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .fmc-card.pick{border-color:#B23A2E;box-shadow:0 0 0 2px rgba(178,58,46,.10)}
+  .fmc-ctop{padding:14px 15px 12px;border-bottom:1px solid #E6ECF1}
+  .fmc-badge{
+    display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;
+    letter-spacing:.09em;padding:3px 8px;border-radius:4px;margin-bottom:9px;
+  }
+  .fmc-badge.a{background:#E7F0EC;color:#1E7A5A}
+  .fmc-badge.b{background:#FBEAE7;color:#B23A2E}
+  .fmc-badge.c{background:#F3E9D6;color:#A8761A}
+  .fmc-cname{font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.35}
+  .fmc-prob{
+    margin-top:9px;display:flex;align-items:center;gap:8px;
+  }
+  .fmc-bar{flex:1;height:6px;background:#EEF2F5;border-radius:3px;overflow:hidden}
+  .fmc-fill{height:100%;border-radius:3px}
+  .fmc-pnum{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+
+  .fmc-trigger{
+    padding:11px 15px;background:#F7F9FB;border-bottom:1px solid #E6ECF1;
+    font-size:12.3px;color:#5A6B7C;letter-spacing:-.01em;
+  }
+  .fmc-trigger b{color:#10202F;font-weight:700;display:block;margin-bottom:3px;font-size:11px;letter-spacing:.02em}
+
+  .fmc-reacts{padding:6px 15px 14px;flex:1}
+  .fmc-r{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px dashed #EEF2F5}
+  .fmc-r:last-child{border-bottom:none}
+  .fmc-rk{font-size:11.5px;color:#8C9BA9;width:54px;flex-shrink:0;padding-top:1px;letter-spacing:-.01em}
+  .fmc-rv{font-size:12.6px;font-weight:600;color:#10202F;letter-spacing:-.01em;line-height:1.5}
+  .fmc-up{color:#1E7A5A}
+  .fmc-dn{color:#B23A2E}
+  .fmc-fl{color:#5A6B7C}
+
+  .fmc-note{
+    margin-top:16px;background:#FFFFFF;border:1px solid #D6DEE5;border-left:3px solid #A8761A;
+    border-radius:8px;padding:14px 16px;font-size:12.6px;color:#5A6B7C;line-height:1.72;letter-spacing:-.01em;
+  }
+  .fmc-note strong{color:#10202F}
+  .fmc-note i{color:#A8761A;margin-right:5px}
+
+  .fmc-src{margin-top:12px;font-size:11.3px;color:#8C9BA9;line-height:1.62}
+  .fmc-src b{color:#5A6B7C}
+
+  @media (max-width:760px){
+    .fmc-grid{grid-template-columns:1fr}
+    .fmc-strip{grid-template-columns:repeat(2,1fr)}
+    .fmc-head h2{font-size:19px}
+  }
+</style>
+</head>
+<body>
+<div class="fmc-root">
+ <div class="fmc-wrap">
+
+  <div class="fmc-head">
+    <div class="fmc-eyebrow"><i class="ti ti-git-branch"></i> FOMC SCENARIO MAP · 2026.07.29 (KST 07.30 03:00)</div>
+    <h2>점도표 없는 회의, 시장은 '동결'을 보지 않고 '문장'을 봅니다</h2>
+    <p>이번 7월 회의는 경제전망요약(SEP)이 없습니다. 숫자가 없으니 성명서 문구·표결 구성·기자회견 톤이 곧 정책 신호가 됩니다. 세 갈래로 나눠 보면 대응이 쉬워집니다.</p>
+  </div>
+
+  <div class="fmc-strip">
+    <div class="fmc-cell"><div class="fmc-clabel">현 정책금리 목표범위</div><div class="fmc-cval">3.50–3.75<span>%</span></div></div>
+    <div class="fmc-cell"><div class="fmc-clabel">5월 헤드라인 PCE</div><div class="fmc-cval">4.1<span>% YoY</span></div></div>
+    <div class="fmc-cell"><div class="fmc-clabel">5월 근원 PCE</div><div class="fmc-cval">3.4<span>% YoY</span></div></div>
+    <div class="fmc-cell"><div class="fmc-clabel">2분기 GDPNow (7/17)</div><div class="fmc-cval">1.7<span>%</span></div></div>
+  </div>
+
+  <div class="fmc-grid">
+
+    <!-- A -->
+    <div class="fmc-card">
+      <div class="fmc-ctop">
+        <span class="fmc-badge a">SCENARIO A</span>
+        <div class="fmc-cname">비둘기적 동결<br /><span style="font-weight:600;font-size:12.5px;color:#5A6B7C">"유가는 일시적, 성장 둔화에 무게"</span></div>
+        <div class="fmc-prob">
+          <div class="fmc-bar"><div class="fmc-fill" style="width:20%;background:#1E7A5A"></div></div>
+          <span class="fmc-pnum" style="color:#1E7A5A">낮음</span>
+        </div>
+      </div>
+      <div class="fmc-trigger"><b>트리거</b>성명서에서 에너지발 물가를 '일시적' 성격으로 규정하고, GDP 둔화·고용 문구를 강화하는 경우</div>
+      <div class="fmc-reacts">
+        <div class="fmc-r"><span class="fmc-rk">미 국채금리</span><span class="fmc-rv fmc-dn">하락</span></div>
+        <div class="fmc-r"><span class="fmc-rk">달러</span><span class="fmc-rv fmc-dn">약세</span></div>
+        <div class="fmc-r"><span class="fmc-rk">나스닥</span><span class="fmc-rv fmc-up">강한 반등</span></div>
+        <div class="fmc-r"><span class="fmc-rk">코스피</span><span class="fmc-rv fmc-up">7,000선 재탈환 시도</span></div>
+        <div class="fmc-r"><span class="fmc-rk">원/달러</span><span class="fmc-rv fmc-dn">하락(원화 강세)</span></div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="fmc-card pick">
+      <div class="fmc-ctop">
+        <span class="fmc-badge b">SCENARIO B · 시장 기본값</span>
+        <div class="fmc-cname">매파적 동결<br /><span style="font-weight:600;font-size:12.5px;color:#5A6B7C">"동결하되 9월을 열어둔다"</span></div>
+        <div class="fmc-prob">
+          <div class="fmc-bar"><div class="fmc-fill" style="width:65%;background:#B23A2E"></div></div>
+          <span class="fmc-pnum" style="color:#B23A2E">가장 유력</span>
+        </div>
+      </div>
+      <div class="fmc-trigger"><b>트리거</b>금리는 그대로 두되 물가 경계 문구를 강화, 인상 소수의견(dissent) 등장, 워시 의장이 9월 인상 가능성을 부정하지 않는 경우</div>
+      <div class="fmc-reacts">
+        <div class="fmc-r"><span class="fmc-rk">미 국채금리</span><span class="fmc-rv fmc-up">단기물 중심 상승</span></div>
+        <div class="fmc-r"><span class="fmc-rk">달러</span><span class="fmc-rv fmc-up">강세</span></div>
+        <div class="fmc-r"><span class="fmc-rk">나스닥</span><span class="fmc-rv fmc-fl">실적으로 판가름</span></div>
+        <div class="fmc-r"><span class="fmc-rk">코스피</span><span class="fmc-rv fmc-fl">6,700~7,000 박스권 등락</span></div>
+        <div class="fmc-r"><span class="fmc-rk">원/달러</span><span class="fmc-rv fmc-up">1,470원대 재상승 압력</span></div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="fmc-card">
+      <div class="fmc-ctop">
+        <span class="fmc-badge c">SCENARIO C</span>
+        <div class="fmc-cname">깜짝 인상<br /><span style="font-weight:600;font-size:12.5px;color:#5A6B7C">"25bp 선제 대응"</span></div>
+        <div class="fmc-prob">
+          <div class="fmc-bar"><div class="fmc-fill" style="width:30%;background:#A8761A"></div></div>
+          <span class="fmc-pnum" style="color:#A8761A">낮지만 존재</span>
+        </div>
+      </div>
+      <div class="fmc-trigger"><b>트리거</b>호르무즈발 유가 충격이 2차 파급(임금·서비스물가)으로 번졌다고 판단할 경우. 실제로 선물시장은 한때 인상 확률을 20%대까지 반영</div>
+      <div class="fmc-reacts">
+        <div class="fmc-r"><span class="fmc-rk">미 국채금리</span><span class="fmc-rv fmc-up">급등</span></div>
+        <div class="fmc-r"><span class="fmc-rk">달러</span><span class="fmc-rv fmc-up">급등</span></div>
+        <div class="fmc-r"><span class="fmc-rk">나스닥</span><span class="fmc-rv fmc-dn">밸류에이션 충격</span></div>
+        <div class="fmc-r"><span class="fmc-rk">코스피</span><span class="fmc-rv fmc-dn">외국인 순매도 확대</span></div>
+        <div class="fmc-r"><span class="fmc-rk">원/달러</span><span class="fmc-rv fmc-up">1,500원 재테스트 위험</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="fmc-note">
+    <i class="ti ti-alert-triangle"></i><strong>이번 회의가 유독 어려운 이유 세 가지.</strong>
+    ① 케빈 워시 의장 체제는 취임 이후 <strong>포워드 가이던스를 사실상 쓰지 않습니다</strong>. 시장이 미리 정답을 맞출 수 없는 구조입니다.
+    ② 이번은 <strong>점도표가 없는 회의</strong>여서 향후 경로에 대한 숫자 단서가 제공되지 않습니다.
+    ③ 물가는 오르는데(5월 헤드라인 PCE 4.1%) 성장은 식고 있습니다(2분기 GDPNow 1.7%). 전형적인 스태그플레이션형 딜레마이고, 이런 국면에서 중앙은행 문구는 평소보다 훨씬 크게 해석됩니다.
+    <br /><br />
+    그래서 <strong>결정 그 자체보다, 발표 30분 뒤 기자회견 톤이 이번 주 자산 방향을 좌우</strong>할 가능성이 큽니다. 한국시간으로는 7월 30일 새벽 3시(결정)와 3시 30분(회견)입니다.
+  </div>
+
+  <div class="fmc-src">
+    <b>자료 :</b> 미 연방준비제도 6월 FOMC 의사록(정책금리 3.50~3.75%, 초과지준부리 3.65%), 미 경제분석국 5월 개인소득·지출 보고서(6월 25일 발표), 애틀랜타 연은 GDPNow(7월 17일), CME 페드워치·폴리마켓 시장 반영 확률(7월 넷째 주 기준).
+    <br /><b>유의 :</b> 확률 표기는 특정 시점의 시장 반영치를 요약한 것으로 실시간 변동합니다. 자산 반응은 과거 유사 국면의 일반적 경향을 정리한 것이며 결과를 보장하지 않습니다. 투자 판단과 책임은 투자자 본인에게 있습니다.
+  </div>
+
+ </div>
+</div>
+</body>
+</html>
