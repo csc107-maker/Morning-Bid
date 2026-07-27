@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>넥스트에라 실적이 한국 증시에 남기는 신호와 리스크 체크리스트</title>
+
+<meta property="og:title" content="넥스트에라 실적이 한국 증시에 남기는 신호 : 전력기기·ESS·송전" />
+<meta property="og:description" content="배터리 2.0GW 신규 수주, 변압기 납기 160주, 데이터센터 40% 지연. 미국 유틸리티 실적이 국내 전력·배터리 업종에 던지는 신호를 정리했습니다." />
+<meta property="og:image" content="https://example.com/images/nextera_korea_linkage.png" />
+<meta property="og:url" content="https://example.com/nextera-korea-market-impact" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&display=swap" />
+
+<style>
+.nee-kr *{box-sizing:border-box;margin:0;padding:0;}
+.nee-kr{
+  font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  background:#F5FAF7;color:#0F2B46;max-width:840px;margin:32px auto;
+  border:1px solid #D7E6DE;border-radius:18px;overflow:hidden;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.nee-kr .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+
+.nee-kr .hd{padding:24px 30px 20px;background:#FFFFFF;border-bottom:1px solid #D7E6DE;}
+.nee-kr .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;
+  color:#16794F;font-weight:600;display:flex;align-items:center;gap:7px;margin-bottom:9px;}
+.nee-kr .hd h2{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.35;}
+.nee-kr .hd p{font-size:13.8px;color:#5A7085;margin-top:8px;}
+
+.nee-kr .wrap{padding:26px 30px 28px;}
+.nee-kr .sect{font-size:12px;font-family:'IBM Plex Mono',monospace;letter-spacing:.14em;
+  color:#16794F;font-weight:600;margin:0 0 14px;display:flex;align-items:center;gap:7px;}
+
+/* chain cards */
+.nee-kr .chain{display:grid;gap:12px;}
+.nee-kr .ch{background:#FFFFFF;border:1px solid #D7E6DE;border-radius:12px;padding:16px 18px;
+  display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;}
+.nee-kr .ico{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:22px;color:#FFFFFF;}
+.nee-kr .i1{background:#1B6EC2;} .nee-kr .i2{background:#16794F;}
+.nee-kr .i3{background:#7A5AA8;} .nee-kr .i4{background:#C08A16;}
+.nee-kr .ch h4{font-size:15.5px;font-weight:800;letter-spacing:-.01em;}
+.nee-kr .ch .fact{font-size:13.2px;color:#3C5B77;margin-top:6px;}
+.nee-kr .ch .fact b{color:#0F2B46;}
+.nee-kr .ch .link{margin-top:9px;padding-top:9px;border-top:1px dashed #D7E6DE;font-size:12.5px;color:#5A7085;}
+.nee-kr .ch .link strong{color:#16794F;font-weight:700;}
+
+/* risk table */
+.nee-kr table{width:100%;border-collapse:collapse;background:#FFFFFF;border:1px solid #D7E6DE;
+  border-radius:12px;overflow:hidden;font-size:13.5px;}
+.nee-kr thead th{background:#E9F4EE;color:#0F2B46;font-weight:700;font-size:12.5px;padding:11px 14px;text-align:left;border-bottom:1px solid #D7E6DE;}
+.nee-kr thead th:last-child{text-align:center;width:96px;}
+.nee-kr tbody td{padding:11px 14px;border-bottom:1px solid #EEF4F1;color:#24445F;vertical-align:top;}
+.nee-kr tbody td:first-child{font-weight:700;color:#0F2B46;width:30%;}
+.nee-kr tbody td:last-child{text-align:center;}
+.nee-kr tbody tr:last-child td{border-bottom:none;}
+.nee-kr tbody tr:nth-child(even) td{background:#FBFDFC;}
+.nee-kr .lv{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+.nee-kr .hi{background:#F8E3E1;color:#B3382C;}
+.nee-kr .md{background:#FDF4DC;color:#9A6B04;}
+.nee-kr .lo{background:#E4F3EC;color:#16794F;}
+
+.nee-kr .unknown{margin-top:22px;background:#FFFFFF;border:1px solid #D7E6DE;border-left:4px solid #5A7085;
+  border-radius:10px;padding:15px 17px;font-size:13.2px;color:#3C5B77;}
+.nee-kr .unknown b{color:#0F2B46;display:block;margin-bottom:6px;}
+.nee-kr .unknown li{margin-left:17px;margin-top:4px;}
+.nee-kr .src{margin-top:16px;font-size:11.8px;color:#6E8298;line-height:1.7;}
+.nee-kr .divider{height:1px;background:#D7E6DE;margin:26px 0 22px;}
+
+@media (max-width:640px){
+  .nee-kr .wrap{padding:20px 16px 24px;} .nee-kr .hd{padding:20px 18px 18px;}
+  .nee-kr .hd h2{font-size:19px;}
+  .nee-kr .ch{grid-template-columns:36px 1fr;gap:11px;}
+  .nee-kr .ico{width:36px;height:36px;font-size:18px;}
+  .nee-kr table{font-size:12.5px;}
+  .nee-kr tbody td:first-child{width:34%;}
+}
+</style>
+</head>
+<body>
+
+<div class="nee-kr">
+
+  <div class="hd">
+    <div class="eyebrow"><i class="ti ti-world"></i> KOSPI LINKAGE &amp; RISK</div>
+    <h2>미국 유틸리티 실적이 한국 증시에 남기는 신호</h2>
+    <p>넥스트에라의 숫자는 미국 기업 실적이지만, 그 뒤에 붙는 주문서는 한국 기업의 매출로 연결됩니다.</p>
+  </div>
+
+  <div class="wrap">
+
+    <div class="sect"><i class="ti ti-git-branch"></i> 실적 → 한국 업종으로 이어지는 4개의 고리</div>
+    <div class="chain">
+
+      <div class="ch">
+        <div class="ico i1"><i class="ti ti-building-factory-2"></i></div>
+        <div>
+          <h4>전력기기 : 변압기·차단기 병목</h4>
+          <div class="fact">FPL은 2032년 대형 부하 전망을 <b>6GW에서 8GW로 상향</b>했고, 접수된 관심 물량만 21GW입니다.
+            반면 우드맥킨지 집계 기준 미국 초고압 변압기 납기는 <b>2024년 평균 143주에서 2026년 1분기 160주</b>로 더 길어졌습니다.</div>
+          <div class="link"><strong>연결 고리 →</strong> 수요는 늘고 납기는 밀리는 구조. 미국 현지 증설을 진행 중인 국내 전력기기 업체의 수주잔고 흐름을 함께 확인할 구간입니다.</div>
+        </div>
+      </div>
+
+      <div class="ch">
+        <div class="ico i2"><i class="ti ti-battery-charging"></i></div>
+        <div>
+          <h4>ESS : 신규 수주의 절반 이상이 배터리</h4>
+          <div class="fact">2분기 신규 수주 3.6GW 가운데 <b>배터리 저장이 2.0GW로 약 56%</b>를 차지했습니다.
+            회사가 밝힌 배터리 개발 파이프라인은 <b>110GW 이상</b>입니다.</div>
+          <div class="link"><strong>연결 고리 →</strong> 국내에서는 LG에너지솔루션이 2026년 5월 DTE에너지와 6GWh(약 16억 달러) 규모 계약을,
+            2월에는 한화솔루션 큐셀부문 미국법인과 5GWh 계약을 체결했습니다. 미국 계통용 ESS 발주 사이클을 보여주는 사례입니다.</div>
+        </div>
+      </div>
+
+      <div class="ch">
+        <div class="ico i3"><i class="ti ti-atom-2"></i></div>
+        <div>
+          <h4>원전 · SMR : 데이터센터 병설 카드</h4>
+          <div class="fact">넥스트에라는 2026년 7월 듀앤아널드 원전의 <b>잔여 30% 소수지분 인수를 완료</b>했고,
+            보유 원전 부지에서 <b>6GW 규모의 SMR 병설 기회</b>를 식별했다고 밝혔습니다.</div>
+          <div class="link"><strong>연결 고리 →</strong> 미국 유틸리티가 원전 재가동·SMR을 데이터센터 전력원으로 검토한다는 방향성 자체가
+            국내 원전 기자재 밸류체인의 서사(narrative)를 뒷받침합니다. 다만 개별 국내 기업과의 계약은 확인된 바 없습니다.</div>
+        </div>
+      </div>
+
+      <div class="ch">
+        <div class="ico i4"><i class="ti ti-network"></i></div>
+        <div>
+          <h4>송전망 : 765kV 초고압 투자</h4>
+          <div class="fact">뉴멕시코에서 137마일 345kV 송전선을 예정보다 앞당겨 완공했고,
+            MISO는 일리노이 <b>765kV 송전 프로젝트 2건</b>의 컨소시엄에 넥스트에라를 선정했습니다(지분 43%).</div>
+          <div class="link"><strong>연결 고리 →</strong> 초고압 송전 투자는 전선·케이블·개폐장치 수요로 이어집니다. 발주 시점과 국산 제품 채택 여부는 별도 확인이 필요합니다.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="sect"><i class="ti ti-alert-triangle"></i> 리스크 체크리스트</div>
+    <table>
+      <thead>
+        <tr><th>리스크</th><th>확인 포인트</th><th>강도</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>매출–이익 괴리</td>
+          <td>매출은 컨센서스를 밑돌았는데 EPS는 상회. 이 괴리가 3분기에도 반복되면 "성장의 질" 논쟁이 커집니다.</td>
+          <td><span class="lv md">중</span></td>
+        </tr>
+        <tr>
+          <td>합병 규제 승인</td>
+          <td>4개 주 규제당국 + FERC + NRC 다층 심사. 조건부 승인이나 지연 시 9%+ 성장 전제가 흔들립니다.</td>
+          <td><span class="lv hi">높음</span></td>
+        </tr>
+        <tr>
+          <td>금리 민감도</td>
+          <td>회사는 $462억 규모 금리 헤지를 보유. 금리 50bp 상승 시 조정 EPS 영향은 2026년 0~-$0.01, 2028년 -$0.01~-$0.03로 제시.</td>
+          <td><span class="lv lo">낮음~중</span></td>
+        </tr>
+        <tr>
+          <td>대규모 자금 조달</td>
+          <td>수권주식 32억→50억 주 확대 안건. 성장 자금 조달 과정에서 주주 희석 논의가 이어질 수 있습니다.</td>
+          <td><span class="lv md">중</span></td>
+        </tr>
+        <tr>
+          <td>파이프라인의 매출 전환</td>
+          <td>35.1GW 수주잔고와 110GW 파이프라인이 실제 가동·매출로 얼마나 빠르게 전환되는지가 핵심.</td>
+          <td><span class="lv md">중</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="unknown">
+      <b>확인되지 않은 것은 확인되지 않았다고 적습니다</b>
+      <ul>
+        <li>넥스트에라가 국내 전력기기·배터리 기업과 직접 공급계약을 맺었다는 공시나 보도는 확인하지 못했습니다.</li>
+        <li>2분기 신규 배터리 2.0GW의 셀 공급사는 공개되지 않았습니다.</li>
+        <li>본 자료는 특정 종목의 매수·매도 권유가 아니며, 투자 판단과 그 결과에 대한 책임은 투자자 본인에게 있습니다.</li>
+      </ul>
+    </div>
+
+    <div class="src">
+      자료 : NextEra Energy 2Q26 투자자 프레젠테이션 및 컨퍼런스콜(2026.07.24) · Investing.com ·
+      우드맥킨지 변압기 납기 집계(비즈니스포스트 2026.07 보도 인용) · 파이낸셜타임스 데이터센터 가동 지연 보도 인용 ·
+      LG에너지솔루션·한화솔루션 계약 관련 국내 보도(2026년).
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
