@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>태양광 이격거리, 정부와 업계는 왜 엇갈릴까</title>
+
+<meta property="og:title" content="태양광 이격거리 해제, 정부 방침 총정리" />
+<meta property="og:description" content="정부 입장과 태양광 업계·시민사회 반응 비교, 그리고 사업자가 지금 확인해야 할 체크리스트." />
+<meta property="og:image" content="https://your-blog-domain.com/images/solar-setback-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/solar-setback-2026" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+<style>
+  .sis-wrap{
+    --navy:#12283F; --navy-soft:#1E4B72; --slate:#5B6B7B; --slate-light:#8996A3;
+    --bg:#F4F8FB; --card:#FFFFFF; --line:#E2E8EE;
+    --gold:#F5A623; --gold-bg:#FFF4DF;
+    --teal:#1FA98E; --teal-bg:#E6F7F3;
+    --red:#E2574C; --red-bg:#FDECEA;
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    background:var(--bg); color:var(--navy);
+    padding:36px 18px 40px; border-radius:20px; max-width:800px; margin:0 auto; box-sizing:border-box;
+  }
+  .sis-wrap *{ box-sizing:border-box; }
+  .sis-eyebrow{
+    display:inline-flex; align-items:center; gap:6px; background:var(--navy); color:#fff;
+    font-size:12.5px; font-weight:700; padding:6px 14px; border-radius:999px;
+  }
+  .sis-h2{ font-size:24px; font-weight:800; margin:14px 0 6px; line-height:1.35; }
+  .sis-desc{ font-size:14.5px; color:var(--slate); line-height:1.65; margin:0 0 24px; }
+
+  .sis-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:28px; }
+  @media (max-width:520px){ .sis-grid{ grid-template-columns:1fr; } }
+  .sis-card{ border-radius:16px; padding:18px; border:1px solid var(--line); background:var(--card); }
+  .sis-card.gov{ border-top:4px solid var(--navy-soft); }
+  .sis-card.ind{ border-top:4px solid var(--red); }
+  .sis-card-head{ display:flex; align-items:center; gap:8px; font-weight:800; font-size:14.5px; margin-bottom:10px; }
+  .sis-card.gov .sis-card-head{ color:var(--navy-soft); }
+  .sis-card.ind .sis-card-head{ color:var(--red); }
+  .sis-card ul{ margin:0; padding-left:0; list-style:none; }
+  .sis-card li{ font-size:13.5px; line-height:1.65; color:var(--slate); margin-bottom:9px; padding-left:16px; position:relative; }
+  .sis-card li::before{ content:"•"; position:absolute; left:0; }
+  .sis-card.gov li::before{ color:var(--navy-soft); }
+  .sis-card.ind li::before{ color:var(--red); }
+  .sis-card b{ color:var(--navy); }
+
+  .sis-section-title{ font-size:15px; font-weight:800; margin:4px 0 14px; display:flex; align-items:center; gap:7px; }
+
+  .sis-steps{ display:flex; flex-direction:column; gap:0; margin-bottom:28px; }
+  .sis-step{ display:flex; gap:14px; padding:12px 0; border-bottom:1px dashed var(--line); align-items:flex-start; }
+  .sis-step:last-child{ border-bottom:none; }
+  .sis-step-badge{
+    flex:0 0 auto; width:26px; height:26px; border-radius:50%; background:var(--gold-bg); color:#B9790C;
+    font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; margin-top:2px;
+  }
+  .sis-step.done .sis-step-badge{ background:var(--teal-bg); color:var(--teal); }
+  .sis-step.now .sis-step-badge{ background:var(--gold); color:#fff; }
+  .sis-step-title{ font-weight:700; font-size:13.8px; margin:0; }
+  .sis-step-sub{ font-size:12.5px; color:var(--slate-light); margin:2px 0 0; }
+
+  .sis-check{
+    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px 18px;
+  }
+  .sis-check-row{ display:flex; gap:12px; padding:14px 0; border-bottom:1px dashed var(--line); }
+  .sis-check-row:last-child{ border-bottom:none; }
+  .sis-check-ico{
+    flex:0 0 auto; width:34px; height:34px; border-radius:10px; background:var(--teal-bg); color:var(--teal);
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+  }
+  .sis-check-body p{ margin:0; font-size:13.8px; line-height:1.6; }
+  .sis-check-tt{ font-weight:800; margin-bottom:2px !important; }
+  .sis-check-sub{ color:var(--slate); }
+
+  .sis-foot{ margin-top:22px; padding-top:14px; border-top:1px dashed var(--line); font-size:12px; color:var(--slate-light); line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="sis-wrap">
+  <span class="sis-eyebrow"><i class="ti ti-message-2"></i>&nbsp;쟁점 정리</span>
+  <h2 class="sis-h2">정부와 업계, 어디서 엇갈릴까</h2>
+  <p class="sis-desc">같은 시행령안을 두고 정부와 태양광 업계의 해석이 다릅니다. 양측 입장을 원 자료 기준으로 정리했습니다.</p>
+
+  <div class="sis-grid">
+    <div class="sis-card gov">
+      <div class="sis-card-head"><i class="ti ti-building-bank"></i> 정부(기후에너지환경부) 입장</div>
+      <ul>
+        <li>이번 조치는 <b>안전규제 완화가 아니라</b> 지자체별 과도·상이한 입지규제를 정비하는 것</li>
+        <li>법 개정 당시부터 주거지·도로 상한선을 <b>시행령으로 마련</b>한다는 방향을 설명해왔음</li>
+        <li>&#39;원칙적 금지&#39;는 학교·축사·병원 등까지 이격거리를 과도하게 확대 적용하는 것을 막기 위함</li>
+        <li>풍력 사고(영덕·양산) 이후 <b>114기 특별안전점검</b> 등 안전관리는 별도로 강화 중</li>
+        <li>주민 수용성이 개선되면 시행령 기준도 <b>추가 조정 가능</b>하다고 설명</li>
+      </ul>
+    </div>
+    <div class="sis-card ind">
+      <div class="sis-card-head"><i class="ti ti-alert-triangle"></i> 업계·시민사회 반응</div>
+      <ul>
+        <li>한국태양광공사협회: 주거지 <b>200m 일괄 적용</b>은 단 한 가구만 있어도 사업이 막힐 수 있어 과도</li>
+        <li>전국태양광발전협회: &#39;주거지 인근&#39;의 정의(가구 수·실거주 여부·빈집 포함 여부)가 <b>불명확</b></li>
+        <li>담당 공무원의 재량적 판단이 개입될 경우 <b>기존의 자의적 인허가 문제 반복</b> 우려</li>
+        <li>계통 부족·출력제어·REC 가격 불안정 등 기존 부담에 새 기준까지 겹치면 <b>사업 위축</b> 가능성</li>
+        <li>&#39;원칙적 폐지&#39; 취지가 시행령에서 <b>사실상 전국 표준 규제로 되돌아갔다</b>는 평가</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sis-section-title"><i class="ti ti-route"></i> 향후 절차, 어디까지 왔나</div>
+  <div class="sis-steps">
+    <div class="sis-step done">
+      <div class="sis-step-badge"><i class="ti ti-check"></i></div>
+      <div><p class="sis-step-title">재생에너지법 개정 (제27조의3 신설)</p><p class="sis-step-sub">2026.2.12 국회 본회의 통과 · 완료</p></div>
+    </div>
+    <div class="sis-step done">
+      <div class="sis-step-badge"><i class="ti ti-check"></i></div>
+      <div><p class="sis-step-title">제1차 재생에너지 기본계획 발표(시행령안 공개)</p><p class="sis-step-sub">2026.5.19 · 완료</p></div>
+    </div>
+    <div class="sis-step now">
+      <div class="sis-step-badge"><i class="ti ti-dots"></i></div>
+      <div><p class="sis-step-title">시행령 개정안 입법예고 · 국민의견 수렴</p><p class="sis-step-sub">2026.7.8 시작 · 현재 진행 중</p></div>
+    </div>
+    <div class="sis-step">
+      <div class="sis-step-badge">4</div>
+      <div><p class="sis-step-title">규제심사 · 법제처 심사 · 차관회의·국무회의</p><p class="sis-step-sub">일정 미확정</p></div>
+    </div>
+    <div class="sis-step">
+      <div class="sis-step-badge">5</div>
+      <div><p class="sis-step-title">개정 시행령 공포·시행</p><p class="sis-step-sub">정부 목표 2026년 9월 · 유동적</p></div>
+    </div>
+  </div>
+
+  <div class="sis-section-title"><i class="ti ti-clipboard-check"></i> 사업자·투자자, 지금 확인해야 할 것</div>
+  <div class="sis-check">
+    <div class="sis-check-row">
+      <div class="sis-check-ico"><i class="ti ti-map-search"></i></div>
+      <div class="sis-check-body">
+        <p class="sis-check-tt">우리 지역 조례, 아직 유효한지 확인</p>
+        <p class="sis-check-sub">시행령 확정 전까지는 기존 지자체 조례가 그대로 적용될 수 있습니다. 사업 부지 관할 조례 현황을 먼저 점검하세요.</p>
+      </div>
+    </div>
+    <div class="sis-check-row">
+      <div class="sis-check-ico"><i class="ti ti-sun"></i></div>
+      <div class="sis-check-body">
+        <p class="sis-check-tt">완전 배제 대상 해당 여부 검토</p>
+        <p class="sis-check-sub">주민참여형·지붕형·자가소비형 설비는 이격거리 규제 자체가 적용되지 않습니다. 사업 구조 설계 시 우선 검토 대상입니다.</p>
+      </div>
+    </div>
+    <div class="sis-check-row">
+      <div class="sis-check-ico"><i class="ti ti-bell"></i></div>
+      <div class="sis-check-body">
+        <p class="sis-check-tt">시행령 확정본 발표 시점 모니터링</p>
+        <p class="sis-check-sub">200m/100m 등 현재 수치는 입법예고 단계로, 국민의견 수렴과 심사 과정에서 조정될 수 있습니다.</p>
+      </div>
+    </div>
+    <div class="sis-check-row">
+      <div class="sis-check-ico"><i class="ti ti-users"></i></div>
+      <div class="sis-check-body">
+        <p class="sis-check-tt">주민 수용성 확보 계획은 별도로 준비</p>
+        <p class="sis-check-sub">법·시행령이 완화되더라도 정부는 &#39;주민 수용성&#39;을 지속 강조하고 있어, 갈등 관리 계획은 여전히 중요합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sis-foot">
+    출처: 기후에너지환경부 해명자료, 전기신문(2026.5.23, 김진후 기자), 국민참여입법센터 입법예고(2026.7.8, opinion.lawmaking.go.kr) 종합. 절차·일정은 확정 전 변경될 수 있습니다.
+  </div>
+</div>
+</body>
+</html>
