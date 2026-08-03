@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한은 금 매입, 시장에 미치는 영향 분석</title>
+
+<meta property="og:title" content="한은 금 매입, 환율·코스피·금값엔 어떤 영향? | 시장 영향 분석" />
+<meta property="og:description" content="원달러 환율, 코스피 금 관련주, 외환보유액 포트폴리오, 국제 금값까지. 한국은행 금 매입 재개가 시장에 미치는 영향을 4가지 축으로 분석했습니다." />
+<meta property="og:image" content="https://your-blog-domain.com/images/bok-gold-purchase-thumbnail.png" />
+<meta property="og:url" content="https://your-blog-domain.com/post/bok-gold-purchase-2026" />
+<meta property="og:type" content="article" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<style>
+  :root{
+    --bg-page:#F4F6F5;
+    --bg-card:#FFFFFF;
+    --ink-900:#14213B;
+    --ink-600:#46536B;
+    --ink-400:#8B94A3;
+    --gold-600:#AD7F24;
+    --gold-100:#F6EDD8;
+    --navy-600:#1F3A5F;
+    --navy-100:#E7EDF4;
+    --green-600:#2E7D5C;
+    --green-100:#E7F1EC;
+    --red-600:#B0473C;
+    --red-100:#FBEAE7;
+    --border:#E5E1D3;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:32px 16px;
+    background:var(--bg-page);
+    font-family:'Noto Sans KR', sans-serif;
+    display:flex; justify-content:center;
+  }
+  .wrap{ width:100%; max-width:800px; }
+  .card{
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:34px 32px 28px;
+    box-shadow:0 18px 40px -22px rgba(20,33,59,0.25);
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--navy-600); color:#fff;
+    font-size:12.5px; font-weight:700; letter-spacing:1.5px;
+    padding:7px 14px 7px 10px; border-radius:999px;
+    margin-bottom:16px;
+  }
+  .eyebrow i{ color:var(--gold-600); font-size:15px; }
+  h1{
+    font-family:'Noto Serif KR', serif;
+    font-weight:900; font-size:24px; line-height:1.4;
+    color:var(--ink-900); margin:0 0 8px;
+  }
+  .lead{ font-size:14px; color:var(--ink-600); line-height:1.7; margin:0 0 24px; }
+
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-bottom:20px;
+  }
+  .impact{
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px 18px 16px;
+    background:var(--bg-page);
+  }
+  .impact-head{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:10px;
+  }
+  .impact-title{
+    display:flex; align-items:center; gap:8px;
+    font-size:14.5px; font-weight:700; color:var(--ink-900);
+  }
+  .impact-title i{ font-size:18px; color:var(--gold-600); }
+  .level{
+    font-size:10.5px; font-weight:700;
+    padding:3px 9px; border-radius:999px;
+    white-space:nowrap;
+  }
+  .level.low{ background:var(--navy-100); color:var(--navy-600); }
+  .level.mid{ background:var(--gold-100); color:var(--gold-600); }
+  .level.pos{ background:var(--green-100); color:var(--green-600); }
+  .impact-desc{
+    font-size:12.8px; color:var(--ink-600); line-height:1.65;
+    margin-bottom:10px;
+  }
+  .impact ul{ margin:0; padding-left:16px; }
+  .impact li{ font-size:12px; color:var(--ink-400); line-height:1.6; margin-bottom:3px; }
+
+  .risk-box{
+    background:var(--red-100);
+    border-radius:16px;
+    padding:18px 20px;
+    margin-bottom:16px;
+  }
+  .risk-box h2{
+    font-size:14px; font-weight:700; color:var(--red-600);
+    margin:0 0 10px; display:flex; align-items:center; gap:7px;
+  }
+  .risk-box h2 i{ font-size:16px; }
+  .risk-box p{ font-size:12.8px; color:var(--ink-600); line-height:1.7; margin:0; }
+  .risk-box p+p{ margin-top:8px; }
+
+  .source{
+    font-size:11.5px; color:var(--ink-400); text-align:right;
+    border-top:1px dashed var(--border); padding-top:14px;
+  }
+
+  @media (max-width:560px){
+    .grid{ grid-template-columns:1fr; }
+    h1{ font-size:20px; }
+    .card{ padding:24px 18px 20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <span class="eyebrow"><i class="ti ti-chart-candle"></i>MARKET IMPACT</span>
+      <h1>한은 금 매입, 시장에는 어떤 영향을 줄까?</h1>
+      <p class="lead">환율·주식시장·외환보유액·국제 금값 네 가지 축으로 나눠 영향을 짚어봤습니다. 매입 규모와 시기가 아직 공개되지 않은 만큼, 단기 충격보다는 중장기 구조 변화로 보는 시각이 우세합니다.</p>
+
+      <div class="grid">
+        <div class="impact">
+          <div class="impact-head">
+            <div class="impact-title"><i class="ti ti-currency-won"></i>원·달러 환율</div>
+            <span class="level low">직접 영향 제한적</span>
+          </div>
+          <div class="impact-desc">원화로 결제되는 장외 협의대량매매 방식이라 외환시장 호가에 직접 나타나지 않습니다. 다만 외환보유액 다변화는 장기적으로 원화 신뢰도에 우호적 요인입니다.</div>
+          <ul>
+            <li>수출 예정 물량 중 일부만 매입 → 국내 금·외환 수급 영향 최소화</li>
+            <li>환율은 미국 금리·수출 실적 등 다른 변수 영향이 더 큼</li>
+          </ul>
+        </div>
+
+        <div class="impact">
+          <div class="impact-head">
+            <div class="impact-title"><i class="ti ti-chart-line"></i>코스피 · 금 관련주</div>
+            <span class="level mid">종목별 온도차</span>
+          </div>
+          <div class="impact-desc">공급 계약사인 고려아연(코스피 상장)에는 매출처 다변화 관점의 반사이익 기대가 있습니다. LS MnM은 아직 비상장(2027.8월까지 상장 약정)이라 모회사 ㈜LS를 통해 간접 반영될 수 있습니다.</div>
+          <ul>
+            <li>코스피 지수 전체 방향은 반도체 업황·Fed 정책이 더 큰 변수</li>
+            <li>실제 매입 시작 시점·물량 미정 → 재료 소멸 속도 주의</li>
+          </ul>
+        </div>
+
+        <div class="impact">
+          <div class="impact-head">
+            <div class="impact-title"><i class="ti ti-shield-check"></i>외환보유액 포트폴리오</div>
+            <span class="level pos">구조적 변화</span>
+          </div>
+          <div class="impact-desc">달러·증권 자산에 쏠려 있던 외환보유액 구성이 점진적으로 다변화됩니다. 위기 시 유동성보다 '보유 자체의 신뢰 신호' 성격이 강합니다.</div>
+          <ul>
+            <li>정희섭 외자운용원장 "중장기적으로 완만한 속도로 확대"</li>
+            <li>세계 중앙은행 평균 대비 여전히 낮은 비중(3.5% vs 세계 평균 25~27%)</li>
+          </ul>
+        </div>
+
+        <div class="impact">
+          <div class="impact-head">
+            <div class="impact-title"><i class="ti ti-scale"></i>국제 금 가격</div>
+            <span class="level low">직접 영향 미미</span>
+          </div>
+          <div class="impact-desc">한은이 매입하려는 물량은 국내 생산업체 연간 수출량 4~5톤 중 일부에 불과해, 연간 800톤 이상 거래되는 전세계 중앙은행 매입 규모에 비하면 미미한 수준입니다.</div>
+          <ul>
+            <li>다만 '금 보유 경쟁'에 41위 중앙은행까지 합류했다는 상징성은 존재</li>
+            <li>국제 금값은 Fed 정책·중동 정세 등 거시 변수가 좌우</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-box">
+        <h2><i class="ti ti-alert-triangle"></i>놓치면 안 될 리스크 요인</h2>
+        <p><b>① 손실 트라우마 재현 가능성:</b> 한은은 2011~2013년 90톤가량을 매입한 뒤 금값이 급락하며 정치적 비판을 받은 경험이 있습니다. 향후 금값이 조정을 받으면 동일한 논란이 재연될 수 있습니다.</p>
+        <p><b>② 불확실한 일정:</b> 실제 매입 시작 시점과 총 매입 규모는 한국예탁결제원의 보관 인프라 구축 완료 이후로 미뤄져 있으며, 아직 공식적으로 확정되지 않았습니다.</p>
+      </div>
+
+      <div class="source">자료: 한국은행, 국내 언론 종합(한국일보·이투데이·아시아투데이·EBN 등 2026.08.03 보도) — 투자 판단의 근거가 아닌 정보 제공 목적입니다.</div>
+    </div>
+  </div>
+</body>
+</html>
