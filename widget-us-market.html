@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>어제 미국 증시 한눈에 보기 - 2026년 8월 3일</title>
+
+<!-- OG 메타태그: 아래 content 값 중 이미지 URL과 페이지 URL은 실제 블로그 게시 후 주소로 교체해 주세요 -->
+<meta property="og:title" content="어제 미국 증시 한눈에 보기 - 다우 사상 최고치, 유가는 왜 급락했나" />
+<meta property="og:description" content="2026년 8월 3일 다우·S&P500·나스닥 마감 요약과 빅테크 급등 종목, 국제유가 하락 배경을 한눈에 정리했습니다." />
+<meta property="og:image" content="여기에_썸네일_이미지_URL_입력.png" />
+<meta property="og:url" content="여기에_게시할_블로그_페이지_URL_입력" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    background: #EEF3FA;
+    padding: 28px 14px;
+    color: #16324F;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid #E3E9F2;
+    box-shadow: 0 10px 30px rgba(22, 50, 79, 0.06);
+    overflow: hidden;
+  }
+  .head {
+    background: linear-gradient(120deg, #16324F 0%, #24537E 100%);
+    color: #FFFFFF;
+    padding: 22px 24px;
+  }
+  .head .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: #9FC1E8;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .head h1 {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.4;
+  }
+  .head p {
+    font-size: 13px;
+    color: #C9DAEF;
+    margin-top: 6px;
+  }
+  .body-pad { padding: 20px; }
+
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .index-card {
+    background: #F7FAFD;
+    border: 1px solid #E3E9F2;
+    border-radius: 14px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .index-card .name {
+    font-size: 12px;
+    color: #5B6B82;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .index-card .value {
+    font-size: 17px;
+    font-weight: 900;
+    color: #16324F;
+    margin-bottom: 4px;
+  }
+  .index-card .chg {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #D64545;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .section-title {
+    font-size: 14px;
+    font-weight: 900;
+    color: #16324F;
+    margin: 20px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .section-title i { color: #C9973C; font-size: 16px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  th {
+    text-align: left;
+    background: #F7FAFD;
+    color: #5B6B82;
+    font-weight: 700;
+    padding: 9px 10px;
+    border-bottom: 1px solid #E3E9F2;
+  }
+  td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #EEF2F7;
+    color: #16324F;
+    font-weight: 500;
+  }
+  td.up { color: #D64545; font-weight: 800; text-align: right; }
+  td.num { text-align: right; }
+  tr:last-child td { border-bottom: none; }
+
+  .oil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .oil-card {
+    background: #F1F6FB;
+    border: 1px solid #DCE6F2;
+    border-radius: 14px;
+    padding: 14px;
+  }
+  .oil-card .oil-name {
+    font-size: 12px;
+    color: #2C5F8A;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 6px;
+  }
+  .oil-card .oil-val {
+    font-size: 16px;
+    font-weight: 900;
+    color: #16324F;
+  }
+  .oil-card .oil-chg {
+    font-size: 12px;
+    font-weight: 700;
+    color: #2F6FE0;
+    margin-top: 2px;
+  }
+
+  .note {
+    margin-top: 18px;
+    background: #FBF6EA;
+    border: 1px solid #EFDFB4;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 11.5px;
+    color: #7A5F27;
+    line-height: 1.55;
+    display: flex;
+    gap: 8px;
+  }
+  .note i { font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+
+  .foot {
+    text-align: center;
+    font-size: 11px;
+    color: #9AA7B8;
+    padding: 14px;
+    border-top: 1px dashed #E3E9F2;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow"><i class="ti ti-flag-usa"></i> US MARKET RECAP · 2026.08.03(월) 마감</div>
+      <h1>어제 뉴욕증시, 다우 사상 최고치 경신</h1>
+      <p>호르무즈 해협 협상 기대에 유가 급락 · 빅테크·반도체주 동반 강세</p>
+    </div>
+
+    <div class="body-pad">
+      <div class="index-grid">
+        <div class="index-card">
+          <div class="name">다우존스</div>
+          <div class="value">53,178.41</div>
+          <div class="chg"><i class="ti ti-arrow-up-right"></i> +693.38 (+1.32%)</div>
+        </div>
+        <div class="index-card">
+          <div class="name">S&amp;P 500</div>
+          <div class="value">7,600.50</div>
+          <div class="chg"><i class="ti ti-arrow-up-right"></i> +1.48%</div>
+        </div>
+        <div class="index-card">
+          <div class="name">나스닥종합</div>
+          <div class="value">25,913.9</div>
+          <div class="chg"><i class="ti ti-arrow-up-right"></i> +2.13%</div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="ti ti-chart-bar"></i> 어제 급등한 주요 종목</div>
+      <table>
+        <tr><th>종목</th><th style="text-align:right">등락률</th></tr>
+        <tr><td>아마존 (첫 시총 3조달러 돌파)</td><td class="up">+4.6%</td></tr>
+        <tr><td>메타 플랫폼스</td><td class="up">+6.0%</td></tr>
+        <tr><td>마이크로소프트</td><td class="up">+4.9%</td></tr>
+        <tr><td>알파벳(구글)</td><td class="up">+4.9%</td></tr>
+        <tr><td>테슬라</td><td class="up">+3.5%</td></tr>
+        <tr><td>엔비디아</td><td class="up">+2.9%</td></tr>
+        <tr><td>샌디스크</td><td class="up">+6.0%</td></tr>
+        <tr><td>AMD</td><td class="up">+1.8%</td></tr>
+      </table>
+
+      <div class="section-title"><i class="ti ti-droplet"></i> 국제유가, 왜 급락했나</div>
+      <div class="oil-grid">
+        <div class="oil-card">
+          <div class="oil-name"><i class="ti ti-circle-letter-w"></i> WTI(서부텍사스유)</div>
+          <div class="oil-val">약 $80/배럴</div>
+          <div class="oil-chg"><i class="ti ti-arrow-down-right"></i> 약 -5~6%</div>
+        </div>
+        <div class="oil-card">
+          <div class="oil-name"><i class="ti ti-circle-letter-b"></i> 브렌트유</div>
+          <div class="oil-val">약 $83/배럴</div>
+          <div class="oil-chg"><i class="ti ti-arrow-down-right"></i> 약 -4.5~5%</div>
+        </div>
+      </div>
+
+      <div class="note">
+        <i class="ti ti-info-circle"></i>
+        <div>트럼프 대통령이 이란에 대한 공습 계획을 보류하고 오만을 통한 호르무즈 해협 통행 재개 협상을 재개하겠다고 밝히면서 유가가 급락했습니다. 다만 이란 외무부는 미국과의 직접 협상은 없다고 선을 그어, 협상 결과에 따라 유가 변동성이 다시 커질 수 있습니다.</div>
+      </div>
+    </div>
+
+    <div class="foot">자료: CNBC, Bloomberg, TradingEconomics, TheStreet (2026.08.03 현지 마감 기준) · 실시간 시세와 차이가 있을 수 있으며 투자 참고용입니다.</div>
+  </div>
+</body>
+</html>
