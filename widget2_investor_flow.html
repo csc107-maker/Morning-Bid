@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>8월 10일 투자자별 매매동향 | 외국인·기관·개인 순매수 비교</title>
+<meta name="description" content="2026년 8월 10일 코스피·코스닥 투자자별(외국인·기관·개인) 순매수·순매도 동향을 표와 그래프로 정리." />
+
+<meta property="og:title" content="8월 10일 투자자별 매매동향 | 외국인·기관·개인 순매수 비교" />
+<meta property="og:description" content="코스피에서는 외국인이 1조4,887억 순매도, 코스닥에서는 개인이 6,729억 순매도. 시장별 수급 줄다리기를 한눈에 확인하세요." />
+<meta property="og:image" content="https://example.com/thumbnail_8_10.png" />
+<meta property="og:url" content="https://example.com/blog/2026-08-10-market-briefing" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
+<style>
+  :root{
+    --bg-page:#eef2f8;
+    --card-bg:#ffffff;
+    --card-bg-soft:#f7f9fd;
+    --navy:#0e1e3a;
+    --navy-2:#1a335c;
+    --slate:#5a6880;
+    --slate-light:#8b96ab;
+    --line:#e2e8f2;
+    --red:#d13a3a;
+    --red-bg:#fdecec;
+    --blue:#2159c9;
+    --blue-bg:#eaf0fd;
+    --gold:#b8853a;
+    --gold-bg:#fbf1e2;
+    --radius:16px;
+    --font-kr:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+    --font-num:'Roboto Mono','SFMono-Regular',Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding:28px 18px;
+    background:var(--bg-page);
+    font-family:var(--font-kr);
+    color:var(--navy);
+  }
+  .wrap{max-width:980px;margin:0 auto;}
+  .head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:18px;
+    padding-bottom:16px;
+    border-bottom:2px solid var(--navy);
+  }
+  .head .eyebrow{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:700;letter-spacing:.04em;
+    color:var(--navy); background:var(--gold-bg);
+    border:1px solid #ecd9b6; padding:5px 11px; border-radius:999px;
+    margin-bottom:8px;
+  }
+  .head h2{margin:0;font-size:24px;font-weight:800;letter-spacing:-.02em;}
+  .head .date{font-family:var(--font-num);font-size:14px;color:var(--slate);font-weight:600;}
+
+  .panels{display:flex;gap:16px;flex-wrap:wrap;}
+  .panels .panel{flex:1 1 420px;}
+
+  .panel{
+    background:var(--card-bg);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 20px 16px;
+  }
+  .panel-title{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:4px;
+  }
+  .panel-title h3{margin:0;font-size:17px;font-weight:800;}
+  .panel-title .idx{
+    font-family:var(--font-num);font-size:14px;font-weight:700;color:var(--red);
+    display:flex;align-items:center;gap:3px;
+  }
+  .panel-sub{font-size:12px;color:var(--slate-light);margin-bottom:16px;}
+
+  .row{margin-bottom:16px;}
+  .row:last-child{margin-bottom:4px;}
+  .row-top{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-size:13px; margin-bottom:6px;
+  }
+  .row-top .who{font-weight:700;color:var(--navy-2);display:flex;align-items:center;gap:5px;}
+  .row-top .amt{font-family:var(--font-num);font-weight:700;font-size:13.5px;}
+  .amt.buy{color:var(--red);}
+  .amt.sell{color:var(--blue);}
+
+  .bar-track{
+    position:relative;
+    height:14px;
+    background:var(--card-bg-soft);
+    border-radius:7px;
+    overflow:hidden;
+  }
+  .bar-track .zero{
+    position:absolute; left:50%; top:0; bottom:0; width:1px; background:var(--line);
+  }
+  .bar{
+    position:absolute; top:1px; bottom:1px;
+    border-radius:6px;
+  }
+  .bar.buy{ left:50%; background:linear-gradient(90deg,#e88,var(--red)); }
+  .bar.sell{ right:50%; background:linear-gradient(90deg,var(--blue),#88a8ee); }
+
+  .legend{
+    display:flex; gap:16px; margin-top:14px; padding-top:14px;
+    border-top:1px dashed var(--line);
+    font-size:12px; color:var(--slate);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .dot{width:9px;height:9px;border-radius:3px;display:inline-block;}
+  .dot.buy{background:var(--red);}
+  .dot.sell{background:var(--blue);}
+
+  .foot{
+    margin-top:16px; display:flex; gap:8px; align-items:flex-start;
+    font-size:12.5px; color:var(--slate);
+    background:var(--card-bg-soft); border:1px solid var(--line);
+    border-radius:12px; padding:12px 14px; line-height:1.55;
+  }
+  .foot i{color:var(--slate-light); margin-top:2px;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow"><i class="ti ti-scale"></i> INVESTOR FLOW</div>
+        <h2>투자자별 매매동향 — 코스피 vs 코스닥</h2>
+      </div>
+      <div class="date">2026.08.10 (MON) 마감 기준</div>
+    </div>
+
+    <div class="panels">
+      <!-- KOSPI -->
+      <div class="panel">
+        <div class="panel-title">
+          <h3>코스피</h3>
+          <div class="idx"><i class="ti ti-arrow-up-right"></i>6,299.66 (+0.65%)</div>
+        </div>
+        <div class="panel-sub">외국인 3거래일 연속 순매도 · 개인·기관이 지수 방어</div>
+
+        <div class="row">
+          <div class="row-top"><span class="who"><i class="ti ti-world"></i>외국인</span><span class="amt sell">-1조 4,887억</span></div>
+          <div class="bar-track"><div class="zero"></div><div class="bar sell" style="width:46%;"></div></div>
+        </div>
+        <div class="row">
+          <div class="row-top"><span class="who"><i class="ti ti-building-skyscraper"></i>기관</span><span class="amt buy">+5,674억</span></div>
+          <div class="bar-track"><div class="zero"></div><div class="bar buy" style="width:17.5%;"></div></div>
+        </div>
+        <div class="row">
+          <div class="row-top"><span class="who"><i class="ti ti-users"></i>개인</span><span class="amt buy">+8,998억</span></div>
+          <div class="bar-track"><div class="zero"></div><div class="bar buy" style="width:27.8%;"></div></div>
+        </div>
+
+        <div class="legend">
+          <span><i class="dot buy"></i>순매수</span>
+          <span><i class="dot sell"></i>순매도</span>
+        </div>
+      </div>
+
+      <!-- KOSDAQ -->
+      <div class="panel">
+        <div class="panel-title">
+          <h3>코스닥</h3>
+          <div class="idx"><i class="ti ti-arrow-up-right"></i>854.47 (+6.97%)</div>
+        </div>
+        <div class="panel-sub">외국인·기관 동반 순매수 · 매수 사이드카 발동</div>
+
+        <div class="row">
+          <div class="row-top"><span class="who"><i class="ti ti-world"></i>외국인</span><span class="amt buy">+1,031억</span></div>
+          <div class="bar-track"><div class="zero"></div><div class="bar buy" style="width:7.1%;"></div></div>
+        </div>
+        <div class="row">
+          <div class="row-top"><span class="who"><i class="ti ti-building-skyscraper"></i>기관</span><span class="amt buy">+5,661억</span></div>
+          <div class="bar-track"><div class="zero"></div><div class="bar buy" style="width:38.7%;"></div></div>
+        </div>
+        <div class="row">
+          <div class="row-top"><span class="who"><i class="ti ti-users"></i>개인</span><span class="amt sell">-6,729억</span></div>
+          <div class="bar-track"><div class="zero"></div><div class="bar sell" style="width:46%;"></div></div>
+        </div>
+
+        <div class="legend">
+          <span><i class="dot buy"></i>순매수</span>
+          <span><i class="dot sell"></i>순매도</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <i class="ti ti-info-circle"></i>
+      <div>바 길이는 각 시장(코스피/코스닥) 내 최대 매매금액을 기준으로 한 상대 비율이며, 코스피와 코스닥의 바 길이를 서로 직접 비교할 수 없습니다. 실제 순매수·순매도 금액은 각 행의 수치를 기준으로 확인하세요. 출처: 한국거래소(KRX) 종가 기준 투자자별 매매동향, 언론 종합.</div>
+    </div>
+  </div>
+</body>
+</html>
